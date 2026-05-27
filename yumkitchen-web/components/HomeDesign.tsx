@@ -9,11 +9,11 @@ import { locations } from '@/lib/locations';
 
 const heroImages = [
   { src: '/images/yum-hero-1698.jpg', label: 'scratch food' },
-  { src: '/images/social-grainy-salmon.jpg', label: 'dinner plates' },
+  { src: '/images/yum-grainy-mustard-salmon.png', label: 'dinner plates' },
   { src: '/images/yum-bobs-tomato-soup.jpg', label: 'soup counter' },
-  { src: '/images/social-picnic-perfect.jpg', label: 'take-home boxes' },
+  { src: '/images/yum-catering-tray.jpg', label: 'take-home boxes' },
   { src: '/images/yum-szecret-salmon.png', label: 'seasonal entrees' },
-  { src: '/images/social-cake-slice.jpg', label: 'bakery case' },
+  { src: '/images/yum-bakery-key-lime-pie.jpg', label: 'bakery case' },
 ] as const;
 
 const heroProofItems = [
@@ -303,19 +303,20 @@ export function CateringCallout() {
         <div className="catering-photo-grid" aria-label="catering food photography">
           <div className="relative min-h-[290px] overflow-hidden md:min-h-[390px]">
             <Image
-              src="/images/yum-catering-veggie-platters.jpg"
-              alt="yum! catering sandwich and veggie platters"
+              src="/images/yum-catering-tray.jpg"
+              alt="yum! boxed lunch catering tray"
               fill
+              loading="eager"
               sizes="(min-width: 1024px) 620px, 100vw"
               className="object-cover"
             />
           </div>
           <div className="catering-mini-grid">
             <div className="relative min-h-[145px] overflow-hidden">
-              <Image src="/images/catering-boxed-lunch.jpg" alt="boxed lunch catering" fill sizes="280px" className="object-cover" />
+              <Image src="/images/yum-soup-and-sandwich.jpg" alt="yum! soup and sandwich" fill loading="eager" sizes="280px" className="object-cover" />
             </div>
             <div className="relative min-h-[145px] overflow-hidden">
-              <Image src="/images/catering-sandwiches.jpg" alt="sandwich catering tray" fill sizes="280px" className="object-cover" />
+              <Image src="/images/yum-shake-and-sandwich.jpg" alt="yum! shake and sandwich" fill loading="eager" sizes="280px" className="object-cover" />
             </div>
           </div>
         </div>
