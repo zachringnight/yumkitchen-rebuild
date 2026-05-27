@@ -8,3 +8,4 @@ out
 /coverage
 /.idea
 /.vscode
+.vercel
