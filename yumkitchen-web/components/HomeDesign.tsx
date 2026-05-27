@@ -24,10 +24,10 @@ const heroProofItems = [
 
 const menuFeatureItems = [
   {
-    name: 'shrimp louie',
+    name: 'mixed berry salad',
     category: 'salads',
-    price: '$18.95',
-    copy: 'Chilled shrimp, bright greens, egg, avocado, tomatoes, and house louie dressing.',
+    price: '$15.95',
+    copy: 'Bright greens, berries, goat cheese, sweet and spicy pecans, and a maple vinaigrette finish.',
     image: '/images/yum-mixed-berry-salad.png',
   },
   {
@@ -296,8 +296,8 @@ export function CateringCallout() {
             <button type="button" className="btn-secondary" onClick={() => setCallOpen(true)}>
               Call Us
             </button>
-            <Link href="/order-a-cake" className="btn-primary">
-              yum! wedding cakes
+            <Link href="/catering#inquiry" className="btn-primary">
+              Plan Catering
             </Link>
           </div>
         </div>

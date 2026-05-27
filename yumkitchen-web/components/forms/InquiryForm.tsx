@@ -1,7 +1,7 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useMemo, useState } from 'react';
+import { cloneElement, useMemo, useState, type ReactElement } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { locations } from '@/lib/locations';
@@ -101,13 +101,13 @@ export function InquiryForm({ kind }: { kind: InquiryKind }) {
       </div>
       <div className="grid gap-5 md:grid-cols-2">
         <Field id={`${kind}-first-name`} label="First name" error={errors.firstName?.message}>
-          <input id={`${kind}-first-name`} autoComplete="given-name" {...register('firstName')} />
+          <input id={`${kind}-first-name`} autoComplete="given-name" required {...register('firstName')} />
         </Field>
         <Field id={`${kind}-last-name`} label="Last name" error={errors.lastName?.message}>
-          <input id={`${kind}-last-name`} autoComplete="family-name" {...register('lastName')} />
+          <input id={`${kind}-last-name`} autoComplete="family-name" required {...register('lastName')} />
         </Field>
         <Field id={`${kind}-email`} label="Email" error={errors.email?.message}>
-          <input id={`${kind}-email`} type="email" autoComplete="email" {...register('email')} />
+          <input id={`${kind}-email`} type="email" autoComplete="email" required {...register('email')} />
         </Field>
         <Field id={`${kind}-phone`} label="Phone" error={errors.phone?.message}>
           <input id={`${kind}-phone`} type="tel" autoComplete="tel" {...register('phone')} />
@@ -124,7 +124,7 @@ export function InquiryForm({ kind }: { kind: InquiryKind }) {
           </select>
         </Field>
         <Field id={`${kind}-subject`} label={copy.subject} error={errors.subject?.message}>
-          <input id={`${kind}-subject`} {...register('subject')} />
+          <input id={`${kind}-subject`} required {...register('subject')} />
         </Field>
         {requiresEventDetails && (
           <>
@@ -138,7 +138,7 @@ export function InquiryForm({ kind }: { kind: InquiryKind }) {
         )}
       </div>
       <Field id={`${kind}-message`} label={copy.message} error={errors.message?.message}>
-        <textarea id={`${kind}-message`} rows={6} {...register('message')} />
+        <textarea id={`${kind}-message`} rows={6} required {...register('message')} />
       </Field>
       <div className="flex flex-wrap items-center gap-4">
         <button type="submit" className="btn-primary" disabled={status === 'sending'}>
@@ -163,13 +163,22 @@ function Field({
   id: string;
   label: string;
   error?: string;
-  children: React.ReactElement;
+  children: ReactElement<Record<string, unknown>>;
 }) {
+  const control = cloneElement(children, {
+    'aria-describedby': error ? `${id}-error` : undefined,
+    'aria-invalid': error ? 'true' : undefined,
+  });
+
   return (
     <div className="field">
       <label htmlFor={id}>{label}</label>
-      {children}
-      {error && <p className="field-error">{error}</p>}
+      {control}
+      {error && (
+        <p id={`${id}-error`} className="field-error">
+          {error}
+        </p>
+      )}
     </div>
   );
 }
