@@ -35,7 +35,7 @@ export function PressExplorer() {
                 aria-pressed={activeFilter === allFilter}
                 onClick={() => setActiveFilter(allFilter)}
                 className={`border px-3 py-2 text-sm font-bold uppercase tracking-[0.12em] transition ${
-                  activeFilter === allFilter ? 'border-ink bg-ink text-cream' : 'border-ink/20 bg-white text-ink hover:border-ink'
+                  activeFilter === allFilter ? 'border-brand-red bg-brand-red text-white' : 'border-ink/20 bg-white text-ink hover:border-brand-red'
                 }`}
               >
                 all
@@ -47,7 +47,7 @@ export function PressExplorer() {
                   aria-pressed={activeFilter === category}
                   onClick={() => setActiveFilter(category)}
                   className={`border px-3 py-2 text-sm font-bold uppercase tracking-[0.12em] transition ${
-                    activeFilter === category ? 'border-ink bg-ink text-cream' : 'border-ink/20 bg-white text-ink hover:border-ink'
+                    activeFilter === category ? 'border-brand-red bg-brand-red text-white' : 'border-ink/20 bg-white text-ink hover:border-brand-red'
                   }`}
                 >
                   {category}

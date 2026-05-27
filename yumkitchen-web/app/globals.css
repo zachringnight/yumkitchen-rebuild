@@ -3,8 +3,8 @@
 @theme {
   --color-brand-primary: #b4212b;
   --color-brand-primary-bright: #e03a3e;
-  --color-brand-primary-darker: #2d2d2d;
-  --color-brand-primary-deep: #2d2d2d;
+  --color-brand-primary-darker: #8f1c24;
+  --color-brand-primary-deep: #751821;
   --color-brand-red: #dc3439;
   --color-ink: #2d2d2d;
   --color-body: #736e6e;
@@ -59,11 +59,11 @@
 }
 
 .btn-primary {
-  @apply inline-block border-0 bg-brand-red px-6 py-3 text-center font-sans text-lg font-bold leading-none text-white transition-colors hover:bg-ink focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-brand-red disabled:cursor-not-allowed disabled:opacity-60;
+  @apply inline-block border-0 bg-brand-red px-6 py-3 text-center font-sans text-lg font-bold leading-none text-white transition-colors hover:bg-brand-primary focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-brand-red disabled:cursor-not-allowed disabled:opacity-60;
 }
 
 .btn-secondary {
-  @apply inline-block border-2 border-body bg-transparent px-6 py-3 text-center font-sans text-lg font-normal leading-none text-ink transition-colors hover:border-ink hover:bg-ink hover:text-cream focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-ink;
+  @apply inline-block border-2 border-body bg-transparent px-6 py-3 text-center font-sans text-lg font-normal leading-none text-ink transition-colors hover:border-brand-red hover:bg-brand-red hover:text-white focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-brand-red;
 }
 
 .btn-link {
@@ -80,8 +80,8 @@
   top: 1rem;
   z-index: 100;
   transform: translateY(-6rem);
-  background: var(--color-ink);
-  color: var(--color-cream);
+  background: var(--color-brand-primary);
+  color: white;
   padding: 0.75rem 1.25rem;
   font-family: var(--font-archivo-narrow), system-ui, sans-serif;
   font-size: 1rem;
@@ -113,7 +113,7 @@
 }
 
 .location-card {
-  @apply border border-ink/15 bg-white transition-colors hover:border-ink/60;
+  @apply border border-ink/15 bg-white transition-colors hover:border-brand-red;
 }
 
 .form-surface {
@@ -206,7 +206,7 @@
   min-height: 2.45rem;
   overflow: hidden;
   border: 1px solid rgb(255 244 245 / 0.32);
-  background: rgb(45 45 45 / 0.32);
+  background: rgb(180 33 43 / 0.42);
   padding: 0.55rem 0.6rem 0.68rem;
   color: rgb(255 244 245 / 0.78);
   font-size: 0.72rem;
@@ -809,10 +809,10 @@
 
 .menu-fast-paths a:hover,
 .menu-fast-paths a:focus-visible {
-  border-color: var(--color-ink);
-  background: var(--color-ink);
-  color: var(--color-cream);
-  outline: 2px solid var(--color-ink);
+  border-color: var(--color-brand-red);
+  background: var(--color-brand-red);
+  color: white;
+  outline: 2px solid var(--color-brand-red);
   outline-offset: 3px;
 }
 
@@ -1344,9 +1344,9 @@
     transform 180ms ease;
 
   &:hover {
-    border-color: var(--color-ink);
-    background: var(--color-ink);
-    color: var(--color-cream);
+    border-color: var(--color-brand-red);
+    background: var(--color-brand-red);
+    color: white;
   }
 
   &:focus-visible {

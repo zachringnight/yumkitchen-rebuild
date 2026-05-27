@@ -81,7 +81,7 @@ export function MenuClient() {
                       key={suggestion}
                       type="button"
                       className={`border px-3 py-2 text-base leading-none transition ${
-                        selected ? 'border-brand-primary bg-brand-primary text-white' : 'border-ink/25 bg-white text-ink hover:border-ink'
+                        selected ? 'border-brand-primary bg-brand-primary text-white' : 'border-ink/25 bg-white text-ink hover:border-brand-red'
                       }`}
                       aria-pressed={selected}
                       onClick={() => setQuery(suggestion)}

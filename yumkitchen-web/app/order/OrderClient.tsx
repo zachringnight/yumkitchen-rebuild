@@ -164,7 +164,7 @@ export function OrderClient({ initialCategory, initialQuery = '' }: Props) {
                 onClick={() => setSelectedSlug(loc.slug)}
                 aria-pressed={loc.slug === selectedSlug}
                 className={`border p-4 text-left transition ${
-                  loc.slug === selectedSlug ? 'border-brand-primary bg-white shadow-lg' : 'border-ink/10 bg-white hover:border-ink'
+                  loc.slug === selectedSlug ? 'border-brand-primary bg-white shadow-lg' : 'border-ink/10 bg-white hover:border-brand-red'
                 }`}
               >
                 <span className="block font-serif text-2xl lowercase text-ink">{loc.short_name}</span>
@@ -205,7 +205,7 @@ export function OrderClient({ initialCategory, initialQuery = '' }: Props) {
                       key={suggestion}
                       type="button"
                       className={`border px-3 py-2 text-base leading-none transition ${
-                        selected ? 'border-brand-primary bg-brand-primary text-white' : 'border-ink/25 bg-white text-ink hover:border-ink'
+                        selected ? 'border-brand-primary bg-brand-primary text-white' : 'border-ink/25 bg-white text-ink hover:border-brand-red'
                       }`}
                       aria-pressed={selected}
                       onClick={() => setQuery(suggestion)}
@@ -223,7 +223,7 @@ export function OrderClient({ initialCategory, initialQuery = '' }: Props) {
                       key={filter.value}
                       type="button"
                       className={`border px-3 py-2 text-base leading-none transition ${
-                        selected ? 'border-brand-primary bg-brand-primary text-white' : 'border-ink/25 bg-white text-ink hover:border-ink'
+                        selected ? 'border-brand-primary bg-brand-primary text-white' : 'border-ink/25 bg-white text-ink hover:border-brand-red'
                       }`}
                       aria-pressed={selected}
                       onClick={() => chooseCategory(filter.value)}

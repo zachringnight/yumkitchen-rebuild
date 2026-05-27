@@ -231,7 +231,7 @@ export default function CakePage() {
           <p className="mx-auto mt-5 max-w-lg text-xl leading-9 text-white">
             A focused cake ordering path, built around yum! bakery photography and a clear pickup inquiry.
           </p>
-          <a href="#shop-patticake" className="mt-8 inline-block bg-ink px-8 py-4 text-lg font-bold leading-none text-white transition hover:bg-white hover:text-ink">
+          <a href="#shop-patticake" className="mt-8 inline-block bg-white px-8 py-4 text-lg font-bold leading-none text-brand-primary transition hover:bg-blue-tint hover:text-ink">
             order now
           </a>
         </div>

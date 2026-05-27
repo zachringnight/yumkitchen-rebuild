@@ -89,7 +89,7 @@ export function HomeHero() {
   }, []);
 
   return (
-    <section className="home-hero relative min-h-[660px] overflow-hidden bg-ink md:min-h-[730px]">
+    <section className="home-hero relative min-h-[660px] overflow-hidden bg-page md:min-h-[730px]">
       <div className="home-hero-media" aria-hidden="true">
         <Image
           key={currentHero.src}
@@ -259,7 +259,7 @@ export function MenuFeature() {
                 aria-pressed={index === active}
                 aria-label={`Show ${menuItem.name}`}
                 className={`min-h-[4.5rem] border px-3 py-3 text-left text-base font-bold leading-tight lowercase transition ${
-                  index === active ? 'border-brand-red bg-brand-red text-white' : 'border-ink/15 bg-white text-ink hover:border-ink'
+                  index === active ? 'border-brand-red bg-brand-red text-white' : 'border-ink/15 bg-white text-ink hover:border-brand-red'
                 }`}
               >
                 <span className={`mb-1 block text-xs font-bold uppercase leading-none tracking-[0.08em] ${index === active ? 'text-white' : 'text-brand-red'}`}>
@@ -280,9 +280,9 @@ export function CateringCallout() {
   const closeCall = useCallback(() => setCallOpen(false), []);
 
   return (
-    <section className="bg-ink px-6 py-14 text-white md:py-18">
+    <section className="bg-blue-tint/70 px-6 py-14 text-ink md:py-18">
       <div className="mx-auto grid max-w-[1180px] items-center gap-8 lg:grid-cols-[0.88fr_1.12fr]">
-        <div className="catering-panel bg-white px-7 py-7 text-ink md:px-9 md:py-9">
+        <div className="catering-panel border border-white bg-white/95 px-7 py-7 text-ink shadow-[0_1rem_2.4rem_rgb(45_45_45_/_0.10)] md:px-9 md:py-9">
           <h2 className="font-serif text-[2.25rem] font-normal leading-tight lowercase text-ink md:text-[2.7rem]">yum! catering</h2>
           <p className="mt-4 text-lg leading-8 text-body">
             Sandwich platters, box lunches, salads, baked goods, and family-style favorites with the same yum! counter polish.

@@ -23,18 +23,18 @@ export function InquiryMomentumBand({
   imageAlt,
 }: InquiryMomentumBandProps) {
   return (
-    <section className="inquiry-momentum bg-ink py-section text-cream" data-reveal>
+    <section className="inquiry-momentum bg-blue-tint/70 py-section text-ink" data-reveal>
       <div className="container-content grid gap-10 lg:grid-cols-[1.06fr_0.94fr] lg:items-center">
         <div>
-          <p className="section-label text-blue-soft">fast path</p>
-          <h2 className="text-h2 lowercase text-cream">{title}</h2>
-          <p className="mt-5 max-w-2xl text-xl leading-9 text-cream">{copy}</p>
+          <p className="section-label">fast path</p>
+          <h2 className="text-h2 lowercase text-ink">{title}</h2>
+          <p className="mt-5 max-w-2xl text-xl leading-9 text-ink">{copy}</p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link href={primaryHref} className="btn-primary">
               {primaryLabel}
             </Link>
             {secondaryHref && secondaryLabel && (
-              <Link href={secondaryHref} className="border-2 border-cream px-7 py-3.5 text-center font-sans text-lg font-bold uppercase tracking-[0.06em] text-cream transition hover:bg-cream hover:text-ink">
+              <Link href={secondaryHref} className="border-2 border-body px-7 py-3.5 text-center font-sans text-lg font-bold uppercase tracking-[0.06em] text-ink transition hover:border-brand-red hover:bg-brand-red hover:text-white">
                 {secondaryLabel}
               </Link>
             )}

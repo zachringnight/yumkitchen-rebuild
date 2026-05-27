@@ -89,7 +89,7 @@ export function SiteFooter() {
               href={loc.order_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-brand-red px-3 py-2 text-sm font-bold leading-none text-white transition hover:bg-ink"
+              className="inline-block bg-brand-red px-3 py-2 text-sm font-bold leading-none text-white transition hover:bg-brand-primary"
               data-event="click_order_online"
               data-location={loc.slug}
             >

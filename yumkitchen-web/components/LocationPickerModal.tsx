@@ -67,7 +67,7 @@ export function LocationPickerModal({ open, onClose, mode }: Props) {
       role="dialog"
       aria-modal="true"
       aria-labelledby="location-picker-heading"
-      className="location-modal-backdrop motion-role-modal fixed inset-0 z-50 flex items-center justify-center bg-black/75 px-4 py-8"
+      className="location-modal-backdrop motion-role-modal fixed inset-0 z-50 flex items-center justify-center bg-brand-primary/80 px-4 py-8 backdrop-blur-[2px]"
       onClick={onClose}
     >
       <div
