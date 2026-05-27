@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import type { Location } from '@/lib/locations';
 
@@ -8,35 +9,54 @@ type Props = {
 
 export function LocationCard({ loc, compact = false }: Props) {
   return (
-    <article className="location-card flex h-full flex-col bg-white px-5 py-6">
-      <Link href={`/location/${loc.slug}`} className="mb-3 block font-serif text-xl font-normal leading-tight lowercase text-ink hover:text-brand-primary">
-        {loc.name}
-      </Link>
-      <address className="not-italic text-body">
-        <a
-          href={loc.maps_url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-brand-primary"
-        >
-          {loc.address.street}
-          <br />
-          {loc.address.city}, {loc.address.state} {loc.address.zip}
-        </a>
-      </address>
-      <a href={`tel:${loc.phone_e164}`} className="text-brand-primary hover:underline">
+    <article className="location-card group flex h-full flex-col overflow-hidden bg-white">
+      {!compact && (
+        <Link href={`/location/${loc.slug}`} className="relative block aspect-[4/2.7] overflow-hidden bg-blue-tint" tabIndex={-1} aria-hidden="true">
+          <Image
+            src={loc.cardImage}
+            alt=""
+            fill
+            loading="eager"
+            sizes="(min-width: 1280px) 280px, (min-width: 768px) 50vw, 100vw"
+            className="object-cover transition duration-500 group-hover:scale-[1.035]"
+          />
+        </Link>
+      )}
+      <div className="flex flex-1 flex-col px-5 py-5">
+        <div className="mb-3 flex items-start justify-between gap-3">
+          <Link href={`/location/${loc.slug}`} className="block font-serif text-[1.35rem] font-normal leading-tight lowercase text-ink hover:text-brand-primary">
+            {loc.name}
+          </Link>
+          {loc.is_original && <span className="location-pill">original</span>}
+        </div>
+        <address className="not-italic text-body">
+          <a
+            href={loc.maps_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-brand-primary"
+          >
+            {loc.address.street}
+            <br />
+            {loc.address.city}, {loc.address.state} {loc.address.zip}
+          </a>
+        </address>
+        <a href={`tel:${loc.phone_e164}`} className="mt-2 text-brand-primary hover:underline">
           {loc.phone}
         </a>
-      <p className="text-body">{loc.hours}</p>
-      {!compact && <p className="text-base leading-7 text-body">{loc.parking}</p>}
-      <div className="mt-auto flex flex-col gap-2 pt-5">
+        <p className="text-body">{loc.hours}</p>
+        {!compact && <p className="mt-3 text-base leading-7 text-body">{loc.parking}</p>}
+      <div className="mt-auto grid gap-2 pt-5">
         <a
           href={loc.maps_url}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-link"
+          className="btn-secondary inline-flex items-center justify-center gap-2 px-4 py-3 text-base"
         >
-          Get Directions →
+          Get Directions
+          <svg aria-hidden="true" viewBox="0 0 20 20" className="h-4 w-4" fill="none">
+            <path d="M4 10h10.2m-4.4-4.4L14.2 10l-4.4 4.4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </a>
         <a
           href={loc.order_url}
@@ -48,6 +68,7 @@ export function LocationCard({ loc, compact = false }: Props) {
         >
           Order Online
         </a>
+      </div>
       </div>
     </article>
   );

@@ -9,7 +9,7 @@
   --color-ink: #2d2d2d;
   --color-body: #736e6e;
   --color-cream: #fff4f5;
-  --color-page: #f3f3f3;
+  --color-page: #f7f7f5;
   --color-blue-soft: #aed2ef;
   --color-blue-tint: #cae4fd;
 
@@ -59,11 +59,11 @@
 }
 
 .btn-primary {
-  @apply inline-block border-0 bg-brand-red px-7 py-3.5 text-center font-sans text-lg font-bold leading-none text-white transition-colors hover:bg-ink focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-brand-red disabled:cursor-not-allowed disabled:opacity-60;
+  @apply inline-block border-0 bg-brand-red px-6 py-3 text-center font-sans text-lg font-bold leading-none text-white transition-colors hover:bg-ink focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-brand-red disabled:cursor-not-allowed disabled:opacity-60;
 }
 
 .btn-secondary {
-  @apply inline-block border-2 border-body bg-transparent px-7 py-3.5 text-center font-sans text-lg font-normal leading-none text-ink transition-colors hover:border-ink hover:bg-ink hover:text-cream focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-ink;
+  @apply inline-block border-2 border-body bg-transparent px-6 py-3 text-center font-sans text-lg font-normal leading-none text-ink transition-colors hover:border-ink hover:bg-ink hover:text-cream focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-ink;
 }
 
 .btn-link {
@@ -113,7 +113,7 @@
 }
 
 .location-card {
-  @apply border border-body bg-white transition-colors hover:border-ink;
+  @apply border border-ink/15 bg-white transition-colors hover:border-ink/60;
 }
 
 .form-surface {
@@ -170,6 +170,16 @@
 .home-hero-media {
   position: absolute;
   inset: 0;
+}
+
+.home-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgb(45 45 45 / 0.32), rgb(45 45 45 / 0.08) 47%, rgb(45 45 45 / 0.34)),
+    linear-gradient(0deg, rgb(45 45 45 / 0.32), transparent 32%);
+  pointer-events: none;
 }
 
 .home-hero-image {
@@ -264,6 +274,37 @@
   text-transform: uppercase;
 }
 
+.hero-location-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 1rem;
+}
+
+.hero-location-chips a {
+  border: 1px solid rgb(45 45 45 / 0.14);
+  background: rgb(247 247 245 / 0.76);
+  padding: 0.45rem 0.65rem;
+  color: var(--color-ink);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: lowercase;
+  transition:
+    background-color var(--motion-duration-fast) var(--motion-ease-feedback),
+    border-color var(--motion-duration-fast) var(--motion-ease-feedback),
+    color var(--motion-duration-fast) var(--motion-ease-feedback);
+}
+
+.hero-location-chips a:hover,
+.hero-location-chips a:focus-visible {
+  border-color: var(--color-brand-red);
+  background: var(--color-brand-red);
+  color: white;
+  outline: 2px solid var(--color-brand-red);
+  outline-offset: 2px;
+}
+
 .hero-panel {
   position: relative;
   overflow: hidden;
@@ -296,10 +337,172 @@
 
 .menu-feature-frame {
   overflow: hidden;
+  border: 1px solid rgb(45 45 45 / 0.12);
+  box-shadow: 0 1.1rem 3rem rgb(45 45 45 / 0.12);
 }
 
 .menu-feature-photo {
   transform-origin: center;
+}
+
+.menu-feature-copy {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 5px solid var(--color-brand-red);
+  padding-left: clamp(1.1rem, 2.5vw, 2rem);
+}
+
+.menu-feature-board {
+  min-width: 0;
+}
+
+.menu-feature-active {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  max-width: 30rem;
+  background: rgb(255 255 255 / 0.94);
+  padding: 1rem;
+  box-shadow: 0 0.75rem 2rem rgb(45 45 45 / 0.16);
+}
+
+.menu-feature-active span,
+.menu-feature-tab span {
+  display: block;
+  color: var(--color-brand-red);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.menu-feature-active strong {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--color-ink);
+  font-family: var(--font-trocchi), Georgia, serif;
+  font-size: 1.65rem;
+  font-weight: 400;
+  line-height: 1.08;
+  text-transform: lowercase;
+}
+
+.menu-feature-active p {
+  margin-top: 0.45rem;
+  color: var(--color-body);
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.menu-feature-active em {
+  display: block;
+  margin-top: 0.5rem;
+  color: var(--color-ink);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.menu-feature-tab {
+  min-height: 4.75rem;
+  border-width: 1px;
+  padding: 0.78rem 0.9rem;
+  text-align: left;
+  font-weight: 700;
+  line-height: 1.08;
+  text-transform: lowercase;
+  transition:
+    border-color var(--motion-duration-fast) var(--motion-ease-feedback),
+    background-color var(--motion-duration-fast) var(--motion-ease-feedback),
+    color var(--motion-duration-fast) var(--motion-ease-feedback);
+}
+
+.menu-feature-tab[aria-pressed='true'] span {
+  color: white;
+}
+
+.menu-feature-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin-top: 2rem;
+}
+
+.menu-feature-stats span {
+  border-top: 1px solid rgb(45 45 45 / 0.18);
+  padding-top: 0.7rem;
+  color: var(--color-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: lowercase;
+}
+
+.menu-feature-stats strong {
+  display: block;
+  color: var(--color-ink);
+  font-family: var(--font-trocchi), Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 400;
+}
+
+.catering-panel {
+  box-shadow: 0 1.4rem 3.4rem rgb(0 0 0 / 0.22);
+}
+
+.catering-proof-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.catering-proof-grid span {
+  border: 1px solid rgb(45 45 45 / 0.15);
+  padding: 0.65rem;
+  color: var(--color-ink);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.05;
+  text-align: center;
+  text-transform: lowercase;
+}
+
+.catering-photo-grid {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.catering-photo-grid > div,
+.catering-mini-grid > div {
+  border: 1px solid rgb(255 255 255 / 0.18);
+}
+
+.catering-mini-grid {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.location-section {
+  background:
+    linear-gradient(180deg, var(--color-page), white 55%, var(--color-blue-tint) 100%);
+}
+
+.location-pill {
+  border: 1px solid rgb(220 52 57 / 0.28);
+  background: rgb(220 52 57 / 0.08);
+  padding: 0.35rem 0.45rem;
+  color: var(--color-brand-red);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .location-modal-backdrop {
