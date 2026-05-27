@@ -1,0 +1,94 @@
+[
+  {
+    "slug": "st-louis-park",
+    "name": "yum! st. louis park",
+    "short_name": "St. Louis Park",
+    "tagline": "The original yum!",
+    "address": {
+      "street": "4000 Minnetonka Blvd",
+      "city": "St. Louis Park",
+      "state": "MN",
+      "zip": "55416",
+      "country": "US"
+    },
+    "phone": "(952) 922-4000",
+    "phone_e164": "+19529224000",
+    "hours": "Open 8am - 8pm daily",
+    "hours_schema": "Mo-Su 08:00-20:00",
+    "order_url": "https://order.toasttab.com/online/yumkitchenslp",
+    "maps_url": "https://www.google.com/maps/place/yum!+Kitchen+and+Bakery/@44.948616,-93.33057,15z/data=!4m2!3m1!1s0x0:0x160d96892111d339",
+    "maps_embed": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11295.026353678872!2d-93.33057!3d44.948616!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x160d96892111d339!2syum*21%20Kitchen%20and%20Bakery!5e0!3m2!1sen!2snl!4v1647255589588!5m2!1sen!2snl",
+    "lat": 44.948616,
+    "lng": -93.33057,
+    "is_original": true
+  },
+  {
+    "slug": "shady-oak",
+    "name": "yum! shady oak",
+    "short_name": "Shady Oak",
+    "tagline": "",
+    "address": {
+      "street": "6001 Shady Oak Rd",
+      "city": "Minnetonka",
+      "state": "MN",
+      "zip": "55343",
+      "country": "US"
+    },
+    "phone": "(952) 933-6001",
+    "phone_e164": "+19529336001",
+    "hours": "Open 8am - 8pm daily",
+    "hours_schema": "Mo-Su 08:00-20:00",
+    "order_url": "https://order.toasttab.com/online/yum-kitchen-and-bakery-shady-6001-shady-oak-rd",
+    "maps_url": "https://www.google.com/maps/place/yum!+Kitchen+and+Bakery/@44.8951112,-93.4200902,15z/data=!4m5!3m4!1s0x0:0x7daa2816210ed965!8m2!3d44.8951117!4d-93.4200901",
+    "maps_embed": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11305.550215531093!2d-93.4200902!3d44.8951112!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7daa2816210ed965!2syum*21%20Kitchen%20and%20Bakery!5e0!3m2!1sen!2sus!4v1647255789945!5m2!1sen!2sus",
+    "lat": 44.8951112,
+    "lng": -93.4200902,
+    "is_original": false
+  },
+  {
+    "slug": "saint-paul",
+    "name": "yum! st. paul",
+    "short_name": "St. Paul",
+    "tagline": "",
+    "address": {
+      "street": "164 Snelling Avenue N",
+      "city": "St Paul",
+      "state": "MN",
+      "zip": "55104",
+      "country": "US"
+    },
+    "phone": "(651) 615-1230",
+    "phone_e164": "+16516151230",
+    "hours": "Open 8am - 8pm daily",
+    "hours_schema": "Mo-Su 08:00-20:00",
+    "order_url": "https://order.toasttab.com/online/yum-st-paul-164-snelling-avenue-north",
+    "maps_url": "https://www.google.com/maps/place/yum!+Kitchen+and+Bakery/@44.9464366,-93.1667648,15z/data=!4m6!3m5!1s0x87f62b6a7646ee01:0x3608a68b6a87ba8e!8m2!3d44.9464366!4d-93.1667648!16s%2Fg%2F11rkfbw67b",
+    "maps_embed": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11295.455212472467!2d-93.1667648!3d44.9464366!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87f62b6a7646ee01%3A0x3608a68b6a87ba8e!2syum*21%20Kitchen%20and%20Bakery!5e0!3m2!1sen!2snl!4v1678806702973!5m2!1sen!2snl",
+    "lat": 44.9464366,
+    "lng": -93.1667648,
+    "is_original": false
+  },
+  {
+    "slug": "woodbury",
+    "name": "yum! woodbury",
+    "short_name": "Woodbury",
+    "tagline": "",
+    "address": {
+      "street": "8340 City Centre Drive",
+      "city": "Woodbury",
+      "state": "MN",
+      "zip": "55125",
+      "country": "US"
+    },
+    "phone": "(651) 603-4444",
+    "phone_e164": "+16516034444",
+    "hours": "Open 8am - 8pm daily",
+    "hours_schema": "Mo-Su 08:00-20:00",
+    "order_url": "https://order.toasttab.com/online/yum-kitchen-bakery-woodbury-2-8340-city-centre-drive",
+    "maps_url": "https://www.google.com/maps/place/8340+City+Centre+Dr,+Woodbury,+MN+55125/",
+    "maps_embed": "https://www.google.com/maps?q=8340%20City%20Centre%20Drive%2C%20Woodbury%2C%20MN%2055125&output=embed",
+    "lat": 44.9209739,
+    "lng": -92.9373007,
+    "is_original": false
+  }
+]

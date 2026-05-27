@@ -1,0 +1,684 @@
+{
+  "sections": [
+    {
+      "meal": "lunch & dinner",
+      "name": "appetizers",
+      "items": [
+        {
+          "name": "french fries",
+          "prices": [
+            "7.95"
+          ],
+          "description": "w/ red pepper aioli, cajun mayo & ketchup"
+        },
+        {
+          "name": "buffalo chicken fingers [2]",
+          "prices": [
+            "9.95"
+          ],
+          "description": ""
+        },
+        {
+          "name": "chicken fingers [2]",
+          "prices": [
+            "8.95"
+          ],
+          "description": ""
+        },
+        {
+          "name": "green on greens starter",
+          "prices": [
+            "6.95"
+          ],
+          "description": "snap peas, tomatoes & watermelon radishes on romaine w/ green goddess dressing"
+        }
+      ]
+    },
+    {
+      "meal": "lunch & dinner",
+      "name": "soup",
+      "items": [
+        {
+          "name": "tortilla",
+          "prices": [
+            "6.95",
+            "7.95",
+            "15.95"
+          ],
+          "description": ""
+        },
+        {
+          "name": "gumbo",
+          "prices": [
+            "9.95",
+            "12.95",
+            "21.95"
+          ],
+          "description": "w/ shrimp, andouille sausage & chicken"
+        },
+        {
+          "name": "chicken noodle",
+          "prices": [
+            "6.95",
+            "7.95",
+            "15.95"
+          ],
+          "description": ""
+        },
+        {
+          "name": "chicken noodle w/ matzah balls",
+          "prices": [
+            "7.95",
+            "8.95",
+            "16.95"
+          ],
+          "description": ""
+        },
+        {
+          "name": "bob\u2019s tomato",
+          "prices": [
+            "6.95",
+            "7.95",
+            "15.95"
+          ],
+          "description": ""
+        }
+      ]
+    },
+    {
+      "meal": "lunch & dinner",
+      "name": "salads",
+      "items": [
+        {
+          "name": "shrimp louie",
+          "prices": [
+            "15.95"
+          ],
+          "description": "poached shrimp, yum! 1000 island, avocado, cherry tomatoes & hard boiled egg on iceberg w/ chive garnish"
+        },
+        {
+          "name": "southwest chicken",
+          "prices": [
+            "15.95"
+          ],
+          "description": "blackened chicken breast, romaine, pico de gallo, avocado, cotija & tortilla strips w/ chipotle lime vinaigrette"
+        },
+        {
+          "name": "mixed berry",
+          "prices": [
+            "12.95"
+          ],
+          "description": "sweet & spicy pecans, blueberries, strawberries, blackberries & goat cheese on spring mix w/ maple vinaigrette add chicken 4.00"
+        },
+        {
+          "name": "sampler",
+          "prices": [
+            "14.95"
+          ],
+          "description": "a scoop of fancy schmancy tuna, tarragon chicken, & dilled egg salad"
+        },
+        {
+          "name": "tarragon chicken salad w/ greens",
+          "prices": [
+            "12.95"
+          ],
+          "description": "w/ grapes, pecans, & celery"
+        },
+        {
+          "name": "fancy schmancy tuna salad w/ greens",
+          "prices": [
+            "12.95"
+          ],
+          "description": "white albacore tuna w/ kalamata olives, red peppers & scallions"
+        },
+        {
+          "name": "dilled egg salad w/ greens",
+          "prices": [
+            "11.95"
+          ],
+          "description": ""
+        }
+      ]
+    },
+    {
+      "meal": "lunch & dinner",
+      "name": "pasta",
+      "items": [
+        {
+          "name": "lemon cream pasta",
+          "prices": [
+            "15.95"
+          ],
+          "description": "spaghetti w/ lemon cream, crispy chicken, peas, basil & topped w/ bread crumbs"
+        },
+        {
+          "name": "small mac & cheese",
+          "prices": [
+            "7.95"
+          ],
+          "description": "add 1 buffalo chicken finger 4.95 add 2 buffalo chicken fingers 8.95"
+        },
+        {
+          "name": "large mac & cheese",
+          "prices": [
+            "10.95"
+          ],
+          "description": "add 1 buffalo chicken finger 4.95 add 2 buffalo chicken fingers 8.95"
+        }
+      ]
+    },
+    {
+      "meal": "lunch & dinner",
+      "name": "sandwiches",
+      "items": [
+        {
+          "name": "shrimp louie",
+          "prices": [
+            "16.95"
+          ],
+          "description": "poached shrimp in yum! 1000 island, tomatoes, lettuce & chive garnish on toasted challah \u201cbun\u201d"
+        },
+        {
+          "name": "ahi tuna",
+          "prices": [
+            "16.95"
+          ],
+          "description": "grilled ahi tuna w/ wasabi cream, pickled ginger, cucumber & daikon sprouts*"
+        },
+        {
+          "name": "tuna melt",
+          "prices": [
+            "14.95"
+          ],
+          "description": "house made english muffin, fancy schmancy tuna salad, sliced tomato & muenster cheese"
+        },
+        {
+          "name": "grilled chicken club",
+          "prices": [
+            "15.95"
+          ],
+          "description": "grilled chicken breast, lettuce, tomato, avocado, Jones Dairy Farm bacon & honey mustard aioli on toasted whole grain"
+        },
+        {
+          "name": "reuben",
+          "prices": [
+            "16.95"
+          ],
+          "description": "corned beef, swiss cheese, sauerkraut & red pepper aioli on caraway rye"
+        },
+        {
+          "name": "rachel",
+          "prices": [
+            "14.95"
+          ],
+          "description": "turkey, swiss cheese, sauerkraut & red pepper aioli on caraway rye"
+        },
+        {
+          "name": "turkey focaccia",
+          "prices": [
+            "12.95"
+          ],
+          "description": "house roasted turkey breast w/ red pepper aioli, shredded lettuce, tomato & shaved red onion add avocado 2.00"
+        },
+        {
+          "name": "lto burger",
+          "prices": [
+            "15.95"
+          ],
+          "description": "house ground burger w/ lettuce, tomato & onion* add Jones Dairy Farm bacon 2.50"
+        },
+        {
+          "name": "yum! burger",
+          "prices": [
+            "16.95"
+          ],
+          "description": "house ground burger w/ crispy onion, cheddar & red pepper aioli*"
+        },
+        {
+          "name": "steak sandwich",
+          "prices": [
+            "18.95"
+          ],
+          "description": "grilled beef tenderloin, red pepper aioli & Revol arugula on herb focaccia*"
+        },
+        {
+          "name": "breakfast sandwich",
+          "prices": [
+            "12.95"
+          ],
+          "description": "choice of bacon, yum! or chicken sausage, fried egg & cheddar cheese on english muffin add avocado 2.00"
+        },
+        {
+          "name": "yum! veggie",
+          "prices": [
+            "12.95"
+          ],
+          "description": "avocado, cucumber, sprouts, tomato, spinach, cheddar & muenster w/ honey mustard on whole grain"
+        },
+        {
+          "name": "grilled cheese",
+          "prices": [
+            "9.95"
+          ],
+          "description": "muenster & cheddar on challah"
+        },
+        {
+          "name": "fancy schmancy tuna",
+          "prices": [
+            "12.95"
+          ],
+          "description": ""
+        },
+        {
+          "name": "tarragon chicken salad",
+          "prices": [
+            "12.95"
+          ],
+          "description": ""
+        },
+        {
+          "name": "dilled egg salad",
+          "prices": [
+            "11.95"
+          ],
+          "description": ""
+        }
+      ]
+    },
+    {
+      "meal": "lunch & dinner",
+      "name": "entrees",
+      "items": [
+        {
+          "name": "grainy mustard salmon",
+          "prices": [
+            "19.95"
+          ],
+          "description": "roasted atlantic salmon w/ grainy mustard glaze, pickled ginger, jasmine rice, arugula & broccolini"
+        },
+        {
+          "name": "cauliflower couscous vegan bowl",
+          "prices": [
+            "15.95"
+          ],
+          "description": "pearl couscous infused w/ tumeric, red onion, red peppers, scallions, parsley & cilantro topped w/ harissa roasted cauliflower, tahini vinaigrette & pine nuts"
+        },
+        {
+          "name": "szechuan salmon",
+          "prices": [
+            "19.95"
+          ],
+          "description": "grilled salmon on jasmine rice w/ pistachios & szechuan green beans with bell pepper garnish"
+        },
+        {
+          "name": "amablu crusted filet",
+          "prices": [
+            "22.95"
+          ],
+          "description": "beef tenderloin w/ roasted potatoes & simple green beans*"
+        },
+        {
+          "name": "1/2 roasted chicken",
+          "prices": [
+            "18.95"
+          ],
+          "description": "w/ roasted potatoes & green beans"
+        },
+        {
+          "name": "lemon chicken",
+          "prices": [
+            "16.95"
+          ],
+          "description": "seared chicken breast w/ fresh lemon & italian parsley served w/ roasted potatoes & broccolini"
+        },
+        {
+          "name": "fish & chips",
+          "prices": [
+            "16.95"
+          ],
+          "description": "true alaskan cod & french fries w/ house tartar sauce"
+        },
+        {
+          "name": "hugo\u2019s baja mahi tacos",
+          "prices": [
+            "16.95"
+          ],
+          "description": "build your own! mahi-mahi on romaine w/ spicy baja sauce, pico de gallo, cotija cheese & corn tortillas"
+        }
+      ]
+    },
+    {
+      "meal": "lunch & dinner",
+      "name": "side dishes",
+      "items": [
+        {
+          "name": "szechuan green beans",
+          "prices": [
+            "7.25",
+            "9.95"
+          ],
+          "description": ""
+        },
+        {
+          "name": "simple green beans",
+          "prices": [
+            "6.95",
+            "9.25"
+          ],
+          "description": ""
+        },
+        {
+          "name": "broccolini",
+          "prices": [
+            "6.95"
+          ],
+          "description": ""
+        },
+        {
+          "name": "crispy brussels sprouts",
+          "prices": [
+            "6.95"
+          ],
+          "description": ""
+        },
+        {
+          "name": "roasted potatoes",
+          "prices": [
+            "6.25"
+          ],
+          "description": ""
+        },
+        {
+          "name": "harissa roasted cauliflower",
+          "prices": [
+            "7.25"
+          ],
+          "description": ""
+        }
+      ]
+    },
+    {
+      "meal": "lunch & dinner",
+      "name": "breads",
+      "items": [
+        {
+          "name": "caraway rye",
+          "prices": [
+            "5.95"
+          ],
+          "description": ""
+        },
+        {
+          "name": "challah",
+          "prices": [
+            "7.95"
+          ],
+          "description": ""
+        },
+        {
+          "name": "whole grain",
+          "prices": [
+            "5.95"
+          ],
+          "description": ""
+        },
+        {
+          "name": "4 pack english muffins",
+          "prices": [
+            "12.95"
+          ],
+          "description": ""
+        }
+      ]
+    },
+    {
+      "meal": "lunch & dinner",
+      "name": "family style",
+      "items": [
+        {
+          "name": "chicken salad",
+          "prices": [
+            "9.95",
+            "18.95",
+            "29.95"
+          ],
+          "description": ""
+        },
+        {
+          "name": "tuna salad",
+          "prices": [
+            "9.95",
+            "18.95",
+            "29.95"
+          ],
+          "description": ""
+        },
+        {
+          "name": "egg salad",
+          "prices": [
+            "8.95",
+            "16.95",
+            "26.95"
+          ],
+          "description": ""
+        },
+        {
+          "name": "whole roasted chicken",
+          "prices": [
+            "18.95"
+          ],
+          "description": ""
+        },
+        {
+          "name": "1/2 pan mac & cheese",
+          "prices": [
+            "29.95"
+          ],
+          "description": "feeds 8-10"
+        }
+      ]
+    },
+    {
+      "meal": "bakery",
+      "name": "pies, bars & cookies",
+      "items": [
+        {
+          "name": "mini key lime pie",
+          "prices": [
+            "7.25"
+          ],
+          "description": ""
+        },
+        {
+          "name": "nut goodley bar",
+          "prices": [
+            "4.25"
+          ],
+          "description": ""
+        },
+        {
+          "name": "special yum! bar",
+          "prices": [
+            "4.25"
+          ],
+          "description": "chewy peanut butter cereal bar topped w/ chocolate ganache"
+        },
+        {
+          "name": "chocolate chip cookie",
+          "prices": [
+            "3.25"
+          ],
+          "description": ""
+        },
+        {
+          "name": "ranger cookie",
+          "prices": [
+            "3.25"
+          ],
+          "description": ""
+        },
+        {
+          "name": "peanut better cookie",
+          "prices": [
+            "3.25"
+          ],
+          "description": "dairy free & gluten friendly"
+        },
+        {
+          "name": "frosted sugar cookie",
+          "prices": [
+            "3.95"
+          ],
+          "description": ""
+        }
+      ]
+    },
+    {
+      "meal": "bakery",
+      "name": "cupcakes",
+      "items": [
+        {
+          "name": "rhubarb upside down",
+          "prices": [
+            "4.50"
+          ],
+          "description": ""
+        },
+        {
+          "name": "yum!",
+          "prices": [
+            "4.50"
+          ],
+          "description": "chocolate cupcake w/ marshmallow center and chocolate ganache topping"
+        },
+        {
+          "name": "chocolate",
+          "prices": [
+            "4.25"
+          ],
+          "description": ""
+        },
+        {
+          "name": "vanilla",
+          "prices": [
+            "4.25"
+          ],
+          "description": ""
+        },
+        {
+          "name": "yum!",
+          "prices": [],
+          "description": ""
+        },
+        {
+          "name": "cinnamon pull-a-part",
+          "prices": [
+            "4.75"
+          ],
+          "description": ""
+        },
+        {
+          "name": "caramel pull-a-part",
+          "prices": [
+            "4.75"
+          ],
+          "description": ""
+        }
+      ]
+    },
+    {
+      "meal": "bakery",
+      "name": "muffins",
+      "items": [
+        {
+          "name": "lemon raspberry",
+          "prices": [
+            "3.75"
+          ],
+          "description": ""
+        },
+        {
+          "name": "blueberry",
+          "prices": [
+            "3.75"
+          ],
+          "description": ""
+        }
+      ]
+    },
+    {
+      "meal": "bakery",
+      "name": "scones",
+      "items": [
+        {
+          "name": "strawberry key lime",
+          "prices": [
+            "3.75"
+          ],
+          "description": ""
+        },
+        {
+          "name": "mixed berry",
+          "prices": [
+            "3.75"
+          ],
+          "description": ""
+        },
+        {
+          "name": "plain",
+          "prices": [
+            "3.50"
+          ],
+          "description": ""
+        }
+      ]
+    },
+    {
+      "meal": "bakery",
+      "name": "cakes",
+      "items": [
+        {
+          "name": "patticake",
+          "prices": [
+            "59.95"
+          ],
+          "description": "slice 7.50"
+        },
+        {
+          "name": "baker\u2019s man",
+          "prices": [
+            "59.95"
+          ],
+          "description": "slice 7.50"
+        },
+        {
+          "name": "coconut",
+          "prices": [
+            "59.95"
+          ],
+          "description": "slice 7.50"
+        }
+      ]
+    },
+    {
+      "meal": "bakery",
+      "name": "specialty",
+      "items": [
+        {
+          "name": "fruit loopie bar",
+          "prices": [
+            "4.25"
+          ],
+          "description": ""
+        },
+        {
+          "name": "popcorn ball",
+          "prices": [
+            "4.25"
+          ],
+          "description": "*Consuming raw or undercooked meats, poultry, seafood, shellfish or eggs may increase your risk of foodborne illness Follow for more yum! Quick Links about menu gift cards work @ yum! catering in the news contact accessibility statement yum! st. louis park 4000 Minnetonka Blvd St. Louis Park, MN 55416 (952) 922-4000 Open 8am - 8pm daily Order yum! st. louis park yum! shady oak 6001 Shady Oak Rd Minnetonka, MN 55343 (952) 933-6001 Open 8am - 8pm daily Order yum! shady oak yum! st. paul 164 Snelling Avenue N St Paul, MN 55104 (651) 615-1230 Open 8am - 8pm daily Order yum! st. paul yum! woodbury 8340 City Centre Drive Woodbury, MN 55125 (651) 603-4444 Open 8am - 8pm daily Order yum! woodbury SITE BY HAFI"
+        }
+      ]
+    }
+  ]
+}

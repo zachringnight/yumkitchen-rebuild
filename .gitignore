@@ -1,0 +1,25 @@
+.DS_Store
+*.log
+*.tmp
+*.bak
+
+# Local environment and dependency output
+.env
+.env.*
+!.env.example
+node_modules/
+
+# Next.js and TypeScript output
+.next/
+out/
+dist/
+build/
+coverage/
+*.tsbuildinfo
+
+# Local agent/browser artifacts
+.superpowers/
+.playwright-mcp/
+
+# Generated QA evidence kept outside version control
+qa_screenshots_*/
