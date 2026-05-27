@@ -97,25 +97,25 @@ export const homepageFeatures = [
     title: 'Sandwiches',
     description: 'Made to order with the best ingredients.',
     href: '/menu#sandwiches',
-    image: '/images/social-ahi-sandwich.jpg',
+    image: '/images/yum-ahi-tuna.png',
   },
   {
     title: 'Soups and Salads',
     description: 'Fresh, seasonal, and full of flavor.',
     href: '/menu#soup',
-    image: '/images/social-deli-salads.jpg',
+    image: '/images/yum-mixed-berry-salad.png',
   },
   {
     title: 'Breakfast All Day',
     description: 'Comfort classics done right.',
     href: '/order?category=breakfast#favorites',
-    image: '/images/social-breakfast-hash.jpg',
+    image: '/images/yum-breakfast.jpg',
   },
   {
     title: 'Bakery',
     description: 'Baked fresh from our scratch kitchen.',
     href: '/menu#bakery',
-    image: '/images/social-cake-slice.jpg',
+    image: '/images/yum-patticake-slices.jpg',
   },
 ] as const;
 
@@ -124,37 +124,37 @@ export const seasonalHighlights = [
     title: 'mixed berry salad',
     description: 'berries, goat cheese, sweet and spicy pecans, and maple vinaigrette.',
     href: '/menu#salads',
-    image: '/images/social-deli-salads.jpg',
+    image: '/images/yum-mixed-berry-salad.png',
   },
   {
     title: 'grainy mustard salmon',
     description: 'roasted salmon with jasmine rice, arugula, broccolini, and bright pickled ginger.',
     href: '/menu#entrees',
-    image: '/images/social-grainy-salmon.jpg',
+    image: '/images/yum-grainy-mustard-salmon.png',
   },
   {
     title: 'ahi tuna sandwich',
     description: 'grilled ahi with wasabi cream, cucumber, daikon sprouts, and pickled ginger.',
     href: '/menu#sandwiches',
-    image: '/images/social-ahi-sandwich.jpg',
+    image: '/images/yum-ahi-tuna.png',
   },
   {
     title: 'tortilla soup',
     description: 'a neighborhood favorite for lunch, dinner, and take-home comfort.',
     href: '/menu#soup',
-    image: '/images/seasonal-tortilla-soup.jpg',
+    image: '/images/yum-soups-tortilla.jpg',
   },
   {
     title: 'reuben',
     description: 'corned beef, swiss, sauerkraut, and red pepper aioli on caraway rye.',
     href: '/menu#sandwiches',
-    image: '/images/seasonal-reuben.png',
+    image: '/images/yum-seasonal-reuben.png',
   },
   {
     title: 'frosted sugar cookie',
     description: 'bakery-case color for birthdays, office treats, and just-because days.',
     href: '/menu#bakery',
-    image: '/images/seasonal-sugar-cookie.jpg',
+    image: '/images/yum-seasonal-sugar-cookie.jpg',
   },
 ] as const;
 
@@ -164,42 +164,42 @@ export const orderDemoItems = [
     category: 'entree',
     description: 'roasted salmon, jasmine rice, arugula, broccolini, and pickled ginger.',
     price: 19.95,
-    image: '/images/social-grainy-salmon.jpg',
+    image: '/images/yum-grainy-mustard-salmon.png',
   },
   {
     name: 'ahi tuna sandwich',
     category: 'sandwich',
     description: 'grilled ahi with wasabi cream, pickled ginger, cucumber, and daikon sprouts.',
     price: 16.95,
-    image: '/images/social-ahi-sandwich.jpg',
+    image: '/images/yum-ahi-tuna.png',
   },
   {
     name: 'mixed berry salad',
     category: 'salad',
     description: 'berries, goat cheese, sweet and spicy pecans, and maple vinaigrette.',
     price: 12.95,
-    image: '/images/social-deli-salads.jpg',
+    image: '/images/yum-mixed-berry-salad.png',
   },
   {
     name: "bob's tomato soup",
     category: 'soup',
     description: 'a cozy everyday favorite, available by cup, bowl, or quart.',
     price: 7.95,
-    image: '/images/soup.jpg',
+    image: '/images/yum-bobs-tomato-soup.jpg',
   },
   {
     name: 'breakfast sandwich',
     category: 'breakfast',
     description: 'choice of bacon, yum! or chicken sausage, fried egg, and cheddar.',
     price: 12.95,
-    image: '/images/social-breakfast-hash.jpg',
+    image: '/images/yum-breakfast.jpg',
   },
   {
     name: 'frosted sugar cookie',
     category: 'bakery',
     description: 'colorful bakery-case joy for now or later.',
     price: 3.95,
-    image: '/images/seasonal-sugar-cookie.jpg',
+    image: '/images/yum-seasonal-sugar-cookie.jpg',
   },
 ] as const;
 
@@ -207,42 +207,42 @@ export const photoMotionMoments = [
   {
     title: 'bakery case',
     detail: 'cakes, cookies, and bakery favorites',
-    image: '/images/social-cake-slice.jpg',
+    image: '/images/yum-patticake-slices.jpg',
   },
   {
     title: 'scratch kitchen',
     detail: 'seasonal entrees and familiar comfort',
-    image: '/images/social-grainy-salmon.jpg',
+    image: '/images/yum-grainy-mustard-salmon.png',
   },
   {
     title: 'picnic pickup',
     detail: 'boxed lunches ready for the day',
-    image: '/images/social-picnic-perfect.jpg',
+    image: '/images/yum-catering-boxed-lunch.jpg',
   },
   {
     title: 'morning regulars',
     detail: 'breakfast, coffee, and counter energy',
-    image: '/images/social-cold-brew.jpg',
+    image: '/images/yum-cold-brew.jpg',
   },
   {
     title: 'party table',
     detail: 'cookies, cakes, and celebration trays',
-    image: '/images/social-mom-cookies.jpg',
+    image: '/images/yum-bakery-cupcakes.jpg',
   },
   {
     title: 'team pride',
     detail: 'the people behind the plate',
-    image: '/images/social-chef-hugo.jpg',
+    image: '/images/yum-chef-kitchen.jpg',
   },
   {
     title: 'lake day',
-    detail: 'summer graphics from real yum! posts',
-    image: '/images/social-take-it-to-lake.jpg',
+    detail: 'boxed lunches and takeout made by yum!',
+    image: '/images/yum-catering-egg-salad.jpg',
   },
   {
     title: 'fresh greens',
     detail: 'salads built for lunch and dinner',
-    image: '/images/hero-salad.jpg',
+    image: '/images/yum-mixed-berry-salad.png',
   },
 ] as const;
 
@@ -256,17 +256,17 @@ export const cateringPackages = [
   {
     title: 'picnic-ready lunches',
     description: 'Sandwiches, salads, sides, bakery treats, and branded pickup packaging for workdays or weekends.',
-    image: '/images/social-picnic-perfect.jpg',
+    image: '/images/yum-catering-boxed-lunch.jpg',
   },
   {
     title: 'hot comfort trays',
     description: 'Mac and cheese, lemon chicken, family-style sides, and room-ready service portions.',
-    image: '/images/catering-mac-cheese.jpg',
+    image: '/images/yum-catering-mac-cheese.jpg',
   },
   {
     title: 'platters and sweets',
     description: 'Sandwich platters, salads, cookies, bars, cupcakes, and bakery case favorites.',
-    image: '/images/catering-platter.jpg',
+    image: '/images/yum-catering-platter-steak.jpg',
   },
 ] as const;
 
@@ -278,10 +278,10 @@ export const cateringProof = [
 ] as const;
 
 export const cakeGallery = [
-  { src: '/images/patticake/07_8inch_b.jpg', alt: 'patticake chocolate cake with buttercream message' },
-  { src: '/images/patticake/10_layers_slice.jpg', alt: 'patticake chocolate cake layers and vanilla buttercream' },
-  { src: '/images/patticake/01_cover.jpg', alt: 'tiered patticake wedding cake with flowers' },
-  { src: '/images/patticake/09_slices.jpg', alt: 'patticake slices with chocolate cake and vanilla buttercream' },
+  { src: '/images/yum-patticake-slices.jpg', alt: 'yum! patticake slices' },
+  { src: '/images/yum-bakery-gift-boxes.jpg', alt: 'yum! bakery gift boxes' },
+  { src: '/images/yum-bakery-counter-cake.jpg', alt: 'yum! bakery counter with cake' },
+  { src: '/images/yum-bakery-cupcakes.jpg', alt: 'yum! bakery cupcakes' },
 ] as const;
 
 export const cakeOptions = [
@@ -304,19 +304,19 @@ export const leaderCards = [
     name: 'Hugo',
     role: 'chef and hospitality team',
     href: '/about',
-    image: '/images/social-chef-hugo.jpg',
+    image: '/images/yum-chef-kitchen.jpg',
   },
   {
     name: 'Margaret',
     role: 'Woodbury hospitality lead',
     href: '/location/woodbury',
-    image: '/images/about-leader-woodbury.jpg',
+    image: '/images/yum-patti-kelli.jpeg',
   },
   {
     name: 'Mike',
     role: 'St. Paul neighborhood lead',
     href: '/location/saint-paul',
-    image: '/images/about-mike.jpg',
+    image: '/images/yum-meet-mike.jpg',
   },
 ] as const;
 

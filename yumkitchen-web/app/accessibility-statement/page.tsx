@@ -38,8 +38,8 @@ export default function AccessibilityPage() {
         primaryLabel="Contact Yum"
         secondaryHref="/menu"
         secondaryLabel="Browse Menu"
-        image="/images/social-picnic-perfect.jpg"
-        imageAlt="yum! picnic lunch and branded takeout box"
+        image="/images/yum-catering-boxed-lunch.jpg"
+        imageAlt="yum! boxed lunch and branded takeout box"
       />
     </main>
   );

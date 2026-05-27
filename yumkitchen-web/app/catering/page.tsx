@@ -21,7 +21,7 @@ export default function CateringPage() {
       <Hero
         title="yum! catering"
         copy="Sandwich platters, box lunches, salads, baked goods, and more available for pick up with 24 hour notice. Call with questions."
-        image="/images/catering-sandwiches.jpg"
+        image="/images/yum-catering-sandwiches-live.jpg"
         imageAlt="yum! catering sandwich platter"
         priority
       >
@@ -34,7 +34,7 @@ export default function CateringPage() {
       <section className="bg-white py-section">
         <div className="container-content grid items-center gap-10 lg:grid-cols-2">
           <div className="relative aspect-4/3 overflow-hidden">
-            <Image src="/images/catering-platter.jpg" alt="yum! catering trays" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+            <Image src="/images/yum-catering-platter-steak.jpg" alt="yum! catering trays" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
           </div>
           <div>
             <p className="section-label">for offices, families, and celebrations</p>
@@ -62,7 +62,7 @@ export default function CateringPage() {
         primaryLabel="Start Inquiry"
         secondaryHref="/order"
         secondaryLabel="Order Pickup"
-        image="/images/catering-boxed-lunch.jpg"
+        image="/images/yum-catering-boxed-lunch.jpg"
         imageAlt="yum! boxed catering lunch"
       />
       <LocationGrid />

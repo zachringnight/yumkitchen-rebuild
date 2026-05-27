@@ -10,7 +10,7 @@ export function LogoAnimation() {
   return (
     <section className="logo-animation-shell" aria-labelledby="logo-animation-title">
       <Image
-        src="/images/hero-food.jpg"
+        src="/images/yum-hero-1698.jpg"
         alt=""
         fill
         priority

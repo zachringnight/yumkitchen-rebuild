@@ -18,8 +18,8 @@ export default function AboutPage() {
       <Hero
         title="made from scratch since 2005"
         copy="Led by Patti and Robbie Soskin and a dedicated team, yum! is built around generous food, warm hospitality, and taking good care of people."
-        image="/images/about-kitchen.jpg"
-        imageAlt="yum! kitchen and bakery team at work"
+        image="/images/yum-dining-room.jpg"
+        imageAlt="guests dining inside yum!"
         priority
       />
       <section className="bg-white py-section">
@@ -36,7 +36,7 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="relative aspect-4/3 overflow-hidden bg-page">
-            <Image src="/images/about-food.jpg" alt="made-from-scratch yum! food" fill sizes="(min-width: 1024px) 42vw, 100vw" className="object-cover" />
+            <Image src="/images/yum-packaging-counter.jpg" alt="yum! takeout packaging at the counter" fill sizes="(min-width: 1024px) 42vw, 100vw" className="object-cover" />
           </div>
         </div>
       </section>
@@ -67,8 +67,8 @@ export default function AboutPage() {
         primaryLabel="See Recognition"
         secondaryHref="/order"
         secondaryLabel="Order Now"
-        image="/images/about-patti.jpg"
-        imageAlt="Patti Soskin at yum!"
+        image="/images/yum-patti-kelli.jpeg"
+        imageAlt="Patti and Kelli at yum!"
       />
     </main>
   );

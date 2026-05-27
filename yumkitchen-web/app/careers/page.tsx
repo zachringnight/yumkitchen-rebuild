@@ -17,8 +17,8 @@ export default function CareersPage() {
       <Hero
         title="come join us"
         copy="We love what we do. We look forward to investing in happy people who make yum! a great place to work and eat. We are hiring!"
-        image="/images/hero-sandwich.jpg"
-        imageAlt="yum! sandwiches and food"
+        image="/images/yum-chef-team.jpg"
+        imageAlt="yum! kitchen team"
         priority
       />
       <section className="bg-white py-section">
@@ -40,8 +40,8 @@ export default function CareersPage() {
         primaryLabel="Apply Now"
         secondaryHref="/about"
         secondaryLabel="Meet Yum"
-        image="/images/about-food.jpg"
-        imageAlt="yum! food spread"
+        image="/images/yum-dining-room.jpg"
+        imageAlt="yum! dining room"
       />
     </main>
   );

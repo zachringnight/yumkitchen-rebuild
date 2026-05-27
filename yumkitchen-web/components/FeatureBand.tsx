@@ -45,7 +45,7 @@ export function SplitFeatureBand() {
   return (
     <section className="grid bg-blue-tint/70 lg:grid-cols-3" data-reveal>
       <div className="relative min-h-[360px] lg:col-span-1">
-        <Image src="/images/catering-platter.jpg" alt="yum! catering platters" fill sizes="33vw" className="object-cover" />
+        <Image src="/images/yum-catering-platter-steak.jpg" alt="yum! catering platters" fill sizes="33vw" className="object-cover" />
       </div>
       <div className="flex min-h-[360px] items-center p-8 md:p-12">
         <div>
@@ -59,7 +59,7 @@ export function SplitFeatureBand() {
       </div>
       <div className="grid min-h-[360px] sm:grid-cols-2 lg:grid-cols-1">
         <div className="relative min-h-[240px]">
-          <Image src="/images/cake-key-lime.jpg" alt="yum! bakery dessert" fill sizes="33vw" className="object-cover" />
+          <Image src="/images/yum-bakery-key-lime-pie.jpg" alt="yum! bakery dessert" fill sizes="33vw" className="object-cover" />
         </div>
         <div className="flex items-center bg-blue-soft/70 p-8">
           <div>

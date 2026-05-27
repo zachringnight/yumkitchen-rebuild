@@ -19,8 +19,8 @@ export default function ContactPage() {
       <Hero
         title="we'd love to hear from you"
         copy="Call a location, send a note, or tell us how we can help. A member of our team will be in contact with you shortly."
-        image="/images/hero-salad.jpg"
-        imageAlt="yum! food spread"
+        image="/images/yum-mixed-berry-salad.png"
+        imageAlt="yum! mixed berry salad"
         priority
       >
         <CallPickerButton />
@@ -42,8 +42,8 @@ export default function ContactPage() {
         primaryLabel="Find a Location"
         secondaryHref="/order"
         secondaryLabel="Start Order"
-        image="/images/social-chef-hugo.jpg"
-        imageAlt="yum! chef holding a plated dish"
+        image="/images/yum-chef-kitchen.jpg"
+        imageAlt="yum! chef in the kitchen"
       />
       <LocationGrid />
     </main>

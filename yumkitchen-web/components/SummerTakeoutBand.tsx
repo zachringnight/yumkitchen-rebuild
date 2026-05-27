@@ -22,10 +22,10 @@ export function SummerTakeoutBand() {
         </div>
         <div className="grid gap-4 sm:grid-cols-[0.8fr_1.2fr]">
           <div className="relative aspect-square overflow-hidden bg-white shadow-xs">
-            <Image src="/images/social-take-it-to-lake.jpg" alt="yum! take it to the lake summer graphic" fill sizes="(min-width: 1024px) 24vw, 50vw" className="object-cover" />
+            <Image src="/images/yum-catering-egg-salad.jpg" alt="yum! takeout salad and boxed lunch" fill sizes="(min-width: 1024px) 24vw, 50vw" className="object-cover" />
           </div>
           <div className="relative min-h-[340px] overflow-hidden bg-white shadow-xl">
-            <Image src="/images/social-picnic-perfect.jpg" alt="yum! picnic lunch with sandwich, fruit, chips, and branded takeout box" fill sizes="(min-width: 1024px) 42vw, 100vw" className="image-lift object-cover" />
+            <Image src="/images/yum-catering-boxed-lunch.jpg" alt="yum! picnic lunch with sandwich, fruit, chips, and branded takeout box" fill sizes="(min-width: 1024px) 42vw, 100vw" className="image-lift object-cover" />
           </div>
         </div>
       </div>

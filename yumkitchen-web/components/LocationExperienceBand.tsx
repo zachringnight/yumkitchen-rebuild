@@ -35,10 +35,10 @@ export function LocationExperienceBand({ loc }: { loc: Location }) {
             <Image src={loc.cardImage} alt={`${loc.short_name} yum! location`} fill loading="eager" sizes="(min-width: 1024px) 46vw, 100vw" className="object-cover" />
           </div>
           <div className="location-experience-float location-experience-float-a">
-            <Image src="/images/social-picnic-perfect.jpg" alt="yum! boxed lunch and picnic food" fill sizes="240px" className="object-cover" />
+            <Image src="/images/yum-catering-boxed-lunch.jpg" alt="yum! boxed lunch and picnic food" fill sizes="240px" className="object-cover" />
           </div>
           <div className="location-experience-float location-experience-float-b">
-            <Image src="/images/social-cold-brew.jpg" alt="yum! cold brew cup" fill sizes="180px" className="object-cover" />
+            <Image src="/images/yum-cold-brew.jpg" alt="yum! cold brew cup" fill sizes="180px" className="object-cover" />
           </div>
         </div>
       </div>

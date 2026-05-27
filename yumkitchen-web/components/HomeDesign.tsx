@@ -97,6 +97,7 @@ export function HomeHero() {
           alt=""
           fill
           preload={current === 0}
+          fetchPriority={current === 0 ? 'high' : undefined}
           loading={current === 0 ? 'eager' : 'lazy'}
           sizes="100vw"
           className="home-hero-image is-active object-cover"

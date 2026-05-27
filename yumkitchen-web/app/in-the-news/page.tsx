@@ -30,7 +30,7 @@ export default function NewsPage() {
         primaryLabel="Browse Menu"
         secondaryHref="/catering"
         secondaryLabel="Plan Catering"
-        image="/images/social-key-lime-pie.jpg"
+        image="/images/yum-bakery-key-lime-pie.jpg"
         imageAlt="yum! key lime pie"
       />
       <LocationGrid />

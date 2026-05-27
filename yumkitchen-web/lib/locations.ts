@@ -40,8 +40,8 @@ type LocationDetail = {
 
 const locationDetails: Record<LocationSlug, LocationDetail> = {
   'st-louis-park': {
-    heroImage: '/images/location-slp.jpg',
-    cardImage: '/images/location-slp.jpg',
+    heroImage: '/images/yum-location-slp.jpg',
+    cardImage: '/images/yum-location-slp.jpg',
     neighborhood: 'Our original St. Louis Park kitchen sits on Minnetonka Boulevard, close to neighborhood errands, school pickups, and easy weeknight dinners.',
     parking: 'Easy lot parking near the front door.',
     roomNote: 'A warm everyday room for breakfast, lunch, dinner, takeout, and bakery stops.',
@@ -49,8 +49,8 @@ const locationDetails: Record<LocationSlug, LocationDetail> = {
     metaDescription: 'Visit yum! st. louis park at 4000 Minnetonka Blvd for breakfast, lunch, dinner, bakery, takeout, and online ordering.',
   },
   'shady-oak': {
-    heroImage: '/images/location-shady-oak.jpg',
-    cardImage: '/images/location-shady-oak.jpg',
+    heroImage: '/images/yum-location-shady-oak.jpg',
+    cardImage: '/images/yum-location-shady-oak.jpg',
     neighborhood: 'Our Shady Oak location serves Minnetonka and Hopkins with fast parking, friendly counters, and a full yum! menu.',
     parking: 'Convenient parking right off Shady Oak Road.',
     roomNote: 'Built for easy weekday lunches, family dinners, and pickup on the way home.',
@@ -58,8 +58,8 @@ const locationDetails: Record<LocationSlug, LocationDetail> = {
     metaDescription: 'Visit yum! shady oak at 6001 Shady Oak Rd in Minnetonka for made-from-scratch food, bakery, takeout, and online ordering.',
   },
   'saint-paul': {
-    heroImage: '/images/location-saint-paul.jpg',
-    cardImage: '/images/location-saint-paul.jpg',
+    heroImage: '/images/yum-location-saint-paul.jpg',
+    cardImage: '/images/yum-location-saint-paul.jpg',
     neighborhood: 'Our St. Paul kitchen is right on Snelling Avenue, ready for neighborhood breakfasts, lunch meetings, and dinner to go.',
     parking: 'Street and nearby neighborhood parking available.',
     roomNote: 'A comfortable stop for dine-in meals, coffee, dessert, and quick pickup.',
@@ -67,8 +67,8 @@ const locationDetails: Record<LocationSlug, LocationDetail> = {
     metaDescription: 'Visit yum! st. paul at 164 Snelling Avenue N for breakfast, lunch, dinner, bakery, takeout, and online ordering.',
   },
   woodbury: {
-    heroImage: '/images/location-woodbury.jpg',
-    cardImage: '/images/location-woodbury.jpg',
+    heroImage: '/images/yum-location-woodbury.png',
+    cardImage: '/images/yum-location-woodbury.png',
     neighborhood: 'Our Woodbury location brings yum! to the east metro with plenty of room for families, coworkers, and casual gatherings.',
     parking: 'Easy parking around City Centre Drive.',
     roomNote: 'A polished neighborhood spot for dining in, carrying out, and picking up celebration desserts.',
