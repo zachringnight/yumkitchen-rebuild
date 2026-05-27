@@ -27,7 +27,11 @@ export function LocationCard({ loc, compact = false }: Props) {
           <Link href={`/location/${loc.slug}`} className="block font-serif text-[1.35rem] font-normal leading-tight lowercase text-ink hover:text-brand-primary">
             {loc.name}
           </Link>
-          {loc.is_original && <span className="location-pill">original</span>}
+          {loc.is_original && (
+            <span className="border border-brand-primary/40 bg-white px-2 py-1 text-[0.72rem] font-bold uppercase leading-none tracking-[0.08em] text-ink">
+              original
+            </span>
+          )}
         </div>
         <address className="not-italic text-body">
           <a

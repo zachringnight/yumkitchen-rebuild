@@ -493,18 +493,6 @@
     linear-gradient(180deg, var(--color-page), white 55%, var(--color-blue-tint) 100%);
 }
 
-.location-pill {
-  border: 1px solid rgb(220 52 57 / 0.28);
-  background: rgb(220 52 57 / 0.08);
-  padding: 0.35rem 0.45rem;
-  color: var(--color-brand-red);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
 .location-modal-backdrop {
   opacity: 1;
 }
