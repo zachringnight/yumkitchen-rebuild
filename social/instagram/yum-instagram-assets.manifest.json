@@ -1,0 +1,158 @@
+{
+  "brand": {
+    "name": "yum! Kitchen and Bakery",
+    "colors": {
+      "red": "#dc3439",
+      "redBright": "#e03a3e",
+      "redDeep": "#b4212b",
+      "cream": "#fff4f5",
+      "lightBlue": "#cae4fd",
+      "softBlue": "#aed2ef",
+      "ink": "#2d2d2d",
+      "bodyGray": "#736e6e",
+      "pageGray": "#f3f3f3"
+    },
+    "fonts": {
+      "headline": "Trocchi",
+      "body": "Archivo Narrow"
+    }
+  },
+  "source": {
+    "editableTemplate": "/Users/zsoskin/YumKitchen_Rebuild/07_codex/social/instagram/yum-instagram-templates.html",
+    "renderCommand": "cd /Users/zsoskin/YumKitchen_Rebuild/07_codex/yumkitchen-web && node scripts/render-instagram-templates.mjs",
+    "exportDirectory": "/Users/zsoskin/YumKitchen_Rebuild/07_codex/social/instagram/exports"
+  },
+  "recommendedPublicDirectory": "/social/instagram",
+  "assets": [
+    {
+      "id": "yum-feed-bakery-square",
+      "filename": "yum-feed-bakery-square.png",
+      "localPath": "/Users/zsoskin/YumKitchen_Rebuild/07_codex/social/instagram/exports/yum-feed-bakery-square.png",
+      "publicPath": "/social/instagram/yum-feed-bakery-square.png",
+      "format": "png",
+      "width": 1080,
+      "height": 1080,
+      "aspectRatio": "1:1",
+      "placement": "instagram_feed_square",
+      "topic": "bakery",
+      "alt": "Yum bakery Instagram graphic with cake photography, cream panel, red call to action, and Yum brand colors."
+    },
+    {
+      "id": "yum-feed-seasonal-portrait",
+      "filename": "yum-feed-seasonal-portrait.png",
+      "localPath": "/Users/zsoskin/YumKitchen_Rebuild/07_codex/social/instagram/exports/yum-feed-seasonal-portrait.png",
+      "publicPath": "/social/instagram/yum-feed-seasonal-portrait.png",
+      "format": "png",
+      "width": 1080,
+      "height": 1350,
+      "aspectRatio": "4:5",
+      "placement": "instagram_feed_portrait",
+      "topic": "seasonal_menu",
+      "alt": "Yum seasonal favorites Instagram portrait with food photography and Yum red, cream, and light blue brand colors."
+    },
+    {
+      "id": "yum-story-order-now",
+      "filename": "yum-story-order-now.png",
+      "localPath": "/Users/zsoskin/YumKitchen_Rebuild/07_codex/social/instagram/exports/yum-story-order-now.png",
+      "publicPath": "/social/instagram/yum-story-order-now.png",
+      "format": "png",
+      "width": 1080,
+      "height": 1920,
+      "aspectRatio": "9:16",
+      "placement": "instagram_story",
+      "topic": "order_now",
+      "alt": "Yum order now Instagram story with takeout photography, red call to action, and lower safe-zone spacing."
+    },
+    {
+      "id": "yum-carousel-press-proof-square",
+      "filename": "yum-carousel-press-proof-square.png",
+      "localPath": "/Users/zsoskin/YumKitchen_Rebuild/07_codex/social/instagram/exports/yum-carousel-press-proof-square.png",
+      "publicPath": "/social/instagram/yum-carousel-press-proof-square.png",
+      "format": "png",
+      "width": 1080,
+      "height": 1080,
+      "aspectRatio": "1:1",
+      "placement": "instagram_carousel_square",
+      "topic": "press_proof",
+      "alt": "Yum press proof Instagram carousel slide with recognition points and Yum brand palette."
+    },
+    {
+      "id": "yum-reel-cover-made-scratch",
+      "filename": "yum-reel-cover-made-scratch.png",
+      "localPath": "/Users/zsoskin/YumKitchen_Rebuild/07_codex/social/instagram/exports/yum-reel-cover-made-scratch.png",
+      "publicPath": "/social/instagram/yum-reel-cover-made-scratch.png",
+      "format": "png",
+      "width": 1080,
+      "height": 1920,
+      "aspectRatio": "9:16",
+      "placement": "instagram_reel_cover",
+      "topic": "made_from_scratch",
+      "alt": "Yum reel cover with sandwich photography, cream text panel, and made from scratch message."
+    },
+    {
+      "id": "yum-feed-catering-portrait",
+      "filename": "yum-feed-catering-portrait.png",
+      "localPath": "/Users/zsoskin/YumKitchen_Rebuild/07_codex/social/instagram/exports/yum-feed-catering-portrait.png",
+      "publicPath": "/social/instagram/yum-feed-catering-portrait.png",
+      "format": "png",
+      "width": 1080,
+      "height": 1350,
+      "aspectRatio": "4:5",
+      "placement": "instagram_feed_portrait",
+      "topic": "catering",
+      "alt": "Yum catering Instagram portrait with sandwich photography, cream brand panel, and red plan catering button."
+    },
+    {
+      "id": "yum-feed-soup-sandwich-square",
+      "filename": "yum-feed-soup-sandwich-square.png",
+      "localPath": "/Users/zsoskin/YumKitchen_Rebuild/07_codex/social/instagram/exports/yum-feed-soup-sandwich-square.png",
+      "publicPath": "/social/instagram/yum-feed-soup-sandwich-square.png",
+      "format": "png",
+      "width": 1080,
+      "height": 1080,
+      "aspectRatio": "1:1",
+      "placement": "instagram_feed_square",
+      "topic": "soup_sandwich",
+      "alt": "Yum soup and sandwich Instagram square with dark overlay, cream text, and red call to action."
+    },
+    {
+      "id": "yum-story-cake-inquiry",
+      "filename": "yum-story-cake-inquiry.png",
+      "localPath": "/Users/zsoskin/YumKitchen_Rebuild/07_codex/social/instagram/exports/yum-story-cake-inquiry.png",
+      "publicPath": "/social/instagram/yum-story-cake-inquiry.png",
+      "format": "png",
+      "width": 1080,
+      "height": 1920,
+      "aspectRatio": "9:16",
+      "placement": "instagram_story",
+      "topic": "cake_inquiry",
+      "alt": "Yum cake inquiry Instagram story with Patticake slice photography, red call to action, and lower safe-zone spacing."
+    },
+    {
+      "id": "yum-carousel-locations-square",
+      "filename": "yum-carousel-locations-square.png",
+      "localPath": "/Users/zsoskin/YumKitchen_Rebuild/07_codex/social/instagram/exports/yum-carousel-locations-square.png",
+      "publicPath": "/social/instagram/yum-carousel-locations-square.png",
+      "format": "png",
+      "width": 1080,
+      "height": 1080,
+      "aspectRatio": "1:1",
+      "placement": "instagram_carousel_square",
+      "topic": "locations",
+      "alt": "Yum locations Instagram carousel slide with four neighborhood kitchens and light blue brand background."
+    },
+    {
+      "id": "yum-feed-breakfast-portrait",
+      "filename": "yum-feed-breakfast-portrait.png",
+      "localPath": "/Users/zsoskin/YumKitchen_Rebuild/07_codex/social/instagram/exports/yum-feed-breakfast-portrait.png",
+      "publicPath": "/social/instagram/yum-feed-breakfast-portrait.png",
+      "format": "png",
+      "width": 1080,
+      "height": 1350,
+      "aspectRatio": "4:5",
+      "placement": "instagram_feed_portrait",
+      "topic": "breakfast",
+      "alt": "Yum breakfast Instagram portrait with breakfast photography, cream brand panel, and red find a kitchen button."
+    }
+  ]
+}

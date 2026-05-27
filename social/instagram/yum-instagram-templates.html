@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>yum! Instagram Templates</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;700&family=Trocchi&display=swap');
+
+      :root {
+        --red: #dc3439;
+        --red-bright: #e03a3e;
+        --red-deep: #b4212b;
+        --ink: #2d2d2d;
+        --body: #736e6e;
+        --cream: #fff4f5;
+        --page: #f3f3f3;
+        --blue: #cae4fd;
+        --blue-soft: #aed2ef;
+        --serif: 'Trocchi', Georgia, serif;
+        --sans: 'Archivo Narrow', system-ui, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--ink);
+        color: var(--ink);
+        font-family: var(--sans);
+      }
+
+      .board {
+        display: grid;
+        gap: 32px;
+        padding: 32px;
+      }
+
+      .template {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        background: var(--page);
+      }
+
+      .square {
+        width: 1080px;
+        height: 1080px;
+      }
+
+      .portrait {
+        width: 1080px;
+        height: 1350px;
+      }
+
+      .story {
+        width: 1080px;
+        height: 1920px;
+      }
+
+      .photo {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .logo {
+        width: 132px;
+        height: 132px;
+        border-radius: 999px;
+        object-fit: contain;
+      }
+
+      .logo.small {
+        width: 104px;
+        height: 104px;
+      }
+
+      .photo-frame {
+        position: absolute;
+        overflow: hidden;
+        border: 10px solid var(--cream);
+        background: var(--cream);
+      }
+
+      .panel {
+        position: absolute;
+        background: rgb(255 244 245 / 0.94);
+        padding: 54px;
+      }
+
+      .cream-panel {
+        position: absolute;
+        background: rgb(255 244 245 / 0.95);
+        padding: 54px;
+      }
+
+      .kicker {
+        margin: 0 0 20px;
+        color: var(--red);
+        font-size: 27px;
+        font-weight: 700;
+        letter-spacing: 0.13em;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .headline {
+        margin: 0;
+        font-family: var(--serif);
+        font-size: 82px;
+        font-weight: 400;
+        line-height: 0.98;
+        letter-spacing: 0;
+        text-transform: lowercase;
+      }
+
+      .dek {
+        margin: 30px 0 0;
+        color: var(--body);
+        font-size: 38px;
+        font-weight: 400;
+        line-height: 1.18;
+      }
+
+      .rule {
+        width: 150px;
+        height: 5px;
+        margin: 34px 0;
+        background: var(--red);
+      }
+
+      .cta {
+        display: inline-block;
+        margin-top: 34px;
+        background: var(--red);
+        color: var(--cream);
+        font-size: 34px;
+        font-weight: 700;
+        line-height: 1;
+        padding: 24px 34px;
+        text-transform: uppercase;
+      }
+
+      .url {
+        position: absolute;
+        right: 54px;
+        bottom: 46px;
+        color: currentColor;
+        font-size: 25px;
+        font-weight: 700;
+        letter-spacing: 0.13em;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .story .url {
+        bottom: 172px;
+      }
+
+      .chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 34px;
+      }
+
+      .chip {
+        border: 2px solid currentColor;
+        padding: 15px 18px;
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .scrim {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, rgb(45 45 45 / 0.02) 0%, rgb(45 45 45 / 0.12) 42%, rgb(45 45 45 / 0.7) 100%),
+          radial-gradient(circle at 26% 18%, rgb(202 228 253 / 0.32), transparent 44%);
+      }
+
+      .mast {
+        position: absolute;
+        left: 58px;
+        right: 58px;
+        top: 58px;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .mast span {
+        color: var(--red);
+        font-size: 26px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .template-a .photo {
+        filter: saturate(1.05);
+      }
+
+      .template-a .panel {
+        left: 70px;
+        right: 70px;
+        bottom: 70px;
+      }
+
+      .template-a .logo {
+        position: absolute;
+        left: 70px;
+        top: 68px;
+        z-index: 2;
+      }
+
+      .template-b {
+        background:
+          linear-gradient(135deg, rgb(255 244 245 / 0.95), rgb(202 228 253 / 0.72)),
+          var(--page);
+      }
+
+      .template-b .copy {
+        position: absolute;
+        left: 64px;
+        right: 64px;
+        top: 68px;
+        z-index: 2;
+      }
+
+      .template-b .headline {
+        max-width: 900px;
+        font-size: 72px;
+      }
+
+      .template-b .dek {
+        max-width: 760px;
+        font-size: 34px;
+      }
+
+      .template-b .photo-frame.one {
+        left: 62px;
+        bottom: 98px;
+        width: 492px;
+        height: 610px;
+        transform: rotate(-3deg);
+      }
+
+      .template-b .photo-frame.two {
+        right: 52px;
+        bottom: 206px;
+        width: 455px;
+        height: 450px;
+        transform: rotate(2deg);
+      }
+
+      .template-b .photo-frame.three {
+        right: 130px;
+        bottom: 70px;
+        width: 362px;
+        height: 262px;
+        transform: rotate(-1deg);
+      }
+
+      .template-c {
+        color: var(--cream);
+        background: var(--ink);
+      }
+
+      .template-c .logo {
+        position: absolute;
+        left: 74px;
+        top: 94px;
+        z-index: 2;
+      }
+
+      .template-c .story-copy {
+        position: absolute;
+        left: 74px;
+        right: 74px;
+        bottom: 285px;
+        z-index: 2;
+      }
+
+      .template-c .headline {
+        max-width: 820px;
+        color: var(--cream);
+        font-size: 105px;
+      }
+
+      .template-c .dek {
+        max-width: 760px;
+        color: var(--cream);
+        font-size: 44px;
+      }
+
+      .template-c .url {
+        color: var(--cream);
+      }
+
+      .template-d {
+        background: var(--cream);
+      }
+
+      .template-d .headline {
+        position: absolute;
+        left: 58px;
+        right: 58px;
+        top: 240px;
+        font-size: 68px;
+      }
+
+      .template-d .proof-list {
+        position: absolute;
+        left: 58px;
+        right: 58px;
+        bottom: 118px;
+        display: grid;
+        gap: 22px;
+      }
+
+      .template-d .proof {
+        display: grid;
+        grid-template-columns: 54px 1fr;
+        gap: 24px;
+        align-items: start;
+        border-top: 3px solid rgb(45 45 45 / 0.12);
+        padding-top: 22px;
+      }
+
+      .template-d .proof strong {
+        display: grid;
+        width: 54px;
+        height: 54px;
+        place-items: center;
+        background: var(--red);
+        color: var(--cream);
+        font-size: 29px;
+      }
+
+      .template-d .proof span {
+        font-size: 34px;
+        font-weight: 700;
+        line-height: 1.08;
+        text-transform: none;
+      }
+
+      .template-e .photo {
+        filter: saturate(1.05);
+      }
+
+      .template-e .panel {
+        left: 74px;
+        right: 74px;
+        top: 760px;
+      }
+
+      .template-e .headline {
+        font-size: 88px;
+      }
+
+      .template-e .dek {
+        font-size: 38px;
+      }
+
+      .template-e .url {
+        color: var(--cream);
+      }
+
+      .template-f {
+        background:
+          linear-gradient(135deg, rgb(202 228 253 / 0.88), rgb(255 244 245 / 0.9)),
+          var(--page);
+      }
+
+      .template-f .photo-frame.hero {
+        left: 62px;
+        right: 62px;
+        top: 66px;
+        height: 590px;
+      }
+
+      .template-f .cream-panel {
+        left: 62px;
+        right: 62px;
+        bottom: 96px;
+      }
+
+      .template-f .headline {
+        font-size: 72px;
+      }
+
+      .template-f .dek {
+        font-size: 34px;
+      }
+
+      .template-g {
+        background: var(--ink);
+        color: var(--cream);
+      }
+
+      .template-g .scrim {
+        background: linear-gradient(90deg, rgb(45 45 45 / 0.82) 0%, rgb(45 45 45 / 0.52) 48%, rgb(45 45 45 / 0.1) 100%);
+      }
+
+      .template-g .copy {
+        position: absolute;
+        left: 68px;
+        right: 410px;
+        bottom: 88px;
+        z-index: 2;
+      }
+
+      .template-g .headline {
+        color: var(--cream);
+        font-size: 84px;
+      }
+
+      .template-g .dek {
+        color: var(--cream);
+      }
+
+      .template-g .logo {
+        position: absolute;
+        right: 68px;
+        top: 68px;
+        z-index: 2;
+      }
+
+      .template-g .url {
+        color: var(--cream);
+      }
+
+      .template-h {
+        color: var(--cream);
+        background: var(--ink);
+      }
+
+      .template-h .logo {
+        position: absolute;
+        left: 74px;
+        top: 96px;
+        z-index: 2;
+      }
+
+      .template-h .story-copy {
+        position: absolute;
+        left: 74px;
+        right: 74px;
+        bottom: 310px;
+        z-index: 2;
+      }
+
+      .template-h .headline {
+        max-width: 790px;
+        color: var(--cream);
+        font-size: 104px;
+      }
+
+      .template-h .dek {
+        max-width: 760px;
+        color: var(--cream);
+        font-size: 43px;
+      }
+
+      .template-h .url {
+        color: var(--cream);
+      }
+
+      .template-i {
+        background: var(--blue);
+      }
+
+      .template-i .headline {
+        position: absolute;
+        left: 62px;
+        right: 62px;
+        top: 230px;
+        font-size: 74px;
+      }
+
+      .template-i .location-list {
+        position: absolute;
+        left: 62px;
+        right: 62px;
+        bottom: 96px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .template-i .location {
+        min-height: 142px;
+        border: 3px solid rgb(45 45 45 / 0.18);
+        background: rgb(255 244 245 / 0.74);
+        padding: 25px;
+      }
+
+      .template-i .location strong {
+        display: block;
+        font-family: var(--serif);
+        font-size: 35px;
+        font-weight: 400;
+        line-height: 1;
+        text-transform: lowercase;
+      }
+
+      .template-i .location span {
+        display: block;
+        margin-top: 14px;
+        color: var(--body);
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .template-j {
+        background: var(--cream);
+      }
+
+      .template-j .hero-photo {
+        position: absolute;
+        inset: 64px 64px auto;
+        height: 610px;
+        overflow: hidden;
+        border: 10px solid var(--cream);
+      }
+
+      .template-j .cream-panel {
+        left: 64px;
+        right: 64px;
+        bottom: 86px;
+      }
+
+      .template-j .headline {
+        font-size: 72px;
+      }
+
+      .template-j .dek {
+        font-size: 34px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="board">
+      <section class="template square template-a" data-export="yum-feed-bakery-square">
+        <img class="photo" src="../../yumkitchen-web/public/images/social-cake-slice.jpg" alt="" />
+        <img class="logo" src="../../yumkitchen-web/public/favicon.png" alt="" />
+        <div class="panel">
+          <p class="kicker">bakery case</p>
+          <h1 class="headline">sweet enough to plan around</h1>
+          <div class="rule"></div>
+          <p class="dek">Patticake, cookies, pies, bars, and celebration sweets made from scratch daily.</p>
+          <span class="cta">order cake</span>
+        </div>
+        <div class="url">yumkitchen.com</div>
+      </section>
+
+      <section class="template portrait template-b" data-export="yum-feed-seasonal-portrait">
+        <div class="copy">
+          <p class="kicker">what looks good today</p>
+          <h1 class="headline">seasonal favorites with real appetite appeal</h1>
+          <p class="dek">Breakfast, lunch, dinner, bakery, and take-home comfort from the Yum kitchen.</p>
+          <div class="chip-row">
+            <span class="chip">soups</span>
+            <span class="chip">sandwiches</span>
+            <span class="chip">bakery</span>
+            <span class="chip">dinner</span>
+          </div>
+        </div>
+        <div class="photo-frame one"><img class="photo" src="../../yumkitchen-web/public/images/yum-ahi-tuna.png" alt="" /></div>
+        <div class="photo-frame two"><img class="photo" src="../../yumkitchen-web/public/images/yum-grainy-mustard-salmon.png" alt="" /></div>
+        <div class="photo-frame three"><img class="photo" src="../../yumkitchen-web/public/images/yum-bobs-tomato-soup.jpg" alt="" /></div>
+        <div class="url">yumkitchen.com/menu</div>
+      </section>
+
+      <section class="template story template-c" data-export="yum-story-order-now">
+        <img class="photo" src="../../yumkitchen-web/public/images/social-picnic-perfect.jpg" alt="" />
+        <div class="scrim"></div>
+        <img class="logo" src="../../yumkitchen-web/public/favicon.png" alt="" />
+        <div class="story-copy">
+          <p class="kicker">open daily 8am - 8pm</p>
+          <h1 class="headline">take yum! to work or home</h1>
+          <p class="dek">Choose a kitchen, build your order, and continue to Toast checkout.</p>
+          <span class="cta">order now</span>
+        </div>
+        <div class="url">yumkitchen.com/order</div>
+      </section>
+
+      <section class="template square template-d" data-export="yum-carousel-press-proof-square">
+        <div class="mast">
+          <img class="logo small" src="../../yumkitchen-web/public/favicon.png" alt="" />
+          <span>outside validation</span>
+        </div>
+        <h1 class="headline">a Twin Cities favorite, recognized by people who know food here</h1>
+        <div class="proof-list">
+          <div class="proof"><strong>1</strong><span>Mpls.St.Paul Magazine Hall of Fame</span></div>
+          <div class="proof"><strong>2</strong><span>Star Tribune pies and cookies picks</span></div>
+          <div class="proof"><strong>3</strong><span>Eater Twin Cities dessert mentions</span></div>
+          <div class="proof"><strong>4</strong><span>KSTP and CBS / WCCO features</span></div>
+        </div>
+        <div class="url">yumkitchen.com/in-the-news</div>
+      </section>
+
+      <section class="template story template-e" data-export="yum-reel-cover-made-scratch">
+        <img class="photo" src="../../yumkitchen-web/public/images/yum-hero-1698.jpg" alt="" />
+        <div class="scrim"></div>
+        <div class="panel">
+          <p class="kicker">made from scratch since 2005</p>
+          <h1 class="headline">made fresh, packed easy, loved locally</h1>
+          <p class="dek">Four neighborhood kitchens across the Twin Cities metro.</p>
+        </div>
+        <div class="url">yumkitchen.com</div>
+      </section>
+
+      <section class="template portrait template-f" data-export="yum-feed-catering-portrait">
+        <div class="photo-frame hero"><img class="photo" src="../../yumkitchen-web/public/images/yum-catering-veggie-platters.jpg" alt="" /></div>
+        <div class="cream-panel">
+          <p class="kicker">yum! catering</p>
+          <h1 class="headline">platters, box lunches, salads, and sweets</h1>
+          <p class="dek">Available for pickup with 24 hour notice. Call your closest kitchen with questions.</p>
+          <span class="cta">plan catering</span>
+        </div>
+        <div class="url">yumkitchen.com/catering</div>
+      </section>
+
+      <section class="template square template-g" data-export="yum-feed-soup-sandwich-square">
+        <img class="photo" src="../../yumkitchen-web/public/images/yum-bobs-tomato-soup.jpg" alt="" />
+        <div class="scrim"></div>
+        <img class="logo" src="../../yumkitchen-web/public/favicon.png" alt="" />
+        <div class="copy">
+          <p class="kicker">lunch comfort</p>
+          <h1 class="headline">soup + sandwich weather</h1>
+          <p class="dek">Scratch soups, toasted sandwiches, and a bakery case worth one more stop.</p>
+          <span class="cta">see menu</span>
+        </div>
+        <div class="url">yumkitchen.com/menu</div>
+      </section>
+
+      <section class="template story template-h" data-export="yum-story-cake-inquiry">
+        <img class="photo" src="../../yumkitchen-web/public/images/patticake/09_slices.jpg" alt="" />
+        <div class="scrim"></div>
+        <img class="logo" src="../../yumkitchen-web/public/favicon.png" alt="" />
+        <div class="story-copy">
+          <p class="kicker">cake days</p>
+          <h1 class="headline">from bakery case to celebration table</h1>
+          <p class="dek">Patticake, slices, custom cakes, and sweets for the calendar moments.</p>
+          <span class="cta">start inquiry</span>
+        </div>
+        <div class="url">yumkitchen.com/order-a-cake</div>
+      </section>
+
+      <section class="template square template-i" data-export="yum-carousel-locations-square">
+        <div class="mast">
+          <img class="logo small" src="../../yumkitchen-web/public/favicon.png" alt="" />
+          <span>four neighborhood kitchens</span>
+        </div>
+        <h1 class="headline">eat here, take it to work, or take it home</h1>
+        <div class="location-list">
+          <div class="location"><strong>st. louis park</strong><span>original yum!</span></div>
+          <div class="location"><strong>shady oak</strong><span>Minnetonka</span></div>
+          <div class="location"><strong>st. paul</strong><span>daily 8am - 8pm</span></div>
+          <div class="location"><strong>woodbury</strong><span>daily 8am - 8pm</span></div>
+        </div>
+        <div class="url">yumkitchen.com</div>
+      </section>
+
+      <section class="template portrait template-j" data-export="yum-feed-breakfast-portrait">
+        <div class="hero-photo"><img class="photo" src="../../yumkitchen-web/public/images/social-breakfast-hash.jpg" alt="" /></div>
+        <div class="cream-panel">
+          <p class="kicker">morning regulars</p>
+          <h1 class="headline">breakfast, coffee, and a box for later</h1>
+          <p class="dek">Start at the counter, then take scratch-made favorites into the rest of the day.</p>
+          <span class="cta">find a kitchen</span>
+        </div>
+        <div class="url">yumkitchen.com</div>
+      </section>
+    </main>
+  </body>
+</html>
