@@ -12,7 +12,7 @@
     "validate:content": "node ../scripts/validate_content.js",
     "smoke:ui": "node ../scripts/smoke_ui.js ${BASE_URL:-http://localhost:${PORT:-3000}}",
     "audit:links": "node ../scripts/link_audit.js ${BASE_URL:-http://localhost:${PORT:-3000}}",
-    "a11y": "node ../scripts/a11y_audit.js ${BASE_URL:-http://localhost:${PORT:-3000}} / /order /menu /catering /order-a-cake /about /careers /in-the-news /contact /accessibility-statement /location/st-louis-park /location/shady-oak /location/saint-paul /location/woodbury",
+    "a11y": "node ../scripts/a11y_audit.js ${BASE_URL:-http://localhost:${PORT:-3000}} / /order /menu /catering /order-a-cake /patticake-national-delivery /about /careers /in-the-news /contact /accessibility-statement /location/st-louis-park /location/shady-oak /location/saint-paul /location/woodbury",
     "lh": "lighthouse ${BASE_URL:-http://localhost:${PORT:-3000}} --quiet --chrome-flags=\"--headless=new --no-sandbox\" --output=json --output-path=/tmp/yum-lh.json"
   },
   "dependencies": {

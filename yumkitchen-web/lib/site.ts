@@ -4,6 +4,7 @@ export const siteUrl = 'https://yumkitchen.com';
 
 export const giftCardBuyUrl = 'https://www.toasttab.com/yumkitchenslp/giftcards';
 export const giftCardBalanceUrl = 'https://www.toasttab.com/yumkitchenslp/findcard';
+export const patticakeNationalOrderUrl = process.env.NEXT_PUBLIC_PATTICAKE_NATIONAL_ORDER_URL ?? '/patticake-national-delivery#delivery-support';
 
 export const navItems = [
   { href: '/menu', label: 'menu' },
@@ -28,7 +29,14 @@ export const navItems = [
   },
   { href: '/#locations', label: 'locations' },
   { href: '/catering', label: 'catering' },
-  { href: '/order-a-cake', label: 'cakes' },
+  {
+    href: '/order-a-cake',
+    label: 'cakes',
+    children: [
+      { href: '/order-a-cake', label: 'local cakes' },
+      { href: '/patticake-national-delivery', label: 'national delivery' },
+    ],
+  },
 ] as const;
 
 export const socialLinks = [
@@ -63,6 +71,11 @@ export const pageMeta = {
   cake: {
     title: 'order a patticake',
     description: 'Order or inquire about yum! Kitchen and Bakery Patticake, wedding cakes, and celebration cakes.',
+    image: '/og/default.jpg',
+  },
+  patticakeDelivery: {
+    title: 'Patticake national delivery',
+    description: 'Order yum! Kitchen and Bakery Patticake for national delivery, with a direct order path plus bakery support for delivery questions.',
     image: '/og/default.jpg',
   },
   about: {

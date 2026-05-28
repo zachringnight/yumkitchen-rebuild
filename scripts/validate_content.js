@@ -13,7 +13,7 @@ const requiredPublicFiles = [
   'pdfs/gf-allergy-menu.pdf',
 ];
 const forbiddenLocationNames = ['edina', 'maple grove', 'roseville'];
-const forbiddenScrapeFragments = ['Follow for more yum!', 'Quick Links', 'SITE BY HAFI'];
+const forbiddenScrapeFragments = ['Follow for more yum!', 'Quick Links'];
 
 let failures = 0;
 

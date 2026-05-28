@@ -6,6 +6,7 @@
 - `RESEND_FROM`: optional sender, defaults to `yum! website <onboarding@resend.dev>`.
 - `YUM_FORMS_TO`: optional recipient, defaults to `info@yumkitchen.com`.
 - `NEXT_PUBLIC_GTM_ID`: set to `GTM-P9584HPC` for production analytics. Leave unset for local Lighthouse runs.
+- `NEXT_PUBLIC_PATTICAKE_NATIONAL_ORDER_URL`: optional direct checkout URL for Patticake national delivery. When unset, the page routes the primary CTA to the on-page national-delivery order-details form.
 
 ## Preflight
 

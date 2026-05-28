@@ -51,17 +51,39 @@ const labels: Record<InquiryKind, { subject: string; message: string; submit: st
   },
 };
 
-export function InquiryForm({ kind }: { kind: InquiryKind }) {
+type InquiryFormProps = {
+  kind: InquiryKind;
+  defaultSubject?: string;
+  messageLabel?: string;
+  submitLabel?: string;
+  eventDateLabel?: string;
+  guestsLabel?: string;
+  locationLabel?: string;
+};
+
+export function InquiryForm({
+  kind,
+  defaultSubject,
+  messageLabel,
+  submitLabel,
+  eventDateLabel,
+  guestsLabel,
+  locationLabel,
+}: InquiryFormProps) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [serverMessage, setServerMessage] = useState('');
-  const copy = labels[kind];
+  const copy = {
+    ...labels[kind],
+    ...(messageLabel ? { message: messageLabel } : {}),
+    ...(submitLabel ? { submit: submitLabel } : {}),
+  };
   const requiresEventDetails = kind === 'catering' || kind === 'cake';
   const defaults = useMemo<Partial<InquiryFormValues>>(
     () => ({
-      subject: kind === 'cake' ? 'Wedding cake' : kind === 'catering' ? 'Catering inquiry' : '',
+      subject: defaultSubject ?? (kind === 'cake' ? 'Wedding cake' : kind === 'catering' ? 'Catering inquiry' : ''),
       location: '',
     }),
-    [kind],
+    [defaultSubject, kind],
   );
 
   const {
@@ -112,7 +134,7 @@ export function InquiryForm({ kind }: { kind: InquiryKind }) {
         <Field id={`${kind}-phone`} label="Phone" error={errors.phone?.message}>
           <input id={`${kind}-phone`} type="tel" autoComplete="tel" {...register('phone')} />
         </Field>
-        <Field id={`${kind}-location`} label="Location" error={errors.location?.message}>
+        <Field id={`${kind}-location`} label={locationLabel ?? 'Location'} error={errors.location?.message}>
           <select id={`${kind}-location`} {...register('location')}>
             <option value="">Select a location</option>
             {locations.map((loc) => (
@@ -128,10 +150,10 @@ export function InquiryForm({ kind }: { kind: InquiryKind }) {
         </Field>
         {requiresEventDetails && (
           <>
-            <Field id={`${kind}-event-date`} label={kind === 'cake' ? 'Date of Event' : 'Event Date'} error={errors.eventDate?.message}>
+            <Field id={`${kind}-event-date`} label={eventDateLabel ?? (kind === 'cake' ? 'Date of Event' : 'Event Date')} error={errors.eventDate?.message}>
               <input id={`${kind}-event-date`} type="date" {...register('eventDate')} />
             </Field>
-            <Field id={`${kind}-guests`} label="Guests" error={errors.guests?.message}>
+            <Field id={`${kind}-guests`} label={guestsLabel ?? 'Guests'} error={errors.guests?.message}>
               <input id={`${kind}-guests`} inputMode="numeric" {...register('guests')} />
             </Field>
           </>

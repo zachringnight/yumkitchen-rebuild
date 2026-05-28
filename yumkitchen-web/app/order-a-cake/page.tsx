@@ -13,20 +13,20 @@ const patticakeProducts = [
   {
     name: 'classic patticake',
     description: 'Devil&apos;s food chocolate cake layered with vanilla buttercream, sliced from the real yum! bakery case.',
-    image: '/images/yum-patticake-slices.jpg',
-    alt: 'yum! patticake slices',
+    image: '/images/yum-patticake-layers.jpg',
+    alt: 'yum! patticake chocolate cake layers',
   },
   {
-    name: 'bakery gift boxes',
-    description: 'Real yum! bakery packaging for birthdays, thank-yous, office treats, and care packages.',
-    image: '/images/yum-bakery-gift-boxes.jpg',
-    alt: 'yum! bakery gift boxes',
+    name: 'giftable patticake',
+    description: 'The same original chocolate cake, ready for birthdays, thank-yous, office treats, and care packages.',
+    image: '/images/yum-patticake-top.jpg',
+    alt: 'yum! patticake top with vanilla buttercream',
   },
   {
-    name: 'counter celebrations',
-    description: 'Cake, bars, cookies, and cupcakes finished by the yum! bakery team for pickup.',
-    image: '/images/yum-bakery-counter-cake.jpg',
-    alt: 'yum! bakery counter with cake',
+    name: 'celebration patticake',
+    description: 'Patti&apos;s recipe, finished by the yum! bakery team for pickup or delivery questions.',
+    image: '/images/yum-patticake-tier.jpg',
+    alt: 'yum! tiered wedding patticake',
   },
 ] as const;
 
@@ -55,24 +55,24 @@ const deliverySteps = [
 
 const weddingPhotos = [
   {
-    src: '/images/yum-bakery-counter-cake.jpg',
-    alt: 'yum! bakery counter with cake',
+    src: '/images/yum-patticake-floral-tier.jpg',
+    alt: 'yum! floral wedding patticake',
   },
   {
-    src: '/images/yum-bakery-gift-boxes.jpg',
-    alt: 'yum! bakery gift boxes',
+    src: '/images/yum-patticake-top.jpg',
+    alt: 'yum! patticake top with vanilla buttercream',
   },
   {
-    src: '/images/yum-bakery-cupcakes.jpg',
-    alt: 'yum! bakery cupcakes',
+    src: '/images/yum-patticake-tier.jpg',
+    alt: 'yum! tiered wedding patticake',
   },
 ] as const;
 
 const gallery = [
-  { src: '/images/yum-patticake-slices.jpg', alt: 'yum! patticake slices' },
-  { src: '/images/yum-bakery-bars.jpeg', alt: 'yum! bakery bars' },
-  { src: '/images/yum-bakery-pie.jpeg', alt: 'yum! pie slice' },
-  { src: '/images/yum-bakery-cupcakes.jpg', alt: 'yum! bakery cupcakes' },
+  { src: '/images/yum-patticake-layers.jpg', alt: 'yum! patticake chocolate cake layers' },
+  { src: '/images/yum-patticake-top.jpg', alt: 'yum! patticake top with vanilla buttercream' },
+  { src: '/images/yum-patticake-tier.jpg', alt: 'yum! tiered wedding patticake' },
+  { src: '/images/yum-patticake-floral-tier.jpg', alt: 'yum! floral wedding patticake' },
 ] as const;
 
 export default function CakePage() {
@@ -96,15 +96,15 @@ export default function CakePage() {
               <a href="#shop-patticake" className="btn-primary">
                 Order a patticake
               </a>
-              <a href="#delivery" className="btn-secondary">
-                details & FAQ
+              <a href="/patticake-national-delivery" className="btn-secondary">
+                National delivery
               </a>
             </div>
           </div>
           <div className="relative aspect-[4/5] overflow-hidden bg-blue-soft">
             <Image
-              src="/images/yum-patticake-slices.jpg"
-              alt="yum! patticake slices"
+              src="/images/yum-patticake-layers.jpg"
+              alt="yum! patticake chocolate cake layers"
               fill
               priority
               sizes="(min-width: 1024px) 44vw, 100vw"
@@ -128,8 +128,8 @@ export default function CakePage() {
           <div className="grid grid-cols-2 gap-8">
             <Stat value="1" label="signature chocolate cake" />
             <Stat value="4" label="yum! kitchens behind it" />
-            <Stat value="24h" label="notice recommended" />
-            <Stat value="100%" label="real yum! bakery photography" />
+            <Stat value="24h+" label="notice recommended" />
+            <Stat value="new" label="national delivery order path" />
           </div>
         </div>
       </section>
@@ -142,7 +142,7 @@ export default function CakePage() {
               <h2 className="text-h2 lowercase">one cake, a few ways to send it</h2>
             </div>
             <p className="max-w-2xl text-xl leading-9">
-              The page leads with the product and keeps every visual sourced from yum! bakery photography.
+              Choose the Patticake path that fits the moment: local pickup, a celebration table, or delivery questions for someone farther away.
             </p>
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
@@ -167,7 +167,7 @@ export default function CakePage() {
       <section id="delivery" className="bg-blue-soft px-6 py-section">
         <div className="mx-auto max-w-[1200px] text-center">
           <p className="mb-3 font-sans text-sm font-bold uppercase tracking-[0.12em] text-ink">how it works</p>
-          <h2 className="text-h2 lowercase">from oven to doorstep, fast.</h2>
+          <h2 className="text-h2 lowercase">from oven to celebration, clearly.</h2>
           <div className="mt-12 grid gap-5 text-left md:grid-cols-4">
             {deliverySteps.map((step) => (
               <article key={step.number} className="border border-[#e0d8d9] bg-white p-6">
@@ -176,6 +176,17 @@ export default function CakePage() {
                 <p className="mt-3 text-base leading-7">{step.description}</p>
               </article>
             ))}
+          </div>
+          <div className="mx-auto mt-10 max-w-3xl border border-brand-primary/20 bg-white p-7 text-left md:flex md:items-center md:justify-between md:gap-8">
+            <div>
+              <h3 className="font-serif text-3xl font-normal lowercase text-ink">sending Patticake outside town?</h3>
+              <p className="mt-3 text-lg leading-8 text-body">
+                Use the dedicated Patticake national delivery page when you want to send the cake outside the Twin Cities.
+              </p>
+            </div>
+            <a href="/patticake-national-delivery" className="btn-primary mt-5 shrink-0 md:mt-0">
+              Order Delivery
+            </a>
           </div>
         </div>
       </section>
@@ -190,7 +201,7 @@ export default function CakePage() {
               for your table.
             </h2>
             <p className="mt-5 text-xl leading-9">
-              Cakes, bars, cupcakes, and boxed treats stay grounded in real yum! bakery photography so the experience feels focused, generous, and true to the counter.
+              Wedding tables, milestone parties, and family celebrations can all start with the original chocolate cake Patti made famous.
             </p>
             <a href="#shop-patticake" className="btn-primary mt-8">
               plan a cake
@@ -200,8 +211,8 @@ export default function CakePage() {
             <div className="relative row-span-2 aspect-[3/4] overflow-hidden">
               <Image src={weddingPhotos[0].src} alt={weddingPhotos[0].alt} fill loading="eager" sizes="(min-width: 1024px) 32vw, 58vw" className="object-cover" />
             </div>
-            {weddingPhotos.slice(1).map((photo) => (
-              <div key={photo.src} className="relative aspect-[4/3] overflow-hidden">
+            {weddingPhotos.slice(1).map((photo, index) => (
+              <div key={`${photo.alt}-${index}`} className="relative aspect-[4/3] overflow-hidden">
                 <Image src={photo.src} alt={photo.alt} fill loading="eager" sizes="(min-width: 1024px) 22vw, 42vw" className="object-cover" />
               </div>
             ))}
@@ -213,11 +224,11 @@ export default function CakePage() {
         <div className="mx-auto max-w-[1200px]">
           <div className="mb-9 max-w-2xl">
             <p className="section-label">patticake gallery</p>
-            <h2 className="text-h2 lowercase">every photo is the cake</h2>
+            <h2 className="text-h2 lowercase">every photo is patticake</h2>
           </div>
           <div className="grid gap-4 md:grid-cols-4">
-            {gallery.map((image) => (
-              <div key={image.src} className="relative aspect-square overflow-hidden bg-page">
+            {gallery.map((image, index) => (
+              <div key={`${image.alt}-${index}`} className="relative aspect-square overflow-hidden bg-page">
                 <Image src={image.src} alt={image.alt} fill loading="eager" sizes="(min-width: 768px) 25vw, 100vw" className="object-cover" />
               </div>
             ))}
@@ -229,7 +240,7 @@ export default function CakePage() {
         <div className="mx-auto max-w-[680px]">
           <h2 className="font-serif text-[3.25rem] font-normal leading-tight lowercase text-white">send some love.</h2>
           <p className="mx-auto mt-5 max-w-lg text-xl leading-9 text-white">
-            A focused cake ordering path, built around yum! bakery photography and a clear pickup inquiry.
+            Start with Patticake for pickup, delivery questions, birthdays, weddings, and every table that needs the original.
           </p>
           <a href="#shop-patticake" className="mt-8 inline-block bg-white px-8 py-4 text-lg font-bold leading-none text-brand-primary transition hover:bg-blue-tint hover:text-ink">
             order now

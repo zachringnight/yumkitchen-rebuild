@@ -10,6 +10,7 @@ const quickLinks = [
   { href: giftCardBuyUrl, label: 'gift cards', external: true },
   { href: '/careers', label: 'work @ yum!' },
   { href: '/catering', label: 'catering' },
+  { href: '/patticake-national-delivery', label: 'patticake delivery' },
   { href: '/in-the-news', label: 'in the news' },
   { href: '/contact', label: 'contact' },
   { href: '/accessibility-statement', label: 'accessibility statement' },
@@ -104,9 +105,7 @@ export function SiteFooter() {
       <div className="border-t border-[#d8cfd1] px-6 py-3">
         <div className="mx-auto flex max-w-[1200px] flex-col justify-between gap-2 text-sm text-body md:flex-row">
           <span>© yum! Kitchen and Bakery</span>
-          <a href="https://wearehafi.com" target="_blank" rel="noopener noreferrer" className="uppercase tracking-[0.08em] hover:text-brand-primary">
-            SITE BY HAFI
-          </a>
+          <span className="uppercase tracking-[0.08em]">made from scratch since 2005</span>
         </div>
       </div>
     </footer>
