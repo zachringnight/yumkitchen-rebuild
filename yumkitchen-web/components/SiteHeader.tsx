@@ -34,7 +34,7 @@ export function SiteHeader() {
       <header className="sticky top-0 z-40 border-b border-blue-soft/60 bg-blue-tint/85 backdrop-blur-[4px]">
         <div className="mx-auto flex h-[72px] w-full max-w-[1440px] items-end justify-between gap-4 px-5 pb-2 lg:px-7">
           <BrandLogo />
-          <nav aria-label="Primary navigation" className="hidden items-end xl:flex">
+          <nav aria-label="Primary navigation" className="hidden items-end lg:flex">
             {navItems.map((item) => {
               const childCurrent = 'children' in item && item.children.some((child) => isCurrent(child.href));
               const current = isCurrent(item.href) || childCurrent;
@@ -47,8 +47,8 @@ export function SiteHeader() {
                   rel={isExternal(item) ? 'noopener noreferrer' : undefined}
                   data-event={eventForHref(item.href)}
                   aria-current={current ? 'page' : undefined}
-                  className={`px-2.5 pb-2 pt-5 text-lg font-normal leading-none transition hover:text-ink hover:shadow-[inset_0_-4px_0_#2D2D2D] ${
-                    current ? 'text-ink shadow-[inset_0_-4px_0_#2D2D2D]' : 'text-brand-primary'
+                  className={`px-2.5 pb-2 pt-5 text-lg font-normal leading-none transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)] ${
+                    current ? 'text-ink shadow-[inset_0_-4px_0_var(--color-ink)]' : 'text-brand-primary'
                   }`}
                 >
                   {item.label}
@@ -77,7 +77,7 @@ export function SiteHeader() {
               );
             })}
           </nav>
-          <div className="hidden items-center gap-3 xl:flex">
+          <div className="hidden items-center gap-3 lg:flex">
             <a
               href={location.order_url}
               target="_blank"
@@ -90,7 +90,7 @@ export function SiteHeader() {
               Order {location.short_name}
             </a>
           </div>
-          <div className="flex items-center gap-2 xl:hidden">
+          <div className="flex items-center gap-2 lg:hidden">
             <a
               href={location.order_url}
               target="_blank"
@@ -119,7 +119,7 @@ export function SiteHeader() {
           </div>
         </div>
         {menuOpen && (
-          <nav id={mobileMenuId} aria-label="Mobile navigation" className="border-t border-blue-soft/60 bg-blue-tint px-5 pb-5 xl:hidden">
+          <nav id={mobileMenuId} aria-label="Mobile navigation" className="border-t border-blue-soft/60 bg-blue-tint px-5 pb-5 lg:hidden">
             <div className="grid gap-2 pt-3">
               {navItems.map((item) => {
                 const childCurrent = 'children' in item && item.children.some((child) => isCurrent(child.href));

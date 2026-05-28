@@ -1,7 +1,7 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { cloneElement, useMemo, useState, type ReactElement } from 'react';
+import { cloneElement, useEffect, useMemo, useRef, useState, type ReactElement } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { locations } from '@/lib/locations';
@@ -72,6 +72,7 @@ export function InquiryForm({
 }: InquiryFormProps) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [serverMessage, setServerMessage] = useState('');
+  const messageRef = useRef<HTMLParagraphElement>(null);
   const copy = {
     ...labels[kind],
     ...(messageLabel ? { message: messageLabel } : {}),
@@ -114,6 +115,12 @@ export function InquiryForm({
     setServerMessage(payload.message ?? 'Thanks. We received your note.');
     reset(defaults);
   }
+
+  useEffect(() => {
+    if ((status === 'success' || status === 'error') && serverMessage) {
+      messageRef.current?.focus();
+    }
+  }, [status, serverMessage]);
 
   return (
     <form className="form-surface" onSubmit={handleSubmit(onSubmit)} noValidate>
@@ -167,7 +174,13 @@ export function InquiryForm({
           {status === 'sending' ? 'Sending...' : copy.submit}
         </button>
         {serverMessage && (
-          <p className={status === 'error' ? 'text-brand-primary' : 'text-ink'} role="status">
+          <p
+            ref={messageRef}
+            tabIndex={-1}
+            role={status === 'error' ? 'alert' : 'status'}
+            className={`font-medium outline-none ${status === 'error' ? 'text-brand-primary' : 'text-ink'}`}
+          >
+            <span className="font-bold">{status === 'error' ? 'Error: ' : 'Sent: '}</span>
             {serverMessage}
           </p>
         )}

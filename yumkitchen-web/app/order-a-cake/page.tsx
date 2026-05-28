@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import { InquiryForm } from '@/components/forms/InquiryForm';
 import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -93,11 +94,11 @@ export default function CakePage() {
               One chocolate cake. Devil&apos;s food layered with vanilla buttercream. Patti&apos;s recipe, baked fresh for birthdays, thank-yous, weddings, and gatherings.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a href="#shop-patticake" className="btn-primary">
-                Order a patticake
+              <a href="#cake-inquiry" className="btn-primary">
+                Order a Patticake
               </a>
               <a href="/patticake-national-delivery" className="btn-secondary">
-                National delivery
+                National Delivery
               </a>
             </div>
           </div>
@@ -154,8 +155,8 @@ export default function CakePage() {
                 <div className="p-6">
                   <h3 className="font-serif text-2xl font-normal lowercase text-ink">{product.name}</h3>
                   <p className="mt-3 text-lg leading-8">{product.description}</p>
-                  <a href="#delivery" className="btn-primary mt-6">
-                    build yours
+                  <a href="#cake-inquiry" className="btn-primary mt-6">
+                    Start Your Cake
                   </a>
                 </div>
               </article>
@@ -203,8 +204,8 @@ export default function CakePage() {
             <p className="mt-5 text-xl leading-9">
               Wedding tables, milestone parties, and family celebrations can all start with the original chocolate cake Patti made famous.
             </p>
-            <a href="#shop-patticake" className="btn-primary mt-8">
-              plan a cake
+            <a href="#cake-inquiry" className="btn-primary mt-8">
+              Plan a Cake
             </a>
           </div>
           <div className="grid grid-cols-[1.25fr_1fr] gap-4">
@@ -236,14 +237,42 @@ export default function CakePage() {
         </div>
       </section>
 
+      <section id="cake-inquiry" className="bg-cream px-6 py-section">
+        <div className="mx-auto grid max-w-[1200px] gap-10 lg:grid-cols-[0.82fr_1.18fr]">
+          <div>
+            <p className="section-label">start your cake</p>
+            <h2 className="text-h2 lowercase">tell us about your patticake</h2>
+            <p className="mt-5 text-xl leading-9 text-body">
+              Share the date, pickup location, size, and celebration details, and the yum! bakery team will help you plan the cake.
+            </p>
+            <p className="mt-5 text-lg leading-8 text-body">
+              Sending Patticake outside the Twin Cities? Use the{' '}
+              <a href="/patticake-national-delivery" className="btn-link">
+                national delivery page
+              </a>
+              .
+            </p>
+          </div>
+          <InquiryForm
+            kind="cake"
+            defaultSubject="Patticake order"
+            eventDateLabel="Date of event"
+            guestsLabel="Servings or size"
+            locationLabel="Pickup location"
+            messageLabel="Cake details, message on top, and celebration notes"
+            submitLabel="Send Cake Request"
+          />
+        </div>
+      </section>
+
       <section className="bg-brand-red px-6 py-section text-center">
         <div className="mx-auto max-w-[680px]">
           <h2 className="font-serif text-[3.25rem] font-normal leading-tight lowercase text-white">send some love.</h2>
           <p className="mx-auto mt-5 max-w-lg text-xl leading-9 text-white">
             Start with Patticake for pickup, delivery questions, birthdays, weddings, and every table that needs the original.
           </p>
-          <a href="#shop-patticake" className="mt-8 inline-block bg-white px-8 py-4 text-lg font-bold leading-none text-brand-primary transition hover:bg-blue-tint hover:text-ink">
-            order now
+          <a href="#cake-inquiry" className="mt-8 inline-block bg-white px-8 py-4 text-lg font-bold leading-none text-brand-primary transition hover:bg-blue-tint hover:text-ink">
+            Order Now
           </a>
         </div>
       </section>
