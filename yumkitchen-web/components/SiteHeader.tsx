@@ -31,7 +31,7 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 border-b border-blue-soft/60 bg-blue-tint/85 backdrop-blur-[4px]">
+      <header className="sticky top-0 z-40 border-b border-white/70 bg-blue-packaging/95 shadow-[0_0.35rem_1.4rem_rgb(45_45_45_/_0.06)] backdrop-blur-[4px]">
         <div className="mx-auto flex h-[72px] w-full max-w-[1440px] items-end justify-between gap-4 px-5 pb-2 lg:px-7">
           <BrandLogo />
           <nav aria-label="Primary navigation" className="hidden items-end lg:flex">
@@ -58,7 +58,7 @@ export function SiteHeader() {
               return (
                 <div key={item.label} className="group relative">
                   {baseLink}
-                  <div className="motion-role-feedback invisible absolute left-0 top-full z-50 grid min-w-44 translate-y-2 border border-blue-soft/70 bg-white p-2 opacity-0 shadow-lg transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                  <div className="motion-role-feedback invisible absolute left-0 top-full z-50 grid min-w-44 translate-y-2 border border-blue-gingham/70 bg-white p-2 opacity-0 shadow-lg transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
                     {item.children.map((child) => (
                       <Link
                         key={child.label}
@@ -119,13 +119,13 @@ export function SiteHeader() {
           </div>
         </div>
         {menuOpen && (
-          <nav id={mobileMenuId} aria-label="Mobile navigation" className="border-t border-blue-soft/60 bg-blue-tint px-5 pb-5 lg:hidden">
+          <nav id={mobileMenuId} aria-label="Mobile navigation" className="border-t border-white/70 bg-blue-packaging px-5 pb-5 lg:hidden">
             <div className="grid gap-2 pt-3">
               {navItems.map((item) => {
                 const childCurrent = 'children' in item && item.children.some((child) => isCurrent(child.href));
                 const current = isCurrent(item.href) || childCurrent;
                 return (
-                  <div key={item.label} className="border-b border-blue-soft/60">
+                  <div key={item.label} className="border-b border-blue-gingham/60">
                     <Link
                       href={item.href}
                       prefetch={isExternal(item) ? undefined : false}

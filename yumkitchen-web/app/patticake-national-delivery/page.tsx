@@ -109,11 +109,11 @@ export default function PatticakeNationalDeliveryPage() {
     <main className="bg-page">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <section className="overflow-hidden bg-cream px-6 pb-[78px] pt-[calc(72px+64px)]">
+      <section className="packaging-field overflow-hidden px-6 pb-[78px] pt-10 md:pt-[calc(72px+64px)]">
         <div className="mx-auto grid max-w-[1200px] gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
-          <div>
+          <div className="paper-surface red-ribbon-rule px-6 pb-6 pt-8 md:px-8 md:pb-8 md:pt-10">
             <p className="mb-5 font-sans text-sm font-bold uppercase tracking-[0.14em] text-brand-primary">national delivery</p>
-            <h1 className="font-serif text-[3.45rem] font-normal leading-[1.02] lowercase text-ink md:text-[5rem]">
+            <h1 className="font-serif text-[3.05rem] font-normal leading-[1.02] lowercase text-ink md:text-[5rem]">
               order patticake for national delivery
             </h1>
             <p className="mt-7 max-w-xl text-xl leading-9 text-body">
@@ -130,7 +130,7 @@ export default function PatticakeNationalDeliveryPage() {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-[1fr_0.42fr]">
-            <div className="relative min-h-[430px] overflow-hidden border border-ink/10 bg-blue-soft">
+            <div className="relative min-h-[430px] overflow-hidden border border-white/70 bg-blue-soft">
               <Image
                 src="/images/yum-patticake-layers.jpg"
                 alt="yum! patticake chocolate cake layers"
@@ -141,11 +141,11 @@ export default function PatticakeNationalDeliveryPage() {
               />
             </div>
             <div className="grid gap-4">
-              <div className="border border-brand-primary/25 bg-white p-5">
+              <div className="border border-blue-gingham/70 bg-white p-5">
                 <p className="font-serif text-4xl leading-none text-brand-primary">1</p>
                 <p className="mt-3 text-base leading-7 text-body">signature chocolate cake, now with a national delivery order path.</p>
               </div>
-              <div className="relative min-h-[180px] overflow-hidden border border-ink/10 bg-white">
+              <div className="relative min-h-[180px] overflow-hidden border border-white/70 bg-white">
                 <Image src="/images/yum-patticake-top.jpg" alt="yum! patticake top with vanilla buttercream" fill loading="eager" sizes="(min-width: 1024px) 22vw, 45vw" className="object-cover" />
               </div>
             </div>
@@ -153,12 +153,12 @@ export default function PatticakeNationalDeliveryPage() {
         </div>
       </section>
 
-      <section className="bg-blue-tint px-6 py-[72px]">
+      <section className="bg-blue-packaging px-6 py-[72px]">
         <div className="mx-auto max-w-[1200px]">
           <h2 className="text-center font-serif text-[2.6rem] font-normal leading-tight lowercase text-ink">how national delivery ordering works</h2>
           <div className="mt-10 grid gap-4 md:grid-cols-4">
             {steps.map((step) => (
-              <article key={step.number} className="border-l border-brand-primary/25 bg-white/70 p-6">
+              <article key={step.number} className="paper-surface p-6">
                 <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-blue-soft font-serif text-xl text-ink">{step.number}</div>
                 <h3 className="font-serif text-2xl font-normal lowercase text-ink">{step.title}</h3>
                 <p className="mt-3 text-base leading-7 text-body">{step.copy}</p>
@@ -195,7 +195,7 @@ export default function PatticakeNationalDeliveryPage() {
         </div>
       </section>
 
-      <section className="bg-cream px-6 py-section">
+      <section className="bg-white px-6 py-section">
         <div className="mx-auto grid max-w-[1200px] gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
           <div>
             <p className="section-label">built for ordering</p>
@@ -242,7 +242,7 @@ export default function PatticakeNationalDeliveryPage() {
         </div>
       </section>
 
-      <section id="national-order" className="bg-blue-soft px-6 py-section">
+      <section id="national-order" className="packaging-field px-6 py-section">
         <div className="mx-auto grid max-w-[1200px] gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
           <div>
             <p className="mb-3 font-sans text-sm font-bold leading-tight text-ink">click to order</p>

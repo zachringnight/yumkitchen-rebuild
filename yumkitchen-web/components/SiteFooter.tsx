@@ -32,8 +32,8 @@ function eventForHref(href: string) {
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-[#d8cfd1] bg-page">
-      <div className="bg-blue-soft px-6 py-5">
+    <footer className="red-ribbon-rule border-t border-white bg-blue-packaging">
+      <div className="px-6 py-5 pt-8">
         <div className="mx-auto flex max-w-[1200px] flex-wrap items-center gap-4">
           <span className="mr-2 text-base font-medium text-ink">Follow for more yum!</span>
           {socialLinks.map((link) => (
@@ -102,7 +102,7 @@ export function SiteFooter() {
         ))}
       </div>
 
-      <div className="border-t border-[#d8cfd1] px-6 py-3">
+      <div className="border-t border-white/75 px-6 py-3">
         <div className="mx-auto flex max-w-[1200px] flex-col justify-between gap-2 text-sm text-body md:flex-row">
           <span>© yum! Kitchen and Bakery</span>
           <span className="uppercase tracking-[0.08em]">made from scratch since 2005</span>
