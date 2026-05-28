@@ -13,6 +13,7 @@ const requiredPublicFiles = [
   'pdfs/gf-allergy-menu.pdf',
 ];
 const forbiddenLocationNames = ['edina', 'maple grove', 'roseville'];
+const forbiddenScrapeFragments = ['Follow for more yum!', 'Quick Links', 'SITE BY HAFI'];
 
 let failures = 0;
 
@@ -63,6 +64,10 @@ if (items.length !== 82) {
 }
 for (const item of items) {
   if (!item.name) fail(`menu item without name in ${item.section}`);
+  const description = item.description || '';
+  for (const fragment of forbiddenScrapeFragments) {
+    if (description.includes(fragment)) fail(`scraped footer fragment found in ${item.section} / ${item.name}`);
+  }
 }
 
 for (const file of requiredPublicFiles) {

@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, type Ref } from 'react';
 import { locations, type Location } from '@/lib/locations';
+import { setPreferredLocationSlug } from '@/lib/locationPreference';
+import { OpenStatus } from './OpenStatus';
 
 type Mode = 'order' | 'call';
 
@@ -100,6 +102,8 @@ export function LocationPickerModal({ open, onClose, mode }: Props) {
 }
 
 function LocationButton({ loc, mode, actionRef }: { loc: Location; mode: Mode; actionRef?: Ref<HTMLAnchorElement> }) {
+  const persistLocation = () => setPreferredLocationSlug(loc.slug);
+
   if (mode === 'order') {
     return (
       <a
@@ -107,11 +111,14 @@ function LocationButton({ loc, mode, actionRef }: { loc: Location; mode: Mode; a
         href={loc.order_url}
         target="_blank"
         rel="noopener noreferrer"
-        className="btn-primary flex min-h-[52px] items-center justify-center px-4 py-3 text-center"
+        className="btn-primary flex min-h-[64px] flex-col items-center justify-center px-4 py-3 text-center"
         data-event="click_order_online"
         data-location={loc.slug}
+        data-source="location_picker_modal"
+        onClick={persistLocation}
       >
-        {loc.name}
+        <span>{loc.name}</span>
+        <OpenStatus compact className="mt-1 text-sm font-normal leading-tight text-white/90" />
       </a>
     );
   }
@@ -122,6 +129,8 @@ function LocationButton({ loc, mode, actionRef }: { loc: Location; mode: Mode; a
       className="btn-primary flex min-h-[58px] flex-col items-center justify-center px-4 py-3 text-center"
       data-event="click_call_location"
       data-location={loc.slug}
+      data-source="location_picker_modal"
+      onClick={persistLocation}
     >
       <span className="block">{loc.name}</span>
       <span className="block text-sm">{loc.phone}</span>

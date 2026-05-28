@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Hero } from '@/components/Hero';
 import { LocationExperienceBand } from '@/components/LocationExperienceBand';
 import { LocationGrid } from '@/components/LocationGrid';
+import { OpenStatus } from '@/components/OpenStatus';
 import { entityJsonLd, getLocationBySlug, locations } from '@/lib/locations';
 
 export function generateStaticParams() {
@@ -34,10 +35,10 @@ export default async function LocationPage({ params }: LocationRouteProps) {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(entityJsonLd(loc)) }} />
       <Hero title={loc.name} copy={loc.neighborhood} image={loc.heroImage} imageAlt={`${loc.short_name} yum! location`} priority>
-        <a href={loc.order_url} target="_blank" rel="noopener noreferrer" className="btn-primary" data-event="click_order_online" data-location={loc.slug}>
+        <a href={loc.order_url} target="_blank" rel="noopener noreferrer" className="btn-primary" data-event="click_order_online" data-location={loc.slug} data-source="location_page_hero">
           Order Online
         </a>
-        <a href={`tel:${loc.phone_e164}`} className="btn-secondary" data-event="click_call_location" data-location={loc.slug}>
+        <a href={`tel:${loc.phone_e164}`} className="btn-secondary" data-event="click_call_location" data-location={loc.slug} data-source="location_page_hero">
           Call {loc.short_name}
         </a>
       </Hero>
@@ -55,7 +56,10 @@ export default async function LocationPage({ params }: LocationRouteProps) {
               {loc.address.city}, {loc.address.state} {loc.address.zip}
             </address>
             <div className="grid gap-3 text-xl leading-8">
-              <p>{loc.hours}</p>
+              <p>
+                <OpenStatus />
+              </p>
+              <p>Holiday hours may vary. Call the kitchen for same-day confirmation.</p>
               <p>{loc.parking}</p>
               <p>{loc.roomNote}</p>
               <p>{loc.favorite}</p>

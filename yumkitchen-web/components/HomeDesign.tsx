@@ -2,10 +2,14 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { useCallback, useEffect, useState } from 'react';
 import { AnimatedYumLogo } from './AnimatedYumLogo';
-import { LocationPickerModal } from './LocationPickerModal';
 import { locations } from '@/lib/locations';
+
+const LocationPickerModal = dynamic(() => import('./LocationPickerModal').then((mod) => mod.LocationPickerModal), {
+  ssr: false,
+});
 
 const heroImages = [
   { src: '/images/yum-hero-1698.jpg', label: 'scratch food' },
@@ -99,6 +103,7 @@ export function HomeHero() {
           preload={current === 0}
           fetchPriority={current === 0 ? 'high' : undefined}
           loading={current === 0 ? 'eager' : 'lazy'}
+          data-lcp={current === 0 ? 'true' : undefined}
           sizes="100vw"
           className="home-hero-image is-active object-cover"
         />
@@ -185,8 +190,8 @@ export function RedBand() {
         </h2>
         <div className="grid gap-3 text-[1.1rem] leading-snug text-white md:grid-cols-3">
           <p className="text-white">preparing the best food of each season</p>
-          <p className="text-white">loving what we do and how we do it</p>
-          <p className="text-white">breakfast, lunch, dinner, bakery, and catering</p>
+          <p className="hidden text-white md:block">loving what we do and how we do it</p>
+          <p className="hidden text-white md:block">breakfast, lunch, dinner, bakery, and catering</p>
         </div>
         <Link href="/menu" prefetch={false} className="inline-block border-2 border-white px-5 py-3 text-center text-lg font-bold leading-none text-white transition hover:bg-white hover:text-ink">
           See the Menu

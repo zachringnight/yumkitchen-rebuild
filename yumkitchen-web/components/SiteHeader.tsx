@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { giftCardBalanceUrl, giftCardBuyUrl, navItems } from '@/lib/site';
+import { usePreferredLocation } from '@/lib/usePreferredLocation';
 import { BrandLogo } from './BrandLogo';
-import { LocationPickerModal } from './LocationPickerModal';
 
 function eventForHref(href: string) {
   if (href === giftCardBuyUrl) return 'click_gift_card_buy';
@@ -16,13 +16,8 @@ function eventForHref(href: string) {
 export function SiteHeader() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [orderOpen, setOrderOpen] = useState(false);
+  const { location } = usePreferredLocation();
   const mobileMenuId = 'site-mobile-navigation';
-
-  function openOrderPicker() {
-    setMenuOpen(false);
-    setOrderOpen(true);
-  }
 
   function isCurrent(href: string) {
     if (href === '/#locations') return pathname.startsWith('/location');
@@ -83,14 +78,30 @@ export function SiteHeader() {
             })}
           </nav>
           <div className="hidden items-center gap-3 xl:flex">
-            <button type="button" className="btn-primary px-5 py-3" onClick={openOrderPicker}>
-              Order Now
-            </button>
+            <a
+              href={location.order_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary px-5 py-3"
+              data-event="click_order_online"
+              data-location={location.slug}
+              data-source="site_header"
+            >
+              Order {location.short_name}
+            </a>
           </div>
           <div className="flex items-center gap-2 xl:hidden">
-            <button type="button" className="btn-primary px-4 py-3 text-base" onClick={openOrderPicker}>
+            <a
+              href={location.order_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary px-4 py-3 text-base"
+              data-event="click_order_online"
+              data-location={location.slug}
+              data-source="site_header_mobile"
+            >
               Order Now
-            </button>
+            </a>
             <button
               type="button"
               aria-controls={mobileMenuId}
@@ -155,7 +166,6 @@ export function SiteHeader() {
           </nav>
         )}
       </header>
-      <LocationPickerModal open={orderOpen} onClose={() => setOrderOpen(false)} mode="order" />
     </>
   );
 }

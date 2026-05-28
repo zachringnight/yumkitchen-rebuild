@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { locations } from '@/lib/locations';
 import { giftCardBalanceUrl, giftCardBuyUrl, socialLinks } from '@/lib/site';
+import { OpenStatus } from './OpenStatus';
 
 const quickLinks = [
   { href: '/about', label: 'about' },
@@ -84,7 +85,7 @@ export function SiteFooter() {
             <a href={`tel:${loc.phone_e164}`} className="mt-1 block text-base leading-7 text-body transition hover:text-brand-primary">
               {loc.phone}
             </a>
-            <p className="mb-3 text-sm text-body">{loc.hours}</p>
+            <OpenStatus compact className="mb-3 block text-sm text-body" />
             <a
               href={loc.order_url}
               target="_blank"
@@ -92,6 +93,7 @@ export function SiteFooter() {
               className="inline-block bg-brand-red px-3 py-2 text-sm font-bold leading-none text-white transition hover:bg-brand-primary"
               data-event="click_order_online"
               data-location={loc.slug}
+              data-source="site_footer"
             >
               Order {loc.short_name}
             </a>

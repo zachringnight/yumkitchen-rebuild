@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Location } from '@/lib/locations';
+import { OpenStatus } from './OpenStatus';
 
 export function LocationExperienceBand({ loc }: { loc: Location }) {
   return (
@@ -12,7 +13,7 @@ export function LocationExperienceBand({ loc }: { loc: Location }) {
           <p className="mt-5 text-xl leading-9">{loc.roomNote}</p>
           <div className="mt-7 grid gap-3 text-lg leading-8">
             <p>
-              <strong className="text-ink">Hours:</strong> {loc.hours}
+              <strong className="text-ink">Hours:</strong> <OpenStatus compact />
             </p>
             <p>
               <strong className="text-ink">Pickup:</strong> {loc.parking}
@@ -22,7 +23,7 @@ export function LocationExperienceBand({ loc }: { loc: Location }) {
             </p>
           </div>
           <div className="mt-7 flex flex-wrap gap-3">
-            <a href={loc.order_url} target="_blank" rel="noopener noreferrer" className="btn-primary" data-event="click_order_online" data-location={loc.slug}>
+            <a href={loc.order_url} target="_blank" rel="noopener noreferrer" className="btn-primary" data-event="click_order_online" data-location={loc.slug} data-source="location_experience_band">
               Order from {loc.short_name}
             </a>
             <Link href="/menu" className="btn-secondary">

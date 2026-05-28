@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import { locations, type LocationSlug } from '@/lib/locations';
 import { orderDemoItems } from '@/lib/site';
+import { usePreferredLocation } from '@/lib/usePreferredLocation';
+import { OpenStatus } from '@/components/OpenStatus';
 
 type Cart = Record<string, number>;
 
@@ -36,12 +38,11 @@ type Props = {
 export function OrderClient({ initialCategory, initialQuery = '' }: Props) {
   const requestedCategory = initialCategory ?? null;
   const initialSelectedCategory: OrderCategory = isOrderCategory(requestedCategory) ? requestedCategory : 'all';
-  const [selectedSlug, setSelectedSlug] = useState<LocationSlug>('st-louis-park');
+  const { slug: selectedSlug, location: selectedLocation, setSlug: setSelectedSlug } = usePreferredLocation();
   const [query, setQuery] = useState(initialQuery);
   const [selectedCategory, setSelectedCategory] = useState<OrderCategory>(initialSelectedCategory);
   const [cart, setCart] = useState<Cart>({});
   const [lastAdded, setLastAdded] = useState('');
-  const selectedLocation = locations.find((loc) => loc.slug === selectedSlug) ?? locations[0];
   const normalizedQuery = query.trim().toLowerCase();
 
   const items = useMemo(() => {
@@ -88,6 +89,10 @@ export function OrderClient({ initialCategory, initialQuery = '' }: Props) {
     window.history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
   }
 
+  function chooseLocation(slug: LocationSlug) {
+    setSelectedSlug(slug);
+  }
+
   return (
     <main>
       <section className="bg-cream py-14 lg:py-section">
@@ -95,7 +100,7 @@ export function OrderClient({ initialCategory, initialQuery = '' }: Props) {
           <div>
             <h1 className="text-display lowercase">start your yum! order</h1>
             <p className="mt-5 max-w-2xl text-xl leading-9">
-              Pick a location, shortlist favorites, and open Toast checkout for the kitchen closest to you.
+              Pick a kitchen once, browse a few favorites, and go straight to the right Toast checkout.
             </p>
           </div>
           <div className="accent-card bg-white p-6 shadow-xl">
@@ -105,11 +110,12 @@ export function OrderClient({ initialCategory, initialQuery = '' }: Props) {
             <p className="text-lg leading-8">
               {selectedLocation.address.city}, {selectedLocation.address.state} {selectedLocation.address.zip}
             </p>
+            <OpenStatus className="mt-3 text-lg leading-8 text-body" />
             <div className="mt-5 flex flex-wrap gap-3">
               <a href="#favorites" className="btn-primary">
                 Browse Favorites
               </a>
-              <a href={selectedLocation.order_url} target="_blank" rel="noopener noreferrer" className="btn-secondary" data-event="click_order_online" data-location={selectedLocation.slug}>
+              <a href={selectedLocation.order_url} target="_blank" rel="noopener noreferrer" className="btn-secondary" data-event="click_order_online" data-location={selectedLocation.slug} data-source="order_page_hero">
                 Continue to Checkout
               </a>
               <a href={selectedLocation.maps_url} target="_blank" rel="noopener noreferrer" className="btn-secondary">
@@ -126,10 +132,10 @@ export function OrderClient({ initialCategory, initialQuery = '' }: Props) {
             <p className="section-label">order online</p>
             <h2 className="text-h2 lowercase">choose a kitchen, then finish in toast checkout</h2>
             <p className="mt-5 text-xl leading-9">
-              Choose a pickup kitchen, browse a few favorites, and continue to the verified Toast checkout for final item selection, availability, and payment.
+              Your pickup kitchen follows you across the site, so header buttons and checkout links open the right location.
             </p>
             <div className="mt-7 grid gap-3">
-              {['choose pickup kitchen', 'shortlist favorites here', 'finish your order in Toast'].map((step, index) => (
+              {['choose pickup kitchen once', 'browse favorites or the full menu', 'open the right Toast checkout'].map((step, index) => (
                 <div key={step} className="order-step-row">
                   <span>{index + 1}</span>
                   <p>{step}</p>
@@ -141,11 +147,11 @@ export function OrderClient({ initialCategory, initialQuery = '' }: Props) {
             <div className="order-location-ticket">
               <p className="section-label">pickup</p>
               <h3>{selectedLocation.short_name}</h3>
-              <p>{selectedLocation.hours}</p>
+              <OpenStatus compact />
             </div>
             {orderDemoItems.slice(0, 4).map((item, index) => (
               <div key={item.name} className={`order-photo-chip order-photo-chip-${index + 1}`}>
-                <Image src={item.image} alt={item.name} fill sizes="220px" className="object-cover" />
+                <Image src={item.image} alt={item.name} fill loading="eager" sizes="220px" className="object-cover" />
                 <span>{item.name}</span>
               </div>
             ))}
@@ -161,14 +167,14 @@ export function OrderClient({ initialCategory, initialQuery = '' }: Props) {
               <button
                 key={loc.slug}
                 type="button"
-                onClick={() => setSelectedSlug(loc.slug)}
+                onClick={() => chooseLocation(loc.slug)}
                 aria-pressed={loc.slug === selectedSlug}
                 className={`border p-4 text-left transition ${
                   loc.slug === selectedSlug ? 'border-brand-primary bg-white shadow-lg' : 'border-ink/10 bg-white hover:border-brand-red'
                 }`}
               >
                 <span className="block font-serif text-2xl lowercase text-ink">{loc.short_name}</span>
-                <span className="mt-1 block text-base leading-6">{loc.hours}</span>
+                <OpenStatus compact className="mt-1 block text-base leading-6 text-body" />
               </button>
             ))}
           </aside>
@@ -241,7 +247,7 @@ export function OrderClient({ initialCategory, initialQuery = '' }: Props) {
                 return (
                   <article key={item.name} className="accent-card grid gap-4 bg-white p-4 shadow-xs sm:grid-cols-[132px_1fr]">
                     <div className="relative aspect-square overflow-hidden bg-page">
-                      <Image src={item.image} alt={item.name} fill sizes="132px" className="image-lift object-cover" />
+                      <Image src={item.image} alt={item.name} fill loading="eager" sizes="132px" className="image-lift object-cover" />
                     </div>
                     <div className="flex min-w-0 flex-col">
                       <div className="flex items-start justify-between gap-3">
@@ -289,7 +295,7 @@ export function OrderClient({ initialCategory, initialQuery = '' }: Props) {
             <h2 className="text-h3 lowercase" aria-live="polite">{cartCount} favorite{cartCount === 1 ? '' : 's'} selected</h2>
             <div className="mt-2 border-t border-ink/10 pt-3 text-base leading-7">
               <p className="font-bold text-ink">Pickup at {selectedLocation.short_name}</p>
-              <p>{selectedLocation.hours}</p>
+              <OpenStatus compact />
             </div>
             <div className="mt-5 grid gap-4">
               {cartEntries.length === 0 ? (
@@ -324,7 +330,7 @@ export function OrderClient({ initialCategory, initialQuery = '' }: Props) {
                   Clear Shortlist
                 </button>
               )}
-              <a href={selectedLocation.order_url} target="_blank" rel="noopener noreferrer" className="btn-primary mt-5 w-full" data-event="click_order_online" data-location={selectedLocation.slug}>
+              <a href={selectedLocation.order_url} target="_blank" rel="noopener noreferrer" className="btn-primary mt-5 w-full" data-event="click_order_online" data-location={selectedLocation.slug} data-source="order_page_shortlist">
                 Open Toast Checkout
               </a>
               <p className="mt-3 text-sm leading-6">This shortlist is a planning aid. Toast opens separately for final item selection, availability, tax, timing, and payment.</p>

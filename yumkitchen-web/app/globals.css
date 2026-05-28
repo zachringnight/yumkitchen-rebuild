@@ -195,6 +195,12 @@
   transform: scale(1);
 }
 
+.home-hero-image[data-lcp='true'] {
+  opacity: 1;
+  transform: scale(1);
+  transition: none;
+}
+
 .home-hero-controls {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -814,6 +820,11 @@
   color: white;
   outline: 2px solid var(--color-brand-red);
   outline-offset: 3px;
+}
+
+.menu-section-rail > div {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-brand-red) transparent;
 }
 
 .menu-orbit {
@@ -1946,6 +1957,10 @@ to {
 }
 
 @media (max-width: 767px) {
+  body {
+    padding-bottom: 4.75rem;
+  }
+
   .home-hero.home-hero {
     min-height: auto;
   }
@@ -1953,22 +1968,41 @@ to {
   .home-hero .container-content.container-content {
     min-height: 0;
     align-items: flex-start;
-    padding-top: 6.75rem;
-    padding-bottom: 1.25rem;
+    padding-top: 5.65rem;
+    padding-bottom: 0.85rem;
   }
 
   .home-hero .hero-panel.hero-panel {
-    padding: 1.55rem;
+    padding: 1.2rem;
   }
 
   .home-hero .hero-panel h1 {
-    font-size: clamp(2.1rem, 13vw, 3rem);
+    font-size: clamp(2rem, 11.5vw, 2.65rem);
     line-height: 1.04;
   }
 
   .home-hero .hero-panel p {
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .hero-proof-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.45rem;
+    margin-top: 0.85rem;
+  }
+
+  .hero-proof-grid div {
+    padding-top: 0.5rem;
+  }
+
+  .hero-proof-grid strong {
     font-size: 1.05rem;
-    line-height: 1.68;
+  }
+
+  .hero-proof-grid span {
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
   }
 
   .home-hero-actions.home-hero-actions {
@@ -2008,8 +2042,8 @@ to {
   }
 
   .hero-yum-logo {
-    width: clamp(5.25rem, 27vw, 7rem);
-    margin-bottom: 1rem;
+    width: clamp(4.7rem, 23vw, 6rem);
+    margin-bottom: 0.8rem;
   }
 
   .text-display {
@@ -2080,5 +2114,19 @@ to {
 
   .inquiry-momentum-frame {
     min-height: 360px;
+  }
+
+  .red-band-motion h2 {
+    font-size: 1.8rem;
+  }
+
+  .location-card-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .location-card-actions .btn-primary,
+  .location-card-actions .btn-secondary {
+    padding-inline: 0.75rem;
+    font-size: 0.95rem;
   }
 }

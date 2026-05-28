@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Location } from '@/lib/locations';
+import { OpenStatus } from './OpenStatus';
 
 type Props = {
   loc: Location;
@@ -48,9 +49,9 @@ export function LocationCard({ loc, compact = false }: Props) {
         <a href={`tel:${loc.phone_e164}`} className="mt-2 text-brand-primary hover:underline">
           {loc.phone}
         </a>
-        <p className="text-body">{loc.hours}</p>
+        <OpenStatus compact className="text-body" />
         {!compact && <p className="mt-3 text-base leading-7 text-body">{loc.parking}</p>}
-      <div className="mt-auto grid gap-2 pt-5">
+      <div className="location-card-actions mt-auto grid gap-2 pt-5">
         <a
           href={loc.maps_url}
           target="_blank"
@@ -69,6 +70,7 @@ export function LocationCard({ loc, compact = false }: Props) {
           className="btn-primary text-center"
           data-event="click_order_online"
           data-location={loc.slug}
+          data-source="location_card"
         >
           Order Online
         </a>

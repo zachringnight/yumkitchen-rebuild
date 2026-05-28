@@ -8,7 +8,7 @@ export function LocationGrid() {
         <div className="mb-8 grid items-end gap-5 md:grid-cols-[1fr_auto]">
           <div>
             <h2 className="font-serif text-[2.2rem] font-normal leading-tight lowercase text-ink md:text-[2.9rem]">easy to find, easy to park</h2>
-            <p className="mt-3 max-w-2xl text-lg leading-8 text-body">Four neighborhood kitchens, open daily 8am - 8pm, built for dine-in, pickup, and the ride home.</p>
+            <p className="mt-3 max-w-2xl text-lg leading-8 text-body">Four neighborhood kitchens, regular hours 8am - 8pm daily. Holiday hours may vary.</p>
           </div>
           <a href="tel:+19529229999" className="btn-secondary">
             Call yum!

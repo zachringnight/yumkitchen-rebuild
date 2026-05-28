@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { isLocationSlug, setPreferredLocationSlug } from '@/lib/locationPreference';
 
 declare global {
   interface Window {
@@ -15,10 +16,17 @@ export function AnalyticsEvents() {
       if (!target) return;
       const eventName = target.dataset.event;
       if (!eventName) return;
+      const location = target.dataset.location ?? '';
+      if ((eventName === 'click_order_online' || eventName === 'click_call_location') && isLocationSlug(location)) {
+        setPreferredLocationSlug(location);
+      }
       window.dataLayer = window.dataLayer ?? [];
       window.dataLayer.push({
         event: eventName,
-        location: target.dataset.location ?? '',
+        location,
+        source: target.dataset.source ?? '',
+        path: window.location.pathname,
+        label: target.textContent?.trim().replace(/\s+/g, ' ').slice(0, 80) ?? '',
       });
     }
 

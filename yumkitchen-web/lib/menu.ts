@@ -27,6 +27,9 @@ export const menuItemCount = menu.sections.reduce((count, section) => count + se
 
 export const menuMeals = Array.from(new Set(menu.sections.map((section) => section.meal)));
 
+export const menuDisclosure =
+  'Please tell the team about allergies before ordering. Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of foodborne illness.';
+
 export function getMenuSearchText(item: MenuItem, section: MenuSection): string {
   return [item.name, item.description, section.name, section.meal, ...(item.tags ?? [])]
     .join(' ')
