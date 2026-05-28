@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const patticakeProducts = [
   {
     name: 'classic patticake',
-    description: 'Devil&apos;s food chocolate cake layered with vanilla buttercream, sliced from the real yum! bakery case.',
+    description: "Devil's food chocolate cake layered with vanilla buttercream, sliced from the real yum! bakery case.",
     image: '/images/yum-patticake-layers.jpg',
     alt: 'yum! patticake chocolate cake layers',
   },
@@ -24,7 +24,7 @@ const patticakeProducts = [
   },
   {
     name: 'celebration patticake',
-    description: 'Patti&apos;s recipe, finished by the yum! bakery team for pickup or delivery questions.',
+    description: "Patti's recipe, finished by the yum! bakery team for pickup or delivery questions.",
     image: '/images/yum-patticake-tier.jpg',
     alt: 'yum! tiered wedding patticake',
   },
@@ -153,7 +153,7 @@ export default function CakePage() {
                 </div>
                 <div className="p-6">
                   <h3 className="font-serif text-2xl font-normal lowercase text-ink">{product.name}</h3>
-                  <p className="mt-3 text-lg leading-8" dangerouslySetInnerHTML={{ __html: product.description }} />
+                  <p className="mt-3 text-lg leading-8">{product.description}</p>
                   <a href="#delivery" className="btn-primary mt-6">
                     build yours
                   </a>
