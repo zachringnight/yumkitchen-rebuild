@@ -28,3 +28,6 @@ qa_screenshots_*/
 docs/plans/2026-06-30-yum-ship-and-elevate/before/
 docs/plans/2026-06-30-yum-ship-and-elevate/during/
 docs/plans/2026-06-30-yum-ship-and-elevate/after/
+
+# Vercel local link metadata
+.vercel/

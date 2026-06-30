@@ -69,7 +69,7 @@ export function MenuClient() {
 
   return (
     <>
-      <section className="bg-cream py-14 lg:py-16">
+      <section className="bg-cream py-10 lg:py-16">
         <div className="container-content">
           <h1 className="text-display lowercase">fresh and friendly food</h1>
           <p className="mt-5 max-w-2xl text-xl leading-9">Serving made-from-scratch seasonal food for lunch, dinner, bakery, catering, and takeout.</p>
@@ -130,7 +130,7 @@ export function MenuClient() {
 
       <MenuMotionIntro />
 
-      <section className="bg-page py-section">
+      <section className="bg-page py-12 lg:py-section">
         <div className="container-content">
           {sectionLinks.length > 0 && (
             <nav className="menu-section-rail sticky top-[72px] z-30 -mx-6 mb-8 border-y border-blue-soft/60 bg-blue-tint/95 px-6 py-3 backdrop-blur md:mx-0 md:border md:bg-white/95" aria-label="Menu category jump list">

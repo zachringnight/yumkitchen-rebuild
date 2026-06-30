@@ -188,7 +188,7 @@ export default function PatticakeNationalDeliveryPage() {
         </div>
       </section>
 
-      <section className="bg-white px-6 py-section">
+      <section className="bg-white px-6 py-12 lg:py-section">
         <div className="mx-auto max-w-[1240px]">
           <div className="grid items-end gap-8 lg:grid-cols-[0.72fr_1.28fr]">
             <div>
@@ -215,7 +215,7 @@ export default function PatticakeNationalDeliveryPage() {
         </div>
       </section>
 
-      <section className="bg-cream px-6 py-section">
+      <section className="bg-cream px-6 py-12 lg:py-section">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
           <div>
             <p className="section-label">before you order</p>
@@ -244,7 +244,7 @@ export default function PatticakeNationalDeliveryPage() {
 
       <PatticakeOriginBand />
 
-      <section className="bg-page px-6 py-section">
+      <section className="bg-page px-6 py-12 lg:py-section">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.74fr_1.26fr]">
           <div>
             <p className="section-label">frequently asked questions</p>
@@ -264,7 +264,7 @@ export default function PatticakeNationalDeliveryPage() {
         </div>
       </section>
 
-      <section id="national-order" className="bg-blue-tint px-6 py-section">
+      <section id="national-order" className="bg-blue-tint px-6 py-12 lg:py-section">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
           <div>
             <p className="section-label text-ink">click to order</p>
@@ -309,7 +309,7 @@ export default function PatticakeNationalDeliveryPage() {
         </div>
       </section>
 
-      <section id="delivery-support" className="bg-white px-6 py-section">
+      <section id="delivery-support" className="bg-white px-6 py-12 lg:py-section">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.82fr_1.18fr]">
           <div>
             <p className="section-label">order support</p>
@@ -333,7 +333,7 @@ export default function PatticakeNationalDeliveryPage() {
         </div>
       </section>
 
-      <section className="bg-brand-red px-6 py-section text-white">
+      <section className="bg-brand-red px-6 py-12 lg:py-section text-white">
         <div className="mx-auto grid max-w-[980px] gap-6 text-center md:grid-cols-[1fr_auto] md:items-center md:text-left">
           <h2 className="font-serif text-[3rem] font-normal leading-tight lowercase text-white">ready to send a patticake?</h2>
           <a
