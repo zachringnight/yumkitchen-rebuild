@@ -55,9 +55,11 @@ done
 
 Expect 308/301 with the correct `redirect_url` for each. Identity URLs (`/menu`, `/about`) return 200.
 
-## OPEN DECISION: in-the-news press posts that will 404 after cutover
+## RESOLVED: in-the-news press posts now redirect (2026-06-30)
 
-The `/in-the-news` archive (`lib/site.ts` press entries) links to 22 self-referential `https://yumkitchen.com/<slug>/` URLs. These are old WordPress blog posts. They work TODAY (WordPress is still live) but the new site does not rebuild them, so they will 404 after DNS cutover. External outlet links (kstp, mspmag, startribune, eater, woodburymag) are fine and already open in a new tab with `rel="noopener noreferrer"`.
+All 22 old WordPress press-archive posts (`https://yumkitchen.com/<slug>/`) now 308-redirect to `/in-the-news` via `pressArchiveRedirects` in `next.config.js`. This prevents the post-cutover 404s. Verified: each slug returns 308 to `/in-the-news`; real routes still 200; unknown routes still hit the branded 404. External outlet links (kstp, mspmag, startribune, eater, woodburymag) were always fine and open in a new tab with `rel="noopener noreferrer"`.
+
+Background (the original three options; option 1 was chosen):
 
 Affected slugs (all under `https://yumkitchen.com/`):
 `top-bakeries-in-the-twin-cities`, `top-dessert-in-the-twin-cities`, `top-15-best-chocolate-chip-cookies-in-the-twin-cities`, `14-best-restaurants-in-minnetonka-mn`, `best-business-lunch-in-the-twin-cities`, `best-patios-in-the-twin-cities`, `5-best-things-the-startribune-food-critics-ate-this-week`, `critics-choice`, `derusha-eats-feature`, `yum-on-good-company`, `inside-yum`, `breakfast-with-megs-and-eggs`, `celebrate-rosh-hashanah-with-yum`, `passover-friendly-food`, `coming-to-woodbury`, `woodbury-magazine-feature`, `patti-on-motivation`, `pick-up-picnic-eats`, `pregame-mnufc-at-yum-st-paul`, `where-to-pick-up-local-soup`, `yum-at-taste-of-the-twin-cities`, `235-2`.
