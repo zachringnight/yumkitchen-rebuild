@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { InquiryForm } from '@/components/forms/InquiryForm';
 import { MediaProofBand } from '@/components/MediaProofBand';
 import { PatticakeMessageRibbon } from '@/components/PatticakeMessageRibbon';
+import { PatticakeMessagePreview } from '@/components/PatticakeMessagePreview';
 import { PatticakeOriginBand } from '@/components/PatticakeOriginBand';
 import { pageMeta, patticakeNationalOrderUrl, patticakeSiteUrl } from '@/lib/site';
 
@@ -18,18 +19,18 @@ export const metadata: Metadata = {
 const steps = [
   {
     number: '1',
-    title: 'start the order',
-    copy: 'Order Patticake when the address and date are ready.',
+    title: 'start the note',
+    copy: 'Send the delivery date, address, and sweet reason for the cake.',
   },
   {
     number: '2',
-    title: 'add the gift note',
-    copy: 'Share the ship-to address, date, occasion, and message.',
+    title: 'we help it travel',
+    copy: 'We check timing, weather, and the best way to get it there.',
   },
   {
     number: '3',
-    title: 'ask us anything',
-    copy: 'Send a note if timing, weather, or a bigger order needs a bakery check.',
+    title: 'add the gift note',
+    copy: 'Share the words for the cake or the message that should travel with it.',
   },
   {
     number: '4',
@@ -70,30 +71,63 @@ const occasions = [
 ] as const;
 
 const confirmations = [
-  'ship-to address and hoped-for delivery date',
-  'servings and occasion',
-  'gift note or message',
-  'packing or timing questions when the day matters',
-  'local pickup instead if the cake is staying in the Twin Cities',
+  'recipient name and full ship-to address',
+  'hoped-for delivery date',
+  'servings, occasion, and gift message',
+  'weather, timing, or packing notes',
+  'local pickup if the cake is staying in the Twin Cities',
+] as const;
+
+const deliveryFacts = [
+  {
+    title: 'price',
+    copy: 'Send the note first. We reply with the cake and shipping total before we bake.',
+  },
+  {
+    title: 'timing',
+    copy: 'Tell us your hoped-for delivery date. We check lead time, weather, and the best way to send it.',
+  },
+  {
+    title: 'where it goes',
+    copy: 'Add the full ship-to address so we can help choose shipping or local pickup.',
+  },
+  {
+    title: 'how it arrives',
+    copy: 'Patticake is packed with care, with the message close by and the cake ready to share.',
+  },
+] as const;
+
+const trustNotes = [
+  'made by the same scratch bakery behind four yum! kitchens',
+  'gift-ready care from real people at yum!',
+  'simple chocolate cake, vanilla buttercream, and a message people remember',
 ] as const;
 
 const faqs = [
   {
-    question: 'Can I order national delivery online?',
+    question: 'Can I pay online right now?',
     answer:
-      'Yes. Use the national delivery button on this page. If timing, weather, or a larger order needs a bakery check, send us a note and we’ll help.',
+      'Not on this page yet. Start the shipping note and we will reply with the cake and shipping total before we bake.',
   },
   {
-    question: 'Can I include a note?',
-    answer: 'Yes. Add the gift note or message with the order.',
+    question: 'Can I include a gift message?',
+    answer: 'Yes. Add the cake message and a gift note. If it needs a little help, we will work with you.',
   },
   {
-    question: 'Can I still order local pickup?',
-    answer: 'Yes. Use the local cake pickup page if the Patticake will be picked up from a yum! Kitchen and Bakery location.',
+    question: 'Where can Patticake ship?',
+    answer: 'Send the address first. We will confirm the shipping plan, timing, and whether local pickup is a better fit.',
   },
   {
-    question: 'What if I need help before ordering?',
-    answer: 'Send us a note for delivery questions, bigger orders, special timing, or anything you want the bakery team to see before you order.',
+    question: 'How soon should I ask?',
+    answer: 'Earlier is better. Tell us the hoped-for delivery date and we will help choose a plan that makes sense.',
+  },
+  {
+    question: 'Can I pick up locally?',
+    answer: 'Yes. Use the Pick Up Locally page if the Patticake will be picked up from a yum! Kitchen and Bakery location.',
+  },
+  {
+    question: 'What if I need help before shipping?',
+    answer: 'Send us a note for delivery questions, bigger orders, special timing, or anything you want us to know before we bake.',
   },
 ] as const;
 
@@ -121,22 +155,25 @@ export default function PatticakeNationalDeliveryPage() {
         <div className="mx-auto grid max-w-[1240px] gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
           <div className="max-w-[620px]">
             <h1 className="font-serif text-[clamp(3.55rem,7vw,6.7rem)] font-normal leading-[0.9] lowercase text-ink">
-              order patticake for national delivery
+              ship a patticake
             </h1>
             <p className="mt-7 max-w-xl text-xl leading-9 text-ink">
-              Send yum! Patticake outside the Twin Cities with the date, address, occasion, and gift message.
+              Tell us where it is headed, when it should arrive, and the words that should travel with it. We&apos;ll help it get there ready to share.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href={patticakeNationalOrderUrl} target={nationalOrderIsExternal ? '_blank' : undefined} rel={nationalOrderIsExternal ? 'noopener noreferrer' : undefined} className="btn-primary">
-                Order National Delivery
+                Ship a Cake
               </a>
               <Link href="/order-a-cake" className="btn-secondary">
-                Local Cake Pickup
+                Pick Up Locally
               </Link>
             </div>
+            <p className="mt-4 max-w-lg text-base font-bold leading-7 text-brand-primary">
+              Start the note, we&apos;ll reply with the next sweet step.
+            </p>
             <div className="mt-9 hidden gap-3 sm:grid sm:grid-cols-2">
               <HeroNote title="built for gifting" copy="address, date, occasion, and message" />
-              <HeroNote title="ask the bakery" copy="send us a note when timing or weather needs a human check" />
+              <HeroNote title="bakery checked" copy="timing, weather, and the best way to send it" />
             </div>
           </div>
 
@@ -167,7 +204,7 @@ export default function PatticakeNationalDeliveryPage() {
                 <p className="mt-3 text-base leading-7 text-body">signature chocolate cake made for sending.</p>
               </div>
               <div className="relative min-h-[210px] overflow-hidden border border-ink/10 bg-blue-soft">
-                <Image src="/images/patticake/03_top_view.jpg" alt="yum! patticake vanilla buttercream top view" fill loading="eager" sizes="(min-width: 1024px) 22vw, 45vw" className="object-cover crop-patticake-top" />
+                <Image src="/images/patticake/03_top_view.jpg" alt="yum! patticake vanilla buttercream top view" fill sizes="(min-width: 1024px) 22vw, 45vw" className="object-cover crop-patticake-top" />
               </div>
             </div>
           </div>
@@ -175,6 +212,42 @@ export default function PatticakeNationalDeliveryPage() {
       </section>
 
       <PatticakeMessageRibbon tone="blue" />
+
+      <section className="bg-white px-6 py-12 lg:py-section">
+        <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.68fr_1.32fr] lg:items-center">
+          <div>
+            <p className="section-label">before you ship</p>
+            <h2 className="text-h2 lowercase">what happens after you send the note</h2>
+            <p className="mt-5 text-xl leading-9 text-body">
+              This starts with a real bakery note. Tell us where the Patticake is going and we&apos;ll make the next step clear.
+            </p>
+            <div className="patticake-trust-strip">
+              {trustNotes.map((note) => (
+                <span key={note}>{note}</span>
+              ))}
+            </div>
+          </div>
+          <div className="grid gap-5 lg:grid-cols-[0.82fr_1.18fr]">
+            <div className="relative min-h-[360px] overflow-hidden border border-ink/10 bg-blue-soft">
+              <Image
+                src="/images/patticake/gift_box_vertical.jpg"
+                alt="yum! bakery gift box with red ribbon"
+                fill
+                sizes="(min-width: 1024px) 28vw, 100vw"
+                className="object-cover crop-patticake-gift-box"
+              />
+            </div>
+            <div className="delivery-logistics-grid">
+              {deliveryFacts.map((fact) => (
+                <article key={fact.title}>
+                  <h3>{fact.title}</h3>
+                  <p>{fact.copy}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="bg-page px-6 py-8">
         <div className="mx-auto max-w-[1240px]">
@@ -187,7 +260,7 @@ export default function PatticakeNationalDeliveryPage() {
             <div>
               <h2 className="font-serif text-[2.7rem] font-normal leading-tight lowercase text-brand-primary">a clearer way to send it.</h2>
               <p className="mt-4 max-w-[560px] text-lg leading-8 text-ink">
-                Start with the order, send us a note if timing needs a human check, and keep the gift message close.
+                Start with a shipping note, add the words for the cake, and we&apos;ll help it travel with care.
               </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -230,13 +303,15 @@ export default function PatticakeNationalDeliveryPage() {
         </div>
       </section>
 
+      <PatticakeMessagePreview />
+
       <section className="bg-cream px-6 py-12 lg:py-section">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
           <div>
             <p className="section-label">before you order</p>
             <h2 className="text-h2 lowercase">what to have ready</h2>
             <p className="mt-5 text-xl leading-9 text-body">
-              A few notes help the bakery team take good care of the cake, whether you order now or ask us first.
+              A few notes help us take good care of the cake, whether you order now or ask us first.
             </p>
           </div>
           <div className="grid gap-5 lg:grid-cols-[0.78fr_1fr]">
@@ -283,10 +358,10 @@ export default function PatticakeNationalDeliveryPage() {
       <section id="national-order" className="bg-blue-tint px-6 py-12 lg:py-section">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
           <div>
-            <p className="section-label text-ink">ready to send it?</p>
+            <p className="section-label text-ink">send some love</p>
             <h2 className="text-h2 lowercase">send Patticake from here</h2>
             <p className="mt-5 text-xl leading-9 text-ink">
-              Start the national delivery order and add the address, date, occasion, and message.
+              Start the shipping note and add the address, date, occasion, and message.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a
@@ -296,17 +371,17 @@ export default function PatticakeNationalDeliveryPage() {
                 className="btn-primary"
                 data-event="click_patticake_national_delivery_order"
               >
-                Order National Delivery
+                Ship a Cake
               </a>
               <a href="#delivery-support" className="btn-secondary">
-                Delivery Questions
+                Ask a Shipping Question
               </a>
             </div>
           </div>
           <div className="border border-brand-primary/20 bg-white p-6">
             <div className="grid gap-6 md:grid-cols-[0.52fr_1fr] md:items-center">
               <div className="relative aspect-[4/5] overflow-hidden bg-blue-soft">
-                <Image src="/images/patticake/10_layers_slice.jpg" alt="yum! patticake chocolate cake layers close up" fill loading="eager" sizes="(min-width: 1024px) 24vw, 100vw" className="object-cover crop-patticake-layer" />
+                <Image src="/images/patticake/10_layers_slice.jpg" alt="yum! patticake chocolate cake layers close up" fill sizes="(min-width: 1024px) 24vw, 100vw" className="object-cover crop-patticake-layer" />
               </div>
               <div>
                 <p className="font-serif text-3xl font-normal lowercase text-ink">Patticake</p>
@@ -314,10 +389,10 @@ export default function PatticakeNationalDeliveryPage() {
                   Devil&apos;s food chocolate cake layered with vanilla buttercream, made to send beyond the Twin Cities.
                 </p>
                 <ul className="mt-5 grid gap-3 text-base leading-7 text-ink">
-                  <li>Choose national delivery</li>
+                  <li>Share where the cake is going</li>
                   <li>Add the address and gift note</li>
                   <li>Add timing or weather notes</li>
-                  <li>Send Patticake on its way</li>
+                  <li>We reply before we bake</li>
                 </ul>
               </div>
             </div>
@@ -328,23 +403,25 @@ export default function PatticakeNationalDeliveryPage() {
       <section id="delivery-support" className="bg-white px-6 py-12 lg:py-section">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.82fr_1.18fr]">
           <div>
-            <p className="section-label">ask the bakery</p>
-            <h2 className="text-h2 lowercase">questions before national delivery?</h2>
+            <p className="section-label">shipping help</p>
+            <h2 className="text-h2 lowercase">need help sending it?</h2>
             <p className="mt-5 text-xl leading-9 text-body">
-              For bigger orders, timing questions, delivery notes, or anything unusual, send a note and the bakery team will help.
+              For bigger orders, timing questions, delivery notes, or anything unusual, send a note and someone from yum! will help.
             </p>
             <p className="mt-5 text-base leading-7 text-body">
-              Your note goes to the yum! bakery team so they can help before you place or adjust a national delivery order.
+              Your note goes to yum! so we can help before you ship a cake.
             </p>
           </div>
           <InquiryForm
             kind="cake"
-            defaultSubject="Patticake national delivery order"
+            cakeMode="delivery"
+            defaultSubject="Patticake shipping note"
             eventDateLabel="Requested delivery date"
             guestsLabel="Quantity or servings"
-            locationLabel="Preferred yum! location"
-            messageLabel="Ship-to address, occasion, delivery notes, and message"
-            submitLabel="Send Bakery Note"
+            locationLabel="Closest yum! location"
+            messageLabel="Timing, weather, allergy, or delivery notes"
+            submitLabel="Send Shipping Note"
+            successMessage="We got it. Someone from yum! will reply with the next sweet step."
           />
         </div>
       </section>
@@ -359,7 +436,7 @@ export default function PatticakeNationalDeliveryPage() {
             className="inline-block border-2 border-white bg-white px-8 py-4 text-lg font-bold leading-none text-brand-primary transition hover:bg-blue-tint hover:text-ink"
             data-event="click_patticake_national_delivery_order"
           >
-            Order National Delivery
+            Ship a Cake
           </a>
         </div>
       </section>

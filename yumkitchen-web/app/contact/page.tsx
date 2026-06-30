@@ -22,7 +22,7 @@ export default function ContactPage() {
       <JsonLd data={contactPageJsonLd()} />
       <Hero
         title="we'd love to hear from you"
-        copy="Call a location, send a note, or tell us how we can help. A member of our team will be in contact with you shortly."
+        copy="Call a location, send us a note, or tell us how we can help. Someone from yum! will get back to you soon."
         image="/images/yum-mixed-berry-salad.png"
         imageAlt="yum! mixed berry salad"
         priority
@@ -33,7 +33,7 @@ export default function ContactPage() {
         <div className="container-content grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <p className="section-label">contact us</p>
-            <h2 className="text-h2 lowercase">send the team a note</h2>
+            <h2 className="text-h2 lowercase">send us a note</h2>
             <p className="mt-5 text-xl leading-9">For online ordering questions, call the location directly. For general notes, use the form and we will get it to the right person.</p>
           </div>
           <InquiryForm kind="contact" />

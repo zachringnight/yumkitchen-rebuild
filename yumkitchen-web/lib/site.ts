@@ -46,8 +46,8 @@ export const navItems = [
     href: '/order-a-cake',
     label: 'cakes',
     children: [
-      { href: '/order-a-cake', label: 'local cakes' },
-      { href: '/patticake', label: 'national delivery' },
+      { href: '/order-a-cake', label: 'Pick Up Locally' },
+      { href: '/patticake', label: 'Ship a Cake' },
     ],
   },
 ] as const;
@@ -68,7 +68,7 @@ export const pageMeta = {
   },
   patticakeHome: {
     title: 'Patticake',
-    description: 'Order yum! Patticake for national delivery or local pickup, and visit the yum! Kitchen restaurant pages.',
+    description: 'Ship a Cake, Pick Up Locally, and visit the yum! Kitchen restaurant pages.',
     image: '/og/default.jpg',
   },
   menu: {
@@ -92,8 +92,8 @@ export const pageMeta = {
     image: '/og/default.jpg',
   },
   patticakeDelivery: {
-    title: 'Patticake national delivery',
-    description: 'Order yum! Kitchen and Bakery Patticake for national delivery, with bakery help for delivery questions.',
+    title: 'Ship a Cake',
+    description: 'Start a Patticake shipping note, add the sweet details, and hear back from yum! before baking.',
     image: '/og/default.jpg',
   },
   about: {
@@ -113,7 +113,7 @@ export const pageMeta = {
   },
   contact: {
     title: "we'd love to hear from you",
-    description: 'Contact yum! Kitchen and Bakery, call a location, or send the team a note.',
+    description: 'Contact yum! Kitchen and Bakery, call a location, or send us a note.',
     image: '/og/default.jpg',
   },
   accessibility: {

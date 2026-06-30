@@ -25,10 +25,10 @@ export function CakeStudioBand() {
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link href="/order-a-cake#shop-patticake" className="btn-primary">
-              Plan a Cake
+              Pick Up Locally
             </Link>
             <Link href="/patticake" className="btn-secondary">
-              Patticake Delivery
+              Ship a Cake
             </Link>
             <Link href="/menu#bakery" className="btn-secondary">
               See Bakery

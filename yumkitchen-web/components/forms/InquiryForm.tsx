@@ -8,12 +8,14 @@ import { pushAnalyticsEvent } from '@/lib/analytics';
 import { locations } from '@/lib/locations';
 
 export type InquiryKind = 'contact' | 'catering' | 'cake' | 'careers' | 'accessibility';
+type CakeMode = 'general' | 'pickup' | 'delivery';
 
 const schema = z.object({
   firstName: z.string().min(1, 'First name is required.'),
   lastName: z.string().min(1, 'Last name is required.'),
   email: z.string().email('Enter a valid email.'),
   phone: z.string().optional(),
+  recipientName: z.string().optional(),
   location: z.string().optional(),
   subject: z.string().min(1, 'Subject is required.'),
   eventDate: z.string().optional(),
@@ -23,6 +25,8 @@ const schema = z.object({
   city: z.string().optional(),
   state: z.string().optional(),
   zip: z.string().optional(),
+  occasion: z.string().optional(),
+  giftMessage: z.string().max(140, 'Gift message must be 140 characters or fewer.').optional(),
   availability: z.string().optional(),
   applyingFor: z.string().optional(),
   commitments: z.string().optional(),
@@ -42,8 +46,27 @@ const schema = z.object({
 
 type InquiryFormValues = z.infer<typeof schema>;
 
-function formSchemaFor(kind: InquiryKind) {
+function formSchemaFor(kind: InquiryKind, cakeMode: CakeMode) {
   return schema.superRefine((values, ctx) => {
+    if (kind === 'cake' && cakeMode === 'delivery') {
+      const requiredFields: Array<[keyof InquiryFormValues, string]> = [
+        ['recipientName', 'Recipient name is required.'],
+        ['eventDate', 'Requested delivery date is required.'],
+        ['streetAddress', 'Street address is required.'],
+        ['city', 'City is required.'],
+        ['state', 'State is required.'],
+        ['zip', 'ZIP code is required.'],
+        ['occasion', 'Occasion is required.'],
+      ];
+
+      for (const [field, message] of requiredFields) {
+        const value = values[field];
+        if (typeof value !== 'string' || !value.trim()) {
+          ctx.addIssue({ code: z.ZodIssueCode.custom, path: [field], message });
+        }
+      }
+    }
+
     if (kind !== 'careers') return;
 
     const requiredFields: Array<[keyof InquiryFormValues, string]> = [
@@ -124,6 +147,8 @@ type InquiryFormProps = {
   eventDateLabel?: string;
   guestsLabel?: string;
   locationLabel?: string;
+  cakeMode?: CakeMode;
+  successMessage?: string;
 };
 
 const submitEvents: Record<InquiryKind, string> = {
@@ -142,9 +167,12 @@ export function InquiryForm({
   eventDateLabel,
   guestsLabel,
   locationLabel,
+  cakeMode = 'general',
+  successMessage,
 }: InquiryFormProps) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [serverMessage, setServerMessage] = useState('');
+  const [giftMessageLength, setGiftMessageLength] = useState(0);
   const messageRef = useRef<HTMLParagraphElement>(null);
   const copy = {
     ...labels[kind],
@@ -153,7 +181,8 @@ export function InquiryForm({
   };
   const requiresEventDetails = kind === 'catering' || kind === 'cake';
   const isCareers = kind === 'careers';
-  const validationSchema = useMemo(() => formSchemaFor(kind), [kind]);
+  const isDeliveryCake = kind === 'cake' && cakeMode === 'delivery';
+  const validationSchema = useMemo(() => formSchemaFor(kind, cakeMode), [kind, cakeMode]);
   const defaults = useMemo<Partial<InquiryFormValues>>(
     () => ({
       subject: defaultSubject ?? (kind === 'cake' ? 'Patticake and cake note' : kind === 'catering' ? 'Catering note' : ''),
@@ -171,6 +200,7 @@ export function InquiryForm({
     resolver: zodResolver(validationSchema),
     defaultValues: defaults,
   });
+  const giftMessageRegistration = register('giftMessage');
 
   function getBody(values: InquiryFormValues) {
     if (!isCareers) {
@@ -221,8 +251,9 @@ export function InquiryForm({
         path: window.location.pathname,
       });
       setStatus('success');
-      setServerMessage(payload.message ?? 'Thanks. We received your note.');
+      setServerMessage(successMessage ?? payload.message ?? 'Thanks. We received your note.');
       reset(defaults);
+      setGiftMessageLength(0);
     } catch {
       setStatus('error');
       setServerMessage('The message could not be sent. Please call a yum! location.');
@@ -241,14 +272,17 @@ export function InquiryForm({
         <label htmlFor={`${kind}-company`}>Company</label>
         <input id={`${kind}-company`} tabIndex={-1} autoComplete="off" {...register('company')} />
       </div>
+      <p className="form-required-note">
+        Fields marked <span aria-hidden="true">*</span> help the bakery reply quickly.
+      </p>
       <div className="grid gap-5 md:grid-cols-2">
-        <Field id={`${kind}-first-name`} label="First name" error={errors.firstName?.message}>
+        <Field id={`${kind}-first-name`} label="First name" error={errors.firstName?.message} required>
           <input id={`${kind}-first-name`} autoComplete="given-name" required {...register('firstName')} />
         </Field>
-        <Field id={`${kind}-last-name`} label="Last name" error={errors.lastName?.message}>
+        <Field id={`${kind}-last-name`} label="Last name" error={errors.lastName?.message} required>
           <input id={`${kind}-last-name`} autoComplete="family-name" required {...register('lastName')} />
         </Field>
-        <Field id={`${kind}-email`} label="Email" error={errors.email?.message}>
+        <Field id={`${kind}-email`} label="Email" error={errors.email?.message} required>
           <input id={`${kind}-email`} type="email" autoComplete="email" required {...register('email')} />
         </Field>
         <Field id={`${kind}-phone`} label="Phone" error={errors.phone?.message}>
@@ -265,17 +299,68 @@ export function InquiryForm({
             <option value="na">N/A</option>
           </select>
         </Field>
-        <Field id={`${kind}-subject`} label={copy.subject} error={errors.subject?.message}>
+        <Field id={`${kind}-subject`} label={copy.subject} error={errors.subject?.message} required>
           <input id={`${kind}-subject`} required {...register('subject')} />
         </Field>
         {requiresEventDetails && (
           <>
-            <Field id={`${kind}-event-date`} label={eventDateLabel ?? (kind === 'cake' ? 'Date of Event' : 'Event Date')} error={errors.eventDate?.message}>
-              <input id={`${kind}-event-date`} type="date" {...register('eventDate')} />
+            <Field id={`${kind}-event-date`} label={eventDateLabel ?? (kind === 'cake' ? 'Date of Event' : 'Event Date')} error={errors.eventDate?.message} required={isDeliveryCake}>
+              <input id={`${kind}-event-date`} type="date" required={isDeliveryCake} {...register('eventDate')} />
             </Field>
             <Field id={`${kind}-guests`} label={guestsLabel ?? 'Guests'} error={errors.guests?.message}>
               <input id={`${kind}-guests`} inputMode="numeric" {...register('guests')} />
             </Field>
+          </>
+        )}
+        {isDeliveryCake && (
+          <>
+            <Field id={`${kind}-recipient-name`} label="Recipient name" error={errors.recipientName?.message} required>
+              <input id={`${kind}-recipient-name`} autoComplete="shipping name" required {...register('recipientName')} />
+            </Field>
+            <Field id={`${kind}-street-address`} label="Ship-to street address" error={errors.streetAddress?.message} required>
+              <input id={`${kind}-street-address`} autoComplete="shipping address-line1" required {...register('streetAddress')} />
+            </Field>
+            <Field id={`${kind}-address-line-2`} label="Apartment, suite, or company" error={errors.addressLine2?.message}>
+              <input id={`${kind}-address-line-2`} autoComplete="shipping address-line2" {...register('addressLine2')} />
+            </Field>
+            <Field id={`${kind}-city`} label="Ship-to city" error={errors.city?.message} required>
+              <input id={`${kind}-city`} autoComplete="shipping address-level2" required {...register('city')} />
+            </Field>
+            <div className="grid gap-5 sm:grid-cols-2">
+              <Field id={`${kind}-state`} label="State" error={errors.state?.message} required>
+                <input id={`${kind}-state`} autoComplete="shipping address-level1" required {...register('state')} />
+              </Field>
+              <Field id={`${kind}-zip`} label="ZIP code" error={errors.zip?.message} required>
+                <input id={`${kind}-zip`} autoComplete="shipping postal-code" inputMode="numeric" required {...register('zip')} />
+              </Field>
+            </div>
+            <Field id={`${kind}-occasion`} label="Occasion" error={errors.occasion?.message} required>
+              <select id={`${kind}-occasion`} required {...register('occasion')}>
+                <option value="">Select one</option>
+                <option value="birthday">Birthday</option>
+                <option value="thank-you">Thank you</option>
+                <option value="office">Office celebration</option>
+                <option value="family">Family moment</option>
+                <option value="wedding">Wedding or shower</option>
+                <option value="just-because">Just because</option>
+                <option value="other">Other</option>
+              </select>
+            </Field>
+            <div className="md:col-span-2">
+              <Field id={`${kind}-gift-message`} label="Gift message" error={errors.giftMessage?.message}>
+                <textarea
+                  id={`${kind}-gift-message`}
+                  rows={3}
+                  maxLength={140}
+                  {...giftMessageRegistration}
+                  onChange={(event) => {
+                    giftMessageRegistration.onChange(event);
+                    setGiftMessageLength(event.target.value.length);
+                  }}
+                />
+              </Field>
+              <p className="gift-message-count">{giftMessageLength}/140 characters</p>
+            </div>
           </>
         )}
         {isCareers && (
@@ -396,7 +481,7 @@ export function InquiryForm({
           </>
         )}
       </div>
-      <Field id={`${kind}-message`} label={copy.message} error={errors.message?.message}>
+      <Field id={`${kind}-message`} label={copy.message} error={errors.message?.message} required>
         <textarea id={`${kind}-message`} rows={6} required {...register('message')} />
       </Field>
       {isCareers && (
@@ -431,11 +516,13 @@ function Field({
   id,
   label,
   error,
+  required,
   children,
 }: {
   id: string;
   label: string;
   error?: string;
+  required?: boolean;
   children: ReactElement<Record<string, unknown>>;
 }) {
   const control = cloneElement(children, {
@@ -445,7 +532,10 @@ function Field({
 
   return (
     <div className="field">
-      <label htmlFor={id}>{label}</label>
+      <label htmlFor={id}>
+        {label}
+        {required && <span className="required-mark" aria-hidden="true">*</span>}
+      </label>
       {control}
       {error && (
         <p id={`${id}-error`} className="field-error">
