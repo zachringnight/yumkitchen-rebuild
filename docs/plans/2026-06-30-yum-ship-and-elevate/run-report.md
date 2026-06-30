@@ -81,3 +81,22 @@ Screenshots: `before/` and `after/` dirs (kept local, gitignored). The clearest 
 3. Extend elevation (warm the blue to cream, or a more immersive hero) before merge.
 4. Move to launch prep: set Resend secret, verify forms + analytics on a preview, then schedule DNS cutover.
 5. Discard and return to `origin/main`.
+
+## Audit follow-up (post-preview, same branch)
+
+After the polish round, Zach ran a full-site audit of the preview. Findings worked through:
+
+Fixed (each verified in rendered HTML, verify.sh PASSED, axe 0 serious, LH ~91-92/100/100/100):
+- Homepage canonical added (was the only page missing it).
+- Custom branded `app/not-found.tsx` (header/footer + recovery links), replacing the bare default 404.
+- Menu JSON-LD (`Menu`/`MenuSection`/`MenuItem`, 82 items) on `/menu`.
+- Native `method="post"` on the inquiry form so a no-JS fallback cannot leak PII to the URL.
+- Homepage Restaurant/Bakery JSON-LD (`brandJsonLd`) with the 4 locations as `department`, linked by the same @id the location pages emit.
+- 22 legacy WordPress press-archive URLs redirect (308) to `/in-the-news` via `pressArchiveRedirects` in `next.config.js` (prevents post-cutover 404s).
+
+Verified already-correct (no change, would have been wrong to "fix"):
+- Empty alt on hero + location thumbnails is intentional decorative pattern (aria-hidden + separate accessible link / live region); that is why axe is clean.
+- News external links already open in a new tab with `rel="noopener noreferrer"`.
+- og:image asset exists (content validation confirms it).
+
+Commits: `517b7a5` (audit fixes), `dc41206` (brand schema), `1573bf8` (press redirects).
