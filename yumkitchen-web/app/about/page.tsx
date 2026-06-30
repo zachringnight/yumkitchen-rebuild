@@ -3,6 +3,8 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { Hero } from '@/components/Hero';
 import { InquiryMomentumBand } from '@/components/InquiryMomentumBand';
+import { JsonLd } from '@/components/JsonLd';
+import { aboutPageJsonLd } from '@/lib/schema';
 import { leaderCards, pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -10,11 +12,13 @@ export const metadata: Metadata = {
   description: pageMeta.about.description,
   alternates: { canonical: '/about' },
   openGraph: { images: [pageMeta.about.image] },
+  twitter: { images: [pageMeta.about.image] },
 };
 
 export default function AboutPage() {
   return (
     <main>
+      <JsonLd data={aboutPageJsonLd()} />
       <Hero
         title="made from scratch since 2005"
         copy="Led by Patti and Robbie Soskin and a dedicated team, yum! is built around generous food, warm hospitality, and taking good care of people."
@@ -62,9 +66,9 @@ export default function AboutPage() {
       </section>
       <InquiryMomentumBand
         title="family-owned hospitality, made visible"
-        copy="People, food, press recognition, and four neighborhood kitchens all point to the same promise: made from scratch with love."
+        copy="People, food, local stories, and four neighborhood kitchens all point to the same promise: made from scratch with love."
         primaryHref="/in-the-news"
-        primaryLabel="See Recognition"
+        primaryLabel="Read Stories"
         secondaryHref="/order"
         secondaryLabel="Order Now"
         image="/images/yum-patti-kelli.jpeg"

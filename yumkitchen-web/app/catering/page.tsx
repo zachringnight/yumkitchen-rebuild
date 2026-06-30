@@ -4,8 +4,10 @@ import { CallPickerButton } from '@/components/CallPickerButton';
 import { CateringProof } from '@/components/CateringProof';
 import { Hero } from '@/components/Hero';
 import { InquiryMomentumBand } from '@/components/InquiryMomentumBand';
+import { JsonLd } from '@/components/JsonLd';
 import { LocationGrid } from '@/components/LocationGrid';
 import { InquiryForm } from '@/components/forms/InquiryForm';
+import { cateringServiceJsonLd } from '@/lib/schema';
 import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -13,11 +15,13 @@ export const metadata: Metadata = {
   description: pageMeta.catering.description,
   alternates: { canonical: '/catering' },
   openGraph: { images: [pageMeta.catering.image] },
+  twitter: { images: [pageMeta.catering.image] },
 };
 
 export default function CateringPage() {
   return (
     <main>
+      <JsonLd data={cateringServiceJsonLd()} />
       <Hero
         title="yum! catering"
         copy="Sandwich platters, box lunches, salads, baked goods, and more available for pick up with 24 hour notice. Call with questions."
@@ -57,9 +61,9 @@ export default function CateringPage() {
       </section>
       <InquiryMomentumBand
         title="catering that feels easy to plan"
-        copy="Pickup location, real food photography, notice timing, and a clear follow-up path help the planner feel ready before they submit."
+        copy="Pickup kitchen, food photos, timing, and a simple next step help the planner feel ready."
         primaryHref="/catering#inquiry"
-        primaryLabel="Start Inquiry"
+        primaryLabel="Plan Catering"
         secondaryHref="/order"
         secondaryLabel="Order Pickup"
         image="/images/yum-catering-boxed-lunch.jpg"

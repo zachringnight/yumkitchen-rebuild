@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     description: 'A yum! Kitchen and Bakery animated logo treatment.',
     images: ['/og/default.jpg'],
   },
+  twitter: { images: ['/og/default.jpg'] },
 };
 
 export default function LogoAnimationPage() {

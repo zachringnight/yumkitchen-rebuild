@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description: pageMeta.news.description,
   alternates: { canonical: '/in-the-news' },
   openGraph: { images: [pageMeta.news.image] },
+  twitter: { images: [pageMeta.news.image] },
 };
 
 export default function NewsPage() {
@@ -18,14 +19,14 @@ export default function NewsPage() {
         <div className="container-content">
           <h1 className="text-display lowercase">yum! in the news</h1>
           <p className="mt-5 max-w-3xl text-xl leading-9">
-            A curated view of awards, critic mentions, TV segments, founder stories, community moments, and expansion coverage from Twin Cities media.
+            Awards, food-writer favorites, TV visits, founder stories, community moments, and neighborhood news from Twin Cities media.
           </p>
         </div>
       </section>
       <PressExplorer />
       <InquiryMomentumBand
         title="recognized by people who know food here"
-        copy="Guests can scan the proof, understand the signature items, and move directly into menu, catering, or ordering."
+        copy="Guests can see what people love, then head straight to menu, catering, or ordering."
         primaryHref="/menu"
         primaryLabel="Browse Menu"
         secondaryHref="/catering"

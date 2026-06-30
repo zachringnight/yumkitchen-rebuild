@@ -6,13 +6,14 @@ import { getMenuSearchText, getPriceLabel, menu, menuDisclosure } from '@/lib/me
 
 const anchors = [
   { href: '#lunch-dinner', label: 'Lunch & Dinner' },
+  { href: '#breakfast', label: 'Breakfast' },
   { href: '#bakery', label: 'Bakery' },
   { href: '/catering', label: 'Catering' },
   { href: '/pdfs/gf-allergy-menu.pdf', label: 'Gluten & Allergens', external: true },
   { href: '/pdfs/takeout-menu.pdf', label: 'Printable Menu', external: true },
 ] as const;
 
-const searchSuggestions = ['salmon', 'soup', 'sandwiches', 'salads', 'cookies'] as const;
+const searchSuggestions = ['salmon', 'breakfast', 'soup', 'sandwiches', 'cookies'] as const;
 
 function sectionId(name: string, meal: string) {
   if (name === 'appetizers') return 'lunch-dinner';

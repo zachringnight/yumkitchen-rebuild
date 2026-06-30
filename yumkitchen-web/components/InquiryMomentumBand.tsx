@@ -26,7 +26,7 @@ export function InquiryMomentumBand({
     <section className="inquiry-momentum bg-blue-tint/70 py-section text-ink" data-reveal>
       <div className="container-content grid gap-10 lg:grid-cols-[1.06fr_0.94fr] lg:items-center">
         <div>
-          <p className="section-label">fast path</p>
+          <p className="section-label">quickest way</p>
           <h2 className="text-h2 lowercase text-ink">{title}</h2>
           <p className="mt-5 max-w-2xl text-xl leading-9 text-ink">{copy}</p>
           <div className="mt-7 flex flex-wrap gap-3">

@@ -1,4 +1,5 @@
 import locationsData from './locations-seed.json';
+import { absoluteSiteUrl } from './site';
 
 export type LocationSlug = 'st-louis-park' | 'shady-oak' | 'saint-paul' | 'woodbury';
 
@@ -31,6 +32,7 @@ type BaseLocation = {
 type LocationDetail = {
   heroImage: string;
   cardImage: string;
+  cardImageAlt: string;
   neighborhood: string;
   parking: string;
   roomNote: string;
@@ -42,6 +44,7 @@ const locationDetails: Record<LocationSlug, LocationDetail> = {
   'st-louis-park': {
     heroImage: '/images/yum-location-slp.jpg',
     cardImage: '/images/yum-location-slp.jpg',
+    cardImageAlt: 'yum! Kitchen and Bakery storefront in St. Louis Park',
     neighborhood: 'Our original St. Louis Park kitchen sits on Minnetonka Boulevard, close to neighborhood errands, school pickups, and easy weeknight dinners.',
     parking: 'Easy lot parking near the front door.',
     roomNote: 'A warm everyday room for breakfast, lunch, dinner, takeout, and bakery stops.',
@@ -51,6 +54,7 @@ const locationDetails: Record<LocationSlug, LocationDetail> = {
   'shady-oak': {
     heroImage: '/images/yum-location-shady-oak.jpg',
     cardImage: '/images/yum-location-shady-oak.jpg',
+    cardImageAlt: 'yum! Kitchen and Bakery storefront in Minnetonka on Shady Oak Road',
     neighborhood: 'Our Shady Oak location serves Minnetonka and Hopkins with fast parking, friendly counters, and a full yum! menu.',
     parking: 'Convenient parking right off Shady Oak Road.',
     roomNote: 'Built for easy weekday lunches, family dinners, and pickup on the way home.',
@@ -60,6 +64,7 @@ const locationDetails: Record<LocationSlug, LocationDetail> = {
   'saint-paul': {
     heroImage: '/images/yum-location-saint-paul.jpg',
     cardImage: '/images/yum-location-saint-paul.jpg',
+    cardImageAlt: 'yum! Kitchen and Bakery storefront in St. Paul on Snelling Avenue',
     neighborhood: 'Our St. Paul kitchen is right on Snelling Avenue, ready for neighborhood breakfasts, lunch meetings, and dinner to go.',
     parking: 'Street and nearby neighborhood parking available.',
     roomNote: 'A comfortable stop for dine-in meals, coffee, dessert, and quick pickup.',
@@ -69,9 +74,10 @@ const locationDetails: Record<LocationSlug, LocationDetail> = {
   woodbury: {
     heroImage: '/images/yum-location-woodbury.png',
     cardImage: '/images/yum-location-woodbury.png',
+    cardImageAlt: 'yum! Kitchen and Bakery storefront in Woodbury at City Centre',
     neighborhood: 'Our Woodbury location brings yum! to the east metro with plenty of room for families, coworkers, and casual gatherings.',
     parking: 'Easy parking around City Centre Drive.',
-    roomNote: 'A polished neighborhood spot for dining in, carrying out, and picking up celebration desserts.',
+    roomNote: 'A bright neighborhood spot for dining in, carrying out, and picking up celebration desserts.',
     favorite: 'Bring home dinner, soup, and a pie for the table.',
     metaDescription: 'Visit yum! woodbury at 8340 City Centre Drive for made-from-scratch meals, bakery, takeout, and online ordering.',
   },
@@ -93,9 +99,9 @@ export function entityJsonLd(loc: Location) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Restaurant',
-    '@id': `https://yumkitchen.com/location/${loc.slug}`,
+    '@id': absoluteSiteUrl(`/location/${loc.slug}`),
     name: `yum! Kitchen and Bakery - ${loc.short_name}`,
-    image: 'https://yumkitchen.com/wp-content/uploads/2022/12/Yum_2175.jpg',
+    image: absoluteSiteUrl(loc.heroImage),
     address: {
       '@type': 'PostalAddress',
       streetAddress: loc.address.street,
@@ -113,8 +119,8 @@ export function entityJsonLd(loc: Location) {
     openingHours: loc.hours_schema,
     servesCuisine: ['American', 'Bakery'],
     priceRange: '$$',
-    url: `https://yumkitchen.com/location/${loc.slug}`,
-    hasMenu: 'https://yumkitchen.com/menu',
+    url: absoluteSiteUrl(`/location/${loc.slug}`),
+    hasMenu: absoluteSiteUrl('/menu'),
     acceptsReservations: false,
     sameAs: [
       'https://www.facebook.com/yumkitchenandbakery',
@@ -136,10 +142,10 @@ export function organizationJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    '@id': 'https://yumkitchen.com/#organization',
+    '@id': absoluteSiteUrl('/#organization'),
     name: 'yum! Kitchen and Bakery',
-    url: 'https://yumkitchen.com',
-    logo: 'https://yumkitchen.com/favicon.png',
+    url: absoluteSiteUrl('/'),
+    logo: absoluteSiteUrl('/favicon.png'),
     sameAs: brandSocialProfiles,
   };
 }
@@ -153,24 +159,24 @@ export function brandJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@type': ['Restaurant', 'Bakery'],
-    '@id': 'https://yumkitchen.com/#business',
+    '@id': absoluteSiteUrl('/#business'),
     name: 'yum! Kitchen and Bakery',
-    url: 'https://yumkitchen.com',
-    logo: 'https://yumkitchen.com/favicon.png',
-    image: 'https://yumkitchen.com/wp-content/uploads/2022/12/Yum_2175.jpg',
+    url: absoluteSiteUrl('/'),
+    logo: absoluteSiteUrl('/favicon.png'),
+    image: absoluteSiteUrl('/og/home.jpg'),
     description:
       'Made-from-scratch breakfast, lunch, dinner, bakery, and catering from four neighborhood kitchens in the Twin Cities.',
     servesCuisine: ['American', 'Bakery'],
     priceRange: '$$',
-    hasMenu: 'https://yumkitchen.com/menu',
+    hasMenu: absoluteSiteUrl('/menu'),
     areaServed: { '@type': 'AdministrativeArea', name: 'Twin Cities, Minnesota' },
-    parentOrganization: { '@id': 'https://yumkitchen.com/#organization' },
+    parentOrganization: { '@id': absoluteSiteUrl('/#organization') },
     sameAs: brandSocialProfiles,
     department: locations.map((loc) => ({
       '@type': 'Restaurant',
-      '@id': `https://yumkitchen.com/location/${loc.slug}`,
+      '@id': absoluteSiteUrl(`/location/${loc.slug}`),
       name: `yum! Kitchen and Bakery - ${loc.short_name}`,
-      url: `https://yumkitchen.com/location/${loc.slug}`,
+      url: absoluteSiteUrl(`/location/${loc.slug}`),
       telephone: loc.phone,
       address: {
         '@type': 'PostalAddress',

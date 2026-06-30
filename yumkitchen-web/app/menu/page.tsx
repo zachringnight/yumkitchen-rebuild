@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description: pageMeta.menu.description,
   alternates: { canonical: '/menu' },
   openGraph: { images: [pageMeta.menu.image] },
+  twitter: { images: [pageMeta.menu.image] },
 };
 
 export default function MenuPage() {

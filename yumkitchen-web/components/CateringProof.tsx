@@ -8,10 +8,10 @@ export function CateringProof() {
       <div className="container-content">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
-            <p className="section-label">catering command center</p>
-            <h2 className="text-h2 lowercase">built for the person responsible for feeding everyone</h2>
+            <p className="section-label">catering made easier</p>
+            <h2 className="text-h2 lowercase">food people are happy to gather around</h2>
             <p className="mt-5 text-xl leading-9">
-              Know what travels well, how much notice helps, where to pick up, and how to get help fast before the meeting or celebration starts.
+              Sandwiches, salads, bakery sweets, and comfort food that travel well for meetings, celebrations, and family tables.
             </p>
             <div className="mt-7 grid gap-3">
               {cateringProof.map((item) => (
@@ -38,7 +38,7 @@ export function CateringProof() {
         </div>
         <div className="mt-10 flex flex-wrap gap-3">
           <Link href="/catering#inquiry" className="btn-primary">
-            Start Catering Inquiry
+            Plan Catering
           </Link>
           <a href="/pdfs/takeout-menu.pdf" target="_blank" rel="noopener noreferrer" className="btn-secondary">
             View Catering Menu

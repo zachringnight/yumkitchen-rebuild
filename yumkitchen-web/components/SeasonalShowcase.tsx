@@ -11,14 +11,14 @@ export function SeasonalShowcase() {
             <p className="section-label">what looks good today</p>
             <h2 className="text-h2 lowercase">seasonal favorites with real appetite appeal</h2>
             <p className="mt-4 text-xl leading-8">
-              A fast look at the dishes, soups, sandwiches, and bakery treats people come back for again and again.
+              A quick look at the dishes, soups, sandwiches, and bakery treats people come back for again and again.
             </p>
           </div>
           <div className="flex flex-wrap gap-3 lg:justify-end">
             <Link href="/menu" className="btn-primary">
               See What&apos;s New
             </Link>
-            <Link href="/#locations" className="btn-secondary">
+            <Link href="/yum-kitchen#locations" className="btn-secondary">
               Find a Kitchen
             </Link>
           </div>

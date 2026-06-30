@@ -11,10 +11,10 @@ export function MediaProofBand() {
       <div className="container-content">
         <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
           <div>
-            <p className="section-label">outside validation</p>
+            <p className="section-label">people are talking</p>
             <h2 className="text-h2 lowercase text-ink">recognized by people who know food here</h2>
             <p className="mt-5 max-w-2xl text-xl leading-9 text-body">
-              The strongest proof is bigger than one mention: local food writers, TV segments, and Twin Cities publications keep returning to yum! for bakery, hospitality, and neighborhood staying power.
+              Local food writers, TV segments, and Twin Cities publications keep returning to yum! for bakery, hospitality, and neighborhood staying power.
             </p>
           </div>
           <div className="flex flex-wrap gap-2 lg:justify-end">
@@ -31,7 +31,7 @@ export function MediaProofBand() {
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-primary">{item.outlet}</p>
               <h3 className="mt-3 font-serif text-2xl lowercase leading-tight text-ink">{item.title}</h3>
               <p className="mt-3 text-base leading-7 text-body">{item.summary}</p>
-              <span className="mt-5 inline-block text-lg font-normal leading-snug text-brand-primary hover:underline">Read Source</span>
+              <span className="mt-5 inline-block text-lg font-normal leading-snug text-brand-primary hover:underline">Read Story</span>
             </a>
           ))}
         </div>

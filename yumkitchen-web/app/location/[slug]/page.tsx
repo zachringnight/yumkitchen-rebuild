@@ -23,6 +23,7 @@ export async function generateMetadata({ params }: LocationRouteProps): Promise<
     description: loc.metaDescription,
     alternates: { canonical: `/location/${loc.slug}` },
     openGraph: { images: [loc.heroImage] },
+    twitter: { images: [loc.heroImage] },
   };
 }
 

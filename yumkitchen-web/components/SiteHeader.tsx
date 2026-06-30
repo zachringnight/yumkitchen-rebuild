@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { giftCardBalanceUrl, giftCardBuyUrl, navItems, patticakeNationalOrderUrl, yumKitchenSiteUrl } from '@/lib/site';
+import { giftCardBalanceUrl, giftCardBuyUrl, navItems, patticakeNationalOrderUrl } from '@/lib/site';
 import { usePatticakeSurface } from '@/lib/usePatticakeSurface';
 import { usePreferredLocation } from '@/lib/usePreferredLocation';
 import { BrandLogo } from './BrandLogo';
@@ -20,10 +20,12 @@ export function SiteHeader() {
   const { location } = usePreferredLocation();
   const patticakeSurface = usePatticakeSurface();
   const mobileMenuId = 'site-mobile-navigation';
-  const patticakeOrderIsExternal = /^https?:\/\//.test(patticakeNationalOrderUrl);
+  const patticakePrimaryHref = pathname === '/order-a-cake' ? '#cake-inquiry' : patticakeNationalOrderUrl;
+  const patticakeOrderIsExternal = /^https?:\/\//.test(patticakePrimaryHref);
+  const patticakePrimaryLabel = pathname === '/order-a-cake' ? 'Start Local Pickup' : 'Order Patticake';
 
   function isCurrent(href: string) {
-    if (href === '/#locations') return pathname.startsWith('/location');
+    if (href === '/yum-kitchen#locations') return pathname === '/yum-kitchen' || pathname.startsWith('/location');
     if (!href.startsWith('/')) return false;
     return pathname === href || pathname.startsWith(`${href}/`);
   }
@@ -35,53 +37,54 @@ export function SiteHeader() {
   return (
     <>
       <header className="sticky top-0 z-40 border-b border-blue-soft/60 bg-blue-tint/85 backdrop-blur-[4px]">
-        <div className="mx-auto flex h-[72px] w-full max-w-[1440px] items-end justify-between gap-4 px-5 pb-2 lg:px-7">
-          <div className="flex items-end gap-3">
-            <BrandLogo />
+        <div className="mx-auto flex h-[72px] w-full max-w-[1440px] items-center justify-between gap-4 px-5 lg:px-7">
+          <div className="flex items-center gap-3">
+            <BrandLogo
+              href={patticakeSurface ? '/' : '/yum-kitchen'}
+              ariaLabel={patticakeSurface ? 'Patticake home' : 'yum! Kitchen restaurant home'}
+            />
             {patticakeSurface && (
-              <Link href="/patticake" className="hidden pb-2 font-serif text-3xl font-normal lowercase leading-none text-ink sm:block">
+              <Link href="/" className="hidden font-serif text-3xl font-normal lowercase leading-none text-ink sm:block">
                 patticake
               </Link>
             )}
           </div>
           {patticakeSurface ? (
             <>
-              <nav aria-label="Patticake navigation" className="hidden items-end gap-1 lg:flex">
-                <a href="#national-order" className="px-3 pb-2 pt-5 text-lg font-normal leading-none text-brand-primary transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)]">
-                  national delivery
-                </a>
-                <Link href="/order-a-cake" className="px-3 pb-2 pt-5 text-lg font-normal leading-none text-brand-primary transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)]">
+              <nav aria-label="Patticake navigation" className="hidden items-center gap-1 lg:flex">
+                <Link href="/" className="flex h-[72px] items-center px-3 text-lg font-normal leading-none text-brand-primary transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)]">
+                  patticake
+                </Link>
+                <Link href="/patticake#national-order" className="flex h-[72px] items-center px-3 text-lg font-normal leading-none text-brand-primary transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)]">
+                  ship it
+                </Link>
+                <Link href="/order-a-cake#cake-inquiry" className="flex h-[72px] items-center px-3 text-lg font-normal leading-none text-brand-primary transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)]">
                   local pickup
                 </Link>
-                <a href="#delivery-support" className="px-3 pb-2 pt-5 text-lg font-normal leading-none text-brand-primary transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)]">
-                  questions
-                </a>
-                <a
-                  href={yumKitchenSiteUrl}
-                  className="px-3 pb-2 pt-5 text-lg font-normal leading-none text-brand-primary transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)]"
-                >
+                <Link href="/yum-kitchen" className="flex h-[72px] items-center px-3 text-lg font-normal leading-none text-brand-primary transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)]">
                   yum! kitchen
-                </a>
+                </Link>
               </nav>
               <div className="hidden items-center gap-3 lg:flex">
                 <a
-                  href={patticakeNationalOrderUrl}
+                  href={patticakePrimaryHref}
                   target={patticakeOrderIsExternal ? '_blank' : undefined}
                   rel={patticakeOrderIsExternal ? 'noopener noreferrer' : undefined}
                   className="btn-primary px-5 py-3"
                   data-event="click_patticake_national_delivery_order"
                   data-source="site_header"
                 >
-                  Order Patticake
+                  {patticakePrimaryLabel}
                 </a>
               </div>
             </>
           ) : (
             <>
-              <nav aria-label="Primary navigation" className="hidden items-end lg:flex">
+              <nav aria-label="Primary navigation" className="hidden items-center lg:flex">
                 {navItems.map((item) => {
                   const childCurrent = 'children' in item && item.children.some((child) => isCurrent(child.href));
                   const current = isCurrent(item.href) || childCurrent;
+                  const hasChildren = 'children' in item;
                   const baseLink = (
                     <Link
                       key={item.label}
@@ -91,16 +94,21 @@ export function SiteHeader() {
                       rel={isExternal(item) ? 'noopener noreferrer' : undefined}
                       data-event={eventForHref(item.href)}
                       aria-current={current ? 'page' : undefined}
-                      className={`px-2.5 pb-2 pt-5 text-lg font-normal leading-none transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)] ${
+                      className={`flex h-[72px] items-center gap-1.5 px-2.5 text-lg font-normal leading-none transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)] ${
                         current ? 'text-ink shadow-[inset_0_-4px_0_var(--color-ink)]' : 'text-brand-primary'
                       }`}
                     >
-                      {item.label}
+                      <span>{item.label}</span>
+                      {hasChildren && (
+                        <svg aria-hidden="true" viewBox="0 0 12 8" className="mt-0.5 h-2 w-3" fill="none">
+                          <path d="M1.5 1.5 6 6l4.5-4.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      )}
                     </Link>
                   );
-                  if (!('children' in item)) return baseLink;
+                  if (!hasChildren) return baseLink;
                   return (
-                    <div key={item.label} className="group relative">
+                    <div key={item.label} className="group relative flex items-center">
                       {baseLink}
                       <div className="motion-role-feedback invisible absolute left-0 top-full z-50 grid min-w-44 translate-y-2 border border-blue-soft/70 bg-white p-2 opacity-0 shadow-lg transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
                         {item.children.map((child) => (
@@ -139,7 +147,7 @@ export function SiteHeader() {
           <div className="flex items-center gap-2 lg:hidden">
             {patticakeSurface ? (
               <a
-                href={patticakeNationalOrderUrl}
+                href={patticakePrimaryHref}
                 target={patticakeOrderIsExternal ? '_blank' : undefined}
                 rel={patticakeOrderIsExternal ? 'noopener noreferrer' : undefined}
                 className="btn-primary px-4 py-3 text-base"
@@ -182,18 +190,18 @@ export function SiteHeader() {
             <div className="grid gap-2 pt-3">
               {patticakeSurface ? (
                 <>
-                  <a href="#national-order" className="border-b border-blue-soft/60 py-3 text-lg font-normal text-brand-primary" onClick={() => setMenuOpen(false)}>
-                    national delivery
-                  </a>
-                  <Link href="/order-a-cake" className="border-b border-blue-soft/60 py-3 text-lg font-normal text-brand-primary" onClick={() => setMenuOpen(false)}>
+                  <Link href="/" className="border-b border-blue-soft/60 py-3 text-lg font-normal text-brand-primary" onClick={() => setMenuOpen(false)}>
+                    patticake
+                  </Link>
+                  <Link href="/patticake#national-order" className="border-b border-blue-soft/60 py-3 text-lg font-normal text-brand-primary" onClick={() => setMenuOpen(false)}>
+                    ship it
+                  </Link>
+                  <Link href="/order-a-cake#cake-inquiry" className="border-b border-blue-soft/60 py-3 text-lg font-normal text-brand-primary" onClick={() => setMenuOpen(false)}>
                     local pickup
                   </Link>
-                  <a href="#delivery-support" className="border-b border-blue-soft/60 py-3 text-lg font-normal text-brand-primary" onClick={() => setMenuOpen(false)}>
-                    questions
-                  </a>
-                  <a href={yumKitchenSiteUrl} className="border-b border-blue-soft/60 py-3 text-lg font-normal text-brand-primary" onClick={() => setMenuOpen(false)}>
+                  <Link href="/yum-kitchen" className="border-b border-blue-soft/60 py-3 text-lg font-normal text-brand-primary" onClick={() => setMenuOpen(false)}>
                     yum! kitchen
-                  </a>
+                  </Link>
                 </>
               ) : (
                 navItems.map((item) => {
@@ -237,16 +245,16 @@ export function SiteHeader() {
               )}
               {patticakeSurface ? (
                 <a
-                  href={patticakeNationalOrderUrl}
+                  href={patticakePrimaryHref}
                   target={patticakeOrderIsExternal ? '_blank' : undefined}
                   rel={patticakeOrderIsExternal ? 'noopener noreferrer' : undefined}
                   className="btn-secondary mt-3 text-center"
                   onClick={() => setMenuOpen(false)}
                 >
-                  Order Patticake
+                  {patticakePrimaryLabel}
                 </a>
               ) : (
-                <Link href="/#locations" prefetch={false} className="btn-secondary mt-3 text-center" onClick={() => setMenuOpen(false)}>
+                <Link href="/yum-kitchen#locations" prefetch={false} className="btn-secondary mt-3 text-center" onClick={() => setMenuOpen(false)}>
                   Find Us
                 </Link>
               )}

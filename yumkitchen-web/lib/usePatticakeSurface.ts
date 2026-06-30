@@ -16,5 +16,5 @@ export function usePatticakeSurface() {
     return () => window.cancelAnimationFrame(frame);
   }, []);
 
-  return pathname === '/patticake' || pathname.startsWith('/patticake/') || patticakeHosts.has(host);
+  return pathname === '/' || pathname === '/patticake' || pathname.startsWith('/patticake/') || pathname === '/order-a-cake' || patticakeHosts.has(host);
 }

@@ -25,16 +25,16 @@ const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: pageMeta.home.title,
-    template: '%s · yum! Kitchen',
+    default: pageMeta.patticakeHome.title,
+    template: '%s · Patticake',
   },
-  description: pageMeta.home.description,
+  description: pageMeta.patticakeHome.description,
   openGraph: {
     type: 'website',
-    siteName: 'yum! Kitchen',
-    images: [pageMeta.home.image],
+    siteName: 'Patticake',
+    images: [pageMeta.patticakeHome.image],
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: { card: 'summary_large_image', images: [pageMeta.patticakeHome.image] },
   icons: { icon: '/favicon.png' },
 };
 

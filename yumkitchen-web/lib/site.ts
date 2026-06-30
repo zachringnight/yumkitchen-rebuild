@@ -1,8 +1,19 @@
 import type { LocationSlug } from './locations';
 
-export const yumKitchenSiteUrl = process.env.NEXT_PUBLIC_YUMKITCHEN_URL ?? 'https://yumkitchen.com';
-export const patticakeSiteUrl = process.env.NEXT_PUBLIC_PATTICAKE_URL ?? 'https://patticake.com';
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? yumKitchenSiteUrl;
+function normalizeOrigin(value: string | undefined) {
+  const trimmed = value?.trim().replace(/\/+$/, '');
+  if (!trimmed) return undefined;
+  return /^https?:\/\//.test(trimmed) ? trimmed : `https://${trimmed}`;
+}
+
+export const yumKitchenSiteUrl = normalizeOrigin(process.env.NEXT_PUBLIC_YUMKITCHEN_URL) ?? 'https://yumkitchen.com';
+export const patticakeSiteUrl = normalizeOrigin(process.env.NEXT_PUBLIC_PATTICAKE_URL) ?? 'https://patticake.com';
+const vercelPreviewUrl = process.env.VERCEL_ENV === 'preview' ? normalizeOrigin(process.env.VERCEL_URL) : undefined;
+export const siteUrl = normalizeOrigin(process.env.NEXT_PUBLIC_SITE_URL) ?? vercelPreviewUrl ?? yumKitchenSiteUrl;
+
+export function absoluteSiteUrl(path = '/') {
+  return new URL(path, siteUrl).toString();
+}
 
 export const giftCardBuyUrl = 'https://www.toasttab.com/yumkitchenslp/giftcards';
 export const giftCardBalanceUrl = 'https://www.toasttab.com/yumkitchenslp/findcard';
@@ -29,7 +40,7 @@ export const navItems = [
       { href: '/contact', label: 'contact' },
     ],
   },
-  { href: '/#locations', label: 'locations' },
+  { href: '/yum-kitchen#locations', label: 'locations' },
   { href: '/catering', label: 'catering' },
   {
     href: '/order-a-cake',
@@ -55,6 +66,11 @@ export const pageMeta = {
       "We're a bakery and kitchen with locations in Minnetonka, St. Louis Park, St. Paul, and Woodbury serving made-from-scratch seasonal food.",
     image: '/og/home.jpg',
   },
+  patticakeHome: {
+    title: 'Patticake',
+    description: 'Order yum! Patticake for national delivery or local pickup, and visit the yum! Kitchen restaurant pages.',
+    image: '/og/default.jpg',
+  },
   menu: {
     title: 'menu',
     description: 'Explore the yum! Kitchen and Bakery menu for lunch, dinner, breakfast, bakery, catering, gluten, and allergy information.',
@@ -77,7 +93,7 @@ export const pageMeta = {
   },
   patticakeDelivery: {
     title: 'Patticake national delivery',
-    description: 'Order yum! Kitchen and Bakery Patticake for national delivery, with a direct order path plus bakery support for delivery questions.',
+    description: 'Order yum! Kitchen and Bakery Patticake for national delivery, with bakery help for delivery questions.',
     image: '/og/default.jpg',
   },
   about: {
@@ -275,7 +291,7 @@ export const cateringPackages = [
   },
   {
     title: 'hot comfort trays',
-    description: 'Mac and cheese, lemon chicken, family-style sides, and room-ready service portions.',
+    description: 'Mac and cheese, lemon chicken, family-style sides, and generous pans made for the table.',
     image: '/images/yum-catering-mac-cheese.jpg',
   },
   {
@@ -287,7 +303,7 @@ export const cateringPackages = [
 
 export const cateringProof = [
   '24 hour pickup notice for most catering orders',
-  'all four locations support pickup',
+  'pickup from all four yum! kitchens',
   'easy parking at every location',
   'call a real yum! team member with questions',
 ] as const;
@@ -302,7 +318,7 @@ export const cakeGallery = [
 export const cakeOptions = [
   {
     title: 'patticake',
-    description: 'A classic yum! celebration cake path for weddings and milestone gatherings.',
+    description: 'A classic yum! celebration cake for weddings and milestone gatherings.',
   },
   {
     title: "baker's man",
@@ -355,7 +371,7 @@ export const mediaHighlights = [
     outlet: 'Mpls.St.Paul Magazine',
     date: '2026',
     category: 'awards and lists',
-    summary: 'A high-credibility Twin Cities restaurant recognition that frames yum! as a durable local institution.',
+    summary: 'A Twin Cities restaurant honor that celebrates yum! as a local favorite with real staying power.',
     href: 'https://mspmag.com/eat-and-drink/best-restaurants-hall-of-fame/',
   },
   {
@@ -363,7 +379,7 @@ export const mediaHighlights = [
     outlet: 'Mpls.St.Paul Magazine',
     date: '2025',
     category: 'bakery and desserts',
-    summary: 'Bakery authority coverage that calls out the Patticake as a signature yum! item with a devoted following.',
+    summary: 'Bakery love that calls out Patticake as a signature yum! favorite with a devoted following.',
     href: 'https://mspmag.com/eat-and-drink/mill-city-rising-best-bakeries-of-the-twin-cities/',
   },
   {
@@ -371,7 +387,7 @@ export const mediaHighlights = [
     outlet: 'Eater Twin Cities',
     date: '2023',
     category: 'bakery and desserts',
-    summary: 'Food-media validation for the Patticake, mini Key lime pies, cupcakes, bars, cookies, and pull-apart bread.',
+    summary: 'Local dessert love for Patticake, mini Key lime pies, cupcakes, bars, cookies, and pull-apart bread.',
     href: 'https://twincities.eater.com/maps/best-desserts-pastries-restaurants-minneapolis-st-paul',
   },
   {
@@ -403,7 +419,7 @@ export const mediaHighlights = [
     outlet: 'Woodbury Magazine',
     date: '2023',
     category: 'growth',
-    summary: 'A founder-led expansion story around bringing yum! to its fourth location in Woodbury.',
+    summary: 'A family-business story about bringing yum! to its fourth location in Woodbury.',
     href: 'https://woodburymag.com/yum-kitchen-and-bakery-is-set-to-open-this-summer/',
   },
 ] as const;
@@ -573,8 +589,8 @@ export const pressEntries = [
 
 export const formSubjects = {
   contact: 'Contact form',
-  catering: 'Catering inquiry',
-  cake: 'Patticake and cake inquiry',
+  catering: 'Catering note',
+  cake: 'Patticake and cake note',
   careers: 'Career application',
   accessibility: 'Accessibility feedback',
 } as const;

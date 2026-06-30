@@ -12,18 +12,26 @@ const LocationPickerModal = dynamic(() => import('./LocationPickerModal').then((
 });
 
 const heroImages = [
-  { src: '/images/yum-hero-1698.jpg', label: 'scratch food' },
-  { src: '/images/yum-grainy-mustard-salmon.png', label: 'dinner plates' },
-  { src: '/images/yum-bobs-tomato-soup.jpg', label: 'soup counter' },
-  { src: '/images/yum-catering-tray.jpg', label: 'take-home boxes' },
-  { src: '/images/yum-szecret-salmon.png', label: 'seasonal entrees' },
-  { src: '/images/yum-bakery-key-lime-pie.jpg', label: 'bakery case' },
+  { src: '/images/yum-hero-1698.jpg', label: 'scratch food', alt: 'A spread of yum! made-from-scratch dishes' },
+  { src: '/images/yum-grainy-mustard-salmon.png', label: 'dinner plates', alt: 'A plated yum! dinner entree' },
+  { src: '/images/yum-bobs-tomato-soup.jpg', label: 'soup counter', alt: 'Fresh soups at the yum! soup counter' },
+  { src: '/images/yum-catering-tray.jpg', label: 'take-home boxes', alt: 'yum! take-home meal boxes' },
+  { src: '/images/yum-szecret-salmon.png', label: 'seasonal entrees', alt: 'A seasonal yum! entree' },
+  { src: '/images/yum-bakery-key-lime-pie.jpg', label: 'bakery case', alt: 'Cakes and pastries in the yum! bakery case' },
 ] as const;
 
 const heroProofItems = [
   { value: '4', label: 'neighborhood kitchens' },
   { value: '8am - 8pm', label: 'open daily' },
   { value: 'since 2005', label: 'made from scratch' },
+] as const;
+
+const rhythmItems = [
+  { time: '8am', title: 'breakfast starts warm' },
+  { time: 'midday', title: 'salads, soups, sandwiches' },
+  { time: 'after work', title: 'dinner comes home easy' },
+  { time: 'bakery case', title: 'a sweet thing for later' },
+  { time: 'any party', title: 'catering made with care' },
 ] as const;
 
 const menuFeatureItems = [
@@ -94,11 +102,11 @@ export function HomeHero() {
 
   return (
     <section className="home-hero relative min-h-[560px] overflow-hidden bg-page md:min-h-[730px]">
-      <div className="home-hero-media" aria-hidden="true">
+      <div className="home-hero-media">
         <Image
           key={currentHero.src}
           src={currentHero.src}
-          alt=""
+          alt={currentHero.alt}
           fill
           preload={current === 0}
           fetchPriority={current === 0 ? 'high' : undefined}
@@ -120,7 +128,7 @@ export function HomeHero() {
           <p className="text-[1.08rem] leading-7 text-body md:text-lg">
             Eat at one of our four neighborhood kitchens, take us to work, or bring dinner home. Open daily 8am - 8pm.
           </p>
-          <div className="hero-proof-grid" aria-label="Yum Kitchen proof points">
+          <div className="hero-proof-grid" aria-label="yum! Kitchen highlights">
             {heroProofItems.map((item) => (
               <div key={item.label}>
                 <strong>{item.value}</strong>
@@ -148,7 +156,7 @@ export function HomeHero() {
             <button type="button" className="btn-primary home-hero-primary-action" onClick={() => setOrderOpen(true)}>
               Start Order
             </button>
-            <Link href="/#locations" prefetch={false} className="btn-secondary">
+            <Link href="/yum-kitchen#locations" prefetch={false} className="btn-secondary">
               Find a Kitchen
             </Link>
             <Link href="/menu" prefetch={false} className="btn-secondary">
@@ -193,9 +201,22 @@ export function RedBand() {
           <p className="hidden text-white md:block">loving what we do and how we do it</p>
           <p className="hidden text-white md:block">breakfast, lunch, dinner, bakery, and catering</p>
         </div>
-        <Link href="/menu" prefetch={false} className="inline-block border-2 border-white px-5 py-3 text-center text-lg font-bold leading-none text-white transition hover:bg-white hover:text-ink">
-          See the Menu
-        </Link>
+        <div className="flex flex-wrap gap-3 md:justify-end">
+          <Link href="/menu" prefetch={false} className="inline-block border-2 border-white px-5 py-3 text-center text-lg font-bold leading-none text-white transition hover:bg-white hover:text-ink">
+            See the Menu
+          </Link>
+          <Link href="/order" prefetch={false} className="inline-block bg-white px-5 py-3 text-center text-lg font-bold leading-none text-brand-primary transition hover:bg-blue-tint hover:text-ink">
+            Order Now
+          </Link>
+        </div>
+      </div>
+      <div className="yum-rhythm-strip mx-auto mt-6 max-w-[1180px]" aria-label="yum! Kitchen day rhythm">
+        {rhythmItems.map((item) => (
+          <div key={item.title} className="yum-rhythm-item">
+            <span>{item.time}</span>
+            <strong>{item.title}</strong>
+          </div>
+        ))}
       </div>
     </section>
   );
@@ -267,7 +288,7 @@ export function MenuFeature() {
                   index === active ? 'border-brand-red bg-brand-red text-white' : 'border-ink/15 bg-white text-ink hover:border-brand-red'
                 }`}
               >
-                <span className={`mb-1 block text-xs font-bold uppercase leading-none tracking-[0.08em] ${index === active ? 'text-white' : 'text-brand-red'}`}>
+                <span className={`mb-1 block text-xs font-bold uppercase leading-none tracking-[0.08em] ${index === active ? 'text-white' : 'text-brand-primary'}`}>
                   {menuItem.category}
                 </span>
                 {menuItem.name}
@@ -290,7 +311,7 @@ export function CateringCallout() {
         <div className="catering-panel border border-white bg-white/95 px-7 py-7 text-ink shadow-[0_1rem_2.4rem_rgb(45_45_45_/_0.10)] md:px-9 md:py-9">
           <h2 className="font-serif text-[2.25rem] font-normal leading-tight lowercase text-ink md:text-[2.7rem]">yum! catering</h2>
           <p className="mt-4 text-lg leading-8 text-body">
-            Sandwich platters, box lunches, salads, baked goods, and family-style favorites with the same yum! counter polish.
+            Sandwich platters, box lunches, salads, baked goods, and family-style favorites packed with the same yum! care.
           </p>
           <div className="mt-5 grid grid-cols-3 gap-2">
             <span className="border border-ink/15 px-2 py-3 text-center text-sm font-bold leading-tight text-ink">24 hour notice</span>
@@ -301,8 +322,14 @@ export function CateringCallout() {
             <button type="button" className="btn-secondary" onClick={() => setCallOpen(true)}>
               Call Us
             </button>
+            <a href="/pdfs/takeout-menu.pdf" target="_blank" rel="noopener noreferrer" className="btn-secondary">
+              View Catering Menu
+            </a>
             <Link href="/catering#inquiry" className="btn-primary">
               Plan Catering
+            </Link>
+            <Link href="/order-a-cake" className="btn-secondary">
+              Wedding Cakes
             </Link>
           </div>
         </div>

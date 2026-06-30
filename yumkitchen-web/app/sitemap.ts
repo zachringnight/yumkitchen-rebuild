@@ -4,6 +4,7 @@ import { siteUrl } from '@/lib/site';
 
 const staticRoutes = [
   '',
+  '/yum-kitchen',
   '/order',
   '/menu',
   '/catering',
@@ -22,8 +23,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticRoutes.map((route) => ({
       url: `${siteUrl}${route}`,
       lastModified: now,
-      changeFrequency: route === '' || route === '/menu' ? ('weekly' as const) : ('monthly' as const),
-      priority: route === '' ? 1 : route === '/menu' ? 0.9 : 0.7,
+      changeFrequency: route === '' || route === '/menu' || route === '/patticake' ? ('weekly' as const) : ('monthly' as const),
+      priority: route === '' ? 1 : route === '/patticake' || route === '/menu' ? 0.9 : route === '/yum-kitchen' ? 0.85 : 0.7,
     })),
     ...locations.map((loc) => ({
       url: `${siteUrl}/location/${loc.slug}`,

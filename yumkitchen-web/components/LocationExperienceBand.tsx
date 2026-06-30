@@ -8,7 +8,7 @@ export function LocationExperienceBand({ loc }: { loc: Location }) {
     <section className="location-experience bg-page py-section" data-reveal>
       <div className="container-content grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div>
-          <p className="section-label">{loc.short_name} details</p>
+          <p className="section-label">{loc.short_name} visit</p>
           <h2 className="text-h2 lowercase">your neighborhood yum! is ready</h2>
           <p className="mt-5 text-xl leading-9">{loc.roomNote}</p>
           <div className="mt-7 grid gap-3 text-lg leading-8">

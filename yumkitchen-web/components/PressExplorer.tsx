@@ -23,10 +23,10 @@ export function PressExplorer() {
         <div className="container-content">
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
             <div className="max-w-3xl">
-              <p className="section-label">featured recognition</p>
-              <h2 className="text-h2 lowercase">the proof points to lead with</h2>
+              <p className="section-label">favorite stories</p>
+              <h2 className="text-h2 lowercase">stories people remember</h2>
               <p className="mt-4 text-xl leading-9">
-                The best mentions are grouped by what they prove: restaurant staying power, bakery authority, founder story, community, and neighborhood growth.
+                The best mentions show what people keep coming back for: neighborhood meals, bakery favorites, family story, and plenty of warm yum! moments.
               </p>
             </div>
             <div className="flex flex-wrap gap-2 lg:justify-end" aria-label="Filter press entries">
@@ -66,7 +66,7 @@ export function PressExplorer() {
                 </p>
                 <p className="mt-4 text-lg leading-8">{entry.summary}</p>
                 <a href={entry.href} target="_blank" rel="noopener noreferrer" className="btn-link mt-5 inline-block">
-                  Read Source
+                  Read Story
                 </a>
               </article>
             ))}
@@ -75,7 +75,7 @@ export function PressExplorer() {
           {featuredItems.length === 0 && (
             <div className="mt-8 border border-ink/10 bg-page p-8">
               <h3 className="text-h3 lowercase">no featured cards in this group</h3>
-              <p className="mt-3 text-lg leading-8">The archive below still includes supporting mentions for this category.</p>
+              <p className="mt-3 text-lg leading-8">The archive below still includes more stories in this group.</p>
             </div>
           )}
         </div>
@@ -101,7 +101,7 @@ export function PressExplorer() {
                   {entry.outlet} / {entry.date}
                 </p>
                 <a href={entry.href} target="_blank" rel="noopener noreferrer" className="btn-link mt-5 inline-block">
-                  Read More
+                  Read Story
                 </a>
               </article>
             ))}

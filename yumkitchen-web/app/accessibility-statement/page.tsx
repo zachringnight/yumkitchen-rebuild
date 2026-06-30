@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description: pageMeta.accessibility.description,
   alternates: { canonical: '/accessibility-statement' },
   openGraph: { images: [pageMeta.accessibility.image] },
+  twitter: { images: [pageMeta.accessibility.image] },
 };
 
 export default function AccessibilityPage() {
@@ -17,7 +18,7 @@ export default function AccessibilityPage() {
         <div className="container-content">
           <h1 className="text-display lowercase">our accessibility statement</h1>
           <p className="mt-5 max-w-3xl text-xl leading-9">
-            yum! Kitchen and Bakery designed this site with user experience in mind. Please contact our team with feedback or questions concerning accessibility.
+            yum! Kitchen and Bakery wants every guest to feel welcome here. Please contact our team with feedback or questions about accessibility.
           </p>
         </div>
       </section>
@@ -33,7 +34,7 @@ export default function AccessibilityPage() {
       </section>
       <InquiryMomentumBand
         title="hospitality includes access"
-        copy="Clear structure, readable contrast, keyboard navigation, and direct feedback paths help everyone find what they need."
+        copy="Readable pages, keyboard-friendly navigation, and a simple note form help everyone find what they need."
         primaryHref="/contact"
         primaryLabel="Contact Yum"
         secondaryHref="/menu"

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { menuItemCount } from '@/lib/menu';
 import { orderDemoItems } from '@/lib/site';
 
 export function MenuMotionIntro() {
@@ -38,7 +39,7 @@ export function MenuMotionIntro() {
         </div>
         <div className="menu-orbit motion-role-ambient" aria-label="Featured Yum menu photography">
           <div className="menu-orbit-core">
-            <span>82</span>
+            <span>{menuItemCount}</span>
             <span>menu favorites</span>
           </div>
           {featured.map((item, index) => (

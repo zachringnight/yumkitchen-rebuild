@@ -5,12 +5,15 @@ import { giftCardBalanceUrl, giftCardBuyUrl, socialLinks } from '@/lib/site';
 import { OpenStatus } from './OpenStatus';
 
 const quickLinks = [
+  { href: '/', label: 'patticake' },
+  { href: '/patticake', label: 'ship patticake' },
+  { href: '/order-a-cake', label: 'local cake pickup' },
+  { href: '/yum-kitchen', label: 'yum! kitchen' },
   { href: '/about', label: 'about' },
   { href: '/menu', label: 'menu' },
   { href: giftCardBuyUrl, label: 'gift cards', external: true },
   { href: '/careers', label: 'work @ yum!' },
   { href: '/catering', label: 'catering' },
-  { href: '/patticake', label: 'patticake delivery' },
   { href: '/in-the-news', label: 'in the news' },
   { href: '/contact', label: 'contact' },
   { href: '/accessibility-statement', label: 'accessibility statement' },

@@ -24,7 +24,7 @@ export default function NotFound() {
           <Link href="/menu" prefetch={false} className="btn-secondary">
             Browse Menu
           </Link>
-          <Link href="/#locations" prefetch={false} className="btn-secondary">
+          <Link href="/yum-kitchen#locations" prefetch={false} className="btn-secondary">
             Find a Kitchen
           </Link>
         </div>

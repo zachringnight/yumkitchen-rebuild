@@ -23,8 +23,17 @@ async function main() {
     await page.goto(baseUrl, { waitUntil: 'networkidle0' });
 
     const title = await page.title();
-    if (!title.includes('yum!')) throw new Error(`unexpected home title: ${title}`);
-    if (!(await textIncludes(page, 'neighborhood kitchens'))) throw new Error('home proof points missing');
+    if (!title.includes('Patticake')) throw new Error(`unexpected Patticake home title: ${title}`);
+    if (!(await textIncludes(page, 'one cake'))) throw new Error('Patticake home motion story missing');
+    if (!(await textIncludes(page, 'Order National Delivery'))) throw new Error('Patticake home CTA missing');
+
+    await page.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }]);
+    await page.reload({ waitUntil: 'networkidle0' });
+    if (!(await textIncludes(page, 'Order National Delivery'))) throw new Error('Patticake home CTA missing under reduced motion');
+    await page.emulateMediaFeatures([]);
+
+    await page.goto(`${baseUrl}/yum-kitchen`, { waitUntil: 'networkidle0' });
+    if (!(await textIncludes(page, 'neighborhood kitchens'))) throw new Error('restaurant home proof points missing');
 
     await page.evaluate(() => {
       const startOrderButton = [...document.querySelectorAll('button')].find((button) => button.textContent?.trim().toLowerCase() === 'start order');
@@ -43,7 +52,7 @@ async function main() {
 
     await page.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }]);
     await page.reload({ waitUntil: 'networkidle0' });
-    if (!(await textIncludes(page, 'start order'))) throw new Error('home CTA missing under reduced motion');
+    if (!(await textIncludes(page, 'start order'))) throw new Error('restaurant home CTA missing under reduced motion');
     await page.emulateMediaFeatures([]);
 
     await page.goto(`${baseUrl}/order`, { waitUntil: 'networkidle0' });

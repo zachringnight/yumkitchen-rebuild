@@ -12,10 +12,14 @@ export function LocationCard({ loc, compact = false }: Props) {
   return (
     <article className="location-card group flex h-full flex-col overflow-hidden bg-white">
       {!compact && (
-        <Link href={`/location/${loc.slug}`} className="relative block aspect-[4/2.7] overflow-hidden bg-blue-tint" tabIndex={-1} aria-hidden="true">
+        <Link
+          href={`/location/${loc.slug}`}
+          className="relative block aspect-[4/2.7] overflow-hidden bg-blue-tint"
+          aria-label={`View the yum! ${loc.short_name} location`}
+        >
           <Image
             src={loc.cardImage}
-            alt=""
+            alt={loc.cardImageAlt}
             fill
             sizes="(min-width: 1280px) 280px, (min-width: 768px) 50vw, 100vw"
             className="object-cover transition duration-500 group-hover:scale-[1.035]"

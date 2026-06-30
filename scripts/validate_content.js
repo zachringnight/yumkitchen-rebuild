@@ -14,6 +14,7 @@ const requiredPublicFiles = [
 ];
 const forbiddenLocationNames = ['edina', 'maple grove', 'roseville'];
 const forbiddenScrapeFragments = ['Follow for more yum!', 'Quick Links'];
+const expectedMenuItemCount = 102;
 
 let failures = 0;
 
@@ -57,10 +58,10 @@ if (failures === 0) pass('Toast, maps, and phone fields are valid');
 
 const menu = readJson('lib/menu-seed.json');
 const items = menu.sections.flatMap((section) => section.items.map((item) => ({ ...item, section: section.name })));
-if (items.length !== 82) {
-  fail(`menu item count expected 82, found ${items.length}`);
+if (items.length !== expectedMenuItemCount) {
+  fail(`menu item count expected ${expectedMenuItemCount}, found ${items.length}`);
 } else {
-  pass('all 82 menu items preserved');
+  pass(`all ${expectedMenuItemCount} menu items preserved`);
 }
 for (const item of items) {
   if (!item.name) fail(`menu item without name in ${item.section}`);

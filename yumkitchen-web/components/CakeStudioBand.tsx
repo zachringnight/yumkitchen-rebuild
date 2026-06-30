@@ -18,14 +18,14 @@ export function CakeStudioBand() {
           </div>
         </div>
         <div>
-          <p className="section-label">bakery momentum</p>
+          <p className="section-label">bakery love</p>
           <h2 className="text-h2 lowercase">from the bakery case to the celebration table</h2>
           <p className="mt-5 text-xl leading-9">
             Patticake, coconut cake, and bakery favorites are made for the birthdays, weddings, office parties, and just-because days that need something sweet.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link href="/order-a-cake#shop-patticake" className="btn-primary">
-              Start Cake Inquiry
+              Plan a Cake
             </Link>
             <Link href="/patticake" className="btn-secondary">
               Patticake Delivery
