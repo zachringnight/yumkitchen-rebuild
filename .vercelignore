@@ -1,0 +1,8 @@
+docs/
+qa_screenshots_design_handoff/
+qa_screenshots_final/
+qa_screenshots_patticake/
+social/
+*.bak
+node_modules/
+.git/

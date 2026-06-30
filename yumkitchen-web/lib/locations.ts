@@ -125,18 +125,61 @@ export function entityJsonLd(loc: Location) {
   };
 }
 
+const brandSocialProfiles = [
+  'https://www.facebook.com/yumkitchenandbakery',
+  'https://www.instagram.com/yumkitchen/',
+  'https://twitter.com/YumKitchen',
+  'https://www.linkedin.com/company/yum-kitchen-and-bakery/',
+];
+
 export function organizationJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': 'https://yumkitchen.com/#organization',
     name: 'yum! Kitchen and Bakery',
     url: 'https://yumkitchen.com',
     logo: 'https://yumkitchen.com/favicon.png',
-    sameAs: [
-      'https://www.facebook.com/yumkitchenandbakery',
-      'https://www.instagram.com/yumkitchen/',
-      'https://twitter.com/YumKitchen',
-      'https://www.linkedin.com/company/yum-kitchen-and-bakery/',
-    ],
+    sameAs: brandSocialProfiles,
+  };
+}
+
+/**
+ * Schema.org Restaurant/Bakery JSON-LD for the brand. Use on the homepage.
+ * The four locations are listed as `department`, each linked by the same @id
+ * the location pages emit, so search engines merge them rather than duplicate.
+ */
+export function brandJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': ['Restaurant', 'Bakery'],
+    '@id': 'https://yumkitchen.com/#business',
+    name: 'yum! Kitchen and Bakery',
+    url: 'https://yumkitchen.com',
+    logo: 'https://yumkitchen.com/favicon.png',
+    image: 'https://yumkitchen.com/wp-content/uploads/2022/12/Yum_2175.jpg',
+    description:
+      'Made-from-scratch breakfast, lunch, dinner, bakery, and catering from four neighborhood kitchens in the Twin Cities.',
+    servesCuisine: ['American', 'Bakery'],
+    priceRange: '$$',
+    hasMenu: 'https://yumkitchen.com/menu',
+    areaServed: { '@type': 'AdministrativeArea', name: 'Twin Cities, Minnesota' },
+    parentOrganization: { '@id': 'https://yumkitchen.com/#organization' },
+    sameAs: brandSocialProfiles,
+    department: locations.map((loc) => ({
+      '@type': 'Restaurant',
+      '@id': `https://yumkitchen.com/location/${loc.slug}`,
+      name: `yum! Kitchen and Bakery - ${loc.short_name}`,
+      url: `https://yumkitchen.com/location/${loc.slug}`,
+      telephone: loc.phone,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: loc.address.street,
+        addressLocality: loc.address.city,
+        addressRegion: loc.address.state,
+        postalCode: loc.address.zip,
+        addressCountry: loc.address.country,
+      },
+    })),
   };
 }

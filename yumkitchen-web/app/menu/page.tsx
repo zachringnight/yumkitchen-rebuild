@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { MenuClient } from './MenuClient';
+import { menuJsonLd } from '@/lib/menu';
 import { pageMeta } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
 export default function MenuPage() {
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(menuJsonLd()) }} />
       <MenuClient />
     </main>
   );

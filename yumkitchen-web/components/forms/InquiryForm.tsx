@@ -143,7 +143,7 @@ export function InquiryForm({
   }, [status, serverMessage]);
 
   return (
-    <form className="form-surface" onSubmit={handleSubmit(onSubmit)} noValidate>
+    <form className="form-surface" method="post" onSubmit={handleSubmit(onSubmit)} noValidate>
       <div className="hidden">
         <label htmlFor={`${kind}-company`}>Company</label>
         <input id={`${kind}-company`} tabIndex={-1} autoComplete="off" {...register('company')} />

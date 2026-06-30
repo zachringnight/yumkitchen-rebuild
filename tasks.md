@@ -1,6 +1,19 @@
 # Rebuild Task List
 
-Current status: the rebuild is past the original scaffold-first task plan. The active branch is `checkpoint/patticake-design-2026-06-30`, with the Patticake design pass preserved at commit `153084a`.
+## Latest round: ship-and-elevate (2026-06-30)
+
+Branch `ship-and-elevate-2026-06-30`. Tracks: ship-it-live + in-brand design polish. Full report: `docs/plans/2026-06-30-yum-ship-and-elevate/run-report.md`.
+
+- [x] Baseline VERIFY PASSED (axe 0 serious, LH 91/100/100/100) and before-shots.
+- [x] Confirmed live on Vercel preview; no custom domain attached (DNS gate intact).
+- [x] In-brand mobile-rhythm polish on home, menu, Patticake (no color/content/CTA change). Re-verified: axe 0, LH 93/100/100/100.
+- [x] Cutover runbook: `yumkitchen-web/redirects.md` 301 audit + rollback path in DEPLOYMENT.md.
+- [ ] OPEN (Zach gates): set Resend secret + live form test; confirm GTM/GA4 in a preview; DNS cutover go.
+- [ ] OPEN (mechanical): redeploy polished build to a fresh preview (environment upload fault blocked it this run).
+
+---
+
+Prior status: the rebuild is past the original scaffold-first task plan. The active branch is `checkpoint/patticake-design-2026-06-30`, with the Patticake design pass preserved at commit `153084a`.
 
 Current finishing checklist:
 

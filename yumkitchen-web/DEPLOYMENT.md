@@ -57,9 +57,12 @@ If `patticake.com` is served by the same Vercel project:
 
 ## Cutover
 
-1. Confirm DNS TTL and current host rollback path.
+Full redirect/SEO-equity audit: see `redirects.md`. All known old URLs are covered by `trailingSlash: false` plus the explicit 301s in `next.config.js`.
+
+0. Pre-cutover: lower the current host DNS TTL to 300s at least 24h ahead so a rollback propagates fast.
+1. Confirm DNS TTL and current host rollback path. Rollback = repoint `yumkitchen.com` A/CNAME records back to the current WordPress host. Keep the WordPress site running and untouched until 7 days of clean GSC coverage, so rollback is always one DNS change.
 2. Point `yumkitchen.com` and `www.yumkitchen.com` to Vercel.
-3. Submit `https://yumkitchen.com/sitemap.xml` in Google Search Console.
+3. Submit `https://yumkitchen.com/sitemap.xml` in Google Search Console. Request indexing on the 4 location pages.
 4. Check these URLs after cutover:
    - `/`
    - `/menu`
