@@ -93,7 +93,7 @@ export function HomeHero() {
   }, []);
 
   return (
-    <section className="home-hero relative min-h-[660px] overflow-hidden bg-page md:min-h-[730px]">
+    <section className="home-hero relative min-h-[560px] overflow-hidden bg-page md:min-h-[730px]">
       <div className="home-hero-media" aria-hidden="true">
         <Image
           key={currentHero.src}
@@ -108,7 +108,7 @@ export function HomeHero() {
           className="home-hero-image is-active object-cover"
         />
       </div>
-      <div className="container-content relative z-10 flex min-h-[660px] items-center py-8 md:min-h-[730px] md:py-12">
+      <div className="container-content relative z-10 flex min-h-[560px] items-center py-8 md:min-h-[730px] md:py-12">
         <div className="hero-panel motion-role-entrance max-w-[520px] border border-white/70 bg-white/95 px-6 py-6 shadow-[0_1.4rem_4rem_rgb(45_45_45_/_0.24)] backdrop-blur-[2px] md:px-9 md:py-8">
           <AnimatedYumLogo className="hero-yum-logo" decorative priority />
           <h1 className="font-serif text-[2.35rem] font-normal leading-[1.08] lowercase text-ink md:text-[3rem]" aria-label="made from scratch with love">
@@ -206,7 +206,7 @@ export function MenuFeature() {
   const item = menuFeatureItems[active];
 
   return (
-    <section className="bg-page px-6 py-14 md:py-18">
+    <section className="bg-page px-6 py-10 md:py-18">
       <div className="mx-auto grid max-w-[1180px] gap-8 lg:grid-cols-[0.78fr_1.22fr]">
         <div className="menu-feature-copy">
           <h2 className="font-serif text-[2.15rem] font-normal leading-tight lowercase text-ink md:text-[2.75rem]">
@@ -255,7 +255,7 @@ export function MenuFeature() {
               <em>{item.price}</em>
             </div>
           </div>
-          <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-4 grid grid-cols-2 gap-2 lg:grid-cols-3">
             {menuFeatureItems.map((menuItem, index) => (
               <button
                 key={menuItem.name}
@@ -285,7 +285,7 @@ export function CateringCallout() {
   const closeCall = useCallback(() => setCallOpen(false), []);
 
   return (
-    <section className="bg-blue-tint/70 px-6 py-14 text-ink md:py-18">
+    <section className="bg-blue-tint/70 px-6 py-10 text-ink md:py-18">
       <div className="mx-auto grid max-w-[1180px] items-center gap-8 lg:grid-cols-[0.88fr_1.12fr]">
         <div className="catering-panel border border-white bg-white/95 px-7 py-7 text-ink shadow-[0_1rem_2.4rem_rgb(45_45_45_/_0.10)] md:px-9 md:py-9">
           <h2 className="font-serif text-[2.25rem] font-normal leading-tight lowercase text-ink md:text-[2.7rem]">yum! catering</h2>

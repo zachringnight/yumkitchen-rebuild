@@ -3,7 +3,7 @@ import { LocationCard } from './LocationCard';
 
 export function LocationGrid() {
   return (
-    <section id="locations" className="location-section bg-page py-14 md:py-18">
+    <section id="locations" className="location-section bg-page py-10 md:py-18">
       <div className="container-content">
         <div className="mb-8 grid items-end gap-5 md:grid-cols-[1fr_auto]">
           <div>

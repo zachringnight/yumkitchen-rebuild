@@ -23,3 +23,8 @@ coverage/
 
 # Generated QA evidence kept outside version control
 qa_screenshots_*/
+
+# ship-and-elevate plan screenshots (kept local)
+docs/plans/2026-06-30-yum-ship-and-elevate/before/
+docs/plans/2026-06-30-yum-ship-and-elevate/during/
+docs/plans/2026-06-30-yum-ship-and-elevate/after/
