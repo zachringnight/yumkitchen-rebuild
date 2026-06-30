@@ -2,6 +2,8 @@
 
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { patticakeNationalOrderUrl } from '@/lib/site';
+import { usePatticakeSurface } from '@/lib/usePatticakeSurface';
 import { OpenStatus } from './OpenStatus';
 import { usePreferredLocation } from '@/lib/usePreferredLocation';
 
@@ -9,6 +11,8 @@ export function MobileOrderBar() {
   const pathname = usePathname();
   const { location } = usePreferredLocation();
   const [visible, setVisible] = useState(false);
+  const patticakeSurface = usePatticakeSurface();
+  const patticakeOrderIsExternal = /^https?:\/\//.test(patticakeNationalOrderUrl);
 
   useEffect(() => {
     const showAfter = pathname === '/' ? 820 : 260;
@@ -32,20 +36,42 @@ export function MobileOrderBar() {
     >
       <div className="mx-auto grid max-w-md grid-cols-[1fr_auto] items-center gap-2">
         <div className="min-w-0">
-          <p className="truncate text-sm font-bold leading-tight text-ink">Pickup: {location.short_name}</p>
-          <OpenStatus compact className="block truncate text-sm leading-tight text-body" />
+          {patticakeSurface ? (
+            <>
+              <p className="truncate text-sm font-bold leading-tight text-ink">Patticake national delivery</p>
+              <p className="block truncate text-sm leading-tight text-body">original chocolate cake, sent farther</p>
+            </>
+          ) : (
+            <>
+              <p className="truncate text-sm font-bold leading-tight text-ink">Pickup: {location.short_name}</p>
+              <OpenStatus compact className="block truncate text-sm leading-tight text-body" />
+            </>
+          )}
         </div>
-        <a
-          href={location.order_url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-primary px-4 py-3 text-base"
-          data-event="click_order_online"
-          data-location={location.slug}
-          data-source="mobile_sticky_bar"
-        >
-          Order
-        </a>
+        {patticakeSurface ? (
+          <a
+            href={patticakeNationalOrderUrl}
+            target={patticakeOrderIsExternal ? '_blank' : undefined}
+            rel={patticakeOrderIsExternal ? 'noopener noreferrer' : undefined}
+            className="btn-primary px-4 py-3 text-base"
+            data-event="click_patticake_national_delivery_order"
+            data-source="mobile_sticky_bar"
+          >
+            Order
+          </a>
+        ) : (
+          <a
+            href={location.order_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary px-4 py-3 text-base"
+            data-event="click_order_online"
+            data-location={location.slug}
+            data-source="mobile_sticky_bar"
+          >
+            Order
+          </a>
+        )}
       </div>
     </div>
   );

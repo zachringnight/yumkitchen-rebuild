@@ -1,10 +1,12 @@
 import type { LocationSlug } from './locations';
 
-export const siteUrl = 'https://yumkitchen.com';
+export const yumKitchenSiteUrl = process.env.NEXT_PUBLIC_YUMKITCHEN_URL ?? 'https://yumkitchen.com';
+export const patticakeSiteUrl = process.env.NEXT_PUBLIC_PATTICAKE_URL ?? 'https://patticake.com';
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? yumKitchenSiteUrl;
 
 export const giftCardBuyUrl = 'https://www.toasttab.com/yumkitchenslp/giftcards';
 export const giftCardBalanceUrl = 'https://www.toasttab.com/yumkitchenslp/findcard';
-export const patticakeNationalOrderUrl = process.env.NEXT_PUBLIC_PATTICAKE_NATIONAL_ORDER_URL ?? '/patticake-national-delivery#delivery-support';
+export const patticakeNationalOrderUrl = process.env.NEXT_PUBLIC_PATTICAKE_NATIONAL_ORDER_URL ?? '/patticake#delivery-support';
 
 export const navItems = [
   { href: '/menu', label: 'menu' },
@@ -34,7 +36,7 @@ export const navItems = [
     label: 'cakes',
     children: [
       { href: '/order-a-cake', label: 'local cakes' },
-      { href: '/patticake-national-delivery', label: 'national delivery' },
+      { href: '/patticake', label: 'national delivery' },
     ],
   },
 ] as const;

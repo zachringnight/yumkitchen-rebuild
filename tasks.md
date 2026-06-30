@@ -1,5 +1,25 @@
 # Rebuild Task List
 
+Current status: the rebuild is past the original scaffold-first task plan. The active branch is `checkpoint/patticake-design-2026-06-30`, with the Patticake design pass preserved at commit `153084a`.
+
+Current finishing checklist:
+
+- [ ] Fix homepage Lighthouse performance. Last full run: Lighthouse Perf=85 A11y=100 BP=100 SEO=100.
+- [ ] Consolidate Patticake routing so `/patticake` is canonical and `/patticake-national-delivery` is legacy redirect only.
+- [ ] Verify Patticake product UX on `/patticake`, mobile, and host `patticake.com`.
+- [ ] Recheck main-site conversion, SEO, metadata, sitemap, social links, JSON-LD, and gift card links.
+- [ ] Recheck forms, Resend env handling, analytics events, and deployment docs.
+- [ ] Run `bash verify.sh` and require `VERIFY PASSED` before merge or PR-ready status.
+- [ ] Write the end report in `docs/plans/2026-06-30-yum-upgrades-improvements/run-report.md`.
+
+Execution plan: `docs/plans/2026-06-30-yum-upgrades-improvements/manifest.md`.
+
+---
+
+## Historical scaffold task list
+
+The task list below is retained for context. It reflects the original PR-per-task scaffold workflow and is not the current execution order.
+
 One PR per task. Run `bash verify.sh` before opening a PR. Do not bundle tasks.
 
 Status:

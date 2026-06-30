@@ -128,7 +128,7 @@ export function HomeHero() {
               </div>
             ))}
           </div>
-          <div className="mt-4 grid grid-cols-2 gap-2" aria-label="yum! locations">
+          <div className="home-hero-location-grid mt-4 hidden grid-cols-2 gap-2 md:grid" aria-label="yum! locations">
             {locations.map((location) => (
               <Link
                 key={location.slug}
@@ -145,15 +145,15 @@ export function HomeHero() {
           </p>
           <div className="my-4 h-px bg-ink/20" />
           <div className="home-hero-actions grid gap-2 sm:flex sm:flex-wrap sm:gap-3">
+            <button type="button" className="btn-primary home-hero-primary-action" onClick={() => setOrderOpen(true)}>
+              Start Order
+            </button>
             <Link href="/#locations" prefetch={false} className="btn-secondary">
               Find a Kitchen
             </Link>
             <Link href="/menu" prefetch={false} className="btn-secondary">
               Browse Menu
             </Link>
-            <button type="button" className="btn-primary" onClick={() => setOrderOpen(true)}>
-              Start Order
-            </button>
           </div>
         </div>
       </div>
@@ -213,7 +213,7 @@ export function MenuFeature() {
             welcome back your favorites or discover new eats
           </h2>
           <p className="mt-4 max-w-[34rem] text-lg leading-8 text-body">
-            The homepage now works harder: quick categories, real food cards, prices, and direct routes to the full menu or ordering.
+            Jump into the dishes people come back for, from bright salads and sandwiches to dinner plates, bakery treats, and easy takeout.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/menu" prefetch={false} className="btn-primary">
@@ -312,17 +312,16 @@ export function CateringCallout() {
               src="/images/yum-catering-tray.jpg"
               alt="yum! boxed lunch catering tray"
               fill
-              loading="eager"
               sizes="(min-width: 1024px) 620px, 100vw"
               className="object-cover"
             />
           </div>
           <div className="catering-mini-grid">
             <div className="relative min-h-[145px] overflow-hidden">
-              <Image src="/images/yum-soup-and-sandwich.jpg" alt="yum! soup and sandwich" fill loading="eager" sizes="280px" className="object-cover" />
+              <Image src="/images/yum-soup-and-sandwich.jpg" alt="yum! soup and sandwich" fill sizes="280px" className="object-cover" />
             </div>
             <div className="relative min-h-[145px] overflow-hidden">
-              <Image src="/images/yum-shake-and-sandwich.jpg" alt="yum! shake and sandwich" fill loading="eager" sizes="280px" className="object-cover" />
+              <Image src="/images/yum-shake-and-sandwich.jpg" alt="yum! shake and sandwich" fill sizes="280px" className="object-cover" />
             </div>
           </div>
         </div>

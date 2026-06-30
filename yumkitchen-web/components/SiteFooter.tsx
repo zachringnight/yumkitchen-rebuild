@@ -10,7 +10,7 @@ const quickLinks = [
   { href: giftCardBuyUrl, label: 'gift cards', external: true },
   { href: '/careers', label: 'work @ yum!' },
   { href: '/catering', label: 'catering' },
-  { href: '/patticake-national-delivery', label: 'patticake delivery' },
+  { href: '/patticake', label: 'patticake delivery' },
   { href: '/in-the-news', label: 'in the news' },
   { href: '/contact', label: 'contact' },
   { href: '/accessibility-statement', label: 'accessibility statement' },

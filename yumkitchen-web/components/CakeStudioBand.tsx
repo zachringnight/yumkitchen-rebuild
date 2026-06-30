@@ -27,6 +27,9 @@ export function CakeStudioBand() {
             <Link href="/order-a-cake#shop-patticake" className="btn-primary">
               Start Cake Inquiry
             </Link>
+            <Link href="/patticake" className="btn-secondary">
+              Patticake Delivery
+            </Link>
             <Link href="/menu#bakery" className="btn-secondary">
               See Bakery
             </Link>

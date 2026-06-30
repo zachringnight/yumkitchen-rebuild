@@ -8,7 +8,7 @@ const staticRoutes = [
   '/menu',
   '/catering',
   '/order-a-cake',
-  '/patticake-national-delivery',
+  '/patticake',
   '/about',
   '/careers',
   '/in-the-news',
