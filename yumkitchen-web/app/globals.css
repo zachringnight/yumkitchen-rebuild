@@ -1752,6 +1752,11 @@ to {
     animation: home-hero-kenburns 6200ms cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
+  .home-hero-image[data-lcp='true'] {
+    animation: none;
+    transform: scale(1);
+  }
+
   .home-hero-indicator[aria-pressed='true']::after {
     animation: home-hero-meter 5000ms linear both;
   }

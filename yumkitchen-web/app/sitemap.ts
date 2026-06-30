@@ -14,7 +14,6 @@ const staticRoutes = [
   '/in-the-news',
   '/contact',
   '/accessibility-statement',
-  '/thank-you',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

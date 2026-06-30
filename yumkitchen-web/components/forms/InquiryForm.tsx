@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { cloneElement, useEffect, useMemo, useRef, useState, type ReactElement } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+import { pushAnalyticsEvent } from '@/lib/analytics';
 import { locations } from '@/lib/locations';
 
 export type InquiryKind = 'contact' | 'catering' | 'cake' | 'careers' | 'accessibility';
@@ -61,6 +62,14 @@ type InquiryFormProps = {
   locationLabel?: string;
 };
 
+const submitEvents: Record<InquiryKind, string> = {
+  contact: 'submit_contact_form',
+  catering: 'submit_catering_form',
+  cake: 'submit_wedding_cake_form',
+  careers: 'submit_careers_form',
+  accessibility: 'submit_contact_form',
+};
+
 export function InquiryForm({
   kind,
   defaultSubject,
@@ -100,20 +109,31 @@ export function InquiryForm({
   async function onSubmit(values: InquiryFormValues) {
     setStatus('sending');
     setServerMessage('');
-    const res = await fetch('/api/inquiry', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ kind, ...values }),
-    });
-    const payload = (await res.json()) as { message?: string };
-    if (!res.ok) {
+    try {
+      const res = await fetch('/api/inquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ kind, ...values }),
+      });
+      const payload = (await res.json().catch(() => ({}))) as { message?: string };
+      if (!res.ok) {
+        setStatus('error');
+        setServerMessage(payload.message ?? 'The message could not be sent.');
+        return;
+      }
+      pushAnalyticsEvent({
+        event: submitEvents[kind],
+        form_kind: kind,
+        location: values.location ?? '',
+        path: window.location.pathname,
+      });
+      setStatus('success');
+      setServerMessage(payload.message ?? 'Thanks. We received your note.');
+      reset(defaults);
+    } catch {
       setStatus('error');
-      setServerMessage(payload.message ?? 'The message could not be sent.');
-      return;
+      setServerMessage('The message could not be sent. Please call a yum! location.');
     }
-    setStatus('success');
-    setServerMessage(payload.message ?? 'Thanks. We received your note.');
-    reset(defaults);
   }
 
   useEffect(() => {

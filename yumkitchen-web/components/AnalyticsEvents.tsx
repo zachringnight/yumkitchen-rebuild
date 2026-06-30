@@ -1,13 +1,8 @@
 'use client';
 
 import { useEffect } from 'react';
+import { pushAnalyticsEvent } from '@/lib/analytics';
 import { isLocationSlug, setPreferredLocationSlug } from '@/lib/locationPreference';
-
-declare global {
-  interface Window {
-    dataLayer?: Array<Record<string, string>>;
-  }
-}
 
 export function AnalyticsEvents() {
   useEffect(() => {
@@ -20,8 +15,7 @@ export function AnalyticsEvents() {
       if ((eventName === 'click_order_online' || eventName === 'click_call_location') && isLocationSlug(location)) {
         setPreferredLocationSlug(location);
       }
-      window.dataLayer = window.dataLayer ?? [];
-      window.dataLayer.push({
+      pushAnalyticsEvent({
         event: eventName,
         location,
         source: target.dataset.source ?? '',

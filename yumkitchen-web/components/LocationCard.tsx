@@ -17,7 +17,6 @@ export function LocationCard({ loc, compact = false }: Props) {
             src={loc.cardImage}
             alt=""
             fill
-            loading="eager"
             sizes="(min-width: 1280px) 280px, (min-width: 768px) 50vw, 100vw"
             className="object-cover transition duration-500 group-hover:scale-[1.035]"
           />

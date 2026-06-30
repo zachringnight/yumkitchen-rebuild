@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'thank you',
   description: 'Thanks for reaching out to yum! Kitchen and Bakery.',
   alternates: { canonical: '/thank-you' },
+  robots: { index: false, follow: false },
 };
 
 export default function ThankYouPage() {

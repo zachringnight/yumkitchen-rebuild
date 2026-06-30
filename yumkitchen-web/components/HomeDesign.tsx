@@ -312,17 +312,16 @@ export function CateringCallout() {
               src="/images/yum-catering-tray.jpg"
               alt="yum! boxed lunch catering tray"
               fill
-              loading="eager"
               sizes="(min-width: 1024px) 620px, 100vw"
               className="object-cover"
             />
           </div>
           <div className="catering-mini-grid">
             <div className="relative min-h-[145px] overflow-hidden">
-              <Image src="/images/yum-soup-and-sandwich.jpg" alt="yum! soup and sandwich" fill loading="eager" sizes="280px" className="object-cover" />
+              <Image src="/images/yum-soup-and-sandwich.jpg" alt="yum! soup and sandwich" fill sizes="280px" className="object-cover" />
             </div>
             <div className="relative min-h-[145px] overflow-hidden">
-              <Image src="/images/yum-shake-and-sandwich.jpg" alt="yum! shake and sandwich" fill loading="eager" sizes="280px" className="object-cover" />
+              <Image src="/images/yum-shake-and-sandwich.jpg" alt="yum! shake and sandwich" fill sizes="280px" className="object-cover" />
             </div>
           </div>
         </div>
