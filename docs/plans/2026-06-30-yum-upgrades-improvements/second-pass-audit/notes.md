@@ -55,10 +55,9 @@ Removed eager loading from below-fold images on:
 - Local Patticake cake path sections
 - Shared Patticake origin band
 - Order page decorative chips and favorite cards
-- Location detail experience band
 - Shared inquiry momentum band
 
-Kept priority or eager behavior for true hero images and the above-fold Patticake side image.
+Kept priority or eager behavior for true hero images, the location detail image that can become LCP, and the above-fold Patticake side image.
 
 ## Verification
 
@@ -73,7 +72,7 @@ Kept priority or eager behavior for true hero images and the above-fold Patticak
 - UI smoke: pass
 - Internal link and anchor audit: pass
 - axe serious or critical issues: 0
-- Lighthouse mobile homepage: Perf 97, A11y 100, Best Practices 100, SEO 100
+- Lighthouse mobile homepage: Perf 92, A11y 100, Best Practices 100, SEO 100
 
 ## Recommendations
 
