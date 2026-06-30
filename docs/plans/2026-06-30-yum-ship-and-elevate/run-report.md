@@ -63,7 +63,7 @@ Screenshots: `before/` and `after/` dirs (kept local, gitignored). The clearest 
 
 ## Concerns
 
-- Fresh polished-build deploy did not complete: 4 attempts failed on the Vercel file upload (upload abort, EPIPE, SSL bad record mac), including outside the sandbox. Environment network fault, not code. The pre-polish preview (identical structure) is live and verified. Redeploy when the network cooperates, or Zach runs `vercel deploy` from his terminal.
+- Local CLI deploy hit an environment upload fault (4 attempts: upload abort, EPIPE, SSL bad record mac). RESOLVED via Vercel Git integration: the repo was already connected, so pushing the branch and opening PR #4 auto-built the polished preview server-side (no local upload). Polished build live at the branch alias `yumkitchen-web-git-ship-a-c957b8-zach-soskins-projects-95c2533d.vercel.app`. Every push now auto-previews; merge to main auto-deploys to the Vercel production URL (not the custom domain, so DNS stays the gate).
 - Menu mobile polish is marginal (-0.7%); its height is item-count driven.
 - The in-brand polish kept the established blue secondary surface. Warming it to cream (a warmer look) was scoped out as a taste/redirection call, available if Zach wants it.
 

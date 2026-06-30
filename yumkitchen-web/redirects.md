@@ -55,6 +55,16 @@ done
 
 Expect 308/301 with the correct `redirect_url` for each. Identity URLs (`/menu`, `/about`) return 200.
 
-## Note
+## OPEN DECISION: in-the-news press posts that will 404 after cutover
 
-If the old WordPress post sitemap (news posts, `04_data/sitemap_index.xml`) contains individual indexed article URLs, confirm each resolves or 301s to `/in-the-news`. The press hits on the live site were external outbound links, so internal post URLs are not expected, but verify in Search Console coverage during week one.
+The `/in-the-news` archive (`lib/site.ts` press entries) links to 22 self-referential `https://yumkitchen.com/<slug>/` URLs. These are old WordPress blog posts. They work TODAY (WordPress is still live) but the new site does not rebuild them, so they will 404 after DNS cutover. External outlet links (kstp, mspmag, startribune, eater, woodburymag) are fine and already open in a new tab with `rel="noopener noreferrer"`.
+
+Affected slugs (all under `https://yumkitchen.com/`):
+`top-bakeries-in-the-twin-cities`, `top-dessert-in-the-twin-cities`, `top-15-best-chocolate-chip-cookies-in-the-twin-cities`, `14-best-restaurants-in-minnetonka-mn`, `best-business-lunch-in-the-twin-cities`, `best-patios-in-the-twin-cities`, `5-best-things-the-startribune-food-critics-ate-this-week`, `critics-choice`, `derusha-eats-feature`, `yum-on-good-company`, `inside-yum`, `breakfast-with-megs-and-eggs`, `celebrate-rosh-hashanah-with-yum`, `passover-friendly-food`, `coming-to-woodbury`, `woodbury-magazine-feature`, `patti-on-motivation`, `pick-up-picnic-eats`, `pregame-mnufc-at-yum-st-paul`, `where-to-pick-up-local-soup`, `yum-at-taste-of-the-twin-cities`, `235-2`.
+
+Three options, Zach's call (it is a content/SEO decision, not a mechanical one):
+1. **Redirect all 22 to `/in-the-news`** (safe default, no 404s, one block in `next.config.js`). Loses the individual post content.
+2. **Rebuild the SEO-valuable ones** as real pages (e.g. `top-bakeries-in-the-twin-cities` is a ranking asset) and redirect the rest.
+3. **Relink each press card to the external outlet article** instead of the yum self-post, and drop the internal URLs.
+
+Until decided, the new custom 404 page (`app/not-found.tsx`) at least gives these a branded landing with recovery links instead of a bare error after cutover.

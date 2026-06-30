@@ -41,3 +41,23 @@ export function getPriceLabel(prices: string[]): string {
   if (prices.length === 1) return `$${prices[0]}`;
   return prices.map((price) => `$${price}`).join(' / ');
 }
+
+export function menuJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Menu',
+    name: 'yum! Kitchen and Bakery menu',
+    hasMenuSection: menu.sections.map((section) => ({
+      '@type': 'MenuSection',
+      name: section.name,
+      hasMenuItem: section.items.map((item) => ({
+        '@type': 'MenuItem',
+        name: item.name,
+        ...(item.description ? { description: item.description } : {}),
+        ...(item.prices.length === 1
+          ? { offers: { '@type': 'Offer', price: item.prices[0], priceCurrency: 'USD' } }
+          : {}),
+      })),
+    })),
+  };
+}

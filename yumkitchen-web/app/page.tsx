@@ -1,7 +1,12 @@
+import type { Metadata } from 'next';
 import { CateringCallout, HomeHero, MenuFeature, RedBand } from '@/components/HomeDesign';
 import { CakeStudioBand } from '@/components/CakeStudioBand';
 import { LocationGrid } from '@/components/LocationGrid';
 import { organizationJsonLd } from '@/lib/locations';
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+};
 
 export default function HomePage() {
   return (
