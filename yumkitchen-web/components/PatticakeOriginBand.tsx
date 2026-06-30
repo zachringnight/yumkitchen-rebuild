@@ -27,7 +27,6 @@ export function PatticakeOriginBand() {
               alt="Patti and Kelli at yum! Kitchen and Bakery"
               fill
               sizes="(min-width: 1024px) 36vw, 100vw"
-              loading="eager"
               className="object-cover"
             />
           </div>
@@ -38,7 +37,6 @@ export function PatticakeOriginBand() {
                 alt="yum! Kitchen and Bakery St. Louis Park"
                 fill
                 sizes="(min-width: 1024px) 22vw, 100vw"
-                loading="eager"
                 className="object-cover"
               />
             </div>

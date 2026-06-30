@@ -203,7 +203,7 @@ export default function PatticakeNationalDeliveryPage() {
             {occasions.map((occasion) => (
               <article key={occasion.title} className="patticake-action-card group">
                 <div className="relative aspect-[4/3] overflow-hidden bg-blue-soft">
-                  <Image src={occasion.image} alt={occasion.alt} fill loading="eager" sizes="(min-width: 768px) 25vw, 100vw" className="image-lift object-cover transition duration-500" />
+                  <Image src={occasion.image} alt={occasion.alt} fill sizes="(min-width: 768px) 25vw, 100vw" className="image-lift object-cover transition duration-500" />
                 </div>
                 <div className="p-5">
                   <h3 className="font-serif text-2xl font-normal lowercase text-ink">{occasion.title}</h3>
@@ -226,7 +226,7 @@ export default function PatticakeNationalDeliveryPage() {
           </div>
           <div className="grid gap-5 lg:grid-cols-[0.78fr_1fr]">
             <div className="relative min-h-[330px] overflow-hidden border border-ink/10 bg-white">
-              <Image src="/images/yum-patticake-slice-togo.jpeg" alt="yum! patticake slice in to-go packaging" fill loading="eager" sizes="(min-width: 1024px) 32vw, 100vw" className="object-cover" />
+              <Image src="/images/yum-patticake-slice-togo.jpeg" alt="yum! patticake slice in to-go packaging" fill sizes="(min-width: 1024px) 32vw, 100vw" className="object-cover" />
             </div>
             <div className="border border-brand-primary/20 bg-white p-6">
               <ul className="grid gap-4">
@@ -290,7 +290,7 @@ export default function PatticakeNationalDeliveryPage() {
           <div className="border border-brand-primary/20 bg-white p-6">
             <div className="grid gap-6 md:grid-cols-[0.52fr_1fr] md:items-center">
               <div className="relative aspect-[4/5] overflow-hidden bg-blue-soft">
-                <Image src="/images/yum-patticake-layer-closeup.jpeg" alt="yum! patticake chocolate cake layers close up" fill loading="eager" sizes="(min-width: 1024px) 24vw, 100vw" className="object-cover" />
+                <Image src="/images/yum-patticake-layer-closeup.jpeg" alt="yum! patticake chocolate cake layers close up" fill sizes="(min-width: 1024px) 24vw, 100vw" className="object-cover" />
               </div>
               <div>
                 <p className="font-serif text-3xl font-normal lowercase text-ink">original Patticake</p>

@@ -151,7 +151,7 @@ export function OrderClient({ initialCategory, initialQuery = '' }: Props) {
             </div>
             {orderDemoItems.slice(0, 4).map((item, index) => (
               <div key={item.name} className={`order-photo-chip order-photo-chip-${index + 1}`}>
-                <Image src={item.image} alt={item.name} fill loading="eager" sizes="220px" className="object-cover" />
+                <Image src={item.image} alt={item.name} fill sizes="220px" className="object-cover" />
                 <span>{item.name}</span>
               </div>
             ))}
@@ -247,7 +247,7 @@ export function OrderClient({ initialCategory, initialQuery = '' }: Props) {
                 return (
                   <article key={item.name} className="accent-card grid gap-4 bg-white p-4 shadow-xs sm:grid-cols-[132px_1fr]">
                     <div className="relative aspect-square overflow-hidden bg-page">
-                      <Image src={item.image} alt={item.name} fill loading="eager" sizes="132px" className="image-lift object-cover" />
+                      <Image src={item.image} alt={item.name} fill sizes="132px" className="image-lift object-cover" />
                     </div>
                     <div className="flex min-w-0 flex-col">
                       <div className="flex items-start justify-between gap-3">

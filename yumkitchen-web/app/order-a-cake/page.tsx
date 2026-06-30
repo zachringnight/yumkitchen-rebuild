@@ -197,7 +197,7 @@ export default function CakePage() {
             {cakePaths.map((path) => (
               <article key={path.title} className="patticake-action-card group">
                 <div className="relative aspect-[5/4] overflow-hidden bg-blue-soft">
-                  <Image src={path.image} alt={path.alt} fill loading="eager" sizes="(min-width: 768px) 33vw, 100vw" className="image-lift object-cover transition duration-500" />
+                  <Image src={path.image} alt={path.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="image-lift object-cover transition duration-500" />
                 </div>
                 <div className="grid flex-1 p-6">
                   <h3 className="font-serif text-3xl font-normal lowercase text-ink">{path.title}</h3>
@@ -223,7 +223,7 @@ export default function CakePage() {
               </p>
             </div>
             <div className="relative aspect-[16/9] overflow-hidden bg-blue-soft">
-              <Image src="/images/yum-patticake-share-slices.jpeg" alt="yum! patticake slices ready to share" fill loading="eager" sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover" />
+              <Image src="/images/yum-patticake-share-slices.jpeg" alt="yum! patticake slices ready to share" fill sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover" />
             </div>
           </div>
           <div className="mt-11 grid gap-5 md:grid-cols-4">
@@ -256,11 +256,11 @@ export default function CakePage() {
           </div>
           <div className="grid grid-cols-[1.18fr_1fr] gap-4">
             <div className="relative row-span-2 aspect-[3/4] overflow-hidden bg-blue-soft">
-              <Image src={celebrationPhotos[0].src} alt={celebrationPhotos[0].alt} fill loading="eager" sizes="(min-width: 1024px) 32vw, 58vw" className="object-cover" />
+              <Image src={celebrationPhotos[0].src} alt={celebrationPhotos[0].alt} fill sizes="(min-width: 1024px) 32vw, 58vw" className="object-cover" />
             </div>
             {celebrationPhotos.slice(1).map((photo, index) => (
               <div key={`${photo.alt}-${index}`} className="relative aspect-[4/3] overflow-hidden bg-blue-soft">
-                <Image src={photo.src} alt={photo.alt} fill loading="eager" sizes="(min-width: 1024px) 22vw, 42vw" className="object-cover" />
+                <Image src={photo.src} alt={photo.alt} fill sizes="(min-width: 1024px) 22vw, 42vw" className="object-cover" />
               </div>
             ))}
           </div>
@@ -283,7 +283,7 @@ export default function CakePage() {
           <div className="grid gap-4 md:grid-cols-4">
             {gallery.map((image, index) => (
               <div key={`${image.alt}-${index}`} className={`relative overflow-hidden bg-page ${index === 1 ? 'aspect-[4/5]' : 'aspect-square'}`}>
-                <Image src={image.src} alt={image.alt} fill loading="eager" sizes="(min-width: 768px) 25vw, 100vw" className="object-cover" />
+                <Image src={image.src} alt={image.alt} fill sizes="(min-width: 768px) 25vw, 100vw" className="object-cover" />
               </div>
             ))}
           </div>
