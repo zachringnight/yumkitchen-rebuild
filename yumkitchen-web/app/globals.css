@@ -2101,8 +2101,13 @@ to {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .home-hero-actions .btn-primary {
+  .home-hero-location-grid {
+    display: none;
+  }
+
+  .home-hero-actions .home-hero-primary-action {
     grid-column: 1 / -1;
+    order: -1;
   }
 
   .home-hero-actions .btn-primary,

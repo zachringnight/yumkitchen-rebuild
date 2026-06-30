@@ -128,7 +128,7 @@ export function HomeHero() {
               </div>
             ))}
           </div>
-          <div className="mt-4 grid grid-cols-2 gap-2" aria-label="yum! locations">
+          <div className="home-hero-location-grid mt-4 hidden grid-cols-2 gap-2 md:grid" aria-label="yum! locations">
             {locations.map((location) => (
               <Link
                 key={location.slug}
@@ -145,15 +145,15 @@ export function HomeHero() {
           </p>
           <div className="my-4 h-px bg-ink/20" />
           <div className="home-hero-actions grid gap-2 sm:flex sm:flex-wrap sm:gap-3">
+            <button type="button" className="btn-primary home-hero-primary-action" onClick={() => setOrderOpen(true)}>
+              Start Order
+            </button>
             <Link href="/#locations" prefetch={false} className="btn-secondary">
               Find a Kitchen
             </Link>
             <Link href="/menu" prefetch={false} className="btn-secondary">
               Browse Menu
             </Link>
-            <button type="button" className="btn-primary" onClick={() => setOrderOpen(true)}>
-              Start Order
-            </button>
           </div>
         </div>
       </div>

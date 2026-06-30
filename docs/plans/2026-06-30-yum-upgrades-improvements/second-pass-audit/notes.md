@@ -19,6 +19,7 @@ Screenshot evidence:
 
 - `screenshots/home-desktop-scrolled.png`
 - `screenshots/home-mobile-scrolled.png`
+- `screenshots/home-mobile-density-upgrade.png`
 - `screenshots/yum-second-pass-patticake-desktop.png`
 - `screenshots/patticake-mobile-scrolled.png`
 - `screenshots/yum-second-pass-order-mobile.png`
@@ -59,9 +60,17 @@ Removed eager loading from below-fold images on:
 
 Kept priority or eager behavior for true hero images, the location detail image that can become LCP, and the above-fold Patticake side image.
 
+## Mobile homepage upgrade applied
+
+The audit flagged homepage mobile density as the remaining UX risk. Follow-up changes:
+
+- Hid the four direct location chips from the phone hero while keeping them on desktop.
+- Moved `Start Order` to the first action in the hero.
+- Verified the phone hero at 390px and confirmed `Start Order` still opens the location picker with all four Toast order links.
+
 ## Verification
 
-`bash verify.sh` passed after the second-pass cleanup.
+`bash verify.sh` passed after the second-pass cleanup and mobile homepage density upgrade.
 
 - TypeScript: pass
 - ESLint: pass
