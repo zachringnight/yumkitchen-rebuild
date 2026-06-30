@@ -8,12 +8,13 @@ const staticRoutes = [
   '/menu',
   '/catering',
   '/order-a-cake',
-  '/patticake-national-delivery',
+  '/patticake',
   '/about',
   '/careers',
   '/in-the-news',
   '/contact',
   '/accessibility-statement',
+  '/thank-you',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

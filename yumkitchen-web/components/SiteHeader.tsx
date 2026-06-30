@@ -3,7 +3,8 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { giftCardBalanceUrl, giftCardBuyUrl, navItems } from '@/lib/site';
+import { giftCardBalanceUrl, giftCardBuyUrl, navItems, patticakeNationalOrderUrl, yumKitchenSiteUrl } from '@/lib/site';
+import { usePatticakeSurface } from '@/lib/usePatticakeSurface';
 import { usePreferredLocation } from '@/lib/usePreferredLocation';
 import { BrandLogo } from './BrandLogo';
 
@@ -17,7 +18,9 @@ export function SiteHeader() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const { location } = usePreferredLocation();
+  const patticakeSurface = usePatticakeSurface();
   const mobileMenuId = 'site-mobile-navigation';
+  const patticakeOrderIsExternal = /^https?:\/\//.test(patticakeNationalOrderUrl);
 
   function isCurrent(href: string) {
     if (href === '/#locations') return pathname.startsWith('/location');
@@ -33,75 +36,131 @@ export function SiteHeader() {
     <>
       <header className="sticky top-0 z-40 border-b border-blue-soft/60 bg-blue-tint/85 backdrop-blur-[4px]">
         <div className="mx-auto flex h-[72px] w-full max-w-[1440px] items-end justify-between gap-4 px-5 pb-2 lg:px-7">
-          <BrandLogo />
-          <nav aria-label="Primary navigation" className="hidden items-end lg:flex">
-            {navItems.map((item) => {
-              const childCurrent = 'children' in item && item.children.some((child) => isCurrent(child.href));
-              const current = isCurrent(item.href) || childCurrent;
-              const baseLink = (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  prefetch={isExternal(item) ? undefined : false}
-                  target={isExternal(item) ? '_blank' : undefined}
-                  rel={isExternal(item) ? 'noopener noreferrer' : undefined}
-                  data-event={eventForHref(item.href)}
-                  aria-current={current ? 'page' : undefined}
-                  className={`px-2.5 pb-2 pt-5 text-lg font-normal leading-none transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)] ${
-                    current ? 'text-ink shadow-[inset_0_-4px_0_var(--color-ink)]' : 'text-brand-primary'
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              );
-              if (!('children' in item)) return baseLink;
-              return (
-                <div key={item.label} className="group relative">
-                  {baseLink}
-                  <div className="motion-role-feedback invisible absolute left-0 top-full z-50 grid min-w-44 translate-y-2 border border-blue-soft/70 bg-white p-2 opacity-0 shadow-lg transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.label}
-                        href={child.href}
-                        prefetch={isExternal(child) ? undefined : false}
-                        target={isExternal(child) ? '_blank' : undefined}
-                        rel={isExternal(child) ? 'noopener noreferrer' : undefined}
-                        data-event={eventForHref(child.href)}
-                        className="whitespace-nowrap px-3 py-2 text-base leading-none text-brand-primary hover:bg-cream hover:text-ink focus:bg-cream focus:text-ink"
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
-          </nav>
-          <div className="hidden items-center gap-3 lg:flex">
-            <a
-              href={location.order_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary px-5 py-3"
-              data-event="click_order_online"
-              data-location={location.slug}
-              data-source="site_header"
-            >
-              Order {location.short_name}
-            </a>
+          <div className="flex items-end gap-3">
+            <BrandLogo />
+            {patticakeSurface && (
+              <Link href="/patticake" className="hidden pb-2 font-serif text-3xl font-normal lowercase leading-none text-ink sm:block">
+                patticake
+              </Link>
+            )}
           </div>
+          {patticakeSurface ? (
+            <>
+              <nav aria-label="Patticake navigation" className="hidden items-end gap-1 lg:flex">
+                <a href="#national-order" className="px-3 pb-2 pt-5 text-lg font-normal leading-none text-brand-primary transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)]">
+                  national delivery
+                </a>
+                <Link href="/order-a-cake" className="px-3 pb-2 pt-5 text-lg font-normal leading-none text-brand-primary transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)]">
+                  local pickup
+                </Link>
+                <a href="#delivery-support" className="px-3 pb-2 pt-5 text-lg font-normal leading-none text-brand-primary transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)]">
+                  questions
+                </a>
+                <a
+                  href={yumKitchenSiteUrl}
+                  className="px-3 pb-2 pt-5 text-lg font-normal leading-none text-brand-primary transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)]"
+                >
+                  yum! kitchen
+                </a>
+              </nav>
+              <div className="hidden items-center gap-3 lg:flex">
+                <a
+                  href={patticakeNationalOrderUrl}
+                  target={patticakeOrderIsExternal ? '_blank' : undefined}
+                  rel={patticakeOrderIsExternal ? 'noopener noreferrer' : undefined}
+                  className="btn-primary px-5 py-3"
+                  data-event="click_patticake_national_delivery_order"
+                  data-source="site_header"
+                >
+                  Order Patticake
+                </a>
+              </div>
+            </>
+          ) : (
+            <>
+              <nav aria-label="Primary navigation" className="hidden items-end lg:flex">
+                {navItems.map((item) => {
+                  const childCurrent = 'children' in item && item.children.some((child) => isCurrent(child.href));
+                  const current = isCurrent(item.href) || childCurrent;
+                  const baseLink = (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      prefetch={isExternal(item) ? undefined : false}
+                      target={isExternal(item) ? '_blank' : undefined}
+                      rel={isExternal(item) ? 'noopener noreferrer' : undefined}
+                      data-event={eventForHref(item.href)}
+                      aria-current={current ? 'page' : undefined}
+                      className={`px-2.5 pb-2 pt-5 text-lg font-normal leading-none transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)] ${
+                        current ? 'text-ink shadow-[inset_0_-4px_0_var(--color-ink)]' : 'text-brand-primary'
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                  if (!('children' in item)) return baseLink;
+                  return (
+                    <div key={item.label} className="group relative">
+                      {baseLink}
+                      <div className="motion-role-feedback invisible absolute left-0 top-full z-50 grid min-w-44 translate-y-2 border border-blue-soft/70 bg-white p-2 opacity-0 shadow-lg transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.label}
+                            href={child.href}
+                            prefetch={isExternal(child) ? undefined : false}
+                            target={isExternal(child) ? '_blank' : undefined}
+                            rel={isExternal(child) ? 'noopener noreferrer' : undefined}
+                            data-event={eventForHref(child.href)}
+                            className="whitespace-nowrap px-3 py-2 text-base leading-none text-brand-primary hover:bg-cream hover:text-ink focus:bg-cream focus:text-ink"
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
+              </nav>
+              <div className="hidden items-center gap-3 lg:flex">
+                <a
+                  href={location.order_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary px-5 py-3"
+                  data-event="click_order_online"
+                  data-location={location.slug}
+                  data-source="site_header"
+                >
+                  Order {location.short_name}
+                </a>
+              </div>
+            </>
+          )}
           <div className="flex items-center gap-2 lg:hidden">
-            <a
-              href={location.order_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary px-4 py-3 text-base"
-              data-event="click_order_online"
-              data-location={location.slug}
-              data-source="site_header_mobile"
-            >
-              Order Now
-            </a>
+            {patticakeSurface ? (
+              <a
+                href={patticakeNationalOrderUrl}
+                target={patticakeOrderIsExternal ? '_blank' : undefined}
+                rel={patticakeOrderIsExternal ? 'noopener noreferrer' : undefined}
+                className="btn-primary px-4 py-3 text-base"
+                data-event="click_patticake_national_delivery_order"
+                data-source="site_header_mobile"
+              >
+                Order Cake
+              </a>
+            ) : (
+              <a
+                href={location.order_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary px-4 py-3 text-base"
+                data-event="click_order_online"
+                data-location={location.slug}
+                data-source="site_header_mobile"
+              >
+                Order Now
+              </a>
+            )}
             <button
               type="button"
               aria-controls={mobileMenuId}
@@ -121,7 +180,23 @@ export function SiteHeader() {
         {menuOpen && (
           <nav id={mobileMenuId} aria-label="Mobile navigation" className="border-t border-blue-soft/60 bg-blue-tint px-5 pb-5 lg:hidden">
             <div className="grid gap-2 pt-3">
-              {navItems.map((item) => {
+              {patticakeSurface ? (
+                <>
+                  <a href="#national-order" className="border-b border-blue-soft/60 py-3 text-lg font-normal text-brand-primary" onClick={() => setMenuOpen(false)}>
+                    national delivery
+                  </a>
+                  <Link href="/order-a-cake" className="border-b border-blue-soft/60 py-3 text-lg font-normal text-brand-primary" onClick={() => setMenuOpen(false)}>
+                    local pickup
+                  </Link>
+                  <a href="#delivery-support" className="border-b border-blue-soft/60 py-3 text-lg font-normal text-brand-primary" onClick={() => setMenuOpen(false)}>
+                    questions
+                  </a>
+                  <a href={yumKitchenSiteUrl} className="border-b border-blue-soft/60 py-3 text-lg font-normal text-brand-primary" onClick={() => setMenuOpen(false)}>
+                    yum! kitchen
+                  </a>
+                </>
+              ) : (
+                navItems.map((item) => {
                 const childCurrent = 'children' in item && item.children.some((child) => isCurrent(child.href));
                 const current = isCurrent(item.href) || childCurrent;
                 return (
@@ -158,10 +233,23 @@ export function SiteHeader() {
                     )}
                   </div>
                 );
-              })}
-              <Link href="/#locations" prefetch={false} className="btn-secondary mt-3 text-center" onClick={() => setMenuOpen(false)}>
-                Find Us
-              </Link>
+                })
+              )}
+              {patticakeSurface ? (
+                <a
+                  href={patticakeNationalOrderUrl}
+                  target={patticakeOrderIsExternal ? '_blank' : undefined}
+                  rel={patticakeOrderIsExternal ? 'noopener noreferrer' : undefined}
+                  className="btn-secondary mt-3 text-center"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Order Patticake
+                </a>
+              ) : (
+                <Link href="/#locations" prefetch={false} className="btn-secondary mt-3 text-center" onClick={() => setMenuOpen(false)}>
+                  Find Us
+                </Link>
+              )}
             </div>
           </nav>
         )}

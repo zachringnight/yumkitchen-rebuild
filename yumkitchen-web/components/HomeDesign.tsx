@@ -213,7 +213,7 @@ export function MenuFeature() {
             welcome back your favorites or discover new eats
           </h2>
           <p className="mt-4 max-w-[34rem] text-lg leading-8 text-body">
-            The homepage now works harder: quick categories, real food cards, prices, and direct routes to the full menu or ordering.
+            Jump into the dishes people come back for, from bright salads and sandwiches to dinner plates, bakery treats, and easy takeout.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/menu" prefetch={false} className="btn-primary">
