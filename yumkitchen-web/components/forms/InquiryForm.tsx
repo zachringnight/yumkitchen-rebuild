@@ -382,7 +382,7 @@ export function InquiryForm({
                 <input id={`${kind}-zip`} autoComplete="postal-code" inputMode="numeric" {...register('zip')} />
               </Field>
             </div>
-            <Field id={`${kind}-availability`} label="Availability" error={errors.availability?.message}>
+            <Field id={`${kind}-availability`} label="Availability" error={errors.availability?.message} required>
               <select id={`${kind}-availability`} required {...register('availability')}>
                 <option value="">Select availability</option>
                 <option value="full-time">Full-time</option>
@@ -392,7 +392,7 @@ export function InquiryForm({
                 <option value="flexible">Flexible</option>
               </select>
             </Field>
-            <Field id={`${kind}-applying-for`} label="Applying for" error={errors.applyingFor?.message}>
+            <Field id={`${kind}-applying-for`} label="Applying for" error={errors.applyingFor?.message} required>
               <select id={`${kind}-applying-for`} required {...register('applyingFor')}>
                 <option value="">Select one</option>
                 <option value="immediate-opening">Immediate opening</option>
@@ -415,14 +415,16 @@ export function InquiryForm({
               label="Are you at least 18 years of age?"
               error={errors.ageConfirm?.message}
               inputProps={register('ageConfirm')}
+              required
             />
             <CheckboxField
               id={`${kind}-work-authorized`}
               label="Are you authorized to work in the U.S. in the position for which you are applying?"
               error={errors.workAuthorized?.message}
               inputProps={register('workAuthorized')}
+              required
             />
-            <Field id={`${kind}-highest-degree`} label="Highest Degree Achieved?" error={errors.highestDegree?.message}>
+            <Field id={`${kind}-highest-degree`} label="Highest Degree Achieved?" error={errors.highestDegree?.message} required>
               <select id={`${kind}-highest-degree`} required {...register('highestDegree')}>
                 <option value="">Select one</option>
                 <option value="high-school">High school</option>
@@ -441,7 +443,7 @@ export function InquiryForm({
                 <option value="no">No</option>
               </select>
             </Field>
-            <Field id={`${kind}-heard-about`} label="How did you hear about this job?" error={errors.heardAbout?.message}>
+            <Field id={`${kind}-heard-about`} label="How did you hear about this job?" error={errors.heardAbout?.message} required>
               <select id={`${kind}-heard-about`} required {...register('heardAbout')}>
                 <option value="">Select one</option>
                 <option value="yum-website">yum! website</option>
@@ -490,6 +492,7 @@ export function InquiryForm({
           label="I promise the information provided above is true to the best of my knowledge."
           error={errors.promiseTrue?.message}
           inputProps={register('promiseTrue')}
+          required
         />
       )}
       <div className="flex flex-wrap items-center gap-4">
@@ -551,11 +554,13 @@ function CheckboxField({
   label,
   error,
   inputProps,
+  required,
 }: {
   id: string;
   label: string;
   error?: string;
   inputProps: UseFormRegisterReturn;
+  required?: boolean;
 }) {
   return (
     <div className="md:col-span-2">
@@ -568,7 +573,10 @@ function CheckboxField({
           aria-invalid={error ? 'true' : undefined}
           {...inputProps}
         />
-        <span>{label}</span>
+        <span>
+          {label}
+          {required && <span className="required-mark" aria-hidden="true">*</span>}
+        </span>
       </label>
       {error && (
         <p id={`${id}-error`} className="field-error mt-2">

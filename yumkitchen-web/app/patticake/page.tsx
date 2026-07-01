@@ -411,6 +411,9 @@ export default function PatticakeNationalDeliveryPage() {
             <p className="mt-5 text-base leading-7 text-body">
               Your note goes to yum! so we can help before you ship a cake.
             </p>
+            <p className="mt-5 text-base leading-7 text-body">
+              Please note: this is an inquiry, not a confirmed order. Someone from yum! will follow up with the next sweet step before anything ships.
+            </p>
           </div>
           <InquiryForm
             kind="cake"

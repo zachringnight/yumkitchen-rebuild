@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
+import { MotionPauseButton } from './MotionPauseButton';
 
 const quickMessages = ['love you', 'miss you', 'thank you', 'go team', 'happy day', 'congrats'] as const;
 
@@ -16,7 +17,7 @@ export function PatticakeMessagePreview() {
           <p className="section-label">message maker</p>
           <h2 className="text-h2 lowercase">make it sound like them</h2>
           <p className="mt-5 max-w-xl text-xl leading-9 text-body">
-            Patticake gets more personal with a few words on top. Pick a little note, then send the bakery the real message when you are ready.
+            Patticake gets more personal with a few words on top. Pick a little note, then send the bakery the real message when you are ready to share the love.
           </p>
           <div className="message-chip-grid" aria-label="Message ideas">
             {quickMessages.map((item) => (
@@ -37,13 +38,13 @@ export function PatticakeMessagePreview() {
               value={message}
               maxLength={28}
               onFocus={(event) => event.target.select()}
-              onClick={(event) => event.currentTarget.select()}
               onChange={(event) => setMessage(event.target.value)}
             />
           </label>
         </div>
 
         <div className="message-preview-stage" aria-live="polite">
+          <MotionPauseButton className="motion-pause-button" />
           <div className="message-preview-card message-preview-card-back" aria-hidden="true">
             from yum! with love
           </div>
@@ -60,7 +61,7 @@ export function PatticakeMessagePreview() {
             </div>
           </div>
           <div className="message-preview-card message-preview-card-front" aria-hidden="true">
-            {displayMessage.length}/28 characters
+            {message.length}/28 characters
           </div>
         </div>
       </div>

@@ -69,7 +69,7 @@ export const pageMeta = {
   patticakeHome: {
     title: 'Patticake',
     description: 'Ship a Cake, Pick Up Locally, and visit the yum! Kitchen restaurant pages.',
-    image: '/og/default.jpg',
+    image: '/images/patticake/09_slices.jpg',
   },
   menu: {
     title: 'menu',
@@ -84,17 +84,17 @@ export const pageMeta = {
   catering: {
     title: 'catering',
     description: 'Sandwich platters, box lunches, salads, baked goods, and more for pickup with 24 hour notice.',
-    image: '/og/catering.jpg',
+    image: '/images/yum-catering-sandwiches-live.jpg',
   },
   cake: {
     title: 'order a patticake',
     description: 'Order or inquire about yum! Kitchen and Bakery Patticake, wedding cakes, and celebration cakes.',
-    image: '/og/default.jpg',
+    image: '/images/patticake/02_tier_wedding_a.jpg',
   },
   patticakeDelivery: {
     title: 'Ship a Cake',
     description: 'Start a Patticake shipping note, add the sweet details, and hear back from yum! before baking.',
-    image: '/og/default.jpg',
+    image: '/images/patticake/10_layers_slice.jpg',
   },
   about: {
     title: 'about us',

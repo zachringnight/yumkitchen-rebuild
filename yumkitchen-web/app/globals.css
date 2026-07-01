@@ -1172,23 +1172,6 @@
   z-index: 1;
 }
 
-.patticake-share-cues {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-  margin-top: 1.4rem;
-}
-
-.patticake-share-cues span {
-  border: 1px solid rgb(180 33 43 / 0.22);
-  background: rgb(255 255 255 / 0.78);
-  color: var(--color-ink);
-  font-size: 0.92rem;
-  font-weight: 700;
-  line-height: 1;
-  padding: 0.62rem 0.78rem;
-}
-
 .patticake-message-ribbon {
   overflow: hidden;
   border-block: 1px solid rgb(45 45 45 / 0.12);

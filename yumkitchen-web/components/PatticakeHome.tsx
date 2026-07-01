@@ -58,7 +58,6 @@ const moments = [
 ] as const;
 
 const proof = ['Patticake', 'devil’s food chocolate cake', 'vanilla buttercream', 'made by yum! Kitchen and Bakery'] as const;
-const shareCues = ['Ship a Cake', 'Pick Up Locally', 'Visit yum! Kitchen'] as const;
 
 const nationalOrderIsExternal = /^https?:\/\//.test(patticakeNationalOrderUrl);
 
@@ -98,11 +97,6 @@ export function PatticakeHome() {
                 <div key={item} className="border-t border-ink/15 pt-3">
                   <p className="text-base font-bold leading-6 text-ink">{item}</p>
                 </div>
-              ))}
-            </div>
-            <div className="patticake-share-cues" aria-label="Patticake ways to share">
-              {shareCues.map((item) => (
-                <span key={item}>{item}</span>
               ))}
             </div>
           </div>
