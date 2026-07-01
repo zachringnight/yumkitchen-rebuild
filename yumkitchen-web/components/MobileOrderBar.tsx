@@ -1,19 +1,26 @@
 'use client';
 
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { patticakeNationalOrderUrl } from '@/lib/site';
+import { useEffectiveLocation } from '@/lib/useEffectiveLocation';
 import { usePatticakeSurface } from '@/lib/usePatticakeSurface';
 import { OpenStatus } from './OpenStatus';
-import { usePreferredLocation } from '@/lib/usePreferredLocation';
 
 export function MobileOrderBar() {
   const pathname = usePathname();
-  const { location } = usePreferredLocation();
+  const { location } = useEffectiveLocation();
   const [visible, setVisible] = useState(false);
+  const [hash, setHash] = useState('');
   const patticakeSurface = usePatticakeSurface();
-  const patticakePrimaryHref = pathname === '/order-a-cake' ? '#cake-inquiry' : patticakeNationalOrderUrl;
+  const inPatticakeOrderSection = pathname === '/patticake' && hash === '#national-order';
+  const inPatticakeShippingForm = pathname === '/patticake' && hash === '#delivery-support';
+  const patticakePrimaryHref = pathname === '/order-a-cake' ? '#cake-inquiry' : inPatticakeOrderSection || inPatticakeShippingForm ? '#delivery-support' : patticakeNationalOrderUrl;
   const patticakeOrderIsExternal = /^https?:\/\//.test(patticakePrimaryHref);
+  const patticakeStickyTitle = pathname === '/order-a-cake' ? 'Pick Up Locally' : inPatticakeShippingForm ? 'Shipping Note' : 'Ship a Cake';
+  const patticakeStickyCopy = pathname === '/order-a-cake' ? 'fresh from yum!' : inPatticakeOrderSection || inPatticakeShippingForm ? 'start the bakery note' : 'we help it arrive ready to share';
+  const patticakeStickyAction = pathname === '/order-a-cake' ? 'Pick Up Locally' : inPatticakeOrderSection || inPatticakeShippingForm ? 'Start Note' : 'Ship a Cake';
 
   useEffect(() => {
     const showAfter = pathname === '/' ? 820 : 260;
@@ -27,6 +34,17 @@ export function MobileOrderBar() {
     };
   }, [pathname]);
 
+  useEffect(() => {
+    const syncHash = () => setHash(window.location.hash);
+    syncHash();
+    window.addEventListener('hashchange', syncHash);
+    window.addEventListener('popstate', syncHash);
+    return () => {
+      window.removeEventListener('hashchange', syncHash);
+      window.removeEventListener('popstate', syncHash);
+    };
+  }, [pathname]);
+
   if (pathname === '/order') return null;
 
   return (
@@ -35,17 +53,17 @@ export function MobileOrderBar() {
         visible ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-full opacity-0'
       }`}
     >
-      <div className="mx-auto grid max-w-md grid-cols-[1fr_auto] items-center gap-2">
+      <div className="mx-auto grid max-w-md grid-cols-[1fr_auto_auto] items-center gap-2">
         <div className="min-w-0">
           {patticakeSurface ? (
             <>
-              <p className="truncate text-sm font-bold leading-tight text-ink">{pathname === '/order-a-cake' ? 'Pick Up Locally' : 'Ship a Cake'}</p>
-              <p className="block truncate text-sm leading-tight text-body">{pathname === '/order-a-cake' ? 'fresh from yum!' : 'we help it arrive ready to share'}</p>
+              <p className="truncate text-sm font-bold leading-tight text-ink">{patticakeStickyTitle}</p>
+              <p className="block truncate text-sm leading-tight text-body">{patticakeStickyCopy}</p>
             </>
           ) : (
             <>
               <p className="truncate text-sm font-bold leading-tight text-ink">Pickup: {location.short_name}</p>
-              <OpenStatus compact className="block truncate text-sm leading-tight text-body" />
+              <OpenStatus compact className="block truncate text-xs leading-tight text-body" />
             </>
           )}
         </div>
@@ -58,20 +76,25 @@ export function MobileOrderBar() {
             data-event="click_patticake_national_delivery_order"
             data-source="mobile_sticky_bar"
           >
-            {pathname === '/order-a-cake' ? 'Pick Up Locally' : 'Ship a Cake'}
+            {patticakeStickyAction}
           </a>
         ) : (
-          <a
-            href={location.order_url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary px-4 py-3 text-base"
-            data-event="click_order_online"
-            data-location={location.slug}
-            data-source="mobile_sticky_bar"
-          >
-            Order
-          </a>
+          <>
+            <Link href="/menu" prefetch={false} className="btn-secondary px-3 py-3 text-sm sm:text-base">
+              Menu
+            </Link>
+            <a
+              href={location.order_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary px-4 py-3 text-base"
+              data-event="click_order_online"
+              data-location={location.slug}
+              data-source="mobile_sticky_bar"
+            >
+              Order
+            </a>
+          </>
         )}
       </div>
     </div>

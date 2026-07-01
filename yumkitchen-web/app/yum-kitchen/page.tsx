@@ -7,13 +7,14 @@ import { LocationGrid } from '@/components/LocationGrid';
 import { PhotoMotionStory } from '@/components/PhotoMotionStory';
 import { SeasonalShowcase } from '@/components/SeasonalShowcase';
 import { brandJsonLd, organizationJsonLd } from '@/lib/locations';
-import { pageMeta } from '@/lib/site';
+import { pageMeta, yumCanonical, yumKitchenSiteName, yumOpenGraph, yumTitle } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'yum! Kitchen restaurant',
+  applicationName: yumKitchenSiteName,
+  title: yumTitle('restaurants'),
   description: pageMeta.home.description,
-  alternates: { canonical: '/yum-kitchen' },
-  openGraph: { images: [pageMeta.home.image] },
+  alternates: { canonical: yumCanonical('/yum-kitchen') },
+  openGraph: yumOpenGraph(pageMeta.home.image),
   twitter: { images: [pageMeta.home.image] },
 };
 

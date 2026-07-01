@@ -100,11 +100,11 @@ export function OrderClient({ initialCategory, initialQuery = '' }: Props) {
           <div>
             <h1 className="text-display lowercase">start your yum! order</h1>
             <p className="mt-5 max-w-2xl text-xl leading-9">
-              Pick a kitchen once, browse a few favorites, and go straight to the right Toast checkout.
+              Choose your pickup restaurant, browse a few favorites, and we&apos;ll send you to the right checkout.
             </p>
           </div>
           <div className="accent-card bg-white p-6 shadow-xl">
-            <p className="section-label">current pickup kitchen</p>
+            <p className="section-label">current pickup restaurant</p>
             <h2 className="text-h3 lowercase">{selectedLocation.name}</h2>
             <p className="mt-2 text-lg leading-8">{selectedLocation.address.street}</p>
             <p className="text-lg leading-8">
@@ -130,12 +130,12 @@ export function OrderClient({ initialCategory, initialQuery = '' }: Props) {
         <div className="container-content grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
           <div>
             <p className="section-label">order online</p>
-            <h2 className="text-h2 lowercase">choose a kitchen, then finish in toast checkout</h2>
+            <h2 className="text-h2 lowercase">choose your restaurant, then order what sounds good</h2>
             <p className="mt-5 text-xl leading-9">
-              Your pickup kitchen follows you across the site, so header buttons and checkout links open the right location.
+              Choose your pickup restaurant and browse favorites. When you are ready, we&apos;ll send you to the right checkout.
             </p>
             <div className="mt-7 grid gap-3">
-              {['choose pickup kitchen once', 'browse favorites or the full menu', 'open the right Toast checkout'].map((step, index) => (
+              {['choose pickup restaurant once', 'browse favorites or the full menu', 'finish your order'].map((step, index) => (
                 <div key={step} className="order-step-row">
                   <span>{index + 1}</span>
                   <p>{step}</p>
@@ -203,7 +203,7 @@ export function OrderClient({ initialCategory, initialQuery = '' }: Props) {
                 </p>
                 {lastAdded && <p className="text-base font-bold text-brand-primary" aria-live="polite">Added {lastAdded}</p>}
               </div>
-              <div className="mt-4 flex flex-wrap gap-2" aria-label="Popular favorite searches">
+              <div className="mt-4 flex flex-wrap gap-2" aria-label="Favorite searches">
                 {orderSearchSuggestions.map((suggestion) => {
                   const selected = normalizedQuery === suggestion;
                   return (
@@ -221,7 +221,7 @@ export function OrderClient({ initialCategory, initialQuery = '' }: Props) {
                   );
                 })}
               </div>
-              <div className="order-filter-row" role="group" aria-label="Favorite category filters">
+              <div className="order-filter-row" role="group" aria-label="Favorite types">
                 {orderCategoryFilters.map((filter) => {
                   const selected = selectedCategory === filter.value;
                   return (
@@ -291,7 +291,7 @@ export function OrderClient({ initialCategory, initialQuery = '' }: Props) {
           </section>
 
           <aside className="accent-card bg-white p-6 shadow-xl xl:sticky xl:top-28">
-            <p className="section-label">your shortlist</p>
+            <p className="section-label">your favorites</p>
             <h2 className="text-h3 lowercase" aria-live="polite">{cartCount} favorite{cartCount === 1 ? '' : 's'} selected</h2>
             <div className="mt-2 border-t border-ink/10 pt-3 text-base leading-7">
               <p className="font-bold text-ink">Pickup at {selectedLocation.short_name}</p>
@@ -327,13 +327,13 @@ export function OrderClient({ initialCategory, initialQuery = '' }: Props) {
               </div>
               {cartCount > 0 && (
                 <button type="button" className="btn-secondary mt-5 w-full px-4 py-3 text-base" onClick={clearOrder}>
-                  Clear Shortlist
+                  Clear Favorites
                 </button>
               )}
-              <a href={selectedLocation.order_url} target="_blank" rel="noopener noreferrer" className="btn-primary mt-5 w-full" data-event="click_order_online" data-location={selectedLocation.slug} data-source="order_page_shortlist">
-                Open Toast Checkout
+              <a href={selectedLocation.order_url} target="_blank" rel="noopener noreferrer" className="btn-primary mt-5 w-full" data-event="click_order_online" data-location={selectedLocation.slug} data-source="order_page_favorites">
+                Finish Your Order
               </a>
-              <p className="mt-3 text-sm leading-6">This shortlist is a planning aid. Toast opens separately for final item selection, availability, tax, timing, and payment.</p>
+              <p className="mt-3 text-sm leading-6">You can add more, confirm pickup time, and pay on the next screen.</p>
             </div>
           </aside>
         </div>

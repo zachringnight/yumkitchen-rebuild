@@ -20,6 +20,7 @@ export function Hero({ title, copy, image, imageAlt, children, priority = false,
         fill
         preload={priority}
         loading={priority ? 'eager' : undefined}
+        fetchPriority={priority ? 'high' : undefined}
         sizes="100vw"
         className="hero-motion-image motion-image object-cover"
       />

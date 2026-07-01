@@ -8,7 +8,7 @@
 - `NEXT_PUBLIC_GTM_ID`: set to `GTM-P9584HPC` for production analytics. Leave unset for local Lighthouse runs.
 - `NEXT_PUBLIC_YUMKITCHEN_URL`: optional canonical Yum URL, defaults to `https://yumkitchen.com`.
 - `NEXT_PUBLIC_PATTICAKE_URL`: optional canonical Patticake URL, defaults to `https://patticake.com`.
-- `NEXT_PUBLIC_SITE_URL`: optional primary sitemap URL, defaults to `NEXT_PUBLIC_YUMKITCHEN_URL`.
+- `NEXT_PUBLIC_SITE_URL`: optional metadata fallback for preview environments. Canonical page URLs and sitemap entries use `NEXT_PUBLIC_YUMKITCHEN_URL` and `NEXT_PUBLIC_PATTICAKE_URL` directly.
 - `NEXT_PUBLIC_PATTICAKE_NATIONAL_ORDER_URL`: optional direct checkout URL for Patticake national delivery. When unset, the page routes the primary CTA to the on-page national-delivery order-details form.
 
 ## Analytics Events
@@ -51,7 +51,7 @@ If `patticake.com` is served by the same Vercel project:
 
 1. Add `patticake.com` and `www.patticake.com` as project domains.
 2. Confirm `https://patticake.com/` renders the Patticake page and product-specific header.
-3. Confirm `https://patticake.com/patticake` is canonical for the Patticake page.
+3. Confirm `https://patticake.com/`, `https://patticake.com/patticake`, and `https://patticake.com/order-a-cake` are canonical for the Patticake pages.
 4. Set `NEXT_PUBLIC_PATTICAKE_NATIONAL_ORDER_URL` when a real national delivery checkout URL exists.
 5. If the checkout URL is unset, confirm the primary Patticake CTA routes to the order-details form on the page.
 

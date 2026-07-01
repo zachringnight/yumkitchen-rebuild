@@ -6,13 +6,14 @@ import { JsonLd } from '@/components/JsonLd';
 import { LocationGrid } from '@/components/LocationGrid';
 import { InquiryForm } from '@/components/forms/InquiryForm';
 import { contactPageJsonLd } from '@/lib/schema';
-import { pageMeta } from '@/lib/site';
+import { pageMeta, yumCanonical, yumKitchenSiteName, yumOpenGraph, yumTitle } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: pageMeta.contact.title,
+  applicationName: yumKitchenSiteName,
+  title: yumTitle(pageMeta.contact.title),
   description: pageMeta.contact.description,
-  alternates: { canonical: '/contact' },
-  openGraph: { images: [pageMeta.contact.image] },
+  alternates: { canonical: yumCanonical('/contact') },
+  openGraph: yumOpenGraph(pageMeta.contact.image),
   twitter: { images: [pageMeta.contact.image] },
 };
 
@@ -22,7 +23,7 @@ export default function ContactPage() {
       <JsonLd data={contactPageJsonLd()} />
       <Hero
         title="we'd love to hear from you"
-        copy="Call a location, send us a note, or tell us how we can help. Someone from yum! will get back to you soon."
+        copy="Call a restaurant, send us a note, or tell us how we can help. Someone from yum! will get back to you soon."
         image="/images/yum-mixed-berry-salad.png"
         imageAlt="yum! mixed berry salad"
         priority
@@ -41,13 +42,13 @@ export default function ContactPage() {
       </section>
       <InquiryMomentumBand
         title="choose the quickest way to reach us"
-        copy="For ordering questions, the quickest move is a direct call to the pickup kitchen. For everything else, send a note and we’ll get it to the right person."
+        copy="For ordering questions, the quickest move is a direct call to the pickup restaurant. For everything else, send a note and we’ll get it to the right person."
         primaryHref="/yum-kitchen#locations"
         primaryLabel="Find a Location"
         secondaryHref="/order"
         secondaryLabel="Start Order"
         image="/images/yum-chef-kitchen.jpg"
-        imageAlt="yum! chef in the kitchen"
+        imageAlt="yum! chef preparing food"
       />
       <LocationGrid />
     </main>

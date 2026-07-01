@@ -1,10 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { PatticakeOriginBand } from './PatticakeOriginBand';
-import { PatticakeMessageRibbon } from './PatticakeMessageRibbon';
+import { patticakeNationalOrderUrl } from '@/lib/site';
 import { MotionPauseButton } from './MotionPauseButton';
 import { PatticakeConciergeBand } from './PatticakeConciergeBand';
-import { patticakeNationalOrderUrl } from '@/lib/site';
+import { PatticakeHeroPeek } from './PatticakeHeroPeek';
+import { PatticakeOriginBand } from './PatticakeOriginBand';
+import { PatticakeMessageRibbon } from './PatticakeMessageRibbon';
 
 const heroFrames = [
   {
@@ -12,18 +13,21 @@ const heroFrames = [
     alt: 'yum! patticake chocolate cake layers close up',
     label: 'devil’s food layers',
     className: 'crop-patticake-vertical-layer',
+    sizes: '(min-width: 1024px) 30vw, (min-width: 768px) 44vw, 46vw',
   },
   {
     src: '/images/patticake/03_top_view.jpg',
     alt: 'yum! patticake vanilla buttercream top view',
     label: 'vanilla buttercream',
     className: 'crop-patticake-top',
+    sizes: '(min-width: 1024px) 29vw, (min-width: 768px) 42vw, 38vw',
   },
   {
     src: '/images/patticake/09_slices.jpg',
     alt: 'yum! patticake slices on plates',
     label: 'ready to share',
     className: 'crop-patticake-slices',
+    sizes: '(min-width: 1024px) 38vw, (min-width: 768px) 54vw, 68vw',
   },
 ] as const;
 
@@ -47,10 +51,10 @@ const moments = [
     className: 'crop-patticake-vertical-layer',
   },
   {
-    title: 'meet the kitchen',
+    title: 'meet the restaurant',
     copy: 'Patticake comes from the same scratch bakery team behind four yum! neighborhood restaurants.',
     href: '/yum-kitchen',
-    action: 'Visit yum! Kitchen',
+    action: 'Visit yum! Kitchen and Bakery',
     image: '/images/patticake/01_cover.jpg',
     alt: 'Patti and Kelli at yum! Kitchen and Bakery',
     className: 'crop-patticake-cover',
@@ -71,6 +75,13 @@ export function PatticakeHome() {
             <h1 className="font-serif text-[clamp(4rem,8vw,7.4rem)] font-normal leading-[0.9] lowercase text-ink">
               patticake
             </h1>
+            <PatticakeHeroPeek
+              src="/images/patticake/09_slices_mobile_lcp.webp"
+              alt="yum! patticake slices on plates"
+              label="devil's food layers"
+              className="crop-patticake-slices"
+              unoptimized
+            />
             <p className="mt-7 max-w-[520px] text-xl leading-9 text-ink">
               Patticake is devil&apos;s food layers, vanilla buttercream, and a message made for the table.
             </p>
@@ -89,7 +100,7 @@ export function PatticakeHome() {
                 Pick Up Locally
               </Link>
               <Link href="/yum-kitchen" className="btn-secondary">
-                yum! Kitchen
+                yum! Kitchen and Bakery
               </Link>
             </div>
             <div className="mt-9 grid gap-3 sm:grid-cols-2">
@@ -118,8 +129,8 @@ export function PatticakeHome() {
                   src={frame.src}
                   alt={frame.alt}
                   fill
-                  priority={index === 0}
-                  sizes="(min-width: 1024px) 30vw, 82vw"
+                  quality={60}
+                  sizes={frame.sizes}
                   className={`object-cover ${frame.className}`}
                 />
                 <figcaption>{frame.label}</figcaption>
@@ -136,10 +147,10 @@ export function PatticakeHome() {
           <div className="grid items-end gap-7 lg:grid-cols-[0.68fr_1.32fr]">
             <div>
               <p className="section-label">pick your cake moment</p>
-              <h2 className="text-h2 lowercase">Ship a Cake, Pick Up Locally, or visit the kitchen</h2>
+              <h2 className="text-h2 lowercase">Ship a Cake, Pick Up Locally, or visit the restaurant</h2>
             </div>
             <p className="max-w-2xl text-xl leading-9 text-body">
-              Patticake leads the way. The yum! kitchens are right here for breakfast, lunch, dinner, catering, and local pickup.
+              Patticake leads the way. The yum! restaurants are right here for breakfast, lunch, dinner, catering, and local pickup.
             </p>
           </div>
 
@@ -151,6 +162,7 @@ export function PatticakeHome() {
                     src={moment.image}
                     alt={moment.alt}
                     fill
+                    loading={moment.image === '/images/patticake/layers_slice_vertical.jpg' ? 'eager' : undefined}
                     sizes="(min-width: 768px) 33vw, 100vw"
                     className={`image-lift object-cover transition duration-500 ${moment.className}`}
                   />

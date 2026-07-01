@@ -3,16 +3,18 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { InquiryForm } from '@/components/forms/InquiryForm';
 import { MediaProofBand } from '@/components/MediaProofBand';
+import { PatticakeHeroPeek } from '@/components/PatticakeHeroPeek';
 import { PatticakeMessageRibbon } from '@/components/PatticakeMessageRibbon';
 import { PatticakeMessagePreview } from '@/components/PatticakeMessagePreview';
 import { PatticakeOriginBand } from '@/components/PatticakeOriginBand';
-import { pageMeta, patticakeNationalOrderUrl, patticakeSiteUrl } from '@/lib/site';
+import { PatticakePathGuide } from '@/components/PatticakePathGuide';
+import { pageMeta, patticakeCanonical, patticakeNationalOrderUrl, patticakeOpenGraph, patticakeTitle } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: pageMeta.patticakeDelivery.title,
+  title: patticakeTitle(pageMeta.patticakeDelivery.title),
   description: pageMeta.patticakeDelivery.description,
-  alternates: { canonical: `${patticakeSiteUrl}/patticake` },
-  openGraph: { images: [pageMeta.patticakeDelivery.image] },
+  alternates: { canonical: patticakeCanonical('/patticake') },
+  openGraph: patticakeOpenGraph(pageMeta.patticakeDelivery.image),
   twitter: { images: [pageMeta.patticakeDelivery.image] },
 };
 
@@ -98,7 +100,7 @@ const deliveryFacts = [
 ] as const;
 
 const trustNotes = [
-  'made by the same scratch bakery behind four yum! kitchens',
+  'made by the same scratch bakery behind four yum! restaurants',
   'gift-ready care from real people at yum!',
   'simple chocolate cake, vanilla buttercream, and a message people remember',
 ] as const;
@@ -123,7 +125,7 @@ const faqs = [
   },
   {
     question: 'Can I pick up locally?',
-    answer: 'Yes. Use the Pick Up Locally page if the Patticake will be picked up from a yum! Kitchen and Bakery location.',
+    answer: 'Yes. If the Patticake is staying local, start a Pick Up Locally note and choose your yum! restaurant.',
   },
   {
     question: 'What if I need help before shipping?',
@@ -145,6 +147,7 @@ const jsonLd = {
 };
 
 const nationalOrderIsExternal = /^https?:\/\//.test(patticakeNationalOrderUrl);
+const shippingNoteHref = nationalOrderIsExternal ? patticakeNationalOrderUrl : '#delivery-support';
 
 export default function PatticakeNationalDeliveryPage() {
   return (
@@ -157,6 +160,12 @@ export default function PatticakeNationalDeliveryPage() {
             <h1 className="font-serif text-[clamp(3.55rem,7vw,6.7rem)] font-normal leading-[0.9] lowercase text-ink">
               ship a patticake
             </h1>
+            <PatticakeHeroPeek
+              src="/images/patticake/09_slices.jpg"
+              alt="yum! patticake slices on plates"
+              label="ready to send"
+              className="crop-patticake-slices"
+            />
             <p className="mt-7 max-w-xl text-xl leading-9 text-ink">
               Tell us where it is headed, when it should arrive, and the words that should travel with it. We&apos;ll help it get there ready to share.
             </p>
@@ -183,6 +192,7 @@ export default function PatticakeNationalDeliveryPage() {
                 src="/images/patticake/09_slices.jpg"
                 alt="yum! patticake slices on plates"
                 fill
+                preload
                 loading="eager"
                 fetchPriority="high"
                 sizes="(min-width: 1024px) 50vw, 100vw"
@@ -204,7 +214,7 @@ export default function PatticakeNationalDeliveryPage() {
                 <p className="mt-3 text-base leading-7 text-body">signature chocolate cake made for sending.</p>
               </div>
               <div className="relative min-h-[210px] overflow-hidden border border-ink/10 bg-blue-soft">
-                <Image src="/images/patticake/03_top_view.jpg" alt="yum! patticake vanilla buttercream top view" fill sizes="(min-width: 1024px) 22vw, 45vw" className="object-cover crop-patticake-top" />
+                <Image src="/images/patticake/03_top_view.jpg" alt="yum! patticake vanilla buttercream top view" fill loading="eager" sizes="(min-width: 1024px) 22vw, 45vw" className="object-cover crop-patticake-top" />
               </div>
             </div>
           </div>
@@ -212,6 +222,7 @@ export default function PatticakeNationalDeliveryPage() {
       </section>
 
       <PatticakeMessageRibbon tone="blue" />
+      <PatticakePathGuide activePath="shipping" />
 
       <section className="bg-white px-6 py-12 lg:py-section">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.68fr_1.32fr] lg:items-center">
@@ -355,7 +366,7 @@ export default function PatticakeNationalDeliveryPage() {
         </div>
       </section>
 
-      <section id="national-order" className="bg-blue-tint px-6 py-12 lg:py-section">
+      <section id="national-order" className="scroll-mt-24 bg-blue-tint px-6 py-12 md:scroll-mt-28 lg:py-section">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
           <div>
             <p className="section-label text-ink">send some love</p>
@@ -365,7 +376,7 @@ export default function PatticakeNationalDeliveryPage() {
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a
-                href={patticakeNationalOrderUrl}
+                href={shippingNoteHref}
                 target={nationalOrderIsExternal ? '_blank' : undefined}
                 rel={nationalOrderIsExternal ? 'noopener noreferrer' : undefined}
                 className="btn-primary"
@@ -400,19 +411,13 @@ export default function PatticakeNationalDeliveryPage() {
         </div>
       </section>
 
-      <section id="delivery-support" className="bg-white px-6 py-12 lg:py-section">
+      <section id="delivery-support" className="scroll-mt-24 bg-white px-6 py-12 md:scroll-mt-28 lg:py-section">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.82fr_1.18fr]">
           <div>
             <p className="section-label">shipping help</p>
-            <h2 className="text-h2 lowercase">need help sending it?</h2>
+            <h2 className="text-h2 lowercase">start your shipping note</h2>
             <p className="mt-5 text-xl leading-9 text-body">
-              For bigger orders, timing questions, delivery notes, or anything unusual, send a note and someone from yum! will help.
-            </p>
-            <p className="mt-5 text-base leading-7 text-body">
-              Your note goes to yum! so we can help before you ship a cake.
-            </p>
-            <p className="mt-5 text-base leading-7 text-body">
-              Please note: this is an inquiry, not a confirmed order. Someone from yum! will follow up with the next sweet step before anything ships.
+              Share where the cake is going, when it should arrive, and what you want written with it. This starts a bakery note, not a confirmed order.
             </p>
           </div>
           <InquiryForm
@@ -421,8 +426,9 @@ export default function PatticakeNationalDeliveryPage() {
             defaultSubject="Patticake shipping note"
             eventDateLabel="Requested delivery date"
             guestsLabel="Quantity or servings"
-            locationLabel="Closest yum! location"
-            messageLabel="Timing, weather, allergy, or delivery notes"
+            showLocation={false}
+            hideSubject
+            messageLabel="Delivery timing, allergy notes, or anything we should know"
             submitLabel="Send Shipping Note"
             successMessage="We got it. Someone from yum! will reply with the next sweet step."
           />
@@ -433,7 +439,7 @@ export default function PatticakeNationalDeliveryPage() {
         <div className="mx-auto grid max-w-[980px] gap-6 text-center md:grid-cols-[1fr_auto] md:items-center md:text-left">
           <h2 className="font-serif text-[3rem] font-normal leading-tight lowercase text-white">ready to send a patticake?</h2>
           <a
-            href={patticakeNationalOrderUrl}
+            href={shippingNoteHref}
             target={nationalOrderIsExternal ? '_blank' : undefined}
             rel={nationalOrderIsExternal ? 'noopener noreferrer' : undefined}
             className="inline-block border-2 border-white bg-white px-8 py-4 text-lg font-bold leading-none text-brand-primary transition hover:bg-blue-tint hover:text-ink"

@@ -19,7 +19,7 @@ export function SeasonalShowcase() {
               See What&apos;s New
             </Link>
             <Link href="/yum-kitchen#locations" className="btn-secondary">
-              Find a Kitchen
+              Find a Restaurant
             </Link>
           </div>
         </div>

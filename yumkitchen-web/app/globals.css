@@ -594,10 +594,16 @@
 }
 
 .location-modal-backdrop {
+  background:
+    radial-gradient(circle at 50% 28%, rgb(224 58 62 / 0.18), transparent 34rem),
+    rgb(45 45 45 / 0.46);
   opacity: 1;
 }
 
 .location-modal-panel {
+  background:
+    linear-gradient(90deg, var(--color-brand-red) 0 6px, transparent 6px),
+    linear-gradient(180deg, white 0%, var(--color-cream) 100%);
   transform-origin: center;
 }
 
@@ -1140,6 +1146,30 @@
   box-shadow: 0 1.6rem 4rem rgb(45 45 45 / 0.16);
 }
 
+.patticake-hero-peek {
+  position: relative;
+  margin-top: 1.35rem;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid rgb(45 45 45 / 0.14);
+  background: var(--color-blue-soft);
+  box-shadow: 0 1rem 2.2rem rgb(45 45 45 / 0.12);
+}
+
+.patticake-hero-peek figcaption {
+  position: absolute;
+  left: 0.85rem;
+  bottom: 0.85rem;
+  background: rgb(255 253 247 / 0.92);
+  padding: 0.7rem 0.85rem;
+  color: var(--color-brand-primary);
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .patticake-home-hero {
   position: relative;
   isolation: isolate;
@@ -1523,6 +1553,10 @@
   text-transform: lowercase;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
+}
+
+.patticake-ticket-stub-brand {
+  text-transform: none;
 }
 
 .patticake-action-card {

@@ -2,13 +2,14 @@ import type { Metadata } from 'next';
 import { JsonLd } from '@/components/JsonLd';
 import { menuJsonLd } from '@/lib/menu';
 import { OrderClient } from './OrderClient';
-import { pageMeta } from '@/lib/site';
+import { pageMeta, yumCanonical, yumKitchenSiteName, yumOpenGraph, yumTitle } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: pageMeta.order.title,
+  applicationName: yumKitchenSiteName,
+  title: yumTitle(pageMeta.order.title),
   description: pageMeta.order.description,
-  alternates: { canonical: '/order' },
-  openGraph: { images: [pageMeta.order.image] },
+  alternates: { canonical: yumCanonical('/order') },
+  openGraph: yumOpenGraph(pageMeta.order.image),
   twitter: { images: [pageMeta.order.image] },
 };
 

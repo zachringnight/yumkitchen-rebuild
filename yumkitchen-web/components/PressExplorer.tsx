@@ -29,7 +29,7 @@ export function PressExplorer() {
                 The best mentions show what people keep coming back for: neighborhood meals, bakery favorites, family story, and plenty of warm yum! moments.
               </p>
             </div>
-            <div className="flex flex-wrap gap-2 lg:justify-end" aria-label="Filter press entries">
+            <div className="flex flex-wrap gap-2 lg:justify-end" aria-label="Press story topics">
               <button
                 type="button"
                 aria-pressed={activeFilter === allFilter}
@@ -74,8 +74,8 @@ export function PressExplorer() {
 
           {featuredItems.length === 0 && (
             <div className="mt-8 border border-ink/10 bg-page p-8">
-              <h3 className="text-h3 lowercase">no featured cards in this group</h3>
-              <p className="mt-3 text-lg leading-8">The archive below still includes more stories in this group.</p>
+              <h3 className="text-h3 lowercase">no featured stories here yet</h3>
+              <p className="mt-3 text-lg leading-8">The archive below still has more yum! stories to read.</p>
             </div>
           )}
         </div>

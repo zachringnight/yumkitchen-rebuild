@@ -1,13 +1,15 @@
 import type { Metadata } from 'next';
 import { LogoAnimation } from '@/components/LogoAnimation';
+import { yumKitchenSiteName, yumOpenGraph, yumTitle } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'logo animation',
+  applicationName: yumKitchenSiteName,
+  title: yumTitle('logo animation'),
   description: 'A yum! Kitchen and Bakery animated logo treatment.',
   openGraph: {
+    ...yumOpenGraph('/og/default.jpg'),
     title: 'yum! logo animation',
     description: 'A yum! Kitchen and Bakery animated logo treatment.',
-    images: ['/og/default.jpg'],
   },
   twitter: { images: ['/og/default.jpg'] },
 };

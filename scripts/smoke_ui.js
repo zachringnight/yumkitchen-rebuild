@@ -33,7 +33,7 @@ async function main() {
     await page.emulateMediaFeatures([]);
 
     await page.goto(`${baseUrl}/yum-kitchen`, { waitUntil: 'networkidle0' });
-    if (!(await textIncludes(page, 'neighborhood kitchens'))) throw new Error('restaurant home proof points missing');
+    if (!(await textIncludes(page, 'neighborhood restaurants'))) throw new Error('restaurant home proof points missing');
 
     await page.evaluate(() => {
       const startOrderButton = [...document.querySelectorAll('button')].find((button) => button.textContent?.trim().toLowerCase() === 'start order');
@@ -54,6 +54,27 @@ async function main() {
     await page.reload({ waitUntil: 'networkidle0' });
     if (!(await textIncludes(page, 'start order'))) throw new Error('restaurant home CTA missing under reduced motion');
     await page.emulateMediaFeatures([]);
+
+    await page.evaluate(() => localStorage.setItem('yum_preferred_location', 'st-louis-park'));
+    await page.goto(`${baseUrl}/location/woodbury`, { waitUntil: 'networkidle0' });
+    await page.waitForFunction(() => localStorage.getItem('yum_preferred_location') === 'woodbury');
+    if (!(await textIncludes(page, 'Order Woodbury'))) throw new Error('Woodbury location page did not use Woodbury order actions');
+    await page.goto(`${baseUrl}/menu`, { waitUntil: 'networkidle0' });
+    if (!(await textIncludes(page, 'Order from Woodbury'))) throw new Error('menu did not inherit Woodbury pickup restaurant after visiting location page');
+    await page.evaluate(() => {
+      const changeButton = [...document.querySelectorAll('button')].find((button) => button.textContent?.trim() === 'Change Restaurant');
+      if (!changeButton) throw new Error('menu Change Restaurant button not found');
+      changeButton.click();
+    });
+    await page.waitForSelector('[role="dialog"]');
+    await page.evaluate(() => {
+      const stPaulButton = [...document.querySelectorAll('[role="dialog"] button')].find((button) => button.textContent?.toLowerCase().includes('st. paul'));
+      if (!stPaulButton) throw new Error('St. Paul location option not found');
+      stPaulButton.click();
+    });
+    await page.waitForFunction(() => document.body.textContent?.includes('Order from St. Paul'));
+    await page.goto(`${baseUrl}/order`, { waitUntil: 'networkidle0' });
+    if (!(await textIncludes(page, 'Pickup at St. Paul'))) throw new Error('order page did not inherit St. Paul pickup restaurant after changing from the menu');
 
     await page.goto(`${baseUrl}/order`, { waitUntil: 'networkidle0' });
     await page.waitForSelector('main');
@@ -97,7 +118,7 @@ async function main() {
     const noResults = await textIncludes(page, 'no menu items found');
     if (noResults) throw new Error('menu search unexpectedly returned no results');
 
-    console.log('UI smoke passed: home, reduced motion, order filters, cart quantity, checkout links, and menu search work.');
+    console.log('UI smoke passed: home, reduced motion, location handoff, menu restaurant switching, order filters, cart quantity, checkout links, and menu search work.');
   } finally {
     await browser.close();
   }

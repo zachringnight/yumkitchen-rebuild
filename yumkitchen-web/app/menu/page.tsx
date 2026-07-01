@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
 import { MenuClient } from './MenuClient';
 import { menuJsonLd } from '@/lib/menu';
-import { pageMeta } from '@/lib/site';
+import { pageMeta, yumCanonical, yumKitchenSiteName, yumOpenGraph, yumTitle } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: pageMeta.menu.title,
+  applicationName: yumKitchenSiteName,
+  title: yumTitle(pageMeta.menu.title),
   description: pageMeta.menu.description,
-  alternates: { canonical: '/menu' },
-  openGraph: { images: [pageMeta.menu.image] },
+  alternates: { canonical: yumCanonical('/menu') },
+  openGraph: yumOpenGraph(pageMeta.menu.image),
   twitter: { images: [pageMeta.menu.image] },
 };
 

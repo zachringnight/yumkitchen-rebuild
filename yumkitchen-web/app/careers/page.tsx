@@ -2,13 +2,14 @@ import type { Metadata } from 'next';
 import { Hero } from '@/components/Hero';
 import { InquiryMomentumBand } from '@/components/InquiryMomentumBand';
 import { InquiryForm } from '@/components/forms/InquiryForm';
-import { pageMeta } from '@/lib/site';
+import { pageMeta, yumCanonical, yumKitchenSiteName, yumOpenGraph, yumTitle } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: pageMeta.careers.title,
+  applicationName: yumKitchenSiteName,
+  title: yumTitle(pageMeta.careers.title),
   description: pageMeta.careers.description,
-  alternates: { canonical: '/careers' },
-  openGraph: { images: [pageMeta.careers.image] },
+  alternates: { canonical: yumCanonical('/careers') },
+  openGraph: yumOpenGraph(pageMeta.careers.image),
   twitter: { images: [pageMeta.careers.image] },
 };
 
@@ -19,7 +20,7 @@ export default function CareersPage() {
         title="come join us"
         copy="We love what we do. We are looking for happy people who care about food, guests, and each other."
         image="/images/yum-chef-team.jpg"
-        imageAlt="yum! kitchen team"
+        imageAlt="yum! restaurant team"
         priority
       />
       <section className="bg-white py-section">
@@ -28,7 +29,7 @@ export default function CareersPage() {
             <p className="section-label">work @ yum!</p>
             <h2 className="text-h2 lowercase">kind, committed, and happy people</h2>
             <p className="mt-5 text-xl leading-9">
-              We are looking for people who are excited about hospitality. Help us share the love in the kitchen, bakery, counter, and dining room.
+              We are looking for people who are excited about hospitality. Help us share the love on the culinary team, bakery, counter, and dining room.
             </p>
           </div>
           <InquiryForm kind="careers" />

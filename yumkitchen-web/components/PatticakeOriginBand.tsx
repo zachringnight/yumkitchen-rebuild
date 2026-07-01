@@ -8,14 +8,14 @@ export function PatticakeOriginBand() {
           <p className="section-label">made by yum! Kitchen and Bakery</p>
           <h2 className="text-h2 lowercase">the restaurant behind patticake</h2>
           <p className="mt-5 max-w-2xl text-xl leading-9 text-body">
-            Patticake started inside yum! Kitchen and Bakery, the Twin Cities restaurant family known for scratch food, bakery cases, catering, and four neighborhood kitchens.
+            Patticake started inside yum! Kitchen and Bakery, the Twin Cities restaurant family known for scratch food, bakery cases, catering, and four neighborhood restaurants.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <a href="/yum-kitchen" className="btn-primary">
-              Visit yum! Kitchen
+              Visit yum! Kitchen and Bakery
             </a>
             <a href="/yum-kitchen#locations" className="btn-secondary">
-              Find a Kitchen
+              Find a Restaurant
             </a>
           </div>
         </div>
@@ -40,7 +40,7 @@ export function PatticakeOriginBand() {
               />
             </div>
             <div className="bg-cream p-5">
-              <p className="font-serif text-3xl font-normal lowercase leading-tight text-ink">4 kitchens</p>
+              <p className="font-serif text-3xl font-normal lowercase leading-tight text-ink">4 restaurants</p>
               <p className="mt-2 text-base leading-7 text-body">open daily 8am to 8pm in the Twin Cities.</p>
             </div>
           </div>

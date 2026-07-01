@@ -10,14 +10,40 @@ export const yumKitchenSiteUrl = normalizeOrigin(process.env.NEXT_PUBLIC_YUMKITC
 export const patticakeSiteUrl = normalizeOrigin(process.env.NEXT_PUBLIC_PATTICAKE_URL) ?? 'https://patticake.com';
 const vercelPreviewUrl = process.env.VERCEL_ENV === 'preview' ? normalizeOrigin(process.env.VERCEL_URL) : undefined;
 export const siteUrl = normalizeOrigin(process.env.NEXT_PUBLIC_SITE_URL) ?? vercelPreviewUrl ?? yumKitchenSiteUrl;
+export const yumKitchenSiteName = 'yum! Kitchen and Bakery';
+export const patticakeSiteName = 'Patticake';
 
 export function absoluteSiteUrl(path = '/') {
   return new URL(path, siteUrl).toString();
 }
 
+export function yumCanonical(path = '/') {
+  return new URL(path, yumKitchenSiteUrl).toString();
+}
+
+export function patticakeCanonical(path = '/') {
+  return new URL(path, patticakeSiteUrl).toString();
+}
+
+export function yumTitle(title: string) {
+  return { absolute: `${title} · ${yumKitchenSiteName}` };
+}
+
+export function patticakeTitle(title: string) {
+  return { absolute: title === patticakeSiteName ? patticakeSiteName : `${title} · ${patticakeSiteName}` };
+}
+
+export function yumOpenGraph(image: string) {
+  return { siteName: yumKitchenSiteName, images: [image] };
+}
+
+export function patticakeOpenGraph(image: string) {
+  return { siteName: patticakeSiteName, images: [image] };
+}
+
 export const giftCardBuyUrl = 'https://www.toasttab.com/yumkitchenslp/giftcards';
 export const giftCardBalanceUrl = 'https://www.toasttab.com/yumkitchenslp/findcard';
-export const patticakeNationalOrderUrl = process.env.NEXT_PUBLIC_PATTICAKE_NATIONAL_ORDER_URL ?? '/patticake#delivery-support';
+export const patticakeNationalOrderUrl = process.env.NEXT_PUBLIC_PATTICAKE_NATIONAL_ORDER_URL ?? '/patticake#national-order';
 
 export const navItems = [
   { href: '/menu', label: 'menu' },
@@ -63,12 +89,12 @@ export const pageMeta = {
   home: {
     title: 'yum! Kitchen and Bakery',
     description:
-      "We're a bakery and kitchen with locations in Minnetonka, St. Louis Park, St. Paul, and Woodbury serving made-from-scratch seasonal food.",
+      "We're a restaurant and bakery with locations in Minnetonka, St. Louis Park, St. Paul, and Woodbury serving made-from-scratch seasonal food.",
     image: '/og/home.jpg',
   },
   patticakeHome: {
     title: 'Patticake',
-    description: 'Ship a Cake, Pick Up Locally, and visit the yum! Kitchen restaurant pages.',
+    description: 'Ship a Cake, Pick Up Locally, and visit the yum! Kitchen and Bakery restaurant pages.',
     image: '/images/patticake/09_slices.jpg',
   },
   menu: {
@@ -113,7 +139,7 @@ export const pageMeta = {
   },
   contact: {
     title: "we'd love to hear from you",
-    description: 'Contact yum! Kitchen and Bakery, call a location, or send us a note.',
+    description: 'Contact yum! Kitchen and Bakery, call a restaurant, or send us a note.',
     image: '/og/default.jpg',
   },
   accessibility: {
@@ -144,7 +170,7 @@ export const homepageFeatures = [
   },
   {
     title: 'Bakery',
-    description: 'Baked fresh from our scratch kitchen.',
+    description: 'Baked fresh from our scratch bakery.',
     href: '/menu#bakery',
     image: '/images/yum-patticake-slices.jpg',
   },
@@ -241,7 +267,7 @@ export const photoMotionMoments = [
     image: '/images/yum-patticake-slices.jpg',
   },
   {
-    title: 'scratch kitchen',
+    title: 'scratch cooking',
     detail: 'seasonal entrees and familiar comfort',
     image: '/images/yum-grainy-mustard-salmon.png',
   },
@@ -303,7 +329,7 @@ export const cateringPackages = [
 
 export const cateringProof = [
   '24 hour pickup notice for most catering orders',
-  'pickup from all four yum! kitchens',
+  'pickup from all four yum! restaurants',
   'easy parking at every location',
   'call a real yum! team member with questions',
 ] as const;

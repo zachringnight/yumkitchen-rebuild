@@ -5,13 +5,14 @@ import { Hero } from '@/components/Hero';
 import { InquiryMomentumBand } from '@/components/InquiryMomentumBand';
 import { JsonLd } from '@/components/JsonLd';
 import { aboutPageJsonLd } from '@/lib/schema';
-import { leaderCards, pageMeta } from '@/lib/site';
+import { leaderCards, pageMeta, yumCanonical, yumKitchenSiteName, yumOpenGraph, yumTitle } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: pageMeta.about.title,
+  applicationName: yumKitchenSiteName,
+  title: yumTitle(pageMeta.about.title),
   description: pageMeta.about.description,
-  alternates: { canonical: '/about' },
-  openGraph: { images: [pageMeta.about.image] },
+  alternates: { canonical: yumCanonical('/about') },
+  openGraph: yumOpenGraph(pageMeta.about.image),
   twitter: { images: [pageMeta.about.image] },
 };
 
@@ -66,7 +67,7 @@ export default function AboutPage() {
       </section>
       <InquiryMomentumBand
         title="family-owned hospitality, made visible"
-        copy="People, food, local stories, and four neighborhood kitchens all point to the same promise: made from scratch with love."
+        copy="People, food, local stories, and four neighborhood restaurants all point to the same promise: made from scratch with love."
         primaryHref="/in-the-news"
         primaryLabel="Read Stories"
         secondaryHref="/order"
