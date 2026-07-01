@@ -22,7 +22,7 @@ export function SiteHeader() {
   const mobileMenuId = 'site-mobile-navigation';
   const patticakePrimaryHref = pathname === '/order-a-cake' ? '#cake-inquiry' : patticakeNationalOrderUrl;
   const patticakeOrderIsExternal = /^https?:\/\//.test(patticakePrimaryHref);
-  const patticakePrimaryLabel = pathname === '/order-a-cake' ? 'Start Local Pickup' : 'Order Patticake';
+  const patticakePrimaryLabel = pathname === '/order-a-cake' ? 'Pick Up Locally' : 'Ship a Cake';
 
   function isCurrent(href: string) {
     if (href === '/yum-kitchen#locations') return pathname === '/yum-kitchen' || pathname.startsWith('/location');
@@ -36,7 +36,7 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 border-b border-blue-soft/60 bg-blue-tint/85 backdrop-blur-[4px]">
+      <header className="sticky top-0 z-40 border-b border-blue-soft/70 bg-blue-tint/95 backdrop-blur-[4px]">
         <div className="mx-auto flex h-[72px] w-full max-w-[1440px] items-center justify-between gap-4 px-5 lg:px-7">
           <div className="flex items-center gap-3">
             <BrandLogo
@@ -52,16 +52,16 @@ export function SiteHeader() {
           {patticakeSurface ? (
             <>
               <nav aria-label="Patticake navigation" className="hidden items-center gap-1 lg:flex">
-                <Link href="/" className="flex h-[72px] items-center px-3 text-lg font-normal leading-none text-brand-primary transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)]">
+                <Link href="/" className="flex h-[72px] items-center whitespace-nowrap px-3 text-lg font-normal leading-tight text-brand-primary transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)]">
                   patticake
                 </Link>
-                <Link href="/patticake#national-order" className="flex h-[72px] items-center px-3 text-lg font-normal leading-none text-brand-primary transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)]">
-                  ship it
+                <Link href="/patticake#national-order" className="flex h-[72px] items-center whitespace-nowrap px-3 text-lg font-normal leading-tight text-brand-primary transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)]">
+                  Ship a Cake
                 </Link>
-                <Link href="/order-a-cake#cake-inquiry" className="flex h-[72px] items-center px-3 text-lg font-normal leading-none text-brand-primary transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)]">
-                  local pickup
+                <Link href="/order-a-cake#cake-inquiry" className="flex h-[72px] items-center whitespace-nowrap px-3 text-lg font-normal leading-tight text-brand-primary transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)]">
+                  Pick Up Locally
                 </Link>
-                <Link href="/yum-kitchen" className="flex h-[72px] items-center px-3 text-lg font-normal leading-none text-brand-primary transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)]">
+                <Link href="/yum-kitchen" className="flex h-[72px] items-center whitespace-nowrap px-3 text-lg font-normal leading-tight text-brand-primary transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)]">
                   yum! kitchen
                 </Link>
               </nav>
@@ -154,7 +154,7 @@ export function SiteHeader() {
                 data-event="click_patticake_national_delivery_order"
                 data-source="site_header_mobile"
               >
-                Order Cake
+                {patticakePrimaryLabel}
               </a>
             ) : (
               <a
@@ -186,7 +186,7 @@ export function SiteHeader() {
           </div>
         </div>
         {menuOpen && (
-          <nav id={mobileMenuId} aria-label="Mobile navigation" className="border-t border-blue-soft/60 bg-blue-tint px-5 pb-5 lg:hidden">
+          <nav id={mobileMenuId} aria-label="Mobile navigation" className="border-t border-blue-soft bg-cream px-5 pb-5 shadow-[0_1rem_2.2rem_rgb(45_45_45_/_0.16)] lg:hidden">
             <div className="grid gap-2 pt-3">
               {patticakeSurface ? (
                 <>
@@ -194,10 +194,10 @@ export function SiteHeader() {
                     patticake
                   </Link>
                   <Link href="/patticake#national-order" className="border-b border-blue-soft/60 py-3 text-lg font-normal text-brand-primary" onClick={() => setMenuOpen(false)}>
-                    ship it
+                    Ship a Cake
                   </Link>
                   <Link href="/order-a-cake#cake-inquiry" className="border-b border-blue-soft/60 py-3 text-lg font-normal text-brand-primary" onClick={() => setMenuOpen(false)}>
-                    local pickup
+                    Pick Up Locally
                   </Link>
                   <Link href="/yum-kitchen" className="border-b border-blue-soft/60 py-3 text-lg font-normal text-brand-primary" onClick={() => setMenuOpen(false)}>
                     yum! kitchen

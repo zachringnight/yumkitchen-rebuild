@@ -14,11 +14,14 @@ const inquirySchema = z
     subject: z.string().min(1),
     eventDate: z.string().optional(),
     guests: z.string().optional(),
+    recipientName: z.string().optional(),
     streetAddress: z.string().optional(),
     addressLine2: z.string().optional(),
     city: z.string().optional(),
     state: z.string().optional(),
     zip: z.string().optional(),
+    occasion: z.string().optional(),
+    giftMessage: z.string().max(140).optional(),
     availability: z.string().optional(),
     applyingFor: z.string().optional(),
     commitments: z.string().optional(),
@@ -190,6 +193,21 @@ export async function POST(request: Request) {
           line('Application promise', data.promiseTrue),
         ]
       : [];
+  const cakeLines =
+    data.kind === 'cake'
+      ? [
+          '',
+          'Delivery details',
+          line('Recipient name', data.recipientName),
+          line('Street Address', data.streetAddress),
+          line('Address Line 2', data.addressLine2),
+          line('City', data.city),
+          line('State', data.state),
+          line('ZIP Code', data.zip),
+          line('Occasion', data.occasion),
+          line('Gift message', data.giftMessage),
+        ]
+      : [];
   const text = [
     `Name: ${data.firstName} ${data.lastName}`,
     `Email: ${data.email}`,
@@ -198,6 +216,7 @@ export async function POST(request: Request) {
     `Event Date: ${data.eventDate ?? ''}`,
     `Guests: ${data.guests ?? ''}`,
     ...careerLines,
+    ...cakeLines,
     '',
     data.message,
   ].join('\n');

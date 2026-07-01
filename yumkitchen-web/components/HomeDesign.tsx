@@ -27,11 +27,11 @@ const heroProofItems = [
 ] as const;
 
 const rhythmItems = [
-  { time: '8am', title: 'breakfast starts warm' },
-  { time: 'midday', title: 'salads, soups, sandwiches' },
-  { time: 'after work', title: 'dinner comes home easy' },
-  { time: 'bakery case', title: 'a sweet thing for later' },
-  { time: 'any party', title: 'catering made with care' },
+  { time: 'morning', title: 'breakfast starts warm' },
+  { time: 'lunch', title: 'salads, soups, sandwiches' },
+  { time: 'dinner', title: 'dinner comes home easy' },
+  { time: 'bakery', title: 'a sweet thing for later' },
+  { time: 'catering', title: 'party food made with care' },
 ] as const;
 
 const menuFeatureItems = [
@@ -120,7 +120,7 @@ export function HomeHero() {
         <div className="hero-panel motion-role-entrance max-w-[520px] border border-white/70 bg-white/95 px-6 py-6 shadow-[0_1.4rem_4rem_rgb(45_45_45_/_0.24)] backdrop-blur-[2px] md:px-9 md:py-8">
           <AnimatedYumLogo className="hero-yum-logo" decorative priority />
           <h1 className="font-serif text-[2.35rem] font-normal leading-[1.08] lowercase text-ink md:text-[3rem]" aria-label="made from scratch with love">
-            made from scratch
+            made from scratch{' '}
             <br />
             with love
           </h1>

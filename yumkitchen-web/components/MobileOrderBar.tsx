@@ -39,8 +39,8 @@ export function MobileOrderBar() {
         <div className="min-w-0">
           {patticakeSurface ? (
             <>
-              <p className="truncate text-sm font-bold leading-tight text-ink">{pathname === '/order-a-cake' ? 'Patticake local pickup' : 'Patticake national delivery'}</p>
-              <p className="block truncate text-sm leading-tight text-body">{pathname === '/order-a-cake' ? 'fresh cake from yum!' : 'chocolate cake, sent farther'}</p>
+              <p className="truncate text-sm font-bold leading-tight text-ink">{pathname === '/order-a-cake' ? 'Pick Up Locally' : 'Ship a Cake'}</p>
+              <p className="block truncate text-sm leading-tight text-body">{pathname === '/order-a-cake' ? 'fresh from yum!' : 'we help it arrive ready to share'}</p>
             </>
           ) : (
             <>
@@ -54,11 +54,11 @@ export function MobileOrderBar() {
             href={patticakePrimaryHref}
             target={patticakeOrderIsExternal ? '_blank' : undefined}
             rel={patticakeOrderIsExternal ? 'noopener noreferrer' : undefined}
-            className="btn-primary px-4 py-3 text-base"
+            className="btn-primary whitespace-nowrap px-3 py-3 text-sm sm:text-base"
             data-event="click_patticake_national_delivery_order"
             data-source="mobile_sticky_bar"
           >
-            {pathname === '/order-a-cake' ? 'Start' : 'Order'}
+            {pathname === '/order-a-cake' ? 'Pick Up Locally' : 'Ship a Cake'}
           </a>
         ) : (
           <a

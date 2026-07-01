@@ -25,7 +25,6 @@ export function PatticakeOriginBand() {
               src="/images/yum-patti-kelli.jpeg"
               alt="Patti and Kelli at yum! Kitchen and Bakery"
               fill
-              loading="eager"
               sizes="(min-width: 1024px) 36vw, 100vw"
               className="object-cover crop-people-upper"
             />
@@ -36,7 +35,6 @@ export function PatticakeOriginBand() {
                 src="/images/yum-location-slp.jpg"
                 alt="yum! Kitchen and Bakery St. Louis Park"
                 fill
-                loading="eager"
                 sizes="(min-width: 1024px) 22vw, 100vw"
                 className="object-cover crop-location-front"
               />

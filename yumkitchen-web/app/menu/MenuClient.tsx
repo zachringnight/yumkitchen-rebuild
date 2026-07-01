@@ -135,7 +135,7 @@ export function MenuClient() {
         <div className="container-content">
           {sectionLinks.length > 0 && (
             <nav className="menu-section-rail sticky top-[72px] z-30 -mx-6 mb-8 border-y border-blue-soft/60 bg-blue-tint/95 px-6 py-3 backdrop-blur md:mx-0 md:border md:bg-white/95" aria-label="Menu category jump list">
-              <div className="flex gap-2 overflow-x-auto pb-1">
+              <div className="menu-section-scroll flex gap-2 overflow-x-auto pb-1">
                 {sectionLinks.map((section) => (
                   <a
                     key={`${section.meal}-${section.id}`}
@@ -161,12 +161,12 @@ export function MenuClient() {
                 <h2 className="text-h2 lowercase">{section.name}</h2>
                 <div className="mt-6 grid gap-4 md:grid-cols-2">
                   {section.items.map((item, index) => (
-                    <article key={`${section.meal}-${section.name}-${item.name}-${index}`} className="bg-white p-5 shadow-xs">
+                    <article key={`${section.meal}-${section.name}-${item.name}-${index}`} className="menu-item-card bg-white p-5 shadow-xs">
                       <div className="flex items-start justify-between gap-4">
-                        <h3 className="text-2xl lowercase">{item.name}</h3>
-                        <p className="shrink-0 font-bold text-ink">{getPriceLabel(item.prices)}</p>
+                        <h3 className="menu-item-title text-2xl lowercase">{item.name}</h3>
+                        <p className="menu-item-price shrink-0 font-bold text-ink">{getPriceLabel(item.prices)}</p>
                       </div>
-                      {item.description && <p className="mt-2 text-base leading-7">{item.description}</p>}
+                      {item.description && <p className="menu-item-description mt-2 text-base leading-7">{item.description}</p>}
                     </article>
                   ))}
                 </div>

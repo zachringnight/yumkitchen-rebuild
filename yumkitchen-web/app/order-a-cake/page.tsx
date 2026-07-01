@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { InquiryForm } from '@/components/forms/InquiryForm';
+import { PatticakeMessagePreview } from '@/components/PatticakeMessagePreview';
 import { PatticakeMessageRibbon } from '@/components/PatticakeMessageRibbon';
 import { PatticakeOriginBand } from '@/components/PatticakeOriginBand';
 import { pageMeta } from '@/lib/site';
@@ -35,22 +36,22 @@ const proofPoints = [
 
 const cakePaths = [
   {
-    title: 'local pickup',
-    description: 'Order a fresh Patticake from the bakery team and choose the yum! location that works for pickup.',
+    title: 'Pick Up Locally',
+    description: 'Start a fresh Patticake note for the bakery team and choose the yum! location that works for pickup.',
     image: '/images/patticake/layers_slice_vertical.jpg',
     alt: 'yum! patticake chocolate cake layers close up',
     className: 'crop-patticake-vertical-layer',
     href: '#cake-inquiry',
-    action: 'Plan Pickup',
+    action: 'Pick Up Locally',
   },
   {
-    title: 'national delivery',
+    title: 'Ship a Cake',
     description: 'Send a Patticake beyond the Twin Cities with the date, address, timing notes, and gift message.',
     image: '/images/patticake/09_slices.jpg',
     alt: 'yum! patticake slices on plates',
     className: 'crop-patticake-slices',
     href: '/patticake',
-    action: 'Ship a Patticake',
+    action: 'Ship a Cake',
   },
   {
     title: 'celebrations',
@@ -67,7 +68,7 @@ const orderSteps = [
   {
     number: '1',
     title: 'choose your cake moment',
-    description: 'Start with local pickup, national delivery, or a celebration plan.',
+    description: 'Start with local pickup, shipping, or a celebration plan.',
   },
   {
     number: '2',
@@ -77,7 +78,7 @@ const orderSteps = [
   {
     number: '3',
     title: 'we bake fresh',
-    description: 'The bakery team finishes the Patticake close to the celebration date.',
+    description: 'yum! finishes the Patticake close to the celebration date.',
   },
   {
     number: '4',
@@ -88,7 +89,7 @@ const orderSteps = [
 
 const celebrationPhotos = [
   {
-    src: '/images/patticake/08_tier_wedding_d.jpg',
+    src: '/images/patticake/02_tier_wedding_a.jpg',
     alt: 'yum! floral wedding patticake detail',
   },
   {
@@ -114,8 +115,8 @@ export default function CakePage() {
       <section className="overflow-hidden bg-cream px-6 py-[clamp(3.5rem,7vw,6.5rem)]">
         <div className="mx-auto grid max-w-[1240px] gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
           <div className="max-w-[580px]">
-            <h1 className="font-serif text-[clamp(4rem,8vw,7.5rem)] font-normal leading-[0.88] lowercase text-ink">
-              order a
+            <h1 className="font-serif text-[clamp(4rem,8vw,7.5rem)] font-normal leading-[0.88] lowercase text-ink" aria-label="order a patticake">
+              order a{' '}
               <br />
               <span className="text-brand-primary">patticake</span>
             </h1>
@@ -124,15 +125,15 @@ export default function CakePage() {
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <a href="#cake-inquiry" className="btn-primary">
-                Order a Patticake
+                Pick Up Locally
               </a>
               <Link href="/patticake" className="btn-secondary">
-                National Delivery
+                Ship a Cake
               </Link>
             </div>
             <div className="mt-9 hidden gap-3 sm:grid sm:grid-cols-2">
               <HeroNote title="pickup" copy="four yum! kitchens, 8am to 8pm daily" />
-              <HeroNote title="delivery" copy="send one beyond the Twin Cities" />
+              <HeroNote title="shipping" copy="we help with timing and delivery" />
             </div>
           </div>
 
@@ -203,14 +204,14 @@ export default function CakePage() {
               <h2 className="text-h2 lowercase">one cake, three happy ways</h2>
             </div>
             <p className="max-w-2xl text-xl leading-9 text-ink">
-              Choose local pickup, national delivery, or celebration planning, then tell us what would make the day feel sweet.
+              Choose local pickup, shipping, or celebration planning, then tell us what would make the day feel sweet.
             </p>
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {cakePaths.map((path) => (
               <article key={path.title} className="patticake-action-card group">
                 <div className="relative aspect-[5/4] overflow-hidden bg-blue-soft">
-                  <Image src={path.image} alt={path.alt} fill loading="eager" sizes="(min-width: 768px) 33vw, 100vw" className={`image-lift object-cover transition duration-500 ${path.className}`} />
+                  <Image src={path.image} alt={path.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className={`image-lift object-cover transition duration-500 ${path.className}`} />
                 </div>
                 <div className="grid flex-1 p-6">
                   <h3 className="font-serif text-3xl font-normal lowercase text-ink">{path.title}</h3>
@@ -236,7 +237,7 @@ export default function CakePage() {
               </p>
             </div>
             <div className="relative aspect-[16/9] overflow-hidden bg-blue-soft">
-              <Image src="/images/patticake/09_slices.jpg" alt="yum! patticake slices ready to share" fill loading="eager" sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover crop-patticake-slices" />
+              <Image src="/images/patticake/09_slices.jpg" alt="yum! patticake slices ready to share" fill sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover crop-patticake-slices" />
             </div>
           </div>
           <div className="mt-11 grid gap-5 md:grid-cols-4">
@@ -250,6 +251,8 @@ export default function CakePage() {
           </div>
         </div>
       </section>
+
+      <PatticakeMessagePreview />
 
       <section className="bg-cream px-6 py-section">
         <div className="mx-auto grid max-w-[1240px] items-center gap-12 lg:grid-cols-[0.92fr_1.08fr]">
@@ -269,11 +272,11 @@ export default function CakePage() {
           </div>
           <div className="grid grid-cols-[1.18fr_1fr] gap-4">
             <div className="relative row-span-2 aspect-[3/4] overflow-hidden bg-blue-soft">
-              <Image src={celebrationPhotos[0].src} alt={celebrationPhotos[0].alt} fill loading="eager" sizes="(min-width: 1024px) 32vw, 58vw" className="object-cover crop-patticake-wedding" />
+              <Image src={celebrationPhotos[0].src} alt={celebrationPhotos[0].alt} fill sizes="(min-width: 1024px) 32vw, 58vw" className="object-cover crop-patticake-wedding" />
             </div>
             {celebrationPhotos.slice(1).map((photo, index) => (
               <div key={`${photo.alt}-${index}`} className="relative aspect-[4/3] overflow-hidden bg-blue-soft">
-                <Image src={photo.src} alt={photo.alt} fill loading="eager" sizes="(min-width: 1024px) 22vw, 42vw" className="object-cover crop-patticake-product" />
+                <Image src={photo.src} alt={photo.alt} fill sizes="(min-width: 1024px) 22vw, 42vw" className="object-cover crop-patticake-product" />
               </div>
             ))}
           </div>
@@ -296,7 +299,7 @@ export default function CakePage() {
           <div className="grid gap-4 md:grid-cols-4">
             {gallery.map((image, index) => (
               <div key={`${image.alt}-${index}`} className={`relative overflow-hidden bg-page ${index === 1 ? 'aspect-[4/5]' : 'aspect-square'}`}>
-                <Image src={image.src} alt={image.alt} fill loading="eager" sizes="(min-width: 768px) 25vw, 100vw" className={`object-cover ${image.className}`} />
+                <Image src={image.src} alt={image.alt} fill sizes="(min-width: 768px) 25vw, 100vw" className={`object-cover ${image.className}`} />
               </div>
             ))}
           </div>
@@ -309,23 +312,25 @@ export default function CakePage() {
             <p className="section-label">start your cake</p>
             <h2 className="text-h2 lowercase">have a question or sweet idea?</h2>
             <p className="mt-5 text-xl leading-9 text-ink">
-              Share the date, pickup kitchen, servings, message on top, and any delivery questions. The bakery team will help from there.
+              Share the date, pickup kitchen, servings, message on top, and any delivery questions. Someone from yum! will reply with the next sweet step.
             </p>
             <div className="mt-7 border border-brand-primary/30 bg-cream p-5">
               <p className="font-serif text-2xl font-normal lowercase text-ink">sending Patticake outside the Twin Cities?</p>
               <Link href="/patticake" className="btn-link mt-3 inline-block">
-                Use the national delivery page
+                Use the shipping page
               </Link>
             </div>
           </div>
           <InquiryForm
             kind="cake"
+            cakeMode="pickup"
             defaultSubject="Patticake order"
             eventDateLabel="Date of event"
             guestsLabel="Servings or size"
             locationLabel="Pickup location"
             messageLabel="Cake notes, message on top, and celebration plans"
-            submitLabel="Send Cake Note"
+            submitLabel="Send Pickup Note"
+            successMessage="We got it. Someone from yum! will reply with the next sweet step."
           />
         </div>
       </section>
@@ -334,10 +339,10 @@ export default function CakePage() {
         <div className="mx-auto grid max-w-[980px] gap-6 text-center md:grid-cols-[1fr_auto_auto] md:items-center md:text-left">
           <h2 className="font-serif text-[3rem] font-normal leading-tight lowercase text-white">ready to make someone&apos;s day?</h2>
           <a href="#cake-inquiry" className="inline-block bg-white px-8 py-4 text-lg font-bold leading-none text-brand-primary transition hover:bg-blue-tint hover:text-ink">
-            Order a Patticake
+            Pick Up Locally
           </a>
           <Link href="/patticake" className="inline-block border-2 border-white px-8 py-4 text-lg font-bold leading-none text-white transition hover:bg-white hover:text-brand-primary">
-            National Delivery
+            Ship a Cake
           </Link>
         </div>
       </section>

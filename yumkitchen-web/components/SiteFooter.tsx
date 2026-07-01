@@ -6,8 +6,8 @@ import { OpenStatus } from './OpenStatus';
 
 const quickLinks = [
   { href: '/', label: 'patticake' },
-  { href: '/patticake', label: 'ship patticake' },
-  { href: '/order-a-cake', label: 'local cake pickup' },
+  { href: '/patticake', label: 'Ship a Cake' },
+  { href: '/order-a-cake', label: 'Pick Up Locally' },
   { href: '/yum-kitchen', label: 'yum! kitchen' },
   { href: '/about', label: 'about' },
   { href: '/menu', label: 'menu' },

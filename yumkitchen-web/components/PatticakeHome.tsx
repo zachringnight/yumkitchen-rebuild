@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { PatticakeOriginBand } from './PatticakeOriginBand';
 import { PatticakeMessageRibbon } from './PatticakeMessageRibbon';
+import { MotionPauseButton } from './MotionPauseButton';
+import { PatticakeConciergeBand } from './PatticakeConciergeBand';
 import { patticakeNationalOrderUrl } from '@/lib/site';
 
 const heroFrames = [
@@ -27,19 +29,19 @@ const heroFrames = [
 
 const moments = [
   {
-    title: 'ship it',
-    copy: 'national delivery for birthdays, thank-yous, office celebrations, and long-distance family tables.',
+    title: 'Ship a Cake',
+    copy: 'Start a shipped-cake note for birthdays, thank-yous, office celebrations, and long-distance family tables.',
     href: '/patticake#national-order',
-    action: 'Order National Delivery',
+    action: 'Ship a Cake',
     image: '/images/patticake/gift_box_vertical.jpg',
     alt: 'yum! bakery gift box with red ribbon',
     className: 'crop-patticake-gift-box',
   },
   {
-    title: 'pick it up',
-    copy: 'local pickup from yum! Kitchen and Bakery when the cake is staying in the Twin Cities.',
+    title: 'Pick Up Locally',
+    copy: 'Pick up from yum! Kitchen and Bakery when the cake is staying in the Twin Cities.',
     href: '/order-a-cake#cake-inquiry',
-    action: 'Start Local Pickup',
+    action: 'Pick Up Locally',
     image: '/images/patticake/layers_slice_vertical.jpg',
     alt: 'yum! patticake chocolate cake layers close up',
     className: 'crop-patticake-vertical-layer',
@@ -81,10 +83,10 @@ export function PatticakeHome() {
                 data-event="click_patticake_national_delivery_order"
                 data-source="patticake_home_hero"
               >
-                Order National Delivery
+                Ship a Cake
               </a>
               <Link href="/order-a-cake#cake-inquiry" className="btn-secondary">
-                Local Pickup
+                Pick Up Locally
               </Link>
               <Link href="/yum-kitchen" className="btn-secondary">
                 yum! Kitchen
@@ -100,6 +102,7 @@ export function PatticakeHome() {
           </div>
 
           <div className="patticake-remotion-board motion-role-ambient" aria-label="Patticake animated product story">
+            <MotionPauseButton className="motion-pause-button" />
             <div className="patticake-floating-messages" aria-hidden="true">
               <span>happy birthday</span>
               <span>thank you</span>
@@ -133,10 +136,10 @@ export function PatticakeHome() {
           <div className="grid items-end gap-7 lg:grid-cols-[0.68fr_1.32fr]">
             <div>
               <p className="section-label">pick your cake moment</p>
-              <h2 className="text-h2 lowercase">ship it, pick it up, or visit the kitchen</h2>
+              <h2 className="text-h2 lowercase">Ship a Cake, Pick Up Locally, or visit the kitchen</h2>
             </div>
             <p className="max-w-2xl text-xl leading-9 text-body">
-              Patticake comes first. The yum! kitchens are right here for breakfast, lunch, dinner, catering, and local pickup.
+              Patticake leads the way. The yum! kitchens are right here for breakfast, lunch, dinner, catering, and local pickup.
             </p>
           </div>
 
@@ -165,30 +168,31 @@ export function PatticakeHome() {
         </div>
       </section>
 
+      <PatticakeConciergeBand />
+
       <section className="bg-blue-tint px-6 py-12 lg:py-section" data-reveal>
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
           <div>
             <p className="section-label text-ink">what you get</p>
-            <h2 className="text-h2 lowercase">a real bakery cake, not a generic shipped dessert</h2>
+            <h2 className="text-h2 lowercase">a real scratch bakery cake, shipped to your door</h2>
             <p className="mt-5 max-w-xl text-xl leading-9 text-ink">
               Patticake keeps things simple and happy: chocolate cake, vanilla buttercream, made fresh, with the yum! bakery behind it.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/patticake" className="btn-primary">
-                National Delivery Details
+                Shipping Details
               </Link>
               <Link href="/order-a-cake" className="btn-secondary">
-                Local Cake Pickup
+                Pick Up Locally
               </Link>
             </div>
           </div>
           <div className="grid gap-4 md:grid-cols-[1.08fr_0.92fr]">
             <div className="relative aspect-[4/5] overflow-hidden bg-cream shadow-xl">
               <Image
-                src="/images/patticake/08_tier_wedding_d.jpg"
+                src="/images/patticake/02_tier_wedding_a.jpg"
                 alt="yum! floral wedding patticake detail"
                 fill
-                loading="eager"
                 sizes="(min-width: 1024px) 34vw, 100vw"
                 className="object-cover crop-patticake-wedding"
               />
@@ -199,7 +203,6 @@ export function PatticakeHome() {
                   src="/images/patticake/03_top_view.jpg"
                   alt="yum! patticake vanilla buttercream top view"
                   fill
-                  loading="eager"
                   sizes="(min-width: 1024px) 25vw, 100vw"
                   className="object-cover crop-patticake-top"
                 />
