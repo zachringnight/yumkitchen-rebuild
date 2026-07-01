@@ -2,16 +2,18 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { InquiryForm } from '@/components/forms/InquiryForm';
+import { PatticakeHeroPeek } from '@/components/PatticakeHeroPeek';
 import { PatticakeMessagePreview } from '@/components/PatticakeMessagePreview';
 import { PatticakeMessageRibbon } from '@/components/PatticakeMessageRibbon';
 import { PatticakeOriginBand } from '@/components/PatticakeOriginBand';
-import { pageMeta } from '@/lib/site';
+import { PatticakePathGuide } from '@/components/PatticakePathGuide';
+import { pageMeta, patticakeCanonical, patticakeOpenGraph, patticakeTitle } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: pageMeta.cake.title,
+  title: patticakeTitle(pageMeta.cake.title),
   description: pageMeta.cake.description,
-  alternates: { canonical: '/order-a-cake' },
-  openGraph: { images: [pageMeta.cake.image] },
+  alternates: { canonical: patticakeCanonical('/order-a-cake') },
+  openGraph: patticakeOpenGraph(pageMeta.cake.image),
   twitter: { images: [pageMeta.cake.image] },
 };
 
@@ -37,7 +39,7 @@ const proofPoints = [
 const cakePaths = [
   {
     title: 'Pick Up Locally',
-    description: 'Start a fresh Patticake note for the bakery team and choose the yum! location that works for pickup.',
+    description: 'Start a fresh Patticake note for the bakery team and choose the yum! restaurant that works for pickup.',
     image: '/images/patticake/layers_slice_vertical.jpg',
     alt: 'yum! patticake chocolate cake layers close up',
     className: 'crop-patticake-vertical-layer',
@@ -73,7 +75,7 @@ const orderSteps = [
   {
     number: '2',
     title: 'add the message',
-    description: 'Share the date, size, pickup location, who it is for, and words for the cake.',
+    description: 'Share the date, size, pickup restaurant, who it is for, and words for the cake.',
   },
   {
     number: '3',
@@ -120,6 +122,12 @@ export default function CakePage() {
               <br />
               <span className="text-brand-primary">patticake</span>
             </h1>
+            <PatticakeHeroPeek
+              src="/images/patticake/layers_slice_vertical.jpg"
+              alt="yum! patticake chocolate cake layers close up"
+              label="chocolate layers"
+              className="crop-patticake-vertical-layer"
+            />
             <p className="mt-7 max-w-[500px] text-xl leading-8 text-ink">
               Patticake is devil&apos;s food chocolate cake layered with vanilla buttercream, baked fresh for birthdays, thank-yous, weddings, and every table worth celebrating.
             </p>
@@ -132,7 +140,7 @@ export default function CakePage() {
               </Link>
             </div>
             <div className="mt-9 hidden gap-3 sm:grid sm:grid-cols-2">
-              <HeroNote title="pickup" copy="four yum! kitchens, 8am to 8pm daily" />
+              <HeroNote title="pickup" copy="four yum! restaurants, 8am to 8pm daily" />
               <HeroNote title="shipping" copy="we help with timing and delivery" />
             </div>
           </div>
@@ -142,6 +150,7 @@ export default function CakePage() {
               src="/images/patticake/layers_slice_vertical.jpg"
               alt="yum! patticake chocolate cake layers close up"
               fill
+              preload
               loading="eager"
               fetchPriority="high"
               sizes="(min-width: 1024px) 58vw, 100vw"
@@ -169,17 +178,20 @@ export default function CakePage() {
       </section>
 
       <PatticakeMessageRibbon tone="cream" />
+      <PatticakePathGuide activePath="pickup" />
 
       <section className="bg-page px-6 py-8">
         <div className="mx-auto max-w-[1240px]">
           <div className="patticake-ticket">
-            <div className="patticake-ticket-stub">
-              yum! kitchen
+            <div className="patticake-ticket-stub patticake-ticket-stub-brand">
+              yum!
               <br />
-              and bakery
+              Kitchen and Bakery
             </div>
             <div>
-              <h2 className="font-serif text-[2.7rem] font-normal leading-tight lowercase text-brand-primary">born at yum! kitchen. made to share.</h2>
+              <h2 className="font-serif text-[2.7rem] font-normal leading-tight lowercase text-brand-primary">
+                born at <span className="normal-case">yum! Kitchen and Bakery</span>. made to share.
+              </h2>
               <p className="mt-4 max-w-[560px] text-lg leading-8 text-ink">
                 Patticake keeps the bakery story simple: familiar ingredients, a generous chocolate cake, and care from the team that knows this cake by heart.
               </p>
@@ -211,7 +223,7 @@ export default function CakePage() {
             {cakePaths.map((path) => (
               <article key={path.title} className="patticake-action-card group">
                 <div className="relative aspect-[5/4] overflow-hidden bg-blue-soft">
-                  <Image src={path.image} alt={path.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className={`image-lift object-cover transition duration-500 ${path.className}`} />
+                  <Image src={path.image} alt={path.alt} fill loading={path.image === '/images/patticake/layers_slice_vertical.jpg' ? 'eager' : undefined} sizes="(min-width: 768px) 33vw, 100vw" className={`image-lift object-cover transition duration-500 ${path.className}`} />
                 </div>
                 <div className="grid flex-1 p-6">
                   <h3 className="font-serif text-3xl font-normal lowercase text-ink">{path.title}</h3>
@@ -299,35 +311,36 @@ export default function CakePage() {
           <div className="grid gap-4 md:grid-cols-4">
             {gallery.map((image, index) => (
               <div key={`${image.alt}-${index}`} className={`relative overflow-hidden bg-page ${index === 1 ? 'aspect-[4/5]' : 'aspect-square'}`}>
-                <Image src={image.src} alt={image.alt} fill sizes="(min-width: 768px) 25vw, 100vw" className={`object-cover ${image.className}`} />
+                <Image src={image.src} alt={image.alt} fill loading={image.src === '/images/patticake/layers_slice_vertical.jpg' ? 'eager' : undefined} sizes="(min-width: 768px) 25vw, 100vw" className={`object-cover ${image.className}`} />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="cake-inquiry" className="bg-blue-tint px-6 py-section">
+      <section id="cake-inquiry" className="scroll-mt-24 bg-blue-tint px-6 py-section md:scroll-mt-28">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <div>
             <p className="section-label">start your cake</p>
-            <h2 className="text-h2 lowercase">have a question or sweet idea?</h2>
+            <h2 className="text-h2 lowercase">start your pickup note</h2>
             <p className="mt-5 text-xl leading-9 text-ink">
-              Share the date, pickup kitchen, servings, message on top, and any delivery questions. Someone from yum! will reply with the next sweet step.
+              Share the pickup restaurant, date, servings, and message on top. Someone from yum! will reply with the next sweet step.
             </p>
             <div className="mt-7 border border-brand-primary/30 bg-cream p-5">
               <p className="font-serif text-2xl font-normal lowercase text-ink">sending Patticake outside the Twin Cities?</p>
               <Link href="/patticake" className="btn-link mt-3 inline-block">
-                Use the shipping page
+                Start a Shipping Note
               </Link>
             </div>
           </div>
           <InquiryForm
             kind="cake"
             cakeMode="pickup"
-            defaultSubject="Patticake order"
-            eventDateLabel="Date of event"
+            defaultSubject="Patticake pickup note"
+            eventDateLabel="Pickup date"
             guestsLabel="Servings or size"
-            locationLabel="Pickup location"
+            locationLabel="Pickup restaurant"
+            hideSubject
             messageLabel="Cake notes, message on top, and celebration plans"
             submitLabel="Send Pickup Note"
             successMessage="We got it. Someone from yum! will reply with the next sweet step."

@@ -19,7 +19,7 @@ export function MotionPauseButton({ className = '' }: { className?: string }) {
       aria-pressed={paused}
       onClick={() => setPaused((value) => !value)}
     >
-      {paused ? 'Play Motion' : 'Pause Motion'}
+      {paused ? 'Play Animation' : 'Pause Animation'}
     </button>
   );
 }

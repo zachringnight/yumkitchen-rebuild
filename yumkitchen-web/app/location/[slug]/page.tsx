@@ -3,8 +3,10 @@ import type { Metadata } from 'next';
 import { Hero } from '@/components/Hero';
 import { LocationExperienceBand } from '@/components/LocationExperienceBand';
 import { LocationGrid } from '@/components/LocationGrid';
+import { LocationPreferenceSync } from '@/components/LocationPreferenceSync';
 import { OpenStatus } from '@/components/OpenStatus';
 import { entityJsonLd, getLocationBySlug, locations } from '@/lib/locations';
+import { yumCanonical, yumKitchenSiteName, yumOpenGraph, yumTitle } from '@/lib/site';
 
 export function generateStaticParams() {
   return locations.map((location) => ({ slug: location.slug }));
@@ -19,10 +21,11 @@ export async function generateMetadata({ params }: LocationRouteProps): Promise<
   const loc = getLocationBySlug(slug);
   if (!loc) return {};
   return {
-    title: loc.name,
+    applicationName: yumKitchenSiteName,
+    title: yumTitle(loc.name),
     description: loc.metaDescription,
-    alternates: { canonical: `/location/${loc.slug}` },
-    openGraph: { images: [loc.heroImage] },
+    alternates: { canonical: yumCanonical(`/location/${loc.slug}`) },
+    openGraph: yumOpenGraph(loc.heroImage),
     twitter: { images: [loc.heroImage] },
   };
 }
@@ -35,7 +38,8 @@ export default async function LocationPage({ params }: LocationRouteProps) {
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(entityJsonLd(loc)) }} />
-      <Hero title={loc.name} copy={loc.neighborhood} image={loc.heroImage} imageAlt={`${loc.short_name} yum! location`} priority>
+      <LocationPreferenceSync slug={loc.slug} />
+      <Hero title={loc.name} copy={loc.neighborhood} image={loc.heroImage} imageAlt={`${loc.short_name} yum! restaurant`} priority>
         <a href={loc.order_url} target="_blank" rel="noopener noreferrer" className="btn-primary" data-event="click_order_online" data-location={loc.slug} data-source="location_page_hero">
           Order Online
         </a>
@@ -60,7 +64,7 @@ export default async function LocationPage({ params }: LocationRouteProps) {
               <p>
                 <OpenStatus />
               </p>
-              <p>Holiday hours may vary. Call the kitchen for same-day confirmation.</p>
+              <p>Holiday hours may vary. Call the restaurant for same-day confirmation.</p>
               <p>{loc.parking}</p>
               <p>{loc.roomNote}</p>
               <p>{loc.favorite}</p>

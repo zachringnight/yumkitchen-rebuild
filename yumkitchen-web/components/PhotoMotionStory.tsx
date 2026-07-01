@@ -37,7 +37,7 @@ export function PhotoMotionStory() {
       <div className="container-content">
         <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
           <div>
-            <p className="section-label">real yum! energy</p>
+            <p className="section-label">real yum! moments</p>
             <h2 className="text-h2 lowercase">breakfast, bakery, lunch, dinner, and take-home comfort</h2>
             <p className="mt-5 max-w-xl text-xl leading-9">
               From the first cup of coffee to the box that heads home for dinner, every location is built around real food, familiar faces, and a bakery case worth checking twice.

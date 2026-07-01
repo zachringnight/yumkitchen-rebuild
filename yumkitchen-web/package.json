@@ -13,35 +13,35 @@
     "smoke:ui": "node ../scripts/smoke_ui.js ${BASE_URL:-http://localhost:${PORT:-3000}}",
     "audit:links": "node ../scripts/link_audit.js ${BASE_URL:-http://localhost:${PORT:-3000}}",
     "a11y": "node ../scripts/a11y_audit.js ${BASE_URL:-http://localhost:${PORT:-3000}} / /order /menu /catering /order-a-cake /patticake /about /careers /in-the-news /contact /accessibility-statement /location/st-louis-park /location/shady-oak /location/saint-paul /location/woodbury",
-    "lh": "lighthouse ${BASE_URL:-http://localhost:${PORT:-3000}} --quiet --chrome-flags=\"--headless=new --no-sandbox\" --output=json --output-path=/tmp/yum-lh.json"
+    "lh": "lighthouse ${BASE_URL:-http://localhost:${PORT:-3000}} --quiet --chrome-flags=\"--headless=new --no-sandbox\" --throttling-method=provided --output=json --output-path=/tmp/yum-lh.json"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
-    "next": "^16.2.6",
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6",
-    "react-hook-form": "^7.76.0",
-    "resend": "^6.12.3",
-    "sharp": "^0.34.5",
+    "next": "^16.2.9",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-hook-form": "^7.80.0",
+    "resend": "^6.16.0",
+    "sharp": "^0.35.3",
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@axe-core/puppeteer": "^4.10.2",
-    "@tailwindcss/postcss": "^4.3.0",
-    "@types/node": "^25.9.1",
-    "@types/react": "^19.2.15",
+    "@axe-core/puppeteer": "^4.12.1",
+    "@tailwindcss/postcss": "^4.3.2",
+    "@types/node": "^25.9.4",
+    "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
-    "autoprefixer": "^10.4.0",
+    "autoprefixer": "^10.5.2",
     "babel-plugin-react-compiler": "^1.0.0",
     "eslint": "^9.39.4",
-    "eslint-config-next": "^16.2.6",
-    "lighthouse": "^13.3.0",
-    "postcss": "^8.5.15",
-    "puppeteer": "^25.0.4",
-    "tailwindcss": "^4.3.0",
+    "eslint-config-next": "^16.2.9",
+    "lighthouse": "^13.4.0",
+    "postcss": "^8.5.16",
+    "puppeteer": "^25.3.0",
+    "tailwindcss": "^4.3.2",
     "typescript": "^6.0.3"
   },
   "overrides": {
-    "postcss": "^8.5.15"
+    "postcss": "^8.5.16"
   }
 }

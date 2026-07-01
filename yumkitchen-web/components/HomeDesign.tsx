@@ -21,7 +21,7 @@ const heroImages = [
 ] as const;
 
 const heroProofItems = [
-  { value: '4', label: 'neighborhood kitchens' },
+  { value: '4', label: 'neighborhood restaurants' },
   { value: '8am - 8pm', label: 'open daily' },
   { value: 'since 2005', label: 'made from scratch' },
 ] as const;
@@ -67,7 +67,7 @@ const menuFeatureItems = [
     name: 'rhubarb upside down cupcake',
     category: 'bakery',
     price: '$4.95',
-    copy: 'Seasonal bakery case energy: bright, pretty, and ready for the ride home.',
+    copy: 'Seasonal bakery case joy: bright, pretty, and ready for the ride home.',
     image: '/images/yum-bakery-rhubarb-cupcake.jpg',
   },
   {
@@ -126,9 +126,9 @@ export function HomeHero() {
           </h1>
           <div className="my-4 h-px bg-ink/20" />
           <p className="text-[1.08rem] leading-7 text-body md:text-lg">
-            Eat at one of our four neighborhood kitchens, take us to work, or bring dinner home. Open daily 8am - 8pm.
+            Eat at one of our four neighborhood restaurants, take us to work, or bring dinner home. Open daily 8am - 8pm.
           </p>
-          <div className="hero-proof-grid" aria-label="yum! Kitchen highlights">
+          <div className="hero-proof-grid" aria-label="yum! restaurant highlights">
             {heroProofItems.map((item) => (
               <div key={item.label}>
                 <strong>{item.value}</strong>
@@ -136,7 +136,7 @@ export function HomeHero() {
               </div>
             ))}
           </div>
-          <div className="home-hero-location-grid mt-4 hidden grid-cols-2 gap-2 md:grid" aria-label="yum! locations">
+          <div className="home-hero-location-grid mt-4 hidden grid-cols-2 gap-2 md:grid" aria-label="yum! restaurants">
             {locations.map((location) => (
               <Link
                 key={location.slug}
@@ -157,7 +157,7 @@ export function HomeHero() {
               Start Order
             </button>
             <Link href="/yum-kitchen#locations" prefetch={false} className="btn-secondary">
-              Find a Kitchen
+              Find a Restaurant
             </Link>
             <Link href="/menu" prefetch={false} className="btn-secondary">
               Browse Menu
@@ -210,7 +210,7 @@ export function RedBand() {
           </Link>
         </div>
       </div>
-      <div className="yum-rhythm-strip mx-auto mt-6 max-w-[1180px]" aria-label="yum! Kitchen day rhythm">
+      <div className="yum-rhythm-strip mx-auto mt-6 max-w-[1180px]" aria-label="yum! day rhythm">
         {rhythmItems.map((item) => (
           <div key={item.title} className="yum-rhythm-item">
             <span>{item.time}</span>
@@ -231,7 +231,7 @@ export function MenuFeature() {
       <div className="mx-auto grid max-w-[1180px] gap-8 lg:grid-cols-[0.78fr_1.22fr]">
         <div className="menu-feature-copy">
           <h2 className="font-serif text-[2.15rem] font-normal leading-tight lowercase text-ink md:text-[2.75rem]">
-            welcome back your favorites or discover new eats
+            come back for favorites or find something new
           </h2>
           <p className="mt-4 max-w-[34rem] text-lg leading-8 text-body">
             Jump into the dishes people come back for, from bright salads and sandwiches to dinner plates, bakery treats, and easy takeout.

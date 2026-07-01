@@ -1,33 +1,42 @@
 import type { MetadataRoute } from 'next';
 import { locations } from '@/lib/locations';
-import { siteUrl } from '@/lib/site';
+import { patticakeSiteUrl, yumKitchenSiteUrl } from '@/lib/site';
 
-const staticRoutes = [
+const patticakeRoutes = [
   '',
+  '/patticake',
+  '/order-a-cake',
+] as const;
+
+const yumRoutes = [
   '/yum-kitchen',
   '/order',
   '/menu',
   '/catering',
-  '/order-a-cake',
-  '/patticake',
   '/about',
   '/careers',
   '/in-the-news',
   '/contact',
   '/accessibility-statement',
-];
+] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   return [
-    ...staticRoutes.map((route) => ({
-      url: `${siteUrl}${route}`,
+    ...patticakeRoutes.map((route) => ({
+      url: `${patticakeSiteUrl}${route}`,
       lastModified: now,
-      changeFrequency: route === '' || route === '/menu' || route === '/patticake' ? ('weekly' as const) : ('monthly' as const),
-      priority: route === '' ? 1 : route === '/patticake' || route === '/menu' ? 0.9 : route === '/yum-kitchen' ? 0.85 : 0.7,
+      changeFrequency: 'weekly' as const,
+      priority: route === '' ? 1 : 0.9,
+    })),
+    ...yumRoutes.map((route) => ({
+      url: `${yumKitchenSiteUrl}${route}`,
+      lastModified: now,
+      changeFrequency: route === '/menu' ? ('weekly' as const) : ('monthly' as const),
+      priority: route === '/menu' ? 0.9 : route === '/yum-kitchen' ? 0.85 : 0.7,
     })),
     ...locations.map((loc) => ({
-      url: `${siteUrl}/location/${loc.slug}`,
+      url: `${yumKitchenSiteUrl}/location/${loc.slug}`,
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.8,

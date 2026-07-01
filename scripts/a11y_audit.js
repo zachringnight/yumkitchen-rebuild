@@ -28,32 +28,47 @@ const appRequire = createRequire(`${process.cwd()}/package.json`);
   const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
   let totalSerious = 0;
   let totalCritical = 0;
+  let totalErrors = 0;
 
   for (const path of paths) {
     const url = new URL(path, base).toString();
-    const page = await browser.newPage();
-    try {
-      await page.goto(url, { waitUntil: 'networkidle0' });
-      const results = await new AxePuppeteer(page)
-        .options({ runOnly: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'] })
-        .analyze();
-      const serious = results.violations.filter((v) => v.impact === 'serious');
-      const critical = results.violations.filter((v) => v.impact === 'critical');
-      totalSerious += serious.reduce((acc, v) => acc + v.nodes.length, 0);
-      totalCritical += critical.reduce((acc, v) => acc + v.nodes.length, 0);
+    let passed = false;
+    let lastError;
 
-      console.log(`${url}: ${serious.length} serious, ${critical.length} critical`);
-      [...critical, ...serious].slice(0, 5).forEach((v) => {
-        console.log(`  [${v.impact}] ${v.id} (${v.nodes.length}): ${v.help}`);
-      });
-    } catch (e) {
-      console.error(`Error auditing ${url}:`, e.message);
-    } finally {
-      await page.close();
+    for (let attempt = 1; attempt <= 2 && !passed; attempt += 1) {
+      const page = await browser.newPage();
+      page.setDefaultTimeout(15000);
+      try {
+        await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
+        await page.waitForSelector('main, #main-content', { timeout: 15000 });
+        const results = await new AxePuppeteer(page)
+          .options({ runOnly: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'] })
+          .analyze();
+        const serious = results.violations.filter((v) => v.impact === 'serious');
+        const critical = results.violations.filter((v) => v.impact === 'critical');
+        totalSerious += serious.reduce((acc, v) => acc + v.nodes.length, 0);
+        totalCritical += critical.reduce((acc, v) => acc + v.nodes.length, 0);
+
+        console.log(`${url}: ${serious.length} serious, ${critical.length} critical`);
+        [...critical, ...serious].slice(0, 5).forEach((v) => {
+          console.log(`  [${v.impact}] ${v.id} (${v.nodes.length}): ${v.help}`);
+        });
+        passed = true;
+      } catch (e) {
+        lastError = e;
+        if (attempt === 1) console.error(`Retrying ${url} after audit error:`, e.message);
+      } finally {
+        await page.close();
+      }
+    }
+
+    if (!passed) {
+      totalErrors += 1;
+      console.error(`Error auditing ${url}:`, lastError?.message || 'unknown error');
     }
   }
 
   await browser.close();
   console.log(`\nTotal: ${totalSerious} serious, ${totalCritical} critical`);
-  process.exit(totalSerious + totalCritical > 0 ? 1 : 0);
+  process.exit(totalSerious + totalCritical + totalErrors > 0 ? 1 : 0);
 })();

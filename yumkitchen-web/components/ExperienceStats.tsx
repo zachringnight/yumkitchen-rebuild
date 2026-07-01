@@ -1,7 +1,7 @@
 import { AnimatedCounter } from './AnimatedCounter';
 
 const stats = [
-  { value: 4, label: 'neighborhood kitchens', suffix: '' },
+  { value: 4, label: 'neighborhood restaurants', suffix: '' },
   { value: 82, label: 'menu favorites', suffix: '+' },
   { value: 8, label: 'open daily until', suffix: 'pm' },
 ];

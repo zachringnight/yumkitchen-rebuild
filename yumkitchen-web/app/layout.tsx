@@ -3,7 +3,7 @@ import { Archivo_Narrow, Trocchi } from 'next/font/google';
 import { AnalyticsEvents } from '@/components/AnalyticsEvents';
 import { DeferredGoogleTagManager } from '@/components/DeferredGoogleTagManager';
 import { SiteShell } from '@/components/SiteShell';
-import { pageMeta, siteUrl } from '@/lib/site';
+import { pageMeta, patticakeOpenGraph, patticakeSiteName, siteUrl } from '@/lib/site';
 import './globals.css';
 
 const sans = Archivo_Narrow({
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
   description: pageMeta.patticakeHome.description,
   openGraph: {
     type: 'website',
-    siteName: 'Patticake',
-    images: [pageMeta.patticakeHome.image],
+    ...patticakeOpenGraph(pageMeta.patticakeHome.image),
   },
+  applicationName: patticakeSiteName,
   twitter: { card: 'summary_large_image', images: [pageMeta.patticakeHome.image] },
   icons: { icon: '/favicon.png', apple: '/favicon.png' },
 };

@@ -8,13 +8,14 @@ import { JsonLd } from '@/components/JsonLd';
 import { LocationGrid } from '@/components/LocationGrid';
 import { InquiryForm } from '@/components/forms/InquiryForm';
 import { cateringServiceJsonLd } from '@/lib/schema';
-import { pageMeta } from '@/lib/site';
+import { pageMeta, yumCanonical, yumKitchenSiteName, yumOpenGraph, yumTitle } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: pageMeta.catering.title,
+  applicationName: yumKitchenSiteName,
+  title: yumTitle(pageMeta.catering.title),
   description: pageMeta.catering.description,
-  alternates: { canonical: '/catering' },
-  openGraph: { images: [pageMeta.catering.image] },
+  alternates: { canonical: yumCanonical('/catering') },
+  openGraph: yumOpenGraph(pageMeta.catering.image),
   twitter: { images: [pageMeta.catering.image] },
 };
 
@@ -44,7 +45,7 @@ export default function CateringPage() {
             <p className="section-label">for offices, families, and celebrations</p>
             <h2 className="text-h2 lowercase">made from scratch, packed for the room</h2>
             <p className="mt-5 text-xl leading-9">
-              Choose sandwich platters, boxed lunches, salads, baked goods, and comfort food that travels well. Tell us the date, guest count, and pickup location, and the team will follow up.
+              Choose sandwich platters, boxed lunches, salads, baked goods, and comfort food that travels well. Tell us the date, guest count, and pickup restaurant, and the team will follow up.
             </p>
           </div>
         </div>
@@ -61,7 +62,7 @@ export default function CateringPage() {
       </section>
       <InquiryMomentumBand
         title="catering that feels easy to plan"
-        copy="Pickup kitchen, food photos, timing, and a simple next step help the planner feel ready."
+        copy="Pickup restaurant, food photos, timing, and a simple next step help the planner feel ready."
         primaryHref="/catering#inquiry"
         primaryLabel="Plan Catering"
         secondaryHref="/order"

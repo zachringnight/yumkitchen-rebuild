@@ -8,7 +8,7 @@ const quickLinks = [
   { href: '/', label: 'patticake' },
   { href: '/patticake', label: 'Ship a Cake' },
   { href: '/order-a-cake', label: 'Pick Up Locally' },
-  { href: '/yum-kitchen', label: 'yum! kitchen' },
+  { href: '/yum-kitchen', label: 'yum! Kitchen and Bakery' },
   { href: '/about', label: 'about' },
   { href: '/menu', label: 'menu' },
   { href: giftCardBuyUrl, label: 'gift cards', external: true },

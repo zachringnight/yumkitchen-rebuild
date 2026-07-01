@@ -1,12 +1,15 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import type { Location } from '@/lib/locations';
 import { giftCardBalanceUrl, giftCardBuyUrl, navItems, patticakeNationalOrderUrl } from '@/lib/site';
+import { useEffectiveLocation } from '@/lib/useEffectiveLocation';
 import { usePatticakeSurface } from '@/lib/usePatticakeSurface';
-import { usePreferredLocation } from '@/lib/usePreferredLocation';
 import { BrandLogo } from './BrandLogo';
+import { LocationPickerModal } from './LocationPickerModal';
+import { OpenStatus } from './OpenStatus';
 
 function eventForHref(href: string) {
   if (href === giftCardBuyUrl) return 'click_gift_card_buy';
@@ -16,13 +19,32 @@ function eventForHref(href: string) {
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
-  const { location } = usePreferredLocation();
+  const [locationPickerOpen, setLocationPickerOpen] = useState(false);
+  const [hash, setHash] = useState('');
+  const { location, isRouteLocation } = useEffectiveLocation();
   const patticakeSurface = usePatticakeSurface();
   const mobileMenuId = 'site-mobile-navigation';
-  const patticakePrimaryHref = pathname === '/order-a-cake' ? '#cake-inquiry' : patticakeNationalOrderUrl;
+  const inPatticakeShippingStep = pathname === '/patticake' && (hash === '#national-order' || hash === '#delivery-support');
+  const patticakePrimaryHref = pathname === '/order-a-cake' ? '#cake-inquiry' : inPatticakeShippingStep ? '#delivery-support' : patticakeNationalOrderUrl;
   const patticakeOrderIsExternal = /^https?:\/\//.test(patticakePrimaryHref);
-  const patticakePrimaryLabel = pathname === '/order-a-cake' ? 'Pick Up Locally' : 'Ship a Cake';
+  const patticakePrimaryLabel = pathname === '/order-a-cake' ? 'Pick Up Locally' : inPatticakeShippingStep ? 'Start Note' : 'Ship a Cake';
+
+  useEffect(() => {
+    const syncHash = () => setHash(window.location.hash);
+    syncHash();
+    window.addEventListener('hashchange', syncHash);
+    window.addEventListener('popstate', syncHash);
+    return () => {
+      window.removeEventListener('hashchange', syncHash);
+      window.removeEventListener('popstate', syncHash);
+    };
+  }, [pathname]);
+
+  function handleLocationSelect(nextLocation: Location) {
+    if (isRouteLocation) router.push(`/location/${nextLocation.slug}`);
+  }
 
   function isCurrent(href: string) {
     if (href === '/yum-kitchen#locations') return pathname === '/yum-kitchen' || pathname.startsWith('/location');
@@ -41,10 +63,10 @@ export function SiteHeader() {
           <div className="flex items-center gap-3">
             <BrandLogo
               href={patticakeSurface ? '/' : '/yum-kitchen'}
-              ariaLabel={patticakeSurface ? 'Patticake home' : 'yum! Kitchen restaurant home'}
+              ariaLabel={patticakeSurface ? 'Patticake home' : 'yum! Kitchen and Bakery home'}
             />
             {patticakeSurface && (
-              <Link href="/" className="hidden font-serif text-3xl font-normal lowercase leading-none text-ink sm:block">
+              <Link href="/" className="hidden font-serif text-3xl font-normal lowercase leading-tight text-ink sm:block">
                 patticake
               </Link>
             )}
@@ -62,7 +84,7 @@ export function SiteHeader() {
                   Pick Up Locally
                 </Link>
                 <Link href="/yum-kitchen" className="flex h-[72px] items-center whitespace-nowrap px-3 text-lg font-normal leading-tight text-brand-primary transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)]">
-                  yum! kitchen
+                  yum! Kitchen and Bakery
                 </Link>
               </nav>
               <div className="hidden items-center gap-3 lg:flex">
@@ -130,6 +152,15 @@ export function SiteHeader() {
                 })}
               </nav>
               <div className="hidden items-center gap-3 lg:flex">
+                <button
+                  type="button"
+                  className="hidden min-w-[10.5rem] border border-ink/15 bg-white/70 px-3 py-2 text-left text-ink transition hover:border-brand-red hover:bg-white focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-brand-red xl:block"
+                  onClick={() => setLocationPickerOpen(true)}
+                >
+                  <span className="block text-xs font-bold uppercase leading-none tracking-[0.12em] text-brand-primary">pickup</span>
+                  <span className="mt-1 block font-serif text-xl font-normal lowercase leading-none">{location.short_name}</span>
+                  <OpenStatus compact className="mt-1 block text-xs leading-tight text-body" />
+                </button>
                 <a
                   href={location.order_url}
                   target="_blank"
@@ -200,7 +231,7 @@ export function SiteHeader() {
                     Pick Up Locally
                   </Link>
                   <Link href="/yum-kitchen" className="border-b border-blue-soft/60 py-3 text-lg font-normal text-brand-primary" onClick={() => setMenuOpen(false)}>
-                    yum! kitchen
+                    yum! Kitchen and Bakery
                   </Link>
                 </>
               ) : (
@@ -260,6 +291,15 @@ export function SiteHeader() {
               )}
             </div>
           </nav>
+        )}
+        {!patticakeSurface && (
+          <LocationPickerModal
+            open={locationPickerOpen}
+            onClose={() => setLocationPickerOpen(false)}
+            mode="select"
+            selectedSlug={location.slug}
+            onSelectLocation={handleLocationSelect}
+          />
         )}
       </header>
     </>

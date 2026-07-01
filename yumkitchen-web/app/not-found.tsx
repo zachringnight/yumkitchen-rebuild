@@ -1,9 +1,14 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { yumKitchenSiteName, yumOpenGraph, yumTitle } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'page not found',
+  applicationName: yumKitchenSiteName,
+  title: yumTitle('page not found'),
+  description: 'Find yum! Kitchen and Bakery menu, ordering, restaurants, and contact pages.',
+  openGraph: yumOpenGraph('/og/default.jpg'),
   robots: { index: false, follow: true },
+  twitter: { images: ['/og/default.jpg'] },
 };
 
 export default function NotFound() {
@@ -25,7 +30,7 @@ export default function NotFound() {
             Browse Menu
           </Link>
           <Link href="/yum-kitchen#locations" prefetch={false} className="btn-secondary">
-            Find a Kitchen
+            Find a Restaurant
           </Link>
         </div>
         <p className="mt-10 text-base leading-7 text-body">

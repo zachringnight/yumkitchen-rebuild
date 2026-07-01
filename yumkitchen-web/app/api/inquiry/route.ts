@@ -36,8 +36,37 @@ const inquirySchema = z
     promiseTrue: z.boolean().optional(),
     message: z.string().min(10),
     company: z.string().optional(),
+    sourcePath: z.string().max(200).optional(),
   })
   .superRefine((data, ctx) => {
+    if (data.kind === 'cake') {
+      const subject = data.subject.toLowerCase();
+      const sourcePath = data.sourcePath?.toLowerCase() ?? '';
+      const hasShippingSignal =
+        sourcePath.startsWith('/patticake') ||
+        subject.includes('ship') ||
+        Boolean(data.recipientName?.trim() || data.streetAddress?.trim() || data.city?.trim() || data.state?.trim() || data.zip?.trim());
+
+      if (hasShippingSignal) {
+        const requiredCakeStrings: Array<[keyof typeof data, string]> = [
+          ['recipientName', 'Recipient name is required.'],
+          ['eventDate', 'Requested delivery date is required.'],
+          ['streetAddress', 'Street address is required.'],
+          ['city', 'City is required.'],
+          ['state', 'State is required.'],
+          ['zip', 'ZIP code is required.'],
+          ['occasion', 'Occasion is required.'],
+        ];
+
+        for (const [field, message] of requiredCakeStrings) {
+          const value = data[field];
+          if (typeof value !== 'string' || !value.trim()) {
+            ctx.addIssue({ code: z.ZodIssueCode.custom, path: [field], message });
+          }
+        }
+      }
+    }
+
     if (data.kind !== 'careers') return;
 
     const requiredStrings: Array<[keyof typeof data, string]> = [
@@ -106,11 +135,14 @@ async function getPayload(request: Request) {
         subject: stringValue(formData.get('subject')),
         eventDate: stringValue(formData.get('eventDate')),
         guests: stringValue(formData.get('guests')),
+        recipientName: stringValue(formData.get('recipientName')),
         streetAddress: stringValue(formData.get('streetAddress')),
         addressLine2: stringValue(formData.get('addressLine2')),
         city: stringValue(formData.get('city')),
         state: stringValue(formData.get('state')),
         zip: stringValue(formData.get('zip')),
+        occasion: stringValue(formData.get('occasion')),
+        giftMessage: stringValue(formData.get('giftMessage')),
         availability: stringValue(formData.get('availability')),
         applyingFor: stringValue(formData.get('applyingFor')),
         commitments: stringValue(formData.get('commitments')),
@@ -125,6 +157,7 @@ async function getPayload(request: Request) {
         promiseTrue: toBoolean(formData.get('promiseTrue')),
         message: stringValue(formData.get('message')),
         company: stringValue(formData.get('company')),
+        sourcePath: stringValue(formData.get('sourcePath')),
       },
       resumeFile,
     };
@@ -215,6 +248,7 @@ export async function POST(request: Request) {
     `Location: ${data.location ?? ''}`,
     `Event Date: ${data.eventDate ?? ''}`,
     `Guests: ${data.guests ?? ''}`,
+    `Source: ${data.sourcePath ?? ''}`,
     ...careerLines,
     ...cakeLines,
     '',
@@ -224,7 +258,7 @@ export async function POST(request: Request) {
   if (!process.env.RESEND_API_KEY) {
     return NextResponse.json(
       {
-        message: 'Email delivery is disabled until RESEND_API_KEY is configured. Please call a yum! location.',
+        message: 'Email delivery is disabled until RESEND_API_KEY is configured. Please call a yum! restaurant.',
       },
       { status: 503 },
     );
@@ -252,6 +286,6 @@ export async function POST(request: Request) {
     });
     return NextResponse.json({ message: 'Thanks. We received your note.' });
   } catch {
-    return NextResponse.json({ message: 'The message could not be sent. Please call a yum! location.' }, { status: 502 });
+    return NextResponse.json({ message: 'The message could not be sent. Please call a yum! restaurant.' }, { status: 502 });
   }
 }

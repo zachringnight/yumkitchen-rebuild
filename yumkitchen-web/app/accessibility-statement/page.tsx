@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
 import { InquiryMomentumBand } from '@/components/InquiryMomentumBand';
 import { InquiryForm } from '@/components/forms/InquiryForm';
-import { pageMeta } from '@/lib/site';
+import { pageMeta, yumCanonical, yumKitchenSiteName, yumOpenGraph, yumTitle } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: pageMeta.accessibility.title,
+  applicationName: yumKitchenSiteName,
+  title: yumTitle(pageMeta.accessibility.title),
   description: pageMeta.accessibility.description,
-  alternates: { canonical: '/accessibility-statement' },
-  openGraph: { images: [pageMeta.accessibility.image] },
+  alternates: { canonical: yumCanonical('/accessibility-statement') },
+  openGraph: yumOpenGraph(pageMeta.accessibility.image),
   twitter: { images: [pageMeta.accessibility.image] },
 };
 

@@ -2,13 +2,14 @@ import type { Metadata } from 'next';
 import { InquiryMomentumBand } from '@/components/InquiryMomentumBand';
 import { LocationGrid } from '@/components/LocationGrid';
 import { PressExplorer } from '@/components/PressExplorer';
-import { pageMeta } from '@/lib/site';
+import { pageMeta, yumCanonical, yumKitchenSiteName, yumOpenGraph, yumTitle } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: pageMeta.news.title,
+  applicationName: yumKitchenSiteName,
+  title: yumTitle(pageMeta.news.title),
   description: pageMeta.news.description,
-  alternates: { canonical: '/in-the-news' },
-  openGraph: { images: [pageMeta.news.image] },
+  alternates: { canonical: yumCanonical('/in-the-news') },
+  openGraph: yumOpenGraph(pageMeta.news.image),
   twitter: { images: [pageMeta.news.image] },
 };
 
