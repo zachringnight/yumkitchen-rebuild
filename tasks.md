@@ -1,6 +1,14 @@
 # Rebuild Task List
 
-## Latest round: ship-and-elevate (2026-06-30)
+## Latest round: upgrade-round2 (2026-07-01)
+
+Branch `yum-upgrade-round2-2026-07-01`. Closed the safely-shippable improvements from the v1 list: gift card band (B3), catering FAQ + JSON-LD (H4), per-location cake/catering email routing (G4), per-page OG images (A5), nofollow on external press links (A6). Repo hygiene: shipped branches deleted, .bak/.DS_Store cleared. Full report: `docs/plans/2026-07-01-yum-upgrade-round2/run-report.md`.
+
+- [x] verify.sh VERIFY PASSED (axe 0/0 on 15 routes, LH 100/100/100/100) after two caught-and-fixed QA findings.
+- [ ] OPEN (Zach gates, unchanged): RESEND_API_KEY + live form test; GTM/GA4 DebugView confirm; DNS cutover go; brand-blue-pass keep-or-kill (PR #2).
+- [ ] OPEN (Zach data): dietary tags (C1), amenities (C2), location SEO copy (A2), menu CMS (G1), holiday/loyalty/press-kit surfaces (H).
+
+## Prior round: ship-and-elevate (2026-06-30)
 
 Branch `ship-and-elevate-2026-06-30`. Tracks: ship-it-live + in-brand design polish. Full report: `docs/plans/2026-06-30-yum-ship-and-elevate/run-report.md`.
 

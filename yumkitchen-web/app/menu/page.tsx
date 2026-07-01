@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { MenuClient } from './MenuClient';
+import { GiftCardBand } from '@/components/GiftCardBand';
 import { menuJsonLd } from '@/lib/menu';
 import { pageMeta, yumCanonical, yumKitchenSiteName, yumOpenGraph, yumTitle } from '@/lib/site';
 
@@ -17,6 +18,7 @@ export default function MenuPage() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(menuJsonLd()) }} />
       <MenuClient />
+      <GiftCardBand source="menu_page" />
     </main>
   );
 }

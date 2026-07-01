@@ -125,22 +125,22 @@ export const pageMeta = {
   about: {
     title: 'about us',
     description: 'Made from scratch since 2005. Meet the family and team behind yum! Kitchen and Bakery.',
-    image: '/og/default.jpg',
+    image: '/images/yum-patti-kelli.jpeg',
   },
   careers: {
     title: 'work @ yum!',
     description: 'Join the yum! Kitchen and Bakery team and help share the love through hospitality.',
-    image: '/og/default.jpg',
+    image: '/images/yum-chef-team.jpg',
   },
   news: {
     title: 'yum! in the news',
     description: 'Press, awards, and media features for yum! Kitchen and Bakery.',
-    image: '/og/default.jpg',
+    image: '/images/yum-bakery-counter-cake.jpg',
   },
   contact: {
     title: "we'd love to hear from you",
     description: 'Contact yum! Kitchen and Bakery, call a restaurant, or send us a note.',
-    image: '/og/default.jpg',
+    image: '/images/yum-dining-room.jpg',
   },
   accessibility: {
     title: 'our accessibility statement',

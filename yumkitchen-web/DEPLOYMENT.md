@@ -5,6 +5,7 @@
 - `RESEND_API_KEY`: required for live form email delivery.
 - `RESEND_FROM`: optional sender, defaults to `yum! website <onboarding@resend.dev>`.
 - `YUM_FORMS_TO`: optional recipient, defaults to `info@yumkitchen.com`.
+- `YUM_FORMS_TO_ST_LOUIS_PARK`, `YUM_FORMS_TO_SHADY_OAK`, `YUM_FORMS_TO_SAINT_PAUL`, `YUM_FORMS_TO_WOODBURY`: optional per-location recipients for cake and catering inquiries. When the form's pickup location matches and the variable is set, the note routes to that address instead of `YUM_FORMS_TO`. Unset variables fall back to `YUM_FORMS_TO`, so behavior is unchanged until they exist.
 - `NEXT_PUBLIC_GTM_ID`: set to `GTM-P9584HPC` for production analytics. Leave unset for local Lighthouse runs.
 - `NEXT_PUBLIC_YUMKITCHEN_URL`: optional canonical Yum URL, defaults to `https://yumkitchen.com`.
 - `NEXT_PUBLIC_PATTICAKE_URL`: optional canonical Patticake URL, defaults to `https://patticake.com`.
