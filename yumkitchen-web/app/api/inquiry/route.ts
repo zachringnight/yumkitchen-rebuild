@@ -98,6 +98,21 @@ const inquirySchema = z
     }
   });
 
+const locationRecipientEnv: Record<string, string | undefined> = {
+  'st-louis-park': process.env.YUM_FORMS_TO_ST_LOUIS_PARK,
+  'shady-oak': process.env.YUM_FORMS_TO_SHADY_OAK,
+  'saint-paul': process.env.YUM_FORMS_TO_SAINT_PAUL,
+  woodbury: process.env.YUM_FORMS_TO_WOODBURY,
+};
+
+const locationRoutedKinds = new Set(['cake', 'catering']);
+
+function resolveRecipient(kind: string, location: string | undefined, fallback: string) {
+  if (!location || !locationRoutedKinds.has(kind)) return fallback;
+  const routed = locationRecipientEnv[location]?.trim();
+  return routed || fallback;
+}
+
 function yesNo(value?: boolean) {
   return value ? 'Yes' : 'No';
 }
@@ -198,7 +213,8 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: 'Thanks. We received your note.' });
   }
 
-  const to = process.env.YUM_FORMS_TO ?? 'info@yumkitchen.com';
+  const fallbackTo = process.env.YUM_FORMS_TO ?? 'info@yumkitchen.com';
+  const to = resolveRecipient(data.kind, data.location, fallbackTo);
   const from = process.env.RESEND_FROM ?? 'yum! website <onboarding@resend.dev>';
   const subject = `${formSubjects[data.kind]}: ${data.subject}`;
   const careerLines =

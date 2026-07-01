@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+import { GiftCardBand } from '@/components/GiftCardBand';
 import { Hero } from '@/components/Hero';
 import { LocationExperienceBand } from '@/components/LocationExperienceBand';
 import { LocationGrid } from '@/components/LocationGrid';
@@ -89,6 +90,7 @@ export default async function LocationPage({ params }: LocationRouteProps) {
           </div>
         </div>
       </section>
+      <GiftCardBand source="location_page" />
       <LocationGrid />
     </main>
   );

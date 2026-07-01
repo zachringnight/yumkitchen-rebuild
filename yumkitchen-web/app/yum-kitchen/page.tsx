@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { CateringCallout, HomeHero, MenuFeature, RedBand } from '@/components/HomeDesign';
 import { CakeStudioBand } from '@/components/CakeStudioBand';
 import { ExperienceStats } from '@/components/ExperienceStats';
+import { GiftCardBand } from '@/components/GiftCardBand';
 import { KineticMenuRail } from '@/components/KineticMenuRail';
 import { LocationGrid } from '@/components/LocationGrid';
 import { PhotoMotionStory } from '@/components/PhotoMotionStory';
@@ -32,6 +33,7 @@ export default function YumKitchenHomePage() {
       <ExperienceStats />
       <CakeStudioBand />
       <CateringCallout />
+      <GiftCardBand source="homepage" tone="white" />
       <LocationGrid />
     </main>
   );

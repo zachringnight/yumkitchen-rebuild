@@ -65,7 +65,7 @@ export function PressExplorer() {
                   {entry.outlet} / {entry.date}
                 </p>
                 <p className="mt-4 text-lg leading-8">{entry.summary}</p>
-                <a href={entry.href} target="_blank" rel="noopener noreferrer" className="btn-link mt-5 inline-block">
+                <a href={entry.href} target="_blank" rel="nofollow noopener noreferrer" className="btn-link mt-5 inline-block">
                   Read Story
                 </a>
               </article>
