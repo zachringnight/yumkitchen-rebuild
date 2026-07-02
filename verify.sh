@@ -90,6 +90,15 @@ else
 	  fi
 
 	  echo ""
+	  echo "==> Rendered visual and motion audit"
+	  if BASE_URL="$BASE_URL" PORT="$PORT" npm run audit:visual-motion; then
+	    echo -e "  ${GREEN}PASS${RESET}: rendered graphics and motion behavior are stable"
+	  else
+	    echo -e "  ${RED}FAIL${RESET}: rendered graphics or motion regression detected"
+	    ERRS=$((ERRS+1))
+	  fi
+
+	  echo ""
 	  echo "==> Internal link and anchor audit"
 	  if BASE_URL="$BASE_URL" PORT="$PORT" npm run audit:links; then
 	    echo -e "  ${GREEN}PASS${RESET}: internal links and anchors resolve"
