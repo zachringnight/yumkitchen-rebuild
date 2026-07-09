@@ -1,5 +1,7 @@
 # AI Web Dev Handoff - Yum Website Graphics, Motion, and Social Assets
 
+> **Historical.** Written 2026-05-26 to hand off social/motion asset integration. All paths below use the pre-move absolute path `/Users/zsoskin/YumKitchen_Rebuild/07_codex/...`, which no longer exists — the repo now lives at the current checkout root and is git-tracked. The assets described here are already integrated (see `social/` and `yumkitchen-web/components/`). Superseded by `AGENTS.md` at the repo root. Kept for project-history reference only — do not follow as current instructions.
+
 Prepared for an AI web-dev coder taking over the Yum website and JSON-driven asset integration work.
 
 ## Current Status

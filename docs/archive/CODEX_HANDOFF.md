@@ -1,5 +1,7 @@
 # Codex Handoff
 
+> **Historical.** This describes kicking off the very first task (`T-01`) at project scaffold time. That work shipped long ago. Superseded by `AGENTS.md` at the repo root. Kept for project-history reference only — do not follow as current instructions.
+
 How to start work on the YumKitchen rebuild with OpenAI Codex (or any agent that follows the AGENTS.md convention).
 
 ## One-time setup
