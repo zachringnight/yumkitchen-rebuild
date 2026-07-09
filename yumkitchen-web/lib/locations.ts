@@ -38,6 +38,8 @@ type LocationDetail = {
   roomNote: string;
   favorite: string;
   metaDescription: string;
+  // Public aggregate ratings (Google / Restaurantji, captured 2026-07). Verify before launch.
+  rating: { value: number; count: number };
 };
 
 const locationDetails: Record<LocationSlug, LocationDetail> = {
@@ -50,6 +52,7 @@ const locationDetails: Record<LocationSlug, LocationDetail> = {
     roomNote: 'A warm everyday room for breakfast, lunch, dinner, takeout, and bakery stops.',
     favorite: 'Try a bowl of bob’s tomato soup with a toasted sandwich.',
     metaDescription: 'Visit yum! st. louis park at 4000 Minnetonka Blvd for breakfast, lunch, dinner, bakery, takeout, and online ordering.',
+    rating: { value: 4.4, count: 403 },
   },
   'shady-oak': {
     heroImage: '/images/yum-location-shady-oak.jpg',
@@ -60,6 +63,7 @@ const locationDetails: Record<LocationSlug, LocationDetail> = {
     roomNote: 'A friendly stop for weekday lunches, family dinners, and pickup on the way home.',
     favorite: 'Order a salad, mac and cheese, or a bakery treat for later.',
     metaDescription: 'Visit yum! shady oak at 6001 Shady Oak Rd in Minnetonka for made-from-scratch food, bakery, takeout, and online ordering.',
+    rating: { value: 4.5, count: 1527 },
   },
   'saint-paul': {
     heroImage: '/images/yum-location-saint-paul.jpg',
@@ -70,6 +74,7 @@ const locationDetails: Record<LocationSlug, LocationDetail> = {
     roomNote: 'A comfortable stop for dine-in meals, coffee, dessert, and quick pickup.',
     favorite: 'Pair breakfast all day with something sweet from the bakery case.',
     metaDescription: 'Visit yum! st. paul at 164 Snelling Avenue N for breakfast, lunch, dinner, bakery, takeout, and online ordering.',
+    rating: { value: 4.2, count: 194 },
   },
   woodbury: {
     heroImage: '/images/yum-location-woodbury.jpg',
@@ -80,6 +85,7 @@ const locationDetails: Record<LocationSlug, LocationDetail> = {
     roomNote: 'A bright neighborhood spot for dining in, carrying out, and picking up celebration desserts.',
     favorite: 'Bring home dinner, soup, and a pie for the table.',
     metaDescription: 'Visit yum! woodbury at 8340 City Centre Drive for made-from-scratch meals, bakery, takeout, and online ordering.',
+    rating: { value: 4.5, count: 174 },
   },
 };
 
@@ -122,6 +128,13 @@ export function entityJsonLd(loc: Location) {
     url: absoluteSiteUrl(`/location/${loc.slug}`),
     hasMenu: absoluteSiteUrl('/menu'),
     acceptsReservations: false,
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: loc.rating.value,
+      reviewCount: loc.rating.count,
+      bestRating: 5,
+      worstRating: 1,
+    },
     sameAs: [
       'https://www.facebook.com/yumkitchenandbakery',
       'https://www.instagram.com/yumkitchen/',

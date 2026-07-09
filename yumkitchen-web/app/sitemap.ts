@@ -17,6 +17,7 @@ const yumRoutes = [
   '/careers',
   '/in-the-news',
   '/contact',
+  '/faq',
   '/accessibility-statement',
 ] as const;
 

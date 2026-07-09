@@ -1,8 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { CakeBuyModule } from '@/components/patticake/CakeBuyModule';
 import { InquiryForm } from '@/components/forms/InquiryForm';
 import { MediaProofBand } from '@/components/MediaProofBand';
+import { ReviewsWall } from '@/components/ReviewsWall';
 import { PatticakeHeroPeek } from '@/components/PatticakeHeroPeek';
 import { PatticakeMessageRibbon } from '@/components/PatticakeMessageRibbon';
 import { PatticakeMessagePreview } from '@/components/PatticakeMessagePreview';
@@ -124,7 +126,7 @@ const faqs = [
   {
     question: 'Can I pay online right now?',
     answer:
-      'Not on this page yet. Start the shipping note and we will reply with the cake and shipping total before we bake.',
+      'Yes. Choose your cake, add a delivery date and gift message, and check out securely. We bake fresh and ship it ready to share.',
   },
   {
     question: 'Can I include a gift message?',
@@ -180,7 +182,6 @@ const productJsonLd = {
 };
 
 const nationalOrderIsExternal = /^https?:\/\//.test(patticakeNationalOrderUrl);
-const shippingNoteHref = nationalOrderIsExternal ? patticakeNationalOrderUrl : '#delivery-support';
 
 export default function PatticakeNationalDeliveryPage() {
   return (
@@ -274,6 +275,8 @@ export default function PatticakeNationalDeliveryPage() {
           </div>
         </div>
       </section>
+
+      <CakeBuyModule />
 
       <PatticakeMessageRibbon tone="blue" />
       <PatticakePathGuide activePath="shipping" />
@@ -399,6 +402,7 @@ export default function PatticakeNationalDeliveryPage() {
 
       <PatticakeOriginBand />
       <MediaProofBand />
+      <ReviewsWall />
 
       <section className="bg-page px-6 py-12 lg:py-section">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.74fr_1.26fr]">
@@ -416,51 +420,6 @@ export default function PatticakeNationalDeliveryPage() {
                 <p className="mt-4 text-base leading-7 text-body">{faq.answer}</p>
               </details>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="national-order" className="scroll-mt-24 bg-blue-tint px-6 py-12 md:scroll-mt-28 lg:py-section">
-        <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
-          <div>
-            <p className="section-label text-ink">send some love</p>
-            <h2 className="text-h2 lowercase">send Patticake from here</h2>
-            <p className="mt-5 text-xl leading-9 text-ink">
-              Start the shipping note and add the address, date, occasion, and message.
-            </p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <a
-                href={shippingNoteHref}
-                target={nationalOrderIsExternal ? '_blank' : undefined}
-                rel={nationalOrderIsExternal ? 'noopener noreferrer' : undefined}
-                className="btn-primary"
-                data-event="click_patticake_national_delivery_order"
-              >
-                Ship a Cake
-              </a>
-              <a href="#delivery-support" className="btn-secondary">
-                Ask a Shipping Question
-              </a>
-            </div>
-          </div>
-          <div className="border border-brand-primary/20 bg-white p-6">
-            <div className="grid gap-6 md:grid-cols-[0.52fr_1fr] md:items-center">
-              <div className="relative aspect-[4/5] overflow-hidden bg-blue-soft">
-                <Image src="/images/patticake/10_layers_slice.jpg" alt="yum! patticake chocolate cake layers close up" fill sizes="(min-width: 1024px) 24vw, 100vw" className="object-cover crop-patticake-layer" />
-              </div>
-              <div>
-                <p className="font-serif text-3xl font-normal lowercase text-ink">Patticake</p>
-                <p className="mt-3 text-lg leading-8 text-body">
-                  Devil&apos;s food chocolate cake layered with vanilla buttercream, made to send beyond the Twin Cities.
-                </p>
-                <ul className="mt-5 grid gap-3 text-base leading-7 text-ink">
-                  <li>Share where the cake is going</li>
-                  <li>Add the address and gift note</li>
-                  <li>Add timing or weather notes</li>
-                  <li>We reply before we bake</li>
-                </ul>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -493,7 +452,7 @@ export default function PatticakeNationalDeliveryPage() {
         <div className="mx-auto grid max-w-[980px] gap-6 text-center md:grid-cols-[1fr_auto] md:items-center md:text-left">
           <h2 className="font-serif text-[3rem] font-normal leading-tight lowercase text-white">ready to send a patticake?</h2>
           <a
-            href={shippingNoteHref}
+            href={patticakeNationalOrderUrl}
             target={nationalOrderIsExternal ? '_blank' : undefined}
             rel={nationalOrderIsExternal ? 'noopener noreferrer' : undefined}
             className="inline-block border-2 border-white bg-white px-8 py-4 text-lg font-bold leading-none text-brand-primary transition hover:bg-blue-tint hover:text-ink"
