@@ -8,6 +8,7 @@ import { giftCardBalanceUrl, giftCardBuyUrl, navItems, patticakeNationalOrderUrl
 import { useEffectiveLocation } from '@/lib/useEffectiveLocation';
 import { usePatticakeSurface } from '@/lib/usePatticakeSurface';
 import { BrandLogo } from './BrandLogo';
+import { CartButton } from './cart/CartButton';
 import { LocationPickerModal } from './LocationPickerModal';
 import { OpenStatus } from './OpenStatus';
 
@@ -105,6 +106,7 @@ export function SiteHeader() {
                 >
                   {patticakePrimaryLabel}
                 </a>
+                <CartButton />
               </div>
             </>
           ) : (
@@ -207,6 +209,7 @@ export function SiteHeader() {
                 Order Now
               </a>
             )}
+            {patticakeSurface && <CartButton />}
             <button
               type="button"
               aria-controls={mobileMenuId}

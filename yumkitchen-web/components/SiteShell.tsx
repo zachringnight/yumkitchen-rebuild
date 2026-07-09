@@ -1,4 +1,6 @@
 import type { ReactNode } from 'react';
+import { CartProvider } from '@/lib/cart/CartContext';
+import { CartDrawer } from './cart/CartDrawer';
 import { HashAnchorScroll } from './HashAnchorScroll';
 import { MotionEnhancer } from './MotionEnhancer';
 import { MobileOrderBar } from './MobileOrderBar';
@@ -9,7 +11,7 @@ import { SiteHeader } from './SiteHeader';
 
 export function SiteShell({ children }: { children: ReactNode }) {
   return (
-    <>
+    <CartProvider>
       <a href="#main-content" className="skip-link">
         Skip to content
       </a>
@@ -21,6 +23,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
       <SiteFooter />
       <RestaurantTaskDock />
       <MobileOrderBar />
-    </>
+      <CartDrawer />
+    </CartProvider>
   );
 }
