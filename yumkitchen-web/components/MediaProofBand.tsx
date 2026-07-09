@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { mediaHighlights } from '@/lib/site';
 
-const proofChips = ['Mpls.St.Paul Magazine', 'Star Tribune', 'Eater Twin Cities', 'KSTP', 'Woodbury Magazine'] as const;
+const proofChips = ['Mpls.St.Paul Magazine', 'Star Tribune', 'Eater Twin Cities', 'KSTP', 'Axios Twin Cities', 'Woodbury Magazine'] as const;
 
 export function MediaProofBand() {
   const featured = mediaHighlights.slice(0, 5);
