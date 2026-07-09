@@ -42,6 +42,13 @@ export function SiteHeader() {
     };
   }, [pathname]);
 
+  useEffect(() => {
+    document.body.dataset.navOpen = menuOpen ? 'true' : 'false';
+    return () => {
+      delete document.body.dataset.navOpen;
+    };
+  }, [menuOpen]);
+
   function handleLocationSelect(nextLocation: Location) {
     if (isRouteLocation) router.push(`/location/${nextLocation.slug}`);
   }
@@ -58,8 +65,8 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 border-b border-blue-soft/70 bg-blue-tint/95 backdrop-blur-[4px]">
-        <div className="mx-auto flex h-[72px] w-full max-w-[1440px] items-center justify-between gap-4 px-5 lg:px-7">
+      <header className="sticky top-0 z-40 border-b border-blue-soft/70 bg-blue-tint backdrop-blur-[4px]">
+        <div className="mx-auto flex h-[72px] w-full max-w-[1240px] items-center justify-between gap-4 px-5 lg:px-7">
           <div className="flex items-center gap-3">
             <BrandLogo
               href={patticakeSurface ? '/' : '/yum-kitchen'}
@@ -217,7 +224,16 @@ export function SiteHeader() {
           </div>
         </div>
         {menuOpen && (
-          <nav id={mobileMenuId} aria-label="Mobile navigation" className="border-t border-blue-soft bg-cream px-5 pb-5 shadow-[0_1rem_2.2rem_rgb(45_45_45_/_0.16)] lg:hidden">
+          <button
+            type="button"
+            aria-hidden="true"
+            tabIndex={-1}
+            onClick={() => setMenuOpen(false)}
+            className="fixed inset-0 top-[72px] z-30 bg-ink/30 lg:hidden"
+          />
+        )}
+        {menuOpen && (
+          <nav id={mobileMenuId} aria-label="Mobile navigation" className="relative z-40 border-t border-blue-soft bg-cream px-5 pb-5 shadow-[0_1rem_2.2rem_rgb(45_45_45_/_0.16)] lg:hidden">
             <div className="grid gap-2 pt-3">
               {patticakeSurface ? (
                 <>
@@ -233,6 +249,29 @@ export function SiteHeader() {
                   <Link href="/yum-kitchen" className="border-b border-blue-soft/60 py-3 text-lg font-normal text-brand-primary" onClick={() => setMenuOpen(false)}>
                     yum! Kitchen and Bakery
                   </Link>
+                  <p className="pt-4 text-xs font-bold uppercase tracking-[0.12em] text-brand-primary">more</p>
+                  <Link href="/menu" prefetch={false} className="border-b border-blue-soft/60 py-3 text-lg font-normal text-brand-primary" onClick={() => setMenuOpen(false)}>
+                    menu
+                  </Link>
+                  <Link href="/about" prefetch={false} className="border-b border-blue-soft/60 py-3 text-lg font-normal text-brand-primary" onClick={() => setMenuOpen(false)}>
+                    about
+                  </Link>
+                  <Link href="/catering" prefetch={false} className="border-b border-blue-soft/60 py-3 text-lg font-normal text-brand-primary" onClick={() => setMenuOpen(false)}>
+                    catering
+                  </Link>
+                  <Link href="/contact" prefetch={false} className="border-b border-blue-soft/60 py-3 text-lg font-normal text-brand-primary" onClick={() => setMenuOpen(false)}>
+                    contact
+                  </Link>
+                  <a
+                    href={giftCardBuyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-event={eventForHref(giftCardBuyUrl)}
+                    className="border-b border-blue-soft/60 py-3 text-lg font-normal text-brand-primary"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    gift cards
+                  </a>
                 </>
               ) : (
                 navItems.map((item) => {

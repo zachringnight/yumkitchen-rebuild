@@ -131,6 +131,7 @@ export function PatticakeHome() {
                   fill
                   quality={60}
                   sizes={frame.sizes}
+                  loading="eager"
                   className={`object-cover ${frame.className}`}
                 />
                 <figcaption>{frame.label}</figcaption>
