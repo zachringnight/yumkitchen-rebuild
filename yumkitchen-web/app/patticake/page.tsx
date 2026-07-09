@@ -105,6 +105,21 @@ const trustNotes = [
   'simple chocolate cake, vanilla buttercream, and a message people remember',
 ] as const;
 
+const cakeFacts = [
+  {
+    title: 'the cake',
+    copy: 'yum!’s signature: a towering triple-layer chocolate cake with vanilla buttercream, baked from scratch.',
+  },
+  {
+    title: 'the size',
+    copy: 'An 8-inch round that serves 8–16 — or send it by the slice.',
+  },
+  {
+    title: 'the lineup',
+    copy: 'One of three signature yum! cakes, alongside Baker’s Man and Coconut.',
+  },
+] as const;
+
 const faqs = [
   {
     question: 'Can I pay online right now?',
@@ -146,6 +161,24 @@ const jsonLd = {
   })),
 };
 
+const productJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Patticake',
+  description:
+    'yum! Kitchen and Bakery’s signature Patticake: a towering triple-layer chocolate cake with vanilla buttercream, baked from scratch. Available as an 8-inch round that serves 8–16, or by the slice.',
+  image: [
+    patticakeCanonical('/images/patticake/03_top_view.jpg'),
+    patticakeCanonical('/images/patticake/09_slices.jpg'),
+  ],
+  brand: {
+    '@type': 'Brand',
+    name: 'yum! Kitchen and Bakery',
+  },
+  category: 'Cake',
+  url: patticakeCanonical('/patticake'),
+};
+
 const nationalOrderIsExternal = /^https?:\/\//.test(patticakeNationalOrderUrl);
 const shippingNoteHref = nationalOrderIsExternal ? patticakeNationalOrderUrl : '#delivery-support';
 
@@ -153,6 +186,7 @@ export default function PatticakeNationalDeliveryPage() {
   return (
     <main className="bg-page">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
 
       <section className="overflow-hidden bg-cream px-6 py-[clamp(3.5rem,7vw,6.5rem)]">
         <div className="mx-auto grid max-w-[1240px] gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
@@ -217,6 +251,26 @@ export default function PatticakeNationalDeliveryPage() {
                 <Image src="/images/patticake/03_top_view.jpg" alt="yum! patticake vanilla buttercream top view" fill loading="eager" sizes="(min-width: 1024px) 22vw, 45vw" className="object-cover crop-patticake-top" />
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white px-6 py-12 lg:py-section">
+        <div className="mx-auto max-w-[1240px]">
+          <div className="max-w-2xl">
+            <p className="section-label">meet the cake</p>
+            <h2 className="text-h2 lowercase">what you&apos;re sending</h2>
+            <p className="mt-5 text-xl leading-9 text-body">
+              Patticake is yum!&apos;s signature — a towering triple-layer chocolate cake with vanilla buttercream, baked from scratch and packed to travel.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            {cakeFacts.map((fact) => (
+              <article key={fact.title} className="border border-ink/10 bg-page p-6">
+                <h3 className="text-h3 lowercase">{fact.title}</h3>
+                <p className="mt-3 text-base leading-7 text-body">{fact.copy}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
