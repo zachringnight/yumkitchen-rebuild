@@ -2,7 +2,14 @@
 
 > Known stale branch: `brand-blue-pass` (PR #2 on GitHub) is 20 commits ahead but based on a commit before three shipped rounds. Merging it as-is would delete since-shipped components and docs. Needs manual salvage of just the color-token intent, or closure. Do not merge as-is.
 
-## Latest round: upgrade-round2 (2026-07-01)
+## Latest round: repo reorg + full QA visual review (2026-07-09)
+
+Branch `chore/repo-reorg-2026-07-09`. Two tracks: (1) reorganized the whole repo for AI-coder clarity, one entry point (`AGENTS.md`), one `docs/` tree, one `scripts/` folder, obsolete handoff docs archived, stale facts corrected; (2) reconciled 9 verified fixes (modal layout bug, audit-script timing, `/logo-animation` noindex, dead redirect page removed, title-template trap fixed, 3 images converted PNG to JPEG, allergy PDF compressed 7.9 MB to 1.4 MB, JSON-LD consistency, stale doc counts) found uncommitted in a second clone from an earlier same-day QA pass. Full report: `docs/history/plans/2026-07-09-full-qa-visual-review/run-report.md`.
+
+- [x] verify.sh VERIFY PASSED (axe 0/0 on 15 routes, LH 100/100/100/100).
+- [ ] OPEN (mechanical): merge this branch into `main` via PR, then reset the second clone's now-redundant working tree.
+
+## Prior round: upgrade-round2 (2026-07-01)
 
 Branch `yum-upgrade-round2-2026-07-01`. Closed the safely-shippable improvements from the v1 list: gift card band (B3), catering FAQ + JSON-LD (H4), per-location cake/catering email routing (G4), per-page OG images (A5), nofollow on external press links (A6). Repo hygiene: shipped branches deleted, .bak/.DS_Store cleared. Full report: `docs/history/plans/2026-07-01-yum-upgrade-round2/run-report.md`.
 
