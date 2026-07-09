@@ -111,7 +111,7 @@ Files to create: see scaffold under `yumkitchen-web/`. Most are stubbed already 
 ## T-05 - Menu page `/menu/`
 
 **Acceptance criteria:**
-- [ ] Renders all 82 items from `lib/menu.ts` (seeded from `../06_handoff/data/menu_seed.json`)
+- [ ] Renders all 102 items from `lib/menu.ts` (seeded from `lib/menu-seed.json`)
 - [ ] Sticky anchor nav: Lunch & Dinner / Breakfast / Bakery / Catering / Gluten & Allergens / Printable Menu
 - [ ] PDF links (Takeout, GF/Allergy) open in new tab with `rel="noopener noreferrer"`
 - [ ] Section H2s and item H3s match source

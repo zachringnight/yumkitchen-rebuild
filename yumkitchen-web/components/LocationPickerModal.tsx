@@ -178,8 +178,8 @@ function LocationButton({
         data-source="location_picker_modal"
         onClick={persistLocation}
       >
-        <span>{loc.name}</span>
-        <OpenStatus compact className="mt-1 text-sm font-normal leading-tight text-white/90" />
+        <span className="block">{loc.name}</span>
+        <OpenStatus compact className="mt-1 block text-sm font-normal leading-tight text-white/90" />
       </a>
     );
   }

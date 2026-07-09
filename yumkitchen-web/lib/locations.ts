@@ -72,8 +72,8 @@ const locationDetails: Record<LocationSlug, LocationDetail> = {
     metaDescription: 'Visit yum! st. paul at 164 Snelling Avenue N for breakfast, lunch, dinner, bakery, takeout, and online ordering.',
   },
   woodbury: {
-    heroImage: '/images/yum-location-woodbury.png',
-    cardImage: '/images/yum-location-woodbury.png',
+    heroImage: '/images/yum-location-woodbury.jpg',
+    cardImage: '/images/yum-location-woodbury.jpg',
     cardImageAlt: 'yum! Kitchen and Bakery storefront in Woodbury at City Centre',
     neighborhood: 'Our Woodbury location brings yum! to the east metro with plenty of room for families, coworkers, and casual gatherings.',
     parking: 'Easy parking around City Centre Drive.',

@@ -24,10 +24,7 @@ const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: {
-    default: pageMeta.patticakeHome.title,
-    template: '%s · Patticake',
-  },
+  title: pageMeta.patticakeHome.title,
   description: pageMeta.patticakeHome.description,
   openGraph: {
     type: 'website',
