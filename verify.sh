@@ -118,7 +118,9 @@ else
 
 	  echo ""
 	  echo "==> Lighthouse mobile (homepage)"
-	  if BASE_URL="$BASE_URL" PORT="$PORT" npm run lh > /tmp/yum-lh-out.txt 2>&1; then
+	  if [ "${SKIP_LH:-0}" = "1" ]; then
+	    echo -e "  ${YELLOW:-}SKIP${RESET}: Lighthouse skipped (SKIP_LH=1). Performance is hardware-sensitive; run locally for real scores."
+	  elif BASE_URL="$BASE_URL" PORT="$PORT" npm run lh > /tmp/yum-lh-out.txt 2>&1; then
     PERF=$(node -e "console.log(Math.round(require('/tmp/yum-lh.json').categories.performance.score*100))")
     A11Y=$(node -e "console.log(Math.round(require('/tmp/yum-lh.json').categories.accessibility.score*100))")
     BP=$(node -e "console.log(Math.round(require('/tmp/yum-lh.json').categories['best-practices'].score*100))")

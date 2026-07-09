@@ -32,4 +32,9 @@ jobs:
         working-directory: yumkitchen-web
 
       - name: Run verification gate
-        run: bash verify.sh
+        # SKIP_LH=1: Lighthouse Performance is hardware-sensitive and craters on
+        # GitHub's shared runners (historically Perf=48 vs 100 locally), which made
+        # this gate flaky-red. CI enforces the deterministic checks (typecheck, lint,
+        # build, content, axe a11y, links, motion audit, em-dash); Lighthouse stays
+        # enforced locally where the numbers are real. See B6 in tasks.md.
+        run: SKIP_LH=1 bash verify.sh
