@@ -1,0 +1,97 @@
+{
+  "/": {
+    "title": "Patticake",
+    "robots": null,
+    "canonical": "https://patticake.com"
+  },
+  "/yum-kitchen": {
+    "title": "restaurants · yum! Kitchen and Bakery",
+    "robots": null,
+    "canonical": "https://yumkitchen.com/yum-kitchen"
+  },
+  "/menu": {
+    "title": "menu · yum! Kitchen and Bakery",
+    "robots": null,
+    "canonical": "https://yumkitchen.com/menu"
+  },
+  "/order": {
+    "title": "order online · yum! Kitchen and Bakery",
+    "robots": null,
+    "canonical": "https://yumkitchen.com/order"
+  },
+  "/catering": {
+    "title": "catering · yum! Kitchen and Bakery",
+    "robots": null,
+    "canonical": "https://yumkitchen.com/catering"
+  },
+  "/order-a-cake": {
+    "title": "order a patticake · Patticake",
+    "robots": null,
+    "canonical": "https://patticake.com/order-a-cake"
+  },
+  "/patticake": {
+    "title": "Ship a Cake · Patticake",
+    "robots": null,
+    "canonical": "https://patticake.com/patticake"
+  },
+  "/about": {
+    "title": "about us · yum! Kitchen and Bakery",
+    "robots": null,
+    "canonical": "https://yumkitchen.com/about"
+  },
+  "/careers": {
+    "title": "work @ yum! · yum! Kitchen and Bakery",
+    "robots": null,
+    "canonical": "https://yumkitchen.com/careers"
+  },
+  "/in-the-news": {
+    "title": "yum! in the news · yum! Kitchen and Bakery",
+    "robots": null,
+    "canonical": "https://yumkitchen.com/in-the-news"
+  },
+  "/contact": {
+    "title": "we'd love to hear from you · yum! Kitchen and Bakery",
+    "robots": null,
+    "canonical": "https://yumkitchen.com/contact"
+  },
+  "/accessibility-statement": {
+    "title": "our accessibility statement · yum! Kitchen and Bakery",
+    "robots": null,
+    "canonical": "https://yumkitchen.com/accessibility-statement"
+  },
+  "/thank-you": {
+    "title": "thank you · yum! Kitchen and Bakery",
+    "robots": "noindex, nofollow",
+    "canonical": "https://yumkitchen.com/thank-you"
+  },
+  "/logo-animation": {
+    "title": "logo animation · yum! Kitchen and Bakery",
+    "robots": null,
+    "canonical": null
+  },
+  "/location/st-louis-park": {
+    "title": "yum! st. louis park · yum! Kitchen and Bakery",
+    "robots": null,
+    "canonical": "https://yumkitchen.com/location/st-louis-park"
+  },
+  "/location/shady-oak": {
+    "title": "yum! shady oak · yum! Kitchen and Bakery",
+    "robots": null,
+    "canonical": "https://yumkitchen.com/location/shady-oak"
+  },
+  "/location/saint-paul": {
+    "title": "yum! st. paul · yum! Kitchen and Bakery",
+    "robots": null,
+    "canonical": "https://yumkitchen.com/location/saint-paul"
+  },
+  "/location/woodbury": {
+    "title": "yum! woodbury · yum! Kitchen and Bakery",
+    "robots": null,
+    "canonical": "https://yumkitchen.com/location/woodbury"
+  },
+  "/definitely-not-a-page": {
+    "title": "page not found · yum! Kitchen and Bakery",
+    "robots": "noindex",
+    "canonical": null
+  }
+}

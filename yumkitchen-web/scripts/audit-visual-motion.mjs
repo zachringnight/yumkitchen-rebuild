@@ -188,6 +188,8 @@ async function checkInteractions(page) {
   await page.goto(routeUrl('/yum-kitchen'), { waitUntil: 'load' });
   await clickButtonByName(page, 'Start Order');
   await settle();
+  // the modal is a next/dynamic chunk; give it a bounded wait instead of one settle tick
+  await page.waitForSelector('[role="dialog"]', { timeout: 5000 }).catch(() => {});
   const modalState = await page.evaluate(() => ({
     dialogText: document.querySelector('[role="dialog"]')?.textContent?.slice(0, 200),
     hasDialog: Boolean(document.querySelector('[role="dialog"]')),

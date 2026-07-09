@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { GiftCardBand } from '@/components/GiftCardBand';
 import { Hero } from '@/components/Hero';
+import { JsonLd } from '@/components/JsonLd';
 import { LocationExperienceBand } from '@/components/LocationExperienceBand';
 import { LocationGrid } from '@/components/LocationGrid';
 import { LocationPreferenceSync } from '@/components/LocationPreferenceSync';
@@ -38,7 +39,7 @@ export default async function LocationPage({ params }: LocationRouteProps) {
 
   return (
     <main>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(entityJsonLd(loc)) }} />
+      <JsonLd data={entityJsonLd(loc)} />
       <LocationPreferenceSync slug={loc.slug} />
       <Hero title={loc.name} copy={loc.neighborhood} image={loc.heroImage} imageAlt={`${loc.short_name} yum! restaurant`} priority>
         <a href={loc.order_url} target="_blank" rel="noopener noreferrer" className="btn-primary" data-event="click_order_online" data-location={loc.slug} data-source="location_page_hero">

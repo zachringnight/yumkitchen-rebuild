@@ -1,96 +1,88 @@
 # AGENTS.md
 
-Read this entire file before doing anything. This file is the contract for any AI coding agent (Codex, Cursor, Aider, Claude Code, etc.) working on this rebuild.
+Read this entire file before doing anything. This is the current, single contract for any AI coding agent (Codex, Cursor, Aider, Claude Code, etc.) working on this repo.
 
 ## Project
 
-A rebuild of https://yumkitchen.com - a 4-location restaurant chain in the Twin Cities (St. Louis Park, Shady Oak/Minnetonka, St. Paul, Woodbury). The current site is WordPress + Themeco Pro + Cornerstone. Target stack for the rebuild is Next.js 14 (App Router) + TypeScript + Tailwind CSS.
+A rebuild of https://yumkitchen.com, a 4-location restaurant chain in the Twin Cities (St. Louis Park, Shady Oak/Minnetonka, St. Paul, Woodbury), plus its sister brand https://patticake.com (national cake delivery + local pickup). Stack: Next.js 16.2 (App Router), React 19, TypeScript, Tailwind CSS v4.
 
-The repo at `yumkitchen-web/` is the rebuild. Everything outside it is reference material.
+Both brand surfaces are served from this single codebase, distinguished by pathname (see `yumkitchen-web/lib/usePatticakeSurface.ts`), not by hostname. `proxy.ts` is currently a no-op passthrough.
+
+This repo is self-contained and git-tracked (`github.com/zachringnight/yumkitchen-rebuild`). There are no external sibling reference folders to read; everything you need is inside this checkout.
 
 ## Repository layout
 
 ```
-07_codex/
-├── AGENTS.md                          (this file)
-├── CODEX_HANDOFF.md                   How to start a Codex task
-├── tasks.md                           PR-by-PR task list
-├── setup.sh                           Bootstraps the dev container
-├── verify.sh                          Runs full verification suite
-├── yumkitchen-web/                    THE REBUILD - this is what you ship
-│   ├── package.json
-│   ├── tsconfig.json
-│   ├── next.config.js
-│   ├── tailwind.config.ts
-│   ├── app/
-│   ├── components/
-│   ├── lib/
-│   └── public/
-└── scripts/
-    ├── lighthouse_baseline.sh         Per-page LH (run via npm run lh)
-    ├── a11y_audit.js                  Headless axe-core (npm run a11y)
-    └── visual_diff.sh                 Diff against 02_screenshots/
-
-Reference (read but DO NOT MODIFY):
-../01_html/                            Rendered HTML snapshots
-../02_screenshots/                     Visual reference (desktop + mobile)
-../03_assets/                          Original images + PDFs
-../04_data/                            Crawl artifacts (a11y_summary, link_graph)
-../05_docs/                            Specs you must follow
-    YumKitchen_RebuildSpec_v1.md       The main spec
-    YumKitchen_ChromeReview_v1.md      Live browser corrections (PRECEDENCE over Playwright)
-    YumKitchen_Improvements_v1.md      What to fix while you build
-../06_handoff/                         Claude Code variant (you can ignore)
+yumkitchen-rebuild/
+├── AGENTS.md                  this file, the contract
+├── README.md                  short human-facing orientation
+├── tasks.md                   PR-by-PR task list, read this for the active/next task
+├── setup.sh                   bootstraps a fresh environment
+├── verify.sh                  full verification suite, must pass before every PR
+├── docs/
+│   ├── DEPLOYMENT.md           env vars, analytics events, launch/rollback runbook
+│   ├── redirects.md            301/308 redirect + SEO-equity audit
+│   ├── design-qa.md            latest design QA record
+│   ├── archive/                 obsolete handoff docs, historical only, do not follow
+│   ├── history/                 completed round run-reports + dated QA snapshots
+│   └── superpowers/             design specs and implementation plans
+├── social/                    Instagram template/export workspace (marketing assets, not app code)
+└── yumkitchen-web/            THE APP, this is what you ship
+    ├── app/, components/, lib/, public/
+    ├── scripts/                build-time + E2E/audit scripts (a11y, links, smoke UI, content validation, motion audits)
+    └── package.json
 ```
-
-## Precedence when sources conflict
-
-1. ChromeReview_v1 (live browser observations)
-2. RebuildSpec_v1
-3. 01_html/ snapshots
-4. 02_screenshots/ PNGs
-
-If ChromeReview says the live site has 3 CTAs above the fold and Playwright shows none, the live observation wins.
 
 ## Brand system (DO NOT IMPROVISE)
 
-- Primary red: `#E03A3E` (Tailwind: `brand-primary`). AA-safe darker variant: `#C72830` (Tailwind: `brand-primary-darker`)
-- Ink dark: `#2D2D2D` · Body gray: `#736E6E` · Page bg: `#F3F3F3` · Cream: `#FFF4F5`
+Source of truth: `yumkitchen-web/app/globals.css` `@theme` block. Current values:
+
+- Primary red: `#b4212b` (`--color-brand-primary`). Bright variant: `#e03a3e`. Darker (AA-safe): `#8f1c24`. Deep: `#751821`. Also `--color-brand-red: #dc3439`.
+- Ink dark: `#2d2d2d` · Body gray: `#736e6e` · Page bg: `#f3f3f3` · Cream: `#fff4f5` · Light blue: `#cae4fd` · Soft blue: `#aed2ef`
 - Headings: Trocchi 400 (serif). Body, nav, buttons: Archivo Narrow 400 (sans, 700 on filled buttons)
-- Lowercase headlines preserved exactly as in source
-- Two button styles: `btn-primary` (filled red, white text, bold) and `btn-secondary` (outline, dark text)
+- Lowercase headlines preserved exactly where the source uses lowercase
+- Two button styles: `.btn-primary` (filled red, white text, bold) and `.btn-secondary` (outline, dark text)
+
+If `globals.css` and this file ever disagree, `globals.css` wins. Update this file to match.
 
 ## Hard rules (NEVER VIOLATE)
 
-1. Preserve all 4 Toast order URLs exactly. They are in `lib/locations.ts`. Do not rewrite, redirect, or wrap them.
-2. Slugs must match: `/location/st-louis-park`, `/location/shady-oak`, `/location/saint-paul`, `/location/woodbury`. SEO equity depends on it.
-3. Add `Restaurant` JSON-LD on every location page (use `entityJsonLd()` from `lib/locations.ts`).
+1. Preserve all 4 Toast order URLs exactly. They live in `yumkitchen-web/lib/locations.ts`. Do not rewrite, redirect, or wrap them.
+2. Location slugs must stay: `/location/st-louis-park`, `/location/shady-oak`, `/location/saint-paul`, `/location/woodbury`. SEO equity depends on it.
+3. Every location page carries `Restaurant` JSON-LD (`entityJsonLd()` from `lib/locations.ts`).
 4. No em dashes anywhere in code, comments, or copy. Use hyphens, commas, or sentence breaks.
 5. Headlines stay lowercase if the source uses lowercase ("made from scratch with love", "fresh and friendly food", etc.).
-6. Do not invent menu items, prices, hours, or addresses. Pull from `lib/locations.ts` and `lib/menu.ts` (seeded from `../06_handoff/data/menu_seed.json`).
+6. Do not invent menu items, prices, hours, or addresses. Pull from `lib/locations.ts` and `lib/menu.ts` (seeded from the checked-in `lib/locations-seed.json` / `lib/menu-seed.json`).
 7. Every PR must pass `bash verify.sh` before requesting review.
 8. One PR per task in `tasks.md`. Do not bundle.
 
 ## Task workflow
 
 1. Read `tasks.md`. Find the next unchecked task.
-2. Create a branch named after the task ID (e.g. `T-03-location-card-component`).
-3. Implement strictly inside `yumkitchen-web/`. Do not touch reference dirs.
+2. Create a branch named after the task (e.g. `T-03-location-card-component`, or a short descriptive name for ad hoc work).
+3. Implement inside `yumkitchen-web/` for app changes; docs changes go in `docs/`.
 4. Run `bash verify.sh` locally. All checks must pass.
-5. Commit. Push. Open a PR. Title: `[T-XX] {task name}`.
-6. In the PR description, paste the relevant section of `tasks.md` so the reviewer knows the acceptance criteria.
+5. Commit. Push. Open a PR.
+6. In the PR description, note what changed and why.
 
 ## Verification
 
-`bash verify.sh` runs:
+`bash verify.sh` (run from the repo root) runs, in order:
 - `npm run typecheck` (must pass)
 - `npm run lint` (must pass)
+- `npm run audit:motion` and `npm run audit:visual-motion` (motion governance, must pass)
+- `npm run validate:content` (menu/location data integrity, must pass)
 - `npm run build` (must succeed)
-- `npm run a11y` (axe-core against all built pages - must report zero `serious` or `critical`)
-- `npm run lh` (Lighthouse mobile, key pages - must score Perf >= 90, A11y >= 95, BP >= 95, SEO = 100)
-- A grep for em dashes in the diff (must find none)
+- `npm run smoke:ui`, `npm run audit:links`, `npm run a11y` against a locally started production server (a11y must report zero `serious`/`critical`)
+- `npm run lh` (Lighthouse mobile, key pages, must score Perf ≥ 90, A11y ≥ 95, BP ≥ 95, SEO = 100)
+- A grep for em dashes in the diff against `main` (must find none)
 
 Failure on any check blocks the PR.
+
+## Known open items
+
+- PR #2 (`brand-blue-pass` branch) is stale, see the flag at the top of `tasks.md`. Do not merge as-is.
+- See `tasks.md` for the current OPEN list (Zach-gated items like DNS cutover, live Resend key, GTM/GA4 confirmation) and Zach-data-gated items (dietary tags, location amenities, menu CMS, etc.).
 
 ## Owner context
 
@@ -98,8 +90,7 @@ The owner is Zach Soskin. Voice preferences: short sentences, direct, no fluff, 
 
 ## When in doubt
 
-1. Read `../05_docs/YumKitchen_RebuildSpec_v1.md` (full spec).
-2. Read `../05_docs/YumKitchen_ChromeReview_v1.md` (live corrections).
-3. Grep `../01_html/` for exact current copy.
-4. Cross-reference `../02_screenshots/` for visual layout.
-5. If still stuck, comment on the PR with the question. Do not guess.
+1. Read `docs/DEPLOYMENT.md` and `docs/redirects.md` for launch/ops context.
+2. Read the most recent report under `docs/history/plans/` for what shipped last and why.
+3. Grep the live code (`yumkitchen-web/app`, `yumkitchen-web/components`, `yumkitchen-web/lib`). It is the source of truth, not any doc.
+4. If still stuck, comment on the PR with the question. Do not guess.

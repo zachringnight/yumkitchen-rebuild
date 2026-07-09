@@ -16,7 +16,7 @@ const heroImages = [
   { src: '/images/yum-grainy-mustard-salmon.png', label: 'dinner plates', alt: 'A plated yum! dinner entree' },
   { src: '/images/yum-bobs-tomato-soup.jpg', label: 'soup counter', alt: 'Fresh soups at the yum! soup counter' },
   { src: '/images/yum-catering-tray.jpg', label: 'take-home boxes', alt: 'yum! take-home meal boxes' },
-  { src: '/images/yum-szecret-salmon.png', label: 'seasonal entrees', alt: 'A seasonal yum! entree' },
+  { src: '/images/yum-szecret-salmon.jpg', label: 'seasonal entrees', alt: 'A seasonal yum! entree' },
   { src: '/images/yum-bakery-key-lime-pie.jpg', label: 'bakery case', alt: 'Cakes and pastries in the yum! bakery case' },
 ] as const;
 

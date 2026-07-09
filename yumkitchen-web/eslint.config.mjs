@@ -13,6 +13,12 @@ const eslintConfig = defineConfig([
     'node_modules/**',
     'coverage/**',
     '.worktrees/**',
+    // CommonJS Node CLI scripts (E2E/audit tooling), not app source.
+    // Never linted before they lived at yumkitchen-web/scripts/ either.
+    'scripts/a11y_audit.js',
+    'scripts/link_audit.js',
+    'scripts/smoke_ui.js',
+    'scripts/validate_content.js',
   ]),
 ]);
 

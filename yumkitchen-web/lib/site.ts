@@ -205,7 +205,7 @@ export const seasonalHighlights = [
     title: 'reuben',
     description: 'corned beef, swiss, sauerkraut, and red pepper aioli on caraway rye.',
     href: '/menu#sandwiches',
-    image: '/images/yum-seasonal-reuben.png',
+    image: '/images/yum-seasonal-reuben.jpg',
   },
   {
     title: 'frosted sugar cookie',

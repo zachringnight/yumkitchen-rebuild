@@ -1,8 +1,17 @@
 # Rebuild Task List
 
-## Latest round: upgrade-round2 (2026-07-01)
+> Known stale branch: `brand-blue-pass` (PR #2 on GitHub) is 20 commits ahead but based on a commit before three shipped rounds. Merging it as-is would delete since-shipped components and docs. Needs manual salvage of just the color-token intent, or closure. Do not merge as-is.
 
-Branch `yum-upgrade-round2-2026-07-01`. Closed the safely-shippable improvements from the v1 list: gift card band (B3), catering FAQ + JSON-LD (H4), per-location cake/catering email routing (G4), per-page OG images (A5), nofollow on external press links (A6). Repo hygiene: shipped branches deleted, .bak/.DS_Store cleared. Full report: `docs/plans/2026-07-01-yum-upgrade-round2/run-report.md`.
+## Latest round: repo reorg + full QA visual review (2026-07-09)
+
+Branch `chore/repo-reorg-2026-07-09`. Two tracks: (1) reorganized the whole repo for AI-coder clarity, one entry point (`AGENTS.md`), one `docs/` tree, one `scripts/` folder, obsolete handoff docs archived, stale facts corrected; (2) reconciled 9 verified fixes (modal layout bug, audit-script timing, `/logo-animation` noindex, dead redirect page removed, title-template trap fixed, 3 images converted PNG to JPEG, allergy PDF compressed 7.9 MB to 1.4 MB, JSON-LD consistency, stale doc counts) found uncommitted in a second clone from an earlier same-day QA pass. Full report: `docs/history/plans/2026-07-09-full-qa-visual-review/run-report.md`.
+
+- [x] verify.sh VERIFY PASSED (axe 0/0 on 15 routes, LH 100/100/100/100).
+- [ ] OPEN (mechanical): merge this branch into `main` via PR, then reset the second clone's now-redundant working tree.
+
+## Prior round: upgrade-round2 (2026-07-01)
+
+Branch `yum-upgrade-round2-2026-07-01`. Closed the safely-shippable improvements from the v1 list: gift card band (B3), catering FAQ + JSON-LD (H4), per-location cake/catering email routing (G4), per-page OG images (A5), nofollow on external press links (A6). Repo hygiene: shipped branches deleted, .bak/.DS_Store cleared. Full report: `docs/history/plans/2026-07-01-yum-upgrade-round2/run-report.md`.
 
 - [x] verify.sh VERIFY PASSED (axe 0/0 on 15 routes, LH 100/100/100/100) after two caught-and-fixed QA findings.
 - [ ] OPEN (Zach gates, unchanged): RESEND_API_KEY + live form test; GTM/GA4 DebugView confirm; DNS cutover go; brand-blue-pass keep-or-kill (PR #2).
@@ -10,12 +19,12 @@ Branch `yum-upgrade-round2-2026-07-01`. Closed the safely-shippable improvements
 
 ## Prior round: ship-and-elevate (2026-06-30)
 
-Branch `ship-and-elevate-2026-06-30`. Tracks: ship-it-live + in-brand design polish. Full report: `docs/plans/2026-06-30-yum-ship-and-elevate/run-report.md`.
+Branch `ship-and-elevate-2026-06-30`. Tracks: ship-it-live + in-brand design polish. Full report: `docs/history/plans/2026-06-30-yum-ship-and-elevate/run-report.md`.
 
 - [x] Baseline VERIFY PASSED (axe 0 serious, LH 91/100/100/100) and before-shots.
 - [x] Confirmed live on Vercel preview; no custom domain attached (DNS gate intact).
 - [x] In-brand mobile-rhythm polish on home, menu, Patticake (no color/content/CTA change). Re-verified: axe 0, LH 93/100/100/100.
-- [x] Cutover runbook: `yumkitchen-web/redirects.md` 301 audit + rollback path in DEPLOYMENT.md.
+- [x] Cutover runbook: `docs/redirects.md` 301 audit + rollback path in `docs/DEPLOYMENT.md`.
 - [ ] OPEN (Zach gates): set Resend secret + live form test; confirm GTM/GA4 in a preview; DNS cutover go.
 - [ ] OPEN (mechanical): redeploy polished build to a fresh preview (environment upload fault blocked it this run).
 
@@ -31,9 +40,9 @@ Current finishing checklist:
 - [ ] Recheck main-site conversion, SEO, metadata, sitemap, social links, JSON-LD, and gift card links.
 - [ ] Recheck forms, Resend env handling, analytics events, and deployment docs.
 - [ ] Run `bash verify.sh` and require `VERIFY PASSED` before merge or PR-ready status.
-- [ ] Write the end report in `docs/plans/2026-06-30-yum-upgrades-improvements/run-report.md`.
+- [ ] Write the end report in `docs/history/plans/2026-06-30-yum-upgrades-improvements/run-report.md`.
 
-Execution plan: `docs/plans/2026-06-30-yum-upgrades-improvements/manifest.md`.
+Execution plan: `docs/history/plans/2026-06-30-yum-upgrades-improvements/manifest.md`.
 
 ---
 
@@ -109,7 +118,7 @@ Files to create: see scaffold under `yumkitchen-web/`. Most are stubbed already 
 ## T-05 - Menu page `/menu/`
 
 **Acceptance criteria:**
-- [ ] Renders all 82 items from `lib/menu.ts` (seeded from `../06_handoff/data/menu_seed.json`)
+- [ ] Renders all 102 items from `lib/menu.ts` (seeded from `lib/menu-seed.json`)
 - [ ] Sticky anchor nav: Lunch & Dinner / Breakfast / Bakery / Catering / Gluten & Allergens / Printable Menu
 - [ ] PDF links (Takeout, GF/Allergy) open in new tab with `rel="noopener noreferrer"`
 - [ ] Section H2s and item H3s match source
@@ -195,7 +204,7 @@ Files to create: see scaffold under `yumkitchen-web/`. Most are stubbed already 
 **Acceptance criteria:**
 - [ ] All 4 Toast URLs tested live (no 404s)
 - [ ] All forms send to `info@yumkitchen.com` via Resend (test from 3 different IPs)
-- [ ] DNS cutover runbook in `yumkitchen-web/DEPLOYMENT.md`
+- [ ] DNS cutover runbook in `docs/DEPLOYMENT.md`
 - [ ] 301 redirect map generated (if any URLs changed)
 - [ ] GSC sitemap submission instructions
 - [ ] First-week monitoring checklist (Core Web Vitals, GA4 conversions)
