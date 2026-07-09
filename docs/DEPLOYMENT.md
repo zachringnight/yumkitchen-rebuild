@@ -46,6 +46,8 @@ Do not add legacy Universal Analytics `UA-83446946-1`.
 4. Deploy a preview URL first.
 5. Run Lighthouse and axe against the preview URL before assigning the production domain.
 
+**Known gotcha:** `vercel deploy` from a sandboxed agent session can fail on the large-file upload for this project. Workaround: run the deploy with `vercel deploy --archive=tgz`, which bundles the project into a single archive before upload instead of uploading files individually.
+
 ## Patticake Domain
 
 If `patticake.com` is served by the same Vercel project:
