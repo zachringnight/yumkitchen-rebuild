@@ -7,7 +7,7 @@
 Branch `chore/repo-reorg-2026-07-09`. Two tracks: (1) reorganized the whole repo for AI-coder clarity, one entry point (`AGENTS.md`), one `docs/` tree, one `scripts/` folder, obsolete handoff docs archived, stale facts corrected; (2) reconciled 9 verified fixes (modal layout bug, audit-script timing, `/logo-animation` noindex, dead redirect page removed, title-template trap fixed, 3 images converted PNG to JPEG, allergy PDF compressed 7.9 MB to 1.4 MB, JSON-LD consistency, stale doc counts) found uncommitted in a second clone from an earlier same-day QA pass. Full report: `docs/history/plans/2026-07-09-full-qa-visual-review/run-report.md`.
 
 - [x] verify.sh VERIFY PASSED (axe 0/0 on 15 routes, LH 100/100/100/100).
-- [ ] OPEN (mechanical): merge this branch into `main` via PR, then reset the second clone's now-redundant working tree.
+- [x] Merged into `main` via PR #9 (fast-forward, `79fb13b`); branch deleted. Second clone was already gone from disk, nothing to reset.
 
 ## Prior round: upgrade-round2 (2026-07-01)
 
