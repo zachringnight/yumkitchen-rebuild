@@ -51,7 +51,7 @@ Net asset effect: `public/` 18 MB -> 9.1 MB.
 - B2: Move `.btn-primary` / `.btn-secondary` / `.btn-link` into `@layer components` so Tailwind utilities can override them (root cause of F1). Requires a visual regression pass - the unlayered styles currently win in unknown other spots.
 - B3: Dedupe the client/server Zod validation between `components/forms/InquiryForm.tsx` and `app/api/inquiry/route.ts` (shared schema module; the cake/careers conditional rules are duplicated and can drift).
 - B4: Dedicated OG-dimensioned crops for Patticake pages (they reuse content photos; the Patticake home OG is not a proper OG crop).
-- B5: Merge `codex/rendered-visual-motion-audit` (now green after F2) into main.
+- B5: DONE / obsolete. The audit script, its `package.json` entry, and the `verify.sh` step already landed on main during this round's reconciliation, and main carries the F2 fix the branch never had (branch was strictly superseded). Branch `codex/rendered-visual-motion-audit` (commit `a6d57ec`) deleted 2026-07-09; nothing to merge.
 - B6: Turn on the GitHub `verify` workflow for push/PR (currently `workflow_dispatch` only), so verify.sh gates PRs automatically.
 - B7: Archive or delete the stale snapshot at `~/Downloads/yumkitchen-rebuild-main` (git-less copy of main from Jul 1; this session started there by accident).
 
