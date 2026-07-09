@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { CakeBuyModule } from '@/components/patticake/CakeBuyModule';
 import { InquiryForm } from '@/components/forms/InquiryForm';
 import { MediaProofBand } from '@/components/MediaProofBand';
+import { ReviewsWall } from '@/components/ReviewsWall';
 import { PatticakeHeroPeek } from '@/components/PatticakeHeroPeek';
 import { PatticakeMessageRibbon } from '@/components/PatticakeMessageRibbon';
 import { PatticakeMessagePreview } from '@/components/PatticakeMessagePreview';
@@ -401,6 +402,7 @@ export default function PatticakeNationalDeliveryPage() {
 
       <PatticakeOriginBand />
       <MediaProofBand />
+      <ReviewsWall />
 
       <section className="bg-page px-6 py-12 lg:py-section">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.74fr_1.26fr]">

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { CakeGallery } from '@/components/CakeGallery';
 import { InquiryForm } from '@/components/forms/InquiryForm';
 import { PatticakeHeroPeek } from '@/components/PatticakeHeroPeek';
 import { PatticakeMessagePreview } from '@/components/PatticakeMessagePreview';
@@ -294,6 +295,8 @@ export default function CakePage() {
           </div>
         </div>
       </section>
+
+      <CakeGallery />
 
       <PatticakeOriginBand />
 

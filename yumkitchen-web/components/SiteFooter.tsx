@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { locations } from '@/lib/locations';
 import { giftCardBalanceUrl, giftCardBuyUrl, socialLinks } from '@/lib/site';
+import { EmailCapture } from './EmailCapture';
 import { OpenStatus } from './OpenStatus';
 
 const quickLinks = [
@@ -16,6 +17,7 @@ const quickLinks = [
   { href: '/catering', label: 'catering' },
   { href: '/in-the-news', label: 'in the news' },
   { href: '/contact', label: 'contact' },
+  { href: '/faq', label: 'faq' },
   { href: '/accessibility-statement', label: 'accessibility statement' },
   { href: giftCardBalanceUrl, label: 'gift card balance', external: true },
 ] as const;
@@ -36,6 +38,7 @@ function eventForHref(href: string) {
 export function SiteFooter() {
   return (
     <footer className="border-t border-[#d8cfd1] bg-page pb-24 md:pb-32">
+      <EmailCapture />
       <div className="bg-blue-soft px-6 py-5">
         <div className="mx-auto flex max-w-[1240px] flex-wrap items-center gap-4">
           <span className="mr-2 text-base font-medium text-ink">Follow for more yum!</span>
