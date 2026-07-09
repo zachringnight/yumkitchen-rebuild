@@ -35,9 +35,9 @@ function eventForHref(href: string) {
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-[#d8cfd1] bg-page">
+    <footer className="border-t border-[#d8cfd1] bg-page pb-24 md:pb-32">
       <div className="bg-blue-soft px-6 py-5">
-        <div className="mx-auto flex max-w-[1200px] flex-wrap items-center gap-4">
+        <div className="mx-auto flex max-w-[1240px] flex-wrap items-center gap-4">
           <span className="mr-2 text-base font-medium text-ink">Follow for more yum!</span>
           {socialLinks.map((link) => (
             <a
@@ -54,7 +54,7 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="mx-auto grid max-w-[1200px] gap-8 px-6 py-10 md:grid-cols-2 lg:grid-cols-[1.1fr_repeat(4,1fr)]">
+      <div className="mx-auto grid max-w-[1240px] gap-8 px-6 py-10 md:grid-cols-2 lg:grid-cols-[1.1fr_repeat(4,1fr)]">
         <div>
           <Image src="/logo.png" alt="yum!" width={56} height={56} className="mb-4 h-14 w-14" />
           <h2 className="mb-3 font-sans text-sm font-medium uppercase tracking-[0.08em] text-body">Quick Links</h2>
@@ -106,7 +106,7 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-[#d8cfd1] px-6 py-3">
-        <div className="mx-auto flex max-w-[1200px] flex-col justify-between gap-2 text-sm text-body md:flex-row">
+        <div className="mx-auto flex max-w-[1240px] flex-col justify-between gap-2 text-sm text-body md:flex-row">
           <span>© yum! Kitchen and Bakery</span>
           <span className="uppercase tracking-[0.08em]">made from scratch since 2005</span>
         </div>

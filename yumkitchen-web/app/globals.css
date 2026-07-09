@@ -74,6 +74,12 @@
   @apply mx-auto w-full max-w-content px-6;
 }
 
+/* Hide the fixed mobile order bar while the mobile nav drawer is open */
+body[data-nav-open='true'] .mobile-order-bar {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .skip-link {
   position: fixed;
   left: 1rem;
@@ -1836,11 +1842,12 @@
 
 .concierge-ticket {
   position: absolute;
-  left: 28%;
-  top: 43%;
+  left: 5%;
+  top: 30%;
   z-index: 5;
   display: grid;
-  max-width: 19rem;
+  /* Note stack is right-anchored at 53% width; keep the ticket inside the left free zone at every board width */
+  max-width: min(17rem, 38%);
   gap: 0.35rem;
   border: 2px solid var(--color-brand-red);
   background: white;
