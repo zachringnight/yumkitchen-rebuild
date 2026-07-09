@@ -1,6 +1,6 @@
 # Rebuild Task List
 
-> Known stale branch: `brand-blue-pass` (PR #2 on GitHub) is 20 commits ahead but based on a commit before three shipped rounds — merging it as-is would delete since-shipped components and docs. Needs manual salvage of just the color-token intent, or closure. Do not merge as-is.
+> Known stale branch: `brand-blue-pass` (PR #2 on GitHub) is 20 commits ahead but based on a commit before three shipped rounds. Merging it as-is would delete since-shipped components and docs. Needs manual salvage of just the color-token intent, or closure. Do not merge as-is.
 
 ## Latest round: upgrade-round2 (2026-07-01)
 

@@ -4,30 +4,30 @@ Read this entire file before doing anything. This is the current, single contrac
 
 ## Project
 
-A rebuild of https://yumkitchen.com — a 4-location restaurant chain in the Twin Cities (St. Louis Park, Shady Oak/Minnetonka, St. Paul, Woodbury) — plus its sister brand https://patticake.com (national cake delivery + local pickup). Stack: Next.js 16.2 (App Router), React 19, TypeScript, Tailwind CSS v4.
+A rebuild of https://yumkitchen.com, a 4-location restaurant chain in the Twin Cities (St. Louis Park, Shady Oak/Minnetonka, St. Paul, Woodbury), plus its sister brand https://patticake.com (national cake delivery + local pickup). Stack: Next.js 16.2 (App Router), React 19, TypeScript, Tailwind CSS v4.
 
-Both brand surfaces are served from this single codebase, distinguished by pathname (see `yumkitchen-web/lib/usePatticakeSurface.ts`), not by hostname — `proxy.ts` is currently a no-op passthrough.
+Both brand surfaces are served from this single codebase, distinguished by pathname (see `yumkitchen-web/lib/usePatticakeSurface.ts`), not by hostname. `proxy.ts` is currently a no-op passthrough.
 
-This repo is self-contained and git-tracked (`github.com/zachringnight/yumkitchen-rebuild`). There are no external sibling reference folders to read — everything you need is inside this checkout.
+This repo is self-contained and git-tracked (`github.com/zachringnight/yumkitchen-rebuild`). There are no external sibling reference folders to read; everything you need is inside this checkout.
 
 ## Repository layout
 
 ```
 yumkitchen-rebuild/
-├── AGENTS.md                  this file — the contract
+├── AGENTS.md                  this file, the contract
 ├── README.md                  short human-facing orientation
-├── tasks.md                   PR-by-PR task list — read this for the active/next task
+├── tasks.md                   PR-by-PR task list, read this for the active/next task
 ├── setup.sh                   bootstraps a fresh environment
-├── verify.sh                  full verification suite — must pass before every PR
+├── verify.sh                  full verification suite, must pass before every PR
 ├── docs/
 │   ├── DEPLOYMENT.md           env vars, analytics events, launch/rollback runbook
 │   ├── redirects.md            301/308 redirect + SEO-equity audit
 │   ├── design-qa.md            latest design QA record
-│   ├── archive/                 obsolete handoff docs — historical only, do not follow
+│   ├── archive/                 obsolete handoff docs, historical only, do not follow
 │   ├── history/                 completed round run-reports + dated QA snapshots
 │   └── superpowers/             design specs and implementation plans
 ├── social/                    Instagram template/export workspace (marketing assets, not app code)
-└── yumkitchen-web/            THE APP — this is what you ship
+└── yumkitchen-web/            THE APP, this is what you ship
     ├── app/, components/, lib/, public/
     ├── scripts/                build-time + E2E/audit scripts (a11y, links, smoke UI, content validation, motion audits)
     └── package.json
@@ -43,7 +43,7 @@ Source of truth: `yumkitchen-web/app/globals.css` `@theme` block. Current values
 - Lowercase headlines preserved exactly where the source uses lowercase
 - Two button styles: `.btn-primary` (filled red, white text, bold) and `.btn-secondary` (outline, dark text)
 
-If `globals.css` and this file ever disagree, `globals.css` wins — update this file to match.
+If `globals.css` and this file ever disagree, `globals.css` wins. Update this file to match.
 
 ## Hard rules (NEVER VIOLATE)
 
@@ -70,18 +70,18 @@ If `globals.css` and this file ever disagree, `globals.css` wins — update this
 `bash verify.sh` (run from the repo root) runs, in order:
 - `npm run typecheck` (must pass)
 - `npm run lint` (must pass)
-- `npm run audit:motion` and `npm run audit:visual-motion` (motion governance — must pass)
-- `npm run validate:content` (menu/location data integrity — must pass)
+- `npm run audit:motion` and `npm run audit:visual-motion` (motion governance, must pass)
+- `npm run validate:content` (menu/location data integrity, must pass)
 - `npm run build` (must succeed)
 - `npm run smoke:ui`, `npm run audit:links`, `npm run a11y` against a locally started production server (a11y must report zero `serious`/`critical`)
-- `npm run lh` (Lighthouse mobile, key pages — must score Perf ≥ 90, A11y ≥ 95, BP ≥ 95, SEO = 100)
+- `npm run lh` (Lighthouse mobile, key pages, must score Perf ≥ 90, A11y ≥ 95, BP ≥ 95, SEO = 100)
 - A grep for em dashes in the diff against `main` (must find none)
 
 Failure on any check blocks the PR.
 
 ## Known open items
 
-- PR #2 (`brand-blue-pass` branch) is stale — see the flag at the top of `tasks.md`. Do not merge as-is.
+- PR #2 (`brand-blue-pass` branch) is stale, see the flag at the top of `tasks.md`. Do not merge as-is.
 - See `tasks.md` for the current OPEN list (Zach-gated items like DNS cutover, live Resend key, GTM/GA4 confirmation) and Zach-data-gated items (dietary tags, location amenities, menu CMS, etc.).
 
 ## Owner context
@@ -92,5 +92,5 @@ The owner is Zach Soskin. Voice preferences: short sentences, direct, no fluff, 
 
 1. Read `docs/DEPLOYMENT.md` and `docs/redirects.md` for launch/ops context.
 2. Read the most recent report under `docs/history/plans/` for what shipped last and why.
-3. Grep the live code (`yumkitchen-web/app`, `yumkitchen-web/components`, `yumkitchen-web/lib`) — it is the source of truth, not any doc.
+3. Grep the live code (`yumkitchen-web/app`, `yumkitchen-web/components`, `yumkitchen-web/lib`). It is the source of truth, not any doc.
 4. If still stuck, comment on the PR with the question. Do not guess.
