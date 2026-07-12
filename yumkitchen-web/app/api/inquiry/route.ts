@@ -1,41 +1,18 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { z } from 'zod';
+import {
+  addCareersIssues,
+  addMissingStringIssues,
+  cakeDeliveryRequiredFields,
+  inquiryFieldsSchema,
+  inquiryKinds,
+} from '@/lib/inquiryValidation';
 import { formSubjects } from '@/lib/site';
 
-const inquirySchema = z
-  .object({
-    kind: z.enum(['contact', 'catering', 'cake', 'careers', 'accessibility']),
-    firstName: z.string().min(1),
-    lastName: z.string().min(1),
-    email: z.string().email(),
-    phone: z.string().optional(),
-    location: z.string().optional(),
-    subject: z.string().min(1),
-    eventDate: z.string().optional(),
-    guests: z.string().optional(),
-    recipientName: z.string().optional(),
-    streetAddress: z.string().optional(),
-    addressLine2: z.string().optional(),
-    city: z.string().optional(),
-    state: z.string().optional(),
-    zip: z.string().optional(),
-    occasion: z.string().optional(),
-    giftMessage: z.string().max(140).optional(),
-    availability: z.string().optional(),
-    applyingFor: z.string().optional(),
-    commitments: z.string().optional(),
-    ageConfirm: z.boolean().optional(),
-    workAuthorized: z.boolean().optional(),
-    highestDegree: z.string().optional(),
-    restaurantExperience: z.string().optional(),
-    restaurantRoles: z.string().optional(),
-    specialSkills: z.string().optional(),
-    heardAbout: z.string().optional(),
-    referral: z.string().optional(),
-    promiseTrue: z.boolean().optional(),
-    message: z.string().min(10),
-    company: z.string().optional(),
+const inquirySchema = inquiryFieldsSchema
+  .extend({
+    kind: z.enum(inquiryKinds),
     sourcePath: z.string().max(200).optional(),
   })
   .superRefine((data, ctx) => {
@@ -48,54 +25,13 @@ const inquirySchema = z
         Boolean(data.recipientName?.trim() || data.streetAddress?.trim() || data.city?.trim() || data.state?.trim() || data.zip?.trim());
 
       if (hasShippingSignal) {
-        const requiredCakeStrings: Array<[keyof typeof data, string]> = [
-          ['recipientName', 'Recipient name is required.'],
-          ['eventDate', 'Requested delivery date is required.'],
-          ['streetAddress', 'Street address is required.'],
-          ['city', 'City is required.'],
-          ['state', 'State is required.'],
-          ['zip', 'ZIP code is required.'],
-          ['occasion', 'Occasion is required.'],
-        ];
-
-        for (const [field, message] of requiredCakeStrings) {
-          const value = data[field];
-          if (typeof value !== 'string' || !value.trim()) {
-            ctx.addIssue({ code: z.ZodIssueCode.custom, path: [field], message });
-          }
-        }
+        addMissingStringIssues(data, ctx, cakeDeliveryRequiredFields);
       }
     }
 
     if (data.kind !== 'careers') return;
 
-    const requiredStrings: Array<[keyof typeof data, string]> = [
-      ['phone', 'Phone is required.'],
-      ['location', 'Location is required.'],
-      ['availability', 'Availability is required.'],
-      ['applyingFor', 'Applying for is required.'],
-      ['highestDegree', 'Highest degree is required.'],
-      ['heardAbout', 'How you heard about this job is required.'],
-    ];
-
-    for (const [field, message] of requiredStrings) {
-      const value = data[field];
-      if (typeof value !== 'string' || !value.trim()) {
-        ctx.addIssue({ code: z.ZodIssueCode.custom, path: [field], message });
-      }
-    }
-
-    const requiredChecks: Array<[keyof typeof data, string]> = [
-      ['ageConfirm', 'Age confirmation is required.'],
-      ['workAuthorized', 'Work authorization confirmation is required.'],
-      ['promiseTrue', 'Application accuracy confirmation is required.'],
-    ];
-
-    for (const [field, message] of requiredChecks) {
-      if (data[field] !== true) {
-        ctx.addIssue({ code: z.ZodIssueCode.custom, path: [field], message });
-      }
-    }
+    addCareersIssues(data, ctx);
   });
 
 const locationRecipientEnv: Record<string, string | undefined> = {

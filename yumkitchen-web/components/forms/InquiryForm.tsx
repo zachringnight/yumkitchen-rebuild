@@ -6,43 +6,21 @@ import { useForm, type UseFormRegisterReturn } from 'react-hook-form';
 import { z } from 'zod';
 import { pushAnalyticsEvent } from '@/lib/analytics';
 import { CAKE_MESSAGE_EVENT, type CakeMessageDetail } from '@/lib/cakeMessage';
+import {
+  addCareersIssues,
+  addMissingStringIssues,
+  cakeDeliveryRequiredFields,
+  cakePickupRequiredFields,
+  inquiryFieldsSchema,
+  type CakeMode,
+  type InquiryKind,
+} from '@/lib/inquiryValidation';
 import { locations } from '@/lib/locations';
 
-export type InquiryKind = 'contact' | 'catering' | 'cake' | 'careers' | 'accessibility';
-type CakeMode = 'general' | 'pickup' | 'delivery';
+export type { InquiryKind };
 
-const schema = z.object({
-  firstName: z.string().min(1, 'First name is required.'),
-  lastName: z.string().min(1, 'Last name is required.'),
-  email: z.string().email('Enter a valid email.'),
-  phone: z.string().optional(),
-  recipientName: z.string().optional(),
-  location: z.string().optional(),
-  subject: z.string().min(1, 'Subject is required.'),
-  eventDate: z.string().optional(),
-  guests: z.string().optional(),
-  streetAddress: z.string().optional(),
-  addressLine2: z.string().optional(),
-  city: z.string().optional(),
-  state: z.string().optional(),
-  zip: z.string().optional(),
-  occasion: z.string().optional(),
-  giftMessage: z.string().max(140, 'Gift message must be 140 characters or fewer.').optional(),
-  availability: z.string().optional(),
-  applyingFor: z.string().optional(),
-  commitments: z.string().optional(),
-  ageConfirm: z.boolean().optional(),
-  workAuthorized: z.boolean().optional(),
-  highestDegree: z.string().optional(),
+const schema = inquiryFieldsSchema.extend({
   resume: z.any().optional(),
-  restaurantExperience: z.string().optional(),
-  restaurantRoles: z.string().optional(),
-  specialSkills: z.string().optional(),
-  heardAbout: z.string().optional(),
-  referral: z.string().optional(),
-  promiseTrue: z.boolean().optional(),
-  message: z.string().min(10, 'Please share a little more detail.'),
-  company: z.string().optional(),
 });
 
 type InquiryFormValues = z.infer<typeof schema>;
@@ -50,67 +28,16 @@ type InquiryFormValues = z.infer<typeof schema>;
 function formSchemaFor(kind: InquiryKind, cakeMode: CakeMode) {
   return schema.superRefine((values, ctx) => {
     if (kind === 'cake' && cakeMode === 'pickup') {
-      const requiredFields: Array<[keyof InquiryFormValues, string]> = [
-        ['location', 'Pickup restaurant is required.'],
-        ['eventDate', 'Pickup date is required.'],
-      ];
-
-      for (const [field, message] of requiredFields) {
-        const value = values[field];
-        if (typeof value !== 'string' || !value.trim()) {
-          ctx.addIssue({ code: z.ZodIssueCode.custom, path: [field], message });
-        }
-      }
+      addMissingStringIssues(values, ctx, cakePickupRequiredFields);
     }
 
     if (kind === 'cake' && cakeMode === 'delivery') {
-      const requiredFields: Array<[keyof InquiryFormValues, string]> = [
-        ['recipientName', 'Recipient name is required.'],
-        ['eventDate', 'Requested delivery date is required.'],
-        ['streetAddress', 'Street address is required.'],
-        ['city', 'City is required.'],
-        ['state', 'State is required.'],
-        ['zip', 'ZIP code is required.'],
-        ['occasion', 'Occasion is required.'],
-      ];
-
-      for (const [field, message] of requiredFields) {
-        const value = values[field];
-        if (typeof value !== 'string' || !value.trim()) {
-          ctx.addIssue({ code: z.ZodIssueCode.custom, path: [field], message });
-        }
-      }
+      addMissingStringIssues(values, ctx, cakeDeliveryRequiredFields);
     }
 
     if (kind !== 'careers') return;
 
-    const requiredFields: Array<[keyof InquiryFormValues, string]> = [
-      ['phone', 'Phone is required.'],
-      ['location', 'Location is required.'],
-      ['availability', 'Availability is required.'],
-      ['applyingFor', 'Applying for is required.'],
-      ['highestDegree', 'Highest degree is required.'],
-      ['heardAbout', 'Please tell us how you heard about this job.'],
-    ];
-
-    for (const [field, message] of requiredFields) {
-      const value = values[field];
-      if (typeof value !== 'string' || !value.trim()) {
-        ctx.addIssue({ code: z.ZodIssueCode.custom, path: [field], message });
-      }
-    }
-
-    const requiredChecks: Array<[keyof InquiryFormValues, string]> = [
-      ['ageConfirm', 'Please confirm your age.'],
-      ['workAuthorized', 'Please confirm work authorization.'],
-      ['promiseTrue', 'Please confirm the application is accurate.'],
-    ];
-
-    for (const [field, message] of requiredChecks) {
-      if (values[field] !== true) {
-        ctx.addIssue({ code: z.ZodIssueCode.custom, path: [field], message });
-      }
-    }
+    addCareersIssues(values, ctx);
 
     const fileList = values.resume;
     const file = typeof FileList === 'undefined' || !(fileList instanceof FileList) ? null : fileList.item(0);
