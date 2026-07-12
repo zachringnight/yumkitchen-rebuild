@@ -151,9 +151,7 @@ export default function CakePage() {
               src="/images/patticake/layers_slice_vertical.jpg"
               alt="yum! patticake chocolate cake layers close up"
               fill
-              preload
-              loading="eager"
-              fetchPriority="high"
+              priority
               sizes="(min-width: 1024px) 58vw, 100vw"
               className="object-cover crop-patticake-vertical-layer"
             />

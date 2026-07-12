@@ -16,11 +16,11 @@ export function MobileOrderBar() {
   const patticakeSurface = usePatticakeSurface();
   const inPatticakeOrderSection = pathname === '/patticake' && hash === '#national-order';
   const inPatticakeShippingForm = pathname === '/patticake' && hash === '#delivery-support';
-  const patticakePrimaryHref = pathname === '/order-a-cake' ? '#cake-inquiry' : inPatticakeOrderSection || inPatticakeShippingForm ? '#delivery-support' : patticakeNationalOrderUrl;
+  const patticakePrimaryHref = pathname === '/order-a-cake' ? '#cake-inquiry' : inPatticakeOrderSection ? '/patticake/checkout' : inPatticakeShippingForm ? '#delivery-support' : patticakeNationalOrderUrl;
   const patticakeOrderIsExternal = /^https?:\/\//.test(patticakePrimaryHref);
   const patticakeStickyTitle = pathname === '/order-a-cake' ? 'Pick Up Locally' : inPatticakeShippingForm ? 'Shipping Note' : 'Ship a Cake';
-  const patticakeStickyCopy = pathname === '/order-a-cake' ? 'fresh from yum!' : inPatticakeOrderSection || inPatticakeShippingForm ? 'start the bakery note' : 'we help it arrive ready to share';
-  const patticakeStickyAction = pathname === '/order-a-cake' ? 'Pick Up Locally' : inPatticakeOrderSection || inPatticakeShippingForm ? 'Start Note' : 'Ship a Cake';
+  const patticakeStickyCopy = pathname === '/order-a-cake' ? 'fresh from yum!' : inPatticakeOrderSection ? 'review your cake box' : inPatticakeShippingForm ? 'start the bakery note' : 'we help it arrive ready to share';
+  const patticakeStickyAction = pathname === '/order-a-cake' ? 'Pick Up Locally' : inPatticakeOrderSection ? 'Checkout' : inPatticakeShippingForm ? 'Start Note' : 'Ship a Cake';
 
   useEffect(() => {
     const showAfter = pathname === '/' ? 820 : 260;

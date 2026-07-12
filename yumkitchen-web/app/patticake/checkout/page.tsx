@@ -9,7 +9,12 @@ import { formatUsd } from '@/lib/patticake/catalog';
 
 type DraftRecipient = Omit<Recipient, 'id'>;
 
-const US_STATES = ['MN', 'WI', 'IA', 'ND', 'SD', 'IL', 'CA', 'NY', 'TX', 'FL', 'WA', 'CO', 'MA', 'AZ', 'GA', 'OR', 'MI', 'OH', 'PA', 'NC'];
+// All 50 states + DC; the module ships nationwide. MN stays the default.
+const US_STATES = [
+  'MN', 'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN',
+  'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV',
+  'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY',
+];
 
 function blankRecipient(): DraftRecipient {
   return { name: '', address1: '', address2: '', city: '', state: 'MN', zip: '' };

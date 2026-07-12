@@ -16,10 +16,10 @@ const paths = [
     key: 'shipping',
     label: 'long-distance gifting',
     title: 'send Patticake farther',
-    copy: 'Choose this when the cake needs to travel. Send the address, date, and gift message first.',
-    href: '/patticake#delivery-support',
-    action: 'Start a Shipping Note',
-    facts: ['ship-to address first', 'timing checked by yum!', 'we reply before we bake'],
+    copy: 'Choose this when the cake needs to travel. Order online with a delivery date and gift message, or start with a note.',
+    href: '/patticake#national-order',
+    action: 'Ship a Cake',
+    facts: ['order online in a few taps', 'timing checked by yum!', 'packed to travel nationwide'],
   },
 ] as const;
 

@@ -27,7 +27,7 @@ export function SiteHeader() {
   const { location, isRouteLocation } = useEffectiveLocation();
   const patticakeSurface = usePatticakeSurface();
   const mobileMenuId = 'site-mobile-navigation';
-  const inPatticakeShippingStep = pathname === '/patticake' && (hash === '#national-order' || hash === '#delivery-support');
+  const inPatticakeShippingStep = pathname === '/patticake' && hash === '#delivery-support';
   const patticakePrimaryHref = pathname === '/order-a-cake' ? '#cake-inquiry' : inPatticakeShippingStep ? '#delivery-support' : patticakeNationalOrderUrl;
   const patticakeOrderIsExternal = /^https?:\/\//.test(patticakePrimaryHref);
   const patticakePrimaryLabel = pathname === '/order-a-cake' ? 'Pick Up Locally' : inPatticakeShippingStep ? 'Start Note' : 'Ship a Cake';

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { CakeBuyModule } from '@/components/patticake/CakeBuyModule';
 import { InquiryForm } from '@/components/forms/InquiryForm';
+import { JsonLd } from '@/components/JsonLd';
 import { MediaProofBand } from '@/components/MediaProofBand';
 import { ReviewsWall } from '@/components/ReviewsWall';
 import { PatticakeHeroPeek } from '@/components/PatticakeHeroPeek';
@@ -23,23 +24,23 @@ export const metadata: Metadata = {
 const steps = [
   {
     number: '1',
-    title: 'start the note',
-    copy: 'Send the delivery date, address, and sweet reason for the cake.',
+    title: 'choose your cake',
+    copy: 'Pick a whole cake or slices, and tell us the occasion.',
   },
   {
     number: '2',
-    title: 'we help it travel',
-    copy: 'We check timing, weather, and the best way to get it there.',
+    title: 'set the delivery',
+    copy: 'Add the ship-to address and delivery date at checkout.',
   },
   {
     number: '3',
-    title: 'add the gift note',
-    copy: 'Share the words for the cake or the message that should travel with it.',
+    title: 'add the words',
+    copy: 'Write the gift message that should travel with the cake.',
   },
   {
     number: '4',
-    title: 'send the cake',
-    copy: 'Patticake is packed with care and sent for the moment it needs to reach.',
+    title: 'we bake and send',
+    copy: 'Patticake is baked fresh, packed with care, and sent ready to share.',
   },
 ] as const;
 
@@ -76,7 +77,7 @@ const occasions = [
 
 const confirmations = [
   'recipient name and full ship-to address',
-  'hoped-for delivery date',
+  'delivery date, three or more days out',
   'servings, occasion, and gift message',
   'weather, timing, or packing notes',
   'local pickup if the cake is staying in the Twin Cities',
@@ -85,15 +86,15 @@ const confirmations = [
 const deliveryFacts = [
   {
     title: 'price',
-    copy: 'Send the note first. We reply with the cake and shipping total before we bake.',
+    copy: 'Whole cakes and slices are priced right on this page. Shipping is added at checkout, before you pay.',
   },
   {
     title: 'timing',
-    copy: 'Tell us your hoped-for delivery date. We check lead time, weather, and the best way to send it.',
+    copy: 'Delivery dates start three days out. Pick your date at checkout and we bake close to it.',
   },
   {
     title: 'where it goes',
-    copy: 'Add the full ship-to address so we can help choose shipping or local pickup.',
+    copy: 'Patticake ships nationwide. Add the full ship-to address at checkout, or choose local pickup instead.',
   },
   {
     title: 'how it arrives',
@@ -134,11 +135,11 @@ const faqs = [
   },
   {
     question: 'Where can Patticake ship?',
-    answer: 'Send the address first. We will confirm the shipping plan, timing, and whether local pickup is a better fit.',
+    answer: 'Patticake ships nationwide. Add the ship-to address at checkout and we pack it to travel. Staying in the Twin Cities? Local pickup works too.',
   },
   {
-    question: 'How soon should I ask?',
-    answer: 'Earlier is better. Tell us the hoped-for delivery date and we will help choose a plan that makes sense.',
+    question: 'How soon should I order?',
+    answer: 'Delivery dates start three days out, and earlier is better for big moments. We bake close to your date so it arrives fresh.',
   },
   {
     question: 'Can I pick up locally?',
@@ -168,7 +169,7 @@ const productJsonLd = {
   '@type': 'Product',
   name: 'Patticake',
   description:
-    'yum! Kitchen and Bakery’s signature Patticake: a towering triple-layer chocolate cake with vanilla buttercream, baked from scratch. Available as an 8-inch round that serves 8–16, or by the slice.',
+    'yum! Kitchen and Bakery’s signature Patticake: a towering triple-layer chocolate cake with vanilla buttercream, baked from scratch. Available as an 8-inch round that serves 8 to 16, or by the slice.',
   image: [
     patticakeCanonical('/images/patticake/03_top_view.jpg'),
     patticakeCanonical('/images/patticake/09_slices.jpg'),
@@ -179,6 +180,15 @@ const productJsonLd = {
   },
   category: 'Cake',
   url: patticakeCanonical('/patticake'),
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'USD',
+    lowPrice: '7.50',
+    highPrice: '59.95',
+    offerCount: 2,
+    availability: 'https://schema.org/InStock',
+    url: patticakeCanonical('/patticake'),
+  },
 };
 
 const nationalOrderIsExternal = /^https?:\/\//.test(patticakeNationalOrderUrl);
@@ -186,8 +196,8 @@ const nationalOrderIsExternal = /^https?:\/\//.test(patticakeNationalOrderUrl);
 export default function PatticakeNationalDeliveryPage() {
   return (
     <main className="bg-page">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
+      <JsonLd data={jsonLd} />
+      <JsonLd data={productJsonLd} />
 
       <section className="overflow-hidden bg-cream px-6 py-[clamp(3.5rem,7vw,6.5rem)]">
         <div className="mx-auto grid max-w-[1240px] gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
@@ -213,7 +223,7 @@ export default function PatticakeNationalDeliveryPage() {
               </Link>
             </div>
             <p className="mt-4 max-w-lg text-base font-bold leading-7 text-brand-primary">
-              Start the note, we&apos;ll reply with the next sweet step.
+              Order online in a few taps, or start a note and we&apos;ll help you plan it.
             </p>
             <div className="mt-9 hidden gap-3 sm:grid sm:grid-cols-2">
               <HeroNote title="built for gifting" copy="address, date, occasion, and message" />
@@ -227,9 +237,7 @@ export default function PatticakeNationalDeliveryPage() {
                 src="/images/patticake/09_slices.jpg"
                 alt="yum! patticake slices on plates"
                 fill
-                preload
-                loading="eager"
-                fetchPriority="high"
+                priority
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover crop-patticake-slices"
               />
@@ -285,9 +293,9 @@ export default function PatticakeNationalDeliveryPage() {
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.68fr_1.32fr] lg:items-center">
           <div>
             <p className="section-label">before you ship</p>
-            <h2 className="text-h2 lowercase">what happens after you send the note</h2>
+            <h2 className="text-h2 lowercase">how shipping works</h2>
             <p className="mt-5 text-xl leading-9 text-body">
-              This starts with a real bakery note. Tell us where the Patticake is going and we&apos;ll make the next step clear.
+              Order online and we take it from there. Prefer to talk it through first? Send a shipping note and a real yum! baker will reply.
             </p>
             <div className="patticake-trust-strip">
               {trustNotes.map((note) => (
@@ -328,7 +336,7 @@ export default function PatticakeNationalDeliveryPage() {
             <div>
               <h2 className="font-serif text-[2.7rem] font-normal leading-tight lowercase text-brand-primary">a clearer way to send it.</h2>
               <p className="mt-4 max-w-[560px] text-lg leading-8 text-ink">
-                Start with a shipping note, add the words for the cake, and we&apos;ll help it travel with care.
+                Pick the cake, set the date and message at checkout, and we&apos;ll help it travel with care.
               </p>
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

@@ -27,7 +27,7 @@ export function PatticakeConciergeBand() {
             Patticake should feel loved from the first note to the first slice. Tell us where it is headed, then we help make the next step easy.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/patticake#delivery-support" className="btn-primary">
+            <Link href="/patticake#national-order" className="btn-primary">
               Ship a Cake
             </Link>
             <Link href="/order-a-cake#cake-inquiry" className="btn-secondary">

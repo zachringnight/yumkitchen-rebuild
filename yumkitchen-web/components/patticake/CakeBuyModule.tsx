@@ -38,16 +38,16 @@ export function CakeBuyModule() {
           </div>
 
           <div className="border border-ink/12 bg-white p-6 lg:p-8">
-            {/* Cake picker */}
-            <div className="grid gap-2" role="tablist" aria-label="Choose a cake">
+            {/* Cake picker: toggle buttons, not tabs - no tabpanel or arrow-key
+                semantics here, so aria-pressed matches the size picker below */}
+            <div className="grid gap-2" role="group" aria-label="Choose a cake">
               {cakes.map((c) => {
                 const active = c.slug === activeSlug;
                 return (
                   <button
                     key={c.slug}
                     type="button"
-                    role="tab"
-                    aria-selected={active}
+                    aria-pressed={active}
                     onClick={() => setActiveSlug(c.slug)}
                     className={`flex items-center justify-between border px-4 py-3 text-left transition focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-brand-red ${
                       active ? 'border-brand-primary bg-cream' : 'border-ink/15 bg-page hover:border-brand-red'
