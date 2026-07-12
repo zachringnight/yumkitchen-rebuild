@@ -28,12 +28,22 @@ PORT="${PORT:-3000}"
 BASE_URL="http://localhost:${PORT}"
 SERVER_PID=""
 
+# Kill a process and all of its descendants, deepest first. npm run start
+# wraps sh which wraps next-server; killing only the wrapper reparents the
+# server to init and it keeps serving the old build for later runs.
+kill_tree() {
+  local pid="$1"
+  local child
+  for child in $(pgrep -P "$pid" 2>/dev/null); do
+    kill_tree "$child"
+  done
+  kill "$pid" > /dev/null 2>&1
+}
+
 cleanup() {
   if [ -n "$SERVER_PID" ]; then
-    kill "$SERVER_PID" > /dev/null 2>&1
-    # npm run start detaches a next-server child that survives killing the
-    # wrapper PID; kill whatever is still listening on the port so later
-    # runs cannot pick up a stale server.
+    kill_tree "$SERVER_PID"
+    # Belt and braces where a child already reparented before the walk.
     if command -v lsof > /dev/null 2>&1; then
       for pid in $(lsof -ti tcp:"$PORT" 2>/dev/null); do
         kill "$pid" > /dev/null 2>&1
