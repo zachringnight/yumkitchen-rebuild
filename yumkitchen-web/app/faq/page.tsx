@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { JsonLd } from '@/components/JsonLd';
 import { absoluteSiteUrl, yumCanonical, yumKitchenSiteName, yumOpenGraph, yumTitle } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -17,7 +18,7 @@ const faqSections = [
     items: [
       { q: 'Can I order a Patticake online?', a: 'Yes. Choose your cake, add a delivery date and gift message, and check out. Send it nationwide, or pick up locally at any of our four Twin Cities restaurants.' },
       { q: 'How does cake shipping work?', a: 'Pick a delivery date at checkout and we bake fresh and ship it ready to share. Add a gift note and we tuck it right in.' },
-      { q: 'Can I send cakes to more than one person?', a: 'Yes. At checkout you can send the same cake to several addresses at once — handy for teams, family, and thank-yous.' },
+      { q: 'Can I send cakes to more than one person?', a: 'Yes. At checkout you can send the same cake to several addresses at once. Handy for teams, family, and thank-yous.' },
       { q: 'What cakes can I choose from?', a: 'Patticake, our signature triple-layer chocolate cake with vanilla buttercream, plus Baker’s Man and Coconut Cake. For custom and wedding cakes, start a cake inquiry and our team will follow up.' },
     ],
   },
@@ -37,7 +38,7 @@ const faqSections = [
     ],
   },
   {
-    heading: 'allergens and questions',
+    heading: 'allergens and help',
     items: [
       { q: 'Do you have allergen information?', a: 'For allergy questions, please review the current allergen information and call the location before ordering. Our team is happy to help you choose carefully.' },
       { q: 'Who do I call with a question?', a: 'Reach out through our contact page or call your nearest location directly. We’re happy to help.' },
@@ -69,8 +70,8 @@ const breadcrumbJsonLd = {
 export default function FaqPage() {
   return (
     <main className="bg-page">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <JsonLd data={faqJsonLd} />
+      <JsonLd data={breadcrumbJsonLd} />
 
       <section className="bg-cream px-6 py-section">
         <div className="container-content">
@@ -102,7 +103,7 @@ export default function FaqPage() {
         </div>
         <div className="mx-auto mt-12 max-w-[1000px] flex flex-wrap gap-3">
           <Link href="/contact" className="btn-primary">
-            Contact us
+            Contact Us
           </Link>
           <Link href="/patticake#national-order" className="btn-secondary">
             Ship a Cake

@@ -170,7 +170,7 @@ export default function CakePage() {
                 <p className="font-serif text-2xl leading-tight text-ink">chocolate layers, vanilla buttercream</p>
                 <p className="mt-1 text-base leading-6 text-body">the cake people ask for by name</p>
               </div>
-              <a href="#shop-patticake" className="btn-secondary bg-white px-4 py-3 text-base">
+              <a href="#shop-patticake" className="btn-secondary bg-white px-4 py-3 text-base hover:bg-brand-red">
                 Choose Your Cake
               </a>
             </div>

@@ -114,7 +114,7 @@ const cakeFacts = [
   },
   {
     title: 'the size',
-    copy: 'An 8-inch round that serves 8–16 — or send it by the slice.',
+    copy: 'An 8-inch round that serves 8 to 16, or send it by the slice.',
   },
   {
     title: 'the lineup',
@@ -262,7 +262,7 @@ export default function PatticakeNationalDeliveryPage() {
             <p className="section-label">meet the cake</p>
             <h2 className="text-h2 lowercase">what you&apos;re sending</h2>
             <p className="mt-5 text-xl leading-9 text-body">
-              Patticake is yum!&apos;s signature — a towering triple-layer chocolate cake with vanilla buttercream, baked from scratch and packed to travel.
+              Patticake is yum!&apos;s signature: a towering triple-layer chocolate cake with vanilla buttercream, baked from scratch and packed to travel.
             </p>
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-3">

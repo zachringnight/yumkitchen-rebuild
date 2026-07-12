@@ -23,7 +23,7 @@ export const pressPullQuotes = [
 // real customer content is used publicly only after rights are cleared.
 export const sampleReviews = [
   { name: 'Marisa K.', rating: 5, text: 'Shipped a Patticake to my mom three states away and it arrived perfect. She cried. Worth every penny.' },
-  { name: 'Devon R.', rating: 5, text: 'The chocolate cake is unreal — moist, not too sweet, and that buttercream. Our office birthday standard now.' },
+  { name: 'Devon R.', rating: 5, text: 'The chocolate cake is unreal: moist, not too sweet, and that buttercream. Our office birthday standard now.' },
   { name: 'Priya S.', rating: 4, text: 'Ordering was easy and the gift note was a lovely touch. Delivery date was exactly on time.' },
   { name: 'Tom & Angela', rating: 5, text: 'We do a lot of long-distance celebrating. This is the easiest, most thoughtful gift we send.' },
 ] as const;

@@ -58,16 +58,21 @@
   }
 }
 
-.btn-primary {
-  @apply inline-block border-0 bg-brand-red px-6 py-3 text-center font-sans text-lg font-bold leading-none text-white transition-colors hover:bg-brand-primary focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-brand-red disabled:cursor-not-allowed disabled:opacity-60;
-}
+/* Button styles live in @layer components so per-use Tailwind utilities
+   (px-*, text-*, flex, ...) can override them. Unlayered rules would win
+   over utilities in the cascade and silently ignore those overrides. */
+@layer components {
+  .btn-primary {
+    @apply inline-block border-0 bg-brand-red px-6 py-3 text-center font-sans text-lg font-bold leading-none text-white transition-colors hover:bg-brand-primary focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-brand-red disabled:cursor-not-allowed disabled:opacity-60;
+  }
 
-.btn-secondary {
-  @apply inline-block border-2 border-body bg-transparent px-6 py-3 text-center font-sans text-lg font-normal leading-none text-ink transition-colors hover:border-brand-red hover:bg-brand-red hover:text-white focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-brand-red;
-}
+  .btn-secondary {
+    @apply inline-block border-2 border-body bg-transparent px-6 py-3 text-center font-sans text-lg font-normal leading-none text-ink transition-colors hover:border-brand-red hover:bg-brand-red hover:text-white focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-brand-red;
+  }
 
-.btn-link {
-  @apply font-sans text-lg font-normal leading-snug text-brand-primary hover:text-ink hover:underline;
+  .btn-link {
+    @apply font-sans text-lg font-normal leading-snug text-brand-primary hover:text-ink hover:underline;
+  }
 }
 
 .container-content {
