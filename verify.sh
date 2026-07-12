@@ -31,6 +31,14 @@ SERVER_PID=""
 cleanup() {
   if [ -n "$SERVER_PID" ]; then
     kill "$SERVER_PID" > /dev/null 2>&1
+    # npm run start detaches a next-server child that survives killing the
+    # wrapper PID; kill whatever is still listening on the port so later
+    # runs cannot pick up a stale server.
+    if command -v lsof > /dev/null 2>&1; then
+      for pid in $(lsof -ti tcp:"$PORT" 2>/dev/null); do
+        kill "$pid" > /dev/null 2>&1
+      done
+    fi
   fi
 }
 trap cleanup EXIT
@@ -57,9 +65,15 @@ else
   echo -e "  ${GREEN}PASS${RESET}: no em dashes in diff"
 fi
 
-if ! curl -sf "$BASE_URL" > /dev/null 2>&1; then
-  echo ""
-  echo "==> Starting production server for browser checks"
+echo ""
+echo "==> Starting production server for browser checks"
+if curl -sf "$BASE_URL" > /dev/null 2>&1; then
+  # A pre-existing server would make every browser check run against
+  # whatever build it is serving, not the one built above - that can fail
+  # a good build or, worse, pass a broken one. Refuse to continue.
+  echo -e "  ${RED}FAIL${RESET}: something is already serving ${BASE_URL}. Stop it (or set PORT to a free port) and re-run; browser checks must test the build made by this run."
+  ERRS=$((ERRS+1))
+else
   cd "$APP_DIR"
   npm run start -- --hostname 127.0.0.1 --port "$PORT" > /tmp/yum-next-start.log 2>&1 &
   SERVER_PID=$!
@@ -72,7 +86,9 @@ if ! curl -sf "$BASE_URL" > /dev/null 2>&1; then
   done
 fi
 
-if ! curl -sf "$BASE_URL" > /dev/null 2>&1; then
+if [ -z "$SERVER_PID" ]; then
+  : # port was occupied; already counted as an error above
+elif ! curl -sf "$BASE_URL" > /dev/null 2>&1; then
   echo -e "  ${RED}FAIL${RESET}: production server did not start"
   cat /tmp/yum-next-start.log 2>/dev/null
   ERRS=$((ERRS+1))
