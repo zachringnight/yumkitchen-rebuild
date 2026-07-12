@@ -41,6 +41,26 @@ const appRequire = createRequire(`${process.cwd()}/package.json`);
       try {
         await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
         await page.waitForSelector('main, #main-content', { timeout: 15000 });
+        // Third-party embeds (Google Maps) may never navigate on
+        // restricted-network runners; axe throws "Page/Frame is not ready"
+        // when injecting into an unnavigated frame. Give embeds a bounded
+        // wait, then drop still-blank iframes - there is no content to audit.
+        await page.evaluate(async () => {
+          const deadline = Date.now() + 8000;
+          const blank = (frame) => {
+            try {
+              return !frame.contentWindow || frame.contentWindow.location.href === 'about:blank';
+            } catch {
+              return false; // cross-origin frame has navigated; keep it
+            }
+          };
+          let pending = [...document.querySelectorAll('iframe')].filter(blank);
+          while (pending.length > 0 && Date.now() < deadline) {
+            await new Promise((resolve) => setTimeout(resolve, 250));
+            pending = pending.filter(blank);
+          }
+          pending.forEach((frame) => frame.remove());
+        });
         const results = await new AxePuppeteer(page)
           .options({ runOnly: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'] })
           .analyze();

@@ -20,7 +20,7 @@ export default function ThankYouPage() {
         <div className="mx-auto max-w-[760px] text-center">
           <p className="section-label">message received</p>
           <h1 className="font-serif text-[clamp(3.5rem,8vw,6rem)] font-normal leading-[0.95] lowercase text-ink">thank you!</h1>
-          <p className="mx-auto mt-6 max-w-xl text-xl leading-9 text-body">We will be in contact soon.</p>
+          <p className="mx-auto mt-6 max-w-xl text-xl leading-9 text-body">We got your note. Someone from yum! will be in touch soon.</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link href="/yum-kitchen" className="btn-primary">
               Back to yum!

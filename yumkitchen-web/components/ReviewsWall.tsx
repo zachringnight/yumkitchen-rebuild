@@ -3,7 +3,7 @@ import { pressPullQuotes, ratingHeadline, ratingPlatforms, sampleReviews } from 
 function Stars({ value, className = '' }: { value: number; className?: string }) {
   const full = Math.round(value);
   return (
-    <span aria-label={`${value} out of 5 stars`} className={`inline-flex gap-0.5 text-brand-red ${className}`}>
+    <span role="img" aria-label={`${value} out of 5 stars`} className={`inline-flex gap-0.5 text-brand-red ${className}`}>
       {Array.from({ length: 5 }).map((_, i) => (
         <span key={i} aria-hidden="true" className={i < full ? 'opacity-100' : 'opacity-25'}>
           ★

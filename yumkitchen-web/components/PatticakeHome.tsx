@@ -34,7 +34,7 @@ const heroFrames = [
 const moments = [
   {
     title: 'Ship a Cake',
-    copy: 'Start a shipped-cake note for birthdays, thank-yous, office celebrations, and long-distance family tables.',
+    copy: 'Send a Patticake for birthdays, thank-yous, office celebrations, and long-distance family tables.',
     href: '/patticake#national-order',
     action: 'Ship a Cake',
     image: '/images/patticake/gift_box_vertical.jpg',
@@ -112,7 +112,7 @@ export function PatticakeHome() {
             </div>
           </div>
 
-          <div className="patticake-remotion-board motion-role-ambient" aria-label="Patticake animated product story">
+          <div className="patticake-remotion-board motion-role-ambient" role="group" aria-label="Patticake animated product story">
             <MotionPauseButton className="motion-pause-button" />
             <div className="patticake-floating-messages" aria-hidden="true">
               <span>happy birthday</span>

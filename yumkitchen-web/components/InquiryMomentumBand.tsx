@@ -34,7 +34,7 @@ export function InquiryMomentumBand({
               {primaryLabel}
             </Link>
             {secondaryHref && secondaryLabel && (
-              <Link href={secondaryHref} className="border-2 border-body px-7 py-3.5 text-center font-sans text-lg font-bold uppercase tracking-[0.06em] text-ink transition hover:border-brand-red hover:bg-brand-red hover:text-white">
+              <Link href={secondaryHref} className="btn-secondary">
                 {secondaryLabel}
               </Link>
             )}

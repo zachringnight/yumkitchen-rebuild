@@ -14,13 +14,17 @@ export function MobileOrderBar() {
   const [visible, setVisible] = useState(false);
   const [hash, setHash] = useState('');
   const patticakeSurface = usePatticakeSurface();
-  const inPatticakeOrderSection = pathname === '/patticake' && hash === '#national-order';
+  // The internal checkout shortcut only applies while the default in-page
+  // order module is the configured national checkout; a configured external
+  // NEXT_PUBLIC_PATTICAKE_NATIONAL_ORDER_URL must keep winning at launch.
+  const nationalOrderIsInternal = !/^https?:\/\//.test(patticakeNationalOrderUrl);
+  const inPatticakeOrderSection = pathname === '/patticake' && hash === '#national-order' && nationalOrderIsInternal;
   const inPatticakeShippingForm = pathname === '/patticake' && hash === '#delivery-support';
-  const patticakePrimaryHref = pathname === '/order-a-cake' ? '#cake-inquiry' : inPatticakeOrderSection || inPatticakeShippingForm ? '#delivery-support' : patticakeNationalOrderUrl;
+  const patticakePrimaryHref = pathname === '/order-a-cake' ? '#cake-inquiry' : inPatticakeOrderSection ? '/patticake/checkout' : inPatticakeShippingForm ? '#delivery-support' : patticakeNationalOrderUrl;
   const patticakeOrderIsExternal = /^https?:\/\//.test(patticakePrimaryHref);
   const patticakeStickyTitle = pathname === '/order-a-cake' ? 'Pick Up Locally' : inPatticakeShippingForm ? 'Shipping Note' : 'Ship a Cake';
-  const patticakeStickyCopy = pathname === '/order-a-cake' ? 'fresh from yum!' : inPatticakeOrderSection || inPatticakeShippingForm ? 'start the bakery note' : 'we help it arrive ready to share';
-  const patticakeStickyAction = pathname === '/order-a-cake' ? 'Pick Up Locally' : inPatticakeOrderSection || inPatticakeShippingForm ? 'Start Note' : 'Ship a Cake';
+  const patticakeStickyCopy = pathname === '/order-a-cake' ? 'fresh from yum!' : inPatticakeOrderSection ? 'review your cake box' : inPatticakeShippingForm ? 'start the bakery note' : 'we help it arrive ready to share';
+  const patticakeStickyAction = pathname === '/order-a-cake' ? 'Pick Up Locally' : inPatticakeOrderSection ? 'Checkout' : inPatticakeShippingForm ? 'Start Note' : 'Ship a Cake';
 
   useEffect(() => {
     const showAfter = pathname === '/' ? 820 : 260;

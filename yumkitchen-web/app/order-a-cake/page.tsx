@@ -151,9 +151,7 @@ export default function CakePage() {
               src="/images/patticake/layers_slice_vertical.jpg"
               alt="yum! patticake chocolate cake layers close up"
               fill
-              preload
-              loading="eager"
-              fetchPriority="high"
+              priority
               sizes="(min-width: 1024px) 58vw, 100vw"
               className="object-cover crop-patticake-vertical-layer"
             />
@@ -170,7 +168,7 @@ export default function CakePage() {
                 <p className="font-serif text-2xl leading-tight text-ink">chocolate layers, vanilla buttercream</p>
                 <p className="mt-1 text-base leading-6 text-body">the cake people ask for by name</p>
               </div>
-              <a href="#shop-patticake" className="btn-secondary bg-white px-4 py-3 text-base">
+              <a href="#shop-patticake" className="btn-secondary bg-white px-4 py-3 text-base hover:bg-brand-red">
                 Choose Your Cake
               </a>
             </div>
