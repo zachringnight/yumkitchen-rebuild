@@ -5,6 +5,7 @@ import { cloneElement, useEffect, useMemo, useRef, useState, type ReactElement }
 import { useForm, type UseFormRegisterReturn } from 'react-hook-form';
 import { z } from 'zod';
 import { pushAnalyticsEvent } from '@/lib/analytics';
+import { CAKE_MESSAGE_EVENT, type CakeMessageDetail } from '@/lib/cakeMessage';
 import { locations } from '@/lib/locations';
 
 export type InquiryKind = 'contact' | 'catering' | 'cake' | 'careers' | 'accessibility';
@@ -125,6 +126,29 @@ function formSchemaFor(kind: InquiryKind, cakeMode: CakeMode) {
   });
 }
 
+function revealAndFocusField(id: string) {
+  // Bring the field to center — seeing the words land is the point. Lazy
+  // images loading mid-scroll shift the layout under the animation, so
+  // re-check after it settles and nudge if the field drifted (same retry
+  // idea as HashAnchorScroll).
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const field = document.getElementById(id);
+      if (!field) return;
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      field.focus({ preventScroll: true });
+      field.scrollIntoView({ block: 'center', behavior: reduceMotion ? 'auto' : 'smooth' });
+      for (const delay of [700, 1400]) {
+        window.setTimeout(() => {
+          const rect = field.getBoundingClientRect();
+          const offCenter = Math.abs(rect.top + rect.height / 2 - window.innerHeight / 2);
+          if (offCenter > 48) field.scrollIntoView({ block: 'center', behavior: 'auto' });
+        }, delay);
+      }
+    });
+  });
+}
+
 const labels: Record<InquiryKind, { subject: string; message: string; submit: string }> = {
   contact: {
     subject: 'Subject',
@@ -217,11 +241,40 @@ export function InquiryForm({
     handleSubmit,
     formState: { errors },
     reset,
+    setValue,
+    getValues,
   } = useForm<InquiryFormValues>({
     resolver: zodResolver(validationSchema),
     defaultValues: defaults,
   });
   const giftMessageRegistration = register('giftMessage');
+
+  useEffect(() => {
+    if (kind !== 'cake') return;
+
+    function onCakeMessage(event: Event) {
+      const message = (event as CustomEvent<CakeMessageDetail>).detail?.message?.trim();
+      if (!message) return;
+
+      if (isDeliveryCake) {
+        const giftMessage = message.slice(0, 140);
+        setValue('giftMessage', giftMessage, { shouldDirty: true });
+        setGiftMessageLength(giftMessage.length);
+        revealAndFocusField('cake-gift-message');
+        return;
+      }
+
+      const cakeWords = `Words on the cake: "${message}"`;
+      const current = (getValues('message') ?? '').trim();
+      if (!current.includes(cakeWords)) {
+        setValue('message', current ? `${current}\n${cakeWords}` : cakeWords, { shouldDirty: true });
+      }
+      revealAndFocusField('cake-message');
+    }
+
+    window.addEventListener(CAKE_MESSAGE_EVENT, onCakeMessage);
+    return () => window.removeEventListener(CAKE_MESSAGE_EVENT, onCakeMessage);
+  }, [kind, isDeliveryCake, setValue, getValues]);
 
   function getBody(values: InquiryFormValues) {
     const sourcePath = window.location.pathname;

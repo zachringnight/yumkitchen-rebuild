@@ -2,16 +2,38 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
+import { pushAnalyticsEvent } from '@/lib/analytics';
+import { CAKE_MESSAGE_EVENT, type CakeMessageDetail } from '@/lib/cakeMessage';
 import { MotionPauseButton } from './MotionPauseButton';
 
 const quickMessages = ['love you', 'miss you', 'thank you', 'go team', 'happy day', 'congrats'] as const;
 
-export function PatticakeMessagePreview() {
+type PatticakeMessagePreviewProps = {
+  formHref?: string;
+};
+
+export function PatticakeMessagePreview({ formHref = '#cake-inquiry' }: PatticakeMessagePreviewProps) {
   const [message, setMessage] = useState('love you');
   const displayMessage = message.trim() || 'patticake';
 
+  function sendMessageToForm() {
+    pushAnalyticsEvent({
+      event: 'click_patticake_use_message',
+      form_kind: 'cake',
+      path: window.location.pathname,
+    });
+    if (window.location.hash !== formHref) {
+      // pushState instead of setting location.hash: the native hash jump (and
+      // HashAnchorScroll's retries) would fight the form's own scroll-to-field.
+      window.history.pushState(null, '', formHref);
+    }
+    window.dispatchEvent(
+      new CustomEvent<CakeMessageDetail>(CAKE_MESSAGE_EVENT, { detail: { message: displayMessage } }),
+    );
+  }
+
   return (
-    <section className="patticake-message-maker bg-white px-6 py-12 lg:py-section" data-reveal>
+    <section id="message-maker" className="patticake-message-maker scroll-mt-24 bg-white px-6 py-12 md:scroll-mt-28 lg:py-section" data-reveal>
       <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
         <div>
           <p className="section-label">message maker</p>
@@ -41,6 +63,12 @@ export function PatticakeMessagePreview() {
               onChange={(event) => setMessage(event.target.value)}
             />
           </label>
+          <div className="mt-6 flex flex-wrap items-center gap-4">
+            <button type="button" className="btn-primary" onClick={sendMessageToForm}>
+              Send These Words
+            </button>
+            <p className="text-base leading-6 text-body">drops your words into the note below</p>
+          </div>
         </div>
 
         <div className="message-preview-stage" aria-live="polite">
