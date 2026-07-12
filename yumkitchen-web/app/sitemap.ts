@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { yumHostRoutingEnabled } from '@/lib/hostRouting';
 import { locations } from '@/lib/locations';
 import { patticakeSiteUrl, yumKitchenSiteUrl } from '@/lib/site';
 
@@ -9,7 +10,8 @@ const patticakeRoutes = [
 ] as const;
 
 const yumRoutes = [
-  '/yum-kitchen',
+  // With host routing on, the restaurant home lives at the bare domain.
+  yumHostRoutingEnabled ? '' : '/yum-kitchen',
   '/order',
   '/menu',
   '/catering',
@@ -34,7 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${yumKitchenSiteUrl}${route}`,
       lastModified: now,
       changeFrequency: route === '/menu' ? ('weekly' as const) : ('monthly' as const),
-      priority: route === '/menu' ? 0.9 : route === '/yum-kitchen' ? 0.85 : 0.7,
+      priority: route === '/menu' ? 0.9 : route === '/yum-kitchen' || route === '' ? 0.85 : 0.7,
     })),
     ...locations.map((loc) => ({
       url: `${yumKitchenSiteUrl}/location/${loc.slug}`,

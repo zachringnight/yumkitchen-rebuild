@@ -8,13 +8,16 @@ import { LocationGrid } from '@/components/LocationGrid';
 import { PhotoMotionStory } from '@/components/PhotoMotionStory';
 import { SeasonalShowcase } from '@/components/SeasonalShowcase';
 import { brandJsonLd, organizationJsonLd } from '@/lib/locations';
+import { yumHostRoutingEnabled } from '@/lib/hostRouting';
 import { pageMeta, yumCanonical, yumKitchenSiteName, yumOpenGraph, yumTitle } from '@/lib/site';
 
 export const metadata: Metadata = {
   applicationName: yumKitchenSiteName,
   title: yumTitle('restaurants'),
   description: pageMeta.home.description,
-  alternates: { canonical: yumCanonical('/yum-kitchen') },
+  // With host routing on, the restaurant home is served at the bare domain
+  // (proxy.ts rewrite), so that becomes the canonical URL.
+  alternates: { canonical: yumCanonical(yumHostRoutingEnabled ? '/' : '/yum-kitchen') },
   openGraph: yumOpenGraph(pageMeta.home.image),
   twitter: { images: [pageMeta.home.image] },
 };
