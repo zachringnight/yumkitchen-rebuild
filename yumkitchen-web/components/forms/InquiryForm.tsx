@@ -127,7 +127,7 @@ function formSchemaFor(kind: InquiryKind, cakeMode: CakeMode) {
 }
 
 function revealAndFocusField(id: string) {
-  // Bring the field to center — seeing the words land is the point. Lazy
+  // Bring the field to center so the visitor sees the words land. Lazy
   // images loading mid-scroll shift the layout under the animation, so
   // re-check after it settles and nudge if the field drifted (same retry
   // idea as HashAnchorScroll).
