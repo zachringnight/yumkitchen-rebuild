@@ -379,7 +379,7 @@ export default function PatticakeNationalDeliveryPage() {
         </div>
       </section>
 
-      <PatticakeMessagePreview />
+      <PatticakeMessagePreview formHref="#delivery-support" />
 
       <section className="bg-cream px-6 py-12 lg:py-section">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">

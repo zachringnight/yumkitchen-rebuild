@@ -36,7 +36,7 @@ const moments = [
     title: 'Ship a Cake',
     copy: 'Send a Patticake for birthdays, thank-yous, office celebrations, and long-distance family tables.',
     href: '/patticake#national-order',
-    action: 'Ship a Cake',
+    action: 'Start a Shipping Note',
     image: '/images/patticake/gift_box_vertical.jpg',
     alt: 'yum! bakery gift box with red ribbon',
     className: 'crop-patticake-gift-box',
@@ -45,7 +45,7 @@ const moments = [
     title: 'Pick Up Locally',
     copy: 'Pick up from yum! Kitchen and Bakery when the cake is staying in the Twin Cities.',
     href: '/order-a-cake#cake-inquiry',
-    action: 'Pick Up Locally',
+    action: 'Start a Pickup Note',
     image: '/images/patticake/layers_slice_vertical.jpg',
     alt: 'yum! patticake chocolate cake layers close up',
     className: 'crop-patticake-vertical-layer',
@@ -61,7 +61,7 @@ const moments = [
   },
 ] as const;
 
-const proof = ['Patticake', 'devil’s food chocolate cake', 'vanilla buttercream', 'made by yum! Kitchen and Bakery'] as const;
+const proof = ['made from scratch since 2005', 'devil’s food chocolate cake', 'vanilla buttercream', 'made by yum! Kitchen and Bakery'] as const;
 
 const nationalOrderIsExternal = /^https?:\/\//.test(patticakeNationalOrderUrl);
 
@@ -223,6 +223,9 @@ export function PatticakeHome() {
               <div className="bg-white p-6 shadow-lg">
                 <p className="font-serif text-4xl font-normal lowercase leading-none text-brand-primary">patticake</p>
                 <p className="mt-3 text-lg leading-8 text-body">made at yum!, shared as the cake people ask for by name.</p>
+                <Link href="/patticake#message-maker" className="btn-link mt-4 inline-block">
+                  try the message maker
+                </Link>
               </div>
             </div>
           </div>
