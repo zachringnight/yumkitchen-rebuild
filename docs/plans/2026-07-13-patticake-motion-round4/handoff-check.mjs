@@ -17,7 +17,7 @@ async function clickSend() {
   await new Promise((r) => setTimeout(r, 900));
 }
 
-// /patticake — delivery form prefill
+// /patticake, delivery form prefill
 await page.goto(`${base}/patticake`, { waitUntil: 'networkidle0' });
 await page.evaluate(() => {
   const input = document.getElementById('patticake-message-preview');
@@ -38,7 +38,7 @@ if (delivery.hash !== '#delivery-support') failures.push(`patticake hash: ${deli
 if (delivery.value !== 'go team maya') failures.push(`gift message value: "${delivery.value}"`);
 if (!delivery.pulsed) failures.push('gift message field did not pulse');
 
-// /order-a-cake — pickup textarea seed
+// /order-a-cake, pickup textarea seed
 await page.goto(`${base}/order-a-cake`, { waitUntil: 'networkidle0' });
 await clickSend();
 const pickup = await page.evaluate(() => ({
