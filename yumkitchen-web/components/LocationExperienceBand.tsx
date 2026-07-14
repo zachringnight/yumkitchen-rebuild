@@ -5,7 +5,7 @@ import { OpenStatus } from './OpenStatus';
 
 export function LocationExperienceBand({ loc }: { loc: Location }) {
   return (
-    <section className="location-experience bg-page py-section" data-reveal>
+    <section className="location-experience bg-cream py-section" data-reveal>
       <div className="container-content grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div>
           <p className="section-label">{loc.short_name} visit</p>

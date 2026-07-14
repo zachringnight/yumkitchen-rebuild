@@ -101,7 +101,7 @@ export function HomeHero() {
   }, []);
 
   return (
-    <section className="home-hero relative min-h-[560px] overflow-hidden bg-page md:min-h-[730px]">
+    <section className="home-hero relative min-h-[560px] overflow-hidden bg-cream md:min-h-[730px]">
       <div className="home-hero-media">
         <Image
           key={currentHero.src}
@@ -117,7 +117,7 @@ export function HomeHero() {
         />
       </div>
       <div className="container-content relative z-10 flex min-h-[560px] items-center py-8 md:min-h-[730px] md:py-12">
-        <div className="hero-panel motion-role-entrance max-w-[520px] border border-white/70 bg-white/95 px-6 py-6 shadow-[0_1.4rem_4rem_rgb(45_45_45_/_0.24)] backdrop-blur-[2px] md:px-9 md:py-8">
+        <div className="hero-panel motion-role-entrance max-w-[520px] border border-white/70 bg-cream/95 px-6 py-6 shadow-[0_1.4rem_4rem_rgb(45_45_45_/_0.24)] backdrop-blur-[2px] md:px-9 md:py-8">
           <AnimatedYumLogo className="hero-yum-logo" decorative priority />
           <h1 className="font-serif text-[2.35rem] font-normal leading-[1.08] lowercase text-ink md:text-[3rem]" aria-label="made from scratch with love">
             made from scratch{' '}
@@ -142,7 +142,7 @@ export function HomeHero() {
                 key={location.slug}
                 href={`/location/${location.slug}`}
                 prefetch={false}
-                className="border border-ink/15 bg-page px-3 py-2 text-center text-sm font-bold leading-none text-ink transition hover:border-brand-red hover:bg-brand-red hover:text-white"
+                className="border border-ink/15 bg-blue-tint/40 px-3 py-2 text-center text-sm font-bold leading-none text-ink transition hover:border-brand-red hover:bg-brand-red hover:text-white"
               >
                 {location.short_name}
               </Link>
@@ -227,7 +227,7 @@ export function MenuFeature() {
   const item = menuFeatureItems[active];
 
   return (
-    <section className="bg-page px-6 py-10 md:py-18">
+    <section className="bg-cream px-6 py-10 md:py-18">
       <div className="mx-auto grid max-w-[1180px] gap-8 lg:grid-cols-[0.78fr_1.22fr]">
         <div className="menu-feature-copy">
           <h2 className="font-serif text-[2.15rem] font-normal leading-tight lowercase text-ink md:text-[2.75rem]">

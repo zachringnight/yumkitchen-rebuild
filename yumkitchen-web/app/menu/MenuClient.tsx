@@ -173,7 +173,7 @@ export function MenuClient() {
 
       <MenuMotionIntro />
 
-      <section className="bg-page py-12 lg:py-section">
+      <section className="bg-cream py-12 lg:py-section">
         <div className="container-content">
           {sectionLinks.length > 0 && (
             <nav className="menu-section-rail sticky top-[72px] z-30 -mx-6 mb-8 border-y border-blue-soft/60 bg-blue-tint/95 px-6 py-3 backdrop-blur md:mx-0 md:border md:bg-white/95" aria-label="Menu sections">

@@ -40,7 +40,7 @@ export default function AboutPage() {
               <p className="mt-5">That trust shows up in the food, the people, the locations, and the warmth behind the counter.</p>
             </div>
           </div>
-          <div className="relative aspect-4/3 overflow-hidden bg-page">
+          <div className="relative aspect-4/3 overflow-hidden bg-cream">
             <Image src="/images/yum-packaging-counter.jpg" alt="yum! takeout packaging at the counter" fill sizes="(min-width: 1024px) 42vw, 100vw" className="object-cover" />
           </div>
         </div>
@@ -52,7 +52,7 @@ export default function AboutPage() {
           <div className="stagger-reveal mt-8 grid gap-5 md:grid-cols-3" data-reveal>
             {leaderCards.map((leader) => (
               <Link key={leader.name} href={leader.href} className="accent-card group bg-white shadow-xs">
-                <div className="relative aspect-4/3 overflow-hidden bg-page">
+                <div className="relative aspect-4/3 overflow-hidden bg-cream">
                   <Image src={leader.image} alt={leader.name} fill sizes="(min-width: 768px) 33vw, 100vw" className="image-lift object-cover" />
                 </div>
                 <div className="p-7">

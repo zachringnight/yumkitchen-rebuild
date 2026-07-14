@@ -119,7 +119,7 @@ const gallery = [
 
 export default function CakePage() {
   return (
-    <main className="bg-page">
+    <main className="bg-cream">
       <section className="overflow-hidden bg-cream px-6 py-[clamp(3.5rem,7vw,6.5rem)]">
         <div className="mx-auto grid max-w-[1240px] gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
           <div className="max-w-[580px]">
@@ -190,7 +190,7 @@ export default function CakePage() {
       <PatticakeMessageRibbon tone="cream" />
       <PatticakePathGuide activePath="pickup" />
 
-      <section className="bg-page px-6 py-8">
+      <section className="bg-cream px-6 py-8">
         <div className="mx-auto max-w-[1240px]">
           <Stagger className="patticake-ticket" gap={0.12}>
             <StaggerItem variant="stamp" baseRotate={180} className="patticake-ticket-stub patticake-ticket-stub-brand">
@@ -326,7 +326,7 @@ export default function CakePage() {
           </div>
           <Stagger className="grid gap-4 md:grid-cols-4" gap={0.06}>
             {gallery.map((image, index) => (
-              <StaggerItem key={`${image.alt}-${index}`} className={`relative overflow-hidden bg-page ${index === 1 ? 'aspect-[4/5]' : 'aspect-square'}`}>
+              <StaggerItem key={`${image.alt}-${index}`} className={`relative overflow-hidden bg-cream ${index === 1 ? 'aspect-[4/5]' : 'aspect-square'}`}>
                 <Image src={image.src} alt={image.alt} fill loading={image.src === '/images/patticake/layers_slice_vertical.jpg' ? 'eager' : undefined} sizes="(min-width: 768px) 25vw, 100vw" className={`object-cover ${image.className}`} />
               </StaggerItem>
             ))}

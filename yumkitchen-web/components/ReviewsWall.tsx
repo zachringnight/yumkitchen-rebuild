@@ -33,7 +33,7 @@ export function ReviewsWall() {
           </div>
           <div className="flex flex-wrap gap-3 lg:justify-end">
             {ratingPlatforms.map((p) => (
-              <div key={p.platform} className="border border-ink/15 bg-page px-4 py-3">
+              <div key={p.platform} className="border border-ink/15 bg-white px-4 py-3">
                 <p className="text-xs font-bold uppercase tracking-[0.12em] text-brand-primary">{p.platform}</p>
                 <p className="mt-1 font-serif text-2xl leading-none text-ink">
                   {p.value.toFixed(1)} <span className="text-brand-red">★</span>
@@ -57,7 +57,7 @@ export function ReviewsWall() {
         {/* Customer reviews (sample until live reviews connect) */}
         <div className="stagger-reveal mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {sampleReviews.map((r) => (
-            <article key={r.name} className="border border-ink/12 bg-page p-5">
+            <article key={r.name} className="border border-ink/12 bg-white p-5">
               <Stars value={r.rating} />
               <p className="mt-3 text-base leading-7 text-ink">&ldquo;{r.text}&rdquo;</p>
               <p className="mt-4 text-sm font-bold text-brand-primary">{r.name}</p>

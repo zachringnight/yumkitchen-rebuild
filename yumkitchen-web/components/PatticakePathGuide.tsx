@@ -29,7 +29,7 @@ const paths = [
 
 export function PatticakePathGuide({ activePath }: PatticakePathGuideProps) {
   return (
-    <section id="patticake-path-guide" className="scroll-mt-24 bg-page px-6 py-10 md:scroll-mt-28" aria-labelledby="patticake-path-guide-title">
+    <section id="patticake-path-guide" className="scroll-mt-24 bg-cream px-6 py-10 md:scroll-mt-28" aria-labelledby="patticake-path-guide-title">
       <div className="mx-auto grid max-w-[1240px] gap-6 border-y border-brand-primary/25 py-7 lg:grid-cols-[0.52fr_1.48fr] lg:items-start">
         <div>
           <p className="section-label">which way should it go?</p>
