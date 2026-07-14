@@ -35,17 +35,30 @@ type StaggerItemProps = {
   as?: keyof typeof itemTags;
   /** 'stamp' scales down into place with a slight rotation, the ticket-stub entrance. */
   variant?: 'rise' | 'stamp';
+  /**
+   * Base rotation (deg) the element already carries in CSS for orientation, e.g. the
+   * vertical ticket stub's 180deg. The stamp animation composes onto this instead of
+   * writing an inline transform that would clobber it and flip the text after hydration.
+   */
+  baseRotate?: number;
   /** Spring hover lift for cards. */
   hoverLift?: boolean;
 };
 
-export function StaggerItem({ children, className, as = 'div', variant = 'rise', hoverLift = false }: StaggerItemProps) {
+export function StaggerItem({
+  children,
+  className,
+  as = 'div',
+  variant = 'rise',
+  baseRotate = 0,
+  hoverLift = false,
+}: StaggerItemProps) {
   const Tag = itemTags[as];
   const variants =
     variant === 'stamp'
       ? {
-          hidden: { opacity: 0, scale: 1.16, rotate: -6 },
-          visible: { opacity: 1, scale: 1, rotate: 0, transition: frosting },
+          hidden: { opacity: 0, scale: 1.16, rotate: baseRotate - 6 },
+          visible: { opacity: 1, scale: 1, rotate: baseRotate, transition: frosting },
         }
       : {
           hidden: { opacity: 0, y: 20 },

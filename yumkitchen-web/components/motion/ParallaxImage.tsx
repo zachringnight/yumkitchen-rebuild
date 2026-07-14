@@ -2,6 +2,7 @@
 
 import { useRef, type ReactNode } from 'react';
 import { m, useReducedMotion, useScroll, useTransform } from 'motion/react';
+import { useMotionPaused } from './useMotionPaused';
 
 /**
  * Subtle scroll-linked drift for large photos, capped at ±6%. The caller's
@@ -12,11 +13,12 @@ import { m, useReducedMotion, useScroll, useTransform } from 'motion/react';
 export function ParallaxImage({ children, className = '' }: { children: ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
+  const paused = useMotionPaused();
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
   const y = useTransform(scrollYProgress, [0, 1], ['-6%', '6%']);
   return (
     <div ref={ref} className={`overflow-hidden ${className}`.trim()}>
-      <m.div className="absolute inset-x-0 -inset-y-[8%]" style={reduce ? undefined : { y }}>
+      <m.div className="absolute inset-x-0 -inset-y-[8%]" style={reduce || paused ? undefined : { y }}>
         {children}
       </m.div>
     </div>

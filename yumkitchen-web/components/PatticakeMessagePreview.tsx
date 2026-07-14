@@ -117,12 +117,13 @@ export function PatticakeMessagePreview({ formHref = '#cake-inquiry' }: Patticak
               sizes="(min-width: 1024px) 42vw, 100vw"
               className="object-cover crop-patticake-top"
             />
-            <div className="message-preview-text">
+            <div className="message-preview-text" role="text" aria-label={displayMessage}>
               <AnimatePresence initial={false}>
                 {words.map((word, index) => (
                   <m.span
                     key={index}
                     className="message-preview-word"
+                    aria-hidden="true"
                     initial={{ opacity: 0, scale: 0.6, y: 8 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.7 }}

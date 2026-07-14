@@ -337,7 +337,7 @@ export default function PatticakeNationalDeliveryPage() {
       <section className="bg-page px-6 py-8">
         <div className="mx-auto max-w-[1240px]">
           <Stagger className="patticake-ticket" gap={0.12}>
-            <StaggerItem variant="stamp" className="patticake-ticket-stub">
+            <StaggerItem variant="stamp" baseRotate={180} className="patticake-ticket-stub">
               admit one
               <br />
               patticake
