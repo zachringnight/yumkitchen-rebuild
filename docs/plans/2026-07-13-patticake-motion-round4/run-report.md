@@ -81,3 +81,13 @@ Perf=100 A11y=100 BP=100 SEO=100.
 - Accepted as-is: PatticakeMessagePreview keeps inline whileHover/whileTap on its buttons rather
   than PressButton wrappers - the chip grid styles buttons as direct grid children, and wrapping
   would change layout for a marginal dedupe.
+- Reduced-motion and no-JS guarantees verified directly (a11y-fallback-check.mjs, this dir):
+  with prefers-reduced-motion emulated, every rendered [data-motion-el] settles at identity
+  transform and full opacity; with JavaScript disabled, every SSR'd motion element is visible
+  via the layout's noscript fallback. Elements that looked stuck in earlier runs were
+  display:none by design at mobile widths (the hero-note grid is hidden until sm; the third
+  hero tag is hidden on small screens per round 3's stickers-never-cover-text rule) or springs
+  sampled mid-fade at opacity 0.97+.
+- Rerunnable checks preserved alongside capture.mjs: handoff-check.mjs (message maker to form),
+  checkout-check.mjs (seeded-cart checkout motion), a11y-fallback-check.mjs (reduced motion +
+  no-JS). Run each from yumkitchen-web/ with the prod server on :3105.
