@@ -20,6 +20,8 @@ coverage/
 # Local agent/browser artifacts
 .superpowers/
 .playwright-mcp/
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
 
 # Generated QA evidence kept outside version control
 qa_screenshots_*/

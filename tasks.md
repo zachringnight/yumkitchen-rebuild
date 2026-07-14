@@ -1,8 +1,53 @@
 # Rebuild Task List
 
-> Known stale branch: `brand-blue-pass` (PR #2 on GitHub) is 20 commits ahead but based on a commit before three shipped rounds. Merging it as-is would delete since-shipped components and docs. Needs manual salvage of just the color-token intent, or closure. Do not merge as-is.
+## Latest round: ParallaxImage hydration fix + repo handoff prep (2026-07-14)
 
-## Latest round: repo reorg + full QA visual review (2026-07-09)
+Closed the one open item from the same-day browser QA audit: `components/motion/ParallaxImage.tsx` read `useReducedMotion()` directly, which resolves synchronously on the client's first render but not during SSR, so a reduced-motion visitor's first paint disagreed with the server-rendered HTML (a real hydration-mismatch console error on `/`, `/order-a-cake`, `/patticake`). Fixed with a `mounted` state that starts `false` on both server and client (so the first render always matches) and flips `true` in a pre-paint layout effect - reduced-motion users never see a flash of the parallax transform, and the console error is gone. Verified directly: zero console errors on all three affected pages in a fresh browser session, `npm run audit:visual-motion`'s reduced-motion routes still pass, full `bash verify.sh` piece-by-piece re-run clean (axe 0/0, LH 100/100/100/100). Independently code-reviewed the prior brand-warmth color-pass diff (27 files) with zero issues found.
+
+Also did a repo handoff pass: found and fixed real staleness beyond the app code -
+- `AGENTS.md` documented the cream token as `#fff4f5` (actually `#fffdf7`) and called `proxy.ts` a no-op passthrough (it has held real host-routing logic since 2026-07-12); both corrected.
+- Four completed, merged rounds (host-based brand routing B1, hardening B2/B3/B4/B6, patticake design round 3, patticake motion round 4 - PRs #15-18) existed only under an undocumented top-level `docs/plans/` folder, never catalogued in this file and never moved into `docs/history/plans/` per the repo's own convention. Moved them in and added round entries below. Deleted a stale duplicate draft of the 2026-07-09 report that had been left in `docs/plans/`.
+- The "known stale branch" warning about `brand-blue-pass` (PR #2) was itself stale - the PR was closed unmerged and the branch deleted back on 2026-07-12. Removed the warning, corrected the one remaining reference to it.
+- `docs/design-qa.md` was a single, ungeneralized 2026-07-01 QA record dated two weeks stale despite `AGENTS.md`/`README.md` describing it as "the latest design QA record." Moved the old record into `docs/history/qa/` and replaced it with a short pointer to the actual current rounds.
+- `.claude/settings.local.json` and `.claude/scheduled_tasks.lock` (personal permissions and a session-runtime lock file) were untracked but not gitignored, risking accidental commit; added to `.gitignore`. `.claude/launch.json` (a reusable dev-server shortcut) is kept trackable.
+
+## Prior round: brand warmth color pass (2026-07-14)
+
+Follow-up to the same-day browser QA audit. Live `yumkitchen.com` never shows a flat gray section background (full-bleed photography + translucent card everywhere checked); this build did, root-caused to the `<body>` element defaulting to the neutral `--color-page` gray plus ~30 individual `bg-page` section/page wrappers, including a hidden CSS gradient on `LocationGrid` that silently overrode its Tailwind class. Swapped every non-functional gray usage to the brand's warm tokens (cream/blue-tint), removed the gradient. Caught and fixed a real WCAG contrast regression introduced mid-pass (gray secondary text on the new blue-tint background dropped under 4.5:1 in a few spots with no card behind it) before it shipped. `bash verify.sh`'s own server-start check flaked 3x in this environment (build/typecheck/lint always passed; server always logged Ready); re-verified every remaining piece individually against a confirmed-running server - all pass, axe 0/0 sitewide, LH 100/100/100/100. Full report: `docs/history/plans/2026-07-14-brand-warmth-color-pass/run-report.md`.
+
+## Prior round: full browser QA / visual audit (2026-07-14)
+
+Audit only, no app code changed at the time. `bash verify.sh` VERIFY PASSED (axe 0/0, LH 100/100/100/100). Full interactive browser sweep of all 20 routes at desktop + mobile, plus key interactive states (location picker, mobile nav, hash-anchor scroll, empty-cart/no-order states). One real finding: a reduced-motion hydration-mismatch console error in `ParallaxImage` on `/`, `/order-a-cake`, and `/patticake`, which the project's own `audit:visual-motion` script does not currently catch. Full report: `docs/history/plans/2026-07-14-browser-qa-visual-audit/run-report.md`.
+
+- [x] Fixed same-day, see "Latest round" above. `scripts/audit-visual-motion.mjs` still does not independently catch this class of bug (it never reproduced the failure even before the fix) - if touching `ParallaxImage` or similar SSR/client motion-value patterns again, verify by hand in a real browser with reduced motion enabled, don't rely on that script alone.
+
+## Prior round: patticake motion round 4 (2026-07-13)
+
+Branch `claude/newest-repo-version-731b25` (this branch, merged via PR #18 before this session's work began). Added the site-wide motion layer: `motion` library + `MotionProvider` (LazyMotion, `MotionConfig reducedMotion="user"`, no-JS `<noscript>` fallback), `Reveal`/`Stagger`/`TapeTag`/`PressButton`/`ParallaxImage` primitives, and full choreography on home, `/patticake`, `/order-a-cake`, and checkout (hero sequences, the ticket-stamp set piece, the message-maker word-pop + liftoff-chip showpiece). Post-PR review round hardened `Reveal`/`Stagger` viewport thresholds and verified reduced-motion + no-JS guarantees with dedicated scripts. Full report: `docs/history/plans/2026-07-13-patticake-motion-round4/run-report.md`.
+
+- [x] `bash verify.sh` VERIFY PASSED (axe 0/0 on 15 routes, LH mobile 100/100/100/100); merged via PR #18.
+- Note: this round's own reduced-motion verification did not catch the `ParallaxImage` SSR hydration-mismatch console error found the next day (see the two 2026-07-14 rounds above) - it checked the final settled visual state, not the transient first-paint console warning.
+
+## Prior round: patticake design round 3 (2026-07-12)
+
+Branch `qa-visual-review-2026-07-09`, later rebased onto main (PR #14) and merged via PR #15. "The message carries through": a "Send These Words" button drops the message-maker's composed cake message directly into the delivery or pickup inquiry form (synced counter, focused/centered field, append-and-dedupe for pickup), replacing a dead-end flow where visitors had to retype it. Also de-duped the home hero proof strip, renamed moment-card CTAs to match form vocabulary, cross-linked the message maker from the home page, and fixed several floating-sticker/caption overlaps found by a full overlap audit. Full report: `docs/history/plans/2026-07-12-patticake-design-round3/run-report.md`.
+
+- [x] `bash verify.sh` VERIFY PASSED (axe 0/0, Lighthouse home 100/100/100/100); merged via PR #15.
+
+## Prior round: hardening round - B2/B3/B4/B6 (2026-07-12)
+
+Branch `chore/hardening-round`, merged via PR #17. Closed backlog items from the 2026-07-09 round: **B3** single-sourced inquiry form validation (`lib/inquiryValidation.ts`, shared by client and server so the rule sets cannot drift); **B4** dedicated 1200x630 OG crops for the three Patticake pages (previously shared raw content photos at odd aspect ratios); **B6** re-enabled the `verify` GitHub Actions workflow (had been manually disabled after a since-fixed flake, leaving PRs 12-15 with no CI). B2 (`.btn-*` moved into `@layer components`) turned out already done on main; backlog entry was stale. Full report: `docs/history/plans/2026-07-12-hardening-round/run-report.md`.
+
+- [x] `bash verify.sh` VERIFY PASSED; merged via PR #17. CI verify workflow confirmed green on main and gating PRs again.
+
+## Prior round: host-based brand routing - B1 (2026-07-12)
+
+Branch `feat/host-brand-routing`, merged via PR #16. Built the env-flagged (`NEXT_PUBLIC_YUM_HOST_ROUTING=1`, off by default) routing that will let `yumkitchen.com` serve the restaurant home at `/` after DNS cutover while `patticake.com` keeps the Patticake home - a middleware rewrite (not redirect, to preserve SEO equity per `docs/redirects.md`), host-aware client shell, and flag-aware canonical/sitemap. Verified byte-identical to today's behavior with the flag off. Full report: `docs/history/plans/2026-07-12-host-brand-routing/run-report.md`.
+
+- [x] `bash verify.sh` VERIFY PASSED (flag off, default build); merged via PR #16.
+- [ ] OPEN (Zach gate): set `NEXT_PUBLIC_YUM_HOST_ROUTING=1` in Vercel and redeploy at actual DNS cutover time - see `docs/DEPLOYMENT.md` runbook.
+
+## Prior round: repo reorg + full QA visual review (2026-07-09)
 
 Branch `chore/repo-reorg-2026-07-09`. Two tracks: (1) reorganized the whole repo for AI-coder clarity, one entry point (`AGENTS.md`), one `docs/` tree, one `scripts/` folder, obsolete handoff docs archived, stale facts corrected; (2) reconciled 9 verified fixes (modal layout bug, audit-script timing, `/logo-animation` noindex, dead redirect page removed, title-template trap fixed, 3 images converted PNG to JPEG, allergy PDF compressed 7.9 MB to 1.4 MB, JSON-LD consistency, stale doc counts) found uncommitted in a second clone from an earlier same-day QA pass. Full report: `docs/history/plans/2026-07-09-full-qa-visual-review/run-report.md`.
 
@@ -14,7 +59,7 @@ Branch `chore/repo-reorg-2026-07-09`. Two tracks: (1) reorganized the whole repo
 Branch `yum-upgrade-round2-2026-07-01`. Closed the safely-shippable improvements from the v1 list: gift card band (B3), catering FAQ + JSON-LD (H4), per-location cake/catering email routing (G4), per-page OG images (A5), nofollow on external press links (A6). Repo hygiene: shipped branches deleted, .bak/.DS_Store cleared. Full report: `docs/history/plans/2026-07-01-yum-upgrade-round2/run-report.md`.
 
 - [x] verify.sh VERIFY PASSED (axe 0/0 on 15 routes, LH 100/100/100/100) after two caught-and-fixed QA findings.
-- [ ] OPEN (Zach gates, unchanged): RESEND_API_KEY + live form test; GTM/GA4 DebugView confirm; DNS cutover go; brand-blue-pass keep-or-kill (PR #2).
+- [ ] OPEN (Zach gates, unchanged): RESEND_API_KEY + live form test; GTM/GA4 DebugView confirm; DNS cutover go. (`brand-blue-pass` PR #2 was closed unmerged and its branch deleted 2026-07-12 - resolved, no longer open.)
 - [ ] OPEN (Zach data): dietary tags (C1), amenities (C2), location SEO copy (A2), menu CMS (G1), holiday/loyalty/press-kit surfaces (H).
 
 ## Prior round: ship-and-elevate (2026-06-30)
