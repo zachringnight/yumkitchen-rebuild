@@ -44,7 +44,7 @@ export function Reveal({ children, className, id, as = 'div', delay = 0, y = 24,
       data-motion-el=""
       initial={hidden}
       whileInView={shown}
-      viewport={{ once: true, amount: 0.15, margin: '0px 0px -8% 0px' }}
+      viewport={{ once: true, amount: 'some', margin: '0px 0px -8% 0px' }}
       transition={{ ...frosting, delay }}
     >
       {children}
