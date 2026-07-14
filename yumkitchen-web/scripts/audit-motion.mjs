@@ -15,6 +15,7 @@ const motionProvider = read('components/motion/MotionProvider.tsx');
 const rootLayout = read('app/layout.tsx');
 const springs = read('components/motion/springs.ts');
 const patticakeHomeSurface = read('components/PatticakeHome.tsx');
+const patticakeDelivery = read('app/patticake/page.tsx');
 
 const getCssBlock = (source, selector) => {
   const start = source.indexOf(selector);
@@ -94,6 +95,7 @@ const checks = [
   ['no-js motion fallback in layout', rootLayout.includes('data-motion-el')],
   ['spring tokens frosting and snap', springs.includes('export const frosting') && springs.includes('export const snap')],
   ['patticake home uses motion primitives', patticakeHomeSurface.includes('<Reveal') && patticakeHomeSurface.includes('<TapeTag')],
+  ['patticake delivery page uses motion primitives', patticakeDelivery.includes('<Reveal') && patticakeDelivery.includes('<Stagger') && patticakeDelivery.includes('<TapeTag')],
 ];
 
 const failures = checks.filter(([, passed]) => !passed).map(([label]) => label);
