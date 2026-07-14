@@ -10,6 +10,9 @@ const home = read('components/HomeDesign.tsx');
 const menuIntro = read('components/MenuMotionIntro.tsx');
 const order = read('app/order/OrderClient.tsx');
 const header = read('components/SiteHeader.tsx');
+const shell = read('components/SiteShell.tsx');
+const motionProvider = read('components/motion/MotionProvider.tsx');
+const rootLayout = read('app/layout.tsx');
 
 const getCssBlock = (source, selector) => {
   const start = source.indexOf(selector);
@@ -83,6 +86,10 @@ const checks = [
   ['menu motion labeled ambient', menuIntro.includes('motion-role-ambient')],
   ['order category filter', order.includes('orderCategoryFilters') && order.includes('selectedCategory')],
   ['header dropdown motion role', header.includes('motion-role-feedback')],
+  ['motion provider mounted in shell', shell.includes('<MotionProvider>')],
+  ['motion provider lazy + strict', motionProvider.includes('LazyMotion') && motionProvider.includes('strict')],
+  ['motion provider honors reduced motion', motionProvider.includes('reducedMotion="user"')],
+  ['no-js motion fallback in layout', rootLayout.includes('data-motion-el')],
 ];
 
 const failures = checks.filter(([, passed]) => !passed).map(([label]) => label);
