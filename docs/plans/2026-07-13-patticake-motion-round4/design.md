@@ -6,18 +6,18 @@ deferred new motion; this round builds the motion identity those rounds left roo
 
 Decisions made with Zach during brainstorming:
 - Ambition: signature motion layer. Brand palette, tokens, copy voice, and layout bones stay.
-- Scope: all four Patticake surfaces — `/` (PatticakeHome), `/patticake`, `/patticake/checkout`,
+- Scope: all four Patticake surfaces, `/` (PatticakeHome), `/patticake`, `/patticake/checkout`,
   `/order-a-cake`. Checkout gets the lightest treatment.
 - Tech: the `motion` library (`motion/react`, the current name for framer-motion), loaded via
   `LazyMotion` + `domAnimation`.
-- Direction: A+B blend — "the message travels" narrative choreography as the backbone, plus
+- Direction: A+B blend, "the message travels" narrative choreography as the backbone, plus
   bakery-physics tactile hovers and presses throughout.
 - The motion provider loads site-wide in `SiteShell` (not gated to Patticake surfaces), so future
   rounds can use the primitives on yum! pages. Only Patticake pages get choreography this round.
 
 ## Creative direction: the message travels
 
-Round 3 identified the Patticake brand's signature element: the message — taped labels, the
+Round 3 identified the Patticake brand's signature element: the message, taped labels, the
 message ribbon, the message maker. This round's motion identity is built around that one idea.
 Words and taped labels drift in with spring physics and settle like they've been pressed onto the
 cake. Everything else (reveals, hovers, presses) shares one spring vocabulary so the pages feel
@@ -29,28 +29,28 @@ like one designed system, not a collection of animations.
 
 All client components; pages stay server components and pass server-rendered children through.
 
-- `MotionProvider` — `LazyMotion features={domAnimation} strict` + `MotionConfig
+- `MotionProvider`, `LazyMotion features={domAnimation} strict` + `MotionConfig
   reducedMotion="user"`. Mounted once in `SiteShell`.
-- `springs.ts` — two named spring configs used by every primitive:
+- `springs.ts`, two named spring configs used by every primitive:
   - `frosting`: soft, slight overshoot, settles (all entrances),
   - `snap`: quick and tight (hovers, presses, feedback).
-- `Reveal` — viewport-triggered spring entrance (`whileInView`, `once`). Props: `direction`
+- `Reveal`, viewport-triggered spring entrance (`whileInView`, `once`). Props: `direction`
   (default rise), `delay`. Replaces `data-reveal` on Patticake pages.
-- `Stagger` / `StaggerItem` — orchestrated child reveals for grids and sequences, 60–80ms gaps.
-- `TapeTag` — the signature primitive. A taped label that drifts in, overshoots, and settles with
+- `Stagger` / `StaggerItem`, orchestrated child reveals for grids and sequences, 60–80ms gaps.
+- `TapeTag`, the signature primitive. A taped label that drifts in, overshoots, and settles with
   a tape-hinge wobble; per-tag rotation offset. After its entrance completes it adds the existing
   CSS ambient-bob class, so the loop phase stays governed by the pause button and the
   reduced-motion reset exactly as today.
-- `PressButton` — spring lift on hover (`whileHover`), squish on press (`whileTap`). Wraps
+- `PressButton`, spring lift on hover (`whileHover`), squish on press (`whileTap`). Wraps
   existing `.btn-primary` / `.btn-secondary` elements without changing their classes.
-- `ParallaxImage` — `useScroll` + `useTransform` scroll-linked `y` drift, capped at ~6%.
+- `ParallaxImage`, `useScroll` + `useTransform` scroll-linked `y` drift, capped at ~6%.
 
 ### Division of responsibility
 
 - CSS keeps what it has: all ambient loops (remotion board, floating bobs, ribbon marquee,
   frosting drift), the `motion-role-*` classes, motion tokens, and the pause-button plumbing
   (`data-motion-paused`). Nothing in `globals.css` that the motion audit checks is removed.
-- The `motion` library handles entrances and interactions only — one-shot animations. The pause
+- The `motion` library handles entrances and interactions only, one-shot animations. The pause
   button governs loops; one-shot entrances are out of its jurisdiction by design.
 
 ### Governance

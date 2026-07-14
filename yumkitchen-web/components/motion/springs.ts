@@ -1,6 +1,6 @@
 import type { Transition } from 'motion/react';
 
-// Soft entrance with a slight overshoot that settles — like piped buttercream.
+// Soft entrance with a slight overshoot that settles, like piped buttercream.
 export const frosting: Transition = { type: 'spring', stiffness: 220, damping: 26, mass: 1 };
 
 // Quick, tight feedback for hovers, presses, and word pops.

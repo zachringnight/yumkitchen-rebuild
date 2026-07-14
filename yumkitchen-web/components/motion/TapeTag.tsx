@@ -7,7 +7,7 @@ import { frosting } from './springs';
 /**
  * A taped label that drifts in, overshoots, and settles. After the entrance
  * it adds `tape-tag-settled`, which hands the element to the CSS ambient bob
- * (patticake-tag-bob) — so the pause button and reduced-motion reset keep
+ * (patticake-tag-bob), so the pause button and reduced-motion reset keep
  * governing the loop exactly as before.
  */
 export function TapeTag({ children, delay = 0 }: { children: ReactNode; delay?: number }) {

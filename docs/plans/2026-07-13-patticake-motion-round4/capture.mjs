@@ -26,8 +26,16 @@ for (const [label, width, height] of viewports) {
   await page.setViewport({ width, height, deviceScaleFactor: 1 });
   for (const [route, name] of routes) {
     await page.goto(new URL(route, baseUrl).toString(), { waitUntil: 'networkidle0' });
-    // let entrance springs finish before capturing
-    await page.evaluate(() => window.scrollTo(0, 0));
+    // scroll through the page like a reader so whileInView reveals fire,
+    // then return to top and let entrance springs finish before capturing
+    await page.evaluate(async () => {
+      const step = window.innerHeight * 0.7;
+      for (let yPos = 0; yPos <= document.body.scrollHeight; yPos += step) {
+        window.scrollTo(0, yPos);
+        await new Promise((resolve) => setTimeout(resolve, 180));
+      }
+      window.scrollTo(0, 0);
+    });
     await new Promise((resolve) => setTimeout(resolve, 1200));
     await page.screenshot({ path: `${outDir}${prefix}-${name}-${label}.png`, fullPage: true });
     console.log(`${prefix}-${name}-${label}.png`);

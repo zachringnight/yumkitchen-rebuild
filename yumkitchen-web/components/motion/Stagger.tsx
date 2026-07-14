@@ -33,7 +33,7 @@ type StaggerItemProps = {
   children: ReactNode;
   className?: string;
   as?: keyof typeof itemTags;
-  /** 'stamp' scales down into place with a slight rotation — the ticket-stub entrance. */
+  /** 'stamp' scales down into place with a slight rotation, the ticket-stub entrance. */
   variant?: 'rise' | 'stamp';
   /** Spring hover lift for cards. */
   hoverLift?: boolean;
