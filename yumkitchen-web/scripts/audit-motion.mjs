@@ -13,6 +13,7 @@ const header = read('components/SiteHeader.tsx');
 const shell = read('components/SiteShell.tsx');
 const motionProvider = read('components/motion/MotionProvider.tsx');
 const rootLayout = read('app/layout.tsx');
+const springs = read('components/motion/springs.ts');
 
 const getCssBlock = (source, selector) => {
   const start = source.indexOf(selector);
@@ -90,6 +91,7 @@ const checks = [
   ['motion provider lazy + strict', motionProvider.includes('LazyMotion') && motionProvider.includes('strict')],
   ['motion provider honors reduced motion', motionProvider.includes('reducedMotion="user"')],
   ['no-js motion fallback in layout', rootLayout.includes('data-motion-el')],
+  ['spring tokens frosting and snap', springs.includes('export const frosting') && springs.includes('export const snap')],
 ];
 
 const failures = checks.filter(([, passed]) => !passed).map(([label]) => label);
