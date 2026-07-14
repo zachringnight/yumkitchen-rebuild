@@ -2686,9 +2686,13 @@ to {
     animation-play-state: paused;
   }
 
-  .patticake-floating-messages span,
-  .cake-message-tags span {
+  .patticake-floating-messages span.tape-tag-settled,
+  .cake-message-tags span.tape-tag-settled {
     animation: patticake-tag-bob 6.8s ease-in-out infinite;
+  }
+
+  .press-wrap :is(.btn-primary, .btn-secondary):hover {
+    transform: none;
   }
 
   .message-preview-card,
