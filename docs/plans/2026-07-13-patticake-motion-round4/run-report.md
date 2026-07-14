@@ -60,3 +60,24 @@ Perf=100 A11y=100 BP=100 SEO=100.
   scrolling through each page so entrances have fired.
 - Message handoff: scripted check passed (word pops render 3 words for "go team maya"; hash moves
   to `#delivery-support` / `#cake-inquiry`; fields prefill; pulse class applied).
+
+## Post-PR review round (2026-07-14, PR #18 open)
+
+- Reveal/Stagger viewport thresholds hardened to `amount: 'some'` after a diagnostic showed the
+  tall screenshot viewport could attach observers after a scripted scroll had passed lower
+  sections. Real-phone (390x844) and desktop reveals were verified correct before and after.
+  The capture script now waits for hydration and scrolls twice; the mobile after-captures now
+  show every section revealed (message maker, confirmations list included).
+- Checkout verified with a seeded cart (localStorage `patticake-cart-v1`): header reveal fires,
+  both summary lines render staggered and visible, totals correct, qty changes never re-hide
+  lines. The plain capture only exercises the empty-cart branch.
+- Inline review sweep: no `motion.` usage anywhere (LazyMotion strict is safe); `stagger-reveal`
+  CSS is still live for five yum!-side components (not dead code); `.patticake-ticket`'s
+  3-column grid and `.delivery-logistics-grid article` selectors still match the converted
+  markup; `:nth-child` tag positioning unaffected (TapeTag renders spans in place); StaggerItem's
+  hover transition does not override the variant entrance spring (variant-level transition wins);
+  AGENTS.md hard rules checked (Toast URLs, slugs, JSON-LD, em dashes, lowercase, no invented
+  data - all clean). Full verify.sh re-run green on the pushed HEAD.
+- Accepted as-is: PatticakeMessagePreview keeps inline whileHover/whileTap on its buttons rather
+  than PressButton wrappers - the chip grid styles buttons as direct grid children, and wrapping
+  would change layout for a marginal dedupe.
