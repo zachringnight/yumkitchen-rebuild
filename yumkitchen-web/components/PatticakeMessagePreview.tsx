@@ -2,9 +2,12 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
+import { AnimatePresence, m } from 'motion/react';
 import { pushAnalyticsEvent } from '@/lib/analytics';
 import { CAKE_MESSAGE_EVENT, type CakeMessageDetail } from '@/lib/cakeMessage';
 import { MotionPauseButton } from './MotionPauseButton';
+import { Reveal } from './motion/Reveal';
+import { snap } from './motion/springs';
 
 const quickMessages = ['love you', 'miss you', 'thank you', 'go team', 'happy day', 'congrats'] as const;
 
@@ -14,7 +17,9 @@ type PatticakeMessagePreviewProps = {
 
 export function PatticakeMessagePreview({ formHref = '#cake-inquiry' }: PatticakeMessagePreviewProps) {
   const [message, setMessage] = useState('love you');
+  const [liftoff, setLiftoff] = useState(0);
   const displayMessage = message.trim() || 'patticake';
+  const words = displayMessage.split(/\s+/).filter(Boolean);
 
   function sendMessageToForm() {
     pushAnalyticsEvent({
@@ -32,8 +37,14 @@ export function PatticakeMessagePreview({ formHref = '#cake-inquiry' }: Patticak
     );
   }
 
+  function handleSend() {
+    // Let the liftoff chip read for a beat before the scroll handoff fires.
+    setLiftoff((count) => count + 1);
+    window.setTimeout(sendMessageToForm, 280);
+  }
+
   return (
-    <section id="message-maker" className="patticake-message-maker scroll-mt-24 bg-white px-6 py-12 md:scroll-mt-28 lg:py-section" data-reveal>
+    <Reveal as="section" id="message-maker" className="patticake-message-maker scroll-mt-24 bg-white px-6 py-12 md:scroll-mt-28 lg:py-section">
       <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
         <div>
           <p className="section-label">message maker</p>
@@ -43,14 +54,16 @@ export function PatticakeMessagePreview({ formHref = '#cake-inquiry' }: Patticak
           </p>
           <div className="message-chip-grid" role="group" aria-label="Message ideas">
             {quickMessages.map((item) => (
-              <button
+              <m.button
                 key={item}
                 type="button"
                 aria-pressed={message === item}
                 onClick={() => setMessage(item)}
+                whileTap={{ scale: 0.94 }}
+                transition={snap}
               >
                 {item}
-              </button>
+              </m.button>
             ))}
           </div>
           <label className="message-maker-field" htmlFor="patticake-message-preview">
@@ -63,11 +76,31 @@ export function PatticakeMessagePreview({ formHref = '#cake-inquiry' }: Patticak
               onChange={(event) => setMessage(event.target.value)}
             />
           </label>
-          <div className="mt-6 flex flex-wrap items-center gap-4">
-            <button type="button" className="btn-primary" onClick={sendMessageToForm}>
+          <div className="relative mt-6 flex flex-wrap items-center gap-4">
+            <m.button
+              type="button"
+              className="btn-primary"
+              onClick={handleSend}
+              whileHover={{ y: -2, scale: 1.02 }}
+              whileTap={{ scale: 0.96 }}
+              transition={snap}
+            >
               Send These Words
-            </button>
+            </m.button>
             <p className="text-base leading-6 text-body">drops your words into the note below</p>
+            {liftoff > 0 && (
+              <m.span
+                key={liftoff}
+                className="pointer-events-none absolute left-0 top-full z-10 mt-2 border border-ink/15 bg-cream px-3 py-1.5 font-serif text-base text-ink shadow-lg"
+                aria-hidden="true"
+                initial={{ opacity: 1, y: 0, scale: 1, rotate: -2 }}
+                animate={{ opacity: 0, y: 64, scale: 0.88, rotate: 2 }}
+                transition={{ duration: 0.55, ease: 'easeIn' }}
+                onAnimationComplete={() => setLiftoff(0)}
+              >
+                &ldquo;{displayMessage}&rdquo;
+              </m.span>
+            )}
           </div>
         </div>
 
@@ -84,8 +117,22 @@ export function PatticakeMessagePreview({ formHref = '#cake-inquiry' }: Patticak
               sizes="(min-width: 1024px) 42vw, 100vw"
               className="object-cover crop-patticake-top"
             />
-            <div className="message-preview-text">
-              {displayMessage}
+            <div className="message-preview-text" role="text" aria-label={displayMessage}>
+              <AnimatePresence initial={false}>
+                {words.map((word, index) => (
+                  <m.span
+                    key={index}
+                    className="message-preview-word"
+                    aria-hidden="true"
+                    initial={{ opacity: 0, scale: 0.6, y: 8 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.7 }}
+                    transition={snap}
+                  >
+                    {word}
+                  </m.span>
+                ))}
+              </AnimatePresence>
             </div>
           </div>
           <div className="message-preview-card message-preview-card-front" aria-hidden="true">
@@ -93,6 +140,6 @@ export function PatticakeMessagePreview({ formHref = '#cake-inquiry' }: Patticak
           </div>
         </div>
       </div>
-    </section>
+    </Reveal>
   );
 }

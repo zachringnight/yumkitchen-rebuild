@@ -1772,6 +1772,14 @@ body[data-nav-open='true'] .mobile-order-bar {
   overflow-wrap: normal;
 }
 
+.message-preview-word {
+  display: inline-block;
+}
+
+.message-preview-word + .message-preview-word {
+  margin-left: 0.32em;
+}
+
 .message-preview-card {
   position: absolute;
   z-index: 3;
@@ -2572,6 +2580,15 @@ to {
   }
 }
 
+@keyframes message-field-pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-brand-primary) 55%, transparent);
+  }
+  100% {
+    box-shadow: 0 0 0 16px color-mix(in srgb, var(--color-brand-primary) 0%, transparent);
+  }
+}
+
 @keyframes patticake-tag-bob {
   0%,
   100% {
@@ -2686,9 +2703,17 @@ to {
     animation-play-state: paused;
   }
 
-  .patticake-floating-messages span,
-  .cake-message-tags span {
+  .patticake-floating-messages span.tape-tag-settled,
+  .cake-message-tags span.tape-tag-settled {
     animation: patticake-tag-bob 6.8s ease-in-out infinite;
+  }
+
+  .press-wrap :is(.btn-primary, .btn-secondary):hover {
+    transform: none;
+  }
+
+  .message-field-pulse {
+    animation: message-field-pulse 1.15s cubic-bezier(0.16, 1, 0.3, 1) 1;
   }
 
   .message-preview-card,
@@ -2888,6 +2913,10 @@ to {
     transform: none;
     animation: none;
     transition: none;
+  }
+
+  .message-field-pulse {
+    animation: none;
   }
 
   .kinetic-track {

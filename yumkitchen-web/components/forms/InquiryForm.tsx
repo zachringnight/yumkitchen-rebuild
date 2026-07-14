@@ -64,6 +64,8 @@ function revealAndFocusField(id: string) {
       if (!field) return;
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       field.focus({ preventScroll: true });
+      field.classList.add('message-field-pulse');
+      window.setTimeout(() => field.classList.remove('message-field-pulse'), 1400);
       field.scrollIntoView({ block: 'center', behavior: reduceMotion ? 'auto' : 'smooth' });
       for (const delay of [700, 1400]) {
         window.setTimeout(() => {
