@@ -25,7 +25,7 @@ export function FoodFeatureGrid({ features }: { features: readonly Feature[] }) 
           <div className="stagger-reveal grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {features.map((feature) => (
               <Link key={feature.title} href={feature.href} className="accent-card group block bg-white">
-                <div className="relative aspect-4/3 overflow-hidden bg-page">
+                <div className="relative aspect-4/3 overflow-hidden bg-cream">
                   <Image src={feature.image} alt="" fill sizes="(min-width: 1024px) 20vw, 50vw" className="image-lift object-cover" />
                 </div>
                 <div className="p-4">

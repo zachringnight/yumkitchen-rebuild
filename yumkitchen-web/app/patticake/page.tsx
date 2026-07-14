@@ -200,7 +200,7 @@ const nationalOrderIsExternal = /^https?:\/\//.test(patticakeNationalOrderUrl);
 
 export default function PatticakeNationalDeliveryPage() {
   return (
-    <main className="bg-page">
+    <main className="bg-cream">
       <JsonLd data={jsonLd} />
       <JsonLd data={productJsonLd} />
 
@@ -284,7 +284,7 @@ export default function PatticakeNationalDeliveryPage() {
           </Reveal>
           <Stagger className="mt-10 grid gap-4 md:grid-cols-3">
             {cakeFacts.map((fact) => (
-              <StaggerItem as="article" key={fact.title} className="border border-ink/10 bg-page p-6">
+              <StaggerItem as="article" key={fact.title} className="border border-ink/10 bg-white p-6">
                 <h3 className="text-h3 lowercase">{fact.title}</h3>
                 <p className="mt-3 text-base leading-7 text-body">{fact.copy}</p>
               </StaggerItem>
@@ -334,7 +334,7 @@ export default function PatticakeNationalDeliveryPage() {
         </div>
       </section>
 
-      <section className="bg-page px-6 py-8">
+      <section className="bg-cream px-6 py-8">
         <div className="mx-auto max-w-[1240px]">
           <Stagger className="patticake-ticket" gap={0.12}>
             <StaggerItem variant="stamp" baseRotate={180} className="patticake-ticket-stub">
@@ -421,7 +421,7 @@ export default function PatticakeNationalDeliveryPage() {
       <MediaProofBand />
       <ReviewsWall />
 
-      <section className="bg-page px-6 py-12 lg:py-section">
+      <section className="bg-blue-tint/70 px-6 py-12 lg:py-section">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.74fr_1.26fr]">
           <div>
             <p className="section-label">frequently asked questions</p>

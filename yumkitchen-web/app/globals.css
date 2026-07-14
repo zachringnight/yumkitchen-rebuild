@@ -599,11 +599,6 @@ body[data-nav-open='true'] .mobile-order-bar {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.location-section {
-  background:
-    linear-gradient(180deg, var(--color-page), white 55%, var(--color-blue-tint) 100%);
-}
-
 .location-modal-backdrop {
   background:
     radial-gradient(circle at 50% 28%, rgb(224 58 62 / 0.18), transparent 34rem),
@@ -2117,7 +2112,7 @@ body[data-nav-open='true'] .mobile-order-bar {
   isolation: isolate;
   min-height: calc(100svh - 5rem);
   overflow: hidden;
-  background: var(--color-page);
+  background: var(--color-cream);
 }
 
 .logo-animation-backdrop {
@@ -2271,7 +2266,7 @@ body[data-nav-open='true'] .mobile-order-bar {
 
 @layer base {
   html { scroll-behavior: smooth; }
-  body { @apply bg-page font-sans text-body; }
+  body { @apply bg-cream font-sans text-body; }
   h1, h2, h3 { @apply font-serif text-ink; }
   p { @apply text-body; }
   a { text-underline-offset: 4px; }

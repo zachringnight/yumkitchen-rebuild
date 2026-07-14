@@ -13,7 +13,7 @@ type Props = {
 
 export function Hero({ title, copy, image, imageAlt, children, priority = false, align = 'left' }: Props) {
   return (
-    <section className="relative min-h-[620px] overflow-hidden bg-page text-ink">
+    <section className="relative min-h-[620px] overflow-hidden bg-cream text-ink">
       <Image
         src={image}
         alt={imageAlt}

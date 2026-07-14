@@ -26,7 +26,7 @@ export function SeasonalShowcase() {
         <div className="stagger-reveal mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {seasonalHighlights.map((item) => (
             <Link key={item.title} href={item.href} className="accent-card group bg-white shadow-xs">
-              <div className="relative aspect-4/3 overflow-hidden bg-page">
+              <div className="relative aspect-4/3 overflow-hidden bg-cream">
                 <Image src={item.image} alt={item.title} fill sizes="(min-width: 1024px) 33vw, 100vw" className="image-lift object-cover" />
               </div>
               <div className="p-5">

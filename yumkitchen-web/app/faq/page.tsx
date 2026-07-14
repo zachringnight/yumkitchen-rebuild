@@ -69,7 +69,7 @@ const breadcrumbJsonLd = {
 
 export default function FaqPage() {
   return (
-    <main className="bg-page">
+    <main className="bg-cream">
       <JsonLd data={faqJsonLd} />
       <JsonLd data={breadcrumbJsonLd} />
 

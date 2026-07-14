@@ -96,7 +96,7 @@ export default function CheckoutPage() {
 
   if (items.length === 0) {
     return (
-      <main className="bg-page">
+      <main className="bg-cream">
         <section className="container-content py-section text-center">
           <p className="section-label">checkout</p>
           <h1 className="text-h2 lowercase">your box is empty</h1>
@@ -110,7 +110,7 @@ export default function CheckoutPage() {
   }
 
   return (
-    <main className="bg-page">
+    <main className="bg-cream">
       <section className="border-b border-ink/10 bg-cream px-6 py-8">
         <Reveal className="mx-auto max-w-[1180px]" y={12}>
           <p className="section-label">checkout</p>

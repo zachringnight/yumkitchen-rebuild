@@ -37,7 +37,7 @@ function eventForHref(href: string) {
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-[#d8cfd1] bg-page pb-24 md:pb-32">
+    <footer className="border-t border-[#d8cfd1] bg-cream pb-24 md:pb-32">
       <EmailCapture />
       <div className="bg-blue-soft px-6 py-5">
         <div className="mx-auto flex max-w-[1240px] flex-wrap items-center gap-4">
