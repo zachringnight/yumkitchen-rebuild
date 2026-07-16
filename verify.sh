@@ -93,7 +93,8 @@ if curl -sf "$BASE_URL" > /dev/null 2>&1; then
   ERRS=$((ERRS+1))
 else
   cd "$APP_DIR"
-  npm run start -- --hostname 127.0.0.1 --port "$PORT" > /tmp/yum-next-start.log 2>&1 &
+  # Browser checks must exercise the real site routes, not the password splash.
+  PREVIEW_PROTECTION_ENABLED=false npm run start -- --hostname 127.0.0.1 --port "$PORT" > /tmp/yum-next-start.log 2>&1 &
   SERVER_PID=$!
   cd "$ROOT_DIR"
   for i in $(seq 1 40); do

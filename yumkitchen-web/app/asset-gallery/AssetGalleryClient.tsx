@@ -81,7 +81,9 @@ export function AssetGalleryClient({assets}: {assets: ReviewAsset[]}) {
   const [statuses, setStatuses] = useState<Record<string, ReviewStatus>>({});
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [motionAllowed, setMotionAllowed] = useState(false);
+  const dialogRef = useRef<HTMLElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const lastActiveRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     document.body.dataset.assetGallery = 'true';
@@ -124,26 +126,61 @@ export function AssetGalleryClient({assets}: {assets: ReviewAsset[]}) {
 
   const selectedIndex = selectedId ? assets.findIndex((asset) => asset.id === selectedId) : -1;
   const selectedAsset = selectedIndex >= 0 ? assets[selectedIndex] : null;
+  const dialogOpen = selectedAsset !== null;
   const featuredAsset = assets[0];
   const keepCount = Object.values(statuses).filter((status) => status === 'keep').length;
   const reviseCount = Object.values(statuses).filter((status) => status === 'revise').length;
 
   useEffect(() => {
-    if (!selectedAsset) return;
+    if (!dialogOpen) return;
+    lastActiveRef.current = document.activeElement as HTMLElement | null;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     closeButtonRef.current?.focus();
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setSelectedId(null);
-      if (event.key === 'ArrowRight') setSelectedId(assets[(selectedIndex + 1) % assets.length].id);
-      if (event.key === 'ArrowLeft') setSelectedId(assets[(selectedIndex - 1 + assets.length) % assets.length].id);
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        setSelectedId(null);
+        return;
+      }
+      if (event.key === 'Tab') {
+        const focusable = dialogRef.current?.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), video[controls], [tabindex]:not([tabindex="-1"])',
+        );
+        if (!focusable || focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+        return;
+      }
+      if (event.target instanceof HTMLVideoElement) return;
+      if (event.key === 'ArrowRight') {
+        setSelectedId((currentId) => {
+          const currentIndex = assets.findIndex((asset) => asset.id === currentId);
+          return assets[(currentIndex + 1) % assets.length].id;
+        });
+      }
+      if (event.key === 'ArrowLeft') {
+        setSelectedId((currentId) => {
+          const currentIndex = assets.findIndex((asset) => asset.id === currentId);
+          return assets[(currentIndex - 1 + assets.length) % assets.length].id;
+        });
+      }
     };
-    window.addEventListener('keydown', onKeyDown);
+    document.addEventListener('keydown', onKeyDown);
     return () => {
       document.body.style.overflow = previousOverflow;
-      window.removeEventListener('keydown', onKeyDown);
+      document.removeEventListener('keydown', onKeyDown);
+      lastActiveRef.current?.focus();
+      lastActiveRef.current = null;
     };
-  }, [assets, selectedAsset, selectedIndex]);
+  }, [assets, dialogOpen]);
 
   function updateStatus(id: string, status: ReviewStatus) {
     setStatuses((current) => {
@@ -308,7 +345,7 @@ export function AssetGalleryClient({assets}: {assets: ReviewAsset[]}) {
 
       {selectedAsset && (
         <div className={styles.dialogBackdrop} onMouseDown={(event) => { if (event.target === event.currentTarget) setSelectedId(null); }}>
-          <section className={styles.dialog} role="dialog" aria-modal="true" aria-labelledby="review-dialog-title">
+          <section ref={dialogRef} className={styles.dialog} role="dialog" aria-modal="true" aria-labelledby="review-dialog-title">
             <header className={styles.dialogHeader}>
               <div>
                 <p>{selectedAsset.brand} / {selectedAsset.collection} / {selectedAsset.format}</p>
