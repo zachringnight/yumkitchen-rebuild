@@ -36,7 +36,14 @@ case "$NORMALIZED_ORIGIN_URL" in
 esac
 
 BRANCH="$(git branch --show-current)"
-[ -n "$BRANCH" ] || fail "detached HEAD. Check out the intended task branch"
+if [ -z "$BRANCH" ]; then
+  if [ "${GITHUB_ACTIONS:-}" = "true" ]; then
+    BRANCH="${GITHUB_HEAD_REF:-${GITHUB_REF_NAME:-github-actions-detached-head}}"
+    echo "Detached HEAD accepted for GitHub Actions checkout: $BRANCH"
+  else
+    fail "detached HEAD. Check out the intended task branch"
+  fi
+fi
 
 echo "Repository: $ROOT"
 echo "Branch: $BRANCH"
