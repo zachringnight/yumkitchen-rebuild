@@ -45,7 +45,7 @@ export function MobileOrderBar() {
     };
   }, [pathname]);
 
-  if (pathname === '/order') return null;
+  if (pathname === '/order' || pathname === '/asset-gallery') return null;
 
   return (
     <div

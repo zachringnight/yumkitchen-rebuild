@@ -1,3 +1,5 @@
+import { getAttributionContext } from '@/lib/attribution';
+
 export type AnalyticsPayload = Record<string, string>;
 
 declare global {
@@ -9,5 +11,8 @@ declare global {
 export function pushAnalyticsEvent(payload: AnalyticsPayload) {
   if (typeof window === 'undefined') return;
   window.dataLayer = window.dataLayer ?? [];
-  window.dataLayer.push(payload);
+  window.dataLayer.push({
+    ...getAttributionContext(),
+    ...payload,
+  });
 }

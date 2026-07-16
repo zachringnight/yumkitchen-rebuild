@@ -1,19 +1,59 @@
 'use client';
 
 import { useState } from 'react';
+import { pushAnalyticsEvent } from '@/lib/analytics';
+import { getAttributionContext } from '@/lib/attribution';
 
-// Demo email capture. UI + success state only; connect to the ESP (Klaviyo) at go-live.
 export function EmailCapture() {
   const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<'idle' | 'error' | 'done'>('idle');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'error' | 'done'>('idle');
+  const [serverMessage, setServerMessage] = useState('');
+  const isEnabled = process.env.NEXT_PUBLIC_NEWSLETTER_SIGNUP_ENABLED === 'true';
 
-  function submit(e: React.FormEvent) {
+  if (!isEnabled) return null;
+
+  async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.trim())) {
+    const form = e.currentTarget;
+    const normalizedEmail = email.trim().toLowerCase();
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(normalizedEmail)) {
       setStatus('error');
+      setServerMessage('Enter a valid email address.');
       return;
     }
-    setStatus('done');
+
+    setStatus('sending');
+    setServerMessage('');
+
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: normalizedEmail,
+          company: new FormData(form).get('company'),
+          sourcePath: window.location.pathname,
+          ...getAttributionContext(),
+        }),
+      });
+      const payload = (await response.json().catch(() => ({}))) as { message?: string };
+
+      if (!response.ok) {
+        setStatus('error');
+        setServerMessage(payload.message ?? 'Signup is unavailable right now. Please try again later.');
+        return;
+      }
+
+      pushAnalyticsEvent({
+        event: 'submit_email_signup',
+        canonical_event: 'email_signup_submit',
+        page_path: window.location.pathname,
+      });
+      setStatus('done');
+    } catch {
+      setStatus('error');
+      setServerMessage('Signup is unavailable right now. Please try again later.');
+    }
   }
 
   return (
@@ -33,6 +73,10 @@ export function EmailCapture() {
           </div>
         ) : (
           <form onSubmit={submit} noValidate className="grid gap-3 sm:grid-cols-[1fr_auto] sm:items-start">
+            <div className="hidden" aria-hidden="true">
+              <label htmlFor="newsletter-company">Company</label>
+              <input id="newsletter-company" name="company" type="text" tabIndex={-1} autoComplete="off" />
+            </div>
             <div className="grid gap-1">
               <label htmlFor="newsletter-email" className="sr-only">
                 Email address
@@ -43,16 +87,19 @@ export function EmailCapture() {
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
-                  if (status === 'error') setStatus('idle');
+                  if (status === 'error') {
+                    setStatus('idle');
+                    setServerMessage('');
+                  }
                 }}
                 placeholder="you@email.com"
                 aria-invalid={status === 'error'}
                 className="w-full border border-body bg-white px-4 py-3 font-sans text-lg text-ink outline-hidden transition focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/30"
               />
-              {status === 'error' && <span className="field-error">Enter a valid email address.</span>}
+              {status === 'error' && <span className="field-error">{serverMessage}</span>}
             </div>
-            <button type="submit" className="btn-primary px-6 py-3">
-              Join
+            <button type="submit" disabled={status === 'sending'} className="btn-primary px-6 py-3 disabled:cursor-wait disabled:opacity-70">
+              {status === 'sending' ? 'Joining...' : 'Join'}
             </button>
           </form>
         )}

@@ -1,0 +1,14 @@
+{
+  "id": "review-renderer-materialized",
+  "action": "write_moodboard_widget_payload",
+  "label": "Materialized Creative Production image review",
+  "createdAt": "2026-07-15T16:27:57.546632Z",
+  "timestamp": "2026-07-15T16:27:57.546632Z",
+  "title": "yum! + Patticake motion launch pack",
+  "summary": "44 rendered MP4 masters across vertical, feed, square, wide, carousel-derived stories, and animated Patticake logo formats.",
+  "itemCount": 44,
+  "runDirectory": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-patticake-creative-launch-2026-07-14/motion-review",
+  "streamPath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-patticake-creative-launch-2026-07-14/motion-review/data/stream.json",
+  "runStatePath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-patticake-creative-launch-2026-07-14/motion-review/run-state.json",
+  "latestActionPath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-patticake-creative-launch-2026-07-14/motion-review/latest-action.json"
+}

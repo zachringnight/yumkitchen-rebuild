@@ -10,10 +10,13 @@ const inquirySchema = z
     lastName: z.string().min(1),
     email: z.string().email(),
     phone: z.string().optional(),
+    organization: z.string().optional(),
     location: z.string().optional(),
     subject: z.string().min(1),
     eventDate: z.string().optional(),
+    eventTime: z.string().optional(),
     guests: z.string().optional(),
+    dietaryNeeds: z.string().optional(),
     recipientName: z.string().optional(),
     streetAddress: z.string().optional(),
     addressLine2: z.string().optional(),
@@ -37,8 +40,31 @@ const inquirySchema = z
     message: z.string().min(10),
     company: z.string().optional(),
     sourcePath: z.string().max(200).optional(),
+    utm_source: z.string().max(200).optional(),
+    utm_medium: z.string().max(200).optional(),
+    utm_campaign: z.string().max(200).optional(),
+    utm_content: z.string().max(200).optional(),
+    utm_term: z.string().max(200).optional(),
+    landing_page: z.string().max(500).optional(),
+    referrer: z.string().max(500).optional(),
   })
   .superRefine((data, ctx) => {
+    if (data.kind === 'catering') {
+      const requiredCateringStrings: Array<[keyof typeof data, string]> = [
+        ['location', 'Pickup restaurant is required.'],
+        ['eventDate', 'Event date is required.'],
+        ['eventTime', 'Event time is required.'],
+        ['guests', 'Guest count is required.'],
+      ];
+
+      for (const [field, message] of requiredCateringStrings) {
+        const value = data[field];
+        if (typeof value !== 'string' || !value.trim()) {
+          ctx.addIssue({ code: z.ZodIssueCode.custom, path: [field], message });
+        }
+      }
+    }
+
     if (data.kind === 'cake') {
       const subject = data.subject.toLowerCase();
       const sourcePath = data.sourcePath?.toLowerCase() ?? '';
@@ -146,10 +172,13 @@ async function getPayload(request: Request) {
         lastName: stringValue(formData.get('lastName')),
         email: stringValue(formData.get('email')),
         phone: stringValue(formData.get('phone')),
+        organization: stringValue(formData.get('organization')),
         location: stringValue(formData.get('location')),
         subject: stringValue(formData.get('subject')),
         eventDate: stringValue(formData.get('eventDate')),
+        eventTime: stringValue(formData.get('eventTime')),
         guests: stringValue(formData.get('guests')),
+        dietaryNeeds: stringValue(formData.get('dietaryNeeds')),
         recipientName: stringValue(formData.get('recipientName')),
         streetAddress: stringValue(formData.get('streetAddress')),
         addressLine2: stringValue(formData.get('addressLine2')),
@@ -173,6 +202,13 @@ async function getPayload(request: Request) {
         message: stringValue(formData.get('message')),
         company: stringValue(formData.get('company')),
         sourcePath: stringValue(formData.get('sourcePath')),
+        utm_source: stringValue(formData.get('utm_source')),
+        utm_medium: stringValue(formData.get('utm_medium')),
+        utm_campaign: stringValue(formData.get('utm_campaign')),
+        utm_content: stringValue(formData.get('utm_content')),
+        utm_term: stringValue(formData.get('utm_term')),
+        landing_page: stringValue(formData.get('landing_page')),
+        referrer: stringValue(formData.get('referrer')),
       },
       resumeFile,
     };
@@ -257,6 +293,27 @@ export async function POST(request: Request) {
           line('Gift message', data.giftMessage),
         ]
       : [];
+  const cateringLines =
+    data.kind === 'catering'
+      ? [
+          '',
+          'Catering details',
+          line('Company or organization', data.organization),
+          line('Event time', data.eventTime),
+          line('Dietary or allergen notes', data.dietaryNeeds),
+        ]
+      : [];
+  const attributionLines = [
+    '',
+    'Attribution',
+    line('Landing page', data.landing_page),
+    line('Referrer', data.referrer),
+    line('UTM source', data.utm_source),
+    line('UTM medium', data.utm_medium),
+    line('UTM campaign', data.utm_campaign),
+    line('UTM content', data.utm_content),
+    line('UTM term', data.utm_term),
+  ];
   const text = [
     `Name: ${data.firstName} ${data.lastName}`,
     `Email: ${data.email}`,
@@ -267,6 +324,8 @@ export async function POST(request: Request) {
     `Source: ${data.sourcePath ?? ''}`,
     ...careerLines,
     ...cakeLines,
+    ...cateringLines,
+    ...attributionLines,
     '',
     data.message,
   ].join('\n');

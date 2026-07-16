@@ -5,7 +5,7 @@
       "red": "#dc3439",
       "redBright": "#e03a3e",
       "redDeep": "#b4212b",
-      "cream": "#fff4f5",
+      "cream": "#ffffff",
       "lightBlue": "#cae4fd",
       "softBlue": "#aed2ef",
       "ink": "#2d2d2d",
@@ -18,16 +18,16 @@
     }
   },
   "source": {
-    "editableTemplate": "/Users/zsoskin/YumKitchen_Rebuild/07_codex/social/instagram/yum-instagram-templates.html",
-    "renderCommand": "cd /Users/zsoskin/YumKitchen_Rebuild/07_codex/yumkitchen-web && node scripts/render-instagram-templates.mjs",
-    "exportDirectory": "/Users/zsoskin/YumKitchen_Rebuild/07_codex/social/instagram/exports"
+    "editableTemplate": "/Users/zsoskin/dev/yumkitchen-rebuild/social/instagram/yum-instagram-templates.html",
+    "renderCommand": "cd /Users/zsoskin/dev/yumkitchen-rebuild/yumkitchen-web && node scripts/render-instagram-templates.mjs",
+    "exportDirectory": "/Users/zsoskin/dev/yumkitchen-rebuild/social/instagram/exports"
   },
   "recommendedPublicDirectory": "/social/instagram",
   "assets": [
     {
       "id": "yum-feed-bakery-square",
       "filename": "yum-feed-bakery-square.png",
-      "localPath": "/Users/zsoskin/YumKitchen_Rebuild/07_codex/social/instagram/exports/yum-feed-bakery-square.png",
+      "localPath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/instagram/exports/yum-feed-bakery-square.png",
       "publicPath": "/social/instagram/yum-feed-bakery-square.png",
       "format": "png",
       "width": 1080,
@@ -35,12 +35,12 @@
       "aspectRatio": "1:1",
       "placement": "instagram_feed_square",
       "topic": "bakery",
-      "alt": "Yum bakery Instagram graphic with cake photography, cream panel, red call to action, and Yum brand colors."
+      "alt": "Yum bakery Instagram graphic with cake photography, white panel, red call to action, and Yum brand colors."
     },
     {
       "id": "yum-feed-seasonal-portrait",
       "filename": "yum-feed-seasonal-portrait.png",
-      "localPath": "/Users/zsoskin/YumKitchen_Rebuild/07_codex/social/instagram/exports/yum-feed-seasonal-portrait.png",
+      "localPath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/instagram/exports/yum-feed-seasonal-portrait.png",
       "publicPath": "/social/instagram/yum-feed-seasonal-portrait.png",
       "format": "png",
       "width": 1080,
@@ -48,12 +48,12 @@
       "aspectRatio": "4:5",
       "placement": "instagram_feed_portrait",
       "topic": "seasonal_menu",
-      "alt": "Yum seasonal favorites Instagram portrait with food photography and Yum red, cream, and light blue brand colors."
+      "alt": "Yum seasonal favorites Instagram portrait with food photography and Yum red, white, and light blue brand colors."
     },
     {
       "id": "yum-story-order-now",
       "filename": "yum-story-order-now.png",
-      "localPath": "/Users/zsoskin/YumKitchen_Rebuild/07_codex/social/instagram/exports/yum-story-order-now.png",
+      "localPath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/instagram/exports/yum-story-order-now.png",
       "publicPath": "/social/instagram/yum-story-order-now.png",
       "format": "png",
       "width": 1080,
@@ -66,7 +66,7 @@
     {
       "id": "yum-carousel-press-proof-square",
       "filename": "yum-carousel-press-proof-square.png",
-      "localPath": "/Users/zsoskin/YumKitchen_Rebuild/07_codex/social/instagram/exports/yum-carousel-press-proof-square.png",
+      "localPath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/instagram/exports/yum-carousel-press-proof-square.png",
       "publicPath": "/social/instagram/yum-carousel-press-proof-square.png",
       "format": "png",
       "width": 1080,
@@ -79,7 +79,7 @@
     {
       "id": "yum-reel-cover-made-scratch",
       "filename": "yum-reel-cover-made-scratch.png",
-      "localPath": "/Users/zsoskin/YumKitchen_Rebuild/07_codex/social/instagram/exports/yum-reel-cover-made-scratch.png",
+      "localPath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/instagram/exports/yum-reel-cover-made-scratch.png",
       "publicPath": "/social/instagram/yum-reel-cover-made-scratch.png",
       "format": "png",
       "width": 1080,
@@ -87,12 +87,12 @@
       "aspectRatio": "9:16",
       "placement": "instagram_reel_cover",
       "topic": "made_from_scratch",
-      "alt": "Yum reel cover with sandwich photography, cream text panel, and made from scratch message."
+      "alt": "Yum reel cover with sandwich photography, white text panel, and made from scratch message."
     },
     {
       "id": "yum-feed-catering-portrait",
       "filename": "yum-feed-catering-portrait.png",
-      "localPath": "/Users/zsoskin/YumKitchen_Rebuild/07_codex/social/instagram/exports/yum-feed-catering-portrait.png",
+      "localPath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/instagram/exports/yum-feed-catering-portrait.png",
       "publicPath": "/social/instagram/yum-feed-catering-portrait.png",
       "format": "png",
       "width": 1080,
@@ -100,12 +100,12 @@
       "aspectRatio": "4:5",
       "placement": "instagram_feed_portrait",
       "topic": "catering",
-      "alt": "Yum catering Instagram portrait with sandwich photography, cream brand panel, and red plan catering button."
+      "alt": "Yum catering Instagram portrait with sandwich photography, white brand panel, and red plan catering button."
     },
     {
       "id": "yum-feed-soup-sandwich-square",
       "filename": "yum-feed-soup-sandwich-square.png",
-      "localPath": "/Users/zsoskin/YumKitchen_Rebuild/07_codex/social/instagram/exports/yum-feed-soup-sandwich-square.png",
+      "localPath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/instagram/exports/yum-feed-soup-sandwich-square.png",
       "publicPath": "/social/instagram/yum-feed-soup-sandwich-square.png",
       "format": "png",
       "width": 1080,
@@ -113,12 +113,12 @@
       "aspectRatio": "1:1",
       "placement": "instagram_feed_square",
       "topic": "soup_sandwich",
-      "alt": "Yum soup and sandwich Instagram square with dark overlay, cream text, and red call to action."
+      "alt": "Yum soup and sandwich Instagram square with dark overlay, white text, and red call to action."
     },
     {
       "id": "yum-story-cake-inquiry",
       "filename": "yum-story-cake-inquiry.png",
-      "localPath": "/Users/zsoskin/YumKitchen_Rebuild/07_codex/social/instagram/exports/yum-story-cake-inquiry.png",
+      "localPath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/instagram/exports/yum-story-cake-inquiry.png",
       "publicPath": "/social/instagram/yum-story-cake-inquiry.png",
       "format": "png",
       "width": 1080,
@@ -131,7 +131,7 @@
     {
       "id": "yum-carousel-locations-square",
       "filename": "yum-carousel-locations-square.png",
-      "localPath": "/Users/zsoskin/YumKitchen_Rebuild/07_codex/social/instagram/exports/yum-carousel-locations-square.png",
+      "localPath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/instagram/exports/yum-carousel-locations-square.png",
       "publicPath": "/social/instagram/yum-carousel-locations-square.png",
       "format": "png",
       "width": 1080,
@@ -144,7 +144,7 @@
     {
       "id": "yum-feed-breakfast-portrait",
       "filename": "yum-feed-breakfast-portrait.png",
-      "localPath": "/Users/zsoskin/YumKitchen_Rebuild/07_codex/social/instagram/exports/yum-feed-breakfast-portrait.png",
+      "localPath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/instagram/exports/yum-feed-breakfast-portrait.png",
       "publicPath": "/social/instagram/yum-feed-breakfast-portrait.png",
       "format": "png",
       "width": 1080,
@@ -152,7 +152,7 @@
       "aspectRatio": "4:5",
       "placement": "instagram_feed_portrait",
       "topic": "breakfast",
-      "alt": "Yum breakfast Instagram portrait with breakfast photography, cream brand panel, and red find a kitchen button."
+      "alt": "Yum breakfast Instagram portrait with breakfast photography, white brand panel, and red find a kitchen button."
     }
   ]
 }

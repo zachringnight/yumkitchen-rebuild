@@ -1,0 +1,68 @@
+[
+  {
+    "id": "yum-lunch-decision",
+    "index": 1,
+    "title": "what should we eat?",
+    "label": "local order",
+    "src": "exports/story/01-yum-lunch-decision-v01-story.png",
+    "href": "exports/9x16-video/01-yum-lunch-decision-v01-9x16.mp4",
+    "caption": "yum! / Order Online / day 1",
+    "family": "local order",
+    "bestFor": "Instagram Reels, TikTok, YouTube Shorts, Meta paid"
+  },
+  {
+    "id": "yum-four-kitchens",
+    "index": 2,
+    "title": "nearby yum! is the move",
+    "label": "four locations",
+    "src": "exports/story/02-yum-four-kitchens-v01-story.png",
+    "href": "exports/9x16-video/02-yum-four-kitchens-v01-9x16.mp4",
+    "caption": "yum! / Find Your yum! / day 5",
+    "family": "four locations",
+    "bestFor": "Instagram Reels, Facebook, Stories, local Meta paid"
+  },
+  {
+    "id": "yum-catering-room",
+    "index": 3,
+    "title": "feed the room",
+    "label": "catering leads",
+    "src": "exports/story/03-yum-catering-room-v01-story.png",
+    "href": "exports/9x16-video/03-yum-catering-room-v01-9x16.mp4",
+    "caption": "yum! / Start a Catering Note / day 9",
+    "family": "catering leads",
+    "bestFor": "Instagram Reels, LinkedIn, Facebook, Meta lead ads"
+  },
+  {
+    "id": "patticake-gift-drop",
+    "index": 4,
+    "title": "send cake, not a card",
+    "label": "gifting",
+    "src": "exports/story/04-patticake-gift-drop-v01-story.png",
+    "href": "exports/9x16-video/04-patticake-gift-drop-v01-9x16.mp4",
+    "caption": "Patticake / Send a Patticake / day 3",
+    "family": "gifting",
+    "bestFor": "Instagram Reels, TikTok, YouTube Shorts, Meta paid"
+  },
+  {
+    "id": "patticake-birthday-first-slice",
+    "index": 5,
+    "title": "birthday cake, handled",
+    "label": "birthday cake",
+    "src": "exports/story/05-patticake-birthday-first-slice-v01-story.png",
+    "href": "exports/9x16-video/05-patticake-birthday-first-slice-v01-9x16.mp4",
+    "caption": "Patticake / Plan the Cake / day 7",
+    "family": "birthday cake",
+    "bestFor": "Instagram Reels, TikTok, Stories, Meta paid"
+  },
+  {
+    "id": "patticake-event-inquiry",
+    "index": 6,
+    "title": "cake for the table",
+    "label": "weddings and events",
+    "src": "exports/story/06-patticake-event-inquiry-v01-story.png",
+    "href": "exports/9x16-video/06-patticake-event-inquiry-v01-9x16.mp4",
+    "caption": "Patticake / Start an Event Inquiry / day 11",
+    "family": "weddings and events",
+    "bestFor": "Instagram Reels, Pinterest video, Stories, Meta paid"
+  }
+]

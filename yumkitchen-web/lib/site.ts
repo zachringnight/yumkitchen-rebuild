@@ -118,8 +118,8 @@ export const pageMeta = {
     image: '/images/patticake/02_tier_wedding_a.jpg',
   },
   patticakeDelivery: {
-    title: 'Ship a Cake',
-    description: 'Start a Patticake shipping note, add the sweet details, and hear back from yum! before baking.',
+    title: 'Patticake Nationwide Delivery',
+    description: 'Patticake is now available nationwide. Start a shipping note, add the sweet details, and hear back from yum! before baking.',
     image: '/images/patticake/10_layers_slice.jpg',
   },
   about: {
@@ -429,7 +429,7 @@ export const mediaHighlights = [
     outlet: 'KSTP 5 Eyewitness News',
     date: '2023',
     category: 'tv and founder story',
-    summary: 'KSTP’s Good Company sat down with Patti Soskin on her journey — three locations and a fourth opening in Woodbury.',
+    summary: 'KSTP’s Good Company sat down with Patti Soskin on her journey from three locations to a fourth opening in Woodbury.',
     href: 'https://kstp.com/tcl/good-company-yum-kitchen-bakery/',
   },
   {
@@ -445,7 +445,7 @@ export const mediaHighlights = [
     outlet: 'Woodbury Magazine',
     date: '2023',
     category: 'growth',
-    summary: 'A family-business feature on bringing yum! to its fourth location — “we put a lot of love into everything.”',
+    summary: 'A family-business feature on bringing yum! to its fourth location: “we put a lot of love into everything.”',
     href: 'https://woodburymag.com/yum-kitchen-and-bakery-is-set-to-open-this-summer/',
   },
   {
@@ -453,7 +453,7 @@ export const mediaHighlights = [
     outlet: 'Axios Twin Cities',
     date: '2023',
     category: 'growth',
-    summary: 'Axios covered the fourth location — the “same food menu” with an expanded drink selection and a 40–45 seat patio.',
+    summary: 'Axios covered the fourth location, with the “same food menu,” an expanded drink selection, and a 40–45 seat patio.',
     href: 'https://www.axios.com/local/twin-cities/2023/06/27/restaurant-roundup-yum-kitchen-expands-daves-hot-chicken-lowry-hill-meats',
   },
 ] as const;

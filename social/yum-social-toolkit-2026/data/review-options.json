@@ -1,0 +1,7 @@
+{
+  "title": "yum! and Patticake social toolkit 2026",
+  "summary": "Static social exports and motion poster frames built from real Yum and Patticake photography.",
+  "preset": "image-wall",
+  "showCaptions": true,
+  "contactSheetOutput": "contact-sheet.png"
+}

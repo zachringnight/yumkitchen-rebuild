@@ -114,7 +114,7 @@ const cakeFacts = [
   },
   {
     title: 'the size',
-    copy: 'An 8-inch round that serves 8–16 — or send it by the slice.',
+    copy: 'An 8-inch round that serves 8–16, or send it by the slice.',
   },
   {
     title: 'the lineup',
@@ -134,7 +134,7 @@ const faqs = [
   },
   {
     question: 'Where can Patticake ship?',
-    answer: 'Send the address first. We will confirm the shipping plan, timing, and whether local pickup is a better fit.',
+    answer: 'Patticake is available for nationwide delivery. Add the full address and hoped-for date so we can confirm timing and the best shipping plan.',
   },
   {
     question: 'How soon should I ask?',
@@ -168,7 +168,7 @@ const productJsonLd = {
   '@type': 'Product',
   name: 'Patticake',
   description:
-    'yum! Kitchen and Bakery’s signature Patticake: a towering triple-layer chocolate cake with vanilla buttercream, baked from scratch. Available as an 8-inch round that serves 8–16, or by the slice.',
+    'yum! Kitchen and Bakery’s signature Patticake: a towering triple-layer chocolate cake with vanilla buttercream, baked from scratch and available for nationwide delivery.',
   image: [
     patticakeCanonical('/images/patticake/03_top_view.jpg'),
     patticakeCanonical('/images/patticake/09_slices.jpg'),
@@ -189,11 +189,12 @@ export default function PatticakeNationalDeliveryPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
 
-      <section className="overflow-hidden bg-cream px-6 py-[clamp(3.5rem,7vw,6.5rem)]">
+      <section className="overflow-hidden bg-blue-tint px-6 py-[clamp(3.5rem,7vw,6.5rem)]">
         <div className="mx-auto grid max-w-[1240px] gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
           <div className="max-w-[620px]">
-            <h1 className="font-serif text-[clamp(3.55rem,7vw,6.7rem)] font-normal leading-[0.9] lowercase text-ink">
-              ship a patticake
+            <p className="section-label">now available nationwide</p>
+            <h1 className="font-serif text-[clamp(3.55rem,7vw,6.7rem)] font-normal leading-[0.9] lowercase text-brand-primary">
+              ship a patticake nationwide
             </h1>
             <PatticakeHeroPeek
               src="/images/patticake/09_slices.jpg"
@@ -202,7 +203,7 @@ export default function PatticakeNationalDeliveryPage() {
               className="crop-patticake-slices"
             />
             <p className="mt-7 max-w-xl text-xl leading-9 text-ink">
-              Tell us where it is headed, when it should arrive, and the words that should travel with it. We&apos;ll help it get there ready to share.
+              Patticake now ships nationwide. Tell us where it is headed, when it should arrive, and the words that should travel with it.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href={patticakeNationalOrderUrl} target={nationalOrderIsExternal ? '_blank' : undefined} rel={nationalOrderIsExternal ? 'noopener noreferrer' : undefined} className="btn-primary">
@@ -233,7 +234,7 @@ export default function PatticakeNationalDeliveryPage() {
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover crop-patticake-slices"
               />
-              <div className="absolute bottom-4 left-4 right-4 bg-cream/95 p-5 shadow-xl">
+              <div className="absolute bottom-4 left-4 right-4 border-2 border-brand-red bg-blue-tint/95 p-5 shadow-xl">
                 <p className="font-serif text-3xl leading-tight text-ink">ship the cake people remember</p>
                 <p className="mt-2 text-base leading-6 text-body">same Patticake story, sent farther from home</p>
               </div>
@@ -262,7 +263,7 @@ export default function PatticakeNationalDeliveryPage() {
             <p className="section-label">meet the cake</p>
             <h2 className="text-h2 lowercase">what you&apos;re sending</h2>
             <p className="mt-5 text-xl leading-9 text-body">
-              Patticake is yum!&apos;s signature — a towering triple-layer chocolate cake with vanilla buttercream, baked from scratch and packed to travel.
+              Patticake is yum!&apos;s signature: a towering triple-layer chocolate cake with vanilla buttercream, baked from scratch and packed to travel.
             </p>
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-3">
@@ -470,7 +471,7 @@ function HeroNote({ title, copy }: { title: string; copy: string }) {
   return (
     <div className="border-t border-ink/15 pt-4">
       <p className="font-serif text-2xl font-normal lowercase text-ink">{title}</p>
-      <p className="mt-1 text-base leading-6 text-body">{copy}</p>
+      <p className="mt-1 text-base leading-6 text-ink">{copy}</p>
     </div>
   );
 }

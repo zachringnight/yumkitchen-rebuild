@@ -1,0 +1,22 @@
+# social asset QA checklist
+
+- [ ] Brand is correctly identified as yum!, Patticake, or an intentional split asset.
+- [ ] Current logo and approved wordmark treatment are used without distortion or effects.
+- [ ] Trocchi 400 is used for lowercase display copy and Archivo Narrow for support copy.
+- [ ] Text panels use Yum white, blue, or red treatments, not black or pink-tinted panels.
+- [ ] Food, cake, location, staff, packaging, and event imagery is real and rights-cleared.
+- [ ] CTA matches the business goal and destination.
+- [ ] URL resolves on mobile and the correct UTM is present.
+- [ ] Copy has no typo, em dash, unresolved placeholder, or accidental extra exclamation mark.
+- [ ] No unsupported menu item, price, hour, deadline, stock, capacity, delivery, dietary, or customization claim.
+- [ ] No fake review, rewritten quote, anonymous proof, or private customer information.
+- [ ] Seasonal and deadline assets have owner approval and an internal expiry date.
+- [ ] Location is accurate and uses the correct slug and order route.
+- [ ] 9:16 text and CTA sit inside the safe zone; 4:5, 3:4, square, and cover crops are checked.
+- [ ] Paid creative is not text-crowded and has a clean version without organic stickers.
+- [ ] Captions are burned in for motion and remain legible without audio.
+- [ ] Music, voice, talent, creator, venue, guest, and customer rights cover the intended organic and paid use.
+- [ ] Alt text or an accessibility description is prepared for the post.
+- [ ] File name includes brand, campaign, concept, audience or location, channel, ratio, date, version, and status.
+- [ ] Manifest entry points to the correct source, export, destination, owner, and approval state.
+- [ ] Brand owner, operations owner, and paid owner have approved where required.

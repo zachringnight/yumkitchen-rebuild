@@ -2,6 +2,8 @@
 *.log
 *.tmp
 *.bak
+*.pyc
+__pycache__/
 
 # Local environment and dependency output
 .env
@@ -20,6 +22,21 @@ coverage/
 # Local agent/browser artifacts
 .superpowers/
 .playwright-mcp/
+**/.playwright-cli/
+
+# Generated local review captures
+yumkitchen-web/output/
+
+# Reproducible heavyweight motion delivery output. Source, manifests, review
+# assets, and render scripts remain versioned; packaged masters stay in the
+# local handoff bundle.
+social/yum-patticake-creative-launch-2026-07-14/delivery-motion/
+social/yum-patticake-creative-launch-2026-07-14/delivery-zips/
+social/yum-patticake-creative-launch-2026-07-14/exports/
+social/yum-patticake-creative-launch-2026-07-14/qa-frames/
+social/yum-patticake-creative-launch-2026-07-14/carousel-review/generated/
+social/yum-patticake-creative-launch-2026-07-14/motion-review/generated/
+social/yum-patticake-creative-launch-2026-07-14/motion-review/posters/
 
 # Generated QA evidence kept outside version control
 qa_screenshots_*/

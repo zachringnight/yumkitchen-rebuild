@@ -1,0 +1,8 @@
+{
+  "title": "yum! and Patticake swipe stories",
+  "summary": "Three packaging-led carousel sequences with real photography, one message per card, and a clear conversion close.",
+  "preset": "image-wall",
+  "showCaptions": true,
+  "minTileWidth": 260,
+  "contactSheetOutput": "contact-sheet.png"
+}

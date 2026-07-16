@@ -45,7 +45,7 @@ export function RestaurantTaskDock() {
     };
   }, [pathname]);
 
-  if (patticakeSurface || pathname === '/order' || pathname === '/logo-animation') return null;
+  if (patticakeSurface || pathname === '/order' || pathname === '/logo-animation' || pathname === '/asset-gallery') return null;
 
   return (
     <>

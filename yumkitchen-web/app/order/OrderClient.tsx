@@ -118,7 +118,15 @@ export function OrderClient({ initialCategory, initialQuery = '' }: Props) {
               <a href={selectedLocation.order_url} target="_blank" rel="noopener noreferrer" className="btn-secondary" data-event="click_order_online" data-location={selectedLocation.slug} data-source="order_page_hero">
                 Continue to Checkout
               </a>
-              <a href={selectedLocation.maps_url} target="_blank" rel="noopener noreferrer" className="btn-secondary">
+              <a
+                href={selectedLocation.maps_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary"
+                data-event="click_location_directions"
+                data-location={selectedLocation.slug}
+                data-source="order_page_hero"
+              >
                 Directions
               </a>
             </div>

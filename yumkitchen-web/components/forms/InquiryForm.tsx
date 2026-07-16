@@ -5,6 +5,7 @@ import { cloneElement, useEffect, useMemo, useRef, useState, type ReactElement }
 import { useForm, type UseFormRegisterReturn } from 'react-hook-form';
 import { z } from 'zod';
 import { pushAnalyticsEvent } from '@/lib/analytics';
+import { attributionFieldNames, getAttributionContext } from '@/lib/attribution';
 import { locations } from '@/lib/locations';
 
 export type InquiryKind = 'contact' | 'catering' | 'cake' | 'careers' | 'accessibility';
@@ -15,11 +16,14 @@ const schema = z.object({
   lastName: z.string().min(1, 'Last name is required.'),
   email: z.string().email('Enter a valid email.'),
   phone: z.string().optional(),
+  organization: z.string().optional(),
   recipientName: z.string().optional(),
   location: z.string().optional(),
   subject: z.string().min(1, 'Subject is required.'),
   eventDate: z.string().optional(),
+  eventTime: z.string().optional(),
   guests: z.string().optional(),
+  dietaryNeeds: z.string().optional(),
   streetAddress: z.string().optional(),
   addressLine2: z.string().optional(),
   city: z.string().optional(),
@@ -42,12 +46,35 @@ const schema = z.object({
   promiseTrue: z.boolean().optional(),
   message: z.string().min(10, 'Please share a little more detail.'),
   company: z.string().optional(),
+  utm_source: z.string().optional(),
+  utm_medium: z.string().optional(),
+  utm_campaign: z.string().optional(),
+  utm_content: z.string().optional(),
+  utm_term: z.string().optional(),
+  landing_page: z.string().optional(),
+  referrer: z.string().optional(),
 });
 
 type InquiryFormValues = z.infer<typeof schema>;
 
 function formSchemaFor(kind: InquiryKind, cakeMode: CakeMode) {
   return schema.superRefine((values, ctx) => {
+    if (kind === 'catering') {
+      const requiredFields: Array<[keyof InquiryFormValues, string]> = [
+        ['location', 'Pickup restaurant is required.'],
+        ['eventDate', 'Event date is required.'],
+        ['eventTime', 'Event time is required.'],
+        ['guests', 'Guest count is required.'],
+      ];
+
+      for (const [field, message] of requiredFields) {
+        const value = values[field];
+        if (typeof value !== 'string' || !value.trim()) {
+          ctx.addIssue({ code: z.ZodIssueCode.custom, path: [field], message });
+        }
+      }
+    }
+
     if (kind === 'cake' && cakeMode === 'pickup') {
       const requiredFields: Array<[keyof InquiryFormValues, string]> = [
         ['location', 'Pickup restaurant is required.'],
@@ -175,6 +202,15 @@ const submitEvents: Record<InquiryKind, string> = {
   accessibility: 'submit_contact_form',
 };
 
+function canonicalSubmitEvent(kind: InquiryKind, cakeMode: CakeMode) {
+  if (kind === 'catering') return 'catering_form_submit';
+  if (kind === 'cake' && cakeMode === 'pickup') return 'cake_pickup_form_submit';
+  if (kind === 'cake' && cakeMode === 'delivery') return 'patticake_shipping_request_submit';
+  if (kind === 'cake') return 'wedding_inquiry_submit';
+  if (kind === 'contact' || kind === 'accessibility') return 'contact_form_submit';
+  return 'careers_form_submit';
+}
+
 export function InquiryForm({
   kind,
   defaultSubject,
@@ -199,6 +235,7 @@ export function InquiryForm({
   };
   const requiresEventDetails = kind === 'catering' || kind === 'cake';
   const isCareers = kind === 'careers';
+  const isCatering = kind === 'catering';
   const isPickupCake = kind === 'cake' && cakeMode === 'pickup';
   const isDeliveryCake = kind === 'cake' && cakeMode === 'delivery';
   const requiresCakeLocation = isPickupCake;
@@ -215,6 +252,7 @@ export function InquiryForm({
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
     reset,
   } = useForm<InquiryFormValues>({
@@ -222,6 +260,13 @@ export function InquiryForm({
     defaultValues: defaults,
   });
   const giftMessageRegistration = register('giftMessage');
+
+  useEffect(() => {
+    const attribution = getAttributionContext();
+    for (const field of attributionFieldNames) {
+      setValue(field, attribution[field]);
+    }
+  }, [setValue]);
 
   function getBody(values: InquiryFormValues) {
     const sourcePath = window.location.pathname;
@@ -270,9 +315,16 @@ export function InquiryForm({
       }
       pushAnalyticsEvent({
         event: submitEvents[kind],
+        canonical_event: canonicalSubmitEvent(kind, cakeMode),
         form_kind: kind,
+        lead_type: kind === 'cake' ? `cake_${cakeMode}` : kind,
         location: values.location ?? '',
         path: window.location.pathname,
+        page_path: window.location.pathname,
+        occasion: values.occasion ?? '',
+        event_date: values.eventDate ?? '',
+        guest_count: values.guests ?? '',
+        event_time: values.eventTime ?? '',
       });
       setStatus('success');
       setServerMessage(successMessage ?? payload.message ?? 'Thanks. We received your note.');
@@ -296,6 +348,9 @@ export function InquiryForm({
         <label htmlFor={`${kind}-company`}>Company</label>
         <input id={`${kind}-company`} tabIndex={-1} autoComplete="off" {...register('company')} />
         {hideSubject && <input type="hidden" {...register('subject')} />}
+        {attributionFieldNames.map((field) => (
+          <input key={field} type="hidden" {...register(field)} />
+        ))}
       </div>
       <p className="form-required-note">
         Fields marked <span aria-hidden="true">*</span> help the bakery reply quickly.
@@ -313,9 +368,14 @@ export function InquiryForm({
         <Field id={`${kind}-phone`} label="Phone" error={errors.phone?.message}>
           <input id={`${kind}-phone`} type="tel" autoComplete="tel" {...register('phone')} />
         </Field>
+        {isCatering && (
+          <Field id={`${kind}-organization`} label="Company or organization" error={errors.organization?.message}>
+            <input id={`${kind}-organization`} autoComplete="organization" {...register('organization')} />
+          </Field>
+        )}
         {showLocation && (
-          <Field id={`${kind}-location`} label={locationLabel ?? 'Location'} error={errors.location?.message} required={requiresCakeLocation}>
-            <select id={`${kind}-location`} required={requiresCakeLocation} {...register('location')}>
+          <Field id={`${kind}-location`} label={locationLabel ?? 'Location'} error={errors.location?.message} required={requiresCakeLocation || isCatering}>
+            <select id={`${kind}-location`} required={requiresCakeLocation || isCatering} {...register('location')}>
               <option value="">Select a location</option>
               {locations.map((loc) => (
                 <option key={loc.slug} value={loc.slug}>
@@ -333,11 +393,16 @@ export function InquiryForm({
         )}
         {requiresEventDetails && (
           <>
-            <Field id={`${kind}-event-date`} label={eventDateLabel ?? (kind === 'cake' ? 'Date of Event' : 'Event Date')} error={errors.eventDate?.message} required={requiresCakeDate}>
-              <input id={`${kind}-event-date`} type="date" required={requiresCakeDate} {...register('eventDate')} />
+            <Field id={`${kind}-event-date`} label={eventDateLabel ?? (kind === 'cake' ? 'Date of Event' : 'Event Date')} error={errors.eventDate?.message} required={requiresCakeDate || isCatering}>
+              <input id={`${kind}-event-date`} type="date" required={requiresCakeDate || isCatering} {...register('eventDate')} />
             </Field>
-            <Field id={`${kind}-guests`} label={guestsLabel ?? 'Guests'} error={errors.guests?.message}>
-              <input id={`${kind}-guests`} inputMode="numeric" {...register('guests')} />
+            {isCatering && (
+              <Field id={`${kind}-event-time`} label="Event time" error={errors.eventTime?.message} required>
+                <input id={`${kind}-event-time`} type="time" required {...register('eventTime')} />
+              </Field>
+            )}
+            <Field id={`${kind}-guests`} label={guestsLabel ?? 'Guests'} error={errors.guests?.message} required={isCatering}>
+              <input id={`${kind}-guests`} inputMode="numeric" required={isCatering} {...register('guests')} />
             </Field>
           </>
         )}
@@ -391,6 +456,13 @@ export function InquiryForm({
               <p className="gift-message-count">{giftMessageLength}/140 characters</p>
             </div>
           </>
+        )}
+        {isCatering && (
+          <div className="md:col-span-2">
+            <Field id={`${kind}-dietary-needs`} label="Dietary or allergen notes" error={errors.dietaryNeeds?.message}>
+              <textarea id={`${kind}-dietary-needs`} rows={3} {...register('dietaryNeeds')} />
+            </Field>
+          </div>
         )}
         {isCareers && (
           <>

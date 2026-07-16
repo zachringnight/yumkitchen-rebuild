@@ -1,0 +1,226 @@
+[
+  {
+    "name": "local restaurant orders",
+    "objective": "Sales or traffic optimized to completed online-order sessions",
+    "audience": "Adults near each yum! location, site visitors, menu viewers, and recent orderers split by recency",
+    "funnel": "consideration and conversion",
+    "offer": "Made-from-scratch breakfast, lunch, dinner, bakery, and pickup. No discount assumed.",
+    "landing": "order",
+    "concept": "Craving-first 9:16 video with a location decision and pickup handoff.",
+    "texts": [
+      "Lunch is one location choice away. Pick your nearest yum!, check the current menu, and send the order to the kitchen.",
+      "Breakfast, lunch, dinner, and the bakery case. Start with what sounds good, then choose your Twin Cities kitchen.",
+      "The drive home gets easier when dinner is already headed to the pickup counter.",
+      "Four Twin Cities kitchens. One useful answer to what should we eat?",
+      "Order from the yum! on your route and let the kitchen handle the next step."
+    ],
+    "headlines": [
+      "Order from your yum!",
+      "Lunch is handled",
+      "Pick your kitchen",
+      "Bring yum! home",
+      "See the current menu"
+    ],
+    "cta": "ORDER_NOW",
+    "visual": "Real food macro, four-location cue, white/red/blue cards, pickup handoff.",
+    "video": "12-15 second craving montage ending on the location selector and Order Now.",
+    "testing": "Test daypart, location, craving family, food-first vs handoff-first, and 4:5 vs 9:16. Exclude recent purchasers from prospecting where data allows.",
+    "metric": "Cost per completed order session, purchase conversion rate, and location-level return on ad spend where purchase value is available."
+  },
+  {
+    "name": "catering leads",
+    "objective": "Lead generation or landing-page conversion to a completed catering inquiry",
+    "audience": "Office managers, HR, executive assistants, event planners, site visitors to catering content, and customer-list lookalikes where permitted",
+    "funnel": "consideration and conversion",
+    "offer": "A clear pickup catering plan for meetings and group meals. No unsupported capacity or menu promise.",
+    "landing": "catering",
+    "concept": "Empty room to finished spread, with planning checklist proof.",
+    "texts": [
+      "The meeting is booked. Lunch should be too. Start a catering note with the date, group size, pickup kitchen, and what the room needs.",
+      "Feed the room without turning lunch into another meeting. Show us the occasion and pickup plan.",
+      "Boxed lunches, trays, bakery add-ons, and one place to start the conversation.",
+      "Office lunch planning gets easier when the date, headcount, pickup, and bakery add-ons are settled early.",
+      "The bakery tray is not an afterthought. Add it to the catering plan before the conference room fills up."
+    ],
+    "headlines": [
+      "Start a catering note",
+      "Feed the room",
+      "Plan office lunch",
+      "Make lunch room-ready",
+      "Add the bakery tray"
+    ],
+    "cta": "CONTACT_US",
+    "visual": "Real spread, boxes, labels, bakery add-ons, and planner hands.",
+    "video": "15-20 second room transformation with checklist overlays and form CTA.",
+    "testing": "Test office lunch vs celebration, boxes vs trays, checklist vs finished spread, and landing-page vs native lead form. Qualify by date, group size, and pickup location.",
+    "metric": "Cost per qualified catering inquiry, inquiry completion rate, and lead-to-confirmed-order rate."
+  },
+  {
+    "name": "Patticake birthday",
+    "objective": "Sales or conversion to cake order/request completion",
+    "audience": "Birthday planners, parents, partners, office planners, cake-page visitors, and engaged social viewers",
+    "funnel": "consideration and conversion",
+    "offer": "A real chocolate-layer cake with vanilla buttercream and an occasion message. Pickup or delivery route depends on current options.",
+    "landing": "cake_request",
+    "concept": "Full cake to first slice, with date and message decision points.",
+    "texts": [
+      "A birthday cake that does not feel like a backup plan. Share the date, message, and pickup or delivery details to start.",
+      "The candles are quick. The first slice is the moment. Plan the Patticake around the part everyone waits for.",
+      "Birthday pickup, handled. Start the local cake request and let the bakery team confirm the details.",
+      "An office birthday looks planned when the cake is on the calendar before the group chat starts.",
+      "Real chocolate layers, vanilla buttercream, and a message for the table."
+    ],
+    "headlines": [
+      "Plan the birthday cake",
+      "Birthday pickup, handled",
+      "Cut the first slice",
+      "Add the cake message",
+      "Make it Patticake"
+    ],
+    "cta": "LEARN_MORE",
+    "visual": "Cake reveal, message writing, first slice, real hands, no staged confetti background.",
+    "video": "12-15 second first-slice film with date, message, and route overlays.",
+    "testing": "Test local pickup vs delivery intent, cake-first vs occasion-first, birthday person vs office planner, and message-writing proof.",
+    "metric": "Cost per cake request or purchase, request completion rate, and birthday landing-page conversion rate."
+  },
+  {
+    "name": "Patticake thank-you gifts",
+    "objective": "Sales or conversion to Patticake order start",
+    "audience": "Gift buyers, past cake customers, site visitors, client-facing professionals, and former Minnesotans",
+    "funnel": "awareness through conversion",
+    "offer": "A giftable cake with a personal note and current pickup or delivery options.",
+    "landing": "patticake",
+    "concept": "Gift box and note open into layered slice proof.",
+    "texts": [
+      "Thank you, but make it cake. Add the note, choose the current route, and give them something meant to be shared.",
+      "For the neighbor who helped, the host who made room, or the friend who showed up. Send the thank-you people can slice.",
+      "Flowers were expected. Cake was not.",
+      "The note is part of the gift. The chocolate layers make sure it gets opened first.",
+      "Send a little Twin Cities to the person who still calls it home."
+    ],
+    "headlines": [
+      "Send a thank-you cake",
+      "Send cake, not a card",
+      "Make the note personal",
+      "A gift meant to share",
+      "Check gift options"
+    ],
+    "cta": "SHOP_NOW",
+    "visual": "Real blue gift box, note card, hands, cake layers, and table moment.",
+    "video": "15 second note-to-box-to-first-slice sequence.",
+    "testing": "Test recipient occasion, note-first vs slice-first, local nostalgia vs universal thanks, and static vs process video.",
+    "metric": "Cost per order start, purchase conversion rate, and new-customer gift revenue."
+  },
+  {
+    "name": "Patticake corporate gifting",
+    "objective": "Qualified lead generation",
+    "audience": "Office managers, executive assistants, sales leaders, client-success teams, HR, and past business customers",
+    "funnel": "consideration and conversion",
+    "offer": "Personal cake gifts for client, team, and partner occasions. Quantity, timing, and address support require inquiry confirmation.",
+    "landing": "cake_request",
+    "concept": "Repeatable boxes with personal-note proof and planner checklist.",
+    "texts": [
+      "The client thank-you that gets opened first. Start with who it is for, how many, and when it matters.",
+      "A corporate gift can still feel like it came from a person. The message is not a footnote.",
+      "Team milestone, partner thank-you, or year-end gift. Start the gifting note before the address list gets complicated.",
+      "Send the team cake after the launch, not another desk object before it.",
+      "Multiple recipients? Share the quantity, timing, address plan, and message needs with the bakery team."
+    ],
+    "headlines": [
+      "Plan corporate gifting",
+      "Client thank-yous people slice",
+      "Start a gifting note",
+      "Make the message personal",
+      "Ask about multiple gifts"
+    ],
+    "cta": "CONTACT_US",
+    "visual": "Multiple real boxes, note cards, blurred recipient list, and table-ready cake.",
+    "video": "18 second planner workflow from recipient list to packed gifts.",
+    "testing": "Test client vs employee occasion, one-to-many visual proof, LinkedIn vs Meta, and lead form length.",
+    "metric": "Cost per qualified corporate inquiry, average requested quantity, and inquiry-to-order rate."
+  },
+  {
+    "name": "Patticake weddings and events",
+    "objective": "Qualified event inquiry",
+    "audience": "Engaged couples, shower hosts, event planners, and Pinterest cake researchers",
+    "funnel": "consideration and conversion",
+    "offer": "A bakery conversation about the event date, cake, and table. No customization promise before confirmation.",
+    "landing": "cake_request",
+    "concept": "Event table, tier details, cake cut, and inquiry checklist.",
+    "texts": [
+      "Cake for the table you planned. Start the inquiry with the date, occasion, and details the bakery team should see.",
+      "The cut is one moment. The layers are the proof everybody takes back to the table.",
+      "Wedding, shower, rehearsal, or anniversary: share the event details first so the bakery team can route the next step.",
+      "Save the piping detail. Send the date when you are ready to ask what is possible.",
+      "A wedding cake should belong in the room, not compete with it."
+    ],
+    "headlines": [
+      "Start an event inquiry",
+      "Cake for the table",
+      "Share your event date",
+      "Plan the cake",
+      "Save the cake detail"
+    ],
+    "cta": "CONTACT_US",
+    "visual": "Real tiered cakes, piping, table context, cake cut, and permission-cleared event images.",
+    "video": "18 second wide-to-detail-to-slice event story.",
+    "testing": "Test wedding vs shower, detail vs full-table opening, Pinterest click vs Meta lead form, and checklist creative.",
+    "metric": "Cost per qualified event inquiry, inquiry completion rate, and inquiry-to-consultation rate."
+  },
+  {
+    "name": "gift cards",
+    "objective": "Sales to gift-card purchase",
+    "audience": "Last-minute gift buyers, parents, employers, hosts, and past yum! guests",
+    "funnel": "conversion and retention",
+    "offer": "A yum! gift card for food, bakery, and the recipient's own menu choice. No discount assumed.",
+    "landing": "gift_cards",
+    "concept": "Recipient-specific gift moment plus real menu choice.",
+    "texts": [
+      "Send lunch for later. A yum! gift card lets them choose breakfast, dinner, bakery, or the order they already love.",
+      "Teacher thank-you, handled with a meal they get to choose.",
+      "A host gift that does not need shelf space.",
+      "For the coworker who knows everybody's lunch order by memory.",
+      "Last-minute does not have to look last-minute. Send yum!."
+    ],
+    "headlines": [
+      "Buy a yum! gift card",
+      "Send lunch for later",
+      "A useful thank-you",
+      "Let them choose yum!",
+      "Gift dinner, breakfast, or bakery"
+    ],
+    "cta": "BUY_NOW",
+    "visual": "Verified gift-card screen, real food choices, handwritten note, and red-circle logo.",
+    "video": "10-12 second recipient scenario, purchase flow, and menu montage.",
+    "testing": "Test recipient occasion, digital-flow proof vs food-first, and holiday vs always-on copy.",
+    "metric": "Cost per gift-card purchase, purchase value, and new-customer recipient activation where measurable."
+  },
+  {
+    "name": "retargeting",
+    "objective": "Sales or lead completion based on last high-intent action",
+    "audience": "Menu viewers, order starters, catering-page visitors, cake-page visitors, form starters, cart abandoners, and past customers split by route",
+    "funnel": "conversion and retention",
+    "offer": "Resume the relevant action. No blanket discount.",
+    "landing": "dynamic by last intent",
+    "concept": "The exact product, occasion, or planning step the viewer left.",
+    "texts": [
+      "Still choosing lunch? The current menu and your nearest yum! are ready when you are.",
+      "The meeting date did not move. Finish the catering note before lunch becomes urgent.",
+      "The birthday is still coming. Return to the cake details and finish the request.",
+      "You picked the gift idea. Now add the note and check the current delivery or pickup options.",
+      "Ready for another yum! order? Start with the kitchen you used last time or choose the one on today's route."
+    ],
+    "headlines": [
+      "Finish the order",
+      "Complete the catering note",
+      "Return to the cake details",
+      "Add the gift note",
+      "Order yum! again"
+    ],
+    "cta": "dynamic by route",
+    "visual": "Intent-matched product, saved step, or reminder. Never show fake cart state or private data.",
+    "video": "8-12 second reminder built from the same product proof as the original ad.",
+    "testing": "Split by last intent and recency. Suppress converters. Test reminder copy before incentives. Keep yum! and Patticake audiences separate.",
+    "metric": "Incremental conversion rate, cost per recovered order or lead, and frequency by recency window."
+  }
+]

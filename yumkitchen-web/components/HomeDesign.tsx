@@ -117,9 +117,9 @@ export function HomeHero() {
         />
       </div>
       <div className="container-content relative z-10 flex min-h-[560px] items-center py-8 md:min-h-[730px] md:py-12">
-        <div className="hero-panel motion-role-entrance max-w-[520px] border border-white/70 bg-white/95 px-6 py-6 shadow-[0_1.4rem_4rem_rgb(45_45_45_/_0.24)] backdrop-blur-[2px] md:px-9 md:py-8">
+        <div className="hero-panel motion-role-entrance max-w-[520px] border-2 border-brand-red/70 bg-blue-tint/95 px-6 py-6 shadow-[0_1.4rem_4rem_rgb(45_45_45_/_0.24)] backdrop-blur-[2px] md:px-9 md:py-8">
           <AnimatedYumLogo className="hero-yum-logo" decorative priority />
-          <h1 className="font-serif text-[2.35rem] font-normal leading-[1.08] lowercase text-ink md:text-[3rem]" aria-label="made from scratch with love">
+          <h1 className="font-serif text-[2.35rem] font-normal leading-[1.08] lowercase text-brand-primary md:text-[3rem]" aria-label="made from scratch with love">
             made from scratch{' '}
             <br />
             with love
@@ -142,7 +142,7 @@ export function HomeHero() {
                 key={location.slug}
                 href={`/location/${location.slug}`}
                 prefetch={false}
-                className="border border-ink/15 bg-page px-3 py-2 text-center text-sm font-bold leading-none text-ink transition hover:border-brand-red hover:bg-brand-red hover:text-white"
+                className="border border-brand-red/30 bg-white/80 px-3 py-2 text-center text-sm font-bold leading-none text-ink transition hover:border-brand-red hover:bg-brand-red hover:text-white"
               >
                 {location.short_name}
               </Link>

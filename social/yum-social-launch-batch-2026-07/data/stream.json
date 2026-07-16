@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "title": "yum! and Patticake six-asset launch batch",
+    "summary": "Six conversion-ready campaign lanes with 9:16 video, 4:5 feed, Story, final copy, and tracked destinations.",
+    "source": "review_renderer",
+    "itemCount": 6
+  },
+  "items": [
+    {
+      "id": "yum-lunch-decision",
+      "title": "what should we eat?",
+      "caption": "yum! / Order Online / day 1",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/yum-lunch-decision.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/yum-lunch-decision.jpg",
+      "sourceImageUrl": "/generated/yum-lunch-decision.png"
+    },
+    {
+      "id": "yum-four-kitchens",
+      "title": "nearby yum! is the move",
+      "caption": "yum! / Find Your yum! / day 5",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/yum-four-kitchens.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/yum-four-kitchens.jpg",
+      "sourceImageUrl": "/generated/yum-four-kitchens.png"
+    },
+    {
+      "id": "yum-catering-room",
+      "title": "feed the room",
+      "caption": "yum! / Start a Catering Note / day 9",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/yum-catering-room.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/yum-catering-room.jpg",
+      "sourceImageUrl": "/generated/yum-catering-room.png"
+    },
+    {
+      "id": "patticake-gift-drop",
+      "title": "send cake, not a card",
+      "caption": "Patticake / Send a Patticake / day 3",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/patticake-gift-drop.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/patticake-gift-drop.jpg",
+      "sourceImageUrl": "/generated/patticake-gift-drop.png"
+    },
+    {
+      "id": "patticake-birthday-first-slice",
+      "title": "birthday cake, handled",
+      "caption": "Patticake / Plan the Cake / day 7",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/patticake-birthday-first-slice.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/patticake-birthday-first-slice.jpg",
+      "sourceImageUrl": "/generated/patticake-birthday-first-slice.png"
+    },
+    {
+      "id": "patticake-event-inquiry",
+      "title": "cake for the table",
+      "caption": "Patticake / Start an Event Inquiry / day 11",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/patticake-event-inquiry.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/patticake-event-inquiry.jpg",
+      "sourceImageUrl": "/generated/patticake-event-inquiry.png"
+    }
+  ]
+}

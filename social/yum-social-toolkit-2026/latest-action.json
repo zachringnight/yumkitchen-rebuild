@@ -1,0 +1,14 @@
+{
+  "id": "review-renderer-materialized",
+  "action": "write_moodboard_widget_payload",
+  "label": "Materialized Creative Production image review",
+  "createdAt": "2026-07-10T01:11:39.757593Z",
+  "timestamp": "2026-07-10T01:11:39.757593Z",
+  "title": "yum! and Patticake social toolkit 2026",
+  "summary": "Static social exports and motion poster frames built from real Yum and Patticake photography.",
+  "itemCount": 31,
+  "runDirectory": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-toolkit-2026",
+  "streamPath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-toolkit-2026/data/stream.json",
+  "runStatePath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-toolkit-2026/run-state.json",
+  "latestActionPath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-toolkit-2026/latest-action.json"
+}

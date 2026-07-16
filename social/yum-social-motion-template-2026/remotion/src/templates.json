@@ -1,0 +1,186 @@
+[
+  {
+    "id": "patticake-gift-drop",
+    "family": "hook-drop",
+    "brand": "patticake",
+    "hook": "send cake, not a card",
+    "offer": "ship a cake with a personal note",
+    "proof": "real bakery layers from yum!",
+    "cta": "Order patticake",
+    "captionBeats": [
+      "pick the message",
+      "choose the date",
+      "share the love"
+    ],
+    "images": [
+      "gift_box_vertical.jpg",
+      "10_layers_slice.jpg",
+      "03_top_view.jpg"
+    ],
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "durationInFrames": 240
+  },
+  {
+    "id": "patticake-layer-proof",
+    "family": "macro-proof",
+    "brand": "patticake",
+    "hook": "real layers. real note.",
+    "offer": "chocolate cake, vanilla buttercream",
+    "proof": "made by the yum! bakery team",
+    "cta": "Ship a cake",
+    "captionBeats": [
+      "slice close",
+      "message added",
+      "ready to share"
+    ],
+    "images": [
+      "layers_slice_vertical.jpg",
+      "09_slices.jpg",
+      "slices_plates_vertical.jpg"
+    ],
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "durationInFrames": 240
+  },
+  {
+    "id": "patticake-birthday-first-slice",
+    "family": "birthday-proof",
+    "brand": "patticake",
+    "hook": "birthday cake, handled",
+    "offer": "chocolate layers + vanilla buttercream",
+    "proof": "add the date and message",
+    "cta": "Plan the cake",
+    "captionBeats": [
+      "pick the date",
+      "add the message",
+      "cut the first slice"
+    ],
+    "images": [
+      "layers_slice_vertical.jpg",
+      "09_slices.jpg",
+      "03_top_view.jpg"
+    ],
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "durationInFrames": 240
+  },
+  {
+    "id": "patticake-event-inquiry",
+    "family": "event-inquiry",
+    "brand": "patticake",
+    "hook": "cake for the table",
+    "offer": "weddings, showers, event days",
+    "proof": "start with the date and details",
+    "cta": "Start an inquiry",
+    "captionBeats": [
+      "set the scene",
+      "share the date",
+      "inquiry starts here"
+    ],
+    "images": [
+      "02_tier_wedding_a.jpg",
+      "05_tier_wedding_c.jpg",
+      "08_tier_wedding_d.jpg"
+    ],
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "durationInFrames": 240
+  },
+  {
+    "id": "yum-lunch-decision",
+    "family": "question-hook",
+    "brand": "yum",
+    "hook": "what should we eat?",
+    "offer": "breakfast, lunch, dinner, bakery",
+    "proof": "four Twin Cities kitchens",
+    "cta": "Order online",
+    "captionBeats": [
+      "start with cravings",
+      "pick your kitchen",
+      "take yum! home"
+    ],
+    "images": [
+      "yum-hero-0131.jpg",
+      "yum-soup-and-sandwich.jpg",
+      "yum-shake-and-sandwich.jpg"
+    ],
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "durationInFrames": 240
+  },
+  {
+    "id": "yum-catering-room",
+    "family": "occasion-proof",
+    "brand": "yum",
+    "hook": "feed the room",
+    "offer": "boxed lunches, trays, bakery",
+    "proof": "group orders made simple",
+    "cta": "Plan catering",
+    "captionBeats": [
+      "meeting ready",
+      "fresh trays",
+      "dessert handled"
+    ],
+    "images": [
+      "yum-catering-boxed-lunch.jpg",
+      "yum-catering-sandwiches-live.jpg",
+      "yum-catering-tray.jpg"
+    ],
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "durationInFrames": 240
+  },
+  {
+    "id": "yum-four-kitchens",
+    "family": "local-proof",
+    "brand": "yum",
+    "hook": "nearby yum! is the move",
+    "offer": "St. Louis Park, Shady Oak, St. Paul, Woodbury",
+    "proof": "four neighborhood kitchens",
+    "cta": "Find a kitchen",
+    "captionBeats": [
+      "four neighborhoods",
+      "one scratch kitchen feel",
+      "order where you are"
+    ],
+    "images": [
+      "yum-four-kitchens-grid.jpg",
+      "yum-location-slp.jpg",
+      "yum-location-woodbury.jpg"
+    ],
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "durationInFrames": 240
+  },
+  {
+    "id": "yum-bakery-case",
+    "family": "saveable-menu",
+    "brand": "yum",
+    "hook": "bring dessert",
+    "offer": "cookies, bars, cupcakes, pies, cakes",
+    "proof": "bakery favorites made fresh",
+    "cta": "Visit yum!",
+    "captionBeats": [
+      "bakery case",
+      "sweet finish",
+      "bring enough to share"
+    ],
+    "images": [
+      "yum-bakery-counter-cake.jpg",
+      "yum-bakery-cupcakes.jpg",
+      "yum-bakery-bars.jpeg"
+    ],
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "durationInFrames": 240
+  }
+]

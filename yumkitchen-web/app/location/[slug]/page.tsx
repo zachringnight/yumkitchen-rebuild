@@ -72,10 +72,24 @@ export default async function LocationPage({ params }: LocationRouteProps) {
               <p>{loc.favorite}</p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <a href={loc.maps_url} target="_blank" rel="noopener noreferrer" className="btn-secondary">
+              <a
+                href={loc.maps_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary"
+                data-event="click_location_directions"
+                data-location={loc.slug}
+                data-source="location_page_details"
+              >
                 Get Directions
               </a>
-              <a href={`tel:${loc.phone_e164}`} className="btn-primary">
+              <a
+                href={`tel:${loc.phone_e164}`}
+                className="btn-primary"
+                data-event="click_call_location"
+                data-location={loc.slug}
+                data-source="location_page_details"
+              >
                 {loc.phone}
               </a>
             </div>

@@ -1,0 +1,102 @@
+[
+  {
+    "name": "made-from-scratch food",
+    "brand": "yum!",
+    "audience": "neighborhood regulars, families, first-time guests",
+    "goal": "local orders and repeat visits",
+    "ideas": "pan-to-plate sequence; soup and sandwich pairing; breakfast assembly; dinner pickup handoff",
+    "channels": "Reels, TikTok, Feed, Shorts, GBP",
+    "ctas": "Order online; See the menu; Pick your kitchen",
+    "assets": "Reel, Short, carousel, paid ad"
+  },
+  {
+    "name": "bakery case and daily treats",
+    "brand": "yum!",
+    "audience": "regulars, parents, office buyers",
+    "goal": "same-day bakery visits and add-on orders",
+    "ideas": "morning restock; close-up tray pull; case scan; meeting tray build",
+    "channels": "Stories, Reels, Feed, GBP",
+    "ctas": "Stop by today; Add something sweet; Find a location",
+    "assets": "Story, Reel, static, GBP post"
+  },
+  {
+    "name": "Patticake gifting",
+    "brand": "Patticake",
+    "audience": "long-distance gift senders, former Minnesotans, gift buyers",
+    "goal": "cake orders and gift reminders",
+    "ideas": "pack a cake; add a note; delivery-date reminder; unboxing and first slice",
+    "channels": "Reels, TikTok, Pinterest, Feed, paid",
+    "ctas": "Send a Patticake; Check delivery options; Start an order",
+    "assets": "Reel, Pin, carousel, conversion ad"
+  },
+  {
+    "name": "birthday and celebration moments",
+    "brand": "Patticake",
+    "audience": "parents, partners, friends, office planners",
+    "goal": "birthday pickup, shipping, and inquiry demand",
+    "ideas": "cake pickup POV; first slice; message writing; office birthday table",
+    "channels": "Reels, Stories, Pinterest, paid",
+    "ctas": "Plan the birthday cake; Pick up locally; Send a cake",
+    "assets": "Reel, Story sequence, Pin, paid ad"
+  },
+  {
+    "name": "office catering",
+    "brand": "yum!",
+    "audience": "office managers, HR, executive assistants, catering buyers",
+    "goal": "qualified catering leads",
+    "ideas": "boxed lunch assembly; room-ready spread; bakery add-ons; planner checklist",
+    "channels": "LinkedIn, Instagram, Facebook, GBP, paid",
+    "ctas": "Start a catering note; Plan lunch; Get a quote",
+    "assets": "carousel, Reel, lead ad, Story"
+  },
+  {
+    "name": "four neighborhoods",
+    "brand": "yum!",
+    "audience": "nearby guests and commuters",
+    "goal": "directions, location-page visits, and local orders",
+    "ideas": "storefront walk-in; neighborhood errand pairing; parking arrival; four-kitchen montage",
+    "channels": "Feed, Stories, Reels, GBP, local paid",
+    "ctas": "Find your yum!; Get directions; Order from this kitchen",
+    "assets": "location Reel, static, Story, local ad"
+  },
+  {
+    "name": "staff favorites",
+    "brand": "yum!",
+    "audience": "regulars and menu explorers",
+    "goal": "human trust, menu discovery, and repeat orders",
+    "ideas": "one staff member, one order; counter recommendation; kitchen handoff; bakery pick",
+    "channels": "Reels, TikTok, Stories, Feed",
+    "ctas": "Try their order; See the menu; Tell us your favorite",
+    "assets": "creator-style Reel, Story poll, portrait"
+  },
+  {
+    "name": "seasonal drops",
+    "brand": "both",
+    "audience": "regulars, occasion buyers, lapsed guests",
+    "goal": "urgency, saves, and reactivation",
+    "ideas": "first tray out; limited bakery detail; seasonal menu close-up; deadline reminder",
+    "channels": "Stories, Reels, Feed, GBP, paid",
+    "ctas": "See what is available; Order this week; Check the deadline",
+    "assets": "drop Reel, Story countdown, static, retargeting ad"
+  },
+  {
+    "name": "gift cards",
+    "brand": "yum!",
+    "audience": "last-minute gift buyers, employers, families",
+    "goal": "gift card sales",
+    "ideas": "digital gift in three taps; teacher gift; host gift; employee thank-you",
+    "channels": "Feed, Stories, Facebook, email crossover, paid",
+    "ctas": "Buy a gift card; Send yum!; Check your balance",
+    "assets": "static, Story, paid ad, email module"
+  },
+  {
+    "name": "weddings and events",
+    "brand": "Patticake",
+    "audience": "couples, shower planners, event hosts",
+    "goal": "qualified cake inquiries",
+    "ideas": "tiered cake details; cutting moment; event table; inquiry checklist",
+    "channels": "Pinterest, Reels, Feed, Stories, paid",
+    "ctas": "Start a cake inquiry; Share your date; Plan the cake",
+    "assets": "Pin, carousel, Reel, lead ad"
+  }
+]

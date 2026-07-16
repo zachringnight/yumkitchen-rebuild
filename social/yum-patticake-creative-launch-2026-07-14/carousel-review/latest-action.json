@@ -1,0 +1,14 @@
+{
+  "id": "review-renderer-materialized",
+  "action": "write_moodboard_widget_payload",
+  "label": "Materialized Creative Production image review",
+  "createdAt": "2026-07-14T17:19:08.381949Z",
+  "timestamp": "2026-07-14T17:19:08.381949Z",
+  "title": "yum! and Patticake swipe stories",
+  "summary": "Three packaging-led carousel sequences with real photography, one message per card, and a clear conversion close.",
+  "itemCount": 16,
+  "runDirectory": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-patticake-creative-launch-2026-07-14/carousel-review",
+  "streamPath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-patticake-creative-launch-2026-07-14/carousel-review/data/stream.json",
+  "runStatePath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-patticake-creative-launch-2026-07-14/carousel-review/run-state.json",
+  "latestActionPath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-patticake-creative-launch-2026-07-14/carousel-review/latest-action.json"
+}

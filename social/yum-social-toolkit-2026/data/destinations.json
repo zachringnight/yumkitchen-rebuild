@@ -1,0 +1,15 @@
+{
+  "yum_home": "https://yumkitchen.com/yum-kitchen",
+  "menu": "https://yumkitchen.com/menu",
+  "order": "https://yumkitchen.com/order",
+  "catering": "https://yumkitchen.com/catering#inquiry",
+  "locations": "https://yumkitchen.com/yum-kitchen#locations",
+  "gift_cards": "https://www.toasttab.com/yumkitchenslp/giftcards",
+  "patticake": "https://patticake.com/patticake",
+  "cake_request": "https://patticake.com/order-a-cake",
+  "contact": "https://yumkitchen.com/contact",
+  "slp": "https://yumkitchen.com/location/st-louis-park",
+  "shady_oak": "https://yumkitchen.com/location/shady-oak",
+  "saint_paul": "https://yumkitchen.com/location/saint-paul",
+  "woodbury": "https://yumkitchen.com/location/woodbury"
+}

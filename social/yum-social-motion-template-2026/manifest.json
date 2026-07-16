@@ -1,0 +1,331 @@
+{
+  "name": "yum! social motion template 2026",
+  "createdAt": "2026-07-10T01:51:09.423970+00:00",
+  "purpose": "Reusable vertical-first social motion template with safe-zone-aware posters and Remotion source.",
+  "platformGuidance": {
+    "lastVerified": "2026-07-09",
+    "sources": {
+      "tiktok": "https://ads.tiktok.com/help/article/tiktok-auction-in-feed-ads?redirected=2",
+      "youtube_shorts": "https://support.google.com/youtube/answer/15424877?hl=en",
+      "instagram_reels": "https://help.instagram.com/1038071743007909",
+      "meta_text_overlay_safe_zone": "https://www.facebook.com/business/help/980593475366490"
+    },
+    "decisions": [
+      "Use 1080x1920 as the master canvas for Reels, Stories, TikTok, and Shorts.",
+      "Render at 30 fps to satisfy modern short-form expectations and Instagram Reels minimums.",
+      "Keep primary text inside a conservative center-left safe zone and out of the right action rail.",
+      "Export 4:5, 3:4, and 1:1 posters from the vertical master for feed and profile reuse.",
+      "Use burned-in caption beats because platform captions and app UI can vary by placement."
+    ]
+  },
+  "safeZone": {
+    "canvas": {
+      "width": 1080,
+      "height": 1920
+    },
+    "primary": {
+      "x": 88,
+      "y": 250,
+      "width": 804,
+      "height": 1210
+    },
+    "rightRail": {
+      "x": 920,
+      "y": 0,
+      "width": 160,
+      "height": 1920
+    },
+    "topUi": {
+      "x": 0,
+      "y": 0,
+      "width": 1080,
+      "height": 230
+    },
+    "bottomUi": {
+      "x": 0,
+      "y": 1460,
+      "width": 1080,
+      "height": 460
+    },
+    "centerSquare": {
+      "x": 0,
+      "y": 420,
+      "width": 1080,
+      "height": 1080
+    }
+  },
+  "templates": [
+    {
+      "id": "patticake-gift-drop",
+      "family": "hook-drop",
+      "brand": "patticake",
+      "hook": "send cake, not a card",
+      "video": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/video/patticake-gift-drop.mp4",
+      "cover": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/covers/patticake-gift-drop-cover.png",
+      "poster4x5": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/posters-4x5/patticake-gift-drop-4x5.png",
+      "profileGrid3x4": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/profile-grid-3x4/patticake-gift-drop-3x4.png",
+      "squareSafe": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/square-safe/patticake-gift-drop-square.png",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "durationSeconds": 8.0,
+      "safeZone": {
+        "x": 88,
+        "y": 250,
+        "width": 804,
+        "height": 1210
+      },
+      "cta": "Order patticake",
+      "logoStyleCard": {
+        "copy": [
+          "yum! logo cue",
+          "red circle + white lowercase mark",
+          "Trocchi-style serif + narrow sans support"
+        ],
+        "colors": {
+          "yumRed": "#E03A3E",
+          "logoMark": "#FFFFFF",
+          "headlineInk": "#2D2D2D"
+        }
+      }
+    },
+    {
+      "id": "patticake-layer-proof",
+      "family": "macro-proof",
+      "brand": "patticake",
+      "hook": "real layers. real note.",
+      "video": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/video/patticake-layer-proof.mp4",
+      "cover": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/covers/patticake-layer-proof-cover.png",
+      "poster4x5": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/posters-4x5/patticake-layer-proof-4x5.png",
+      "profileGrid3x4": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/profile-grid-3x4/patticake-layer-proof-3x4.png",
+      "squareSafe": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/square-safe/patticake-layer-proof-square.png",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "durationSeconds": 8.0,
+      "safeZone": {
+        "x": 88,
+        "y": 250,
+        "width": 804,
+        "height": 1210
+      },
+      "cta": "Ship a cake",
+      "logoStyleCard": {
+        "copy": [
+          "yum! logo cue",
+          "red circle + white lowercase mark",
+          "Trocchi-style serif + narrow sans support"
+        ],
+        "colors": {
+          "yumRed": "#E03A3E",
+          "logoMark": "#FFFFFF",
+          "headlineInk": "#2D2D2D"
+        }
+      }
+    },
+    {
+      "id": "patticake-birthday-first-slice",
+      "family": "birthday-proof",
+      "brand": "patticake",
+      "hook": "birthday cake, handled",
+      "video": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/video/patticake-birthday-first-slice.mp4",
+      "cover": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/covers/patticake-birthday-first-slice-cover.png",
+      "poster4x5": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/posters-4x5/patticake-birthday-first-slice-4x5.png",
+      "profileGrid3x4": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/profile-grid-3x4/patticake-birthday-first-slice-3x4.png",
+      "squareSafe": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/square-safe/patticake-birthday-first-slice-square.png",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "durationSeconds": 8.0,
+      "safeZone": {
+        "x": 88,
+        "y": 250,
+        "width": 804,
+        "height": 1210
+      },
+      "cta": "Plan the cake",
+      "logoStyleCard": {
+        "copy": [
+          "yum! logo cue",
+          "red circle + white lowercase mark",
+          "Trocchi-style serif + narrow sans support"
+        ],
+        "colors": {
+          "yumRed": "#E03A3E",
+          "logoMark": "#FFFFFF",
+          "headlineInk": "#2D2D2D"
+        }
+      }
+    },
+    {
+      "id": "patticake-event-inquiry",
+      "family": "event-inquiry",
+      "brand": "patticake",
+      "hook": "cake for the table",
+      "video": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/video/patticake-event-inquiry.mp4",
+      "cover": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/covers/patticake-event-inquiry-cover.png",
+      "poster4x5": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/posters-4x5/patticake-event-inquiry-4x5.png",
+      "profileGrid3x4": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/profile-grid-3x4/patticake-event-inquiry-3x4.png",
+      "squareSafe": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/square-safe/patticake-event-inquiry-square.png",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "durationSeconds": 8.0,
+      "safeZone": {
+        "x": 88,
+        "y": 250,
+        "width": 804,
+        "height": 1210
+      },
+      "cta": "Start an inquiry",
+      "logoStyleCard": {
+        "copy": [
+          "yum! logo cue",
+          "red circle + white lowercase mark",
+          "Trocchi-style serif + narrow sans support"
+        ],
+        "colors": {
+          "yumRed": "#E03A3E",
+          "logoMark": "#FFFFFF",
+          "headlineInk": "#2D2D2D"
+        }
+      }
+    },
+    {
+      "id": "yum-lunch-decision",
+      "family": "question-hook",
+      "brand": "yum",
+      "hook": "what should we eat?",
+      "video": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/video/yum-lunch-decision.mp4",
+      "cover": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/covers/yum-lunch-decision-cover.png",
+      "poster4x5": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/posters-4x5/yum-lunch-decision-4x5.png",
+      "profileGrid3x4": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/profile-grid-3x4/yum-lunch-decision-3x4.png",
+      "squareSafe": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/square-safe/yum-lunch-decision-square.png",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "durationSeconds": 8.0,
+      "safeZone": {
+        "x": 88,
+        "y": 250,
+        "width": 804,
+        "height": 1210
+      },
+      "cta": "Order online",
+      "logoStyleCard": {
+        "copy": [
+          "yum! logo cue",
+          "red circle + white lowercase mark",
+          "Trocchi-style serif + narrow sans support"
+        ],
+        "colors": {
+          "yumRed": "#E03A3E",
+          "logoMark": "#FFFFFF",
+          "headlineInk": "#2D2D2D"
+        }
+      }
+    },
+    {
+      "id": "yum-catering-room",
+      "family": "occasion-proof",
+      "brand": "yum",
+      "hook": "feed the room",
+      "video": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/video/yum-catering-room.mp4",
+      "cover": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/covers/yum-catering-room-cover.png",
+      "poster4x5": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/posters-4x5/yum-catering-room-4x5.png",
+      "profileGrid3x4": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/profile-grid-3x4/yum-catering-room-3x4.png",
+      "squareSafe": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/square-safe/yum-catering-room-square.png",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "durationSeconds": 8.0,
+      "safeZone": {
+        "x": 88,
+        "y": 250,
+        "width": 804,
+        "height": 1210
+      },
+      "cta": "Plan catering",
+      "logoStyleCard": {
+        "copy": [
+          "yum! logo cue",
+          "red circle + white lowercase mark",
+          "Trocchi-style serif + narrow sans support"
+        ],
+        "colors": {
+          "yumRed": "#E03A3E",
+          "logoMark": "#FFFFFF",
+          "headlineInk": "#2D2D2D"
+        }
+      }
+    },
+    {
+      "id": "yum-four-kitchens",
+      "family": "local-proof",
+      "brand": "yum",
+      "hook": "nearby yum! is the move",
+      "video": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/video/yum-four-kitchens.mp4",
+      "cover": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/covers/yum-four-kitchens-cover.png",
+      "poster4x5": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/posters-4x5/yum-four-kitchens-4x5.png",
+      "profileGrid3x4": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/profile-grid-3x4/yum-four-kitchens-3x4.png",
+      "squareSafe": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/square-safe/yum-four-kitchens-square.png",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "durationSeconds": 8.0,
+      "safeZone": {
+        "x": 88,
+        "y": 250,
+        "width": 804,
+        "height": 1210
+      },
+      "cta": "Find a kitchen",
+      "logoStyleCard": {
+        "copy": [
+          "yum! logo cue",
+          "red circle + white lowercase mark",
+          "Trocchi-style serif + narrow sans support"
+        ],
+        "colors": {
+          "yumRed": "#E03A3E",
+          "logoMark": "#FFFFFF",
+          "headlineInk": "#2D2D2D"
+        }
+      }
+    },
+    {
+      "id": "yum-bakery-case",
+      "family": "saveable-menu",
+      "brand": "yum",
+      "hook": "bring dessert",
+      "video": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/video/yum-bakery-case.mp4",
+      "cover": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/covers/yum-bakery-case-cover.png",
+      "poster4x5": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/posters-4x5/yum-bakery-case-4x5.png",
+      "profileGrid3x4": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/profile-grid-3x4/yum-bakery-case-3x4.png",
+      "squareSafe": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-motion-template-2026/exports/square-safe/yum-bakery-case-square.png",
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "durationSeconds": 8.0,
+      "safeZone": {
+        "x": 88,
+        "y": 250,
+        "width": 804,
+        "height": 1210
+      },
+      "cta": "Visit yum!",
+      "logoStyleCard": {
+        "copy": [
+          "yum! logo cue",
+          "red circle + white lowercase mark",
+          "Trocchi-style serif + narrow sans support"
+        ],
+        "colors": {
+          "yumRed": "#E03A3E",
+          "logoMark": "#FFFFFF",
+          "headlineInk": "#2D2D2D"
+        }
+      }
+    }
+  ]
+}

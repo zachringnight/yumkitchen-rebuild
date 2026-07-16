@@ -1,0 +1,170 @@
+{
+  "meta": {
+    "title": "yum! and Patticake swipe stories",
+    "summary": "Three packaging-led carousel sequences with real photography, one message per card, and a clear conversion close.",
+    "source": "review_renderer",
+    "itemCount": 16
+  },
+  "items": [
+    {
+      "id": "kitchens-01-pick-your-yum",
+      "title": "pick your yum!",
+      "caption": "yum / four kitchens",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "generated/mcp-thumbs/kitchens-01-pick-your-yum.jpg",
+      "previewImageUrl": "generated/mcp-thumbs/kitchens-01-pick-your-yum.jpg",
+      "sourceImageUrl": "generated/kitchens-01-pick-your-yum.png"
+    },
+    {
+      "id": "kitchens-02-st-louis-park",
+      "title": "st. louis park",
+      "caption": "yum / your yum!",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "generated/mcp-thumbs/kitchens-02-st-louis-park.jpg",
+      "previewImageUrl": "generated/mcp-thumbs/kitchens-02-st-louis-park.jpg",
+      "sourceImageUrl": "generated/kitchens-02-st-louis-park.png"
+    },
+    {
+      "id": "kitchens-03-shady-oak",
+      "title": "shady oak",
+      "caption": "yum / your yum!",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "generated/mcp-thumbs/kitchens-03-shady-oak.jpg",
+      "previewImageUrl": "generated/mcp-thumbs/kitchens-03-shady-oak.jpg",
+      "sourceImageUrl": "generated/kitchens-03-shady-oak.png"
+    },
+    {
+      "id": "kitchens-04-st-paul",
+      "title": "st. paul",
+      "caption": "yum / your yum!",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "generated/mcp-thumbs/kitchens-04-st-paul.jpg",
+      "previewImageUrl": "generated/mcp-thumbs/kitchens-04-st-paul.jpg",
+      "sourceImageUrl": "generated/kitchens-04-st-paul.png"
+    },
+    {
+      "id": "kitchens-05-woodbury",
+      "title": "woodbury",
+      "caption": "yum / your yum!",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "generated/mcp-thumbs/kitchens-05-woodbury.jpg",
+      "previewImageUrl": "generated/mcp-thumbs/kitchens-05-woodbury.jpg",
+      "sourceImageUrl": "generated/kitchens-05-woodbury.png"
+    },
+    {
+      "id": "kitchens-06-find-your-yum",
+      "title": "four kitchens. one yum!",
+      "caption": "yum / find your kitchen",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "generated/mcp-thumbs/kitchens-06-find-your-yum.jpg",
+      "previewImageUrl": "generated/mcp-thumbs/kitchens-06-find-your-yum.jpg",
+      "sourceImageUrl": "generated/kitchens-06-find-your-yum.png"
+    },
+    {
+      "id": "catering-01-feed-the-room",
+      "title": "feed the room.",
+      "caption": "yum / catering",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "generated/mcp-thumbs/catering-01-feed-the-room.jpg",
+      "previewImageUrl": "generated/mcp-thumbs/catering-01-feed-the-room.jpg",
+      "sourceImageUrl": "generated/catering-01-feed-the-room.png"
+    },
+    {
+      "id": "catering-02-boxed-lunches",
+      "title": "boxed lunches, packed right.",
+      "caption": "yum / catering menu",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "generated/mcp-thumbs/catering-02-boxed-lunches.jpg",
+      "previewImageUrl": "generated/mcp-thumbs/catering-02-boxed-lunches.jpg",
+      "sourceImageUrl": "generated/catering-02-boxed-lunches.png"
+    },
+    {
+      "id": "catering-03-sandwiches",
+      "title": "sandwiches for the table.",
+      "caption": "yum / catering menu",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "generated/mcp-thumbs/catering-03-sandwiches.jpg",
+      "previewImageUrl": "generated/mcp-thumbs/catering-03-sandwiches.jpg",
+      "sourceImageUrl": "generated/catering-03-sandwiches.png"
+    },
+    {
+      "id": "catering-04-trays-and-bakery",
+      "title": "trays + bakery, handled.",
+      "caption": "yum / catering menu",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "generated/mcp-thumbs/catering-04-trays-and-bakery.jpg",
+      "previewImageUrl": "generated/mcp-thumbs/catering-04-trays-and-bakery.jpg",
+      "sourceImageUrl": "generated/catering-04-trays-and-bakery.png"
+    },
+    {
+      "id": "catering-05-plan-catering",
+      "title": "share the date + headcount.",
+      "caption": "yum / plan catering",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "generated/mcp-thumbs/catering-05-plan-catering.jpg",
+      "previewImageUrl": "generated/mcp-thumbs/catering-05-plan-catering.jpg",
+      "sourceImageUrl": "generated/catering-05-plan-catering.png"
+    },
+    {
+      "id": "gifting-01-send-cake",
+      "title": "send cake, not a card.",
+      "caption": "patticake / patticake gifting",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "generated/mcp-thumbs/gifting-01-send-cake.jpg",
+      "previewImageUrl": "generated/mcp-thumbs/gifting-01-send-cake.jpg",
+      "sourceImageUrl": "generated/gifting-01-send-cake.png"
+    },
+    {
+      "id": "gifting-02-blue-box",
+      "title": "the box does the announcing.",
+      "caption": "patticake / the yum! box",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "generated/mcp-thumbs/gifting-02-blue-box.jpg",
+      "previewImageUrl": "generated/mcp-thumbs/gifting-02-blue-box.jpg",
+      "sourceImageUrl": "generated/gifting-02-blue-box.png"
+    },
+    {
+      "id": "gifting-03-add-the-message",
+      "title": "add the message.",
+      "caption": "patticake / make it personal",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "generated/mcp-thumbs/gifting-03-add-the-message.jpg",
+      "previewImageUrl": "generated/mcp-thumbs/gifting-03-add-the-message.jpg",
+      "sourceImageUrl": "generated/gifting-03-add-the-message.png"
+    },
+    {
+      "id": "gifting-04-share-the-slice",
+      "title": "share the first slice.",
+      "caption": "patticake / the payoff",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "generated/mcp-thumbs/gifting-04-share-the-slice.jpg",
+      "previewImageUrl": "generated/mcp-thumbs/gifting-04-share-the-slice.jpg",
+      "sourceImageUrl": "generated/gifting-04-share-the-slice.png"
+    },
+    {
+      "id": "gifting-05-start-a-patticake",
+      "title": "pick the moment. send the cake.",
+      "caption": "patticake / start a patticake",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "generated/mcp-thumbs/gifting-05-start-a-patticake.jpg",
+      "previewImageUrl": "generated/mcp-thumbs/gifting-05-start-a-patticake.jpg",
+      "sourceImageUrl": "generated/gifting-05-start-a-patticake.png"
+    }
+  ]
+}

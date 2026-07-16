@@ -1,0 +1,90 @@
+[
+  {
+    "id": "patticake-gift-drop",
+    "index": 1,
+    "title": "send cake, not a card",
+    "label": "patticake-gift-drop",
+    "src": "exports/covers/patticake-gift-drop-cover.png",
+    "href": "exports/video/patticake-gift-drop.mp4",
+    "caption": "hook-drop / patticake / 1080x1920 / 30 fps",
+    "family": "hook-drop",
+    "bestFor": "Reels, TikTok, Shorts"
+  },
+  {
+    "id": "patticake-layer-proof",
+    "index": 2,
+    "title": "real layers. real note.",
+    "label": "patticake-layer-proof",
+    "src": "exports/covers/patticake-layer-proof-cover.png",
+    "href": "exports/video/patticake-layer-proof.mp4",
+    "caption": "macro-proof / patticake / 1080x1920 / 30 fps",
+    "family": "macro-proof",
+    "bestFor": "Reels, TikTok, Shorts"
+  },
+  {
+    "id": "patticake-birthday-first-slice",
+    "index": 3,
+    "title": "birthday cake, handled",
+    "label": "patticake-birthday-first-slice",
+    "src": "exports/covers/patticake-birthday-first-slice-cover.png",
+    "href": "exports/video/patticake-birthday-first-slice.mp4",
+    "caption": "birthday-proof / patticake / 1080x1920 / 30 fps",
+    "family": "birthday-proof",
+    "bestFor": "Reels, TikTok, Shorts"
+  },
+  {
+    "id": "patticake-event-inquiry",
+    "index": 4,
+    "title": "cake for the table",
+    "label": "patticake-event-inquiry",
+    "src": "exports/covers/patticake-event-inquiry-cover.png",
+    "href": "exports/video/patticake-event-inquiry.mp4",
+    "caption": "event-inquiry / patticake / 1080x1920 / 30 fps",
+    "family": "event-inquiry",
+    "bestFor": "Reels, TikTok, Shorts"
+  },
+  {
+    "id": "yum-lunch-decision",
+    "index": 5,
+    "title": "what should we eat?",
+    "label": "yum-lunch-decision",
+    "src": "exports/covers/yum-lunch-decision-cover.png",
+    "href": "exports/video/yum-lunch-decision.mp4",
+    "caption": "question-hook / yum / 1080x1920 / 30 fps",
+    "family": "question-hook",
+    "bestFor": "Reels, TikTok, Shorts"
+  },
+  {
+    "id": "yum-catering-room",
+    "index": 6,
+    "title": "feed the room",
+    "label": "yum-catering-room",
+    "src": "exports/covers/yum-catering-room-cover.png",
+    "href": "exports/video/yum-catering-room.mp4",
+    "caption": "occasion-proof / yum / 1080x1920 / 30 fps",
+    "family": "occasion-proof",
+    "bestFor": "Reels, TikTok, Shorts"
+  },
+  {
+    "id": "yum-four-kitchens",
+    "index": 7,
+    "title": "nearby yum! is the move",
+    "label": "yum-four-kitchens",
+    "src": "exports/covers/yum-four-kitchens-cover.png",
+    "href": "exports/video/yum-four-kitchens.mp4",
+    "caption": "local-proof / yum / 1080x1920 / 30 fps",
+    "family": "local-proof",
+    "bestFor": "Reels, TikTok, Shorts"
+  },
+  {
+    "id": "yum-bakery-case",
+    "index": 8,
+    "title": "bring dessert",
+    "label": "yum-bakery-case",
+    "src": "exports/covers/yum-bakery-case-cover.png",
+    "href": "exports/video/yum-bakery-case.mp4",
+    "caption": "saveable-menu / yum / 1080x1920 / 30 fps",
+    "family": "saveable-menu",
+    "bestFor": "Reels, TikTok, Shorts"
+  }
+]

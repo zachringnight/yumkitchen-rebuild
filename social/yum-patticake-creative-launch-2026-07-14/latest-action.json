@@ -1,0 +1,14 @@
+{
+  "id": "review-renderer-materialized",
+  "action": "write_moodboard_widget_payload",
+  "label": "Materialized Creative Production image review",
+  "createdAt": "2026-07-14T17:06:47.308381Z",
+  "timestamp": "2026-07-14T17:06:47.308381Z",
+  "title": "yum! and Patticake creative launch pack",
+  "summary": "Seven photo-first social lanes, including a human-first organic treatment, with exact brand typography, an active logo player, and four static placement formats.",
+  "itemCount": 6,
+  "runDirectory": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-patticake-creative-launch-2026-07-14",
+  "streamPath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-patticake-creative-launch-2026-07-14/data/stream.json",
+  "runStatePath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-patticake-creative-launch-2026-07-14/run-state.json",
+  "latestActionPath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-patticake-creative-launch-2026-07-14/latest-action.json"
+}

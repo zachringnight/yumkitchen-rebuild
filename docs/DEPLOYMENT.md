@@ -11,6 +11,11 @@
 - `NEXT_PUBLIC_PATTICAKE_URL`: optional canonical Patticake URL, defaults to `https://patticake.com`.
 - `NEXT_PUBLIC_SITE_URL`: optional metadata fallback for preview environments. Canonical page URLs and sitemap entries use `NEXT_PUBLIC_YUMKITCHEN_URL` and `NEXT_PUBLIC_PATTICAKE_URL` directly.
 - `NEXT_PUBLIC_PATTICAKE_NATIONAL_ORDER_URL`: optional direct checkout URL for Patticake national delivery. When unset, the page routes the primary CTA to the on-page national-delivery order-details form.
+- `NEXT_PUBLIC_NEWSLETTER_SIGNUP_ENABLED`: set to `true` only after a real signup backend is ready. The footer module is hidden when unset.
+- `NEWSLETTER_SIGNUP_WEBHOOK_URL`: approved CRM, ESP, or storage webhook that accepts the signup payload.
+- `NEWSLETTER_SIGNUP_AUTH_TOKEN`: optional bearer token for the signup webhook.
+- `PREVIEW_PASSWORD`: password for the private launch splash. Set to `Patticake4000` for the current handoff. Change this value when the preview audience changes.
+- `PREVIEW_PROTECTION_ENABLED`: leave unset or set to `true` for shared previews. Set to `false` only for local automated QA that must inspect every route without a preview cookie.
 
 ## Analytics Events
 
@@ -26,7 +31,29 @@ Confirm these in GTM Preview and GA4 DebugView before launch:
 - `click_gift_card_balance`
 - `click_patticake_national_delivery_order`
 
+Every tracked click also includes:
+
+- `canonical_event`: normalized acquisition name such as `order_click`, `phone_click`, `location_directions_click`, or `gift_card_click`
+- `page_path`
+- `cta_label`
+- `destination_url`
+- `location` and `phone_number` when relevant
+- `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, and `utm_term`
+- `landing_page` and `referrer`
+
+The legacy event names remain the GTM `event` value so existing production triggers do not break. `canonical_event` provides the acquisition taxonomy from the v1.2 handoff.
+
+Inquiry forms persist attribution in session storage, populate hidden fields, include it in the Resend note, and attach the same context to form-success events. Confirm attribution by entering through a URL with UTMs, navigating internally, and submitting a non-production test form after `RESEND_API_KEY` is configured.
+
 Do not add legacy Universal Analytics `UA-83446946-1`.
+
+## Newsletter Signup
+
+The footer signup is hidden by default so the site never presents a false success state. When enabled, the server posts the normalized email, source path, session attribution, submission timestamp, and site source to the configured webhook. The browser shows success only after the webhook returns a successful HTTP response.
+
+## Private Preview
+
+All site routes redirect to `/preview` until the visitor enters the preview password. Successful access sets a secure, HTTP-only, same-site cookie for seven days and returns the visitor to the originally requested route. The splash itself, its Patticake motion assets, and the access endpoint remain public so the gate can load. Keep `PREVIEW_PROTECTION_ENABLED` unset or `true` on every shared deployment.
 
 ## Preflight
 
