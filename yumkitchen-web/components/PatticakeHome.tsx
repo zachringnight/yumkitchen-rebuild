@@ -1,12 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { patticakeNationalOrderUrl } from '@/lib/site';
-import { MotionPauseButton } from './MotionPauseButton';
 import { ParallaxImage } from './motion/ParallaxImage';
 import { PressButton } from './motion/PressButton';
 import { Reveal } from './motion/Reveal';
 import { Stagger, StaggerItem } from './motion/Stagger';
-import { TapeTag } from './motion/TapeTag';
 import { PatticakeConciergeBand } from './PatticakeConciergeBand';
 import { PatticakeHeroPeek } from './PatticakeHeroPeek';
 import { PatticakeOriginBand } from './PatticakeOriginBand';
@@ -123,28 +121,20 @@ export function PatticakeHome() {
             </Stagger>
           </div>
 
-          <div className="patticake-remotion-board motion-role-ambient" role="group" aria-label="Patticake animated product story">
-            <MotionPauseButton className="motion-pause-button" />
-            <div className="patticake-floating-messages" aria-hidden="true">
-              <TapeTag delay={0.5}>happy birthday</TapeTag>
-              <TapeTag delay={0.72}>thank you</TapeTag>
-              <TapeTag delay={0.94}>just because</TapeTag>
-            </div>
-            <div className="patticake-remotion-title">
-              <span>one cake</span>
-              <span>three ways to share it</span>
-            </div>
+          <div className="patticake-photo-grid" role="group" aria-label="Patticake cake photography">
             {heroFrames.map((frame, index) => (
-              <Reveal as="figure" key={frame.src} className={`patticake-remotion-frame patticake-remotion-frame-${index + 1}`} y={0} delay={0.15 + index * 0.15}>
-                <Image
-                  src={frame.src}
-                  alt={frame.alt}
-                  fill
-                  quality={60}
-                  sizes={frame.sizes}
-                  loading="eager"
-                  className={`object-cover ${frame.className}`}
-                />
+              <Reveal as="figure" key={frame.src} className={`patticake-photo-grid-frame patticake-photo-grid-frame-${index + 1}`} y={12} delay={0.15 + index * 0.12}>
+                <div className="patticake-photo-grid-image">
+                  <Image
+                    src={frame.src}
+                    alt={frame.alt}
+                    fill
+                    quality={60}
+                    sizes={frame.sizes}
+                    loading="eager"
+                    className={`object-cover ${frame.className}`}
+                  />
+                </div>
                 <figcaption>{frame.label}</figcaption>
               </Reveal>
             ))}

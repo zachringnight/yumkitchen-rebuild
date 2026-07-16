@@ -24,7 +24,8 @@ async function main() {
 
     const title = await page.title();
     if (!title.includes('Patticake')) throw new Error(`unexpected Patticake home title: ${title}`);
-    if (!(await textIncludes(page, 'one cake'))) throw new Error('Patticake home motion story missing');
+    if (!(await textIncludes(page, 'now available nationwide'))) throw new Error('Patticake home nationwide launch message missing');
+    if (!(await page.$('.patticake-photo-grid'))) throw new Error('Patticake home editorial photo grid missing');
     if (!(await textIncludes(page, 'Ship a Cake'))) throw new Error('Patticake home CTA missing');
 
     await page.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }]);

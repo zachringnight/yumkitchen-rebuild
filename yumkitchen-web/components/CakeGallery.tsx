@@ -24,16 +24,18 @@ export function CakeGallery() {
           {galleryImages.map((img) => (
             <figure
               key={img.src}
-              className="group relative aspect-square overflow-hidden border border-ink/10 bg-blue-soft"
+              className="group overflow-hidden border border-ink/10 bg-white"
             >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                sizes="(min-width: 768px) 25vw, 50vw"
-                className="object-cover transition duration-500 group-hover:scale-[1.04]"
-              />
-              <figcaption className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-ink/70 to-transparent px-4 pb-3 pt-8 font-serif text-xl lowercase text-white">
+              <div className="relative aspect-square overflow-hidden bg-blue-soft">
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  sizes="(min-width: 768px) 25vw, 50vw"
+                  className="object-cover transition duration-500 group-hover:scale-[1.04]"
+                />
+              </div>
+              <figcaption className="border-t border-ink/10 px-4 py-3 font-serif text-xl lowercase text-ink">
                 {img.caption}
               </figcaption>
             </figure>

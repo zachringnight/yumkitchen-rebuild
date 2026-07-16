@@ -269,12 +269,12 @@ export function MenuFeature() {
               sizes="(min-width: 1024px) 480px, 100vw"
               className="menu-feature-photo object-cover"
             />
-            <div className="menu-feature-active absolute bottom-4 left-4 right-4 z-10 bg-white/95 p-4 shadow-[0_0.75rem_2rem_rgb(45_45_45_/_0.16)] md:max-w-[30rem]">
-              <span>{item.category}</span>
-              <strong>{item.name}</strong>
-              <p>{item.copy}</p>
-              <em>{item.price}</em>
-            </div>
+          </div>
+          <div className="menu-feature-active">
+            <span>{item.category}</span>
+            <strong>{item.name}</strong>
+            <p>{item.copy}</p>
+            <em>{item.price}</em>
           </div>
           <div className="mt-4 grid grid-cols-2 gap-2 lg:grid-cols-3">
             {menuFeatureItems.map((menuItem, index) => (

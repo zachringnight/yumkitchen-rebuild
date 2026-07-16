@@ -7,7 +7,6 @@ import { ParallaxImage } from '@/components/motion/ParallaxImage';
 import { PressButton } from '@/components/motion/PressButton';
 import { Reveal } from '@/components/motion/Reveal';
 import { Stagger, StaggerItem } from '@/components/motion/Stagger';
-import { TapeTag } from '@/components/motion/TapeTag';
 import { PatticakeHeroPeek } from '@/components/PatticakeHeroPeek';
 import { PatticakeMessagePreview } from '@/components/PatticakeMessagePreview';
 import { PatticakeMessageRibbon } from '@/components/PatticakeMessageRibbon';
@@ -166,23 +165,6 @@ export default function CakePage() {
               sizes="(min-width: 1024px) 58vw, 100vw"
               className="object-cover crop-patticake-vertical-layer"
             />
-            <div className="absolute left-4 top-4 bg-brand-red px-4 py-3 text-xs font-bold uppercase tracking-[0.14em] text-white md:left-6 md:top-6">
-              patticake
-            </div>
-            <div className="cake-message-tags" aria-hidden="true">
-              <TapeTag delay={0.45}>happy birthday</TapeTag>
-              <TapeTag delay={0.67}>just married</TapeTag>
-              <TapeTag delay={0.89}>love you</TapeTag>
-            </div>
-            <div className="absolute bottom-4 left-4 right-4 grid gap-3 bg-cream/95 p-4 shadow-xl md:bottom-6 md:left-6 md:right-6 md:grid-cols-[1fr_auto] md:items-end md:p-5">
-              <div>
-                <p className="font-serif text-2xl leading-tight text-ink">chocolate layers, vanilla buttercream</p>
-                <p className="mt-1 text-base leading-6 text-body">the cake people ask for by name</p>
-              </div>
-              <a href="#shop-patticake" className="btn-secondary bg-white px-4 py-3 text-base hover:bg-brand-red">
-                Choose Your Cake
-              </a>
-            </div>
           </div>
         </div>
       </section>
@@ -192,11 +174,9 @@ export default function CakePage() {
 
       <section className="bg-cream px-6 py-8">
         <div className="mx-auto max-w-[1240px]">
-          <Stagger className="patticake-ticket" gap={0.12}>
-            <StaggerItem variant="stamp" baseRotate={180} className="patticake-ticket-stub patticake-ticket-stub-brand">
-              yum!
-              <br />
-              Kitchen and Bakery
+          <Stagger className="patticake-process-panel" gap={0.12}>
+            <StaggerItem className="patticake-process-eyebrow">
+              <p>made at yum!</p>
             </StaggerItem>
             <StaggerItem>
               <h2 className="font-serif text-[2.7rem] font-normal leading-tight lowercase text-brand-primary">

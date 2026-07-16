@@ -42,10 +42,6 @@ export function InquiryMomentumBand({
         </div>
         <div className="inquiry-momentum-frame">
           <Image src={image} alt={imageAlt} fill sizes="(min-width: 1024px) 42vw, 100vw" className="object-cover" />
-          <div className="inquiry-momentum-badge" aria-hidden="true">
-            <span>yum!</span>
-            <span>real team, real food</span>
-          </div>
         </div>
       </div>
     </section>

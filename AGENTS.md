@@ -46,6 +46,10 @@ Source of truth: `yumkitchen-web/app/globals.css` `@theme` block. Current values
 
 If `globals.css` and this file ever disagree, `globals.css` wins. Update this file to match.
 
+## Design toolkit
+
+For new visual or creative work, read `docs/DESIGN_TOOLKIT_AI_CODER.md` after this contract and before editing. It captures the current photo-led baby-blue and red direction. It does not override the hard rules, data contracts, or token source of truth above.
+
 ## Hard rules (NEVER VIOLATE)
 
 1. Preserve all 4 Toast order URLs exactly. They live in `yumkitchen-web/lib/locations.ts`. Do not rewrite, redirect, or wrap them.

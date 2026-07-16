@@ -8,7 +8,6 @@ import { ParallaxImage } from '@/components/motion/ParallaxImage';
 import { PressButton } from '@/components/motion/PressButton';
 import { Reveal } from '@/components/motion/Reveal';
 import { Stagger, StaggerItem } from '@/components/motion/Stagger';
-import { TapeTag } from '@/components/motion/TapeTag';
 import { MediaProofBand } from '@/components/MediaProofBand';
 import { ReviewsWall } from '@/components/ReviewsWall';
 import { PatticakeHeroPeek } from '@/components/PatticakeHeroPeek';
@@ -241,7 +240,7 @@ export default function PatticakeNationalDeliveryPage() {
             </Stagger>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-[1fr_0.44fr]">
+          <div className="patticake-delivery-photo-pair">
             <div className="patticake-hero-card min-h-[520px]">
               <Image
                 src="/images/patticake/09_slices.jpg"
@@ -251,24 +250,9 @@ export default function PatticakeNationalDeliveryPage() {
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover crop-patticake-slices"
               />
-              <div className="absolute bottom-4 left-4 right-4 border-2 border-brand-red bg-blue-tint/95 p-5 shadow-xl">
-                <p className="font-serif text-3xl leading-tight text-ink">ship the cake people remember</p>
-                <p className="mt-2 text-base leading-6 text-body">same Patticake story, sent farther from home</p>
-              </div>
-              <div className="cake-message-tags cake-message-tags-delivery" aria-hidden="true">
-                <TapeTag delay={0.45}>miss you</TapeTag>
-                <TapeTag delay={0.67}>thank you</TapeTag>
-                <TapeTag delay={0.89}>go team</TapeTag>
-              </div>
             </div>
-            <div className="grid gap-4">
-              <div className="border border-brand-primary/30 bg-white p-5">
-                <p className="font-serif text-5xl leading-none text-brand-primary">1</p>
-                <p className="mt-3 text-base leading-7 text-body">signature chocolate cake made for sending.</p>
-              </div>
-              <div className="relative min-h-[210px] overflow-hidden border border-ink/10 bg-blue-soft">
-                <Image src="/images/patticake/03_top_view.jpg" alt="yum! patticake vanilla buttercream top view" fill loading="eager" sizes="(min-width: 1024px) 22vw, 45vw" className="object-cover crop-patticake-top" />
-              </div>
+            <div className="patticake-delivery-secondary-photo">
+              <Image src="/images/patticake/03_top_view.jpg" alt="yum! patticake vanilla buttercream top view" fill loading="eager" sizes="(min-width: 1024px) 22vw, 45vw" className="object-cover crop-patticake-top" />
             </div>
           </div>
         </div>
@@ -337,11 +321,9 @@ export default function PatticakeNationalDeliveryPage() {
 
       <section className="bg-cream px-6 py-8">
         <div className="mx-auto max-w-[1240px]">
-          <Stagger className="patticake-ticket" gap={0.12}>
-            <StaggerItem variant="stamp" baseRotate={180} className="patticake-ticket-stub">
-              admit one
-              <br />
-              patticake
+          <Stagger className="patticake-process-panel" gap={0.12}>
+            <StaggerItem className="patticake-process-eyebrow">
+              <p>patticake delivery</p>
             </StaggerItem>
             <StaggerItem>
               <h2 className="font-serif text-[2.7rem] font-normal leading-tight lowercase text-brand-primary">a clearer way to send it.</h2>

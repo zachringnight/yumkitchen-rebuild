@@ -133,9 +133,6 @@ export function PreviewSplash({ nextPath }: { nextPath: string }) {
           >
             <source src="/review-assets/videos/motion-1x1-patticake-gift-drop.mp4" type="video/mp4" />
           </video>
-          <div className="preview-splash-media-label absolute bottom-5 right-5 z-10 border-2 border-brand-red bg-blue-tint px-4 py-3 font-sans text-sm font-bold uppercase tracking-[0.12em] text-brand-primary sm:bottom-8 sm:right-8">
-            private launch preview
-          </div>
         </section>
       </div>
     </main>
