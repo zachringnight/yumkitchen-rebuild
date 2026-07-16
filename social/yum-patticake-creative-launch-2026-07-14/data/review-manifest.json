@@ -1,0 +1,156 @@
+[
+  {
+    "id": "yum-people-behind-the-plate",
+    "index": 1,
+    "title": "meet the people behind yum!",
+    "label": "from the kitchen",
+    "src": "exports/feed-4x5/yum-people-behind-the-plate.png",
+    "href": "exports/motion-9x16-10s/yum-people-behind-the-plate.mp4",
+    "caption": "yum / Meet the Team",
+    "family": "from the kitchen",
+    "bestFor": "Reels, Stories, feed, square, paid social, and wide social placements"
+  },
+  {
+    "id": "yum-lunch-decision",
+    "index": 2,
+    "title": "what should we eat?",
+    "label": "local order",
+    "src": "exports/feed-4x5/yum-lunch-decision.png",
+    "href": "exports/motion-9x16-10s/yum-lunch-decision.mp4",
+    "caption": "yum / Order Online",
+    "family": "local order",
+    "bestFor": "Reels, Stories, feed, square, paid social, and wide social placements"
+  },
+  {
+    "id": "yum-four-kitchens",
+    "index": 3,
+    "title": "four kitchens. pick your yum!",
+    "label": "location discovery",
+    "src": "exports/feed-4x5/yum-four-kitchens.png",
+    "href": "exports/motion-9x16-10s/yum-four-kitchens.mp4",
+    "caption": "yum / Find Your yum!",
+    "family": "location discovery",
+    "bestFor": "Reels, Stories, feed, square, paid social, and wide social placements"
+  },
+  {
+    "id": "yum-catering-room",
+    "index": 4,
+    "title": "feed the room.",
+    "label": "catering leads",
+    "src": "exports/feed-4x5/yum-catering-room.png",
+    "href": "exports/motion-9x16-10s/yum-catering-room.mp4",
+    "caption": "yum / Plan Catering",
+    "family": "catering leads",
+    "bestFor": "Reels, Stories, feed, square, paid social, and wide social placements"
+  },
+  {
+    "id": "patticake-gift-drop",
+    "index": 5,
+    "title": "send cake, not a card.",
+    "label": "gifting",
+    "src": "exports/feed-4x5/patticake-gift-drop.png",
+    "href": "exports/motion-9x16-10s/patticake-gift-drop.mp4",
+    "caption": "patticake / Start a Patticake",
+    "family": "gifting",
+    "bestFor": "Reels, Stories, feed, square, paid social, and wide social placements"
+  },
+  {
+    "id": "patticake-birthday",
+    "index": 6,
+    "title": "birthday cake, handled.",
+    "label": "birthday cake",
+    "src": "exports/feed-4x5/patticake-birthday.png",
+    "href": "exports/motion-9x16-10s/patticake-birthday.mp4",
+    "caption": "patticake / Plan the Cake",
+    "family": "birthday cake",
+    "bestFor": "Reels, Stories, feed, square, paid social, and wide social placements"
+  },
+  {
+    "id": "patticake-event",
+    "index": 7,
+    "title": "cake for the table.",
+    "label": "weddings and events",
+    "src": "exports/feed-4x5/patticake-event.png",
+    "href": "exports/motion-9x16-10s/patticake-event.mp4",
+    "caption": "patticake / Start an Inquiry",
+    "family": "weddings and events",
+    "bestFor": "Reels, Stories, feed, square, paid social, and wide social placements"
+  },
+  {
+    "id": "patticake-site-teaser",
+    "index": 8,
+    "title": "something sweet is on its way.",
+    "label": "nationwide delivery",
+    "src": "exports/feed-4x5/patticake-site-teaser.png",
+    "href": "exports/motion-9x16-10s/patticake-site-teaser.mp4",
+    "caption": "patticake / Ship a Cake",
+    "family": "nationwide delivery",
+    "bestFor": "Reels, Stories, feed, square, paid social, and wide social placements"
+  },
+  {
+    "id": "patticake-site-reveal",
+    "index": 9,
+    "title": "patticake is now available nationwide.",
+    "label": "nationwide delivery",
+    "src": "exports/feed-4x5/patticake-site-reveal.png",
+    "href": "exports/motion-9x16-10s/patticake-site-reveal.mp4",
+    "caption": "patticake / Ship a Cake",
+    "family": "nationwide delivery",
+    "bestFor": "Reels, Stories, feed, square, paid social, and wide social placements"
+  },
+  {
+    "id": "patticake-three-layers",
+    "index": 10,
+    "title": "three layers. one big moment.",
+    "label": "inside the cake",
+    "src": "exports/feed-4x5/patticake-three-layers.png",
+    "href": "exports/motion-9x16-10s/patticake-three-layers.mp4",
+    "caption": "patticake / Meet Patticake",
+    "family": "inside the cake",
+    "bestFor": "Reels, Stories, feed, square, paid social, and wide social placements"
+  },
+  {
+    "id": "patticake-start-the-note",
+    "index": 11,
+    "title": "start with the message.",
+    "label": "make it personal",
+    "src": "exports/feed-4x5/patticake-start-the-note.png",
+    "href": "exports/motion-9x16-10s/patticake-start-the-note.mp4",
+    "caption": "patticake / Start the Note",
+    "family": "make it personal",
+    "bestFor": "Reels, Stories, feed, square, paid social, and wide social placements"
+  },
+  {
+    "id": "patticake-thank-you",
+    "index": 12,
+    "title": "thank you, with cake.",
+    "label": "thank-you gifting",
+    "src": "exports/feed-4x5/patticake-thank-you.png",
+    "href": "exports/motion-9x16-10s/patticake-thank-you.mp4",
+    "caption": "patticake / Send a Patticake",
+    "family": "thank-you gifting",
+    "bestFor": "Reels, Stories, feed, square, paid social, and wide social placements"
+  },
+  {
+    "id": "patticake-local-pickup",
+    "index": 13,
+    "title": "staying local? pick it up.",
+    "label": "Twin Cities pickup",
+    "src": "exports/feed-4x5/patticake-local-pickup.png",
+    "href": "exports/motion-9x16-10s/patticake-local-pickup.mp4",
+    "caption": "patticake / Plan Local Pickup",
+    "family": "Twin Cities pickup",
+    "bestFor": "Reels, Stories, feed, square, paid social, and wide social placements"
+  },
+  {
+    "id": "patticake-made-by-yum",
+    "index": 14,
+    "title": "made by the people behind yum!",
+    "label": "the yum! bakery story",
+    "src": "exports/feed-4x5/patticake-made-by-yum.png",
+    "href": "exports/motion-9x16-10s/patticake-made-by-yum.mp4",
+    "caption": "patticake / Read the Story",
+    "family": "the yum! bakery story",
+    "bestFor": "Reels, Stories, feed, square, paid social, and wide social placements"
+  }
+]

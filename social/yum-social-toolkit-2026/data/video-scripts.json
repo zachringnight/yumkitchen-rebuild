@@ -1,0 +1,755 @@
+[
+  {
+    "title": "Pack a Patticake with us",
+    "brand": "Patticake",
+    "goal": "delivery order consideration",
+    "audience": "gift senders",
+    "length": "15 seconds",
+    "hook": "pack a Patticake order with us",
+    "shots": [
+      "Open box on clean packing table",
+      "Lower real cake into insert",
+      "Check gift note without showing private data",
+      "Close box and tie current packaging",
+      "Hand off for delivery"
+    ],
+    "onscreen": [
+      "cake checked",
+      "message checked",
+      "ready to send"
+    ],
+    "voiceover": "A Patticake gift starts with the cake, the message, and one last check before the box closes.",
+    "cta": "Check Delivery Options",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "Reels, TikTok, Shorts, paid",
+    "rating": "high"
+  },
+  {
+    "title": "Cut the first slice",
+    "brand": "Patticake",
+    "goal": "birthday and product proof",
+    "audience": "birthday cake buyers",
+    "length": "12 seconds",
+    "hook": "the part of the birthday everyone waits for",
+    "shots": [
+      "Full cake on real table",
+      "Knife breaks the buttercream",
+      "Slice lifts from cake",
+      "Layer macro",
+      "Hands pass plates"
+    ],
+    "onscreen": [
+      "first cut",
+      "real layers",
+      "share the love"
+    ],
+    "voiceover": "The candles are quick. The first slice is the moment.",
+    "cta": "Plan the Cake",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "Reels, TikTok, Shorts",
+    "rating": "high"
+  },
+  {
+    "title": "Birthday cake pickup",
+    "brand": "Patticake",
+    "goal": "local cake request",
+    "audience": "Twin Cities birthday buyers",
+    "length": "15 seconds",
+    "hook": "birthday pickup, handled",
+    "shots": [
+      "Bakery box at counter",
+      "Staff confirms name",
+      "Hands receive box",
+      "Careful placement in car",
+      "Cake arrives on table"
+    ],
+    "onscreen": [
+      "choose the date",
+      "choose the kitchen",
+      "pick up locally"
+    ],
+    "voiceover": "Share the date, location, and cake details, then let the bakery team confirm the next step.",
+    "cta": "Pick Up Locally",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "Reels, Stories, Meta paid",
+    "rating": "high"
+  },
+  {
+    "title": "Send a thank-you cake",
+    "brand": "Patticake",
+    "goal": "occasion expansion",
+    "audience": "friends, families, client gift buyers",
+    "length": "15 seconds",
+    "hook": "thank you, but make it cake",
+    "shots": [
+      "Write thank-you note",
+      "Place card with gift box",
+      "Reveal full cake",
+      "Cut layered slice",
+      "Recipient hands receive plate"
+    ],
+    "onscreen": [
+      "for showing up",
+      "for helping out",
+      "for sharing"
+    ],
+    "voiceover": "A thank-you feels more personal when the note arrives with something meant for the middle of the table.",
+    "cta": "Send a Patticake",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "Reels, TikTok, Pinterest video, paid",
+    "rating": "high"
+  },
+  {
+    "title": "Office catering spread",
+    "brand": "yum!",
+    "goal": "catering leads",
+    "audience": "office managers and executive assistants",
+    "length": "18 seconds",
+    "hook": "the office lunch upgrade nobody complains about",
+    "shots": [
+      "Empty conference table",
+      "Trays arrive",
+      "Labels and utensils placed",
+      "Wide finished spread",
+      "First plate served"
+    ],
+    "onscreen": [
+      "pick the date",
+      "plan the room",
+      "feed the team"
+    ],
+    "voiceover": "Start with the date, group size, pickup kitchen, and what the room needs. The catering note routes the details.",
+    "cta": "Start a Catering Note",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "LinkedIn, Reels, Meta paid",
+    "rating": "high"
+  },
+  {
+    "title": "Box lunch assembly",
+    "brand": "yum!",
+    "goal": "catering process proof",
+    "audience": "catering buyers",
+    "length": "15 seconds",
+    "hook": "pack boxed lunches with us",
+    "shots": [
+      "Open boxes in a row",
+      "Place verified meal components",
+      "Add labels",
+      "Close and stack",
+      "Pickup handoff"
+    ],
+    "onscreen": [
+      "assembled",
+      "labeled",
+      "ready for pickup"
+    ],
+    "voiceover": "A room-ready lunch is built one checked box at a time.",
+    "cta": "Plan Catering",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "Reels, TikTok, Shorts",
+    "rating": "high"
+  },
+  {
+    "title": "Bakery case morning restock",
+    "brand": "yum!",
+    "goal": "same-day visits",
+    "audience": "neighborhood regulars",
+    "length": "10 seconds",
+    "hook": "first look at today's bakery case",
+    "shots": [
+      "Empty case shelf",
+      "Tray enters frame",
+      "Items placed",
+      "Glass closes",
+      "Wide case scan with location and time"
+    ],
+    "onscreen": [
+      "{LOCATION}",
+      "{CAPTURE_TIME}",
+      "today's case"
+    ],
+    "voiceover": "This is what the case looked like when we filmed it. Check your nearest yum! for today's selection.",
+    "cta": "Find a Location",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "Stories, Reels, GBP",
+    "rating": "medium"
+  },
+  {
+    "title": "Staff favorite order",
+    "brand": "yum!",
+    "goal": "human trust and menu discovery",
+    "audience": "regulars and first-time guests",
+    "length": "20 seconds",
+    "hook": "ask the person behind the counter",
+    "shots": [
+      "Staff member names favorite",
+      "Kitchen build",
+      "Finished plate",
+      "Staff takes first bite or holds order",
+      "Menu CTA"
+    ],
+    "onscreen": [
+      "{NAME}'s order",
+      "why they pick it",
+      "try it your way"
+    ],
+    "voiceover": "This is {NAME}'s current yum! order at {LOCATION}, and the reason it keeps winning lunch.",
+    "cta": "See the Menu",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "Reels, TikTok, Stories",
+    "rating": "high"
+  },
+  {
+    "title": "First-time yum! order guide",
+    "brand": "yum!",
+    "goal": "menu consideration",
+    "audience": "first-time guests",
+    "length": "20 seconds",
+    "hook": "what we would order at yum! on a first visit",
+    "shots": [
+      "Menu category cards",
+      "Soup and sandwich detail",
+      "Breakfast or entree detail",
+      "Bakery add-on",
+      "Order-location screen"
+    ],
+    "onscreen": [
+      "start with the craving",
+      "pick a kitchen",
+      "save room for bakery"
+    ],
+    "voiceover": "You do not need to study the whole menu. Start with what sounds good, then choose the kitchen nearest you.",
+    "cta": "Explore the Menu",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "Reels, TikTok, Shorts, paid",
+    "rating": "high"
+  },
+  {
+    "title": "Four-location neighborhood post",
+    "brand": "yum!",
+    "goal": "location discovery",
+    "audience": "Twin Cities guests",
+    "length": "16 seconds",
+    "hook": "four Twin Cities kitchens. pick yours.",
+    "shots": [
+      "St. Louis Park exterior",
+      "Shady Oak exterior",
+      "St. Paul exterior",
+      "Woodbury exterior",
+      "Four-location grid and CTA"
+    ],
+    "onscreen": [
+      "St. Louis Park",
+      "Shady Oak",
+      "St. Paul",
+      "Woodbury"
+    ],
+    "voiceover": "One yum! for each route across the Twin Cities. Pick the location that works for today.",
+    "cta": "Find Your yum!",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "Reels, Stories, Meta paid",
+    "rating": "high"
+  },
+  {
+    "title": "Gift card holiday post",
+    "brand": "yum!",
+    "goal": "gift card sales",
+    "audience": "last-minute and employer gift buyers",
+    "length": "12 seconds",
+    "hook": "send lunch for later",
+    "shots": [
+      "Gift card purchase screen",
+      "Write recipient note",
+      "Show real meal options",
+      "Bakery case detail",
+      "Gift-card CTA"
+    ],
+    "onscreen": [
+      "choose the amount",
+      "add the note",
+      "send yum!"
+    ],
+    "voiceover": "A yum! gift card lets them choose breakfast, dinner, bakery, or the order they already love.",
+    "cta": "Buy a Gift Card",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "Reels, Stories, Facebook, paid",
+    "rating": "high"
+  },
+  {
+    "title": "Wedding cake alternative",
+    "brand": "Patticake",
+    "goal": "event inquiries",
+    "audience": "couples and event planners",
+    "length": "18 seconds",
+    "hook": "cake for the table you planned",
+    "shots": [
+      "Tiered cake wide",
+      "Piping detail",
+      "Flowers or table detail",
+      "Cake cut",
+      "Inquiry screen"
+    ],
+    "onscreen": [
+      "share the date",
+      "share the occasion",
+      "start the inquiry"
+    ],
+    "voiceover": "Start with the date and event details. The bakery team can follow up about what is possible.",
+    "cta": "Start an Event Inquiry",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "Reels, Pinterest video, paid",
+    "rating": "high"
+  },
+  {
+    "title": "Corporate gifting explainer",
+    "brand": "Patticake",
+    "goal": "corporate gifting leads",
+    "audience": "office managers and client teams",
+    "length": "20 seconds",
+    "hook": "the client thank-you that gets opened first",
+    "shots": [
+      "Multiple boxes",
+      "Message cards",
+      "Recipient list blurred",
+      "Pack and close",
+      "Inquiry CTA"
+    ],
+    "onscreen": [
+      "who it is for",
+      "how many",
+      "when it matters"
+    ],
+    "voiceover": "For multiple gifts, start with the recipient count, timing, address plan, and message needs.",
+    "cta": "Ask About Corporate Gifting",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "LinkedIn, Reels, Meta paid",
+    "rating": "high"
+  },
+  {
+    "title": "Customer review visual",
+    "brand": "both",
+    "goal": "retargeting proof",
+    "audience": "warm prospects",
+    "length": "12 seconds",
+    "hook": "what guests noticed",
+    "shots": [
+      "Verified review source",
+      "Exact short quote on white card",
+      "Supporting food or cake proof",
+      "Source and date",
+      "Relevant CTA"
+    ],
+    "onscreen": [
+      "exact quote only",
+      "source: {SOURCE}",
+      "captured: {DATE}"
+    ],
+    "voiceover": "Use only a verified, attributed review with approval and a saved source link.",
+    "cta": "See What They Ordered",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "Reels, Stories, paid retargeting",
+    "rating": "medium"
+  },
+  {
+    "title": "What to order for lunch",
+    "brand": "yum!",
+    "goal": "local order conversion",
+    "audience": "weekday lunch guests",
+    "length": "12 seconds",
+    "hook": "the lunch decision in three shots",
+    "shots": [
+      "Soup steam",
+      "Sandwich cut",
+      "Salad or entree close-up",
+      "Pickup bag",
+      "Order CTA"
+    ],
+    "onscreen": [
+      "warm",
+      "handheld",
+      "fresh"
+    ],
+    "voiceover": "Pick the craving first. The current menu and your nearest kitchen handle the rest.",
+    "cta": "Order Online",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "Reels, TikTok, Shorts, paid",
+    "rating": "high"
+  },
+  {
+    "title": "Family dinner pickup",
+    "brand": "yum!",
+    "goal": "dinner orders",
+    "audience": "families and parents",
+    "length": "18 seconds",
+    "hook": "the order for when nobody agrees on dinner",
+    "shots": [
+      "Parent checks menu",
+      "Several current dishes packed",
+      "Bag handoff",
+      "Food placed on home table",
+      "Family hands serve"
+    ],
+    "onscreen": [
+      "pick the kitchen",
+      "place the order",
+      "bring dinner home"
+    ],
+    "voiceover": "Dinner does not need one unanimous craving. Start with the current menu and the nearest yum!.",
+    "cta": "Order Online",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "Reels, Facebook, Meta paid",
+    "rating": "high"
+  },
+  {
+    "title": "Cake message writing",
+    "brand": "Patticake",
+    "goal": "cake-request completion",
+    "audience": "birthday and gift buyers",
+    "length": "12 seconds",
+    "hook": "the message goes on before the candles do",
+    "shots": [
+      "Blank cake surface",
+      "Piping bag begins",
+      "Message takes shape",
+      "Full cake reveal",
+      "Request CTA"
+    ],
+    "onscreen": [
+      "keep it short",
+      "make it personal",
+      "share the details"
+    ],
+    "voiceover": "The message is part of the cake. Add exactly what the bakery team should know in the request.",
+    "cta": "Start a Cake Request",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "Reels, TikTok, Stories",
+    "rating": "high"
+  },
+  {
+    "title": "Frosting close-up",
+    "brand": "Patticake",
+    "goal": "product appetite",
+    "audience": "cake buyers",
+    "length": "10 seconds",
+    "hook": "real buttercream, up close",
+    "shots": [
+      "Macro frosting sweep",
+      "Cake turn",
+      "Layer edge",
+      "Knife cut",
+      "Final slice"
+    ],
+    "onscreen": [
+      "vanilla buttercream",
+      "chocolate layers",
+      "ready to share"
+    ],
+    "voiceover": "Let the frosting, layers, and first slice do the explaining.",
+    "cta": "See Patticake",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "Reels, TikTok, Shorts, paid",
+    "rating": "high"
+  },
+  {
+    "title": "Catering add-ons",
+    "brand": "yum!",
+    "goal": "larger catering basket and qualified leads",
+    "audience": "office planners",
+    "length": "16 seconds",
+    "hook": "do not forget the bakery tray",
+    "shots": [
+      "Main catering trays",
+      "Side or salad",
+      "Bakery tray",
+      "Labels and utensils",
+      "Finished room"
+    ],
+    "onscreen": [
+      "main",
+      "sides",
+      "bakery",
+      "pickup plan"
+    ],
+    "voiceover": "A finished catering plan includes the food, the room, the pickup, and the part people save for the end.",
+    "cta": "Plan Catering",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "Reels, LinkedIn, paid",
+    "rating": "high"
+  },
+  {
+    "title": "Behind the counter",
+    "brand": "yum!",
+    "goal": "human brand trust",
+    "audience": "regulars and prospective staff",
+    "length": "10 seconds",
+    "hook": "the last ten seconds before your order is yours",
+    "shots": [
+      "Final order check",
+      "Bag close",
+      "Name called",
+      "Guest handoff without identifiable face",
+      "Staff wave"
+    ],
+    "onscreen": [
+      "checked",
+      "called",
+      "ready"
+    ],
+    "voiceover": "The order leaves the kitchen after one more check and a real person at the counter.",
+    "cta": "Order Online",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "Reels, TikTok, Stories",
+    "rating": "medium"
+  },
+  {
+    "title": "Minnesota nostalgia gift",
+    "brand": "Patticake",
+    "goal": "long-distance gifting",
+    "audience": "former Minnesotans and their families",
+    "length": "18 seconds",
+    "hook": "send a little Twin Cities home",
+    "shots": [
+      "Write hometown note",
+      "Pack Patticake",
+      "Box handoff",
+      "Recipient opens",
+      "Slice on plate"
+    ],
+    "onscreen": [
+      "from yum!",
+      "with a note",
+      "for their table"
+    ],
+    "voiceover": "For the person who still calls the Twin Cities home, even from somewhere else.",
+    "cta": "Send a Patticake",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "Reels, Facebook, Pinterest video",
+    "rating": "high"
+  },
+  {
+    "title": "Former local sends cake home",
+    "brand": "Patticake",
+    "goal": "gift reminder",
+    "audience": "former locals",
+    "length": "18 seconds",
+    "hook": "send cake back home",
+    "shots": [
+      "Sender chooses occasion",
+      "Message typed",
+      "Cake packed",
+      "Family receives box",
+      "Shared first slice"
+    ],
+    "onscreen": [
+      "pick the reason",
+      "add the note",
+      "send it home"
+    ],
+    "voiceover": "Distance changes the address, not the reason to show up for the table.",
+    "cta": "Check Delivery Options",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "Reels, TikTok, paid",
+    "rating": "high"
+  },
+  {
+    "title": "Graduation celebration",
+    "brand": "Patticake",
+    "goal": "seasonal cake demand",
+    "audience": "families and graduates",
+    "length": "15 seconds",
+    "hook": "the graduate gets the first slice",
+    "shots": [
+      "Cap or approved graduation prop",
+      "Cake message detail",
+      "Candles or table",
+      "First slice",
+      "Cake-request CTA"
+    ],
+    "onscreen": [
+      "share the date",
+      "add the message",
+      "plan the cake"
+    ],
+    "voiceover": "Put the date and cake details on the request before the celebration calendar fills up.",
+    "cta": "Plan the Cake",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "Reels, Stories, Pinterest",
+    "rating": "high"
+  },
+  {
+    "title": "Teacher thank-you",
+    "brand": "Patticake",
+    "goal": "thank-you gifting",
+    "audience": "parents and school communities",
+    "length": "15 seconds",
+    "hook": "thank you in chocolate layers",
+    "shots": [
+      "Write teacher note",
+      "Show gift box",
+      "Pack cake",
+      "Approved handoff",
+      "Slice proof"
+    ],
+    "onscreen": [
+      "for the patience",
+      "for the care",
+      "for the whole year"
+    ],
+    "voiceover": "Make the thank-you specific, then let the cake carry it to the table.",
+    "cta": "Send a Thank-You Cake",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "Reels, Facebook, Pinterest",
+    "rating": "high"
+  },
+  {
+    "title": "Office birthday",
+    "brand": "Patticake",
+    "goal": "office celebration lead",
+    "audience": "office managers and executive assistants",
+    "length": "16 seconds",
+    "hook": "an office birthday that looks planned",
+    "shots": [
+      "Calendar reminder",
+      "Box pickup or arrival",
+      "Cake on conference table",
+      "Candles",
+      "First slice around the room"
+    ],
+    "onscreen": [
+      "date",
+      "message",
+      "cake",
+      "handled"
+    ],
+    "voiceover": "Add the cake before the birthday becomes a same-day group-chat problem.",
+    "cta": "Plan an Office Cake",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "LinkedIn, Reels, Meta paid",
+    "rating": "high"
+  },
+  {
+    "title": "Client thank-you gift",
+    "brand": "Patticake",
+    "goal": "corporate gifting leads",
+    "audience": "sales and client-success teams",
+    "length": "18 seconds",
+    "hook": "the client thank-you that gets opened first",
+    "shots": [
+      "Client name on private list blurred",
+      "Message card",
+      "Multiple boxes",
+      "Pack close-up",
+      "Inquiry CTA"
+    ],
+    "onscreen": [
+      "personal note",
+      "real cake",
+      "planned delivery"
+    ],
+    "voiceover": "Start the gifting note with who, how many, when, and what the message should say.",
+    "cta": "Ask About Corporate Gifting",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "LinkedIn, Reels, Meta paid",
+    "rating": "high"
+  },
+  {
+    "title": "Holiday gifting deadline",
+    "brand": "Patticake",
+    "goal": "deadline conversion",
+    "audience": "holiday gift buyers",
+    "length": "12 seconds",
+    "hook": "check the deadline before you promise the cake",
+    "shots": [
+      "Approved deadline card",
+      "Delivery calendar",
+      "Packing process",
+      "Gift note",
+      "CTA hold"
+    ],
+    "onscreen": [
+      "order by {CONFIRMED_DEADLINE}",
+      "dates subject to availability",
+      "check current options"
+    ],
+    "voiceover": "Use this script only after the bakery owner confirms the campaign deadline and available delivery path.",
+    "cta": "Check Current Options",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "Stories, Reels, paid",
+    "rating": "high"
+  },
+  {
+    "title": "Rainy day comfort food",
+    "brand": "yum!",
+    "goal": "same-day local orders",
+    "audience": "nearby guests",
+    "length": "12 seconds",
+    "hook": "Minnesota weather has a lunch order",
+    "shots": [
+      "Rain on window",
+      "Soup steam",
+      "Sandwich cut",
+      "Bag handoff",
+      "Warm table shot"
+    ],
+    "onscreen": [
+      "warm",
+      "ready",
+      "nearby"
+    ],
+    "voiceover": "When the weather changes the plan, let the current yum! menu make the next decision.",
+    "cta": "Order Online",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "Reels, TikTok, GBP",
+    "rating": "medium"
+  },
+  {
+    "title": "Bakery tray for meetings",
+    "brand": "yum!",
+    "goal": "catering add-on leads",
+    "audience": "office planners",
+    "length": "12 seconds",
+    "hook": "the meeting starts better with a bakery tray",
+    "shots": [
+      "Empty table",
+      "Tray arrives",
+      "Lid lifts",
+      "Coffee and plates",
+      "Meeting begins"
+    ],
+    "onscreen": [
+      "add the bakery",
+      "finish the table",
+      "start a catering note"
+    ],
+    "voiceover": "The bakery tray belongs in the plan before the first calendar invite goes out.",
+    "cta": "Plan Catering",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "LinkedIn, Reels, Meta paid",
+    "rating": "high"
+  },
+  {
+    "title": "Why Patticake?",
+    "brand": "Patticake",
+    "goal": "brand and product understanding",
+    "audience": "new cake and gift buyers",
+    "length": "20 seconds",
+    "hook": "why Patticake?",
+    "shots": [
+      "Full cake",
+      "Chocolate layer macro",
+      "Vanilla buttercream top",
+      "Gift note and box",
+      "Pickup and delivery path split"
+    ],
+    "onscreen": [
+      "real layers",
+      "personal note",
+      "pickup or current delivery options"
+    ],
+    "voiceover": "Patticake is yum!'s celebration cake: real chocolate layers, vanilla buttercream, and a message made for the occasion.",
+    "cta": "See Patticake",
+    "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+    "channels": "Reels, TikTok, Shorts, paid",
+    "rating": "high"
+  }
+]

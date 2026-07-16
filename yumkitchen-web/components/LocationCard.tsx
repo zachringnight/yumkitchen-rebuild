@@ -43,13 +43,22 @@ export function LocationCard({ loc, compact = false }: Props) {
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-brand-primary"
+            data-event="click_location_directions"
+            data-location={loc.slug}
+            data-source="location_card_address"
           >
             {loc.address.street}
             <br />
             {loc.address.city}, {loc.address.state} {loc.address.zip}
           </a>
         </address>
-        <a href={`tel:${loc.phone_e164}`} className="mt-2 text-brand-primary hover:underline">
+        <a
+          href={`tel:${loc.phone_e164}`}
+          className="mt-2 text-brand-primary hover:underline"
+          data-event="click_call_location"
+          data-location={loc.slug}
+          data-source="location_card"
+        >
           {loc.phone}
         </a>
         <OpenStatus compact className="text-body" />
@@ -60,6 +69,9 @@ export function LocationCard({ loc, compact = false }: Props) {
           target="_blank"
           rel="noopener noreferrer"
           className="btn-secondary inline-flex items-center justify-center gap-2 px-4 py-3 text-base"
+          data-event="click_location_directions"
+          data-location={loc.slug}
+          data-source="location_card"
         >
           Get Directions
           <svg aria-hidden="true" viewBox="0 0 20 20" className="h-4 w-4" fill="none">

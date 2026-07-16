@@ -1,0 +1,62 @@
+[
+  {
+    "platform": "Instagram photos",
+    "url": "https://www.facebook.com/help/1631821640426723/",
+    "used_for": "1080 px width and supported photo ratios through 3:4",
+    "verified_at": "2026-07-09"
+  },
+  {
+    "platform": "Instagram Reels",
+    "url": "https://www.facebook.com/help/1038071743007909",
+    "used_for": "supported Reel ratios, minimum 720 px, and 30 fps",
+    "verified_at": "2026-07-09"
+  },
+  {
+    "platform": "Meta Reels ads",
+    "url": "https://www.facebook.com/business/ads/facebook-instagram-reels-ads",
+    "used_for": "9:16, audio, safe-zone, and placement-native creative guidance",
+    "verified_at": "2026-07-09"
+  },
+  {
+    "platform": "TikTok ad format policy",
+    "url": "https://ads.tiktok.com/help/article/tiktok-ads-policy-ad-format-and-functionality?lang=en",
+    "used_for": "dynamic video, audio, legibility, 5-60 seconds, and supported aspect ratios",
+    "verified_at": "2026-07-09"
+  },
+  {
+    "platform": "TikTok in-feed specifications",
+    "url": "https://ads.tiktok.com/help/article/tiktok-reservation-in-feed-ads-reach-frequency",
+    "used_for": "9:16 recommended and 9-15 second creative recommendation",
+    "verified_at": "2026-07-09"
+  },
+  {
+    "platform": "YouTube Shorts",
+    "url": "https://support.google.com/youtube/answer/15424877?hl=en",
+    "used_for": "square or vertical uploads up to three minutes classified as Shorts",
+    "verified_at": "2026-07-09"
+  },
+  {
+    "platform": "Pinterest Pin specs",
+    "url": "https://help.pinterest.com/en-gb/article/review-pin-specs",
+    "used_for": "Pin formats, text limits, video dimensions, and safe zones",
+    "verified_at": "2026-07-09"
+  },
+  {
+    "platform": "Pinterest distribution",
+    "url": "https://help.pinterest.com/en-gb/business/article/pin-performance-and-distribution",
+    "used_for": "2:3 recommendation and original weekly publishing guidance",
+    "verified_at": "2026-07-09"
+  },
+  {
+    "platform": "Google Business Profile posts",
+    "url": "https://support.google.com/business/answer/7342169?hl=en",
+    "used_for": "post types, buttons, recurring posts, and six-month archive behavior",
+    "verified_at": "2026-07-09"
+  },
+  {
+    "platform": "Google Business Profile media",
+    "url": "https://support.google.com/business/answer/6103862?hl=en-GB",
+    "used_for": "720x720 photo recommendation and 30-second video limit",
+    "verified_at": "2026-07-09"
+  }
+]

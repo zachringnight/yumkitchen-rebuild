@@ -1,0 +1,7 @@
+{
+  "title": "yum! social motion template 2026",
+  "summary": "Vertical-first 2026 motion templates with platform-safe poster crops.",
+  "preset": "image-wall",
+  "showCaptions": true,
+  "contactSheetOutput": "contact-sheet.png"
+}

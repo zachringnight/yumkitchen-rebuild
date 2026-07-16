@@ -118,8 +118,8 @@ export const pageMeta = {
     image: '/og/order-a-cake.jpg',
   },
   patticakeDelivery: {
-    title: 'Ship a Cake',
-    description: 'Start a Patticake shipping note, add the sweet details, and hear back from yum! before baking.',
+    title: 'Patticake Nationwide Delivery',
+    description: 'Patticake is now available nationwide. Start a shipping note, add the sweet details, and hear back from yum! before baking.',
     image: '/og/patticake-ship.jpg',
   },
   about: {

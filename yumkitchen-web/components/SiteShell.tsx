@@ -1,4 +1,7 @@
+'use client';
+
 import type { ReactNode } from 'react';
+import { usePathname } from 'next/navigation';
 import { CartProvider } from '@/lib/cart/CartContext';
 import { CartDrawer } from './cart/CartDrawer';
 import { HashAnchorScroll } from './HashAnchorScroll';
@@ -11,6 +14,12 @@ import { SiteFooter } from './SiteFooter';
 import { SiteHeader } from './SiteHeader';
 
 export function SiteShell({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
+
+  if (pathname === '/preview') {
+    return children;
+  }
+
   return (
     <CartProvider>
       <MotionProvider>

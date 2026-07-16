@@ -1,0 +1,137 @@
+[
+  {
+    "name": "yum! local restaurant creator brief",
+    "goal": "Drive location-page visits and local orders through a real first-person meal experience.",
+    "audience": "Twin Cities neighborhood regulars, families, and first-time guests.",
+    "talking": [
+      "Name the exact yum! location visited.",
+      "Show the real order and why you chose it.",
+      "Include the bakery case or pickup flow if it naturally happened.",
+      "Point viewers to the current menu or ordering path."
+    ],
+    "avoid": [
+      "Do not claim every item is always available.",
+      "Do not invent prices, hours, dietary claims, or wait times.",
+      "Do not call yum! fine dining or luxury.",
+      "Do not film identifiable guests without permission."
+    ],
+    "shots": [
+      "Exterior arrival",
+      "Menu decision",
+      "Food macro",
+      "Hands eating or packing",
+      "Bakery case",
+      "Location CTA"
+    ],
+    "deliverables": "One 20-35 second vertical video, one clean 9:16 cover, five raw vertical clips, and three still frames.",
+    "cta": "See the current menu and choose your yum! location."
+  },
+  {
+    "name": "yum! catering creator brief",
+    "goal": "Show how a real group meal moves from planning to a room-ready setup.",
+    "audience": "Office managers, HR, executive assistants, and event planners.",
+    "talking": [
+      "Name the real meeting or gathering type.",
+      "Show pickup, labels, setup, and bakery add-ons when present.",
+      "Explain the planning detail that mattered most.",
+      "Route viewers to the catering inquiry."
+    ],
+    "avoid": [
+      "Do not promise a capacity, delivery service, timing, or dietary accommodation.",
+      "Do not show private attendee or client information.",
+      "Do not stage a fake testimonial.",
+      "Do not quote a price unless supplied and approved for the campaign."
+    ],
+    "shots": [
+      "Planner checklist",
+      "Pickup counter",
+      "Boxes or trays",
+      "Labels",
+      "Room setup",
+      "Finished spread"
+    ],
+    "deliverables": "One 25-40 second vertical video, one 15 second cutdown, eight raw clips, and one 4:5 still.",
+    "cta": "Start a catering note with the date, group size, and pickup kitchen."
+  },
+  {
+    "name": "Patticake gifting creator brief",
+    "goal": "Make Patticake feel specific to a real relationship and occasion.",
+    "audience": "Birthday, thank-you, client, and long-distance gift buyers.",
+    "talking": [
+      "Say who the cake is for and why.",
+      "Show the note, packaging, and first slice.",
+      "Keep delivery or pickup language tied to current site options.",
+      "Show the cake on a real table with real hands."
+    ],
+    "avoid": [
+      "Do not invent delivery dates, coverage, discounts, flavors, or customization.",
+      "Do not show shipping labels or addresses.",
+      "Do not use generic stock celebration props as the main story.",
+      "Do not describe the gift as luxury."
+    ],
+    "shots": [
+      "Reason for gift",
+      "Message note",
+      "Gift box",
+      "Unboxing",
+      "First slice",
+      "Recipient reaction with consent"
+    ],
+    "deliverables": "One 20-30 second vertical video, one 10 second cutdown, six raw clips, and one cover still.",
+    "cta": "Check current Patticake delivery or local pickup options."
+  },
+  {
+    "name": "Patticake shipping and unboxing creator brief",
+    "goal": "Show the real package-to-table experience without making unsupported fulfillment claims.",
+    "audience": "Long-distance gift senders and recipients.",
+    "talking": [
+      "Open on the delivered box or recipient context.",
+      "Keep the label and address private.",
+      "Show the note before or with the cake reveal.",
+      "Show the first clean slice and describe the visible layers."
+    ],
+    "avoid": [
+      "Do not claim the cake arrived on a guaranteed date unless the campaign has proof and approval.",
+      "Do not show personal addresses or tracking numbers.",
+      "Do not change packaging to make it look more premium.",
+      "Do not review a flavor that is not the cake received."
+    ],
+    "shots": [
+      "Safe box exterior",
+      "Seal opening",
+      "Message card",
+      "Cake reveal",
+      "Layer cut",
+      "Shared table"
+    ],
+    "deliverables": "One 20-35 second vertical video, one silent product cutdown, all raw clips, and two vertical stills.",
+    "cta": "View current Patticake delivery options."
+  },
+  {
+    "name": "Patticake wedding and event creator brief",
+    "goal": "Generate qualified event inquiries using a real cake in a real event environment.",
+    "audience": "Couples, shower planners, and event hosts.",
+    "talking": [
+      "Name the event type without exposing private guest details.",
+      "Show the cake in the room, then the details, then the cut.",
+      "Describe the planning question the bakery helped route.",
+      "Point to the event cake inquiry."
+    ],
+    "avoid": [
+      "Do not promise custom work, guest counts, delivery, setup, or availability.",
+      "Do not film guests without permission.",
+      "Do not use copyrighted music without paid-usage clearance.",
+      "Do not present styled-shoot footage as a real customer event."
+    ],
+    "shots": [
+      "Room wide",
+      "Cake in context",
+      "Piping detail",
+      "Table detail",
+      "Cake cut",
+      "Plated slice"
+    ],
+    "deliverables": "One 25-40 second vertical video, one 12 second detail cut, eight raw clips, and four 2:3 Pinterest stills.",
+    "cta": "Start an event inquiry with the date and occasion details."
+  }
+]

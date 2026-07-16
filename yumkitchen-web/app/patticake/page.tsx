@@ -174,7 +174,7 @@ const productJsonLd = {
   '@type': 'Product',
   name: 'Patticake',
   description:
-    'yum! Kitchen and Bakery’s signature Patticake: a towering triple-layer chocolate cake with vanilla buttercream, baked from scratch. Available as an 8-inch round that serves 8 to 16, or by the slice.',
+    'yum! Kitchen and Bakery’s signature Patticake: a towering triple-layer chocolate cake with vanilla buttercream, baked from scratch and available nationwide as an 8-inch round that serves 8 to 16, or by the slice.',
   image: [
     patticakeCanonical('/images/patticake/03_top_view.jpg'),
     patticakeCanonical('/images/patticake/09_slices.jpg'),
@@ -204,11 +204,12 @@ export default function PatticakeNationalDeliveryPage() {
       <JsonLd data={jsonLd} />
       <JsonLd data={productJsonLd} />
 
-      <section className="overflow-hidden bg-cream px-6 py-[clamp(3.5rem,7vw,6.5rem)]">
+      <section className="overflow-hidden bg-blue-tint px-6 py-[clamp(3.5rem,7vw,6.5rem)]">
         <div className="mx-auto grid max-w-[1240px] gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
           <div className="max-w-[620px]">
-            <Reveal as="h1" className="font-serif text-[clamp(3.55rem,7vw,6.7rem)] font-normal leading-[0.9] lowercase text-ink" fade={false} y={14}>
-              ship a patticake
+            <Reveal as="p" className="section-label" y={10}>now available nationwide</Reveal>
+            <Reveal as="h1" className="font-serif text-[clamp(3.55rem,7vw,6.7rem)] font-normal leading-[0.9] lowercase text-brand-primary" fade={false} y={14} delay={0.05}>
+              ship a patticake nationwide
             </Reveal>
             <PatticakeHeroPeek
               src="/images/patticake/09_slices.jpg"
@@ -217,7 +218,7 @@ export default function PatticakeNationalDeliveryPage() {
               className="crop-patticake-slices"
             />
             <Reveal as="p" className="mt-7 max-w-xl text-xl leading-9 text-ink" delay={0.1} y={16}>
-              Tell us where it is headed, when it should arrive, and the words that should travel with it. We&apos;ll help it get there ready to share.
+              Patticake now ships nationwide. Tell us where it is headed, when it should arrive, and the words that should travel with it.
             </Reveal>
             <Reveal className="mt-8 flex flex-wrap gap-3" delay={0.16} y={14}>
               <PressButton>
@@ -250,7 +251,7 @@ export default function PatticakeNationalDeliveryPage() {
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover crop-patticake-slices"
               />
-              <div className="absolute bottom-4 left-4 right-4 bg-cream/95 p-5 shadow-xl">
+              <div className="absolute bottom-4 left-4 right-4 border-2 border-brand-red bg-blue-tint/95 p-5 shadow-xl">
                 <p className="font-serif text-3xl leading-tight text-ink">ship the cake people remember</p>
                 <p className="mt-2 text-base leading-6 text-body">same Patticake story, sent farther from home</p>
               </div>
@@ -491,7 +492,7 @@ function HeroNote({ title, copy }: { title: string; copy: string }) {
   return (
     <div className="border-t border-ink/15 pt-4">
       <p className="font-serif text-2xl font-normal lowercase text-ink">{title}</p>
-      <p className="mt-1 text-base leading-6 text-body">{copy}</p>
+      <p className="mt-1 text-base leading-6 text-ink">{copy}</p>
     </div>
   );
 }

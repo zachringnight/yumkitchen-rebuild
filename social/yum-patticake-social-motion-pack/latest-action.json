@@ -1,0 +1,14 @@
+{
+  "id": "review-renderer-materialized",
+  "action": "write_moodboard_widget_payload",
+  "label": "Materialized Creative Production image review",
+  "createdAt": "2026-07-10T01:11:38.176190Z",
+  "timestamp": "2026-07-10T01:11:38.176190Z",
+  "title": "yum! and patticake social motion pack",
+  "summary": "Static social assets, motion poster frames, and reviewable creative exports.",
+  "itemCount": 25,
+  "runDirectory": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-patticake-social-motion-pack",
+  "streamPath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-patticake-social-motion-pack/data/stream.json",
+  "runStatePath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-patticake-social-motion-pack/run-state.json",
+  "latestActionPath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-patticake-social-motion-pack/latest-action.json"
+}

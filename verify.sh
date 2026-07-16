@@ -28,6 +28,14 @@ PORT="${PORT:-3000}"
 BASE_URL="http://localhost:${PORT}"
 SERVER_PID=""
 
+if [ "${SKIP_REPO_FRESHNESS:-0}" = "1" ]; then
+  echo ""
+  echo "==> Repository freshness"
+  echo -e "  ${RED}SKIP${RESET}: repository freshness explicitly skipped"
+else
+  run "Repository freshness" bash "$ROOT_DIR/scripts/check-repo-freshness.sh"
+fi
+
 # Kill a process and all of its descendants, deepest first. npm run start
 # wraps sh which wraps next-server; killing only the wrapper reparents the
 # server to init and it keeps serving the old build for later runs.
@@ -85,7 +93,8 @@ if curl -sf "$BASE_URL" > /dev/null 2>&1; then
   ERRS=$((ERRS+1))
 else
   cd "$APP_DIR"
-  npm run start -- --hostname 127.0.0.1 --port "$PORT" > /tmp/yum-next-start.log 2>&1 &
+  # Browser checks must exercise the real site routes, not the password splash.
+  PREVIEW_PROTECTION_ENABLED=false npm run start -- --hostname 127.0.0.1 --port "$PORT" > /tmp/yum-next-start.log 2>&1 &
   SERVER_PID=$!
   cd "$ROOT_DIR"
   for i in $(seq 1 40); do

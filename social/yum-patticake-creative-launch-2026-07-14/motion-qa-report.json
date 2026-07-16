@@ -1,0 +1,2539 @@
+{
+  "generated": "2026-07-15T23:49:37.136Z",
+  "scope": "All delivered Yum and Patticake motion masters",
+  "expectedCounts": {
+    "socialLanes": 14,
+    "canonicalMotionMasters": 73,
+    "optionalCutdowns": 14
+  },
+  "totals": {
+    "files": 87,
+    "passed": 87,
+    "failed": 0
+  },
+  "results": [
+    {
+      "path": "exports/motion-9x16-10s/patticake-birthday.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16-10s/patticake-event.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16-10s/patticake-gift-drop.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16-10s/patticake-local-pickup.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16-10s/patticake-made-by-yum.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16-10s/patticake-site-reveal.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16-10s/patticake-site-teaser.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16-10s/patticake-start-the-note.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16-10s/patticake-thank-you.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16-10s/patticake-three-layers.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16-10s/yum-catering-room.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16-10s/yum-four-kitchens.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16-10s/yum-lunch-decision.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16-10s/yum-people-behind-the-plate.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16/patticake-birthday.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16/patticake-event.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16/patticake-gift-drop.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16/patticake-local-pickup.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16/patticake-made-by-yum.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16/patticake-site-reveal.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16/patticake-site-teaser.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16/patticake-start-the-note.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16/patticake-thank-you.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16/patticake-three-layers.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16/yum-catering-room.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16/yum-four-kitchens.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16/yum-lunch-decision.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-9x16/yum-people-behind-the-plate.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-4x5/patticake-birthday.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-4x5/patticake-event.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-4x5/patticake-gift-drop.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-4x5/patticake-local-pickup.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-4x5/patticake-made-by-yum.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-4x5/patticake-site-reveal.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-4x5/patticake-site-teaser.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-4x5/patticake-start-the-note.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-4x5/patticake-thank-you.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-4x5/patticake-three-layers.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-4x5/yum-catering-room.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-4x5/yum-four-kitchens.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-4x5/yum-lunch-decision.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-4x5/yum-people-behind-the-plate.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-1x1/patticake-birthday.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-1x1/patticake-event.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-1x1/patticake-gift-drop.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-1x1/patticake-local-pickup.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-1x1/patticake-made-by-yum.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-1x1/patticake-site-reveal.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-1x1/patticake-site-teaser.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-1x1/patticake-start-the-note.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-1x1/patticake-thank-you.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-1x1/patticake-three-layers.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-1x1/yum-catering-room.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-1x1/yum-four-kitchens.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-1x1/yum-lunch-decision.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-1x1/yum-people-behind-the-plate.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-16x9/patticake-birthday.mp4",
+      "expected": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-16x9/patticake-event.mp4",
+      "expected": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-16x9/patticake-gift-drop.mp4",
+      "expected": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-16x9/patticake-local-pickup.mp4",
+      "expected": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-16x9/patticake-made-by-yum.mp4",
+      "expected": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-16x9/patticake-site-reveal.mp4",
+      "expected": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-16x9/patticake-site-teaser.mp4",
+      "expected": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-16x9/patticake-start-the-note.mp4",
+      "expected": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-16x9/patticake-thank-you.mp4",
+      "expected": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-16x9/patticake-three-layers.mp4",
+      "expected": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-16x9/yum-catering-room.mp4",
+      "expected": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-16x9/yum-four-kitchens.mp4",
+      "expected": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-16x9/yum-lunch-decision.mp4",
+      "expected": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/motion-16x9/yum-people-behind-the-plate.mp4",
+      "expected": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1280,
+        "height": 720,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/carousel-motion-9x16/pick-your-kitchen.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 10,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/carousel-motion-4x5/pick-your-kitchen.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/carousel-motion-9x16/feed-the-room.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8.5,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 8.5,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/carousel-motion-4x5/feed-the-room.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 7.5,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 7.5,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/carousel-motion-9x16/send-cake.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 9,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 9,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/carousel-motion-4x5/send-cake.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/carousel-motion-9x16/meet-patticake.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 9,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 9,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/carousel-motion-4x5/meet-patticake.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/carousel-motion-9x16/how-to-patticake.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 9,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 9,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/carousel-motion-4x5/how-to-patticake.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/carousel-motion-9x16/patticake-occasions.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 9,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 9,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/carousel-motion-4x5/patticake-occasions.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 8,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/brand-motion/patticake-slice-logo-blue-4s-1x1.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 4,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 4,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/brand-motion/patticake-slice-logo-blue-4s-9x16.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 4,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 4,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/brand-motion/patticake-slice-logo-blue-4s-4x5.mp4",
+      "expected": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 4,
+        "codec": "h264"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1350,
+        "duration": 4,
+        "codec": "h264",
+        "pixFmt": "yuv420p",
+        "colorSpace": "bt709",
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/brand-motion/patticake-slice-logo-transparent.webm",
+      "expected": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 4,
+        "codec": "vp9"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 4,
+        "codec": "vp9",
+        "pixFmt": "yuv420p",
+        "colorSpace": null,
+        "audioStreams": 0,
+        "alphaMode": "1"
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    },
+    {
+      "path": "exports/brand-motion/patticake-slice-logo-transparent-prores4444.mov",
+      "expected": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 4,
+        "codec": "prores"
+      },
+      "actual": {
+        "width": 1080,
+        "height": 1080,
+        "duration": 4,
+        "codec": "prores",
+        "pixFmt": "yuva444p12le",
+        "colorSpace": null,
+        "audioStreams": 0,
+        "alphaMode": null
+      },
+      "checks": {
+        "dimensions": true,
+        "duration": true,
+        "codec": true,
+        "noAudio": true,
+        "pixelFormat": true,
+        "colorSpace": true,
+        "alpha": true
+      },
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+[
+  {
+    "id": "patticake-send-cake-reel",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24,
+    "durationInFrames": 144,
+    "title": "send a cake worth remembering",
+    "deck": "Pick a date. Add a note. Share the love.",
+    "cta": "Order patticake",
+    "brand": "patticake",
+    "images": [
+      "gift_box_vertical.jpg",
+      "10_layers_slice.jpg"
+    ]
+  },
+  {
+    "id": "patticake-layers-reel",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24,
+    "durationInFrames": 144,
+    "title": "real bakery layers",
+    "deck": "Chocolate cake, vanilla buttercream, and a message made for the table.",
+    "cta": "Ship a cake",
+    "brand": "patticake",
+    "images": [
+      "layers_slice_vertical.jpg",
+      "09_slices.jpg",
+      "03_top_view.jpg"
+    ]
+  },
+  {
+    "id": "yum-made-scratch-reel",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24,
+    "durationInFrames": 144,
+    "title": "made from scratch with love",
+    "deck": "Breakfast, lunch, dinner, and bakery every day.",
+    "cta": "Order online",
+    "brand": "yum",
+    "images": [
+      "yum-hero-0131.jpg",
+      "yum-breakfast.jpg",
+      "yum-bakery-counter-cake.jpg"
+    ]
+  },
+  {
+    "id": "yum-catering-reel",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24,
+    "durationInFrames": 144,
+    "title": "feed the room",
+    "deck": "Catering for meetings, teams, celebrations, and everyday groups.",
+    "cta": "Plan catering",
+    "brand": "yum",
+    "images": [
+      "yum-catering-boxed-lunch.jpg",
+      "yum-catering-tray.jpg",
+      "yum-catering-sandwiches-live.jpg"
+    ]
+  },
+  {
+    "id": "yum-patticake-feed-motion",
+    "width": 1080,
+    "height": 1080,
+    "fps": 24,
+    "durationInFrames": 144,
+    "title": "bakery case to cake box",
+    "deck": "Visit yum! or send patticake.",
+    "cta": "Share the love",
+    "brand": "yum",
+    "images": [
+      "yum-bakery-counter-cake.jpg",
+      "10_layers_slice.jpg",
+      "gift_box_vertical.jpg"
+    ]
+  },
+  {
+    "id": "yum-four-locations-motion",
+    "width": 1080,
+    "height": 1920,
+    "fps": 24,
+    "durationInFrames": 144,
+    "title": "four Twin Cities kitchens",
+    "deck": "St. Louis Park, Shady Oak, St. Paul, and Woodbury.",
+    "cta": "Find us",
+    "brand": "yum",
+    "images": [
+      "yum-location-slp.jpg",
+      "yum-location-shady-oak.jpg",
+      "yum-location-saint-paul.jpg",
+      "yum-location-woodbury.jpg"
+    ]
+  },
+  {
+    "id": "yum-patticake-horizontal-motion",
+    "width": 1920,
+    "height": 1080,
+    "fps": 24,
+    "durationInFrames": 144,
+    "title": "fresh food. real cake. one yum! family.",
+    "deck": "Breakfast, lunch, dinner, bakery, catering, and patticake.",
+    "cta": "Visit yum!",
+    "brand": "yum",
+    "images": [
+      "yum-hero-1698.jpg",
+      "09_slices.jpg"
+    ]
+  }
+]

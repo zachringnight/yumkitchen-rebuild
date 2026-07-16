@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "studio": "remotion studio src/Root.tsx",
+    "render:patticake": "remotion render src/Root.tsx patticake-send-cake-reel ../motion/remotion-patticake-send-cake-reel.mp4",
+    "render:yum": "remotion render src/Root.tsx yum-made-scratch-reel ../motion/remotion-yum-made-scratch-reel.mp4"
+  },
+  "dependencies": {
+    "@remotion/cli": "latest",
+    "remotion": "latest",
+    "typescript": "latest"
+  },
+  "devDependencies": {}
+}

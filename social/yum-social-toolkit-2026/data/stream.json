@@ -1,0 +1,320 @@
+{
+  "meta": {
+    "title": "yum! and Patticake social toolkit 2026",
+    "summary": "Static social exports and motion poster frames built from real Yum and Patticake photography.",
+    "source": "review_renderer",
+    "itemCount": 31
+  },
+  "items": [
+    {
+      "id": "static-patticake-gift-box-reel-cover",
+      "title": "patticake gift box reel cover",
+      "caption": "static social export",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/static-patticake-gift-box-reel-cover.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/static-patticake-gift-box-reel-cover.jpg",
+      "sourceImageUrl": "/generated/static-patticake-gift-box-reel-cover.png"
+    },
+    {
+      "id": "static-patticake-just-because-portrait",
+      "title": "patticake just because portrait",
+      "caption": "static social export",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/static-patticake-just-because-portrait.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/static-patticake-just-because-portrait.jpg",
+      "sourceImageUrl": "/generated/static-patticake-just-because-portrait.png"
+    },
+    {
+      "id": "static-patticake-message-carousel-square",
+      "title": "patticake message carousel square",
+      "caption": "static social export",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/static-patticake-message-carousel-square.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/static-patticake-message-carousel-square.jpg",
+      "sourceImageUrl": "/generated/static-patticake-message-carousel-square.png"
+    },
+    {
+      "id": "static-patticake-og-share-card",
+      "title": "patticake og share card",
+      "caption": "static social export",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/static-patticake-og-share-card.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/static-patticake-og-share-card.jpg",
+      "sourceImageUrl": "/generated/static-patticake-og-share-card.png"
+    },
+    {
+      "id": "static-patticake-ship-a-cake-square",
+      "title": "patticake ship a cake square",
+      "caption": "static social export",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/static-patticake-ship-a-cake-square.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/static-patticake-ship-a-cake-square.jpg",
+      "sourceImageUrl": "/generated/static-patticake-ship-a-cake-square.png"
+    },
+    {
+      "id": "static-patticake-slice-story",
+      "title": "patticake slice story",
+      "caption": "static social export",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/static-patticake-slice-story.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/static-patticake-slice-story.jpg",
+      "sourceImageUrl": "/generated/static-patticake-slice-story.png"
+    },
+    {
+      "id": "static-patticake-thank-you-square",
+      "title": "patticake thank you square",
+      "caption": "static social export",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/static-patticake-thank-you-square.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/static-patticake-thank-you-square.jpg",
+      "sourceImageUrl": "/generated/static-patticake-thank-you-square.png"
+    },
+    {
+      "id": "static-patticake-wedding-portrait",
+      "title": "patticake wedding portrait",
+      "caption": "static social export",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/static-patticake-wedding-portrait.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/static-patticake-wedding-portrait.jpg",
+      "sourceImageUrl": "/generated/static-patticake-wedding-portrait.png"
+    },
+    {
+      "id": "static-yum-bakery-case-square",
+      "title": "yum bakery case square",
+      "caption": "static social export",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/static-yum-bakery-case-square.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/static-yum-bakery-case-square.jpg",
+      "sourceImageUrl": "/generated/static-yum-bakery-case-square.png"
+    },
+    {
+      "id": "static-yum-breakfast-portrait",
+      "title": "yum breakfast portrait",
+      "caption": "static social export",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/static-yum-breakfast-portrait.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/static-yum-breakfast-portrait.jpg",
+      "sourceImageUrl": "/generated/static-yum-breakfast-portrait.png"
+    },
+    {
+      "id": "static-yum-catering-og-share-card",
+      "title": "yum catering og share card",
+      "caption": "static social export",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/static-yum-catering-og-share-card.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/static-yum-catering-og-share-card.jpg",
+      "sourceImageUrl": "/generated/static-yum-catering-og-share-card.png"
+    },
+    {
+      "id": "static-yum-catering-portrait",
+      "title": "yum catering portrait",
+      "caption": "static social export",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/static-yum-catering-portrait.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/static-yum-catering-portrait.jpg",
+      "sourceImageUrl": "/generated/static-yum-catering-portrait.png"
+    },
+    {
+      "id": "static-yum-four-locations-story",
+      "title": "yum four locations story",
+      "caption": "static social export",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/static-yum-four-locations-story.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/static-yum-four-locations-story.jpg",
+      "sourceImageUrl": "/generated/static-yum-four-locations-story.png"
+    },
+    {
+      "id": "static-yum-made-from-scratch-square",
+      "title": "yum made from scratch square",
+      "caption": "static social export",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/static-yum-made-from-scratch-square.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/static-yum-made-from-scratch-square.jpg",
+      "sourceImageUrl": "/generated/static-yum-made-from-scratch-square.png"
+    },
+    {
+      "id": "static-yum-order-story",
+      "title": "yum order story",
+      "caption": "static social export",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/static-yum-order-story.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/static-yum-order-story.jpg",
+      "sourceImageUrl": "/generated/static-yum-order-story.png"
+    },
+    {
+      "id": "static-yum-restaurant-behind-patticake-portrait",
+      "title": "yum restaurant behind patticake portrait",
+      "caption": "static social export",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/static-yum-restaurant-behind-patticake-portrait.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/static-yum-restaurant-behind-patticake-portrait.jpg",
+      "sourceImageUrl": "/generated/static-yum-restaurant-behind-patticake-portrait.png"
+    },
+    {
+      "id": "static-yum-since-2005-square",
+      "title": "yum since 2005 square",
+      "caption": "static social export",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/static-yum-since-2005-square.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/static-yum-since-2005-square.jpg",
+      "sourceImageUrl": "/generated/static-yum-since-2005-square.png"
+    },
+    {
+      "id": "static-yum-soup-sandwich-square",
+      "title": "yum soup sandwich square",
+      "caption": "static social export",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/static-yum-soup-sandwich-square.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/static-yum-soup-sandwich-square.jpg",
+      "sourceImageUrl": "/generated/static-yum-soup-sandwich-square.png"
+    },
+    {
+      "id": "post-motion-patticake-layers-reel",
+      "title": "patticake layers reel",
+      "caption": "post-worthy motion master",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/post-motion-patticake-layers-reel.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/post-motion-patticake-layers-reel.jpg",
+      "sourceImageUrl": "/generated/post-motion-patticake-layers-reel.png"
+    },
+    {
+      "id": "post-motion-patticake-send-cake-reel",
+      "title": "patticake send cake reel",
+      "caption": "post-worthy motion master",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/post-motion-patticake-send-cake-reel.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/post-motion-patticake-send-cake-reel.jpg",
+      "sourceImageUrl": "/generated/post-motion-patticake-send-cake-reel.png"
+    },
+    {
+      "id": "post-motion-yum-catering-reel",
+      "title": "yum catering reel",
+      "caption": "post-worthy motion master",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/post-motion-yum-catering-reel.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/post-motion-yum-catering-reel.jpg",
+      "sourceImageUrl": "/generated/post-motion-yum-catering-reel.png"
+    },
+    {
+      "id": "post-motion-yum-four-locations-motion",
+      "title": "yum four locations motion",
+      "caption": "post-worthy motion master",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/post-motion-yum-four-locations-motion.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/post-motion-yum-four-locations-motion.jpg",
+      "sourceImageUrl": "/generated/post-motion-yum-four-locations-motion.png"
+    },
+    {
+      "id": "post-motion-yum-made-scratch-reel",
+      "title": "yum made scratch reel",
+      "caption": "post-worthy motion master",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/post-motion-yum-made-scratch-reel.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/post-motion-yum-made-scratch-reel.jpg",
+      "sourceImageUrl": "/generated/post-motion-yum-made-scratch-reel.png"
+    },
+    {
+      "id": "post-motion-yum-patticake-feed-motion",
+      "title": "yum patticake feed motion",
+      "caption": "post-worthy motion master",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/post-motion-yum-patticake-feed-motion.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/post-motion-yum-patticake-feed-motion.jpg",
+      "sourceImageUrl": "/generated/post-motion-yum-patticake-feed-motion.png"
+    },
+    {
+      "id": "post-motion-yum-patticake-horizontal-motion",
+      "title": "yum patticake horizontal motion",
+      "caption": "post-worthy motion master",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/post-motion-yum-patticake-horizontal-motion.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/post-motion-yum-patticake-horizontal-motion.jpg",
+      "sourceImageUrl": "/generated/post-motion-yum-patticake-horizontal-motion.png"
+    },
+    {
+      "id": "motion-2026-patticake-gift-drop",
+      "title": "patticake gift drop",
+      "caption": "2026 vertical motion master with feed poster",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/motion-2026-patticake-gift-drop.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/motion-2026-patticake-gift-drop.jpg",
+      "sourceImageUrl": "/generated/motion-2026-patticake-gift-drop.png"
+    },
+    {
+      "id": "motion-2026-patticake-layer-proof",
+      "title": "patticake layer proof",
+      "caption": "2026 vertical motion master with feed poster",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/motion-2026-patticake-layer-proof.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/motion-2026-patticake-layer-proof.jpg",
+      "sourceImageUrl": "/generated/motion-2026-patticake-layer-proof.png"
+    },
+    {
+      "id": "motion-2026-yum-bakery-case",
+      "title": "yum bakery case",
+      "caption": "2026 vertical motion master with feed poster",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/motion-2026-yum-bakery-case.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/motion-2026-yum-bakery-case.jpg",
+      "sourceImageUrl": "/generated/motion-2026-yum-bakery-case.png"
+    },
+    {
+      "id": "motion-2026-yum-catering-room",
+      "title": "yum catering room",
+      "caption": "2026 vertical motion master with feed poster",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/motion-2026-yum-catering-room.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/motion-2026-yum-catering-room.jpg",
+      "sourceImageUrl": "/generated/motion-2026-yum-catering-room.png"
+    },
+    {
+      "id": "motion-2026-yum-four-kitchens",
+      "title": "yum four kitchens",
+      "caption": "2026 vertical motion master with feed poster",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/motion-2026-yum-four-kitchens.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/motion-2026-yum-four-kitchens.jpg",
+      "sourceImageUrl": "/generated/motion-2026-yum-four-kitchens.png"
+    },
+    {
+      "id": "motion-2026-yum-lunch-decision",
+      "title": "yum lunch decision",
+      "caption": "2026 vertical motion master with feed poster",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/motion-2026-yum-lunch-decision.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/motion-2026-yum-lunch-decision.jpg",
+      "sourceImageUrl": "/generated/motion-2026-yum-lunch-decision.png"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "id": "review-renderer-materialized",
+  "action": "write_moodboard_widget_payload",
+  "label": "Materialized Creative Production image review",
+  "createdAt": "2026-07-10T01:51:12.312496Z",
+  "timestamp": "2026-07-10T01:51:12.312496Z",
+  "title": "yum! and Patticake six-asset launch batch",
+  "summary": "Six conversion-ready campaign lanes with 9:16 video, 4:5 feed, Story, final copy, and tracked destinations.",
+  "itemCount": 6,
+  "runDirectory": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-launch-batch-2026-07",
+  "streamPath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-launch-batch-2026-07/data/stream.json",
+  "runStatePath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-launch-batch-2026-07/run-state.json",
+  "latestActionPath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-launch-batch-2026-07/latest-action.json"
+}

@@ -1,0 +1,200 @@
+[
+  {
+    "id": "yum-lunch-decision",
+    "brand": "yum!",
+    "lane": "local order",
+    "objective": "Drive completed local order sessions.",
+    "destination": "https://yumkitchen.com/order",
+    "cta": "Order Online",
+    "caption": "First yum! lunch? Start with what sounds good, then choose the Twin Cities kitchen on today's route. Breakfast, lunch, dinner, and bakery are all on the current menu.",
+    "hashtags": "#yumKitchen #TwinCitiesEats #MadeFromScratch",
+    "bestChannels": "Instagram Reels, TikTok, YouTube Shorts, Meta paid",
+    "primaryMetric": "completed order sessions",
+    "publishDay": 1,
+    "paidHeadline": "Lunch is handled",
+    "storyLinkLabel": "Order Online",
+    "approvalGate": "Confirm the destination and use only current menu footage.",
+    "index": 1,
+    "hook": "what should we eat?",
+    "organicUrl": "https://yumkitchen.com/order?utm_source=instagram&utm_medium=organic_social&utm_campaign=yum_social_launch_2026_07&utm_content=yum-lunch-decision_v01",
+    "paidUrl": "https://yumkitchen.com/order?utm_source=meta&utm_medium=paid_social&utm_campaign=yum_social_launch_2026_07&utm_content=yum-lunch-decision_v01",
+    "finalCaption": "First yum! lunch? Start with what sounds good, then choose the Twin Cities kitchen on today's route. Breakfast, lunch, dinner, and bakery are all on the current menu.\n\nOrder Online: https://yumkitchen.com/order?utm_source=instagram&utm_medium=organic_social&utm_campaign=yum_social_launch_2026_07&utm_content=yum-lunch-decision_v01\n\n#yumKitchen #TwinCitiesEats #MadeFromScratch",
+    "outputs": {
+      "video9x16": "exports/9x16-video/01-yum-lunch-decision-v01-9x16.mp4",
+      "feed4x5": "exports/4x5-feed/01-yum-lunch-decision-v01-4x5.png",
+      "story": "exports/story/01-yum-lunch-decision-v01-story.png"
+    },
+    "videoProbe": {
+      "width": 1080,
+      "height": 1920,
+      "fps": "30/1",
+      "durationSeconds": 8.0
+    },
+    "sourceTemplate": "../yum-social-motion-template-2026/remotion/src/templates.json#yum-lunch-decision"
+  },
+  {
+    "id": "yum-four-kitchens",
+    "brand": "yum!",
+    "lane": "four locations",
+    "objective": "Drive location discovery and nearby order starts.",
+    "destination": "https://yumkitchen.com/yum-kitchen#locations",
+    "cta": "Find Your yum!",
+    "caption": "Four Twin Cities kitchens: St. Louis Park, Shady Oak, St. Paul, and Woodbury. Pick the location that works for today's order.",
+    "hashtags": "#yumKitchen #TwinCitiesRestaurants #MinnesotaFood",
+    "bestChannels": "Instagram Reels, Facebook, Stories, local Meta paid",
+    "primaryMetric": "location page clicks",
+    "publishDay": 5,
+    "paidHeadline": "Pick your kitchen",
+    "storyLinkLabel": "Find a Location",
+    "approvalGate": "Confirm all four location pages and order routes are live.",
+    "index": 2,
+    "hook": "nearby yum! is the move",
+    "organicUrl": "https://yumkitchen.com/yum-kitchen?utm_source=instagram&utm_medium=organic_social&utm_campaign=yum_social_launch_2026_07&utm_content=yum-four-kitchens_v01#locations",
+    "paidUrl": "https://yumkitchen.com/yum-kitchen?utm_source=meta&utm_medium=paid_social&utm_campaign=yum_social_launch_2026_07&utm_content=yum-four-kitchens_v01#locations",
+    "finalCaption": "Four Twin Cities kitchens: St. Louis Park, Shady Oak, St. Paul, and Woodbury. Pick the location that works for today's order.\n\nFind Your yum!: https://yumkitchen.com/yum-kitchen?utm_source=instagram&utm_medium=organic_social&utm_campaign=yum_social_launch_2026_07&utm_content=yum-four-kitchens_v01#locations\n\n#yumKitchen #TwinCitiesRestaurants #MinnesotaFood",
+    "outputs": {
+      "video9x16": "exports/9x16-video/02-yum-four-kitchens-v01-9x16.mp4",
+      "feed4x5": "exports/4x5-feed/02-yum-four-kitchens-v01-4x5.png",
+      "story": "exports/story/02-yum-four-kitchens-v01-story.png"
+    },
+    "videoProbe": {
+      "width": 1080,
+      "height": 1920,
+      "fps": "30/1",
+      "durationSeconds": 8.0
+    },
+    "sourceTemplate": "../yum-social-motion-template-2026/remotion/src/templates.json#yum-four-kitchens"
+  },
+  {
+    "id": "yum-catering-room",
+    "brand": "yum!",
+    "lane": "catering leads",
+    "objective": "Drive qualified catering inquiries.",
+    "destination": "https://yumkitchen.com/catering#inquiry",
+    "cta": "Start a Catering Note",
+    "caption": "The meeting is booked. Lunch should be too. Start a catering note with the date, group size, pickup kitchen, and what the room needs.",
+    "hashtags": "#yumKitchen #TwinCitiesCatering #OfficeCatering",
+    "bestChannels": "Instagram Reels, LinkedIn, Facebook, Meta lead ads",
+    "primaryMetric": "qualified catering inquiries",
+    "publishDay": 9,
+    "paidHeadline": "Feed the room",
+    "storyLinkLabel": "Plan Catering",
+    "approvalGate": "Confirm catering notice language, pickup scope, and lead owner.",
+    "index": 3,
+    "hook": "feed the room",
+    "organicUrl": "https://yumkitchen.com/catering?utm_source=instagram&utm_medium=organic_social&utm_campaign=yum_social_launch_2026_07&utm_content=yum-catering-room_v01#inquiry",
+    "paidUrl": "https://yumkitchen.com/catering?utm_source=meta&utm_medium=paid_social&utm_campaign=yum_social_launch_2026_07&utm_content=yum-catering-room_v01#inquiry",
+    "finalCaption": "The meeting is booked. Lunch should be too. Start a catering note with the date, group size, pickup kitchen, and what the room needs.\n\nStart a Catering Note: https://yumkitchen.com/catering?utm_source=instagram&utm_medium=organic_social&utm_campaign=yum_social_launch_2026_07&utm_content=yum-catering-room_v01#inquiry\n\n#yumKitchen #TwinCitiesCatering #OfficeCatering",
+    "outputs": {
+      "video9x16": "exports/9x16-video/03-yum-catering-room-v01-9x16.mp4",
+      "feed4x5": "exports/4x5-feed/03-yum-catering-room-v01-4x5.png",
+      "story": "exports/story/03-yum-catering-room-v01-story.png"
+    },
+    "videoProbe": {
+      "width": 1080,
+      "height": 1920,
+      "fps": "30/1",
+      "durationSeconds": 8.0
+    },
+    "sourceTemplate": "../yum-social-motion-template-2026/remotion/src/templates.json#yum-catering-room"
+  },
+  {
+    "id": "patticake-gift-drop",
+    "brand": "Patticake",
+    "lane": "gifting",
+    "objective": "Drive Patticake order starts and gift demand.",
+    "destination": "https://patticake.com/patticake",
+    "cta": "Send a Patticake",
+    "caption": "Send cake, not a card. Add the note, choose the current pickup or delivery path, and give them something meant to be shared.",
+    "hashtags": "#Patticake #SendACake #ThankYouGift",
+    "bestChannels": "Instagram Reels, TikTok, YouTube Shorts, Meta paid",
+    "primaryMetric": "Patticake order starts",
+    "publishDay": 3,
+    "paidHeadline": "Send cake, not a card",
+    "storyLinkLabel": "Send a Cake",
+    "approvalGate": "Confirm the live Patticake destination and current delivery options.",
+    "index": 4,
+    "hook": "send cake, not a card",
+    "organicUrl": "https://patticake.com/patticake?utm_source=instagram&utm_medium=organic_social&utm_campaign=yum_social_launch_2026_07&utm_content=patticake-gift-drop_v01",
+    "paidUrl": "https://patticake.com/patticake?utm_source=meta&utm_medium=paid_social&utm_campaign=yum_social_launch_2026_07&utm_content=patticake-gift-drop_v01",
+    "finalCaption": "Send cake, not a card. Add the note, choose the current pickup or delivery path, and give them something meant to be shared.\n\nSend a Patticake: https://patticake.com/patticake?utm_source=instagram&utm_medium=organic_social&utm_campaign=yum_social_launch_2026_07&utm_content=patticake-gift-drop_v01\n\n#Patticake #SendACake #ThankYouGift",
+    "outputs": {
+      "video9x16": "exports/9x16-video/04-patticake-gift-drop-v01-9x16.mp4",
+      "feed4x5": "exports/4x5-feed/04-patticake-gift-drop-v01-4x5.png",
+      "story": "exports/story/04-patticake-gift-drop-v01-story.png"
+    },
+    "videoProbe": {
+      "width": 1080,
+      "height": 1920,
+      "fps": "30/1",
+      "durationSeconds": 8.0
+    },
+    "sourceTemplate": "../yum-social-motion-template-2026/remotion/src/templates.json#patticake-gift-drop"
+  },
+  {
+    "id": "patticake-birthday-first-slice",
+    "brand": "Patticake",
+    "lane": "birthday cake",
+    "objective": "Drive birthday cake orders or requests.",
+    "destination": "https://patticake.com/order-a-cake",
+    "cta": "Plan the Cake",
+    "caption": "A birthday cake that does not feel like a backup plan. Share the date, message, and pickup or delivery details to start.",
+    "hashtags": "#Patticake #BirthdayCake #TwinCitiesCakes",
+    "bestChannels": "Instagram Reels, TikTok, Stories, Meta paid",
+    "primaryMetric": "birthday cake request completions",
+    "publishDay": 7,
+    "paidHeadline": "Birthday cake, handled",
+    "storyLinkLabel": "Plan the Cake",
+    "approvalGate": "Confirm whether the production flow should say order or request for each route.",
+    "index": 5,
+    "hook": "birthday cake, handled",
+    "organicUrl": "https://patticake.com/order-a-cake?utm_source=instagram&utm_medium=organic_social&utm_campaign=yum_social_launch_2026_07&utm_content=patticake-birthday-first-slice_v01",
+    "paidUrl": "https://patticake.com/order-a-cake?utm_source=meta&utm_medium=paid_social&utm_campaign=yum_social_launch_2026_07&utm_content=patticake-birthday-first-slice_v01",
+    "finalCaption": "A birthday cake that does not feel like a backup plan. Share the date, message, and pickup or delivery details to start.\n\nPlan the Cake: https://patticake.com/order-a-cake?utm_source=instagram&utm_medium=organic_social&utm_campaign=yum_social_launch_2026_07&utm_content=patticake-birthday-first-slice_v01\n\n#Patticake #BirthdayCake #TwinCitiesCakes",
+    "outputs": {
+      "video9x16": "exports/9x16-video/05-patticake-birthday-first-slice-v01-9x16.mp4",
+      "feed4x5": "exports/4x5-feed/05-patticake-birthday-first-slice-v01-4x5.png",
+      "story": "exports/story/05-patticake-birthday-first-slice-v01-story.png"
+    },
+    "videoProbe": {
+      "width": 1080,
+      "height": 1920,
+      "fps": "30/1",
+      "durationSeconds": 8.0
+    },
+    "sourceTemplate": "../yum-social-motion-template-2026/remotion/src/templates.json#patticake-birthday-first-slice"
+  },
+  {
+    "id": "patticake-event-inquiry",
+    "brand": "Patticake",
+    "lane": "weddings and events",
+    "objective": "Drive qualified event cake inquiries.",
+    "destination": "https://patticake.com/order-a-cake",
+    "cta": "Start an Event Inquiry",
+    "caption": "Cake for the table you planned. Start the inquiry with the date, occasion, and details the bakery team should see.",
+    "hashtags": "#Patticake #TwinCitiesWedding #EventCake",
+    "bestChannels": "Instagram Reels, Pinterest video, Stories, Meta paid",
+    "primaryMetric": "qualified event cake inquiries",
+    "publishDay": 11,
+    "paidHeadline": "Cake for the table",
+    "storyLinkLabel": "Start an Inquiry",
+    "approvalGate": "Confirm event scope, service area, lead owner, and approved inquiry language.",
+    "index": 6,
+    "hook": "cake for the table",
+    "organicUrl": "https://patticake.com/order-a-cake?utm_source=instagram&utm_medium=organic_social&utm_campaign=yum_social_launch_2026_07&utm_content=patticake-event-inquiry_v01",
+    "paidUrl": "https://patticake.com/order-a-cake?utm_source=meta&utm_medium=paid_social&utm_campaign=yum_social_launch_2026_07&utm_content=patticake-event-inquiry_v01",
+    "finalCaption": "Cake for the table you planned. Start the inquiry with the date, occasion, and details the bakery team should see.\n\nStart an Event Inquiry: https://patticake.com/order-a-cake?utm_source=instagram&utm_medium=organic_social&utm_campaign=yum_social_launch_2026_07&utm_content=patticake-event-inquiry_v01\n\n#Patticake #TwinCitiesWedding #EventCake",
+    "outputs": {
+      "video9x16": "exports/9x16-video/06-patticake-event-inquiry-v01-9x16.mp4",
+      "feed4x5": "exports/4x5-feed/06-patticake-event-inquiry-v01-4x5.png",
+      "story": "exports/story/06-patticake-event-inquiry-v01-story.png"
+    },
+    "videoProbe": {
+      "width": 1080,
+      "height": 1920,
+      "fps": "30/1",
+      "durationSeconds": 8.0
+    },
+    "sourceTemplate": "../yum-social-motion-template-2026/remotion/src/templates.json#patticake-event-inquiry"
+  }
+]

@@ -72,12 +72,12 @@ const nationalOrderIsExternal = /^https?:\/\//.test(patticakeNationalOrderUrl);
 
 export function PatticakeHome() {
   return (
-    <main className="bg-cream">
-      <section className="patticake-home-hero overflow-hidden bg-cream px-6 py-[clamp(3.25rem,7vw,7rem)]">
+    <main className="bg-blue-tint">
+      <section className="patticake-home-hero overflow-hidden bg-blue-tint px-6 py-[clamp(3.25rem,7vw,7rem)]">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
           <div className="max-w-[570px]">
-            <Reveal as="p" className="section-label" y={10}>yum! Kitchen and Bakery presents</Reveal>
-            <Reveal as="h1" className="font-serif text-[clamp(4rem,8vw,7.4rem)] font-normal leading-[0.9] lowercase text-ink" fade={false} y={14} delay={0.05}>
+            <Reveal as="p" className="section-label" y={10}>now available nationwide · made by yum!</Reveal>
+            <Reveal as="h1" className="font-serif text-[clamp(4rem,8vw,7.4rem)] font-normal leading-[0.9] lowercase text-brand-primary" fade={false} y={14} delay={0.05}>
               patticake
             </Reveal>
             <PatticakeHeroPeek
@@ -88,7 +88,7 @@ export function PatticakeHome() {
               unoptimized
             />
             <Reveal as="p" className="mt-7 max-w-[520px] text-xl leading-9 text-ink" delay={0.12} y={16}>
-              Patticake is devil&apos;s food layers, vanilla buttercream, and a message made for the table.
+              Ship yum!&apos;s devil&apos;s food layers, vanilla buttercream, and a message made for the table anywhere nationwide.
             </Reveal>
             <Reveal className="mt-8 flex flex-wrap gap-3" delay={0.18} y={14}>
               <PressButton>
@@ -116,7 +116,7 @@ export function PatticakeHome() {
             </Reveal>
             <Stagger className="mt-9 grid gap-3 sm:grid-cols-2" gap={0.06}>
               {proof.map((item) => (
-                <StaggerItem key={item} className="border-t border-ink/15 pt-3">
+                <StaggerItem key={item} className="border-t border-brand-red/30 pt-3">
                   <p className="text-base font-bold leading-6 text-ink">{item}</p>
                 </StaggerItem>
               ))}

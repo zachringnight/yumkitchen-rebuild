@@ -59,16 +59,18 @@ If `globals.css` and this file ever disagree, `globals.css` wins. Update this fi
 
 ## Task workflow
 
-1. Read `tasks.md`. Find the next unchecked task.
-2. Create a branch named after the task (e.g. `T-03-location-card-component`, or a short descriptive name for ad hoc work).
-3. Implement inside `yumkitchen-web/` for app changes; docs changes go in `docs/`.
-4. Run `bash verify.sh` locally. All checks must pass.
-5. Commit. Push. Open a PR.
-6. In the PR description, note what changed and why.
+1. Run `bash scripts/check-repo-freshness.sh` before reading or editing anything. It fails on Zach's machine if the checkout is not `/Users/zsoskin/dev/yumkitchen-rebuild`, if the remote is wrong, or if the current branch is behind `origin/main`.
+2. Read `tasks.md`. Find the next unchecked task.
+3. Create a branch named after the task (e.g. `T-03-location-card-component`, or a short descriptive name for ad hoc work).
+4. Implement inside `yumkitchen-web/` for app changes; docs changes go in `docs/`.
+5. Run `bash verify.sh` locally. All checks must pass.
+6. Commit. Push. Open a PR.
+7. In the PR description, note what changed and why.
 
 ## Verification
 
 `bash verify.sh` (run from the repo root) runs, in order:
+- `bash scripts/check-repo-freshness.sh` (canonical checkout, remote, branch, and `origin/main` freshness)
 - `npm run typecheck` (must pass)
 - `npm run lint` (must pass)
 - `npm run audit:motion` and `npm run audit:visual-motion` (motion governance, must pass)

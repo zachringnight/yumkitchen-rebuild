@@ -1,0 +1,296 @@
+{
+  "version": 1,
+  "runDirectory": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-patticake-social-motion-pack",
+  "streamPath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-patticake-social-motion-pack/data/stream.json",
+  "runStatePath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-patticake-social-motion-pack/run-state.json",
+  "latestActionPath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-patticake-social-motion-pack/latest-action.json",
+  "paths": {
+    "streamPath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-patticake-social-motion-pack/data/stream.json",
+    "runStatePath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-patticake-social-motion-pack/run-state.json",
+    "latestActionPath": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-patticake-social-motion-pack/latest-action.json"
+  },
+  "itemCount": 25,
+  "items": [
+    {
+      "id": "patticake-ship-a-cake-square",
+      "title": "ship a cake",
+      "caption": "instagram_feed_square / cake_shipping",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/patticake-ship-a-cake-square.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/patticake-ship-a-cake-square.jpg",
+      "sourceImageUrl": "/generated/patticake-ship-a-cake-square.png"
+    },
+    {
+      "id": "patticake-just-because-portrait",
+      "title": "just because deserves cake",
+      "caption": "instagram_feed_portrait / cake_gifting",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/patticake-just-because-portrait.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/patticake-just-because-portrait.jpg",
+      "sourceImageUrl": "/generated/patticake-just-because-portrait.png"
+    },
+    {
+      "id": "patticake-slice-story",
+      "title": "one cake, three ways to share it",
+      "caption": "instagram_story / cake_options",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/patticake-slice-story.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/patticake-slice-story.jpg",
+      "sourceImageUrl": "/generated/patticake-slice-story.png"
+    },
+    {
+      "id": "patticake-gift-box-reel-cover",
+      "title": "send a cake worth remembering",
+      "caption": "instagram_reel_cover / cake_gifting",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/patticake-gift-box-reel-cover.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/patticake-gift-box-reel-cover.jpg",
+      "sourceImageUrl": "/generated/patticake-gift-box-reel-cover.png"
+    },
+    {
+      "id": "patticake-message-carousel-square",
+      "title": "pick the message",
+      "caption": "instagram_carousel_square / message_options",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/patticake-message-carousel-square.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/patticake-message-carousel-square.jpg",
+      "sourceImageUrl": "/generated/patticake-message-carousel-square.png"
+    },
+    {
+      "id": "patticake-og-share-card",
+      "title": "patticake",
+      "caption": "open_graph / brand_share",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/patticake-og-share-card.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/patticake-og-share-card.jpg",
+      "sourceImageUrl": "/generated/patticake-og-share-card.png"
+    },
+    {
+      "id": "yum-made-from-scratch-square",
+      "title": "made from scratch with love",
+      "caption": "instagram_feed_square / brand",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/yum-made-from-scratch-square.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/yum-made-from-scratch-square.jpg",
+      "sourceImageUrl": "/generated/yum-made-from-scratch-square.png"
+    },
+    {
+      "id": "yum-breakfast-portrait",
+      "title": "start with breakfast",
+      "caption": "instagram_feed_portrait / breakfast",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/yum-breakfast-portrait.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/yum-breakfast-portrait.jpg",
+      "sourceImageUrl": "/generated/yum-breakfast-portrait.png"
+    },
+    {
+      "id": "yum-catering-portrait",
+      "title": "feed the room",
+      "caption": "instagram_feed_portrait / catering",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/yum-catering-portrait.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/yum-catering-portrait.jpg",
+      "sourceImageUrl": "/generated/yum-catering-portrait.png"
+    },
+    {
+      "id": "yum-soup-sandwich-square",
+      "title": "soup and sandwich season",
+      "caption": "instagram_feed_square / menu",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/yum-soup-sandwich-square.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/yum-soup-sandwich-square.jpg",
+      "sourceImageUrl": "/generated/yum-soup-sandwich-square.png"
+    },
+    {
+      "id": "yum-four-locations-story",
+      "title": "four Twin Cities restaurants",
+      "caption": "instagram_story / locations",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/yum-four-locations-story.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/yum-four-locations-story.jpg",
+      "sourceImageUrl": "/generated/yum-four-locations-story.png"
+    },
+    {
+      "id": "yum-bakery-case-square",
+      "title": "bakery case favorites",
+      "caption": "instagram_feed_square / bakery",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/yum-bakery-case-square.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/yum-bakery-case-square.jpg",
+      "sourceImageUrl": "/generated/yum-bakery-case-square.png"
+    },
+    {
+      "id": "yum-restaurant-behind-patticake-portrait",
+      "title": "the restaurant behind patticake",
+      "caption": "instagram_feed_portrait / brand_story",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/yum-restaurant-behind-patticake-portrait.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/yum-restaurant-behind-patticake-portrait.jpg",
+      "sourceImageUrl": "/generated/yum-restaurant-behind-patticake-portrait.png"
+    },
+    {
+      "id": "yum-catering-og-share-card",
+      "title": "catering made easy",
+      "caption": "open_graph / catering",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/yum-catering-og-share-card.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/yum-catering-og-share-card.jpg",
+      "sourceImageUrl": "/generated/yum-catering-og-share-card.png"
+    },
+    {
+      "id": "yum-since-2005-square",
+      "title": "made from scratch since 2005",
+      "caption": "instagram_feed_square / brand_proof",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/yum-since-2005-square.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/yum-since-2005-square.jpg",
+      "sourceImageUrl": "/generated/yum-since-2005-square.png"
+    },
+    {
+      "id": "patticake-wedding-portrait",
+      "title": "cake for the table",
+      "caption": "instagram_feed_portrait / wedding_cake",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/patticake-wedding-portrait.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/patticake-wedding-portrait.jpg",
+      "sourceImageUrl": "/generated/patticake-wedding-portrait.png"
+    },
+    {
+      "id": "patticake-thank-you-square",
+      "title": "thank you needs cake",
+      "caption": "instagram_feed_square / thank_you",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/patticake-thank-you-square.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/patticake-thank-you-square.jpg",
+      "sourceImageUrl": "/generated/patticake-thank-you-square.png"
+    },
+    {
+      "id": "yum-order-story",
+      "title": "order online",
+      "caption": "instagram_story / order_online",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/yum-order-story.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/yum-order-story.jpg",
+      "sourceImageUrl": "/generated/yum-order-story.png"
+    },
+    {
+      "id": "patticake-send-cake-reel",
+      "title": "send a cake worth remembering",
+      "caption": "reel_or_story / motion",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/patticake-send-cake-reel.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/patticake-send-cake-reel.jpg",
+      "sourceImageUrl": "/generated/patticake-send-cake-reel.png"
+    },
+    {
+      "id": "patticake-layers-reel",
+      "title": "real bakery layers",
+      "caption": "reel_or_story / motion",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/patticake-layers-reel.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/patticake-layers-reel.jpg",
+      "sourceImageUrl": "/generated/patticake-layers-reel.png"
+    },
+    {
+      "id": "yum-made-scratch-reel",
+      "title": "made from scratch with love",
+      "caption": "reel_or_story / motion",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/yum-made-scratch-reel.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/yum-made-scratch-reel.jpg",
+      "sourceImageUrl": "/generated/yum-made-scratch-reel.png"
+    },
+    {
+      "id": "yum-catering-reel",
+      "title": "feed the room",
+      "caption": "reel_or_story / motion",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/yum-catering-reel.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/yum-catering-reel.jpg",
+      "sourceImageUrl": "/generated/yum-catering-reel.png"
+    },
+    {
+      "id": "yum-patticake-feed-motion",
+      "title": "bakery case to cake box",
+      "caption": "feed_motion / motion",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/yum-patticake-feed-motion.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/yum-patticake-feed-motion.jpg",
+      "sourceImageUrl": "/generated/yum-patticake-feed-motion.png"
+    },
+    {
+      "id": "yum-four-locations-motion",
+      "title": "four Twin Cities kitchens",
+      "caption": "reel_or_story / motion",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/yum-four-locations-motion.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/yum-four-locations-motion.jpg",
+      "sourceImageUrl": "/generated/yum-four-locations-motion.png"
+    },
+    {
+      "id": "yum-patticake-horizontal-motion",
+      "title": "fresh food. real cake. one yum! family.",
+      "caption": "landscape_motion / motion",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/yum-patticake-horizontal-motion.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/yum-patticake-horizontal-motion.jpg",
+      "sourceImageUrl": "/generated/yum-patticake-horizontal-motion.png"
+    }
+  ],
+  "visibleItemIds": [
+    "patticake-ship-a-cake-square",
+    "patticake-just-because-portrait",
+    "patticake-slice-story",
+    "patticake-gift-box-reel-cover",
+    "patticake-message-carousel-square",
+    "patticake-og-share-card",
+    "yum-made-from-scratch-square",
+    "yum-breakfast-portrait",
+    "yum-catering-portrait",
+    "yum-soup-sandwich-square",
+    "yum-four-locations-story",
+    "yum-bakery-case-square",
+    "yum-restaurant-behind-patticake-portrait",
+    "yum-catering-og-share-card",
+    "yum-since-2005-square",
+    "patticake-wedding-portrait",
+    "patticake-thank-you-square",
+    "yum-order-story",
+    "patticake-send-cake-reel",
+    "patticake-layers-reel",
+    "yum-made-scratch-reel",
+    "yum-catering-reel",
+    "yum-patticake-feed-motion",
+    "yum-four-locations-motion",
+    "yum-patticake-horizontal-motion"
+  ],
+  "hiddenImageIds": [],
+  "selectedImageIds": [],
+  "currentImageId": "patticake-ship-a-cake-square",
+  "updatedAt": "2026-07-10T01:11:38.176190Z"
+}

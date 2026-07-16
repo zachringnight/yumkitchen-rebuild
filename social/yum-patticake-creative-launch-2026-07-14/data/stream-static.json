@@ -1,0 +1,70 @@
+{
+  "meta": {
+    "title": "yum! and Patticake creative launch pack",
+    "summary": "Seven photo-first social lanes, including a human-first organic treatment, with exact brand typography, an active logo player, and four static placement formats.",
+    "source": "review_renderer",
+    "itemCount": 6
+  },
+  "items": [
+    {
+      "id": "yum-lunch-decision",
+      "title": "what should we eat?",
+      "caption": "yum / Order Online",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "generated/mcp-thumbs/yum-lunch-decision.jpg",
+      "previewImageUrl": "generated/mcp-thumbs/yum-lunch-decision.jpg",
+      "sourceImageUrl": "generated/yum-lunch-decision.png"
+    },
+    {
+      "id": "yum-four-kitchens",
+      "title": "four kitchens. pick your yum!",
+      "caption": "yum / Find Your yum!",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "generated/mcp-thumbs/yum-four-kitchens.jpg",
+      "previewImageUrl": "generated/mcp-thumbs/yum-four-kitchens.jpg",
+      "sourceImageUrl": "generated/yum-four-kitchens.png"
+    },
+    {
+      "id": "yum-catering-room",
+      "title": "feed the room.",
+      "caption": "yum / Plan Catering",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "generated/mcp-thumbs/yum-catering-room.jpg",
+      "previewImageUrl": "generated/mcp-thumbs/yum-catering-room.jpg",
+      "sourceImageUrl": "generated/yum-catering-room.png"
+    },
+    {
+      "id": "patticake-gift-drop",
+      "title": "send cake, not a card.",
+      "caption": "patticake / Start a Patticake",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "generated/mcp-thumbs/patticake-gift-drop.jpg",
+      "previewImageUrl": "generated/mcp-thumbs/patticake-gift-drop.jpg",
+      "sourceImageUrl": "generated/patticake-gift-drop.png"
+    },
+    {
+      "id": "patticake-birthday",
+      "title": "birthday cake, handled.",
+      "caption": "patticake / Plan the Cake",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "generated/mcp-thumbs/patticake-birthday.jpg",
+      "previewImageUrl": "generated/mcp-thumbs/patticake-birthday.jpg",
+      "sourceImageUrl": "generated/patticake-birthday.png"
+    },
+    {
+      "id": "patticake-event",
+      "title": "cake for the table.",
+      "caption": "patticake / Start an Inquiry",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "generated/mcp-thumbs/patticake-event.jpg",
+      "previewImageUrl": "generated/mcp-thumbs/patticake-event.jpg",
+      "sourceImageUrl": "generated/patticake-event.png"
+    }
+  ]
+}

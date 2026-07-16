@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "studio": "remotion studio src/Root.tsx",
+    "render:first": "remotion render src/Root.tsx patticake-gift-drop ../exports/video/remotion-patticake-gift-drop.mp4"
+  },
+  "dependencies": {
+    "@remotion/cli": "latest",
+    "remotion": "latest",
+    "typescript": "latest"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "title": "yum! social motion template 2026",
+    "summary": "Vertical-first 2026 motion templates with platform-safe poster crops.",
+    "source": "review_renderer",
+    "itemCount": 8
+  },
+  "items": [
+    {
+      "id": "patticake-gift-drop",
+      "title": "send cake, not a card",
+      "caption": "hook-drop / patticake / 1080x1920 / 30 fps",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/patticake-gift-drop.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/patticake-gift-drop.jpg",
+      "sourceImageUrl": "/generated/patticake-gift-drop.png"
+    },
+    {
+      "id": "patticake-layer-proof",
+      "title": "real layers. real note.",
+      "caption": "macro-proof / patticake / 1080x1920 / 30 fps",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/patticake-layer-proof.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/patticake-layer-proof.jpg",
+      "sourceImageUrl": "/generated/patticake-layer-proof.png"
+    },
+    {
+      "id": "patticake-birthday-first-slice",
+      "title": "birthday cake, handled",
+      "caption": "birthday-proof / patticake / 1080x1920 / 30 fps",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/patticake-birthday-first-slice.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/patticake-birthday-first-slice.jpg",
+      "sourceImageUrl": "/generated/patticake-birthday-first-slice.png"
+    },
+    {
+      "id": "patticake-event-inquiry",
+      "title": "cake for the table",
+      "caption": "event-inquiry / patticake / 1080x1920 / 30 fps",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/patticake-event-inquiry.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/patticake-event-inquiry.jpg",
+      "sourceImageUrl": "/generated/patticake-event-inquiry.png"
+    },
+    {
+      "id": "yum-lunch-decision",
+      "title": "what should we eat?",
+      "caption": "question-hook / yum / 1080x1920 / 30 fps",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/yum-lunch-decision.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/yum-lunch-decision.jpg",
+      "sourceImageUrl": "/generated/yum-lunch-decision.png"
+    },
+    {
+      "id": "yum-catering-room",
+      "title": "feed the room",
+      "caption": "occasion-proof / yum / 1080x1920 / 30 fps",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/yum-catering-room.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/yum-catering-room.jpg",
+      "sourceImageUrl": "/generated/yum-catering-room.png"
+    },
+    {
+      "id": "yum-four-kitchens",
+      "title": "nearby yum! is the move",
+      "caption": "local-proof / yum / 1080x1920 / 30 fps",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/yum-four-kitchens.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/yum-four-kitchens.jpg",
+      "sourceImageUrl": "/generated/yum-four-kitchens.png"
+    },
+    {
+      "id": "yum-bakery-case",
+      "title": "bring dessert",
+      "caption": "saveable-menu / yum / 1080x1920 / 30 fps",
+      "tone": "",
+      "prompt": "",
+      "imageUrl": "/generated/mcp-thumbs/yum-bakery-case.jpg",
+      "previewImageUrl": "/generated/mcp-thumbs/yum-bakery-case.jpg",
+      "sourceImageUrl": "/generated/yum-bakery-case.png"
+    }
+  ]
+}

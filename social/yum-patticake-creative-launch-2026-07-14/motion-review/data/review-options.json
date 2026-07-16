@@ -1,0 +1,8 @@
+{
+  "title": "yum! + Patticake motion launch pack",
+  "summary": "85 rendered MP4 masters across vertical, feed, square, wide, carousel-derived stories, and animated Patticake logo formats.",
+  "preset": "image-wall",
+  "showCaptions": true,
+  "minTileWidth": 230,
+  "contactSheetOutput": "contact-sheet.png"
+}

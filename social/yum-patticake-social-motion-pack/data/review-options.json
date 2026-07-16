@@ -1,0 +1,7 @@
+{
+  "title": "yum! and patticake social motion pack",
+  "summary": "Static social assets, motion poster frames, and reviewable creative exports.",
+  "preset": "image-wall",
+  "showCaptions": true,
+  "contactSheetOutput": "contact-sheet.png"
+}

@@ -37,6 +37,7 @@ const nextConfig = {
   },
   images: {
     formats: ['image/avif', 'image/webp'],
+    qualities: [60, 70, 75],
     remotePatterns: [{ protocol: 'https', hostname: 'yumkitchen.com' }],
   },
   async redirects() {
