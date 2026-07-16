@@ -72,7 +72,7 @@ const nationalOrderIsExternal = /^https?:\/\//.test(patticakeNationalOrderUrl);
 
 export function PatticakeHome() {
   return (
-    <main className="bg-page">
+    <main className="bg-blue-tint">
       <section className="patticake-home-hero overflow-hidden bg-blue-tint px-6 py-[clamp(3.25rem,7vw,7rem)]">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
           <div className="max-w-[570px]">
