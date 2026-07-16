@@ -58,7 +58,7 @@ export function PressExplorer() {
 
           <div className="stagger-reveal mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3" data-reveal>
             {featuredItems.map((entry) => (
-              <article key={entry.title} className="accent-card bg-page p-6">
+              <article key={entry.title} className="accent-card bg-white p-6">
                 <p className="section-label">{entry.category}</p>
                 <h3 className="text-h3 lowercase">{entry.title}</h3>
                 <p className="mt-2 text-sm font-bold uppercase tracking-[0.12em] text-ink">
@@ -73,7 +73,7 @@ export function PressExplorer() {
           </div>
 
           {featuredItems.length === 0 && (
-            <div className="mt-8 border border-ink/10 bg-page p-8">
+            <div className="mt-8 border border-ink/10 bg-white p-8">
               <h3 className="text-h3 lowercase">no featured stories here yet</h3>
               <p className="mt-3 text-lg leading-8">The archive below still has more yum! stories to read.</p>
             </div>
@@ -81,7 +81,7 @@ export function PressExplorer() {
         </div>
       </section>
 
-      <section className="bg-page py-section">
+      <section className="bg-cream py-section">
         <div className="container-content">
           <div className="grid gap-4 md:grid-cols-[1fr_auto] md:items-end">
             <div className="max-w-3xl">

@@ -6,7 +6,7 @@ Read this entire file before doing anything. This is the current, single contrac
 
 A rebuild of https://yumkitchen.com, a 4-location restaurant chain in the Twin Cities (St. Louis Park, Shady Oak/Minnetonka, St. Paul, Woodbury), plus its sister brand https://patticake.com (national cake delivery + local pickup). Stack: Next.js 16.2 (App Router), React 19, TypeScript, Tailwind CSS v4.
 
-Both brand surfaces are served from this single codebase, distinguished by pathname (see `yumkitchen-web/lib/usePatticakeSurface.ts`), not by hostname. `proxy.ts` is currently a no-op passthrough.
+Both brand surfaces are served from this single codebase, distinguished by pathname (see `yumkitchen-web/lib/usePatticakeSurface.ts`), not by hostname. `proxy.ts` holds the host-based routing (`lib/hostRouting.ts`) that will let `yumkitchen.com` serve the restaurant home at `/` after DNS cutover; it is gated behind `NEXT_PUBLIC_YUM_HOST_ROUTING` (unset/off today, so current behavior is unchanged) - see `docs/history/plans/2026-07-12-host-brand-routing/run-report.md` and the cutover step in `docs/DEPLOYMENT.md`.
 
 This repo is self-contained and git-tracked (`github.com/zachringnight/yumkitchen-rebuild`). There are no external sibling reference folders to read; everything you need is inside this checkout.
 
@@ -38,7 +38,8 @@ yumkitchen-rebuild/
 Source of truth: `yumkitchen-web/app/globals.css` `@theme` block. Current values:
 
 - Primary red: `#b4212b` (`--color-brand-primary`). Bright variant: `#e03a3e`. Darker (AA-safe): `#8f1c24`. Deep: `#751821`. Also `--color-brand-red: #dc3439`.
-- Ink dark: `#2d2d2d` · Body gray: `#736e6e` · Page bg: `#f3f3f3` · Cream: `#fff4f5` · Light blue: `#cae4fd` · Soft blue: `#aed2ef`
+- Ink dark: `#2d2d2d` · Body gray: `#736e6e` · Cream (the brand's warm identity color, default page/section background): `#fffdf7` · Light blue: `#cae4fd` · Soft blue: `#aed2ef`
+- Neutral gray `--color-page` (`#f3f3f3`, Tailwind `bg-page`) exists ONLY for small functional UI fills (form-input backgrounds, an unselected-option-tile state) - never use it as a page or section background. It read as flat and washed-out when it was (see `docs/history/plans/2026-07-14-brand-warmth-color-pass/run-report.md`); use `cream` or `blue-tint` instead.
 - Headings: Trocchi 400 (serif). Body, nav, buttons: Archivo Narrow 400 (sans, 700 on filled buttons)
 - Lowercase headlines preserved exactly where the source uses lowercase
 - Two button styles: `.btn-primary` (filled red, white text, bold) and `.btn-secondary` (outline, dark text)
@@ -58,16 +59,18 @@ If `globals.css` and this file ever disagree, `globals.css` wins. Update this fi
 
 ## Task workflow
 
-1. Read `tasks.md`. Find the next unchecked task.
-2. Create a branch named after the task (e.g. `T-03-location-card-component`, or a short descriptive name for ad hoc work).
-3. Implement inside `yumkitchen-web/` for app changes; docs changes go in `docs/`.
-4. Run `bash verify.sh` locally. All checks must pass.
-5. Commit. Push. Open a PR.
-6. In the PR description, note what changed and why.
+1. Run `bash scripts/check-repo-freshness.sh` before reading or editing anything. It fails on Zach's machine if the checkout is not `/Users/zsoskin/dev/yumkitchen-rebuild`, if the remote is wrong, or if the current branch is behind `origin/main`.
+2. Read `tasks.md`. Find the next unchecked task.
+3. Create a branch named after the task (e.g. `T-03-location-card-component`, or a short descriptive name for ad hoc work).
+4. Implement inside `yumkitchen-web/` for app changes; docs changes go in `docs/`.
+5. Run `bash verify.sh` locally. All checks must pass.
+6. Commit. Push. Open a PR.
+7. In the PR description, note what changed and why.
 
 ## Verification
 
 `bash verify.sh` (run from the repo root) runs, in order:
+- `bash scripts/check-repo-freshness.sh` (canonical checkout, remote, branch, and `origin/main` freshness)
 - `npm run typecheck` (must pass)
 - `npm run lint` (must pass)
 - `npm run audit:motion` and `npm run audit:visual-motion` (motion governance, must pass)
@@ -81,7 +84,6 @@ Failure on any check blocks the PR.
 
 ## Known open items
 
-- PR #2 (`brand-blue-pass` branch) is stale, see the flag at the top of `tasks.md`. Do not merge as-is.
 - See `tasks.md` for the current OPEN list (Zach-gated items like DNS cutover, live Resend key, GTM/GA4 confirmation) and Zach-data-gated items (dietary tags, location amenities, menu CMS, etc.).
 
 ## Owner context

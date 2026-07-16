@@ -91,7 +91,7 @@ export default function CateringPage() {
           </div>
         </div>
       </section>
-      <section id="inquiry" className="bg-page py-section">
+      <section id="inquiry" className="bg-cream py-section">
         <div className="container-content grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <p className="section-label">start a catering order</p>
@@ -120,7 +120,7 @@ export default function CateringPage() {
           </div>
           <div className="grid items-start gap-3 md:grid-cols-2">
             {cateringFaqs.map((faq) => (
-              <details key={faq.question} className="group border border-ink/15 bg-page p-5">
+              <details key={faq.question} className="group border border-ink/15 bg-cream p-5">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-serif text-xl lowercase text-ink">
                   {faq.question}
                   <span className="font-sans text-2xl leading-none text-brand-primary transition group-open:rotate-45">+</span>

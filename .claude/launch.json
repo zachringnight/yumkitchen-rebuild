@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "yumkitchen-web-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "yumkitchen-web", "run", "dev", "--", "--port", "3010"],
+      "port": 3010
+    }
+  ]
+}

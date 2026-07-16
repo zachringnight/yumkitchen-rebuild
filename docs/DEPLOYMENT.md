@@ -91,9 +91,10 @@ Full redirect/SEO-equity audit: see `redirects.md`. All known old URLs are cover
 
 0. Pre-cutover: lower the current host DNS TTL to 300s at least 24h ahead so a rollback propagates fast.
 1. Confirm DNS TTL and current host rollback path. Rollback = repoint `yumkitchen.com` A/CNAME records back to the current WordPress host. Keep the WordPress site running and untouched until 7 days of clean GSC coverage, so rollback is always one DNS change.
-2. Point `yumkitchen.com` and `www.yumkitchen.com` to Vercel.
-3. Submit `https://yumkitchen.com/sitemap.xml` in Google Search Console. Request indexing on the 4 location pages.
-4. Check these URLs after cutover:
+2. Set `NEXT_PUBLIC_YUM_HOST_ROUTING=1` in the Vercel production env and redeploy. From that deploy on, yumkitchen.com serves the restaurant home at `/` (middleware rewrite; `/yum-kitchen` 308s to `/` on that host, and the restaurant-home canonical + sitemap entry become `https://yumkitchen.com/`). patticake.com is unaffected. Without DNS pointed yet this is inert for real traffic.
+3. Point `yumkitchen.com` and `www.yumkitchen.com` to Vercel.
+4. Submit `https://yumkitchen.com/sitemap.xml` in Google Search Console. Request indexing on the 4 location pages.
+5. Check these URLs after cutover:
    - `/`
    - `/menu`
    - `/catering`
@@ -105,4 +106,4 @@ Full redirect/SEO-equity audit: see `redirects.md`. All known old URLs are cover
    - `/location/saint-paul`
    - `/location/woodbury`
    - `/patticake`
-5. Monitor Core Web Vitals, form submissions, order clicks, call clicks, Patticake order clicks, and Search Console coverage for the first week.
+6. Monitor Core Web Vitals, form submissions, order clicks, call clicks, Patticake order clicks, and Search Console coverage for the first week.

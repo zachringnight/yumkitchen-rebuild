@@ -24,7 +24,7 @@ export function CateringProof() {
           </div>
           <div className="stagger-reveal grid gap-5 md:grid-cols-3">
             {cateringPackages.map((item) => (
-              <article key={item.title} className="accent-card bg-page shadow-xs">
+              <article key={item.title} className="accent-card bg-white shadow-xs">
                 <div className="relative aspect-square overflow-hidden">
                   <Image src={item.image} alt={item.title} fill sizes="(min-width: 1024px) 20vw, 100vw" className="image-lift object-cover" />
                 </div>

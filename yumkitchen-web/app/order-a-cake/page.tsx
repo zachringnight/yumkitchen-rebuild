@@ -3,6 +3,11 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { CakeGallery } from '@/components/CakeGallery';
 import { InquiryForm } from '@/components/forms/InquiryForm';
+import { ParallaxImage } from '@/components/motion/ParallaxImage';
+import { PressButton } from '@/components/motion/PressButton';
+import { Reveal } from '@/components/motion/Reveal';
+import { Stagger, StaggerItem } from '@/components/motion/Stagger';
+import { TapeTag } from '@/components/motion/TapeTag';
 import { PatticakeHeroPeek } from '@/components/PatticakeHeroPeek';
 import { PatticakeMessagePreview } from '@/components/PatticakeMessagePreview';
 import { PatticakeMessageRibbon } from '@/components/PatticakeMessageRibbon';
@@ -114,36 +119,42 @@ const gallery = [
 
 export default function CakePage() {
   return (
-    <main className="bg-page">
+    <main className="bg-cream">
       <section className="overflow-hidden bg-cream px-6 py-[clamp(3.5rem,7vw,6.5rem)]">
         <div className="mx-auto grid max-w-[1240px] gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
           <div className="max-w-[580px]">
-            <h1 className="font-serif text-[clamp(4rem,8vw,7.5rem)] font-normal leading-[0.88] lowercase text-ink" aria-label="order a patticake">
-              order a{' '}
-              <br />
-              <span className="text-brand-primary">patticake</span>
-            </h1>
+            <Reveal fade={false} y={14}>
+              <h1 className="font-serif text-[clamp(4rem,8vw,7.5rem)] font-normal leading-[0.88] lowercase text-ink" aria-label="order a patticake">
+                order a{' '}
+                <br />
+                <span className="text-brand-primary">patticake</span>
+              </h1>
+            </Reveal>
             <PatticakeHeroPeek
               src="/images/patticake/layers_slice_vertical.jpg"
               alt="yum! patticake chocolate cake layers close up"
               label="chocolate layers"
               className="crop-patticake-vertical-layer"
             />
-            <p className="mt-7 max-w-[500px] text-xl leading-8 text-ink">
+            <Reveal as="p" className="mt-7 max-w-[500px] text-xl leading-8 text-ink" delay={0.1} y={16}>
               Patticake is devil&apos;s food chocolate cake layered with vanilla buttercream, baked fresh for birthdays, thank-yous, weddings, and every table worth celebrating.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <a href="#cake-inquiry" className="btn-primary">
-                Pick Up Locally
-              </a>
-              <Link href="/patticake" className="btn-secondary">
-                Ship a Cake
-              </Link>
-            </div>
-            <div className="mt-9 hidden gap-3 sm:grid sm:grid-cols-2">
-              <HeroNote title="pickup" copy="four yum! restaurants, 8am to 8pm daily" />
-              <HeroNote title="shipping" copy="we help with timing and delivery" />
-            </div>
+            </Reveal>
+            <Reveal className="mt-8 flex flex-wrap items-center gap-3" delay={0.16} y={14}>
+              <PressButton>
+                <a href="#cake-inquiry" className="btn-primary">
+                  Pick Up Locally
+                </a>
+              </PressButton>
+              <PressButton>
+                <Link href="/patticake" className="btn-secondary">
+                  Ship a Cake
+                </Link>
+              </PressButton>
+            </Reveal>
+            <Stagger className="mt-9 hidden gap-3 sm:grid sm:grid-cols-2" gap={0.08}>
+              <StaggerItem><HeroNote title="pickup" copy="four yum! restaurants, 8am to 8pm daily" /></StaggerItem>
+              <StaggerItem><HeroNote title="shipping" copy="we help with timing and delivery" /></StaggerItem>
+            </Stagger>
           </div>
 
           <div className="patticake-hero-card motion-role-entrance">
@@ -151,9 +162,7 @@ export default function CakePage() {
               src="/images/patticake/layers_slice_vertical.jpg"
               alt="yum! patticake chocolate cake layers close up"
               fill
-              preload
-              loading="eager"
-              fetchPriority="high"
+              priority
               sizes="(min-width: 1024px) 58vw, 100vw"
               className="object-cover crop-patticake-vertical-layer"
             />
@@ -161,16 +170,16 @@ export default function CakePage() {
               patticake
             </div>
             <div className="cake-message-tags" aria-hidden="true">
-              <span>happy birthday</span>
-              <span>just married</span>
-              <span>love you</span>
+              <TapeTag delay={0.45}>happy birthday</TapeTag>
+              <TapeTag delay={0.67}>just married</TapeTag>
+              <TapeTag delay={0.89}>love you</TapeTag>
             </div>
             <div className="absolute bottom-4 left-4 right-4 grid gap-3 bg-cream/95 p-4 shadow-xl md:bottom-6 md:left-6 md:right-6 md:grid-cols-[1fr_auto] md:items-end md:p-5">
               <div>
                 <p className="font-serif text-2xl leading-tight text-ink">chocolate layers, vanilla buttercream</p>
                 <p className="mt-1 text-base leading-6 text-body">the cake people ask for by name</p>
               </div>
-              <a href="#shop-patticake" className="btn-secondary bg-white px-4 py-3 text-base">
+              <a href="#shop-patticake" className="btn-secondary bg-white px-4 py-3 text-base hover:bg-brand-red">
                 Choose Your Cake
               </a>
             </div>
@@ -181,31 +190,31 @@ export default function CakePage() {
       <PatticakeMessageRibbon tone="cream" />
       <PatticakePathGuide activePath="pickup" />
 
-      <section className="bg-page px-6 py-8">
+      <section className="bg-cream px-6 py-8">
         <div className="mx-auto max-w-[1240px]">
-          <div className="patticake-ticket">
-            <div className="patticake-ticket-stub patticake-ticket-stub-brand">
+          <Stagger className="patticake-ticket" gap={0.12}>
+            <StaggerItem variant="stamp" baseRotate={180} className="patticake-ticket-stub patticake-ticket-stub-brand">
               yum!
               <br />
               Kitchen and Bakery
-            </div>
-            <div>
+            </StaggerItem>
+            <StaggerItem>
               <h2 className="font-serif text-[2.7rem] font-normal leading-tight lowercase text-brand-primary">
                 born at <span className="normal-case">yum! Kitchen and Bakery</span>. made to share.
               </h2>
               <p className="mt-4 max-w-[560px] text-lg leading-8 text-ink">
                 Patticake keeps the bakery story simple: familiar ingredients, a generous chocolate cake, and care from the team that knows this cake by heart.
               </p>
-            </div>
+            </StaggerItem>
             <div className="grid gap-5 sm:grid-cols-2">
               {proofPoints.map((point) => (
-                <article key={point.title} className="border-t border-ink/15 pt-4">
+                <StaggerItem as="article" key={point.title} className="border-t border-ink/15 pt-4">
                   <h3 className="font-serif text-2xl font-normal lowercase text-ink">{point.title}</h3>
                   <p className="mt-2 text-base leading-7 text-body">{point.copy}</p>
-                </article>
+                </StaggerItem>
               ))}
             </div>
-          </div>
+          </Stagger>
         </div>
       </section>
 
@@ -220,22 +229,24 @@ export default function CakePage() {
               Choose local pickup, shipping, or celebration planning, then tell us what would make the day feel sweet.
             </p>
           </div>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
+          <Stagger className="mt-10 grid gap-5 md:grid-cols-3">
             {cakePaths.map((path) => (
-              <article key={path.title} className="patticake-action-card group">
+              <StaggerItem as="article" key={path.title} className="patticake-action-card group" hoverLift>
                 <div className="relative aspect-[5/4] overflow-hidden bg-blue-soft">
                   <Image src={path.image} alt={path.alt} fill loading={path.image === '/images/patticake/layers_slice_vertical.jpg' ? 'eager' : undefined} sizes="(min-width: 768px) 33vw, 100vw" className={`image-lift object-cover transition duration-500 ${path.className}`} />
                 </div>
                 <div className="grid flex-1 p-6">
                   <h3 className="font-serif text-3xl font-normal lowercase text-ink">{path.title}</h3>
                   <p className="mt-3 text-lg leading-8 text-body">{path.description}</p>
-                  <a href={path.href} className="btn-primary mt-6 self-end">
-                    {path.action}
-                  </a>
+                  <PressButton className="mt-6 self-end">
+                    <a href={path.href} className="btn-primary">
+                      {path.action}
+                    </a>
+                  </PressButton>
                 </div>
-              </article>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
@@ -253,15 +264,15 @@ export default function CakePage() {
               <Image src="/images/patticake/09_slices.jpg" alt="yum! patticake slices ready to share" fill sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover crop-patticake-slices" />
             </div>
           </div>
-          <div className="mt-11 grid gap-5 md:grid-cols-4">
+          <Stagger className="mt-11 grid gap-5 md:grid-cols-4">
             {orderSteps.map((step) => (
-              <article key={step.number} className="border-t-2 border-brand-primary pt-5">
+              <StaggerItem as="article" key={step.number} className="border-t-2 border-brand-primary pt-5">
                 <p className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-tint font-serif text-xl text-ink">{step.number}</p>
                 <h3 className="mt-5 font-serif text-2xl font-normal lowercase text-ink">{step.title}</h3>
                 <p className="mt-3 text-base leading-7 text-body">{step.description}</p>
-              </article>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
@@ -279,14 +290,16 @@ export default function CakePage() {
             <p className="mt-5 text-xl leading-9 text-body">
               Wedding tables, milestone parties, and family celebrations can all start with Patticake.
             </p>
-            <a href="#cake-inquiry" className="btn-primary mt-8">
-              Plan a Cake
-            </a>
+            <PressButton className="mt-8">
+              <a href="#cake-inquiry" className="btn-primary">
+                Plan a Cake
+              </a>
+            </PressButton>
           </div>
           <div className="grid grid-cols-[1.18fr_1fr] gap-4">
-            <div className="relative row-span-2 aspect-[3/4] overflow-hidden bg-blue-soft">
+            <ParallaxImage className="relative row-span-2 aspect-[3/4] bg-blue-soft">
               <Image src={celebrationPhotos[0].src} alt={celebrationPhotos[0].alt} fill sizes="(min-width: 1024px) 32vw, 58vw" className="object-cover crop-patticake-wedding" />
-            </div>
+            </ParallaxImage>
             {celebrationPhotos.slice(1).map((photo, index) => (
               <div key={`${photo.alt}-${index}`} className="relative aspect-[4/3] overflow-hidden bg-blue-soft">
                 <Image src={photo.src} alt={photo.alt} fill sizes="(min-width: 1024px) 22vw, 42vw" className="object-cover crop-patticake-product" />
@@ -311,19 +324,19 @@ export default function CakePage() {
               Plan a cake
             </a>
           </div>
-          <div className="grid gap-4 md:grid-cols-4">
+          <Stagger className="grid gap-4 md:grid-cols-4" gap={0.06}>
             {gallery.map((image, index) => (
-              <div key={`${image.alt}-${index}`} className={`relative overflow-hidden bg-page ${index === 1 ? 'aspect-[4/5]' : 'aspect-square'}`}>
+              <StaggerItem key={`${image.alt}-${index}`} className={`relative overflow-hidden bg-cream ${index === 1 ? 'aspect-[4/5]' : 'aspect-square'}`}>
                 <Image src={image.src} alt={image.alt} fill loading={image.src === '/images/patticake/layers_slice_vertical.jpg' ? 'eager' : undefined} sizes="(min-width: 768px) 25vw, 100vw" className={`object-cover ${image.className}`} />
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
       <section id="cake-inquiry" className="scroll-mt-24 bg-blue-tint px-6 py-section md:scroll-mt-28">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
-          <div>
+          <Reveal>
             <p className="section-label">start your cake</p>
             <h2 className="text-h2 lowercase">start your pickup note</h2>
             <p className="mt-5 text-xl leading-9 text-ink">
@@ -335,7 +348,7 @@ export default function CakePage() {
                 Start a Shipping Note
               </Link>
             </div>
-          </div>
+          </Reveal>
           <InquiryForm
             kind="cake"
             cakeMode="pickup"
@@ -352,15 +365,19 @@ export default function CakePage() {
       </section>
 
       <section className="bg-brand-red px-6 py-section text-white">
-        <div className="mx-auto grid max-w-[980px] gap-6 text-center md:grid-cols-[1fr_auto_auto] md:items-center md:text-left">
+        <Reveal className="mx-auto grid max-w-[980px] gap-6 text-center md:grid-cols-[1fr_auto_auto] md:items-center md:text-left">
           <h2 className="font-serif text-[3rem] font-normal leading-tight lowercase text-white">ready to make someone&apos;s day?</h2>
-          <a href="#cake-inquiry" className="inline-block bg-white px-8 py-4 text-lg font-bold leading-none text-brand-primary transition hover:bg-blue-tint hover:text-ink">
-            Pick Up Locally
-          </a>
-          <Link href="/patticake" className="inline-block border-2 border-white px-8 py-4 text-lg font-bold leading-none text-white transition hover:bg-white hover:text-brand-primary">
-            Ship a Cake
-          </Link>
-        </div>
+          <PressButton>
+            <a href="#cake-inquiry" className="inline-block bg-white px-8 py-4 text-lg font-bold leading-none text-brand-primary transition hover:bg-blue-tint hover:text-ink">
+              Pick Up Locally
+            </a>
+          </PressButton>
+          <PressButton>
+            <Link href="/patticake" className="inline-block border-2 border-white px-8 py-4 text-lg font-bold leading-none text-white transition hover:bg-white hover:text-brand-primary">
+              Ship a Cake
+            </Link>
+          </PressButton>
+        </Reveal>
       </section>
     </main>
   );

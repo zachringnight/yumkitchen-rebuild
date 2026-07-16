@@ -1,6 +1,10 @@
+import { patticakeNationalOrderUrl } from '@/lib/site';
+
 type PatticakePathGuideProps = {
   activePath?: 'pickup' | 'shipping';
 };
+
+const nationalOrderIsExternal = /^https?:\/\//.test(patticakeNationalOrderUrl);
 
 const paths = [
   {
@@ -16,16 +20,16 @@ const paths = [
     key: 'shipping',
     label: 'long-distance gifting',
     title: 'send Patticake farther',
-    copy: 'Choose this when the cake needs to travel. Send the address, date, and gift message first.',
-    href: '/patticake#delivery-support',
-    action: 'Start a Shipping Note',
-    facts: ['ship-to address first', 'timing checked by yum!', 'we reply before we bake'],
+    copy: 'Choose this when the cake needs to travel. Order online with a delivery date and gift message, or start with a note.',
+    href: patticakeNationalOrderUrl,
+    action: 'Ship a Cake',
+    facts: ['order online in a few taps', 'timing checked by yum!', 'packed to travel nationwide'],
   },
 ] as const;
 
 export function PatticakePathGuide({ activePath }: PatticakePathGuideProps) {
   return (
-    <section id="patticake-path-guide" className="scroll-mt-24 bg-page px-6 py-10 md:scroll-mt-28" aria-labelledby="patticake-path-guide-title">
+    <section id="patticake-path-guide" className="scroll-mt-24 bg-cream px-6 py-10 md:scroll-mt-28" aria-labelledby="patticake-path-guide-title">
       <div className="mx-auto grid max-w-[1240px] gap-6 border-y border-brand-primary/25 py-7 lg:grid-cols-[0.52fr_1.48fr] lg:items-start">
         <div>
           <p className="section-label">which way should it go?</p>
@@ -48,7 +52,12 @@ export function PatticakePathGuide({ activePath }: PatticakePathGuideProps) {
                 </div>
                 <h3 className="mt-4 font-serif text-3xl font-normal leading-tight lowercase text-ink">{path.title}</h3>
                 <p className="mt-3 text-lg leading-8 text-body">{path.copy}</p>
-                <a href={path.href} className={`${isActive ? 'btn-primary' : 'btn-secondary'} mt-5 self-end md:order-last md:mt-6`}>
+                <a
+                  href={path.href}
+                  target={path.key === 'shipping' && nationalOrderIsExternal ? '_blank' : undefined}
+                  rel={path.key === 'shipping' && nationalOrderIsExternal ? 'noopener noreferrer' : undefined}
+                  className={`${isActive ? 'btn-primary' : 'btn-secondary'} mt-5 self-end md:order-last md:mt-6`}
+                >
                   {path.action}
                 </a>
                 <ul className="mt-5 grid gap-2 text-base leading-6 text-ink">

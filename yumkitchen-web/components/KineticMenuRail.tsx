@@ -9,7 +9,7 @@ function orderHref(category: string) {
 function FavoriteCard({ item, duplicate = false }: { item: (typeof orderDemoItems)[number]; duplicate?: boolean }) {
   const content = (
     <>
-      <span className="relative block aspect-4/3 overflow-hidden bg-page">
+      <span className="relative block aspect-4/3 overflow-hidden bg-cream">
         <Image src={item.image} alt={duplicate ? '' : item.name} fill sizes="280px" className="image-lift object-cover" />
       </span>
       <span className="block p-4">

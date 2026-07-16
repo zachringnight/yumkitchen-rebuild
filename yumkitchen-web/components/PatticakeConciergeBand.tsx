@@ -1,5 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { patticakeNationalOrderUrl } from '@/lib/site';
+
+const nationalOrderIsExternal = /^https?:\/\//.test(patticakeNationalOrderUrl);
 
 const conciergeNotes = [
   {
@@ -27,9 +30,15 @@ export function PatticakeConciergeBand() {
             Patticake should feel loved from the first note to the first slice. Tell us where it is headed, then we help make the next step easy.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/patticake#delivery-support" className="btn-primary">
-              Ship a Cake
-            </Link>
+            {nationalOrderIsExternal ? (
+              <a href={patticakeNationalOrderUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
+                Ship a Cake
+              </a>
+            ) : (
+              <Link href={patticakeNationalOrderUrl} className="btn-primary">
+                Ship a Cake
+              </Link>
+            )}
             <Link href="/order-a-cake#cake-inquiry" className="btn-secondary">
               Pick Up Locally
             </Link>

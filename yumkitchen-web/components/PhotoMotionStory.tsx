@@ -11,7 +11,7 @@ function MotionPhotoCard({
 }) {
   return (
     <article className="photo-motion-card" aria-hidden={duplicate ? true : undefined}>
-      <div className="relative aspect-4/5 overflow-hidden bg-page">
+      <div className="relative aspect-4/5 overflow-hidden bg-cream">
         <Image
           src={moment.image}
           alt={duplicate ? '' : moment.title}
@@ -33,7 +33,7 @@ export function PhotoMotionStory() {
   const bottomRow = photoMotionMoments.slice(4);
 
   return (
-    <section className="photo-motion-section bg-page py-section" data-reveal>
+    <section className="photo-motion-section bg-cream py-section" data-reveal>
       <div className="container-content">
         <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
           <div>

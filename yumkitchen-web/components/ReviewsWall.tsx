@@ -33,7 +33,7 @@ export function ReviewsWall() {
           </div>
           <div className="flex flex-wrap gap-3 lg:justify-end">
             {ratingPlatforms.map((p) => (
-              <div key={p.platform} className="border border-ink/15 bg-page px-4 py-3">
+              <div key={p.platform} className="border border-ink/15 bg-white px-4 py-3">
                 <p className="text-xs font-bold uppercase tracking-[0.12em] text-brand-primary">{p.platform}</p>
                 <p className="mt-1 font-serif text-2xl leading-none text-ink">
                   {p.value.toFixed(1)} <span className="text-brand-red">★</span>

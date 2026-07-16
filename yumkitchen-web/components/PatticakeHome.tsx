@@ -2,6 +2,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { patticakeNationalOrderUrl } from '@/lib/site';
 import { MotionPauseButton } from './MotionPauseButton';
+import { ParallaxImage } from './motion/ParallaxImage';
+import { PressButton } from './motion/PressButton';
+import { Reveal } from './motion/Reveal';
+import { Stagger, StaggerItem } from './motion/Stagger';
+import { TapeTag } from './motion/TapeTag';
 import { PatticakeConciergeBand } from './PatticakeConciergeBand';
 import { PatticakeHeroPeek } from './PatticakeHeroPeek';
 import { PatticakeOriginBand } from './PatticakeOriginBand';
@@ -34,9 +39,9 @@ const heroFrames = [
 const moments = [
   {
     title: 'Ship a Cake',
-    copy: 'Start a shipped-cake note for birthdays, thank-yous, office celebrations, and long-distance family tables.',
+    copy: 'Send a Patticake for birthdays, thank-yous, office celebrations, and long-distance family tables.',
     href: '/patticake#national-order',
-    action: 'Ship a Cake',
+    action: 'Start a Shipping Note',
     image: '/images/patticake/gift_box_vertical.jpg',
     alt: 'yum! bakery gift box with red ribbon',
     className: 'crop-patticake-gift-box',
@@ -45,7 +50,7 @@ const moments = [
     title: 'Pick Up Locally',
     copy: 'Pick up from yum! Kitchen and Bakery when the cake is staying in the Twin Cities.',
     href: '/order-a-cake#cake-inquiry',
-    action: 'Pick Up Locally',
+    action: 'Start a Pickup Note',
     image: '/images/patticake/layers_slice_vertical.jpg',
     alt: 'yum! patticake chocolate cake layers close up',
     className: 'crop-patticake-vertical-layer',
@@ -61,7 +66,7 @@ const moments = [
   },
 ] as const;
 
-const proof = ['Patticake', 'devil’s food chocolate cake', 'vanilla buttercream', 'made by yum! Kitchen and Bakery'] as const;
+const proof = ['made from scratch since 2005', 'devil’s food chocolate cake', 'vanilla buttercream', 'made by yum! Kitchen and Bakery'] as const;
 
 const nationalOrderIsExternal = /^https?:\/\//.test(patticakeNationalOrderUrl);
 
@@ -71,10 +76,10 @@ export function PatticakeHome() {
       <section className="patticake-home-hero overflow-hidden bg-blue-tint px-6 py-[clamp(3.25rem,7vw,7rem)]">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
           <div className="max-w-[570px]">
-            <p className="section-label">now available nationwide · made by yum!</p>
-            <h1 className="font-serif text-[clamp(4rem,8vw,7.4rem)] font-normal leading-[0.9] lowercase text-brand-primary">
+            <Reveal as="p" className="section-label" y={10}>now available nationwide · made by yum!</Reveal>
+            <Reveal as="h1" className="font-serif text-[clamp(4rem,8vw,7.4rem)] font-normal leading-[0.9] lowercase text-brand-primary" fade={false} y={14} delay={0.05}>
               patticake
-            </h1>
+            </Reveal>
             <PatticakeHeroPeek
               src="/images/patticake/09_slices_mobile_lcp.webp"
               alt="yum! patticake slices on plates"
@@ -82,49 +87,55 @@ export function PatticakeHome() {
               className="crop-patticake-slices"
               unoptimized
             />
-            <p className="mt-7 max-w-[520px] text-xl leading-9 text-ink">
+            <Reveal as="p" className="mt-7 max-w-[520px] text-xl leading-9 text-ink" delay={0.12} y={16}>
               Ship yum!&apos;s devil&apos;s food layers, vanilla buttercream, and a message made for the table anywhere nationwide.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href={patticakeNationalOrderUrl}
-                target={nationalOrderIsExternal ? '_blank' : undefined}
-                rel={nationalOrderIsExternal ? 'noopener noreferrer' : undefined}
-                className="btn-primary"
-                data-event="click_patticake_national_delivery_order"
-                data-source="patticake_home_hero"
-              >
-                Ship a Cake
-              </a>
-              <Link href="/order-a-cake#cake-inquiry" className="btn-secondary">
-                Pick Up Locally
-              </Link>
-              <Link href="/yum-kitchen" className="btn-secondary">
-                yum! Kitchen and Bakery
-              </Link>
-            </div>
-            <div className="mt-9 grid gap-3 sm:grid-cols-2">
+            </Reveal>
+            <Reveal className="mt-8 flex flex-wrap gap-3" delay={0.18} y={14}>
+              <PressButton>
+                <a
+                  href={patticakeNationalOrderUrl}
+                  target={nationalOrderIsExternal ? '_blank' : undefined}
+                  rel={nationalOrderIsExternal ? 'noopener noreferrer' : undefined}
+                  className="btn-primary"
+                  data-event="click_patticake_national_delivery_order"
+                  data-source="patticake_home_hero"
+                >
+                  Ship a Cake
+                </a>
+              </PressButton>
+              <PressButton>
+                <Link href="/order-a-cake#cake-inquiry" className="btn-secondary">
+                  Pick Up Locally
+                </Link>
+              </PressButton>
+              <PressButton>
+                <Link href="/yum-kitchen" className="btn-secondary">
+                  yum! Kitchen and Bakery
+                </Link>
+              </PressButton>
+            </Reveal>
+            <Stagger className="mt-9 grid gap-3 sm:grid-cols-2" gap={0.06}>
               {proof.map((item) => (
-                <div key={item} className="border-t border-brand-red/30 pt-3">
+                <StaggerItem key={item} className="border-t border-brand-red/30 pt-3">
                   <p className="text-base font-bold leading-6 text-ink">{item}</p>
-                </div>
+                </StaggerItem>
               ))}
-            </div>
+            </Stagger>
           </div>
 
-          <div className="patticake-remotion-board motion-role-ambient" aria-label="Patticake animated product story">
+          <div className="patticake-remotion-board motion-role-ambient" role="group" aria-label="Patticake animated product story">
             <MotionPauseButton className="motion-pause-button" />
             <div className="patticake-floating-messages" aria-hidden="true">
-              <span>happy birthday</span>
-              <span>thank you</span>
-              <span>just because</span>
+              <TapeTag delay={0.5}>happy birthday</TapeTag>
+              <TapeTag delay={0.72}>thank you</TapeTag>
+              <TapeTag delay={0.94}>just because</TapeTag>
             </div>
             <div className="patticake-remotion-title">
               <span>one cake</span>
               <span>three ways to share it</span>
             </div>
             {heroFrames.map((frame, index) => (
-              <figure key={frame.src} className={`patticake-remotion-frame patticake-remotion-frame-${index + 1}`}>
+              <Reveal as="figure" key={frame.src} className={`patticake-remotion-frame patticake-remotion-frame-${index + 1}`} y={0} delay={0.15 + index * 0.15}>
                 <Image
                   src={frame.src}
                   alt={frame.alt}
@@ -135,7 +146,7 @@ export function PatticakeHome() {
                   className={`object-cover ${frame.className}`}
                 />
                 <figcaption>{frame.label}</figcaption>
-              </figure>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -143,7 +154,7 @@ export function PatticakeHome() {
 
       <PatticakeMessageRibbon tone="blue" />
 
-      <section className="bg-white px-6 py-12 lg:py-section" data-reveal>
+      <Reveal as="section" className="bg-white px-6 py-12 lg:py-section">
         <div className="mx-auto max-w-[1240px]">
           <div className="grid items-end gap-7 lg:grid-cols-[0.68fr_1.32fr]">
             <div>
@@ -155,9 +166,9 @@ export function PatticakeHome() {
             </p>
           </div>
 
-          <div className="stagger-reveal mt-10 grid gap-5 md:grid-cols-3">
+          <Stagger className="mt-10 grid gap-5 md:grid-cols-3">
             {moments.map((moment) => (
-              <article key={moment.title} className="patticake-action-card group">
+              <StaggerItem as="article" key={moment.title} className="patticake-action-card group" hoverLift>
                 <div className="relative aspect-[4/5] overflow-hidden bg-blue-soft">
                   <Image
                     src={moment.image}
@@ -171,19 +182,21 @@ export function PatticakeHome() {
                 <div className="grid flex-1 p-6">
                   <h3 className="font-serif text-3xl font-normal lowercase text-ink">{moment.title}</h3>
                   <p className="mt-3 text-lg leading-8 text-body">{moment.copy}</p>
-                  <Link href={moment.href} className="btn-primary mt-6 self-end">
-                    {moment.action}
-                  </Link>
+                  <PressButton className="mt-6 self-end">
+                    <Link href={moment.href} className="btn-primary">
+                      {moment.action}
+                    </Link>
+                  </PressButton>
                 </div>
-              </article>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
-      </section>
+      </Reveal>
 
       <PatticakeConciergeBand />
 
-      <section className="bg-blue-tint px-6 py-12 lg:py-section" data-reveal>
+      <Reveal as="section" className="bg-blue-tint px-6 py-12 lg:py-section">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
           <div>
             <p className="section-label text-ink">what you get</p>
@@ -192,16 +205,20 @@ export function PatticakeHome() {
               Patticake keeps things simple and happy: chocolate cake, vanilla buttercream, made fresh, with the yum! bakery behind it.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/patticake" className="btn-primary">
-                Shipping Details
-              </Link>
-              <Link href="/order-a-cake" className="btn-secondary">
-                Pick Up Locally
-              </Link>
+              <PressButton>
+                <Link href="/patticake" className="btn-primary">
+                  Shipping Details
+                </Link>
+              </PressButton>
+              <PressButton>
+                <Link href="/order-a-cake" className="btn-secondary">
+                  Pick Up Locally
+                </Link>
+              </PressButton>
             </div>
           </div>
           <div className="grid gap-4 md:grid-cols-[1.08fr_0.92fr]">
-            <div className="relative aspect-[4/5] overflow-hidden bg-cream shadow-xl">
+            <ParallaxImage className="relative aspect-[4/5] bg-cream shadow-xl">
               <Image
                 src="/images/patticake/02_tier_wedding_a.jpg"
                 alt="yum! floral wedding patticake detail"
@@ -209,7 +226,7 @@ export function PatticakeHome() {
                 sizes="(min-width: 1024px) 34vw, 100vw"
                 className="object-cover crop-patticake-wedding"
               />
-            </div>
+            </ParallaxImage>
             <div className="grid gap-4">
               <div className="relative min-h-[240px] overflow-hidden bg-cream shadow-lg">
                 <Image
@@ -223,11 +240,14 @@ export function PatticakeHome() {
               <div className="bg-white p-6 shadow-lg">
                 <p className="font-serif text-4xl font-normal lowercase leading-none text-brand-primary">patticake</p>
                 <p className="mt-3 text-lg leading-8 text-body">made at yum!, shared as the cake people ask for by name.</p>
+                <Link href="/patticake#message-maker" className="btn-link mt-4 inline-block">
+                  try the message maker
+                </Link>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       <PatticakeOriginBand />
     </main>

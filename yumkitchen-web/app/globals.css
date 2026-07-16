@@ -58,16 +58,21 @@
   }
 }
 
-.btn-primary {
-  @apply inline-block border-0 bg-brand-red px-6 py-3 text-center font-sans text-lg font-bold leading-none text-white transition-colors hover:bg-brand-primary focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-brand-red disabled:cursor-not-allowed disabled:opacity-60;
-}
+/* Button styles live in @layer components so per-use Tailwind utilities
+   (px-*, text-*, flex, ...) can override them. Unlayered rules would win
+   over utilities in the cascade and silently ignore those overrides. */
+@layer components {
+  .btn-primary {
+    @apply inline-block border-0 bg-brand-red px-6 py-3 text-center font-sans text-lg font-bold leading-none text-white transition-colors hover:bg-brand-primary focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-brand-red disabled:cursor-not-allowed disabled:opacity-60;
+  }
 
-.btn-secondary {
-  @apply inline-block border-2 border-body bg-transparent px-6 py-3 text-center font-sans text-lg font-normal leading-none text-ink transition-colors hover:border-brand-red hover:bg-brand-red hover:text-white focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-brand-red;
-}
+  .btn-secondary {
+    @apply inline-block border-2 border-body bg-transparent px-6 py-3 text-center font-sans text-lg font-normal leading-none text-ink transition-colors hover:border-brand-red hover:bg-brand-red hover:text-white focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-brand-red;
+  }
 
-.btn-link {
-  @apply font-sans text-lg font-normal leading-snug text-brand-primary hover:text-ink hover:underline;
+  .btn-link {
+    @apply font-sans text-lg font-normal leading-snug text-brand-primary hover:text-ink hover:underline;
+  }
 }
 
 .container-content {
@@ -592,11 +597,6 @@ body[data-nav-open='true'] .mobile-order-bar {
   display: grid;
   gap: 0.8rem;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.location-section {
-  background:
-    linear-gradient(180deg, var(--color-page), white 55%, var(--color-blue-tint) 100%);
 }
 
 .location-modal-backdrop {
@@ -1351,7 +1351,7 @@ body[data-nav-open='true'] .mobile-order-bar {
 
 .patticake-floating-messages span:nth-child(3) {
   left: 35%;
-  bottom: 5%;
+  bottom: 26%;
   rotate: -2deg;
 }
 
@@ -1408,6 +1408,14 @@ body[data-nav-open='true'] .mobile-order-bar {
   line-height: 1.15;
   padding: 0.7rem;
   text-transform: uppercase;
+}
+
+/* Frames 1 and 2 carry their labels at the top so the centered title card
+   and the floating tags never sit on top of readable text. */
+.patticake-remotion-frame-1 figcaption,
+.patticake-remotion-frame-2 figcaption {
+  bottom: auto;
+  top: 0.7rem;
 }
 
 .patticake-remotion-frame-1 {
@@ -1780,6 +1788,14 @@ body[data-nav-open='true'] .mobile-order-bar {
   overflow-wrap: normal;
 }
 
+.message-preview-word {
+  display: inline-block;
+}
+
+.message-preview-word + .message-preview-word {
+  margin-left: 0.32em;
+}
+
 .message-preview-card {
   position: absolute;
   z-index: 3;
@@ -2117,7 +2133,7 @@ body[data-nav-open='true'] .mobile-order-bar {
   isolation: isolate;
   min-height: calc(100svh - 5rem);
   overflow: hidden;
-  background: var(--color-page);
+  background: var(--color-cream);
 }
 
 .logo-animation-backdrop {
@@ -2271,7 +2287,7 @@ body[data-nav-open='true'] .mobile-order-bar {
 
 @layer base {
   html { scroll-behavior: smooth; }
-  body { @apply bg-page font-sans text-body; }
+  body { @apply bg-cream font-sans text-body; }
   h1, h2, h3 { @apply font-serif text-ink; }
   p { @apply text-body; }
   a { text-underline-offset: 4px; }
@@ -2580,6 +2596,15 @@ to {
   }
 }
 
+@keyframes message-field-pulse {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-brand-primary) 55%, transparent);
+  }
+  100% {
+    box-shadow: 0 0 0 16px color-mix(in srgb, var(--color-brand-primary) 0%, transparent);
+  }
+}
+
 @keyframes patticake-tag-bob {
   0%,
   100% {
@@ -2694,9 +2719,17 @@ to {
     animation-play-state: paused;
   }
 
-  .patticake-floating-messages span,
-  .cake-message-tags span {
+  .patticake-floating-messages span.tape-tag-settled,
+  .cake-message-tags span.tape-tag-settled {
     animation: patticake-tag-bob 6.8s ease-in-out infinite;
+  }
+
+  .press-wrap :is(.btn-primary, .btn-secondary):hover {
+    transform: none;
+  }
+
+  .message-field-pulse {
+    animation: message-field-pulse 1.15s cubic-bezier(0.16, 1, 0.3, 1) 1;
   }
 
   .message-preview-card,
@@ -2901,6 +2934,10 @@ to {
     transform: none;
     animation: none;
     transition: none;
+  }
+
+  .message-field-pulse {
+    animation: none;
   }
 
   .kinetic-track {
@@ -3268,6 +3305,16 @@ to {
     bottom: 0.45rem;
     padding: 0.55rem;
     font-size: 0.68rem;
+  }
+
+  .patticake-remotion-frame-1 figcaption,
+  .patticake-remotion-frame-2 figcaption {
+    bottom: auto;
+    top: 0.45rem;
+  }
+
+  .patticake-floating-messages span:nth-child(1) {
+    top: 67%;
   }
 
   .patticake-remotion-frame-1 {

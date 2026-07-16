@@ -95,7 +95,7 @@ export const pageMeta = {
   patticakeHome: {
     title: 'Patticake',
     description: 'Ship a Cake, Pick Up Locally, and visit the yum! Kitchen and Bakery restaurant pages.',
-    image: '/images/patticake/09_slices.jpg',
+    image: '/og/patticake-home.jpg',
   },
   menu: {
     title: 'menu',
@@ -115,12 +115,12 @@ export const pageMeta = {
   cake: {
     title: 'order a patticake',
     description: 'Order or inquire about yum! Kitchen and Bakery Patticake, wedding cakes, and celebration cakes.',
-    image: '/images/patticake/02_tier_wedding_a.jpg',
+    image: '/og/order-a-cake.jpg',
   },
   patticakeDelivery: {
     title: 'Patticake Nationwide Delivery',
     description: 'Patticake is now available nationwide. Start a shipping note, add the sweet details, and hear back from yum! before baking.',
-    image: '/images/patticake/10_layers_slice.jpg',
+    image: '/og/patticake-ship.jpg',
   },
   about: {
     title: 'about us',
@@ -429,7 +429,7 @@ export const mediaHighlights = [
     outlet: 'KSTP 5 Eyewitness News',
     date: '2023',
     category: 'tv and founder story',
-    summary: 'KSTP’s Good Company sat down with Patti Soskin on her journey from three locations to a fourth opening in Woodbury.',
+    summary: 'KSTP’s Good Company sat down with Patti Soskin on her journey, with three locations open and a fourth on the way in Woodbury.',
     href: 'https://kstp.com/tcl/good-company-yum-kitchen-bakery/',
   },
   {
@@ -453,7 +453,7 @@ export const mediaHighlights = [
     outlet: 'Axios Twin Cities',
     date: '2023',
     category: 'growth',
-    summary: 'Axios covered the fourth location, with the “same food menu,” an expanded drink selection, and a 40–45 seat patio.',
+    summary: 'Axios covered the fourth location: the “same food menu” with an expanded drink selection and a 40 to 45 seat patio.',
     href: 'https://www.axios.com/local/twin-cities/2023/06/27/restaurant-roundup-yum-kitchen-expands-daves-hot-chicken-lowry-hill-meats',
   },
 ] as const;

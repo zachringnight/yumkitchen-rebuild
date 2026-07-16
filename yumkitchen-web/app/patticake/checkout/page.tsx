@@ -4,12 +4,21 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useMemo, useState } from 'react';
+import { m } from 'motion/react';
 import { useCart, type Recipient } from '@/lib/cart/CartContext';
 import { formatUsd } from '@/lib/patticake/catalog';
+import { Reveal } from '@/components/motion/Reveal';
+import { Stagger, StaggerItem } from '@/components/motion/Stagger';
+import { snap } from '@/components/motion/springs';
 
 type DraftRecipient = Omit<Recipient, 'id'>;
 
-const US_STATES = ['MN', 'WI', 'IA', 'ND', 'SD', 'IL', 'CA', 'NY', 'TX', 'FL', 'WA', 'CO', 'MA', 'AZ', 'GA', 'OR', 'MI', 'OH', 'PA', 'NC'];
+// All 50 states + DC; the module ships nationwide. MN stays the default.
+const US_STATES = [
+  'MN', 'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN',
+  'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV',
+  'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY',
+];
 
 function blankRecipient(): DraftRecipient {
   return { name: '', address1: '', address2: '', city: '', state: 'MN', zip: '' };
@@ -87,7 +96,7 @@ export default function CheckoutPage() {
 
   if (items.length === 0) {
     return (
-      <main className="bg-page">
+      <main className="bg-cream">
         <section className="container-content py-section text-center">
           <p className="section-label">checkout</p>
           <h1 className="text-h2 lowercase">your box is empty</h1>
@@ -101,15 +110,15 @@ export default function CheckoutPage() {
   }
 
   return (
-    <main className="bg-page">
+    <main className="bg-cream">
       <section className="border-b border-ink/10 bg-cream px-6 py-8">
-        <div className="mx-auto max-w-[1180px]">
+        <Reveal className="mx-auto max-w-[1180px]" y={12}>
           <p className="section-label">checkout</p>
           <h1 className="text-h2 lowercase">send your cake</h1>
           <p className="mt-2 inline-block bg-blue-tint px-3 py-1 text-sm font-medium text-ink">
             Demo checkout. No card is charged.
           </p>
-        </div>
+        </Reveal>
       </section>
 
       <div className="mx-auto grid max-w-[1180px] gap-10 px-6 py-10 lg:grid-cols-[1.4fr_0.85fr] lg:py-section">
@@ -270,9 +279,9 @@ export default function CheckoutPage() {
         <aside className="lg:sticky lg:top-[88px] lg:self-start">
           <div className="border border-ink/12 bg-white p-6">
             <h2 className="font-serif text-2xl lowercase text-ink">order summary</h2>
-            <ul className="mt-4 divide-y divide-ink/10">
+            <Stagger as="ul" className="mt-4 divide-y divide-ink/10" gap={0.06}>
               {items.map((item) => (
-                <li key={item.id} className="grid grid-cols-[56px_1fr_auto] items-center gap-3 py-3">
+                <StaggerItem as="li" key={item.id} className="grid grid-cols-[56px_1fr_auto] items-center gap-3 py-3">
                   <div className="relative aspect-square overflow-hidden border border-ink/10 bg-blue-soft">
                     <Image src={item.image} alt={item.name} fill sizes="56px" className="object-cover" />
                   </div>
@@ -287,9 +296,9 @@ export default function CheckoutPage() {
                     </div>
                   </div>
                   <span className="self-start font-sans text-base font-bold text-ink">{formatUsd(item.unitPrice * item.qty)}</span>
-                </li>
+                </StaggerItem>
               ))}
-            </ul>
+            </Stagger>
             <dl className="mt-4 grid gap-2 border-t border-ink/15 pt-4 text-base text-ink">
               <div className="flex justify-between">
                 <dt className="text-body">Subtotal</dt>
@@ -304,9 +313,9 @@ export default function CheckoutPage() {
                 <dd>{formatUsd(total)}</dd>
               </div>
             </dl>
-            <button type="button" onClick={placeOrder} disabled={submitting} className="btn-primary mt-5 w-full">
+            <m.button type="button" onClick={placeOrder} disabled={submitting} className="btn-primary mt-5 w-full" whileTap={{ scale: 0.98 }} transition={snap}>
               {submitting ? 'Placing order…' : `Place order · ${formatUsd(total)}`}
-            </button>
+            </m.button>
             <Link href="/patticake#national-order" className="btn-link mt-3 block text-center">
               keep shopping
             </Link>

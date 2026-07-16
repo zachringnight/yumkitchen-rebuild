@@ -3,6 +3,12 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { CakeBuyModule } from '@/components/patticake/CakeBuyModule';
 import { InquiryForm } from '@/components/forms/InquiryForm';
+import { JsonLd } from '@/components/JsonLd';
+import { ParallaxImage } from '@/components/motion/ParallaxImage';
+import { PressButton } from '@/components/motion/PressButton';
+import { Reveal } from '@/components/motion/Reveal';
+import { Stagger, StaggerItem } from '@/components/motion/Stagger';
+import { TapeTag } from '@/components/motion/TapeTag';
 import { MediaProofBand } from '@/components/MediaProofBand';
 import { ReviewsWall } from '@/components/ReviewsWall';
 import { PatticakeHeroPeek } from '@/components/PatticakeHeroPeek';
@@ -23,23 +29,23 @@ export const metadata: Metadata = {
 const steps = [
   {
     number: '1',
-    title: 'start the note',
-    copy: 'Send the delivery date, address, and sweet reason for the cake.',
+    title: 'choose your cake',
+    copy: 'Pick a whole cake or slices, and tell us the occasion.',
   },
   {
     number: '2',
-    title: 'we help it travel',
-    copy: 'We check timing, weather, and the best way to get it there.',
+    title: 'set the delivery',
+    copy: 'Add the ship-to address and delivery date at checkout.',
   },
   {
     number: '3',
-    title: 'add the gift note',
-    copy: 'Share the words for the cake or the message that should travel with it.',
+    title: 'add the words',
+    copy: 'Write the gift message that should travel with the cake.',
   },
   {
     number: '4',
-    title: 'send the cake',
-    copy: 'Patticake is packed with care and sent for the moment it needs to reach.',
+    title: 'we bake and send',
+    copy: 'Patticake is baked fresh, packed with care, and sent ready to share.',
   },
 ] as const;
 
@@ -76,7 +82,7 @@ const occasions = [
 
 const confirmations = [
   'recipient name and full ship-to address',
-  'hoped-for delivery date',
+  'delivery date, three or more days out',
   'servings, occasion, and gift message',
   'weather, timing, or packing notes',
   'local pickup if the cake is staying in the Twin Cities',
@@ -85,15 +91,15 @@ const confirmations = [
 const deliveryFacts = [
   {
     title: 'price',
-    copy: 'Send the note first. We reply with the cake and shipping total before we bake.',
+    copy: 'Whole cakes and slices are priced right on this page. Shipping is added at checkout, before you pay.',
   },
   {
     title: 'timing',
-    copy: 'Tell us your hoped-for delivery date. We check lead time, weather, and the best way to send it.',
+    copy: 'Delivery dates start three days out. Pick your date at checkout and we bake close to it.',
   },
   {
     title: 'where it goes',
-    copy: 'Add the full ship-to address so we can help choose shipping or local pickup.',
+    copy: 'Patticake ships nationwide. Add the full ship-to address at checkout, or choose local pickup instead.',
   },
   {
     title: 'how it arrives',
@@ -114,7 +120,7 @@ const cakeFacts = [
   },
   {
     title: 'the size',
-    copy: 'An 8-inch round that serves 8–16, or send it by the slice.',
+    copy: 'An 8-inch round that serves 8 to 16, or send it by the slice.',
   },
   {
     title: 'the lineup',
@@ -134,11 +140,11 @@ const faqs = [
   },
   {
     question: 'Where can Patticake ship?',
-    answer: 'Patticake is available for nationwide delivery. Add the full address and hoped-for date so we can confirm timing and the best shipping plan.',
+    answer: 'Patticake ships nationwide. Add the ship-to address at checkout and we pack it to travel. Staying in the Twin Cities? Local pickup works too.',
   },
   {
-    question: 'How soon should I ask?',
-    answer: 'Earlier is better. Tell us the hoped-for delivery date and we will help choose a plan that makes sense.',
+    question: 'How soon should I order?',
+    answer: 'Delivery dates start three days out, and earlier is better for big moments. We bake close to your date so it arrives fresh.',
   },
   {
     question: 'Can I pick up locally?',
@@ -168,7 +174,7 @@ const productJsonLd = {
   '@type': 'Product',
   name: 'Patticake',
   description:
-    'yum! Kitchen and Bakery’s signature Patticake: a towering triple-layer chocolate cake with vanilla buttercream, baked from scratch and available for nationwide delivery.',
+    'yum! Kitchen and Bakery’s signature Patticake: a towering triple-layer chocolate cake with vanilla buttercream, baked from scratch and available nationwide as an 8-inch round that serves 8 to 16, or by the slice.',
   image: [
     patticakeCanonical('/images/patticake/03_top_view.jpg'),
     patticakeCanonical('/images/patticake/09_slices.jpg'),
@@ -179,47 +185,60 @@ const productJsonLd = {
   },
   category: 'Cake',
   url: patticakeCanonical('/patticake'),
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'USD',
+    lowPrice: '7.50',
+    highPrice: '59.95',
+    offerCount: 2,
+    availability: 'https://schema.org/InStock',
+    url: patticakeCanonical('/patticake'),
+  },
 };
 
 const nationalOrderIsExternal = /^https?:\/\//.test(patticakeNationalOrderUrl);
 
 export default function PatticakeNationalDeliveryPage() {
   return (
-    <main className="bg-page">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
+    <main className="bg-cream">
+      <JsonLd data={jsonLd} />
+      <JsonLd data={productJsonLd} />
 
       <section className="overflow-hidden bg-blue-tint px-6 py-[clamp(3.5rem,7vw,6.5rem)]">
         <div className="mx-auto grid max-w-[1240px] gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
           <div className="max-w-[620px]">
-            <p className="section-label">now available nationwide</p>
-            <h1 className="font-serif text-[clamp(3.55rem,7vw,6.7rem)] font-normal leading-[0.9] lowercase text-brand-primary">
+            <Reveal as="p" className="section-label" y={10}>now available nationwide</Reveal>
+            <Reveal as="h1" className="font-serif text-[clamp(3.55rem,7vw,6.7rem)] font-normal leading-[0.9] lowercase text-brand-primary" fade={false} y={14} delay={0.05}>
               ship a patticake nationwide
-            </h1>
+            </Reveal>
             <PatticakeHeroPeek
               src="/images/patticake/09_slices.jpg"
               alt="yum! patticake slices on plates"
               label="ready to send"
               className="crop-patticake-slices"
             />
-            <p className="mt-7 max-w-xl text-xl leading-9 text-ink">
+            <Reveal as="p" className="mt-7 max-w-xl text-xl leading-9 text-ink" delay={0.1} y={16}>
               Patticake now ships nationwide. Tell us where it is headed, when it should arrive, and the words that should travel with it.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href={patticakeNationalOrderUrl} target={nationalOrderIsExternal ? '_blank' : undefined} rel={nationalOrderIsExternal ? 'noopener noreferrer' : undefined} className="btn-primary">
-                Ship a Cake
-              </a>
-              <Link href="/order-a-cake" className="btn-secondary">
-                Pick Up Locally
-              </Link>
-            </div>
+            </Reveal>
+            <Reveal className="mt-8 flex flex-wrap gap-3" delay={0.16} y={14}>
+              <PressButton>
+                <a href={patticakeNationalOrderUrl} target={nationalOrderIsExternal ? '_blank' : undefined} rel={nationalOrderIsExternal ? 'noopener noreferrer' : undefined} className="btn-primary">
+                  Ship a Cake
+                </a>
+              </PressButton>
+              <PressButton>
+                <Link href="/order-a-cake" className="btn-secondary">
+                  Pick Up Locally
+                </Link>
+              </PressButton>
+            </Reveal>
             <p className="mt-4 max-w-lg text-base font-bold leading-7 text-brand-primary">
-              Start the note, we&apos;ll reply with the next sweet step.
+              Order online in a few taps, or start a note and we&apos;ll help you plan it.
             </p>
-            <div className="mt-9 hidden gap-3 sm:grid sm:grid-cols-2">
-              <HeroNote title="built for gifting" copy="address, date, occasion, and message" />
-              <HeroNote title="bakery checked" copy="timing, weather, and the best way to send it" />
-            </div>
+            <Stagger className="mt-9 hidden gap-3 sm:grid sm:grid-cols-2" gap={0.08}>
+              <StaggerItem><HeroNote title="built for gifting" copy="address, date, occasion, and message" /></StaggerItem>
+              <StaggerItem><HeroNote title="bakery checked" copy="timing, weather, and the best way to send it" /></StaggerItem>
+            </Stagger>
           </div>
 
           <div className="grid gap-4 md:grid-cols-[1fr_0.44fr]">
@@ -228,9 +247,7 @@ export default function PatticakeNationalDeliveryPage() {
                 src="/images/patticake/09_slices.jpg"
                 alt="yum! patticake slices on plates"
                 fill
-                preload
-                loading="eager"
-                fetchPriority="high"
+                priority
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover crop-patticake-slices"
               />
@@ -239,9 +256,9 @@ export default function PatticakeNationalDeliveryPage() {
                 <p className="mt-2 text-base leading-6 text-body">same Patticake story, sent farther from home</p>
               </div>
               <div className="cake-message-tags cake-message-tags-delivery" aria-hidden="true">
-                <span>miss you</span>
-                <span>thank you</span>
-                <span>go team</span>
+                <TapeTag delay={0.45}>miss you</TapeTag>
+                <TapeTag delay={0.67}>thank you</TapeTag>
+                <TapeTag delay={0.89}>go team</TapeTag>
               </div>
             </div>
             <div className="grid gap-4">
@@ -259,21 +276,21 @@ export default function PatticakeNationalDeliveryPage() {
 
       <section className="bg-white px-6 py-12 lg:py-section">
         <div className="mx-auto max-w-[1240px]">
-          <div className="max-w-2xl">
+          <Reveal className="max-w-2xl">
             <p className="section-label">meet the cake</p>
             <h2 className="text-h2 lowercase">what you&apos;re sending</h2>
             <p className="mt-5 text-xl leading-9 text-body">
               Patticake is yum!&apos;s signature: a towering triple-layer chocolate cake with vanilla buttercream, baked from scratch and packed to travel.
             </p>
-          </div>
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
+          </Reveal>
+          <Stagger className="mt-10 grid gap-4 md:grid-cols-3">
             {cakeFacts.map((fact) => (
-              <article key={fact.title} className="border border-ink/10 bg-page p-6">
+              <StaggerItem as="article" key={fact.title} className="border border-ink/10 bg-white p-6">
                 <h3 className="text-h3 lowercase">{fact.title}</h3>
                 <p className="mt-3 text-base leading-7 text-body">{fact.copy}</p>
-              </article>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
@@ -286,9 +303,9 @@ export default function PatticakeNationalDeliveryPage() {
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.68fr_1.32fr] lg:items-center">
           <div>
             <p className="section-label">before you ship</p>
-            <h2 className="text-h2 lowercase">what happens after you send the note</h2>
+            <h2 className="text-h2 lowercase">how shipping works</h2>
             <p className="mt-5 text-xl leading-9 text-body">
-              This starts with a real bakery note. Tell us where the Patticake is going and we&apos;ll make the next step clear.
+              Order online and we take it from there. Prefer to talk it through first? Send a shipping note and a real yum! baker will reply.
             </p>
             <div className="patticake-trust-strip">
               {trustNotes.map((note) => (
@@ -297,7 +314,7 @@ export default function PatticakeNationalDeliveryPage() {
             </div>
           </div>
           <div className="grid gap-5 lg:grid-cols-[0.82fr_1.18fr]">
-            <div className="relative min-h-[360px] overflow-hidden border border-ink/10 bg-blue-soft">
+            <ParallaxImage className="relative min-h-[360px] border border-ink/10 bg-blue-soft">
               <Image
                 src="/images/patticake/gift_box_vertical.jpg"
                 alt="yum! bakery gift box with red ribbon"
@@ -305,43 +322,43 @@ export default function PatticakeNationalDeliveryPage() {
                 sizes="(min-width: 1024px) 28vw, 100vw"
                 className="object-cover crop-patticake-gift-box"
               />
-            </div>
-            <div className="delivery-logistics-grid">
+            </ParallaxImage>
+            <Stagger className="delivery-logistics-grid">
               {deliveryFacts.map((fact) => (
-                <article key={fact.title}>
+                <StaggerItem as="article" key={fact.title}>
                   <h3>{fact.title}</h3>
                   <p>{fact.copy}</p>
-                </article>
+                </StaggerItem>
               ))}
-            </div>
+            </Stagger>
           </div>
         </div>
       </section>
 
-      <section className="bg-page px-6 py-8">
+      <section className="bg-cream px-6 py-8">
         <div className="mx-auto max-w-[1240px]">
-          <div className="patticake-ticket">
-            <div className="patticake-ticket-stub">
+          <Stagger className="patticake-ticket" gap={0.12}>
+            <StaggerItem variant="stamp" baseRotate={180} className="patticake-ticket-stub">
               admit one
               <br />
               patticake
-            </div>
-            <div>
+            </StaggerItem>
+            <StaggerItem>
               <h2 className="font-serif text-[2.7rem] font-normal leading-tight lowercase text-brand-primary">a clearer way to send it.</h2>
               <p className="mt-4 max-w-[560px] text-lg leading-8 text-ink">
-                Start with a shipping note, add the words for the cake, and we&apos;ll help it travel with care.
+                Pick the cake, set the date and message at checkout, and we&apos;ll help it travel with care.
               </p>
-            </div>
+            </StaggerItem>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {steps.map((step) => (
-                <article key={step.number} className="border-t border-ink/15 pt-4">
+                <StaggerItem as="article" key={step.number} className="border-t border-ink/15 pt-4">
                   <p className="font-serif text-3xl leading-none text-brand-primary">{step.number}</p>
                   <h3 className="mt-3 font-serif text-2xl font-normal lowercase text-ink">{step.title}</h3>
                   <p className="mt-2 text-base leading-7 text-body">{step.copy}</p>
-                </article>
+                </StaggerItem>
               ))}
             </div>
-          </div>
+          </Stagger>
         </div>
       </section>
 
@@ -356,9 +373,9 @@ export default function PatticakeNationalDeliveryPage() {
               Send Patticake for the moments people recognize right away: birthdays, thank-yous, office celebrations, and family tables away from home.
             </p>
           </div>
-          <div className="mt-10 grid gap-5 md:grid-cols-4">
+          <Stagger className="mt-10 grid gap-5 md:grid-cols-4">
             {occasions.map((occasion) => (
-              <article key={occasion.title} className="patticake-action-card group">
+              <StaggerItem as="article" key={occasion.title} className="patticake-action-card group" hoverLift>
                 <div className="relative aspect-[4/3] overflow-hidden bg-blue-soft">
                   <Image src={occasion.image} alt={occasion.alt} fill sizes="(min-width: 768px) 25vw, 100vw" className={`image-lift object-cover transition duration-500 ${occasion.className}`} />
                 </div>
@@ -366,13 +383,13 @@ export default function PatticakeNationalDeliveryPage() {
                   <h3 className="font-serif text-2xl font-normal lowercase text-ink">{occasion.title}</h3>
                   <p className="mt-3 text-base leading-7 text-body">{occasion.copy}</p>
                 </div>
-              </article>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
-      <PatticakeMessagePreview />
+      <PatticakeMessagePreview formHref="#delivery-support" />
 
       <section className="bg-cream px-6 py-12 lg:py-section">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
@@ -388,14 +405,14 @@ export default function PatticakeNationalDeliveryPage() {
               <Image src="/images/yum-patticake-slice-togo.jpeg" alt="yum! patticake slice in to-go packaging" fill sizes="(min-width: 1024px) 32vw, 100vw" className="object-cover crop-patticake-togo" />
             </div>
             <div className="border border-brand-primary/20 bg-white p-6">
-              <ul className="grid gap-4">
+              <Stagger as="ul" className="grid gap-4" gap={0.06}>
                 {confirmations.map((item, index) => (
-                  <li key={item} className="grid grid-cols-[2rem_1fr] items-start gap-3 border-b border-blue-soft/70 pb-4 last:border-0 last:pb-0">
+                  <StaggerItem as="li" key={item} className="grid grid-cols-[2rem_1fr] items-start gap-3 border-b border-blue-soft/70 pb-4 last:border-0 last:pb-0">
                     <span className="mt-0.5 flex h-7 w-7 items-center justify-center rounded-full bg-brand-red font-serif text-base leading-none text-white">{index + 1}</span>
                     <span className="text-lg leading-7 text-ink">{item}</span>
-                  </li>
+                  </StaggerItem>
                 ))}
-              </ul>
+              </Stagger>
             </div>
           </div>
         </div>
@@ -405,35 +422,37 @@ export default function PatticakeNationalDeliveryPage() {
       <MediaProofBand />
       <ReviewsWall />
 
-      <section className="bg-page px-6 py-12 lg:py-section">
+      <section className="bg-blue-tint/70 px-6 py-12 lg:py-section">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.74fr_1.26fr]">
           <div>
             <p className="section-label">frequently asked questions</p>
             <h2 className="text-h2 lowercase">a few helpful notes before you order</h2>
           </div>
-          <div className="grid gap-3 md:grid-cols-2">
+          <Stagger className="grid gap-3 md:grid-cols-2" gap={0.05}>
             {faqs.map((faq) => (
-              <details key={faq.question} className="group border border-ink/15 bg-white p-5">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-serif text-xl lowercase text-ink">
-                  {faq.question}
-                  <span className="font-sans text-2xl leading-none text-brand-primary transition group-open:rotate-45">+</span>
-                </summary>
-                <p className="mt-4 text-base leading-7 text-body">{faq.answer}</p>
-              </details>
+              <StaggerItem key={faq.question}>
+                <details className="group h-full border border-ink/15 bg-white p-5">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-serif text-xl lowercase text-ink">
+                    {faq.question}
+                    <span className="font-sans text-2xl leading-none text-brand-primary transition group-open:rotate-45">+</span>
+                  </summary>
+                  <p className="mt-4 text-base leading-7 text-body">{faq.answer}</p>
+                </details>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
       <section id="delivery-support" className="scroll-mt-24 bg-white px-6 py-12 md:scroll-mt-28 lg:py-section">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.82fr_1.18fr]">
-          <div>
+          <Reveal>
             <p className="section-label">shipping help</p>
             <h2 className="text-h2 lowercase">start your shipping note</h2>
             <p className="mt-5 text-xl leading-9 text-body">
               Share where the cake is going, when it should arrive, and what you want written with it. This starts a bakery note, not a confirmed order.
             </p>
-          </div>
+          </Reveal>
           <InquiryForm
             kind="cake"
             cakeMode="delivery"
@@ -450,18 +469,20 @@ export default function PatticakeNationalDeliveryPage() {
       </section>
 
       <section className="bg-brand-red px-6 py-12 lg:py-section text-white">
-        <div className="mx-auto grid max-w-[980px] gap-6 text-center md:grid-cols-[1fr_auto] md:items-center md:text-left">
+        <Reveal className="mx-auto grid max-w-[980px] gap-6 text-center md:grid-cols-[1fr_auto] md:items-center md:text-left">
           <h2 className="font-serif text-[3rem] font-normal leading-tight lowercase text-white">ready to send a patticake?</h2>
-          <a
-            href={patticakeNationalOrderUrl}
-            target={nationalOrderIsExternal ? '_blank' : undefined}
-            rel={nationalOrderIsExternal ? 'noopener noreferrer' : undefined}
-            className="inline-block border-2 border-white bg-white px-8 py-4 text-lg font-bold leading-none text-brand-primary transition hover:bg-blue-tint hover:text-ink"
-            data-event="click_patticake_national_delivery_order"
-          >
-            Ship a Cake
-          </a>
-        </div>
+          <PressButton>
+            <a
+              href={patticakeNationalOrderUrl}
+              target={nationalOrderIsExternal ? '_blank' : undefined}
+              rel={nationalOrderIsExternal ? 'noopener noreferrer' : undefined}
+              className="inline-block border-2 border-white bg-white px-8 py-4 text-lg font-bold leading-none text-brand-primary transition hover:bg-blue-tint hover:text-ink"
+              data-event="click_patticake_national_delivery_order"
+            >
+              Ship a Cake
+            </a>
+          </PressButton>
+        </Reveal>
       </section>
     </main>
   );

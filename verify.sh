@@ -28,9 +28,35 @@ PORT="${PORT:-3000}"
 BASE_URL="http://localhost:${PORT}"
 SERVER_PID=""
 
+if [ "${SKIP_REPO_FRESHNESS:-0}" = "1" ]; then
+  echo ""
+  echo "==> Repository freshness"
+  echo -e "  ${RED}SKIP${RESET}: repository freshness explicitly skipped"
+else
+  run "Repository freshness" bash "$ROOT_DIR/scripts/check-repo-freshness.sh"
+fi
+
+# Kill a process and all of its descendants, deepest first. npm run start
+# wraps sh which wraps next-server; killing only the wrapper reparents the
+# server to init and it keeps serving the old build for later runs.
+kill_tree() {
+  local pid="$1"
+  local child
+  for child in $(pgrep -P "$pid" 2>/dev/null); do
+    kill_tree "$child"
+  done
+  kill "$pid" > /dev/null 2>&1
+}
+
 cleanup() {
   if [ -n "$SERVER_PID" ]; then
-    kill "$SERVER_PID" > /dev/null 2>&1
+    kill_tree "$SERVER_PID"
+    # Belt and braces where a child already reparented before the walk.
+    if command -v lsof > /dev/null 2>&1; then
+      for pid in $(lsof -ti tcp:"$PORT" 2>/dev/null); do
+        kill "$pid" > /dev/null 2>&1
+      done
+    fi
   fi
 }
 trap cleanup EXIT
@@ -57,9 +83,15 @@ else
   echo -e "  ${GREEN}PASS${RESET}: no em dashes in diff"
 fi
 
-if ! curl -sf "$BASE_URL" > /dev/null 2>&1; then
-  echo ""
-  echo "==> Starting production server for browser checks"
+echo ""
+echo "==> Starting production server for browser checks"
+if curl -sf "$BASE_URL" > /dev/null 2>&1; then
+  # A pre-existing server would make every browser check run against
+  # whatever build it is serving, not the one built above - that can fail
+  # a good build or, worse, pass a broken one. Refuse to continue.
+  echo -e "  ${RED}FAIL${RESET}: something is already serving ${BASE_URL}. Stop it (or set PORT to a free port) and re-run; browser checks must test the build made by this run."
+  ERRS=$((ERRS+1))
+else
   cd "$APP_DIR"
   npm run start -- --hostname 127.0.0.1 --port "$PORT" > /tmp/yum-next-start.log 2>&1 &
   SERVER_PID=$!
@@ -72,7 +104,9 @@ if ! curl -sf "$BASE_URL" > /dev/null 2>&1; then
   done
 fi
 
-if ! curl -sf "$BASE_URL" > /dev/null 2>&1; then
+if [ -z "$SERVER_PID" ]; then
+  : # port was occupied; already counted as an error above
+elif ! curl -sf "$BASE_URL" > /dev/null 2>&1; then
   echo -e "  ${RED}FAIL${RESET}: production server did not start"
   cat /tmp/yum-next-start.log 2>/dev/null
   ERRS=$((ERRS+1))

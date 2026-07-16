@@ -6,46 +6,25 @@ import { useForm, type UseFormRegisterReturn } from 'react-hook-form';
 import { z } from 'zod';
 import { pushAnalyticsEvent } from '@/lib/analytics';
 import { attributionFieldNames, getAttributionContext } from '@/lib/attribution';
+import { CAKE_MESSAGE_EVENT, type CakeMessageDetail } from '@/lib/cakeMessage';
+import {
+  addCareersIssues,
+  addMissingStringIssues,
+  cakeDeliveryRequiredFields,
+  cakePickupRequiredFields,
+  inquiryFieldsSchema,
+  type CakeMode,
+  type InquiryKind,
+} from '@/lib/inquiryValidation';
 import { locations } from '@/lib/locations';
 
-export type InquiryKind = 'contact' | 'catering' | 'cake' | 'careers' | 'accessibility';
-type CakeMode = 'general' | 'pickup' | 'delivery';
+export type { InquiryKind };
 
-const schema = z.object({
-  firstName: z.string().min(1, 'First name is required.'),
-  lastName: z.string().min(1, 'Last name is required.'),
-  email: z.string().email('Enter a valid email.'),
-  phone: z.string().optional(),
+const schema = inquiryFieldsSchema.extend({
   organization: z.string().optional(),
-  recipientName: z.string().optional(),
-  location: z.string().optional(),
-  subject: z.string().min(1, 'Subject is required.'),
-  eventDate: z.string().optional(),
   eventTime: z.string().optional(),
-  guests: z.string().optional(),
   dietaryNeeds: z.string().optional(),
-  streetAddress: z.string().optional(),
-  addressLine2: z.string().optional(),
-  city: z.string().optional(),
-  state: z.string().optional(),
-  zip: z.string().optional(),
-  occasion: z.string().optional(),
-  giftMessage: z.string().max(140, 'Gift message must be 140 characters or fewer.').optional(),
-  availability: z.string().optional(),
-  applyingFor: z.string().optional(),
-  commitments: z.string().optional(),
-  ageConfirm: z.boolean().optional(),
-  workAuthorized: z.boolean().optional(),
-  highestDegree: z.string().optional(),
   resume: z.any().optional(),
-  restaurantExperience: z.string().optional(),
-  restaurantRoles: z.string().optional(),
-  specialSkills: z.string().optional(),
-  heardAbout: z.string().optional(),
-  referral: z.string().optional(),
-  promiseTrue: z.boolean().optional(),
-  message: z.string().min(10, 'Please share a little more detail.'),
-  company: z.string().optional(),
   utm_source: z.string().optional(),
   utm_medium: z.string().optional(),
   utm_campaign: z.string().optional(),
@@ -76,67 +55,16 @@ function formSchemaFor(kind: InquiryKind, cakeMode: CakeMode) {
     }
 
     if (kind === 'cake' && cakeMode === 'pickup') {
-      const requiredFields: Array<[keyof InquiryFormValues, string]> = [
-        ['location', 'Pickup restaurant is required.'],
-        ['eventDate', 'Pickup date is required.'],
-      ];
-
-      for (const [field, message] of requiredFields) {
-        const value = values[field];
-        if (typeof value !== 'string' || !value.trim()) {
-          ctx.addIssue({ code: z.ZodIssueCode.custom, path: [field], message });
-        }
-      }
+      addMissingStringIssues(values, ctx, cakePickupRequiredFields);
     }
 
     if (kind === 'cake' && cakeMode === 'delivery') {
-      const requiredFields: Array<[keyof InquiryFormValues, string]> = [
-        ['recipientName', 'Recipient name is required.'],
-        ['eventDate', 'Requested delivery date is required.'],
-        ['streetAddress', 'Street address is required.'],
-        ['city', 'City is required.'],
-        ['state', 'State is required.'],
-        ['zip', 'ZIP code is required.'],
-        ['occasion', 'Occasion is required.'],
-      ];
-
-      for (const [field, message] of requiredFields) {
-        const value = values[field];
-        if (typeof value !== 'string' || !value.trim()) {
-          ctx.addIssue({ code: z.ZodIssueCode.custom, path: [field], message });
-        }
-      }
+      addMissingStringIssues(values, ctx, cakeDeliveryRequiredFields);
     }
 
     if (kind !== 'careers') return;
 
-    const requiredFields: Array<[keyof InquiryFormValues, string]> = [
-      ['phone', 'Phone is required.'],
-      ['location', 'Location is required.'],
-      ['availability', 'Availability is required.'],
-      ['applyingFor', 'Applying for is required.'],
-      ['highestDegree', 'Highest degree is required.'],
-      ['heardAbout', 'Please tell us how you heard about this job.'],
-    ];
-
-    for (const [field, message] of requiredFields) {
-      const value = values[field];
-      if (typeof value !== 'string' || !value.trim()) {
-        ctx.addIssue({ code: z.ZodIssueCode.custom, path: [field], message });
-      }
-    }
-
-    const requiredChecks: Array<[keyof InquiryFormValues, string]> = [
-      ['ageConfirm', 'Please confirm your age.'],
-      ['workAuthorized', 'Please confirm work authorization.'],
-      ['promiseTrue', 'Please confirm the application is accurate.'],
-    ];
-
-    for (const [field, message] of requiredChecks) {
-      if (values[field] !== true) {
-        ctx.addIssue({ code: z.ZodIssueCode.custom, path: [field], message });
-      }
-    }
+    addCareersIssues(values, ctx);
 
     const fileList = values.resume;
     const file = typeof FileList === 'undefined' || !(fileList instanceof FileList) ? null : fileList.item(0);
@@ -149,6 +77,31 @@ function formSchemaFor(kind: InquiryKind, cakeMode: CakeMode) {
         ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['resume'], message: 'Upload a PDF, DOC, DOCX, RTF, or TXT resume.' });
       }
     }
+  });
+}
+
+function revealAndFocusField(id: string) {
+  // Bring the field to center so the visitor sees the words land. Lazy
+  // images loading mid-scroll shift the layout under the animation, so
+  // re-check after it settles and nudge if the field drifted (same retry
+  // idea as HashAnchorScroll).
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const field = document.getElementById(id);
+      if (!field) return;
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      field.focus({ preventScroll: true });
+      field.classList.add('message-field-pulse');
+      window.setTimeout(() => field.classList.remove('message-field-pulse'), 1400);
+      field.scrollIntoView({ block: 'center', behavior: reduceMotion ? 'auto' : 'smooth' });
+      for (const delay of [700, 1400]) {
+        window.setTimeout(() => {
+          const rect = field.getBoundingClientRect();
+          const offCenter = Math.abs(rect.top + rect.height / 2 - window.innerHeight / 2);
+          if (offCenter > 48) field.scrollIntoView({ block: 'center', behavior: 'auto' });
+        }, delay);
+      }
+    });
   });
 }
 
@@ -252,9 +205,10 @@ export function InquiryForm({
   const {
     register,
     handleSubmit,
-    setValue,
     formState: { errors },
     reset,
+    setValue,
+    getValues,
   } = useForm<InquiryFormValues>({
     resolver: zodResolver(validationSchema),
     defaultValues: defaults,
@@ -267,6 +221,33 @@ export function InquiryForm({
       setValue(field, attribution[field]);
     }
   }, [setValue]);
+
+  useEffect(() => {
+    if (kind !== 'cake') return;
+
+    function onCakeMessage(event: Event) {
+      const message = (event as CustomEvent<CakeMessageDetail>).detail?.message?.trim();
+      if (!message) return;
+
+      if (isDeliveryCake) {
+        const giftMessage = message.slice(0, 140);
+        setValue('giftMessage', giftMessage, { shouldDirty: true });
+        setGiftMessageLength(giftMessage.length);
+        revealAndFocusField('cake-gift-message');
+        return;
+      }
+
+      const cakeWords = `Words on the cake: "${message}"`;
+      const current = (getValues('message') ?? '').trim();
+      if (!current.includes(cakeWords)) {
+        setValue('message', current ? `${current}\n${cakeWords}` : cakeWords, { shouldDirty: true });
+      }
+      revealAndFocusField('cake-message');
+    }
+
+    window.addEventListener(CAKE_MESSAGE_EVENT, onCakeMessage);
+    return () => window.removeEventListener(CAKE_MESSAGE_EVENT, onCakeMessage);
+  }, [kind, isDeliveryCake, setValue, getValues]);
 
   function getBody(values: InquiryFormValues) {
     const sourcePath = window.location.pathname;

@@ -167,7 +167,7 @@ export function OrderClient({ initialCategory, initialQuery = '' }: Props) {
         </div>
       </section>
 
-      <section id="favorites" className="bg-page py-section">
+      <section id="favorites" className="bg-cream py-section">
         <div className="container-content grid gap-8 xl:grid-cols-[280px_1fr_330px]">
           <aside className="grid content-start gap-3 md:grid-cols-2 xl:sticky xl:top-28 xl:grid-cols-1">
             <p className="section-label">choose pickup</p>
@@ -254,7 +254,7 @@ export function OrderClient({ initialCategory, initialQuery = '' }: Props) {
                 const quantity = cart[item.name] ?? 0;
                 return (
                   <article key={item.name} className="accent-card grid gap-4 bg-white p-4 shadow-xs sm:grid-cols-[132px_1fr]">
-                    <div className="relative aspect-square overflow-hidden bg-page">
+                    <div className="relative aspect-square overflow-hidden bg-cream">
                       <Image src={item.image} alt={item.name} fill sizes="132px" className="image-lift object-cover" />
                     </div>
                     <div className="flex min-w-0 flex-col">

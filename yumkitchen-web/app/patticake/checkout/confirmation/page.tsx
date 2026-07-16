@@ -11,7 +11,7 @@ export default function ConfirmationPage() {
 
   if (!lastOrder) {
     return (
-      <main className="bg-page">
+      <main className="bg-cream">
         <section className="container-content py-section text-center">
           <p className="section-label">order</p>
           <h1 className="text-h2 lowercase">no recent order</h1>
@@ -28,7 +28,7 @@ export default function ConfirmationPage() {
     : '';
 
   return (
-    <main className="bg-page">
+    <main className="bg-cream">
       <section className="bg-blue-tint px-6 py-section">
         <div className="mx-auto max-w-[760px] text-center">
           <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-brand-red text-white">

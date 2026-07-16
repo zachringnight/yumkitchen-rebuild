@@ -59,7 +59,7 @@ export function RestaurantTaskDock() {
           <button
             type="button"
             onClick={() => setPickerOpen(true)}
-            className="grid min-w-0 grid-cols-[auto_1fr] items-center gap-3 border border-ink/10 bg-page px-4 py-3 text-left text-ink transition hover:border-brand-red hover:bg-white focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-brand-red"
+            className="grid min-w-0 grid-cols-[auto_1fr] items-center gap-3 border border-ink/10 bg-cream px-4 py-3 text-left text-ink transition hover:border-brand-red hover:bg-white focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-brand-red"
           >
             <span className="grid h-11 w-11 place-items-center bg-brand-red text-white">
               <PinIcon />

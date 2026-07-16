@@ -32,7 +32,7 @@ export const cakes: Cake[] = [
     imageAlt: 'yum! Patticake, chocolate cake with vanilla buttercream, top view',
     signature: true,
     variants: [
-      { format: 'whole', label: 'Whole cake', price: 5995, serves: '8-inch round, serves 8–16' },
+      { format: 'whole', label: 'Whole cake', price: 5995, serves: '8-inch round, serves 8 to 16' },
       { format: 'slice', label: 'By the slice', price: 750, serves: 'a single generous slice' },
     ],
   },
@@ -44,7 +44,7 @@ export const cakes: Cake[] = [
     image: '/images/patticake/06_8inch_a.jpg',
     imageAlt: "yum! Baker's Man celebration cake",
     variants: [
-      { format: 'whole', label: 'Whole cake', price: 5995, serves: '8-inch round, serves 8–16' },
+      { format: 'whole', label: 'Whole cake', price: 5995, serves: '8-inch round, serves 8 to 16' },
       { format: 'slice', label: 'By the slice', price: 750, serves: 'a single generous slice' },
     ],
   },
@@ -56,7 +56,7 @@ export const cakes: Cake[] = [
     image: '/images/patticake/07_8inch_b.jpg',
     imageAlt: 'yum! coconut celebration cake',
     variants: [
-      { format: 'whole', label: 'Whole cake', price: 5995, serves: '8-inch round, serves 8–16' },
+      { format: 'whole', label: 'Whole cake', price: 5995, serves: '8-inch round, serves 8 to 16' },
       { format: 'slice', label: 'By the slice', price: 750, serves: 'a single generous slice' },
     ],
   },

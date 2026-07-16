@@ -38,7 +38,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${sans.variable} ${serif.variable}`}>
-      <body className="bg-page font-sans text-body antialiased">
+      <body className="bg-cream font-sans text-body antialiased">
+        <noscript>
+          <style>{`[data-motion-el]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
         {gtmId && <DeferredGoogleTagManager gtmId={gtmId} />}
         <AnalyticsEvents />
         <SiteShell>{children}</SiteShell>

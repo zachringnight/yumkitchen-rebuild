@@ -187,6 +187,8 @@ async function checkInteractions(page) {
 
   await page.goto(routeUrl('/yum-kitchen'), { waitUntil: 'load' });
   await clickButtonByName(page, 'Start Order');
+  // the modal is a next/dynamic chunk; give it a bounded wait instead of one settle tick
+  await page.waitForSelector('[role="dialog"]', { timeout: 5000 }).catch(() => {});
   await settle();
   // the modal is a next/dynamic chunk; give it a bounded wait instead of one settle tick
   await page.waitForSelector('[role="dialog"]', { timeout: 5000 }).catch(() => {});
