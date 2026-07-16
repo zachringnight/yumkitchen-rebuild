@@ -2327,41 +2327,22 @@ to {
   }
 
   .logo-animation-backdrop,
-  .logo-animation-shell .logo-animation-logo,
-  .hero-yum-logo .logo-animation-logo,
-  .logo-animation-halo,
-  .logo-animation-ring,
   .logo-animation-shine::before,
   .logo-animation-spark,
-  .logo-animation-tagline,
-  .logo-animation-replay,
-  .home-hero-image,
   .home-hero-indicator::after,
-  .hero-panel,
-  .hero-motion-image,
   .red-band-motion::before,
   .red-band-curve,
-  .yum-rhythm-item,
-  .patticake-home-hero::before,
-  .patticake-message-ribbon-track,
-  .message-preview-cake,
-  .menu-feature-photo,
-  .location-modal-backdrop,
-  .location-modal-panel,
-  .photo-motion-track,
+  .patticake-home-hero::before {
+    opacity: 0;
+    transform: none;
+  }
+
   .home-hero-image {
     opacity: 0;
     transform: none;
   }
 
-  .home-hero-image.is-active,
-  .logo-animation-shell .logo-animation-logo,
-  .hero-yum-logo .logo-animation-logo {
-    opacity: 1;
-  }
-
-  .logo-animation-halo,
-  .logo-animation-ring {
+  .home-hero-image.is-active {
     opacity: 1;
   }
 
