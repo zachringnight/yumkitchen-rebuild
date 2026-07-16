@@ -24,8 +24,11 @@ if [ "$(id -un)" = "zsoskin" ] && [ -d "$CANONICAL_ZACH_ROOT/.git" ]; then
 fi
 
 ORIGIN_URL="$(git remote get-url "$REMOTE" 2>/dev/null)" || fail "missing $REMOTE remote"
-case "$ORIGIN_URL" in
-  "$CANONICAL_REMOTE"|git@github.com:zachringnight/yumkitchen-rebuild.git)
+NORMALIZED_ORIGIN_URL="${ORIGIN_URL%/}"
+NORMALIZED_ORIGIN_URL="${NORMALIZED_ORIGIN_URL%.git}"
+NORMALIZED_CANONICAL_REMOTE="${CANONICAL_REMOTE%.git}"
+case "$NORMALIZED_ORIGIN_URL" in
+  "$NORMALIZED_CANONICAL_REMOTE"|git@github.com:zachringnight/yumkitchen-rebuild)
     ;;
   *)
     fail "unexpected $REMOTE remote: $ORIGIN_URL"
