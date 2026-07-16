@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { menuItemCount } from '@/lib/menu';
 import { orderDemoItems } from '@/lib/site';
 
 export function MenuMotionIntro() {
@@ -37,13 +36,9 @@ export function MenuMotionIntro() {
             ))}
           </nav>
         </div>
-        <div className="menu-orbit motion-role-ambient" aria-label="Featured Yum menu photography">
-          <div className="menu-orbit-core">
-            <span>{menuItemCount}</span>
-            <span>menu favorites</span>
-          </div>
+        <div className="menu-photo-grid" aria-label="Featured Yum menu photography">
           {featured.map((item, index) => (
-            <article key={item.name} className={`menu-orbit-card menu-orbit-card-${index + 1}`}>
+            <article key={item.name} className={`menu-photo-grid-card menu-photo-grid-card-${index + 1}`}>
               <div className="relative aspect-4/3 overflow-hidden">
                 <Image src={item.image} alt={item.name} fill sizes="(min-width: 1024px) 220px, 50vw" className="object-cover" />
               </div>

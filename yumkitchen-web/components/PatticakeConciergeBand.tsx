@@ -45,28 +45,26 @@ export function PatticakeConciergeBand() {
           </div>
         </div>
 
-        <div className="concierge-board motion-role-ambient">
-          <div className="concierge-photo concierge-photo-main">
-            <Image
-              src="/images/patticake/09_slices.jpg"
-              alt="Patticake slices on plates"
-              fill
-              sizes="(min-width: 1024px) 34vw, 78vw"
-              className="object-cover crop-patticake-slices"
-            />
-          </div>
-          <div className="concierge-photo concierge-photo-gift">
-            <Image
-              src="/images/patticake/gift_box_vertical.jpg"
-              alt="yum! bakery gift box with red ribbon"
-              fill
-              sizes="(min-width: 1024px) 18vw, 42vw"
-              className="object-cover crop-patticake-gift-box"
-            />
-          </div>
-          <div className="concierge-ticket">
-            <span>patticake</span>
-            <strong>fresh cake, warm note, clear next step</strong>
+        <div className="concierge-editorial">
+          <div className="concierge-photo-grid">
+            <div className="concierge-photo concierge-photo-main">
+              <Image
+                src="/images/patticake/09_slices.jpg"
+                alt="Patticake slices on plates"
+                fill
+                sizes="(min-width: 1024px) 34vw, 78vw"
+                className="object-cover crop-patticake-slices"
+              />
+            </div>
+            <div className="concierge-photo concierge-photo-gift">
+              <Image
+                src="/images/patticake/gift_box_vertical.jpg"
+                alt="yum! bakery gift box with red ribbon"
+                fill
+                sizes="(min-width: 1024px) 18vw, 42vw"
+                className="object-cover crop-patticake-gift-box"
+              />
+            </div>
           </div>
           <div className="concierge-note-stack">
             {conciergeNotes.map((note, index) => (

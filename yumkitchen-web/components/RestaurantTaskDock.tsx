@@ -50,16 +50,16 @@ export function RestaurantTaskDock() {
   return (
     <>
       <aside
-        className={`restaurant-task-dock fixed inset-x-0 bottom-5 z-40 hidden px-6 transition duration-300 md:block ${
+        className={`restaurant-task-dock fixed inset-x-0 bottom-0 z-40 hidden border-t border-blue-soft/80 bg-blue-tint/95 px-6 py-3 shadow-[0_-0.75rem_2rem_rgb(45_45_45_/_0.12)] backdrop-blur transition duration-300 md:block ${
           visible ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-[130%] opacity-0'
         }`}
         aria-label="Restaurant quick actions"
       >
-        <div className="mx-auto grid max-w-[1040px] grid-cols-[1fr_auto_auto_auto] items-center gap-2 border border-ink/15 bg-white/96 p-2 shadow-[0_1rem_3rem_rgb(45_45_45_/_0.18)] backdrop-blur">
+        <div className="mx-auto grid max-w-[1040px] grid-cols-[1fr_auto_auto_auto] items-center gap-2">
           <button
             type="button"
             onClick={() => setPickerOpen(true)}
-            className="grid min-w-0 grid-cols-[auto_1fr] items-center gap-3 border border-ink/10 bg-cream px-4 py-3 text-left text-ink transition hover:border-brand-red hover:bg-white focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-brand-red"
+            className="grid min-w-0 grid-cols-[auto_1fr] items-center gap-3 bg-transparent px-2 py-1.5 text-left text-ink transition hover:bg-blue-soft/55 focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-brand-red"
           >
             <span className="grid h-11 w-11 place-items-center bg-brand-red text-white">
               <PinIcon />

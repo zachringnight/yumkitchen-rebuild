@@ -12,10 +12,6 @@ export function CakeStudioBand() {
               <Image src={image.src} alt={image.alt} fill sizes="(min-width: 1024px) 26vw, 70vw" className="object-cover" />
             </div>
           ))}
-          <div className="cake-studio-note">
-            <span>yum!</span>
-            <span>bakery case to celebration table</span>
-          </div>
         </div>
         <div>
           <p className="section-label">bakery love</p>

@@ -66,6 +66,7 @@ const hasReducedMotionRoleReset = hasRuleWithSelectorsAndDeclarations(
   reducedMotionRoleSelectors,
   reducedMotionResetDeclarations,
 );
+const hasBareReducedMotionLogoHide = /(^|,)\s*\.logo-animation-logo\s*(?:,|\{)/m.test(reducedMotionCss);
 
 const checks = [
   ['motion token slow', css.includes('--motion-duration-slow')],
@@ -77,16 +78,17 @@ const checks = [
   ['modal role class', css.includes('.motion-role-modal')],
   ['reduced motion media query', css.includes('@media (prefers-reduced-motion: reduce)')],
   ['ambient disabled in reduced motion', hasReducedMotionRoleReset],
+  ['reduced motion preserves the header logo', !hasBareReducedMotionLogoHide],
   ['home hero entrance role', home.includes('hero-panel motion-role-entrance')],
   ['shared hero entrance role', read('components/Hero.tsx').includes('hero-panel motion-role-entrance')],
   ['location modal role', read('components/LocationPickerModal.tsx').includes('motion-role-modal')],
   ['role duration drives hero animation', css.includes('hero-panel-in var(--motion-role-duration')],
   ['role duration drives modal animation', css.includes('modal-panel-in var(--motion-role-duration')],
-  ['role duration drives ambient animation', css.includes('yum-soft-float var(--motion-role-duration')],
+  ['ambient role uses the ambient duration token', getCssBlock(css, '.motion-role-ambient').includes('--motion-duration-ambient')],
   ['home hero single active image', home.includes('const currentHero = heroImages[current]')],
   ['home hero lazy non-initial images', home.includes("loading={current === 0 ? 'eager' : 'lazy'}")],
   ['home hero active announcement', home.includes('aria-live="polite"') && home.includes('currentHeroLabel')],
-  ['menu motion labeled ambient', menuIntro.includes('motion-role-ambient')],
+  ['menu uses a static photo grid rather than ambient cards', menuIntro.includes('menu-photo-grid') && !menuIntro.includes('motion-role-ambient')],
   ['order category filter', order.includes('orderCategoryFilters') && order.includes('selectedCategory')],
   ['header dropdown motion role', header.includes('motion-role-feedback')],
   ['motion provider mounted in shell', shell.includes('<MotionProvider>')],
@@ -94,8 +96,9 @@ const checks = [
   ['motion provider honors reduced motion', motionProvider.includes('reducedMotion="user"')],
   ['no-js motion fallback in layout', rootLayout.includes('data-motion-el')],
   ['spring tokens frosting and snap', springs.includes('export const frosting') && springs.includes('export const snap')],
-  ['patticake home uses motion primitives', patticakeHomeSurface.includes('<Reveal') && patticakeHomeSurface.includes('<TapeTag')],
-  ['patticake delivery page uses motion primitives', patticakeDelivery.includes('<Reveal') && patticakeDelivery.includes('<Stagger') && patticakeDelivery.includes('<TapeTag')],
+  ['patticake home uses restrained motion primitives', patticakeHomeSurface.includes('<Reveal') && patticakeHomeSurface.includes('patticake-photo-grid')],
+  ['patticake delivery page uses restrained motion primitives', patticakeDelivery.includes('<Reveal') && patticakeDelivery.includes('<Stagger') && patticakeDelivery.includes('patticake-delivery-photo-pair')],
+  ['no deprecated Patticake sticker treatment', !css.includes('tape-tag') && !patticakeHomeSurface.includes('TapeTag') && !patticakeDelivery.includes('TapeTag')],
 ];
 
 const failures = checks.filter(([, passed]) => !passed).map(([label]) => label);

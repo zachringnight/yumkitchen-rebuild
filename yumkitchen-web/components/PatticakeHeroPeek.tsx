@@ -11,18 +11,20 @@ type PatticakeHeroPeekProps = {
 export function PatticakeHeroPeek({ src, alt, label, className = '', unoptimized = false }: PatticakeHeroPeekProps) {
   return (
     <figure className="patticake-hero-peek lg:hidden">
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        preload
-        loading="eager"
-        fetchPriority="high"
-        quality={70}
-        unoptimized={unoptimized}
-        sizes="(max-width: 767px) calc(100vw - 3rem), 100vw"
-        className={`object-cover ${className}`}
-      />
+      <div className="patticake-hero-peek-image">
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          preload
+          loading="eager"
+          fetchPriority="high"
+          quality={70}
+          unoptimized={unoptimized}
+          sizes="(max-width: 767px) calc(100vw - 3rem), 100vw"
+          className={`object-cover ${className}`}
+        />
+      </div>
       <figcaption>{label}</figcaption>
     </figure>
   );

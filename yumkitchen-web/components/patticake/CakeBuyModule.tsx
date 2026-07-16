@@ -21,19 +21,21 @@ export function CakeBuyModule() {
         <p className="section-label">order online</p>
         <h2 className="text-h2 lowercase">send a cake in a few taps</h2>
         <div className="mt-8 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-          <div className="relative aspect-[4/3] overflow-hidden border border-ink/10 bg-blue-soft">
-            <Image
-              key={cake.image}
-              src={cake.image}
-              alt={cake.imageAlt}
-              fill
-              sizes="(min-width: 1024px) 46vw, 100vw"
-              className="object-cover"
-            />
+          <div>
+            <div className="relative aspect-[4/3] overflow-hidden border border-ink/10 bg-blue-soft">
+              <Image
+                key={cake.image}
+                src={cake.image}
+                alt={cake.imageAlt}
+                fill
+                sizes="(min-width: 1024px) 46vw, 100vw"
+                className="object-cover"
+              />
+            </div>
             {cake.signature && (
-              <span className="absolute left-4 top-4 bg-brand-red px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-white">
+              <p className="mt-3 border-t border-brand-primary/30 pt-3 text-sm font-bold uppercase tracking-[0.12em] text-brand-primary">
                 the signature
-              </span>
+              </p>
             )}
           </div>
 

@@ -151,16 +151,10 @@ export function OrderClient({ initialCategory, initialQuery = '' }: Props) {
               ))}
             </div>
           </div>
-          <div className="order-momentum-board">
-            <div className="order-location-ticket">
-              <p className="section-label">pickup</p>
-              <h3>{selectedLocation.short_name}</h3>
-              <OpenStatus compact />
-            </div>
+          <div className="order-momentum-board" aria-label="Yum food photography">
             {orderDemoItems.slice(0, 4).map((item, index) => (
               <div key={item.name} className={`order-photo-chip order-photo-chip-${index + 1}`}>
                 <Image src={item.image} alt={item.name} fill sizes="220px" className="object-cover" />
-                <span>{item.name}</span>
               </div>
             ))}
           </div>

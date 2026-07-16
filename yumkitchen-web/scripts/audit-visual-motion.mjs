@@ -25,6 +25,13 @@ const routes = [
 ];
 
 const reducedMotionRoutes = ['/', '/yum-kitchen', '/menu', '/order-a-cake', '/patticake', '/logo-animation'];
+const reducedMotionVisibilityTargets = {
+  '/yum-kitchen': ['.hero-panel', '.home-hero-image.is-active', '.yum-rhythm-item', '.menu-feature-photo'],
+  '/menu': ['.menu-photo-grid'],
+  '/order-a-cake': ['.message-preview-cake'],
+  '/patticake': ['.patticake-message-ribbon-track'],
+  '/logo-animation': ['.logo-animation-tagline', '.logo-animation-replay'],
+};
 
 const viewports = [
   { label: 'desktop', width: 1280, height: 720 },
@@ -257,8 +264,29 @@ async function checkReducedMotion(page) {
         !isIdentityTransform(item.transform),
     );
 
+    const hiddenContent = await page.evaluate(
+      (selectors) =>
+        selectors.flatMap((selector) => {
+          const element = document.querySelector(selector);
+          if (!element) return [`${selector} missing`];
+
+          const style = getComputedStyle(element);
+          if (
+            style.display === 'none' ||
+            style.visibility === 'hidden' ||
+            Number.parseFloat(style.opacity) === 0
+          ) {
+            return [`${selector} hidden`];
+          }
+
+          return [];
+        }),
+      reducedMotionVisibilityTargets[route] ?? [],
+    );
+
     rows.push({
       active,
+      hiddenContent,
       route,
       roleCount: items.length,
     });
@@ -311,6 +339,9 @@ try {
   for (const row of reducedMotionRows) {
     if (row.active.length > 0) {
       failures.push(`reduced motion ${row.route}: active role motion remains ${JSON.stringify(row.active)}`);
+    }
+    if (row.hiddenContent.length > 0) {
+      failures.push(`reduced motion ${row.route}: essential content hidden ${row.hiddenContent.join(', ')}`);
     }
   }
 

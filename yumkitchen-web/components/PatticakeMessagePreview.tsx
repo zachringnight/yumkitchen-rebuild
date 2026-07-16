@@ -91,14 +91,14 @@ export function PatticakeMessagePreview({ formHref = '#cake-inquiry' }: Patticak
             {liftoff > 0 && (
               <m.span
                 key={liftoff}
-                className="pointer-events-none absolute left-0 top-full z-10 mt-2 border border-ink/15 bg-cream px-3 py-1.5 font-serif text-base text-ink shadow-lg"
+                className="pointer-events-none absolute left-0 top-full mt-2 text-sm font-bold text-brand-primary"
                 aria-hidden="true"
-                initial={{ opacity: 1, y: 0, scale: 1, rotate: -2 }}
-                animate={{ opacity: 0, y: 64, scale: 0.88, rotate: 2 }}
-                transition={{ duration: 0.55, ease: 'easeIn' }}
+                initial={{ opacity: 0, y: -4 }}
+                animate={{ opacity: [0, 1, 1, 0], y: [-4, 0, 0, 2] }}
+                transition={{ duration: 1.2, ease: 'easeOut', times: [0, 0.16, 0.74, 1] }}
                 onAnimationComplete={() => setLiftoff(0)}
               >
-                &ldquo;{displayMessage}&rdquo;
+                message added to your note
               </m.span>
             )}
           </div>
@@ -106,9 +106,6 @@ export function PatticakeMessagePreview({ formHref = '#cake-inquiry' }: Patticak
 
         <div className="message-preview-stage" aria-live="polite">
           <MotionPauseButton className="motion-pause-button" />
-          <div className="message-preview-card message-preview-card-back" aria-hidden="true">
-            from yum! with love
-          </div>
           <div className="message-preview-cake">
             <Image
               src="/images/patticake/03_top_view.jpg"
@@ -134,9 +131,6 @@ export function PatticakeMessagePreview({ formHref = '#cake-inquiry' }: Patticak
                 ))}
               </AnimatePresence>
             </div>
-          </div>
-          <div className="message-preview-card message-preview-card-front" aria-hidden="true">
-            {message.length}/28 characters
           </div>
         </div>
       </div>

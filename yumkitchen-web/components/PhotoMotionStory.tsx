@@ -53,15 +53,13 @@ export function PhotoMotionStory() {
           </div>
 
           <div className="photo-motion-collage" aria-label="Yum food and bakery photo montage">
-            <div className="photo-motion-spine" aria-hidden="true">
-              <span>yum!</span>
-              <span>made fresh</span>
-            </div>
             {photoMotionMoments.slice(0, 4).map((moment, index) => (
-              <div key={moment.title} className={`photo-motion-layer photo-motion-layer-${index + 1}`}>
-                <Image src={moment.image} alt={moment.title} fill sizes="(min-width: 1024px) 28vw, 80vw" className="object-cover" />
-                <span>{moment.title}</span>
-              </div>
+              <figure key={moment.title} className={`photo-motion-layer photo-motion-layer-${index + 1}`}>
+                <div className="photo-motion-image">
+                  <Image src={moment.image} alt={moment.title} fill sizes="(min-width: 1024px) 28vw, 80vw" className="object-cover" />
+                </div>
+                <figcaption>{moment.title}</figcaption>
+              </figure>
             ))}
           </div>
         </div>

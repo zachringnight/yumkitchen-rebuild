@@ -470,14 +470,10 @@ body[data-nav-open='true'] .mobile-order-bar {
 }
 
 .menu-feature-active {
-  position: absolute;
-  left: 1rem;
-  right: 1rem;
-  bottom: 1rem;
-  max-width: 30rem;
-  background: rgb(255 255 255 / 0.94);
+  border: 1px solid rgb(45 45 45 / 0.12);
+  border-top: 0;
+  background: white;
   padding: 1rem;
-  box-shadow: 0 0.75rem 2rem rgb(45 45 45 / 0.16);
 }
 
 .menu-feature-active span,
@@ -749,99 +745,56 @@ body[data-nav-open='true'] .mobile-order-bar {
 }
 
 .photo-motion-collage {
-  position: relative;
-  min-height: 560px;
-  overflow: hidden;
-  border: 1px solid rgb(45 45 45 / 0.12);
-  background:
-    linear-gradient(135deg, rgb(255 253 247 / 0.92), rgb(202 228 253 / 0.56)),
-    repeating-linear-gradient(
-      90deg,
-      rgb(45 45 45 / 0.06) 0 1px,
-      transparent 1px 56px
-    );
-}
-
-.photo-motion-spine {
-  position: absolute;
-  inset: 2rem auto auto 2rem;
-  z-index: 4;
   display: grid;
-  gap: 0.4rem;
-  color: var(--color-brand-primary-bright);
-
-  & span:first-child {
-    font-family: var(--font-trocchi), Georgia, serif;
-    font-size: 3.2rem;
-    line-height: 0.9;
-  }
-
-  & span:last-child {
-    width: min-content;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    line-height: 1.1;
-    text-transform: uppercase;
-  }
+  min-height: 560px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  border: 1px solid rgb(45 45 45 / 0.12);
+  background: var(--color-blue-tint);
+  padding: 0.75rem;
 }
 
 .photo-motion-layer {
-  position: absolute;
+  display: grid;
+  min-height: 0;
+  grid-template-rows: minmax(0, 1fr) auto;
   overflow: hidden;
-  background: var(--color-cream);
-  box-shadow: 0 1.4rem 3.4rem rgb(45 45 45 / 0.18);
+  background: white;
+}
 
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border: 1px solid rgb(255 253 247 / 0.65);
-    pointer-events: none;
-  }
+.photo-motion-image {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+}
 
-  & span {
-    position: absolute;
-    left: 1rem;
-    bottom: 1rem;
-    z-index: 2;
-    background: rgb(255 253 247 / 0.92);
-    padding: 0.35rem 0.55rem;
-    color: var(--color-ink);
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    line-height: 1;
-    text-transform: uppercase;
-  }
+.photo-motion-layer figcaption {
+  border-top: 1px solid rgb(45 45 45 / 0.12);
+  background: white;
+  padding: 0.7rem 0.8rem;
+  color: var(--color-ink);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .photo-motion-layer-1 {
-  inset: 4.5rem 8% auto auto;
-  width: 52%;
-  aspect-ratio: 4 / 3;
-  transform: rotate(2deg);
+  grid-row: span 2;
 }
 
 .photo-motion-layer-2 {
-  inset: auto auto 4rem 7%;
-  width: 46%;
-  aspect-ratio: 4 / 5;
-  transform: rotate(-3deg);
+  grid-column: 2;
 }
 
 .photo-motion-layer-3 {
-  inset: 14.5rem 5% auto auto;
-  width: 36%;
-  aspect-ratio: 1;
-  transform: rotate(-1deg);
+  grid-column: 2;
 }
 
 .photo-motion-layer-4 {
-  inset: auto 13% 2.1rem auto;
-  width: 32%;
-  aspect-ratio: 5 / 4;
-  transform: rotate(3deg);
+  grid-column: span 2;
 }
 
 .photo-motion-reels {
@@ -933,65 +886,26 @@ body[data-nav-open='true'] .mobile-order-bar {
   scrollbar-color: var(--color-brand-red) transparent;
 }
 
-.menu-orbit {
-  position: relative;
-  min-height: 520px;
-  overflow: hidden;
-  border: 1px solid rgb(45 45 45 / 0.12);
-  background:
-    linear-gradient(135deg, rgb(255 253 247 / 0.95), rgb(202 228 253 / 0.22)),
-    repeating-linear-gradient(
-      135deg,
-      rgb(180 33 43 / 0.1) 0 1px,
-      transparent 1px 34px
-    );
-}
-
-.menu-orbit-core {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 4;
+.menu-photo-grid {
   display: grid;
-  width: min(48%, 18rem);
-  min-height: 11rem;
-  place-items: center;
-  border: 2px solid var(--color-brand-primary-bright);
-  background: rgb(255 253 247 / 0.94);
-  padding: 1.25rem;
-  text-align: center;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 1.2rem 3rem rgb(45 45 45 / 0.16);
-
-  & span:first-child {
-    color: var(--color-brand-primary-bright);
-    font-family: var(--font-trocchi), Georgia, serif;
-    font-size: 5.5rem;
-    line-height: 0.82;
-  }
-
-  & span:last-child {
-    max-width: 10rem;
-    color: var(--color-ink);
-    font-size: 0.86rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    line-height: 1.15;
-    text-transform: uppercase;
-  }
+  min-height: 520px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  border: 1px solid rgb(45 45 45 / 0.12);
+  background: var(--color-blue-tint);
+  padding: 0.75rem;
 }
 
-.menu-orbit-card {
-  position: absolute;
-  z-index: 3;
-  width: min(42%, 14rem);
+.menu-photo-grid-card {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
   overflow: hidden;
   border: 1px solid rgb(45 45 45 / 0.12);
-  background: var(--color-cream);
-  box-shadow: 0 1rem 2rem rgb(45 45 45 / 0.14);
+  background: white;
 
   & p {
-    padding: 0.8rem;
+    border-top: 1px solid rgb(45 45 45 / 0.12);
+    padding: 0.75rem 0.8rem;
     color: var(--color-ink);
     font-weight: 700;
     line-height: 1.15;
@@ -999,62 +913,38 @@ body[data-nav-open='true'] .mobile-order-bar {
   }
 }
 
-.menu-orbit-card-1 {
-  left: 6%;
-  top: 9%;
-  transform: rotate(-2deg);
-}
-
-.menu-orbit-card-2 {
-  right: 7%;
-  top: 8%;
-  transform: rotate(2.5deg);
-}
-
-.menu-orbit-card-3 {
-  left: 7%;
-  bottom: 8%;
-  transform: rotate(2deg);
-}
-
-.menu-orbit-card-4 {
-  right: 6%;
-  bottom: 8%;
-  transform: rotate(-2.5deg);
-}
-
 .cake-studio-board {
-  position: relative;
-  overflow: hidden;
+  display: grid;
   min-height: 600px;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
   border: 1px solid rgb(45 45 45 / 0.12);
-  background:
-    linear-gradient(135deg, rgb(255 253 247 / 0.92), rgb(202 228 253 / 0.45)),
-    repeating-linear-gradient(
-      90deg,
-      rgb(45 45 45 / 0.05) 0 1px,
-      transparent 1px 44px
-    );
+  background: var(--color-blue-tint);
+  padding: 0.75rem;
 }
 
 .location-experience-board {
-  position: relative;
+  display: grid;
   overflow: hidden;
   min-height: 560px;
+  grid-template-columns: minmax(0, 1.14fr) minmax(0, 0.86fr);
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  border: 1px solid rgb(45 45 45 / 0.12);
+  background: var(--color-blue-tint);
+  padding: 0.75rem;
 }
 
 .order-momentum-board {
-  position: relative;
-  overflow: hidden;
+  display: grid;
   min-height: 540px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
   border: 1px solid rgb(45 45 45 / 0.12);
-  background:
-    linear-gradient(135deg, rgb(202 228 253 / 0.72), rgb(255 253 247 / 0.88)),
-    repeating-linear-gradient(
-      0deg,
-      rgb(45 45 45 / 0.055) 0 1px,
-      transparent 1px 46px
-    );
+  background: var(--color-blue-tint);
+  padding: 0.75rem;
 }
 
 .inquiry-momentum-frame {
@@ -1063,84 +953,28 @@ body[data-nav-open='true'] .mobile-order-bar {
   min-height: 440px;
   border: 1px solid rgb(255 253 247 / 0.18);
   box-shadow: 0 1.4rem 3rem rgb(45 45 45 / 0.25);
-
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, transparent 52%, rgb(45 45 45 / 0.36));
-    pointer-events: none;
-  }
 }
 
 .cake-studio-photo {
-  position: absolute;
+  position: relative;
   overflow: hidden;
-  background: var(--color-cream);
-  box-shadow: 0 1.2rem 3rem rgb(45 45 45 / 0.16);
+  background: white;
 }
 
 .cake-studio-photo-1 {
-  left: 6%;
-  top: 8%;
-  width: 42%;
-  aspect-ratio: 4 / 5;
-  transform: rotate(-3deg);
+  grid-row: span 2;
 }
 
 .cake-studio-photo-2 {
-  right: 6%;
-  top: 9%;
-  width: 46%;
-  aspect-ratio: 1;
-  transform: rotate(2deg);
+  grid-column: 2;
 }
 
 .cake-studio-photo-3 {
-  left: 18%;
-  bottom: 6%;
-  width: 34%;
-  aspect-ratio: 1;
-  transform: rotate(4deg);
+  grid-column: 2;
 }
 
 .cake-studio-photo-4 {
-  right: 10%;
-  bottom: 7%;
-  width: 38%;
-  aspect-ratio: 4 / 3;
-  transform: rotate(-2deg);
-}
-
-.cake-studio-note {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 5;
-  display: grid;
-  max-width: 15rem;
-  gap: 0.25rem;
-  border: 2px solid var(--color-brand-primary-bright);
-  background: rgb(255 253 247 / 0.94);
-  padding: 1.2rem;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 1rem 2.4rem rgb(45 45 45 / 0.14);
-
-  & span:first-child {
-    color: var(--color-brand-primary-bright);
-    font-family: var(--font-trocchi), Georgia, serif;
-    font-size: 2.9rem;
-    line-height: 0.9;
-  }
-
-  & span:last-child {
-    color: var(--color-ink);
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    line-height: 1.15;
-    text-transform: uppercase;
-  }
+  grid-column: span 2;
 }
 
 .patticake-hero-card {
@@ -1152,23 +986,43 @@ body[data-nav-open='true'] .mobile-order-bar {
   box-shadow: 0 1.6rem 4rem rgb(45 45 45 / 0.16);
 }
 
-.patticake-hero-peek {
+.patticake-delivery-photo-pair {
+  display: grid;
+  min-height: clamp(28rem, 54vw, 44rem);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.44fr);
+  gap: 0.75rem;
+}
+
+.patticake-delivery-photo-pair .patticake-hero-card {
+  min-height: 0;
+}
+
+.patticake-delivery-secondary-photo {
   position: relative;
-  margin-top: 1.35rem;
-  aspect-ratio: 16 / 10;
   overflow: hidden;
-  border: 1px solid rgb(45 45 45 / 0.14);
+  border: 1px solid rgb(45 45 45 / 0.12);
   background: var(--color-blue-soft);
+  box-shadow: 0 1.25rem 3rem rgb(45 45 45 / 0.12);
+}
+
+.patticake-hero-peek {
+  margin-top: 1.35rem;
+  border: 1px solid rgb(45 45 45 / 0.14);
+  background: white;
   box-shadow: 0 1rem 2.2rem rgb(45 45 45 / 0.12);
 }
 
+.patticake-hero-peek-image {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
 .patticake-hero-peek figcaption {
-  position: absolute;
-  left: 0.85rem;
-  bottom: 0.85rem;
-  background: rgb(255 253 247 / 0.92);
+  border-top: 1px solid rgb(45 45 45 / 0.12);
+  background: white;
   padding: 0.7rem 0.85rem;
-  color: var(--color-brand-primary);
+  color: var(--color-ink);
   font-size: 0.76rem;
   font-weight: 700;
   line-height: 1;
@@ -1258,32 +1112,25 @@ body[data-nav-open='true'] .mobile-order-bar {
 
 .patticake-message-ribbon span {
   display: inline-flex;
-  min-height: 2.75rem;
   align-items: center;
-  border: 1px solid rgb(180 33 43 / 0.2);
-  background: rgb(255 255 255 / 0.78);
-  padding: 0.72rem 1rem;
+  padding: 0.25rem 0;
   color: var(--color-brand-primary);
   font-family: var(--font-trocchi), Georgia, serif;
   font-size: clamp(1.15rem, 2.4vw, 1.75rem);
   line-height: 1;
   text-transform: lowercase;
   white-space: nowrap;
-  box-shadow: 0 0.65rem 1.4rem rgb(45 45 45 / 0.06);
 }
 
-.patticake-remotion-board {
-  position: relative;
+.patticake-photo-grid {
+  display: grid;
   min-height: clamp(31rem, 58vw, 48rem);
-  overflow: hidden;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
   border: 1px solid rgb(45 45 45 / 0.12);
-  background:
-    linear-gradient(135deg, rgb(202 228 253 / 0.74), rgb(255 253 247 / 0.92)),
-    repeating-linear-gradient(
-      0deg,
-      rgb(45 45 45 / 0.055) 0 1px,
-      transparent 1px 42px
-    );
+  background: var(--color-blue-tint);
+  padding: 0.75rem;
   box-shadow: 0 1.7rem 4rem rgb(45 45 45 / 0.16);
 }
 
@@ -1313,180 +1160,33 @@ body[data-nav-open='true'] .mobile-order-bar {
   outline-offset: 2px;
 }
 
-.patticake-floating-messages {
-  position: absolute;
-  inset: 0;
-  z-index: 5;
-  pointer-events: none;
-}
-
-.patticake-floating-messages span,
-.cake-message-tags span {
-  position: absolute;
-  display: inline-flex;
-  align-items: center;
-  border: 1px solid rgb(180 33 43 / 0.22);
-  background: rgb(255 253 247 / 0.93);
-  color: var(--color-brand-primary);
-  font-size: 0.84rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  line-height: 1;
-  padding: 0.68rem 0.8rem;
-  text-transform: uppercase;
-  box-shadow: 0 0.75rem 1.6rem rgb(45 45 45 / 0.12);
-}
-
-.patticake-floating-messages span:nth-child(1) {
-  left: 8%;
-  top: 52%;
-  rotate: -5deg;
-}
-
-.patticake-floating-messages span:nth-child(2) {
-  right: 8%;
-  top: 48%;
-  rotate: 4deg;
-}
-
-.patticake-floating-messages span:nth-child(3) {
-  left: 35%;
-  bottom: 26%;
-  rotate: -2deg;
-}
-
-.patticake-remotion-title {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 6;
+.patticake-photo-grid-frame {
   display: grid;
-  max-width: 17rem;
-  gap: 0.3rem;
-  border: 2px solid var(--color-brand-primary-bright);
-  background: rgb(255 253 247 / 0.94);
-  padding: 1.2rem;
-  transform: translate(-50%, -50%) rotate(-2deg);
-  box-shadow: 0 1.1rem 2.6rem rgb(45 45 45 / 0.16);
-}
-
-.patticake-remotion-title span:first-child {
-  color: var(--color-brand-primary);
-  font-family: var(--font-trocchi), Georgia, serif;
-  font-size: clamp(2.4rem, 4vw, 3.8rem);
-  line-height: 0.9;
-}
-
-.patticake-remotion-title span:last-child {
-  color: var(--color-ink);
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  line-height: 1.15;
-  text-transform: uppercase;
-}
-
-.patticake-remotion-frame {
-  position: absolute;
+  min-height: 0;
+  grid-template-rows: minmax(0, 1fr) auto;
   overflow: hidden;
-  border: 0.5rem solid var(--color-cream);
-  background: var(--color-cream);
-  box-shadow: 0 1.25rem 3rem rgb(45 45 45 / 0.18);
-  animation: yum-soft-float var(--motion-role-duration, 7.5s) ease-in-out infinite;
+  background: white;
 }
 
-.patticake-remotion-frame figcaption {
-  position: absolute;
-  left: 0.7rem;
-  right: 0.7rem;
-  bottom: 0.7rem;
-  background: rgb(255 253 247 / 0.92);
+.patticake-photo-grid-image {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.patticake-photo-grid-frame figcaption {
+  border-top: 1px solid rgb(45 45 45 / 0.12);
+  padding: 0.7rem 0.8rem;
   color: var(--color-ink);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.1em;
-  line-height: 1.15;
-  padding: 0.7rem;
+  line-height: 1;
   text-transform: uppercase;
 }
 
-/* Frames 1 and 2 carry their labels at the top so the centered title card
-   and the floating tags never sit on top of readable text. */
-.patticake-remotion-frame-1 figcaption,
-.patticake-remotion-frame-2 figcaption {
-  bottom: auto;
-  top: 0.7rem;
-}
-
-.patticake-remotion-frame-1 {
-  left: 7%;
-  top: 8%;
-  width: 43%;
-  aspect-ratio: 4 / 5;
-  transform: rotate(-3deg);
-}
-
-.patticake-remotion-frame-2 {
-  right: 7%;
-  top: 10%;
-  width: 42%;
-  aspect-ratio: 1;
-  animation-delay: 340ms;
-  animation-duration: 8.4s;
-  transform: rotate(2.5deg);
-}
-
-.patticake-remotion-frame-3 {
-  bottom: 7%;
-  left: 25%;
-  width: 54%;
-  aspect-ratio: 16 / 10;
-  animation-delay: 720ms;
-  animation-duration: 9s;
-  transform: rotate(1deg);
-}
-
-.cake-message-tags {
-  position: absolute;
-  inset: 0;
-  z-index: 4;
-  pointer-events: none;
-}
-
-.cake-message-tags span:nth-child(1) {
-  right: 5%;
-  top: 11%;
-  rotate: 3deg;
-}
-
-.cake-message-tags span:nth-child(2) {
-  left: 5%;
-  top: 43%;
-  rotate: -4deg;
-}
-
-.cake-message-tags span:nth-child(3) {
-  right: 10%;
-  top: 61%;
-  rotate: 5deg;
-}
-
-.cake-message-tags-delivery span:nth-child(1) {
-  left: 6%;
-  right: auto;
-  top: 10%;
-}
-
-.cake-message-tags-delivery span:nth-child(2) {
-  left: auto;
-  right: 5%;
-  top: 38%;
-}
-
-.cake-message-tags-delivery span:nth-child(3) {
-  left: 10%;
-  right: auto;
-  top: 60%;
+.patticake-photo-grid-frame-1 {
+  grid-row: span 2;
 }
 
 .crop-patticake-layer {
@@ -1538,60 +1238,24 @@ body[data-nav-open='true'] .mobile-order-bar {
   object-position: 50% 34%;
 }
 
-.patticake-ticket {
-  position: relative;
+.patticake-process-panel {
   display: grid;
-  grid-template-columns: 8.5rem minmax(0, 0.88fr) minmax(0, 1.12fr);
+  grid-template-columns: minmax(0, 0.52fr) minmax(0, 0.88fr) minmax(0, 1.12fr);
   gap: clamp(1.4rem, 3vw, 3rem);
-  overflow: hidden;
-  border: 1px solid rgb(45 45 45 / 0.16);
-  background:
-    linear-gradient(90deg, rgb(255 255 255 / 0.94), rgb(255 253 247 / 0.88)),
-    repeating-linear-gradient(
-      90deg,
-      rgb(45 45 45 / 0.045) 0 1px,
-      transparent 1px 38px
-    );
-  padding: clamp(1.5rem, 3vw, 2.4rem);
-  box-shadow: 0 1rem 2.8rem rgb(45 45 45 / 0.08);
+  border-top: 2px solid var(--color-brand-red);
+  padding-top: clamp(1.25rem, 2.4vw, 2rem);
 }
 
-.patticake-ticket::before,
-.patticake-ticket::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 0.8rem;
-  background:
-    radial-gradient(circle at center, var(--color-page) 0 38%, transparent 40%) 0 0 / 0.8rem 1.2rem repeat-y;
-  pointer-events: none;
+.patticake-process-panel > * {
+  min-width: 0;
 }
 
-.patticake-ticket::before {
-  left: -0.4rem;
-}
-
-.patticake-ticket::after {
-  right: -0.4rem;
-}
-
-.patticake-ticket-stub {
-  display: grid;
-  place-items: center;
-  border-right: 1px dashed rgb(45 45 45 / 0.28);
+.patticake-process-eyebrow {
   color: var(--color-brand-primary);
   font-family: var(--font-trocchi), Georgia, serif;
-  font-size: 1.7rem;
-  line-height: 1.05;
-  text-align: center;
+  font-size: clamp(1.35rem, 2.2vw, 1.7rem);
+  line-height: 1.1;
   text-transform: lowercase;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-}
-
-.patticake-ticket-stub-brand {
-  text-transform: none;
 }
 
 .patticake-action-card {
@@ -1782,9 +1446,8 @@ body[data-nav-open='true'] .mobile-order-bar {
   line-height: 0.92;
   text-align: center;
   text-wrap: balance;
-  text-shadow: 0 0.16rem 0 rgb(255 253 247 / 0.92);
   text-transform: lowercase;
-  transform: translate(-50%, -50%) rotate(-3deg);
+  transform: translate(-50%, -50%);
   overflow-wrap: normal;
 }
 
@@ -1796,125 +1459,39 @@ body[data-nav-open='true'] .mobile-order-bar {
   margin-left: 0.32em;
 }
 
-.message-preview-card {
-  position: absolute;
-  z-index: 3;
-  border: 1px solid rgb(180 33 43 / 0.2);
-  background: white;
-  color: var(--color-ink);
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  line-height: 1.2;
-  padding: 0.75rem 0.85rem;
-  text-transform: uppercase;
-  box-shadow: 0 0.9rem 1.8rem rgb(45 45 45 / 0.1);
-}
-
-.message-preview-card-back {
-  left: 7%;
-  top: 9%;
-  transform: rotate(-4deg);
-}
-
-.message-preview-card-front {
-  right: 8%;
-  bottom: 10%;
-  transform: rotate(3deg);
-}
-
 .patticake-concierge {
-  position: relative;
   overflow: hidden;
 }
 
-.patticake-concierge::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgb(255 255 255 / 0.78), transparent 42%),
-    repeating-linear-gradient(90deg, rgb(45 45 45 / 0.04) 0 1px, transparent 1px 52px);
-  pointer-events: none;
+.concierge-editorial {
+  display: grid;
+  gap: 1.25rem;
 }
 
-.patticake-concierge > div {
-  position: relative;
-  z-index: 1;
-}
-
-.concierge-board {
-  position: relative;
-  min-height: clamp(31rem, 50vw, 42rem);
-}
-
-.concierge-photo,
-.concierge-ticket,
-.concierge-note {
-  box-shadow: 0 1.2rem 2.7rem rgb(45 45 45 / 0.16);
+.concierge-photo-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+  gap: 0.75rem;
 }
 
 .concierge-photo {
-  position: absolute;
+  position: relative;
   overflow: hidden;
-  border: 0.55rem solid white;
-  background: var(--color-cream);
+  border: 1px solid rgb(45 45 45 / 0.12);
+  background: white;
 }
 
 .concierge-photo-main {
-  left: 3%;
-  top: 7%;
-  width: 48%;
   aspect-ratio: 4 / 5;
-  transform: rotate(-2deg);
 }
 
 .concierge-photo-gift {
-  right: 2%;
-  top: 2%;
-  width: 34%;
   aspect-ratio: 4 / 5;
-  transform: rotate(2.5deg);
-}
-
-.concierge-ticket {
-  position: absolute;
-  left: 5%;
-  top: 30%;
-  z-index: 5;
-  display: grid;
-  /* Note stack is right-anchored at 53% width; keep the ticket inside the left free zone at every board width */
-  max-width: min(17rem, 38%);
-  gap: 0.35rem;
-  border: 2px solid var(--color-brand-red);
-  background: white;
-  padding: 1rem 1.1rem;
-  transform: rotate(-1.5deg);
-}
-
-.concierge-ticket span {
-  color: var(--color-brand-primary);
-  font-family: var(--font-trocchi), Georgia, serif;
-  font-size: 2.4rem;
-  line-height: 0.9;
-  text-transform: lowercase;
-}
-
-.concierge-ticket strong {
-  color: var(--color-ink);
-  font-size: 0.82rem;
-  letter-spacing: 0.1em;
-  line-height: 1.2;
-  text-transform: uppercase;
 }
 
 .concierge-note-stack {
-  position: absolute;
-  right: 0;
-  bottom: 4%;
-  z-index: 4;
   display: grid;
-  width: min(53%, 32rem);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.75rem;
 }
 
@@ -1923,9 +1500,8 @@ body[data-nav-open='true'] .mobile-order-bar {
   grid-template-columns: 2.2rem 1fr;
   gap: 0.85rem;
   align-items: start;
-  border: 1px solid rgb(45 45 45 / 0.13);
-  background: white;
-  padding: 1rem;
+  border-top: 1px solid rgb(45 45 45 / 0.18);
+  padding-top: 0.85rem;
 }
 
 .concierge-note span {
@@ -1951,68 +1527,32 @@ body[data-nav-open='true'] .mobile-order-bar {
 
 .concierge-note p {
   margin-top: 0.35rem;
-  color: var(--color-body);
+  color: var(--color-ink);
   font-size: 0.98rem;
   line-height: 1.55;
 }
 
 .location-experience-main {
-  position: absolute;
-  inset: 0 8% 4rem 0;
+  position: relative;
+  grid-row: span 2;
   overflow: hidden;
   border: 1px solid rgb(45 45 45 / 0.12);
-  background: var(--color-cream);
-  box-shadow: 0 1.4rem 3.2rem rgb(45 45 45 / 0.15);
+  background: white;
 }
 
-.location-experience-float {
-  position: absolute;
+.location-experience-photo {
+  position: relative;
   overflow: hidden;
-  border: 0.5rem solid var(--color-cream);
-  background: var(--color-cream);
-  box-shadow: 0 1rem 2.4rem rgb(45 45 45 / 0.18);
+  border: 1px solid rgb(45 45 45 / 0.12);
+  background: white;
 }
 
-.location-experience-float-a {
-  right: 0;
-  bottom: 0;
-  width: min(42%, 18rem);
-  aspect-ratio: 1;
+.location-experience-photo-lunch {
+  grid-column: 2;
 }
 
-.location-experience-float-b {
-  right: 9%;
-  top: 4%;
-  width: min(28%, 12rem);
-  aspect-ratio: 4 / 5;
-}
-
-.inquiry-momentum-badge {
-  position: absolute;
-  left: 1.25rem;
-  bottom: 1.25rem;
-  z-index: 2;
-  display: grid;
-  max-width: 13rem;
-  gap: 0.2rem;
-  background: rgb(255 253 247 / 0.93);
-  padding: 1rem;
-
-  & span:first-child {
-    color: var(--color-brand-primary-bright);
-    font-family: var(--font-trocchi), Georgia, serif;
-    font-size: 2.25rem;
-    line-height: 0.9;
-  }
-
-  & span:last-child {
-    color: var(--color-ink);
-    font-size: 0.76rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    line-height: 1.15;
-    text-transform: uppercase;
-  }
+.location-experience-photo-coffee {
+  grid-column: 2;
 }
 
 .order-step-row {
@@ -2051,81 +1591,12 @@ body[data-nav-open='true'] .mobile-order-bar {
   padding-top: 1rem;
 }
 
-.order-location-ticket {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: 5;
-  width: min(52%, 19rem);
-  border: 2px solid var(--color-brand-primary-bright);
-  background: rgb(255 253 247 / 0.95);
-  padding: 1.25rem;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 1.2rem 3rem rgb(45 45 45 / 0.16);
-
-  & h3 {
-    color: var(--color-ink);
-    font-family: var(--font-trocchi), Georgia, serif;
-    font-size: 2.6rem;
-    line-height: 1;
-    text-transform: lowercase;
-  }
-
-  & p:last-child {
-    margin-top: 0.45rem;
-    color: var(--color-ink);
-    font-weight: 700;
-  }
-}
-
 .order-photo-chip {
-  position: absolute;
+  position: relative;
   overflow: hidden;
-  width: min(38%, 13.5rem);
-  aspect-ratio: 4 / 5;
-  border: 0.42rem solid var(--color-cream);
-  background: var(--color-cream);
-  box-shadow: 0 1rem 2.5rem rgb(45 45 45 / 0.16);
-
-  & span {
-    position: absolute;
-    left: 0.6rem;
-    right: 0.6rem;
-    bottom: 0.6rem;
-    z-index: 2;
-    background: rgb(255 253 247 / 0.92);
-    padding: 0.38rem 0.5rem;
-    color: var(--color-ink);
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    line-height: 1;
-    text-transform: uppercase;
-  }
-}
-
-.order-photo-chip-1 {
-  left: 7%;
-  top: 7%;
-  transform: rotate(-3deg);
-}
-
-.order-photo-chip-2 {
-  right: 7%;
-  top: 7%;
-  transform: rotate(2deg);
-}
-
-.order-photo-chip-3 {
-  left: 9%;
-  bottom: 7%;
-  transform: rotate(2.5deg);
-}
-
-.order-photo-chip-4 {
-  right: 8%;
-  bottom: 7%;
-  transform: rotate(-2deg);
+  min-height: 0;
+  border: 1px solid rgb(45 45 45 / 0.12);
+  background: white;
 }
 
 .logo-animation-shell {
@@ -2512,46 +1983,6 @@ to {
   }
 }
 
-@keyframes yum-photo-float-a {
-  0%,
-  100% {
-    transform: translateY(0) rotate(2deg);
-  }
-  50% {
-    transform: translateY(-0.75rem) rotate(1deg);
-  }
-}
-
-@keyframes yum-photo-float-b {
-  0%,
-  100% {
-    transform: translateY(0) rotate(-3deg);
-  }
-  50% {
-    transform: translateY(0.7rem) rotate(-1.5deg);
-  }
-}
-
-@keyframes yum-photo-float-c {
-  0%,
-  100% {
-    transform: translateY(0) rotate(-1deg);
-  }
-  50% {
-    transform: translateY(-0.55rem) rotate(-2.5deg);
-  }
-}
-
-@keyframes yum-photo-float-d {
-  0%,
-  100% {
-    transform: translateY(0) rotate(3deg);
-  }
-  50% {
-    transform: translateY(0.65rem) rotate(1.5deg);
-  }
-}
-
 @keyframes yum-photo-reel-left {
 from {
     transform: translateX(0);
@@ -2602,16 +2033,6 @@ to {
   }
   100% {
     box-shadow: 0 0 0 16px color-mix(in srgb, var(--color-brand-primary) 0%, transparent);
-  }
-}
-
-@keyframes patticake-tag-bob {
-  0%,
-  100% {
-    translate: 0 0;
-  }
-  50% {
-    translate: 0 -0.45rem;
   }
 }
 
@@ -2719,11 +2140,6 @@ to {
     animation-play-state: paused;
   }
 
-  .patticake-floating-messages span.tape-tag-settled,
-  .cake-message-tags span.tape-tag-settled {
-    animation: patticake-tag-bob 6.8s ease-in-out infinite;
-  }
-
   .press-wrap :is(.btn-primary, .btn-secondary):hover {
     transform: none;
   }
@@ -2732,53 +2148,13 @@ to {
     animation: message-field-pulse 1.15s cubic-bezier(0.16, 1, 0.3, 1) 1;
   }
 
-  .message-preview-card,
-  .concierge-photo,
-  .concierge-ticket {
-    animation: yum-soft-float 7.8s ease-in-out infinite;
-  }
-
-  .message-preview-card-front,
-  .concierge-photo-gift {
-    animation-duration: 8.7s;
-    animation-delay: 360ms;
-  }
-
   .message-preview-cake {
     animation: yum-soft-float 9.4s ease-in-out infinite;
-  }
-
-  .patticake-floating-messages span:nth-child(2),
-  .cake-message-tags span:nth-child(2) {
-    animation-delay: 260ms;
-    animation-duration: 7.3s;
-  }
-
-  .patticake-floating-messages span:nth-child(3),
-  .cake-message-tags span:nth-child(3) {
-    animation-delay: 520ms;
-    animation-duration: 6.2s;
   }
 
   .kinetic-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 24px 50px rgb(45 45 45 / 0.16);
-  }
-
-  .photo-motion-layer-1 {
-    animation: yum-photo-float-a 8s ease-in-out infinite;
-  }
-
-  .photo-motion-layer-2 {
-    animation: yum-photo-float-b 9s ease-in-out infinite;
-  }
-
-  .photo-motion-layer-3 {
-    animation: yum-photo-float-c 7.4s ease-in-out infinite;
-  }
-
-  .photo-motion-layer-4 {
-    animation: yum-photo-float-d 8.8s ease-in-out infinite;
   }
 
   .photo-motion-track-left {
@@ -2793,73 +2169,49 @@ to {
     animation-play-state: paused;
   }
 
-  .menu-orbit-card,
-  .cake-studio-photo,
-  .patticake-remotion-frame,
-  .location-experience-float,
-  .order-photo-chip {
-    animation: yum-soft-float var(--motion-role-duration, 7.5s) ease-in-out infinite;
-  }
-
-  .menu-orbit-card-2,
-  .cake-studio-photo-2,
-  .patticake-remotion-frame-2,
-  .location-experience-float-b,
-  .order-photo-chip-2 {
-    animation-duration: 8.6s;
-    animation-delay: 300ms;
-  }
-
-  .menu-orbit-card-3,
-  .cake-studio-photo-3,
-  .patticake-remotion-frame-3,
-  .order-photo-chip-3 {
-    animation-duration: 9.2s;
-    animation-delay: 500ms;
-  }
-
-  .menu-orbit-card-4,
-  .cake-studio-photo-4,
-  .order-photo-chip-4 {
-    animation-duration: 8.1s;
-    animation-delay: 700ms;
-  }
-
   .sticky {
     transition: box-shadow 250ms ease, background-color 250ms ease;
   }
 
-  .logo-animation-logo {
+  .logo-animation-shell .logo-animation-logo,
+  .hero-yum-logo .logo-animation-logo {
     animation:
       yum-logo-land 920ms cubic-bezier(0.22, 1, 0.36, 1) both,
       yum-logo-breathe 5.5s ease-in-out 1050ms infinite;
   }
 
-  .logo-animation-halo {
+  .logo-animation-shell .logo-animation-halo,
+  .hero-yum-logo .logo-animation-halo {
     animation: yum-halo-bloom 1100ms ease 90ms both;
   }
 
-  .logo-animation-ring {
+  .logo-animation-shell .logo-animation-ring,
+  .hero-yum-logo .logo-animation-ring {
     animation: yum-ring-spin 1350ms cubic-bezier(0.22, 1, 0.36, 1) 160ms both;
   }
 
-  .logo-animation-shine::before {
+  .logo-animation-shell .logo-animation-shine::before,
+  .hero-yum-logo .logo-animation-shine::before {
     animation: yum-logo-shine 1700ms ease 420ms both;
   }
 
-  .logo-animation-spark {
+  .logo-animation-shell .logo-animation-spark,
+  .hero-yum-logo .logo-animation-spark {
     animation: yum-spark-pop 1600ms ease both;
   }
 
-  .logo-animation-spark-1 {
+  .logo-animation-shell .logo-animation-spark-1,
+  .hero-yum-logo .logo-animation-spark-1 {
     animation-delay: 560ms;
   }
 
-  .logo-animation-spark-2 {
+  .logo-animation-shell .logo-animation-spark-2,
+  .hero-yum-logo .logo-animation-spark-2 {
     animation-delay: 720ms;
   }
 
-  .logo-animation-spark-3 {
+  .logo-animation-shell .logo-animation-spark-3,
+  .hero-yum-logo .logo-animation-spark-3 {
     animation-delay: 860ms;
   }
 
@@ -2895,15 +2247,7 @@ to {
 
   [data-motion-paused='true'] .patticake-home-hero::before,
   [data-motion-paused='true'] .patticake-message-ribbon-track,
-  [data-motion-paused='true'] .patticake-floating-messages span,
-  [data-motion-paused='true'] .cake-message-tags span,
-  [data-motion-paused='true'] .message-preview-card,
   [data-motion-paused='true'] .message-preview-cake,
-  [data-motion-paused='true'] .concierge-photo,
-  [data-motion-paused='true'] .concierge-ticket,
-  [data-motion-paused='true'] .patticake-remotion-frame,
-  [data-motion-paused='true'] .cake-studio-photo,
-  [data-motion-paused='true'] .photo-motion-layer,
   [data-motion-paused='true'] .photo-motion-track {
     animation-play-state: paused !important;
   }
@@ -2983,42 +2327,14 @@ to {
   }
 
   .logo-animation-backdrop,
-  .logo-animation-logo,
-  .logo-animation-halo,
-  .logo-animation-ring,
   .logo-animation-shine::before,
   .logo-animation-spark,
-  .logo-animation-tagline,
-  .logo-animation-replay,
-  .home-hero-image,
   .home-hero-indicator::after,
-  .hero-panel,
-  .hero-motion-image,
   .red-band-motion::before,
   .red-band-curve,
-  .yum-rhythm-item,
-  .patticake-home-hero::before,
-  .patticake-message-ribbon-track,
-  .patticake-floating-messages span,
-  .cake-message-tags span,
-  .message-preview-card,
-  .message-preview-cake,
-  .concierge-photo,
-  .concierge-ticket,
-  .menu-feature-photo,
-  .location-modal-backdrop,
-  .location-modal-panel,
-  .photo-motion-layer,
-  .photo-motion-track,
-  .menu-orbit-card,
-  .cake-studio-photo,
-  .patticake-remotion-frame,
-  .location-experience-float,
-  .order-photo-chip {
-    animation: none;
-    translate: none;
+  .patticake-home-hero::before {
+    opacity: 0;
     transform: none;
-    transition: none;
   }
 
   .home-hero-image {
@@ -3027,11 +2343,6 @@ to {
   }
 
   .home-hero-image.is-active {
-    opacity: 1;
-  }
-
-  .logo-animation-halo,
-  .logo-animation-ring {
     opacity: 1;
   }
 
@@ -3199,10 +2510,6 @@ to {
     font-size: 3.2rem;
   }
 
-  .menu-orbit-core span:first-child {
-    font-size: 4rem;
-  }
-
   .logo-animation-tagline {
     font-size: 2rem;
   }
@@ -3217,14 +2524,18 @@ to {
   }
 
   .photo-motion-collage,
-  .menu-orbit,
+  .menu-photo-grid,
   .cake-studio-board,
   .location-experience-board,
   .order-momentum-board {
-    min-height: 460px;
+    min-height: 420px;
   }
 
   .patticake-hero-card {
+    min-height: 27rem;
+  }
+
+  .patticake-delivery-photo-pair {
     min-height: 27rem;
   }
 
@@ -3237,48 +2548,8 @@ to {
   }
 
   .patticake-message-ribbon span {
-    min-height: 2.25rem;
-    padding: 0.55rem 0.75rem;
+    padding: 0.25rem 0;
     font-size: 1.05rem;
-  }
-
-  .patticake-floating-messages span,
-  .cake-message-tags span {
-    padding: 0.52rem 0.62rem;
-    font-size: 0.64rem;
-    letter-spacing: 0.06em;
-  }
-
-  .cake-message-tags span:nth-child(1) {
-    right: 4%;
-    top: 12%;
-  }
-
-  .cake-message-tags span:nth-child(2) {
-    left: 4%;
-    top: 36%;
-  }
-
-  .cake-message-tags span:nth-child(3) {
-    display: none;
-  }
-
-  .patticake-floating-messages span:nth-child(1) {
-    left: 5%;
-    top: 54%;
-  }
-
-  .patticake-floating-messages span:nth-child(2) {
-    right: 5%;
-    top: 43%;
-  }
-
-  .patticake-floating-messages span:nth-child(3) {
-    display: none;
-  }
-
-  .patticake-remotion-board {
-    min-height: 33rem;
   }
 
   .motion-pause-button {
@@ -3288,51 +2559,13 @@ to {
     font-size: 0.68rem;
   }
 
-  .patticake-remotion-title {
-    left: 50%;
-    top: 51%;
-    max-width: 13.5rem;
-    padding: 0.95rem;
+  .patticake-photo-grid {
+    min-height: 33rem;
   }
 
-  .patticake-remotion-frame {
-    border-width: 0.35rem;
-  }
-
-  .patticake-remotion-frame figcaption {
-    left: 0.45rem;
-    right: 0.45rem;
-    bottom: 0.45rem;
-    padding: 0.55rem;
-    font-size: 0.68rem;
-  }
-
-  .patticake-remotion-frame-1 figcaption,
-  .patticake-remotion-frame-2 figcaption {
-    bottom: auto;
-    top: 0.45rem;
-  }
-
-  .patticake-floating-messages span:nth-child(1) {
-    top: 67%;
-  }
-
-  .patticake-remotion-frame-1 {
-    left: 6%;
-    top: 6%;
-    width: 52%;
-  }
-
-  .patticake-remotion-frame-2 {
-    right: 6%;
-    top: 12%;
-    width: 43%;
-  }
-
-  .patticake-remotion-frame-3 {
-    left: 12%;
-    bottom: 7%;
-    width: 76%;
+  .patticake-photo-grid-frame figcaption {
+    padding: 0.55rem 0.6rem;
+    font-size: 0.66rem;
   }
 
   .message-preview-stage {
@@ -3343,102 +2576,36 @@ to {
     inset: 13% 8%;
   }
 
-  .message-preview-card {
-    font-size: 0.68rem;
-    padding: 0.55rem 0.65rem;
-  }
-
-  .message-preview-card-back {
-    left: 5%;
-    top: 6%;
-  }
-
-  .message-preview-card-front {
-    right: 5%;
-    bottom: 7%;
-  }
-
-  .concierge-board {
-    min-height: 35rem;
-  }
-
-  .concierge-photo-main {
-    left: 0;
-    top: 2%;
-    width: 62%;
-  }
-
-  .concierge-photo-gift {
-    right: 0;
-    top: 12%;
-    width: 42%;
-  }
-
-  .concierge-ticket {
-    left: 7%;
-    top: 42%;
-    max-width: 16.5rem;
-  }
-
   .concierge-note-stack {
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
+    grid-template-columns: 1fr;
   }
 
-  .patticake-ticket {
+  .patticake-process-panel {
     grid-template-columns: 1fr;
     gap: 1.4rem;
-    padding: 1.4rem;
   }
 
-  .patticake-ticket-stub {
-    justify-items: start;
-    border-right: 0;
-    border-bottom: 1px dashed rgb(45 45 45 / 0.28);
-    padding-bottom: 1rem;
-    font-size: 1.35rem;
-    text-align: left;
-    writing-mode: horizontal-tb;
-    transform: none;
+  .photo-motion-layer figcaption {
+    padding: 0.55rem 0.6rem;
+    font-size: 0.66rem;
   }
 
-  .photo-motion-spine {
-    inset: 1rem auto auto 1rem;
-  }
-
-  .photo-motion-layer-1,
-  .photo-motion-layer-2,
-  .photo-motion-layer-3,
-  .photo-motion-layer-4,
-  .menu-orbit-card,
-  .cake-studio-photo,
-  .order-photo-chip {
-    width: min(50%, 12.5rem);
-  }
-
-  .photo-motion-layer span,
-  .order-photo-chip span {
-    font-size: 0.68rem;
-  }
-
-  .menu-orbit-core,
-  .cake-studio-note,
-  .order-location-ticket {
-    width: min(60%, 16rem);
+  .location-experience-board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: minmax(0, 1.16fr) minmax(0, 0.84fr);
   }
 
   .location-experience-main {
-    inset: 0 0 5.5rem 0;
+    grid-column: span 2;
+    grid-row: auto;
   }
 
-  .location-experience-float-a {
-    width: min(56%, 15rem);
+  .location-experience-photo-lunch {
+    grid-column: 1;
   }
 
-  .location-experience-float-b {
-    width: min(36%, 10rem);
+  .location-experience-photo-coffee {
+    grid-column: 2;
   }
 
   .inquiry-momentum-frame {
