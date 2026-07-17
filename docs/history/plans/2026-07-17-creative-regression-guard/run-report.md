@@ -1,6 +1,6 @@
 # Yum and Patticake creative regression guard - 2026-07-17
 
-Branch: `codex/creative-regression-guard`.
+Branch: `codex/creative-regression-guard`. Ready review: [PR #22](https://github.com/zachringnight/yumkitchen-rebuild/pull/22).
 
 ## Outcome
 
@@ -83,7 +83,7 @@ Durable review evidence is checked into the repository:
 - All 12 current top-level delivery ZIPs passed the outer SHA-256 manifest. The two full handoff bundles also passed all 182 and 215 internal file hashes.
 - Web TypeScript passed and the expanded motion/design audit passed 52 checks after the final site hierarchy change.
 - Final `bash verify.sh` passed on the final source: production build, critical UI flows, 36 route and viewport visual checks, 454 rendered images, 30 motion-role checks, 6 reduced-motion routes, 56 links and anchors, zero serious or critical accessibility violations, and Lighthouse 100/100/100/100.
-- Final pull-request review remains the release gate for this branch.
+- Ready [PR #22](https://github.com/zachringnight/yumkitchen-rebuild/pull/22) remains the release gate for this branch.
 
 ## July 17 Instagram refresh
 
