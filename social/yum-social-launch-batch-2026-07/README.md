@@ -1,6 +1,8 @@
 # yum! and Patticake six-asset launch batch
 
-Six conversion-ready campaign lanes built from approved real photography and the 2026 motion system.
+> Historical and superseded. Preserve for provenance only. Do not rerender, review as current, publish, or use as AI-coder art direction. The active pack is `../yum-patticake-creative-launch-2026-07-14/`, and the current review surface is `/asset-gallery`.
+
+Six retired campaign lanes built from approved real photography and the earlier 2026 motion system.
 
 ## output
 
@@ -23,6 +25,6 @@ Six conversion-ready campaign lanes built from approved real photography and the
 | 5 | Patticake | birthday cake | birthday cake, handled | Plan the Cake | birthday cake request completions | 7 |
 | 6 | Patticake | weddings and events | cake for the table | Start an Event Inquiry | qualified event cake inquiries | 11 |
 
-## production rule
+## historical status
 
-The files are visually finished. Assets with an operational gate remain production-ready but must not be published or promoted until that specific fact is confirmed.
+These files predate the unobstructed-photo, dedicated baby-blue field, and logo-red type rule. They are not production-ready. Preserve them as history only.

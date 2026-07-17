@@ -143,7 +143,7 @@
     "cta": "Send a Patticake",
     "destination": "https://patticake.com/patticake",
     "beats": ["skip the card", "add the message", "send the cake"],
-    "images": ["gift_box_vertical.jpg", "06_8inch_a.jpg", "slices_plates_vertical.jpg"]
+    "images": ["gift_box_vertical.jpg", "03_top_view.jpg", "slices_plates_vertical.jpg"]
   },
   {
     "id": "patticake-local-pickup",

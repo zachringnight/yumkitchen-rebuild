@@ -16,6 +16,18 @@ const rootLayout = read('app/layout.tsx');
 const springs = read('components/motion/springs.ts');
 const patticakeHomeSurface = read('components/PatticakeHome.tsx');
 const patticakeDelivery = read('app/patticake/page.tsx');
+const patticakePickup = read('app/order-a-cake/page.tsx');
+const patticakeHeroPeek = read('components/PatticakeHeroPeek.tsx');
+const yumPhotoStory = read('components/PhotoMotionStory.tsx');
+const reviewAssets = read('app/asset-gallery/assets.json');
+const creativeReviewSync = read('scripts/sync-creative-review-assets.mjs');
+const devCacheCleanup = read('scripts/clear-dev-cache.mjs');
+const creativeLaunchMotion = read('../social/yum-patticake-creative-launch-2026-07-14/src/CreativeLaunch.tsx');
+const carouselCardMotion = read('../social/yum-patticake-creative-launch-2026-07-14/src/CarouselCard.tsx');
+const carouselSequenceMotion = read('../social/yum-patticake-creative-launch-2026-07-14/src/CarouselMotion.tsx');
+const carouselSpecs = read('../social/yum-patticake-creative-launch-2026-07-14/src/carousel-specs.json');
+const motionReviewBuilder = read('../social/yum-patticake-creative-launch-2026-07-14/scripts/build-motion-review.mjs');
+const socialSourceOfTruth = read('../social/START-HERE.md');
 
 const getCssBlock = (source, selector) => {
   const start = source.indexOf(selector);
@@ -67,6 +79,18 @@ const hasReducedMotionRoleReset = hasRuleWithSelectorsAndDeclarations(
   reducedMotionResetDeclarations,
 );
 const hasBareReducedMotionLogoHide = /(^|,)\s*\.logo-animation-logo\s*(?:,|\{)/m.test(reducedMotionCss);
+const patticakeRibbonCss = getCssBlock(css, '.patticake-message-ribbon span');
+const patticakePeekCaptionCss = getCssBlock(css, '.patticake-hero-peek figcaption');
+const patticakeGridCaptionCss = getCssBlock(css, '.patticake-photo-grid-frame figcaption');
+const yumPhotoCaptionCss = getCssBlock(css, '.photo-motion-layer figcaption');
+const positionedPatticakeImageParents = [
+  '.patticake-hero-card',
+  '.patticake-delivery-secondary-photo',
+  '.patticake-hero-peek-image',
+  '.patticake-photo-grid-image',
+].every((selector) => getCssBlock(css, selector).includes('position: relative'));
+const activePatticakeCopy = [patticakeHomeSurface, patticakeDelivery, patticakePickup, reviewAssets].join('\n');
+const hasRetiredThreeWaysFraming = /one cake(?:\s*[,/]\s*|\s+)three(?:\s+happy)?\s+ways/i.test(activePatticakeCopy);
 
 const checks = [
   ['motion token slow', css.includes('--motion-duration-slow')],
@@ -99,6 +123,28 @@ const checks = [
   ['patticake home uses restrained motion primitives', patticakeHomeSurface.includes('<Reveal') && patticakeHomeSurface.includes('patticake-photo-grid')],
   ['patticake delivery page uses restrained motion primitives', patticakeDelivery.includes('<Reveal') && patticakeDelivery.includes('<Stagger') && patticakeDelivery.includes('patticake-delivery-photo-pair')],
   ['no deprecated Patticake sticker treatment', !css.includes('tape-tag') && !patticakeHomeSurface.includes('TapeTag') && !patticakeDelivery.includes('TapeTag')],
+  ['no retired three-ways Patticake framing on active surfaces', !hasRetiredThreeWaysFraming],
+  ['Patticake home leads with one nationwide feature', patticakeHomeSurface.includes('patticake_home_nationwide_feature') && patticakeHomeSurface.includes('send cake,') && !patticakeHomeSurface.includes('const moments') && !patticakeHomeSurface.includes('pick your cake moment') && !patticakeHomeSurface.includes('md:grid-cols-3')],
+  ['Patticake delivery page uses one editorial cake fact band', patticakeDelivery.includes('three layers.') && patticakeDelivery.includes('one real bakery cake.') && patticakeDelivery.includes('divide-y divide-brand-primary/30') && !patticakeDelivery.includes('const cakeFacts') && !patticakeDelivery.includes('md:grid-cols-3')],
+  ['Patticake pickup page removes the equal three-card choice block', patticakePickup.includes('Ship Nationwide') && patticakePickup.includes('nationwide gifting') && !patticakePickup.includes('const cakePaths') && !patticakePickup.includes('where should the cake go?') && !patticakePickup.includes('md:grid-cols-3')],
+  ['Patticake message ribbon is plain type', !patticakeRibbonCss.includes('background:') && !patticakeRibbonCss.includes('border:') && !patticakeRibbonCss.includes('box-shadow:')],
+  ['Patticake fill image parents are positioned', positionedPatticakeImageParents],
+  ['Patticake mobile hero caption stays below the image', patticakeHeroPeek.includes('</div>\n      <figcaption>') && !patticakePeekCaptionCss.includes('position: absolute')],
+  ['Patticake photo grid captions stay below images', patticakeHomeSurface.includes('patticake-photo-grid-image') && !patticakeGridCaptionCss.includes('position: absolute')],
+  ['Yum photo grid captions stay below images', yumPhotoStory.includes('photo-motion-image') && !yumPhotoCaptionCss.includes('position: absolute')],
+  ['active gallery sync uses the current creative launch pack', creativeReviewSync.includes("yum-patticake-creative-launch-2026-07-14") && !creativeReviewSync.includes("yum-patticake-social-motion-pack")],
+  ['gallery sync archives stale review assets instead of deleting them', creativeReviewSync.includes("archive', 'retired-review-assets") && creativeReviewSync.includes('archiveUnexpected') && creativeReviewSync.includes('renameSync')],
+  ['dev cache cleanup preserves an active server and clears stale locks', devCacheCleanup.includes("spawnSync('lsof'") && devCacheCleanup.includes('lockHasOwner') && devCacheCleanup.includes("process.argv.includes('--force')")],
+  ['Remotion launch copy stays in its blue layout panel', creativeLaunchMotion.includes('const photoRight = isWide ? panelWidth : 0') && creativeLaunchMotion.includes('const photoBottom = isWide ? 0 : panelHeight') && creativeLaunchMotion.includes('width: "auto"') && creativeLaunchMotion.includes('height: "auto"') && creativeLaunchMotion.includes('overflow: "hidden"') && !creativeLaunchMotion.includes('bottom: isWide ? 54 : 216') && !creativeLaunchMotion.includes('textShadow')],
+  ['Remotion compact motion panels reserve footer room', creativeLaunchMotion.includes(': isSquare ? 540 : isFeed ? 610 : 700') && creativeLaunchMotion.includes('isSquare ? 82 : isFeed ? 88')],
+  ['Remotion CTA holds fully for the final two seconds', creativeLaunchMotion.includes('const ctaStart = isShortsCut ? 7.45 : 5.45')],
+  ['motion review posters sample fully resolved end frames', motionReviewBuilder.includes('posterAt: 0.88')],
+  ['carousel card counters stay off photography', !carouselCardMotion.includes('top: 58') && !carouselCardMotion.includes('top: 735') && carouselCardMotion.includes('alignItems: "baseline"')],
+  ['carousel logo player stays inside the blue panel', !carouselSequenceMotion.includes('bottom: panelHeight - Math.round(badgeSize / 2)') && carouselSequenceMotion.includes('bottom: isFeed ? 28 : 38')],
+  ['active carousel uses nationwide framing, not new-home framing', !/new[ -]home/i.test(carouselSpecs) && carouselSpecs.includes('launch-01-nationwide')],
+  ['asset gallery sync uses the nationwide carousel id', !/new[ -]home/i.test(reviewAssets) && reviewAssets.includes('carousel-card-launch-01-nationwide')],
+  ['social handoff points to the current launch pack', socialSourceOfTruth.includes('yum-patticake-creative-launch-2026-07-14/') && socialSourceOfTruth.includes('historical production references only')],
+  ['social handoff retires stale launch and Instagram visual packs', socialSourceOfTruth.includes('yum-social-launch-batch-2026-07/') && socialSourceOfTruth.includes('instagram/') && socialSourceOfTruth.includes('Do not rerender or publish')],
 ];
 
 const failures = checks.filter(([, passed]) => !passed).map(([label]) => label);

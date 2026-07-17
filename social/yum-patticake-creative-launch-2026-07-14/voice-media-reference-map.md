@@ -59,10 +59,10 @@ Do not use `luxury`, `gourmet`, `elevated`, `artisan`, `decadent`, or `premium` 
 - Use real hands, staff, counters, rooms, boxes, labels, notes, and bakery work.
 - Let one product or action dominate each frame.
 - Open video on visible action: box opening, tray arriving, cake cutting, frosting, handoff, steam, or a location arrival.
-- Build from full-bleed photography, then add one baby-blue or red copy surface inside the safe zone.
+- Reserve an unobstructed photo area beside a dedicated baby-blue copy field, with logo-red type and action.
 - Baby blue and logo red are the dominant system. White can support legibility. Cream and black are not leading brand fields in this launch pack.
 - Keep the circular yum! mark active and visible as a real player, not a tiny corner watermark.
-- Use straight cuts, restrained push-ins, and printed ticket/card motion. Avoid template-heavy transitions.
+- Use straight cuts, restrained push-ins, and a logo-red player rail inside the baby-blue field. Avoid template-heavy transitions.
 - No generated food, fake customers, fake packaging, stock celebrations, black CTA panels, pink washes, decorative gradients, or luxury black-and-gold styling.
 
 ## source hierarchy
@@ -140,7 +140,7 @@ Do not use an individual review, customer image, creator clip, or direct quote i
 
 ## claim conflicts and release gates
 
-- **Shipping/delivery:** the May 21 live-site capture says cakes did not ship or deliver, while the July 9 launch copy says Patticake ships nationwide. Use neutral `check current delivery or pickup options` language until the live checkout path and fulfillment rules are verified.
+- **Shipping/delivery:** the May 21 no-shipping capture is retired. Current owner-approved launch truth is that Patticake is available nationwide. Nationwide shipping is approved launch copy. Verify checkout-specific dates, fees, and address eligibility immediately before release.
 - **Patticake naming story:** the older structured profile marked `named after Patti Soskin` as unconfirmed; the newer July 9 approved copy bank marks it confirmed. The July 9 source is newer, but retain its owner-confirmation provenance if the claim is used publicly.
 - **Dynamic details:** verify prices, hours, menu items, availability, deadlines, capacity, dietary claims, customization, and delivery coverage immediately before release.
 - **Reviews:** aggregate ratings may change; individual reviews and photos require source capture and rights review before paid or promotional use.

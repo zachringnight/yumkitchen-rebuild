@@ -3,7 +3,7 @@
 - [ ] Brand is correctly identified as yum!, Patticake, or an intentional split asset.
 - [ ] Current logo and approved wordmark treatment are used without distortion or effects.
 - [ ] Trocchi 400 is used for lowercase display copy and Archivo Narrow for support copy.
-- [ ] Text panels use Yum white, blue, or red treatments, not black or pink-tinted panels.
+- [ ] Baby-blue copy fields and logo-red type lead. White, cream, and ink support only. No text cards, stickers, glow, black panels, or copy over photography.
 - [ ] Food, cake, location, staff, packaging, and event imagery is real and rights-cleared.
 - [ ] CTA matches the business goal and destination.
 - [ ] URL resolves on mobile and the correct UTM is present.

@@ -1,6 +1,20 @@
 # live Instagram benchmark
 
-Checked July 14, 2026 against [@yumkitchen](https://www.instagram.com/yumkitchen/). This is a directional creative comparison, not a controlled performance study.
+Refreshed July 17, 2026 against [@yumkitchen](https://www.instagram.com/yumkitchen/). This is a directional creative comparison, not a controlled performance study.
+
+## July 17 live refresh
+
+The public profile response showed 8,671 followers, 1,520 posts, and 12 recent posts from July 6 through July 17. That window contained 11 single-image feed posts, one community carousel, and no Reels. Counts and ranking can change after capture.
+
+What the newest window confirms:
+
+- The July 17 Patticake post leads with a long table of real cake slices and the team serving them. Product proof and human work are the story.
+- The July 16 porch post is a straightforward restaurant-life photograph. The copy is one lowercase sentence tied to the weather.
+- Food closeups, children eating, guests, flowers, and neighborhood events make the grid feel lived in.
+- The feed has very little repeatable motion or a consistent baby-blue and red visual memory. That is the clearest place for the launch pack to add value.
+- The new launch work is stronger in motion, brand recognition, product explanation, and conversion clarity. The live feed remains stronger in unplanned human texture. Publishing needs both.
+
+Current creative bar: every designed post must keep a real owned photograph unobstructed, use one idea at a time, and feel recognizably baby blue and red without making the grid look like a run of ads.
 
 ## what the live feed does best
 
@@ -49,7 +63,7 @@ The June 30 competitive set included captured home-page references from Crumbl, 
 
 - Keep the live feed's human truth, then add a more consistent baby-blue and red brand memory.
 - Give each asset one message and one action. Do not return to three equal copy boxes.
-- Use full-bleed photography for the first two-thirds of motion; reserve the baby-blue field for a clear close.
+- Reserve unobstructed photography beside or above a dedicated baby-blue field from frame one, then resolve the same field into the clear conversion close.
 - Keep the real yum! logo visible as a player, not a tiny watermark.
 - Use explicit CTAs on conversion posts. Let community and human posts stay lighter and more conversational.
 - Use cream, black, and gray only as photographic neutrals. They should not lead the designed system.

@@ -7,8 +7,8 @@
 - **Display type:** Trocchi 400, lowercase, short, and warm. Never fake a bold Trocchi.
 - **Support type:** Archivo Narrow 400, 500, or 700 for body, captions, labels, CTA, and burned-in subtitles.
 - **Core colors:** brand primary red `#b4212b`, bright red `#e03a3e`, ink `#2d2d2d`, white, light blue `#cae4fd`, and soft blue `#aed2ef`.
-- **Text cards:** use white paper, light blue, soft blue, or red with appropriate contrast. Do not use black text panels. Do not use pink-tinted text backgrounds.
-- **Corners:** keep text panels and graphic surfaces sharp or lightly softened. Avoid pill-heavy styling and decorative gradients.
+- **Copy field:** reserve a dedicated baby-blue field beside or below unobstructed photography. Use logo-red type and action. Do not place a floating card, badge, glow, or text over the image.
+- **Edges:** keep the copy field sharp and structural. Avoid pill-heavy styling and decorative gradients.
 
 ## visual principles
 
@@ -17,7 +17,7 @@
 3. Let one product or action dominate each frame.
 4. Keep headlines to 3-8 words and one action per asset.
 5. Show the operational path when it reduces uncertainty: pick a kitchen, write the note, pack the cake, assemble the boxes, or start the inquiry.
-6. Build full-bleed photography first, then add brand copy surfaces in the safe zone.
+6. Reserve separate photo and copy regions from the first frame. Never place the copy field over the photograph.
 
 ## photography
 
@@ -34,7 +34,7 @@
 - Use 8-20 seconds for direct-response concepts and 20-40 seconds for guides or creator stories.
 - Use straight cuts, restrained push-ins, and explicit frame-based easing. Avoid template-heavy transitions.
 - Burn in the core hook and CTA. Captions must remain readable without sound.
-- Text card motion should feel like printed recipe cards or order tickets entering the frame, using white, blue, and red.
+- Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a restrained logo rail.
 - Keep the final CTA visible for at least two seconds above the platform UI.
 
 ## composition

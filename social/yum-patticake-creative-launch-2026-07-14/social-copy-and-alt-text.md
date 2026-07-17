@@ -19,11 +19,11 @@ Caption: Four kitchens, one very good decision. Swipe through St. Louis Park, Sh
 Alt text by card:
 
 1. People outside the Yum Kitchen and Bakery entrance above a baby-blue panel reading “pick your yum!” in red.
-2. The St. Louis Park Yum Kitchen and Bakery entrance above a baby-blue location card.
-3. The Shady Oak Yum Kitchen and Bakery brick storefront above a baby-blue location card.
-4. The round red Yum sign outside the St. Paul location above a baby-blue location card.
-5. The Woodbury Yum Kitchen and Bakery storefront above a baby-blue location card.
-6. Plates of chocolate cake slices above a baby-blue card listing all four kitchens and inviting viewers to find their kitchen.
+2. The St. Louis Park Yum Kitchen and Bakery entrance above a baby-blue location panel.
+3. The Shady Oak Yum Kitchen and Bakery brick storefront above a baby-blue location panel.
+4. The round red Yum sign outside the St. Paul location above a baby-blue location panel.
+5. The Woodbury Yum Kitchen and Bakery storefront above a baby-blue location panel.
+6. Plates of chocolate cake slices above a baby-blue field listing all four kitchens and inviting viewers to find their kitchen.
 
 ## feed the room carousel
 
@@ -32,10 +32,10 @@ Caption: Feeding a meeting, team lunch, or full room? Start with the date and he
 Alt text by card:
 
 1. A boxed Yum lunch with sandwiches, fruit, and a large cookie above a baby-blue panel reading “feed the room.”
-2. A boxed Yum lunch laid out on a table above a baby-blue card about boxed lunches.
-3. A Yum sandwich meal beside a bright baby-blue box above a baby-blue card about sandwiches for the table.
-4. A tray of assorted grilled sandwiches above a baby-blue card about trays and bakery.
-5. A Yum sandwich meal and baby-blue box above a baby-blue catering inquiry card asking for the date and headcount.
+2. A boxed Yum lunch laid out on a table above a baby-blue panel about boxed lunches.
+3. A Yum sandwich meal beside a bright baby-blue box above a baby-blue panel about sandwiches for the table.
+4. A tray of assorted grilled sandwiches above a baby-blue panel about trays and bakery.
+5. A Yum sandwich meal and baby-blue box above a baby-blue catering inquiry field asking for the date and headcount.
 
 ## send cake carousel
 
@@ -43,11 +43,11 @@ Caption: Send cake, not a card. Start with the moment, add the message, and let 
 
 Alt text by card:
 
-1. A display of bright baby-blue Yum bakery boxes with red circular logos above a baby-blue card reading “send cake, not a card.”
-2. A close view of a bright baby-blue Yum gift box tied with red Yum ribbon above a baby-blue card about the box.
-3. A top view of a white frosted cake above a baby-blue card reading “add the message.”
-4. Chocolate cake slices on white plates above a baby-blue card reading “share the first slice.”
-5. A display of bright baby-blue Yum bakery boxes above a baby-blue Patticake call-to-action card.
+1. A display of bright baby-blue Yum bakery boxes with red circular logos above a baby-blue field reading “send cake, not a card.”
+2. A close view of a bright baby-blue Yum gift box tied with red Yum ribbon above a baby-blue panel about the box.
+3. A top view of a white frosted cake above a baby-blue field reading “add the message.”
+4. Chocolate cake slices on white plates above a baby-blue field reading “share the first slice.”
+5. A display of bright baby-blue Yum bakery boxes above a baby-blue Patticake call-to-action field.
 
 ## motion captions
 

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-15T23:49:37.136Z",
+  "generated": "2026-07-17T14:56:20.569Z",
   "scope": "All delivered Yum and Patticake motion masters",
   "expectedCounts": {
     "socialLanes": 14,
@@ -10,6 +10,198 @@
     "files": 87,
     "passed": 87,
     "failed": 0
+  },
+  "assetSetChecks": [
+    {
+      "folder": "motion-9x16-10s",
+      "expected": 14,
+      "actual": 14,
+      "missing": [],
+      "unexpected": [],
+      "pass": true
+    },
+    {
+      "folder": "motion-9x16",
+      "expected": 14,
+      "actual": 14,
+      "missing": [],
+      "unexpected": [],
+      "pass": true
+    },
+    {
+      "folder": "motion-4x5",
+      "expected": 14,
+      "actual": 14,
+      "missing": [],
+      "unexpected": [],
+      "pass": true
+    },
+    {
+      "folder": "motion-1x1",
+      "expected": 14,
+      "actual": 14,
+      "missing": [],
+      "unexpected": [],
+      "pass": true
+    },
+    {
+      "folder": "motion-16x9",
+      "expected": 14,
+      "actual": 14,
+      "missing": [],
+      "unexpected": [],
+      "pass": true
+    },
+    {
+      "folder": "story-9x16",
+      "expected": 14,
+      "actual": 14,
+      "missing": [],
+      "unexpected": [],
+      "pass": true
+    },
+    {
+      "folder": "feed-4x5",
+      "expected": 14,
+      "actual": 14,
+      "missing": [],
+      "unexpected": [],
+      "pass": true
+    },
+    {
+      "folder": "square-1x1",
+      "expected": 14,
+      "actual": 14,
+      "missing": [],
+      "unexpected": [],
+      "pass": true
+    },
+    {
+      "folder": "wide-16x9",
+      "expected": 14,
+      "actual": 14,
+      "missing": [],
+      "unexpected": [],
+      "pass": true
+    },
+    {
+      "folder": "link-1.91x1",
+      "expected": 14,
+      "actual": 14,
+      "missing": [],
+      "unexpected": [],
+      "pass": true
+    },
+    {
+      "folder": "pin-2x3",
+      "expected": 14,
+      "actual": 14,
+      "missing": [],
+      "unexpected": [],
+      "pass": true
+    },
+    {
+      "folder": "carousel-4x5/feed-the-room",
+      "expected": 5,
+      "actual": 5,
+      "missing": [],
+      "unexpected": [],
+      "pass": true
+    },
+    {
+      "folder": "carousel-4x5/how-to-patticake",
+      "expected": 5,
+      "actual": 5,
+      "missing": [],
+      "unexpected": [],
+      "pass": true
+    },
+    {
+      "folder": "carousel-4x5/meet-patticake",
+      "expected": 5,
+      "actual": 5,
+      "missing": [],
+      "unexpected": [],
+      "pass": true
+    },
+    {
+      "folder": "carousel-4x5/patticake-occasions",
+      "expected": 5,
+      "actual": 5,
+      "missing": [],
+      "unexpected": [],
+      "pass": true
+    },
+    {
+      "folder": "carousel-4x5/pick-your-kitchen",
+      "expected": 6,
+      "actual": 6,
+      "missing": [],
+      "unexpected": [],
+      "pass": true
+    },
+    {
+      "folder": "carousel-4x5/send-cake",
+      "expected": 5,
+      "actual": 5,
+      "missing": [],
+      "unexpected": [],
+      "pass": true
+    },
+    {
+      "folder": "carousel-motion-9x16",
+      "expected": 6,
+      "actual": 6,
+      "missing": [],
+      "unexpected": [],
+      "pass": true
+    },
+    {
+      "folder": "carousel-motion-4x5",
+      "expected": 6,
+      "actual": 6,
+      "missing": [],
+      "unexpected": [],
+      "pass": true
+    },
+    {
+      "folder": "brand-motion",
+      "expected": 6,
+      "actual": 6,
+      "missing": [],
+      "unexpected": [],
+      "pass": true
+    }
+  ],
+  "creativeLayoutChecks": {
+    "photoAreaReserved": true,
+    "noLegacyPhotoCopyBox": true,
+    "noTextGlow": true,
+    "logoPlayerInsidePanel": true,
+    "compactMotionPanelSafe": true,
+    "stableReviewPosters": true,
+    "twoSecondCtaHold": true,
+    "staticReviewBoardsRefreshWithMetadata": true,
+    "staleDeliveryBundlesAreQuarantined": true,
+    "deliveryZipChecksumsArePublished": true,
+    "brandMotionBundleRefreshesFromCurrentExports": true,
+    "allCarouselSetsHaveDeliveryBundles": true,
+    "staleVisualPacksAreRetired": true,
+    "retiredLaunchBuilderFailsClosed": true,
+    "retiredInstagramKitIsNotPublishable": true,
+    "retiredInstagramBuilderFailsClosed": true,
+    "retiredMotionPacksAreNotPublishable": true,
+    "retiredMotionBuildersFailClosed": true,
+    "fullToolkitCannotRegenerateCardOverlays": true,
+    "historicalToolkitBoardIsPreserved": true,
+    "staleCreativeProductionSessionsAreQuarantined": true,
+    "activeReviewOptionsRemainReproducible": true,
+    "agentContractRoutesSocialWorkToSourceOfTruth": true,
+    "carouselCountersOffPhotos": true,
+    "carouselPlayerInsidePanel": true,
+    "noRetiredNewHomeFraming": true,
+    "retiredThreeWaysFramingCannotRebuild": true,
+    "thankYouUsesNeutralCakeProof": true
   },
   "results": [
     {

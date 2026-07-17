@@ -1,6 +1,8 @@
 # yum! social motion template 2026
 
-This is the new reusable 2026 social motion template system. It is intentionally separate from the older Instagram and post-worthy packs.
+> Historical and superseded. Preserve for provenance only. Do not rerender or publish. The active pack is `../yum-patticake-creative-launch-2026-07-14/`, and the current review surface is `/asset-gallery`.
+
+This was an earlier reusable 2026 motion template system. Its white-panel and over-photo patterns are not current art direction.
 
 ## Output
 
@@ -13,9 +15,4 @@ This is the new reusable 2026 social motion template system. It is intentionally
 - `remotion`: editable Remotion source
 - `review-board.html` and `contact-sheet.png`: Creative Production review surfaces
 
-## Rebuild
-
-```bash
-cd /Users/zsoskin/dev/yumkitchen-rebuild
-python3 social/scripts/build_2026_social_motion_template.py
-```
+The old rebuild path is intentionally blocked so it cannot overwrite or reintroduce stale visual direction.

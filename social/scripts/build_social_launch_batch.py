@@ -4,6 +4,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -23,17 +24,9 @@ VIDEO = OUT / "exports" / "9x16-video"
 FEED = OUT / "exports" / "4x5-feed"
 STORY = OUT / "exports" / "story"
 COPY = OUT / "copy"
-REVIEW_RENDERER = (
-    Path.home()
-    / ".codex"
-    / "plugins"
-    / "cache"
-    / "openai-curated-remote"
-    / "creative-production"
-    / "0.1.24"
-    / "scripts"
-    / "review_renderer.py"
-)
+REVIEW_RENDERER_ROOT = Path.home() / ".codex" / "plugins" / "cache" / "openai-curated-remote" / "creative-production"
+REVIEW_RENDERERS = sorted(REVIEW_RENDERER_ROOT.glob("*/scripts/review_renderer.py"), reverse=True)
+REVIEW_RENDERER = REVIEW_RENDERERS[0] if REVIEW_RENDERERS else None
 
 sys.path.insert(0, str(SOCIAL / "scripts"))
 import build_2026_social_motion_template as motion  # noqa: E402
@@ -98,14 +91,14 @@ ASSETS: list[dict[str, Any]] = [
         "objective": "Drive Patticake order starts and gift demand.",
         "destination": "https://patticake.com/patticake",
         "cta": "Send a Patticake",
-        "caption": "Send cake, not a card. Add the note, choose the current pickup or delivery path, and give them something meant to be shared.",
+        "caption": "Send cake, not a card. Add the note, choose local pickup or nationwide shipping, and give them something meant to be shared.",
         "hashtags": "#Patticake #SendACake #ThankYouGift",
         "bestChannels": "Instagram Reels, TikTok, YouTube Shorts, Meta paid",
         "primaryMetric": "Patticake order starts",
         "publishDay": 3,
         "paidHeadline": "Send cake, not a card",
         "storyLinkLabel": "Send a Cake",
-        "approvalGate": "Confirm the live Patticake destination and current delivery options.",
+        "approvalGate": "Confirm the live Patticake destination and checkout-specific dates.",
     },
     {
         "id": "patticake-birthday-first-slice",
@@ -380,7 +373,7 @@ def write_support_docs(results: list[dict[str, Any]]) -> None:
 - [ ] Operational gate in the table below is confirmed by the owner.
 - [ ] Video is 1080x1920, 30 fps, 8 seconds, with text inside the safe zone.
 - [ ] Feed export is 1080x1350 and Story export is 1080x1920.
-- [ ] Text cards use Yum white, red, and blue, not black or pink-tinted panels.
+- [ ] Photography stays unobstructed beside a dedicated baby-blue field with logo-red type. No floating cards, badges, glow, or copy over photos.
 - [ ] Caption contains no placeholder, unsupported date, price, hour, capacity, delivery, dietary, or customization claim.
 - [ ] Music and talent rights cover the intended organic or paid use.
 - [ ] Alt text is prepared from the real image content.
@@ -406,6 +399,8 @@ def write_support_docs(results: list[dict[str, Any]]) -> None:
 
 
 def write_review(results: list[dict[str, Any]]) -> None:
+    if REVIEW_RENDERER is None:
+        raise FileNotFoundError("Creative Production review renderer is not installed")
     review = []
     for item in results:
         review.append(
@@ -458,7 +453,9 @@ def write_readme(results: list[dict[str, Any]]) -> None:
         "README.md",
         """# yum! and Patticake six-asset launch batch
 
-Six conversion-ready campaign lanes built from approved real photography and the 2026 motion system.
+> Historical and superseded. Preserve for provenance only. Do not publish or use as current AI-coder art direction. The active pack is `../yum-patticake-creative-launch-2026-07-14/`, and the current review surface is `/asset-gallery`.
+
+Six retired campaign lanes built from approved real photography and the earlier 2026 motion system.
 
 ## output
 
@@ -476,9 +473,9 @@ Six conversion-ready campaign lanes built from approved real photography and the
         + table(["#", "Brand", "Lane", "Hook", "CTA", "Primary metric", "Publish day"], rows)
         + """
 
-## production rule
+## historical status
 
-The files are visually finished. Assets with an operational gate remain production-ready but must not be published or promoted until that specific fact is confirmed.
+These files predate the unobstructed-photo, dedicated baby-blue field, and logo-red type rule. They are not production-ready. Preserve them as history only.
 """,
     )
 
@@ -499,7 +496,7 @@ def write_manifest(results: list[dict[str, Any]]) -> Path:
         "createdAt": datetime.now(timezone.utc).isoformat(),
         "campaign": CAMPAIGN,
         "version": VERSION,
-        "status": "production-ready, operational gates pending where noted",
+        "status": "historical and superseded, do not publish",
         "counts": {"campaignLanes": len(results), "video9x16": 6, "feed4x5": 6, "story": 6, "totalExports": len(exports)},
         "utmTemplate": "utm_source={platform}&utm_medium={organic_social|paid_social}&utm_campaign=yum_social_launch_2026_07&utm_content={asset_id}_v01",
         "assets": results,
@@ -528,6 +525,11 @@ def validate_text() -> None:
 
 
 def main() -> None:
+    if os.environ.get("ALLOW_RETIRED_YUM_LAUNCH_BATCH_REBUILD") != "1":
+        raise SystemExit(
+            "Retired builder blocked. Use social/yum-patticake-creative-launch-2026-07-14 and /asset-gallery. "
+            "Set ALLOW_RETIRED_YUM_LAUNCH_BATCH_REBUILD=1 only for an explicit provenance rebuild."
+        )
     clean()
     results = build_exports()
     write_copy(results)

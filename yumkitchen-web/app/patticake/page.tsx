@@ -112,18 +112,14 @@ const trustNotes = [
   'simple chocolate cake, vanilla buttercream, and a message people remember',
 ] as const;
 
-const cakeFacts = [
+const cakeDetails = [
   {
-    title: 'the cake',
-    copy: 'yum!’s signature: a towering triple-layer chocolate cake with vanilla buttercream, baked from scratch.',
+    title: 'made from scratch',
+    copy: 'Devil’s food chocolate cake and vanilla buttercream, baked by the yum! team.',
   },
   {
-    title: 'the size',
+    title: 'made to share',
     copy: 'An 8-inch round that serves 8 to 16, or send it by the slice.',
-  },
-  {
-    title: 'the lineup',
-    copy: 'One of three signature yum! cakes, alongside Baker’s Man and Coconut.',
   },
 ] as const;
 
@@ -259,22 +255,37 @@ export default function PatticakeNationalDeliveryPage() {
       </section>
 
       <section className="bg-white px-6 py-12 lg:py-section">
-        <div className="mx-auto max-w-[1240px]">
-          <Reveal className="max-w-2xl">
-            <p className="section-label">meet the cake</p>
-            <h2 className="text-h2 lowercase">what you&apos;re sending</h2>
-            <p className="mt-5 text-xl leading-9 text-body">
-              Patticake is yum!&apos;s signature: a towering triple-layer chocolate cake with vanilla buttercream, baked from scratch and packed to travel.
-            </p>
-          </Reveal>
-          <Stagger className="mt-10 grid gap-4 md:grid-cols-3">
-            {cakeFacts.map((fact) => (
-              <StaggerItem as="article" key={fact.title} className="border border-ink/10 bg-white p-6">
-                <h3 className="text-h3 lowercase">{fact.title}</h3>
-                <p className="mt-3 text-base leading-7 text-body">{fact.copy}</p>
-              </StaggerItem>
-            ))}
-          </Stagger>
+        <div className="mx-auto grid max-w-[1240px] overflow-hidden border-y border-brand-primary/25 lg:grid-cols-[0.92fr_1.08fr]">
+          <div className="relative min-h-[420px] bg-blue-soft lg:min-h-[620px]">
+            <Image
+              src="/images/patticake/layers_slice_vertical.jpg"
+              alt="yum! patticake chocolate cake layers close up"
+              fill
+              sizes="(min-width: 1024px) 46vw, 100vw"
+              className="object-cover crop-patticake-vertical-layer"
+            />
+          </div>
+          <div className="flex flex-col bg-blue-tint p-[clamp(2rem,5vw,4.75rem)]">
+            <Reveal>
+              <p className="section-label text-ink">meet the cake</p>
+              <h2 className="mt-3 font-serif text-[clamp(3.25rem,6vw,5.75rem)] font-normal leading-[0.92] lowercase text-brand-primary">
+                three layers.
+                <br />
+                one real bakery cake.
+              </h2>
+              <p className="mt-6 max-w-xl text-xl leading-9 text-ink">
+                Patticake is yum!&apos;s signature chocolate cake, packed to travel and ready for the table.
+              </p>
+            </Reveal>
+            <Stagger className="mt-10 divide-y divide-brand-primary/30 border-y border-brand-primary/30 sm:mt-auto">
+              {cakeDetails.map((detail) => (
+                <StaggerItem as="article" key={detail.title} className="grid gap-2 py-5 sm:grid-cols-[0.42fr_0.58fr] sm:gap-6">
+                  <h3 className="font-serif text-2xl font-normal lowercase text-brand-primary">{detail.title}</h3>
+                  <p className="text-lg leading-8 text-ink">{detail.copy}</p>
+                </StaggerItem>
+              ))}
+            </Stagger>
+          </div>
         </div>
       </section>
 

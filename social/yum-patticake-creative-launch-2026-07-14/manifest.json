@@ -1,6 +1,6 @@
 {
   "name": "yum! and Patticake creative launch pack",
-  "created": "2026-07-15T23:49:04.083Z",
+  "created": "2026-07-17T14:29:53.350Z",
   "source": "current high-resolution Yum site and social photography plus the consolidated Patticake design system dated 2026-07-09",
   "system": {
     "colors": {
@@ -12,7 +12,7 @@
       "display": "Trocchi 400",
       "utility": "Archivo Narrow 400/700"
     },
-    "signature": "full-bleed real photography, one message at a time, baby-blue editorial field, logo-red action, and active logo player"
+    "signature": "unobstructed real photography beside or above a dedicated baby-blue field, one message at a time, logo-red action, and active logo player"
   },
   "counts": {
     "lanes": 14,
@@ -39,12 +39,15 @@
     "delivery-zips/yum-pick-your-kitchen-carousel.zip",
     "delivery-zips/yum-feed-the-room-carousel.zip",
     "delivery-zips/patticake-send-cake-carousel.zip",
+    "delivery-zips/patticake-meet-patticake-carousel.zip",
+    "delivery-zips/patticake-how-to-patticake-carousel.zip",
+    "delivery-zips/patticake-occasions-carousel.zip",
     "delivery-zips/yum-people-behind-the-plate-social.zip",
     "delivery-zips/yum-patticake-motion-8s.zip",
     "delivery-zips/yum-patticake-motion-10s.zip",
     "delivery-zips/patticake-slice-logo-motion.zip",
-    "delivery-zips/yum-patticake-creative-launch-motion-2026-07-15.zip",
-    "delivery-zips/patticake-com-launch-rollout-2026-07-15.zip"
+    "delivery-zips/yum-patticake-creative-launch-motion-2026-07-17.zip",
+    "delivery-zips/patticake-com-launch-rollout-2026-07-17.zip"
   ],
   "assets": [
     {
@@ -436,7 +439,7 @@
       ],
       "images": [
         "gift_box_vertical.jpg",
-        "06_8inch_a.jpg",
+        "03_top_view.jpg",
         "slices_plates_vertical.jpg"
       ],
       "outputs": {
@@ -768,7 +771,7 @@
       "output": "exports/carousel-4x5/send-cake/05-gifting-05-start-a-patticake.png"
     },
     {
-      "id": "launch-01-new-home",
+      "id": "launch-01-nationwide",
       "setId": "meet-patticake",
       "setTitle": "patticake nationwide",
       "card": 1,
@@ -780,7 +783,7 @@
       "support": "meet the cake made by yum!",
       "image": "gift_box_vertical.jpg",
       "objectPosition": "50% 50%",
-      "output": "exports/carousel-4x5/meet-patticake/01-launch-01-new-home.png"
+      "output": "exports/carousel-4x5/meet-patticake/01-launch-01-nationwide.png"
     },
     {
       "id": "launch-02-blue-box",

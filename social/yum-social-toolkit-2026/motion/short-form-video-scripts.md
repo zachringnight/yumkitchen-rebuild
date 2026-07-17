@@ -1,12 +1,12 @@
 # short-form video script pack
 
-All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue text cards, and one verified destination. Braced operational fields require replacement before release.
+All scripts assume a 1080x1920 master, burned-in captions, unobstructed photography, a dedicated baby-blue copy field with logo-red type, and one verified destination. Braced operational fields require replacement before release.
 
 ## 1. Pack a Patticake with us
 
 | Brand | Goal | Target audience | Length | Paid potential | Best channels |
 | --- | --- | --- | --- | --- | --- |
-| Patticake | delivery order consideration | gift senders | 15 seconds | high | Reels, TikTok, Shorts, paid |
+| Patticake | nationwide shipping consideration | gift senders | 15 seconds | high | Reels, TikTok, Shorts, paid |
 
 **Hook:** pack a Patticake order with us
 
@@ -16,15 +16,15 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 2. Lower real cake into insert
 3. Check gift note without showing private data
 4. Close box and tie current packaging
-5. Hand off for delivery
+5. Hand off for shipping
 
 **On-screen text:** cake checked -> message checked -> ready to send
 
 **Voiceover or caption:** A Patticake gift starts with the cake, the message, and one last check before the box closes.
 
-**CTA:** Check Delivery Options
+**CTA:** Ship Nationwide
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 2. Cut the first slice
 
@@ -48,7 +48,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Plan the Cake
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 3. Birthday cake pickup
 
@@ -72,7 +72,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Pick Up Locally
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 4. Send a thank-you cake
 
@@ -96,7 +96,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Send a Patticake
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 5. Office catering spread
 
@@ -120,7 +120,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Start a Catering Note
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 6. Box lunch assembly
 
@@ -144,7 +144,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Plan Catering
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 7. Bakery case morning restock
 
@@ -168,7 +168,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Find a Location
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 8. Staff favorite order
 
@@ -192,7 +192,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** See the Menu
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 9. First-time yum! order guide
 
@@ -216,7 +216,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Explore the Menu
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 10. Four-location neighborhood post
 
@@ -240,7 +240,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Find Your yum!
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 11. Gift card holiday post
 
@@ -264,7 +264,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Buy a Gift Card
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 12. Wedding cake alternative
 
@@ -288,7 +288,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Start an Event Inquiry
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 13. Corporate gifting explainer
 
@@ -312,7 +312,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Ask About Corporate Gifting
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 14. Customer review visual
 
@@ -325,7 +325,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 **Shot list:**
 
 1. Verified review source
-2. Exact short quote on white card
+2. Exact short quote in the baby-blue copy field
 3. Supporting food or cake proof
 4. Source and date
 5. Relevant CTA
@@ -336,7 +336,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** See What They Ordered
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 15. What to order for lunch
 
@@ -360,7 +360,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Order Online
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 16. Family dinner pickup
 
@@ -384,7 +384,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Order Online
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 17. Cake message writing
 
@@ -408,7 +408,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Start a Cake Request
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 18. Frosting close-up
 
@@ -432,7 +432,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** See Patticake
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 19. Catering add-ons
 
@@ -456,7 +456,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Plan Catering
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 20. Behind the counter
 
@@ -480,7 +480,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Order Online
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 21. Minnesota nostalgia gift
 
@@ -504,7 +504,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Send a Patticake
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 22. Former local sends cake home
 
@@ -526,9 +526,9 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **Voiceover or caption:** Distance changes the address, not the reason to show up for the table.
 
-**CTA:** Check Delivery Options
+**CTA:** Ship Nationwide
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 23. Graduation celebration
 
@@ -552,7 +552,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Plan the Cake
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 24. Teacher thank-you
 
@@ -576,7 +576,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Send a Thank-You Cake
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 25. Office birthday
 
@@ -600,7 +600,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Plan an Office Cake
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 26. Client thank-you gift
 
@@ -624,7 +624,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Ask About Corporate Gifting
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 27. Holiday gifting deadline
 
@@ -648,7 +648,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Check Current Options
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 28. Rainy day comfort food
 
@@ -672,7 +672,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Order Online
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 29. Bakery tray for meetings
 
@@ -696,7 +696,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Plan Catering
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 30. Why Patticake?
 
@@ -712,12 +712,12 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 2. Chocolate layer macro
 3. Vanilla buttercream top
 4. Gift note and box
-5. Pickup and delivery path split
+5. Local pickup and nationwide shipping path split
 
-**On-screen text:** real layers -> personal note -> pickup or current delivery options
+**On-screen text:** real layers -> personal note -> local pickup or nationwide shipping
 
 **Voiceover or caption:** Patticake is yum!'s celebration cake: real chocolate layers, vanilla buttercream, and a message made for the occasion.
 
 **CTA:** See Patticake
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.

@@ -8,7 +8,9 @@ The system turns the website's strongest interaction idea into campaign language
 
 The color hierarchy follows the cake boxes and logo: bright Yum baby blue is the base material, logo red is the stamp, ribbon, headline, and action color, and the photography appears like a product window. Cream is not a core composition color.
 
-The Yum logo travels along a red packaging-ribbon playback rail without recoloring or stretching, then lands on a clean end frame. Photography stays clear at the top. No persistent corner lockup or type glow competes with the image.
+Every motion format reserves a solid baby-blue field beside or below the photography from the first frame. One red scene message lives in that field, then resolves into the final hook and action. The Yum logo travels along a red packaging-ribbon playback rail without recoloring or stretching. No copy box, persistent corner lockup, or type glow covers the image.
+
+Carousel counters are plain red type inside the baby-blue field. Static carousel marks and motion playback rails stay off the photography.
 
 The pack does not introduce the unapproved scallop or wave motif from the July 14 handoff.
 
@@ -41,8 +43,8 @@ The pack does not introduce the unapproved scallop or wave motif from the July 1
 - `motion-review/` - poster-led review board for every motion master
 - `exports/carousel-4x5/` - six ordered carousel sets
 - `carousel-review/` - shared Creative Production review surface for all 31 carousel cards
-- `delivery-zips/yum-patticake-creative-launch-motion-2026-07-15.zip` - canonical, checksummed motion launch bundle
-- `delivery-zips/patticake-com-launch-rollout-2026-07-15.zip` - complete Patticake.com motion, still, carousel, logo, and publishing bundle
+- `delivery-zips/yum-patticake-creative-launch-motion-2026-07-17.zip` - canonical, checksummed motion launch bundle
+- `delivery-zips/patticake-com-launch-rollout-2026-07-17.zip` - complete Patticake.com motion, still, carousel, logo, and publishing bundle
 - `delivery-zips/` - upload-ready bundles for each carousel and motion duration
 - `delivery-zips/yum-people-behind-the-plate-social.zip` - the human-first 8s, 10s, Story, feed, square, and wide masters
 

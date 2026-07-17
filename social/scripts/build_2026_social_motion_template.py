@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import math
+import os
 import shutil
 import subprocess
 from dataclasses import dataclass
@@ -1051,6 +1052,11 @@ def clean() -> None:
 
 
 def main() -> None:
+    if os.environ.get("ALLOW_RETIRED_YUM_MOTION_TEMPLATE_REBUILD") != "1":
+        raise SystemExit(
+            "Retired builder blocked. Use social/yum-patticake-creative-launch-2026-07-14 and /asset-gallery. "
+            "Set ALLOW_RETIRED_YUM_MOTION_TEMPLATE_REBUILD=1 only for an explicit provenance rebuild."
+        )
     clean()
     write_derived_assets()
     write_guides()

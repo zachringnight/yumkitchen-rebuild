@@ -1,6 +1,6 @@
 import {execFileSync} from 'node:child_process';
-import {copyFileSync, mkdirSync, readFileSync, statSync, writeFileSync} from 'node:fs';
-import {dirname, join, resolve} from 'node:path';
+import {copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, renameSync, statSync, writeFileSync} from 'node:fs';
+import {basename, dirname, extname, join, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const webRoot = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -12,9 +12,11 @@ const publicRoot = join(webRoot, 'public', 'review-assets');
 const videoRoot = join(publicRoot, 'videos');
 const posterRoot = join(publicRoot, 'posters');
 const dataPath = join(webRoot, 'app', 'asset-gallery', 'assets.json');
+const retiredRoot = join(publicRoot, 'archive', 'retired-review-assets');
 
 mkdirSync(videoRoot, {recursive: true});
 mkdirSync(posterRoot, {recursive: true});
+mkdirSync(retiredRoot, {recursive: true});
 
 const titleMap = {
   'patticake birthday': 'birthday cake, handled.',
@@ -169,6 +171,27 @@ for (const card of creativeManifest.carousels) {
     poster: `/review-assets/posters/${id}.jpg`,
   });
 }
+
+function archiveUnexpected(folder, expectedNames) {
+  for (const name of readdirSync(folder)) {
+    if (expectedNames.has(name)) continue;
+    const source = join(folder, name);
+    const extension = extname(name);
+    const stem = basename(name, extension);
+    let target = join(retiredRoot, name);
+    if (existsSync(target)) target = join(retiredRoot, `${stem}-${Math.round(statSync(source).mtimeMs)}${extension}`);
+    renameSync(source, target);
+  }
+}
+
+archiveUnexpected(
+  videoRoot,
+  new Set(assets.filter((asset) => asset.kind === 'motion').map((asset) => basename(asset.media))),
+);
+archiveUnexpected(
+  posterRoot,
+  new Set(assets.map((asset) => basename(asset.poster))),
+);
 
 writeFileSync(dataPath, `${JSON.stringify(assets, null, 2)}\n`);
 console.log(`Synced ${assets.length} review assets to ${publicRoot}`);

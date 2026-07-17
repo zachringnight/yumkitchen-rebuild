@@ -2,14 +2,16 @@
 
 # yum! and Patticake complete social toolkit
 
+> Status: strategy and copy reference only. The July 9 visual examples and review board are superseded by `../yum-patticake-creative-launch-2026-07-14/` and the site `/asset-gallery`. Do not publish the older white-card assets or use them as current art direction.
+
 Built 2026-07-09 for practical organic, paid, creator, location, catering, gifting, and motion production.
 
 ## executive summary
 
 - yum! is the everyday Twin Cities food habit. Social should move people to a current menu, a nearby kitchen, pickup, catering, bakery, or gift cards.
-- Patticake is the occasion brand. Social should make birthdays, thank-yous, client gifts, local pickup, current delivery options, and events feel specific and actionable.
+- Patticake is the occasion brand. Social should make birthdays, thank-yous, client gifts, local pickup, nationwide shipping, and events feel specific and actionable.
 - The system uses real food, real cake, real hands, real staff, real locations, and real operational steps.
-- Motion and text cards use Yum white, blue, and red. Black text panels and pink-tinted copy backgrounds are excluded.
+- Baby blue and logo red lead motion and type. White, cream, and ink stay supporting. Floating cards, black panels, glow, and pink-tinted copy backgrounds are excluded.
 
 ## toolkit counts
 
@@ -32,9 +34,9 @@ Built 2026-07-09 for practical organic, paid, creator, location, catering, gifti
 ## start here
 
 1. Read `SOCIAL_TOOLKIT_MASTER.md` for the complete system in one file.
-2. Open `review-board.html` or `contact-sheet.png` to review the current assets.
+2. Open the checked-in `/asset-gallery` route to review current assets.
 3. Use `calendar/30-day-content-calendar.csv`, `copy/caption-bank.csv`, and `copy/hook-bank.csv` for production planning.
-4. Use `motion/short-form-video-scripts.md` with the editable Remotion sources in the two sibling motion packs.
+4. Use `motion/short-form-video-scripts.md` with the editable Remotion source in `../yum-patticake-creative-launch-2026-07-14/`.
 5. Resolve every P0 item in `production/operational-confirmations.md` before paid launch.
 6. Run every asset through `production/qa-checklist.md` before moving it to approved.
 
@@ -66,8 +68,8 @@ Built 2026-07-09 for practical organic, paid, creator, location, catering, gifti
 
 ## source asset packs
 
-- `../yum-patticake-social-motion-pack/`: 18 static exports and 7 motion assets.
-- `../yum-social-motion-template-2026/`: 6 vertical motion masters, covers, 4:5 posters, 3:4 crops, square crops, safe-zone guides, and editable Remotion source.
+- `../yum-patticake-creative-launch-2026-07-14/`: current production stills, carousels, motion masters, Patticake logo motion, and publishing guidance.
+- `../yum-patticake-social-motion-pack/` and `../yum-social-motion-template-2026/`: historical references only. Preserve for provenance, not publishing.
 
 # social strategy overview
 
@@ -168,7 +170,7 @@ Use location in either the campaign or content value, not in an untracked vanity
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | made-from-scratch food | yum! | neighborhood regulars, families, first-time guests | local orders and repeat visits | pan-to-plate sequence; soup and sandwich pairing; breakfast assembly; dinner pickup handoff | Reels, TikTok, Feed, Shorts, GBP | Order online; See the menu; Pick your kitchen | Reel, Short, carousel, paid ad |
 | bakery case and daily treats | yum! | regulars, parents, office buyers | same-day bakery visits and add-on orders | morning restock; close-up tray pull; case scan; meeting tray build | Stories, Reels, Feed, GBP | Stop by today; Add something sweet; Find a location | Story, Reel, static, GBP post |
-| Patticake gifting | Patticake | long-distance gift senders, former Minnesotans, gift buyers | cake orders and gift reminders | pack a cake; add a note; delivery-date reminder; unboxing and first slice | Reels, TikTok, Pinterest, Feed, paid | Send a Patticake; Check delivery options; Start an order | Reel, Pin, carousel, conversion ad |
+| Patticake gifting | Patticake | long-distance gift senders, former Minnesotans, gift buyers | cake orders and gift reminders | pack a cake; add a note; delivery-date reminder; unboxing and first slice | Reels, TikTok, Pinterest, Feed, paid | Send a Patticake; Ship nationwide; Start an order | Reel, Pin, carousel, conversion ad |
 | birthday and celebration moments | Patticake | parents, partners, friends, office planners | birthday pickup, shipping, and inquiry demand | cake pickup POV; first slice; message writing; office birthday table | Reels, Stories, Pinterest, paid | Plan the birthday cake; Pick up locally; Send a cake | Reel, Story sequence, Pin, paid ad |
 | office catering | yum! | office managers, HR, executive assistants, catering buyers | qualified catering leads | boxed lunch assembly; room-ready spread; bakery add-ons; planner checklist | LinkedIn, Instagram, Facebook, GBP, paid | Start a catering note; Plan lunch; Get a quote | carousel, Reel, lead ad, Story |
 | four neighborhoods | yum! | nearby guests and commuters | directions, location-page visits, and local orders | storefront walk-in; neighborhood errand pairing; parking arrival; four-kitchen montage | Feed, Stories, Reels, GBP, local paid | Find your yum!; Get directions; Order from this kitchen | location Reel, static, Story, local ad |
@@ -186,8 +188,8 @@ Use location in either the campaign or content value, not in an untracked vanity
 - **Display type:** Trocchi 400, lowercase, short, and warm. Never fake a bold Trocchi.
 - **Support type:** Archivo Narrow 400, 500, or 700 for body, captions, labels, CTA, and burned-in subtitles.
 - **Core colors:** brand primary red `#b4212b`, bright red `#e03a3e`, ink `#2d2d2d`, white, light blue `#cae4fd`, and soft blue `#aed2ef`.
-- **Text cards:** use white paper, light blue, soft blue, or red with appropriate contrast. Do not use black text panels. Do not use pink-tinted text backgrounds.
-- **Corners:** keep text panels and graphic surfaces sharp or lightly softened. Avoid pill-heavy styling and decorative gradients.
+- **Copy field:** reserve a dedicated baby-blue field beside or below unobstructed photography. Use logo-red type and action. Do not place a floating card, badge, glow, or text over the image.
+- **Edges:** keep the copy field sharp and structural. Avoid pill-heavy styling and decorative gradients.
 
 ## visual principles
 
@@ -196,7 +198,7 @@ Use location in either the campaign or content value, not in an untracked vanity
 3. Let one product or action dominate each frame.
 4. Keep headlines to 3-8 words and one action per asset.
 5. Show the operational path when it reduces uncertainty: pick a kitchen, write the note, pack the cake, assemble the boxes, or start the inquiry.
-6. Build full-bleed photography first, then add brand copy surfaces in the safe zone.
+6. Reserve separate photo and copy regions from the first frame. Never place the copy field over the photograph.
 
 ## photography
 
@@ -213,7 +215,7 @@ Use location in either the campaign or content value, not in an untracked vanity
 - Use 8-20 seconds for direct-response concepts and 20-40 seconds for guides or creator stories.
 - Use straight cuts, restrained push-ins, and explicit frame-based easing. Avoid template-heavy transitions.
 - Burn in the core hook and CTA. Captions must remain readable without sound.
-- Text card motion should feel like printed recipe cards or order tickets entering the frame, using white, blue, and red.
+- Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a restrained logo rail.
 - Keep the final CTA visible for at least two seconds above the platform UI.
 
 ## composition
@@ -250,7 +252,7 @@ Each template must preserve editable copy, replaceable media, a locked logo zone
 
 | Template | Purpose | Dimensions | Layout | Required asset | Headline style | Caption style | CTA | Variations | Best channels | Tracking | File name |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| yum! local order post | Move nearby guests into online ordering. | 1080x1350 and 1080x1920 | Full-bleed meal or pickup image; white headline card at upper left; red CTA bar low center. | Real order handoff or plated menu image. | lowercase Trocchi, 3-7 words | One decision, one location cue, one action. | Order Online | meal, daypart, location | Instagram, Facebook, GBP, paid | https://yumkitchen.com/order + standard UTM | yum_local-order_{location}_{date}_v## |
+| yum! local order post | Move nearby guests into online ordering. | 1080x1350 and 1080x1920 | Unobstructed meal or pickup image beside a dedicated baby-blue field with logo-red headline and CTA. | Real order handoff or plated menu image. | lowercase Trocchi, 3-7 words | One decision, one location cue, one action. | Order Online | meal, daypart, location | Instagram, Facebook, GBP, paid | https://yumkitchen.com/order + standard UTM | yum_local-order_{location}_{date}_v## |
 | yum! menu feature post | Create menu discovery without unsupported availability claims. | 1080x1350 carousel or 1080x1920 Reel | Macro food proof first; ingredient or preparation beats second; red CTA last. | Current menu item or verified seasonal item. | specific dish name in lowercase | Describe what is visible and point to the current menu. | See the Menu | single item, pairing, preparation | Instagram, TikTok, Shorts, paid | https://yumkitchen.com/menu + standard UTM | yum_menu_{item}_{format}_{date}_v## |
 | yum! bakery case post | Drive same-day visits and bakery add-ons. | 1080x1350 and 1080x1920 | Case scan or tray pull; blue caption tab; no inventory promise beyond the capture time. | Fresh case footage from that location and day. | what is in the case today | Use 'today at capture time' language and invite an in-person check. | Find a Location | case scan, tray detail, staff pick | Stories, Reels, GBP | https://yumkitchen.com/yum-kitchen#locations + standard UTM | yum_bakery-case_{location}_{date}_v## |
 | yum! catering post | Generate qualified catering inquiries. | 1080x1350 carousel and 1080x1920 Reel | Finished spread first; assembly proof; planner checklist; inquiry CTA. | Real boxed lunches, trays, bakery add-ons, and room setup. | feed the room | Name the occasion and planning friction solved. Avoid unsupported capacity claims. | Start a Catering Note | office lunch, meeting, celebration | Instagram, Facebook, LinkedIn, paid | https://yumkitchen.com/catering#inquiry + standard UTM | yum_catering_{occasion}_{format}_{date}_v## |
@@ -258,18 +260,18 @@ Each template must preserve editable copy, replaceable media, a locked logo zone
 | yum! gift card post | Drive gift card purchases. | 1080x1350 and 1080x1920 | Gift card or phone UI shown cleanly; red circle logo; white or blue copy surface. | Verified gift card visual or real handoff. | send lunch for later | Connect the gift to a specific recipient and occasion. | Buy a Gift Card | teacher, host, employee, family | Instagram, Facebook, Stories, email crossover | gift-cards + standard UTM | yum_gift-card_{occasion}_{date}_v## |
 | Patticake birthday post | Convert birthday intent into cake action. | 1080x1350 and 1080x1920 | Cake reveal; message detail; first slice; red CTA. | Real Patticake, candle or message, and hands. | a birthday cake that feels planned | Name the recipient or moment, then route to pickup or shipping options. | Plan the Cake | pickup, shipped gift, office birthday | Instagram, TikTok, Pinterest, paid | https://patticake.com/order-a-cake + standard UTM | patticake_birthday_{route}_{date}_v## |
 | Patticake thank-you gift post | Create occasion demand beyond birthdays. | 1080x1350 and 1000x1500 | Gift box and note first; slice proof second; destination CTA third. | Gift box, note card, hands, and cake slice. | thank you, but make it cake | Call out who deserves the thanks and keep fulfillment details current. | Send a Patticake | client, teacher, neighbor, host | Instagram, Pinterest, Facebook, paid | https://patticake.com/patticake + standard UTM | patticake_thank-you_{recipient}_{date}_v## |
-| Patticake shipped cake post | Drive delivery orders where currently available. | 1080x1920 Reel and 1000x1500 Pin | Pack, seal, message, handoff, unbox. Put delivery options behind the site CTA. | Real packing process and current packaging. | pack a Patticake with us | Describe the steps visible. Do not promise a date until checkout confirms it. | Check Delivery Options | packing, unboxing, first slice | Reels, TikTok, Shorts, Pinterest, paid | https://patticake.com/patticake + standard UTM | patticake_shipping_{concept}_{date}_v## |
+| Patticake shipped cake post | Drive nationwide cake shipping orders. | 1080x1920 Reel and 1000x1500 Pin | Pack, seal, message, handoff, unbox. Lead with nationwide availability and leave exact dates to checkout. | Real packing process and current packaging. | pack a Patticake with us | Describe the steps visible. Do not promise a date until checkout confirms it. | Ship Nationwide | packing, unboxing, first slice | Reels, TikTok, Shorts, Pinterest, paid | https://patticake.com/patticake + standard UTM | patticake_shipping_{concept}_{date}_v## |
 | Patticake local pickup post | Convert local celebration demand. | 1080x1350 and 1080x1920 | Boxed cake at counter; location selection; pickup handoff. | Real box, counter, and staff handoff. | birthday pickup, handled | Route to the request or order flow and avoid claiming availability. | Pick Up Locally | location, office, family | Instagram, Facebook, Stories, local paid | https://patticake.com/order-a-cake + standard UTM | patticake_pickup_{location}_{date}_v## |
 | Patticake corporate gifting post | Generate bulk gifting leads. | 1080x1350 carousel and 1080x1920 Reel | Recipient occasion; repeatable packing; message option; inquiry CTA. | Multiple boxes, note workflow, and real gifting setup. | client thank-yous people remember | Speak to planners. Use inquiry language for quantity, timing, and addresses. | Ask About Corporate Gifting | clients, teams, partners | LinkedIn, Instagram, Facebook, paid | https://patticake.com/order-a-cake + standard UTM | patticake_corporate-gifting_{audience}_{date}_v## |
 | Patticake wedding and event post | Generate qualified event inquiries. | 1000x1500 Pin, 1080x1350, 1080x1920 | Tiered cake proof; detail crop; event scene; inquiry CTA. | Real event cake and venue details with permission. | cake for the table you planned | Invite date, guest context, and inspiration. Do not promise customization. | Start an Event Inquiry | wedding, shower, rehearsal, event | Pinterest, Instagram, paid | https://patticake.com/order-a-cake + standard UTM | patticake_event_{occasion}_{date}_v## |
 | seasonal campaign post | Create timely demand without stale claims. | 1080x1350, 1080x1920, 1200x628 | Current product hero; date or availability line; one CTA. | Verified seasonal item or occasion footage. | seasonal line tied to the actual item | Include a publish-by date and owner confirmation field. | See What Is Available | food, bakery, gifting | all social, GBP, email crossover, paid | https://yumkitchen.com/menu + standard UTM | {brand}_seasonal_{campaign}_{date}_v## |
-| customer quote or testimonial post | Add proof without fake or unattributed reviews. | 1080x1350 carousel | Quote card on white or blue; source and date; supporting real image. | Approved review text with source record and usage approval. | short attributed quote | Keep the exact quote and route to the relevant action. | See the Menu | yum!, Patticake, catering | Instagram, Facebook, paid retargeting | https://yumkitchen.com/menu + standard UTM | {brand}_testimonial_{source}_{date}_v## |
+| customer quote or testimonial post | Add proof without fake or unattributed reviews. | 1080x1350 carousel | Unobstructed real image beside a dedicated baby-blue quote field with logo-red type, source, and date. | Approved review text with source record and usage approval. | short attributed quote | Keep the exact quote and route to the relevant action. | See the Menu | yum!, Patticake, catering | Instagram, Facebook, paid retargeting | https://yumkitchen.com/menu + standard UTM | {brand}_testimonial_{source}_{date}_v## |
 | review post | Turn verified review proof into a conversion assist. | 1080x1350 | Real review screenshot or exact transcription; photo proof; CTA. | Verified live review with captured URL and date. | what guests noticed | Never rewrite a quote. Remove private information. | Order Online | location, catering, gifting | Instagram, Facebook, Stories | https://yumkitchen.com/order + standard UTM | {brand}_review_{source}_{date}_v## |
 | staff favorite post | Humanize recommendations and drive menu exploration. | 1080x1920 Reel and 1080x1350 | Staff face or hands; order build; final plate; name and location. | Consent-cleared staff footage and current menu item. | {name}'s yum! order | One reason they order it, one visible proof point, one CTA. | Try the Order | staff, baker, counter, kitchen | Reels, TikTok, Stories | https://yumkitchen.com/menu + standard UTM | yum_staff-pick_{location}_{name}_{date}_v## |
 | limited-time drop post | Create urgency around verified limited availability. | 1080x1920 and 1080x1350 | Product reveal; date range; location or channel; CTA. | Same-day or campaign-approved product capture. | here while it is here | State only approved dates and locations. Add an internal expiry date. | Check Availability | bakery, seasonal menu, gifting | Stories, Reels, GBP, paid | https://yumkitchen.com/menu + standard UTM | {brand}_drop_{item}_{date}_v## |
 | Order Now Story frame | Move viewers directly to ordering. | 1080x1920 | Food photo; 3-5 word headline; red button zone above bottom UI. | Current food or pickup image. | lunch is handled | One support line maximum. | Order Now | daypart, location, menu category | Instagram Stories, Facebook Stories | https://yumkitchen.com/order + standard UTM | yum_story_order_{concept}_{date}_v## |
-| Get Quote Story frame | Generate catering leads. | 1080x1920 | Spread photo; planner hook; three proof chips; link sticker cue. | Real catering setup and optional planner hands. | feed the room | Mention pickup and route to the inquiry. Confirm notice language before posting. | Get a Quote | office, meeting, event | Instagram Stories, Facebook Stories | https://yumkitchen.com/catering#inquiry + standard UTM | yum_story_catering-quote_{occasion}_{date}_v## |
-| Send a Cake Story frame | Convert Patticake gifting intent. | 1080x1920 | Gift box; message card; slice; link sticker cue. | Real Patticake packing or gifting image. | send cake, not a card | Use current delivery or pickup language from the destination page. | Send a Cake | birthday, thank-you, client | Instagram Stories, Facebook Stories | https://patticake.com/patticake + standard UTM | patticake_story_send-cake_{occasion}_{date}_v## |
+| Get Quote Story frame | Generate catering leads. | 1080x1920 | Unobstructed spread photo beside a baby-blue field for the planner hook, proof, and native link cue. | Real catering setup and optional planner hands. | feed the room | Mention pickup and route to the inquiry. Confirm notice language before posting. | Get a Quote | office, meeting, event | Instagram Stories, Facebook Stories | https://yumkitchen.com/catering#inquiry + standard UTM | yum_story_catering-quote_{occasion}_{date}_v## |
+| Send a Cake Story frame | Convert Patticake gifting intent. | 1080x1920 | Real gift box, note, and slice beside a baby-blue field with logo-red type and native link cue. | Real Patticake packing or gifting image. | send cake, not a card | Lead with nationwide availability or the current local pickup path. | Send a Cake | birthday, thank-you, client | Instagram Stories, Facebook Stories | https://patticake.com/patticake + standard UTM | patticake_story_send-cake_{occasion}_{date}_v## |
 
 # channel-specific specs
 
@@ -304,7 +306,7 @@ The calendar is a launch sequence, not a requirement to publish only once per da
 | Day | Brand | Channel | Content pillar | Post concept | Asset type | Hook or headline | Caption direction | CTA | Landing page | Paid boost? | Designer/editor notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | yum! | Instagram Reel + TikTok | made-from-scratch food | First-time yum! lunch guide | 15s vertical video | what we would order on a first yum! lunch | Show three verified menu paths and a final pickup handoff. | See the Menu | https://yumkitchen.com/menu | yes | Paid-ready local order creative. Use current menu footage. |
-| 2 | Patticake | Instagram Feed + Pinterest | Patticake gifting | Send cake, not a card | 4:5 static + 2:3 Pin | send cake, not a card | Gift box, personal note, and a real slice. Route to current delivery options. | Send a Patticake | https://patticake.com/patticake | yes | Paid-ready gifting. No delivery deadline claim. |
+| 2 | Patticake | Instagram Feed + Pinterest | Patticake gifting | Send cake, not a card | 4:5 static + 2:3 Pin | send cake, not a card | Gift box, personal note, and a real slice. Patticake is available nationwide; leave exact dates to checkout. | Send a Patticake | https://patticake.com/patticake | yes | Paid-ready gifting. No delivery deadline claim. |
 | 3 | yum! | Stories + GBP | bakery case and daily treats | Morning bakery case restock | 3-frame Story + square photo | first look at today's bakery case | Film the real case at open and label the capture location. | Find a Location | https://yumkitchen.com/yum-kitchen#locations | no | Bakery post 1. Do not imply all-day stock. |
 | 4 | yum! | Instagram Feed + GBP | four neighborhoods | St. Louis Park location spotlight | 4:5 photo | the original yum! on Minnetonka Boulevard | Storefront, counter, and an order pickup moment. | Visit St. Louis Park | https://yumkitchen.com/location/st-louis-park | no | Location post 1. |
 | 5 | yum! | LinkedIn + Facebook + Instagram | office catering | Meeting lunch without the last-minute scramble | carousel | the office lunch upgrade nobody complains about | Show boxed lunches, trays, and bakery add-ons. Keep quantities unclaimed. | Start a Catering Note | https://yumkitchen.com/catering#inquiry | yes | Catering post 1. Paid lead-gen ready. |
@@ -314,7 +316,7 @@ The calendar is a launch sequence, not a requirement to publish only once per da
 | 9 | Patticake | Stories + Facebook | Patticake gifting | Thank-you cake sequence | 3-frame Story | thank you, but make it cake | Who it is for, how the note works, and where to start. | Send a Cake | https://patticake.com/patticake | no | Gifting post 2. |
 | 10 | yum! | Instagram Feed + GBP | four neighborhoods | Shady Oak location spotlight | 4:5 photo | your Minnetonka lunch stop | Show exterior, easy arrival, and one current food detail. | Visit Shady Oak | https://yumkitchen.com/location/shady-oak | no | Location post 2. |
 | 11 | yum! | Instagram Carousel + LinkedIn | office catering | Box lunch assembly | carousel | what goes into a room-ready lunch | Assembly order, labels, finished boxes, pickup handoff. | Plan Catering | https://yumkitchen.com/catering#inquiry | no | Catering post 2. |
-| 12 | Patticake | Instagram Reel + TikTok | Patticake gifting | Pack a Patticake with us | 15s vertical video | pack a Patticake order with us | Box, cake, message, ribbon, handoff. Show only current packaging. | Check Delivery Options | https://patticake.com/patticake | yes | Gifting post 3. Paid-ready process proof. |
+| 12 | Patticake | Instagram Reel + TikTok | Patticake gifting | Pack a Patticake with us | 15s vertical video | pack a Patticake order with us | Box, cake, message, ribbon, handoff. Show only current packaging. | Ship Nationwide | https://patticake.com/patticake | yes | Gifting post 3. Paid-ready process proof. |
 | 13 | yum! | Facebook + Stories | gift cards | Teacher thank-you gift card | 4:5 static + Story | lunch for the person who kept the year moving | Show the verified gift card purchase flow or real gift handoff. | Buy a Gift Card | https://www.toasttab.com/yumkitchenslp/giftcards | no | No discount or expiry claim. |
 | 14 | yum! | Instagram Reel + Shorts | made-from-scratch food | Rainy-day comfort food | 12s vertical video | Minnesota weather has a lunch order | Steam, spoon, sandwich cut, pickup bag. | Order Online | https://yumkitchen.com/order | no | Use current item footage. |
 | 15 | Patticake | Pinterest + Instagram Feed | weddings and events | Wedding cake detail study | 2:3 Pin + 4:5 carousel | cake for the table you planned | Tier, piping, cut, and table context with permission. | Start an Event Inquiry | https://patticake.com/order-a-cake | no | No custom-design promise. |
@@ -396,7 +398,7 @@ Operational placeholders in braces must be replaced and approved before publicat
 | CAP-032 | For the person who always says they do not need anything: they still need cake. | Send a Patticake | Instagram Feed | awareness | Gift box arriving at a front door or office. |
 | CAP-033 | Office birthday on the calendar? Add the cake before somebody volunteers grocery-store cupcakes in the group chat. | Plan an Office Cake | LinkedIn | conversion | Office table, candles, and Patticake slice. |
 | CAP-034 | The birthday message matters almost as much as the layers. Show us what should go on the cake request. | Start a Cake Request | Instagram Stories | engagement | Piping message close-up with question sticker. |
-| CAP-035 | A birthday in another state can still get a little yum! Check the current Patticake delivery options before you pick the date. | Check Delivery Options | Facebook | conversion | Packing, date selection, and first slice. |
+| CAP-035 | A birthday in another state can still get a little yum! Patticake is available nationwide; confirm the exact date at checkout. | Ship Nationwide | Facebook | conversion | Packing, date selection, and first slice. |
 
 ## F. Patticake thank-you and gifting
 
@@ -414,7 +416,7 @@ Operational placeholders in braces must be replaced and approved before publicat
 
 | ID | Caption | CTA | Best channel | Funnel | Suggested visual |
 | --- | --- | --- | --- | --- | --- |
-| CAP-043 | Pack a Patticake with us: cake secured, message checked, box finished, and the current delivery path confirmed at checkout. | Check Delivery Options | TikTok | consideration | Real packing sequence, no staged shipping label data. |
+| CAP-043 | Pack a Patticake with us: cake secured, message checked, box finished, and nationwide shipping confirmed at checkout. | Ship Nationwide | TikTok | consideration | Real packing sequence, no staged shipping label data. |
 | CAP-044 | A delivery date is part of the gift. Check the current calendar before you promise the cake at the party. | View the Delivery Calendar | Instagram Stories | conversion | Date picker, packed box, and reminder frame. |
 | CAP-045 | From yum! bakery layers to the first slice at their table. Here is the trip a Patticake is built to make. | Send a Patticake | YouTube Shorts | consideration | Bake, frost, pack, transit handoff, unbox. |
 | CAP-046 | Unbox first. Read the note second. Cut the cake immediately after. | Start an Order | Instagram Reel | awareness | Recipient unboxing with consent and clean label framing. |
@@ -618,13 +620,13 @@ Each hook is designed for caption line one, on-screen text, spoken open, or a pa
 
 # short-form video script pack
 
-All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue text cards, and one verified destination. Braced operational fields require replacement before release.
+All scripts assume a 1080x1920 master, burned-in captions, unobstructed photography, a dedicated baby-blue copy field with logo-red type, and one verified destination. Braced operational fields require replacement before release.
 
 ## 1. Pack a Patticake with us
 
 | Brand | Goal | Target audience | Length | Paid potential | Best channels |
 | --- | --- | --- | --- | --- | --- |
-| Patticake | delivery order consideration | gift senders | 15 seconds | high | Reels, TikTok, Shorts, paid |
+| Patticake | nationwide shipping consideration | gift senders | 15 seconds | high | Reels, TikTok, Shorts, paid |
 
 **Hook:** pack a Patticake order with us
 
@@ -634,15 +636,15 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 2. Lower real cake into insert
 3. Check gift note without showing private data
 4. Close box and tie current packaging
-5. Hand off for delivery
+5. Hand off for shipping
 
 **On-screen text:** cake checked -> message checked -> ready to send
 
 **Voiceover or caption:** A Patticake gift starts with the cake, the message, and one last check before the box closes.
 
-**CTA:** Check Delivery Options
+**CTA:** Ship Nationwide
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 2. Cut the first slice
 
@@ -666,7 +668,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Plan the Cake
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 3. Birthday cake pickup
 
@@ -690,7 +692,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Pick Up Locally
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 4. Send a thank-you cake
 
@@ -714,7 +716,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Send a Patticake
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 5. Office catering spread
 
@@ -738,7 +740,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Start a Catering Note
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 6. Box lunch assembly
 
@@ -762,7 +764,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Plan Catering
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 7. Bakery case morning restock
 
@@ -786,7 +788,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Find a Location
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 8. Staff favorite order
 
@@ -810,7 +812,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** See the Menu
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 9. First-time yum! order guide
 
@@ -834,7 +836,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Explore the Menu
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 10. Four-location neighborhood post
 
@@ -858,7 +860,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Find Your yum!
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 11. Gift card holiday post
 
@@ -882,7 +884,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Buy a Gift Card
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 12. Wedding cake alternative
 
@@ -906,7 +908,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Start an Event Inquiry
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 13. Corporate gifting explainer
 
@@ -930,7 +932,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Ask About Corporate Gifting
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 14. Customer review visual
 
@@ -943,7 +945,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 **Shot list:**
 
 1. Verified review source
-2. Exact short quote on white card
+2. Exact short quote in the baby-blue copy field
 3. Supporting food or cake proof
 4. Source and date
 5. Relevant CTA
@@ -954,7 +956,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** See What They Ordered
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 15. What to order for lunch
 
@@ -978,7 +980,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Order Online
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 16. Family dinner pickup
 
@@ -1002,7 +1004,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Order Online
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 17. Cake message writing
 
@@ -1026,7 +1028,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Start a Cake Request
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 18. Frosting close-up
 
@@ -1050,7 +1052,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** See Patticake
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 19. Catering add-ons
 
@@ -1074,7 +1076,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Plan Catering
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 20. Behind the counter
 
@@ -1098,7 +1100,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Order Online
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 21. Minnesota nostalgia gift
 
@@ -1122,7 +1124,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Send a Patticake
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 22. Former local sends cake home
 
@@ -1144,9 +1146,9 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **Voiceover or caption:** Distance changes the address, not the reason to show up for the table.
 
-**CTA:** Check Delivery Options
+**CTA:** Ship Nationwide
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 23. Graduation celebration
 
@@ -1170,7 +1172,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Plan the Cake
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 24. Teacher thank-you
 
@@ -1194,7 +1196,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Send a Thank-You Cake
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 25. Office birthday
 
@@ -1218,7 +1220,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Plan an Office Cake
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 26. Client thank-you gift
 
@@ -1242,7 +1244,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Ask About Corporate Gifting
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 27. Holiday gifting deadline
 
@@ -1266,7 +1268,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Check Current Options
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 28. Rainy day comfort food
 
@@ -1290,7 +1292,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Order Online
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 29. Bakery tray for meetings
 
@@ -1314,7 +1316,7 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 
 **CTA:** Plan Catering
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 ## 30. Why Patticake?
 
@@ -1330,15 +1332,15 @@ All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue te
 2. Chocolate layer macro
 3. Vanilla buttercream top
 4. Gift note and box
-5. Pickup and delivery path split
+5. Local pickup and nationwide shipping path split
 
-**On-screen text:** real layers -> personal note -> pickup or current delivery options
+**On-screen text:** real layers -> personal note -> local pickup or nationwide shipping
 
 **Voiceover or caption:** Patticake is yum!'s celebration cake: real chocolate layers, vanilla buttercream, and a message made for the occasion.
 
 **CTA:** See Patticake
 
-**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.
+**Editing notes:** Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.
 
 # paid social ad kit
 
@@ -1352,7 +1354,7 @@ Build separate campaigns for local food, catering, gifting, and event intent. Do
 
 **Creative concept:** Craving-first 9:16 video with a location decision and pickup handoff.
 
-**Visual direction:** Real food macro, four-location cue, white/red/blue cards, pickup handoff.
+**Visual direction:** Unobstructed real food macro, four-location cue, dedicated baby-blue field with logo-red type, and pickup handoff.
 
 **Video concept:** 12-15 second craving montage ending on the location selector and Order Now.
 
@@ -1827,7 +1829,7 @@ Use one idea per frame. Keep link stickers inside the safe zone and remove nativ
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Order lunch today | The lunch decision starts here. | Show two current food paths. | Choose the yum! on your route. | Optional proof, deadline, or location frame | This-or-that poll on frame 2 | Order Online | Weekday 10:30am-1pm local conversion |
 | Bakery case drop | First look at today's case. | Show the real tray and location. | Photographed at {CAPTURE_TIME}. | Optional proof, deadline, or location frame | Poll between two available items | Find a Location | Same-day bakery traffic |
-| Patticake birthday | Birthday on the calendar? | Choose pickup or check delivery options. | Add the date and cake message. | Optional proof, deadline, or location frame | Countdown sticker after deadline confirmation | Plan the Cake | Birthday planning |
+| Patticake birthday | Birthday on the calendar? | Choose local pickup or nationwide shipping. | Add the date and cake message. | Optional proof, deadline, or location frame | Countdown sticker after deadline confirmation | Plan the Cake | Birthday planning |
 | Send a thank-you cake | Who showed up for you? | Write the note. | Send something meant to be shared. | Optional proof, deadline, or location frame | Question sticker: who deserves cake? | Send a Patticake | Thank-you gifting |
 | Cake pickup reminder | Cake pickup day. | Confirm the location and approved time in your order details. | Carry the box flat and head to the table. | Optional proof, deadline, or location frame | Reminder sticker | View Cake Details | Confirmed customer reminder only |
 | Office catering quote | The meeting is booked. Is lunch? | Send date, group size, and pickup kitchen. | Add trays, boxes, and bakery questions. | Optional proof, deadline, or location frame | Question sticker: how many are you feeding? | Get a Quote | Catering lead generation |
@@ -2287,7 +2289,7 @@ Examples:
 
 ## naming and approval
 
-Use `{brand}_{campaign}_{concept}_{location-or-audience}_{channel}_{ratio}_{date}_v##_{status}`. Non-designers may replace approved media and fields, but they may not unlock brand styles, safe zones, logo geometry, or text-card colors. An owner approves claims and brand. Operations approves timing, availability, fulfillment, and location details. Paid media approves rights, crop, CTA, and destination.
+Use `{brand}_{campaign}_{concept}_{location-or-audience}_{channel}_{ratio}_{date}_v##_{status}`. Non-designers may replace approved media and fields, but they may not unlock brand styles, safe zones, logo geometry, the dedicated baby-blue copy field, or logo-red type. An owner approves claims and brand. Operations approves timing, availability, fulfillment, and location details. Paid media approves rights, crop, CTA, and destination.
 
 ## notes for non-designers
 
@@ -2303,7 +2305,7 @@ Use `{brand}_{campaign}_{concept}_{location-or-audience}_{channel}_{ratio}_{date
 - Logo artwork, logo colors, or aspect ratio.
 - Headline family, lowercase rule, or body family without brand-owner approval.
 - Safe-zone guides or minimum text size.
-- The rule against black text panels and pink-tinted copy surfaces.
+- The rule against floating text cards, badges, glow, black or pink panels, and copy over photography.
 - An approved quote, review, menu fact, price, hour, deadline, or operational statement.
 
 # social asset QA checklist
@@ -2311,7 +2313,7 @@ Use `{brand}_{campaign}_{concept}_{location-or-audience}_{channel}_{ratio}_{date
 - [ ] Brand is correctly identified as yum!, Patticake, or an intentional split asset.
 - [ ] Current logo and approved wordmark treatment are used without distortion or effects.
 - [ ] Trocchi 400 is used for lowercase display copy and Archivo Narrow for support copy.
-- [ ] Text panels use Yum white, blue, or red treatments, not black or pink-tinted panels.
+- [ ] Baby-blue copy fields and logo-red type lead. White, cream, and ink support only. No text cards, stickers, glow, black panels, or copy over photography.
 - [ ] Food, cake, location, staff, packaging, and event imagery is real and rights-cleared.
 - [ ] CTA matches the business goal and destination.
 - [ ] URL resolves on mobile and the correct UTM is present.
@@ -2361,7 +2363,7 @@ These items are intentionally not guessed. Resolve them before the affected cont
 | Detail | Current evidence | Confirmation needed | Priority |
 | --- | --- | --- | --- |
 | Patticake national order route | The code defaults to `/patticake#national-order` unless `NEXT_PUBLIC_PATTICAKE_NATIONAL_ORDER_URL` is set. | Web and bakery operations must confirm the production URL and live behavior. | P0 |
-| Shipping coverage and dates | Current site copy describes nationwide delivery, but availability is checkout-dependent. | Confirm supported destinations, blackout dates, cutoff logic, and customer-service owner before campaigns. | P0 |
+| Shipping coverage and dates | Owner-approved launch truth is that Patticake is available nationwide; exact dates and address eligibility remain checkout-dependent. | Confirm blackout dates, cutoff logic, and customer-service owner before campaigns. | P0 |
 | Local cake pickup | The site routes pickup and cake questions through `/order-a-cake`. | Confirm which locations, lead routing, response time, and whether every campaign should say request or order. | P0 |
 | Catering notice | The current site says 24 hours for most pickup catering orders. | Operations should confirm this for paid and evergreen social use and define exceptions. | P0 |
 | Corporate gifting | The toolkit uses inquiry language only. | Confirm minimums, address handling, delivery scope, timing, owner, and supported package before lead generation. | P0 |
