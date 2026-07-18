@@ -12,7 +12,7 @@ import { PatticakeMessagePreview } from '@/components/PatticakeMessagePreview';
 import { PatticakeMessageRibbon } from '@/components/PatticakeMessageRibbon';
 import { PatticakeOriginBand } from '@/components/PatticakeOriginBand';
 import { PatticakePathGuide } from '@/components/PatticakePathGuide';
-import { pageMeta, patticakeCanonical, patticakeOpenGraph, patticakeTitle } from '@/lib/site';
+import { pageMeta, patticakeCanonical, patticakeNationalOrderUrl, patticakeOpenGraph, patticakeTitle } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: patticakeTitle(pageMeta.cake.title),
@@ -86,6 +86,8 @@ const gallery = [
   { src: '/images/patticake/06_8inch_a.jpg', alt: 'yum! patticake with Just Married message', className: 'crop-patticake-message' },
 ] as const;
 
+const nationalOrderIsExternal = /^https?:\/\//.test(patticakeNationalOrderUrl);
+
 export default function CakePage() {
   return (
     <main className="bg-cream">
@@ -110,9 +112,14 @@ export default function CakePage() {
             </Reveal>
             <Reveal className="mt-8 flex flex-wrap items-center gap-3" delay={0.16} y={14}>
               <PressButton>
-                <Link href="/patticake#national-order" className="btn-primary">
+                <a
+                  href={patticakeNationalOrderUrl}
+                  target={nationalOrderIsExternal ? '_blank' : undefined}
+                  rel={nationalOrderIsExternal ? 'noopener noreferrer' : undefined}
+                  className="btn-primary"
+                >
                   Ship Nationwide
-                </Link>
+                </a>
               </PressButton>
               <PressButton>
                 <a href="#cake-inquiry" className="btn-secondary">
@@ -191,9 +198,14 @@ export default function CakePage() {
                 A fresh bakery cake, a personal note, and a bright baby-blue box, now available nationwide.
               </p>
               <PressButton className="mt-8">
-                <Link href="/patticake#national-order" className="btn-primary">
+                <a
+                  href={patticakeNationalOrderUrl}
+                  target={nationalOrderIsExternal ? '_blank' : undefined}
+                  rel={nationalOrderIsExternal ? 'noopener noreferrer' : undefined}
+                  className="btn-primary"
+                >
                   Ship a Patticake
-                </Link>
+                </a>
               </PressButton>
             </div>
             <div className="mt-10 grid border-t border-brand-primary/30 sm:mt-auto sm:grid-cols-2">
