@@ -10,7 +10,7 @@ Build separate campaigns for local food, catering, gifting, and event intent. Do
 
 **Creative concept:** Craving-first 9:16 video with a location decision and pickup handoff.
 
-**Visual direction:** Real food macro, four-location cue, white/red/blue cards, pickup handoff.
+**Visual direction:** Unobstructed real food macro, four-location cue, dedicated baby-blue field with logo-red type, and pickup handoff.
 
 **Video concept:** 12-15 second craving montage ending on the location selector and Order Now.
 

@@ -1,13 +1,15 @@
 # yum! and Patticake complete social toolkit
 
+> Status: strategy and copy reference only. The July 9 visual examples and review board are superseded by `../yum-patticake-creative-launch-2026-07-14/` and the site `/asset-gallery`. Do not publish the older white-card assets or use them as current art direction.
+
 Built 2026-07-09 for practical organic, paid, creator, location, catering, gifting, and motion production.
 
 ## executive summary
 
 - yum! is the everyday Twin Cities food habit. Social should move people to a current menu, a nearby kitchen, pickup, catering, bakery, or gift cards.
-- Patticake is the occasion brand. Social should make birthdays, thank-yous, client gifts, local pickup, current delivery options, and events feel specific and actionable.
+- Patticake is the occasion brand. Social should make birthdays, thank-yous, client gifts, local pickup, nationwide shipping, and events feel specific and actionable.
 - The system uses real food, real cake, real hands, real staff, real locations, and real operational steps.
-- Motion and text cards use Yum white, blue, and red. Black text panels and pink-tinted copy backgrounds are excluded.
+- Baby blue and logo red lead motion and type. White, cream, and ink stay supporting. Floating cards, black panels, glow, and pink-tinted copy backgrounds are excluded.
 
 ## toolkit counts
 
@@ -30,9 +32,9 @@ Built 2026-07-09 for practical organic, paid, creator, location, catering, gifti
 ## start here
 
 1. Read `SOCIAL_TOOLKIT_MASTER.md` for the complete system in one file.
-2. Open `review-board.html` or `contact-sheet.png` to review the current assets.
+2. Open the checked-in `/asset-gallery` route to review current assets.
 3. Use `calendar/30-day-content-calendar.csv`, `copy/caption-bank.csv`, and `copy/hook-bank.csv` for production planning.
-4. Use `motion/short-form-video-scripts.md` with the editable Remotion sources in the two sibling motion packs.
+4. Use `motion/short-form-video-scripts.md` with the editable Remotion source in `../yum-patticake-creative-launch-2026-07-14/`.
 5. Resolve every P0 item in `production/operational-confirmations.md` before paid launch.
 6. Run every asset through `production/qa-checklist.md` before moving it to approved.
 
@@ -64,5 +66,5 @@ Built 2026-07-09 for practical organic, paid, creator, location, catering, gifti
 
 ## source asset packs
 
-- `../yum-patticake-social-motion-pack/`: 18 static exports and 7 motion assets.
-- `../yum-social-motion-template-2026/`: 6 vertical motion masters, covers, 4:5 posters, 3:4 crops, square crops, safe-zone guides, and editable Remotion source.
+- `../yum-patticake-creative-launch-2026-07-14/`: current production stills, carousels, motion masters, Patticake logo motion, and publishing guidance.
+- `../yum-patticake-social-motion-pack/` and `../yum-social-motion-template-2026/`: historical references only. Preserve for provenance, not publishing.

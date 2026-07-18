@@ -2960,9 +2960,9 @@
     "poster": "/review-assets/posters/carousel-card-gifting-05-start-a-patticake.jpg"
   },
   {
-    "id": "carousel-card-launch-01-new-home",
+    "id": "carousel-card-launch-01-nationwide",
     "title": "patticake is now available nationwide.",
-    "filename": "01-launch-01-new-home.png",
+    "filename": "01-launch-01-nationwide.png",
     "label": "patticake nationwide / 1 of 5",
     "collection": "Carousel card",
     "filter": "carousel",
@@ -2972,8 +2972,8 @@
     "duration": null,
     "width": 720,
     "height": 900,
-    "media": "/review-assets/posters/carousel-card-launch-01-new-home.jpg",
-    "poster": "/review-assets/posters/carousel-card-launch-01-new-home.jpg"
+    "media": "/review-assets/posters/carousel-card-launch-01-nationwide.jpg",
+    "poster": "/review-assets/posters/carousel-card-launch-01-nationwide.jpg"
   },
   {
     "id": "carousel-card-launch-02-blue-box",

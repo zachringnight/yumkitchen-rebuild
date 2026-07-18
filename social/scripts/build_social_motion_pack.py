@@ -4,6 +4,7 @@ from __future__ import annotations
 import csv
 import json
 import math
+import os
 import shutil
 import subprocess
 from dataclasses import dataclass
@@ -355,9 +356,9 @@ STATIC_ASSETS = [
         "patticake-slice-story",
         (1080, 1920),
         "patticake/10_layers_slice.jpg",
-        "one cake, three ways to share it",
-        "Ship it, pick it up, or meet us at yum! Kitchen and Bakery.",
-        "Start an order",
+        "cake, delivered with love",
+        "Fresh bakery cake is now available nationwide.",
+        "Send a patticake",
         "patticake",
         "instagram_story",
         "cake_options",
@@ -1242,6 +1243,11 @@ def clean_output() -> None:
 
 
 def main() -> None:
+    if os.environ.get("ALLOW_RETIRED_YUM_MOTION_PACK_REBUILD") != "1":
+        raise SystemExit(
+            "Retired builder blocked. Use social/yum-patticake-creative-launch-2026-07-14 and /asset-gallery. "
+            "Set ALLOW_RETIRED_YUM_MOTION_PACK_REBUILD=1 only for an explicit provenance rebuild."
+        )
     OUT.mkdir(parents=True, exist_ok=True)
     clean_output()
     static_manifest = render_static_assets()

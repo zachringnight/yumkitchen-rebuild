@@ -1,6 +1,6 @@
 {
   "name": "yum! and Patticake complete social media toolkit",
-  "created": "2026-07-10T01:11:39.772986+00:00",
+  "created": "2026-07-17T14:25:30.183266+00:00",
   "sourceRepo": "/Users/zsoskin/dev/yumkitchen-rebuild",
   "output": "/Users/zsoskin/dev/yumkitchen-rebuild/social/yum-social-toolkit-2026",
   "counts": {
@@ -34,13 +34,17 @@
     "woodbury": "https://yumkitchen.com/location/woodbury"
   },
   "sourceAssetPacks": {
-    "postWorthy": "../yum-patticake-social-motion-pack",
-    "motion2026": "../yum-social-motion-template-2026"
+    "current": "../yum-patticake-creative-launch-2026-07-14",
+    "historical": [
+      "../yum-patticake-social-motion-pack",
+      "../yum-social-motion-template-2026"
+    ]
   },
   "primaryArtifacts": {
     "master": "SOCIAL_TOOLKIT_MASTER.md",
-    "review": "review-board.html",
-    "contactSheet": "contact-sheet.png",
+    "review": "/asset-gallery",
+    "historicalReview": "review-board.html",
+    "historicalContactSheet": "contact-sheet.png",
     "calendar": "calendar/30-day-content-calendar.csv",
     "captions": "copy/caption-bank.csv",
     "hooks": "copy/hook-bank.csv",
@@ -49,7 +53,7 @@
   },
   "constraints": [
     "real food, cake, people, locations, and operational moments",
-    "yum white, blue, and red text surfaces",
+    "baby blue and logo red lead every creative; white, cream, and ink support only",
     "no black text panels",
     "no pink-tinted copy backgrounds",
     "no unsupported claims or fake reviews",

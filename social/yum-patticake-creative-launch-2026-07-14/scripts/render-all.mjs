@@ -194,7 +194,7 @@ const manifest = {
       ribbonRedDeep: "#8f1c24"
     },
     type: {display: "Trocchi 400", utility: "Archivo Narrow 400/700"},
-    signature: "full-bleed real photography, one message at a time, baby-blue editorial field, logo-red action, and active logo player"
+    signature: "unobstructed real photography beside or above a dedicated baby-blue field, one message at a time, logo-red action, and active logo player"
   },
   counts: {
     lanes: specs.length,
@@ -221,12 +221,15 @@ const manifest = {
     "delivery-zips/yum-pick-your-kitchen-carousel.zip",
     "delivery-zips/yum-feed-the-room-carousel.zip",
     "delivery-zips/patticake-send-cake-carousel.zip",
+    "delivery-zips/patticake-meet-patticake-carousel.zip",
+    "delivery-zips/patticake-how-to-patticake-carousel.zip",
+    "delivery-zips/patticake-occasions-carousel.zip",
     "delivery-zips/yum-people-behind-the-plate-social.zip",
     "delivery-zips/yum-patticake-motion-8s.zip",
     "delivery-zips/yum-patticake-motion-10s.zip",
     "delivery-zips/patticake-slice-logo-motion.zip",
-    "delivery-zips/yum-patticake-creative-launch-motion-2026-07-15.zip",
-    "delivery-zips/patticake-com-launch-rollout-2026-07-15.zip"
+    "delivery-zips/yum-patticake-creative-launch-motion-2026-07-17.zip",
+    "delivery-zips/patticake-com-launch-rollout-2026-07-17.zip"
   ],
   assets: specs.map((spec) => ({
     ...spec,
@@ -308,7 +311,7 @@ const carouselReview = carouselSpecs.map((card, index) => ({
 writeFileSync(join(carouselReviewRoot, "data", "review-manifest.json"), `${JSON.stringify(carouselReview, null, 2)}\n`);
 writeFileSync(join(carouselReviewRoot, "data", "review-options.json"), `${JSON.stringify({
   title: "yum! and Patticake swipe stories",
-  summary: "Three packaging-led carousel sequences with real photography, one message per card, and a clear conversion close.",
+  summary: `${new Set(carouselSpecs.map((card) => card.setId)).size} packaging-led carousel sequences with real photography, one message per card, and a clear conversion close.`,
   preset: "image-wall",
   showCaptions: true,
   minTileWidth: 260,
@@ -319,7 +322,7 @@ const copy = ["# campaign copy", ""];
 for (const spec of specs) {
   copy.push(`## ${spec.hook}`, "", spec.support, "", `Proof: ${spec.proof}`, `CTA: ${spec.cta}`, `Destination: ${spec.destination}`, "");
 }
-writeFileSync(join(root, "campaign-copy.md"), `${copy.join("\n")}\n`);
+writeFileSync(join(root, "campaign-copy.md"), `${copy.join("\n").trimEnd()}\n`);
 
 const carouselCopy = ["# carousel publishing order", ""];
 for (const setId of [...new Set(carouselSpecs.map((card) => card.setId))]) {
@@ -332,4 +335,6 @@ for (const setId of [...new Set(carouselSpecs.map((card) => card.setId))]) {
   if (finalCard.destination) carouselCopy.push("", `Destination: ${finalCard.destination}`);
   carouselCopy.push("");
 }
-writeFileSync(join(root, "carousel-publishing.md"), `${carouselCopy.join("\n")}\n`);
+writeFileSync(join(root, "carousel-publishing.md"), `${carouselCopy.join("\n").trimEnd()}\n`);
+
+execFileSync(process.execPath, [join(here, "render-static-reviews.mjs")], {cwd: root, stdio: "inherit"});

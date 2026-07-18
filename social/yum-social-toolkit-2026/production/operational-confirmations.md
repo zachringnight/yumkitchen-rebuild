@@ -5,7 +5,7 @@ These items are intentionally not guessed. Resolve them before the affected cont
 | Detail | Current evidence | Confirmation needed | Priority |
 | --- | --- | --- | --- |
 | Patticake national order route | The code defaults to `/patticake#national-order` unless `NEXT_PUBLIC_PATTICAKE_NATIONAL_ORDER_URL` is set. | Web and bakery operations must confirm the production URL and live behavior. | P0 |
-| Shipping coverage and dates | Current site copy describes nationwide delivery, but availability is checkout-dependent. | Confirm supported destinations, blackout dates, cutoff logic, and customer-service owner before campaigns. | P0 |
+| Shipping coverage and dates | Owner-approved launch truth is that Patticake is available nationwide; exact dates and address eligibility remain checkout-dependent. | Confirm blackout dates, cutoff logic, and customer-service owner before campaigns. | P0 |
 | Local cake pickup | The site routes pickup and cake questions through `/order-a-cake`. | Confirm which locations, lead routing, response time, and whether every campaign should say request or order. | P0 |
 | Catering notice | The current site says 24 hours for most pickup catering orders. | Operations should confirm this for paid and evergreen social use and define exceptions. | P0 |
 | Corporate gifting | The toolkit uses inquiry language only. | Confirm minimums, address handling, delivery scope, timing, owner, and supported package before lead generation. | P0 |

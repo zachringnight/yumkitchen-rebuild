@@ -5,6 +5,7 @@
     "studio": "remotion studio src/index.tsx",
     "render": "node scripts/render-all.mjs",
     "render:patticake-logo": "node scripts/render-patticake-logo.mjs",
+    "review:static": "node scripts/render-static-reviews.mjs",
     "review:motion": "node scripts/build-motion-review.mjs",
     "validate:motion": "node scripts/validate-motion.mjs",
     "package": "zsh scripts/package-delivery.sh"

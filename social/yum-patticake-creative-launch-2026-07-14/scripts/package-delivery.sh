@@ -4,17 +4,55 @@ set -euo pipefail
 
 ROOT="${0:A:h:h}"
 OUT="$ROOT/delivery-zips"
+ARCHIVE="$OUT/archive/prior-dated-bundles"
+STAGING_ARCHIVE="$OUT/archive/prior-dated-staging"
 STAGING_ROOT="$ROOT/delivery-motion"
-PACK_NAME="yum-patticake-creative-launch-motion-2026-07-15"
+PACK_NAME="yum-patticake-creative-launch-motion-2026-07-17"
 STAGE="$STAGING_ROOT/$PACK_NAME"
-PATTICAKE_PACK_NAME="patticake-com-launch-rollout-2026-07-15"
+PATTICAKE_PACK_NAME="patticake-com-launch-rollout-2026-07-17"
 PATTICAKE_STAGE="$STAGING_ROOT/$PATTICAKE_PACK_NAME"
 
-mkdir -p "$OUT"
+cleanup_staging() {
+  rm -rf "$STAGE" "$PATTICAKE_STAGE"
+  rmdir "$STAGING_ROOT" 2>/dev/null || true
+}
+
+trap cleanup_staging EXIT
+
+mkdir -p "$OUT" "$ARCHIVE" "$STAGING_ARCHIVE"
+
+for prior_bundle in \
+  "$OUT"/yum-patticake-creative-launch-motion-20??-??-??.zip(N) \
+  "$OUT"/patticake-com-launch-rollout-20??-??-??.zip(N); do
+  if [[ "${prior_bundle:t}" != "$PACK_NAME.zip" && "${prior_bundle:t}" != "$PATTICAKE_PACK_NAME.zip" ]]; then
+    archive_target="$ARCHIVE/${prior_bundle:t}"
+    if [[ -e "$archive_target" ]]; then
+      archive_target="$ARCHIVE/${prior_bundle:t:r}-$(date +%Y%m%d%H%M%S).zip"
+    fi
+    mv "$prior_bundle" "$archive_target"
+  fi
+done
+
+for prior_stage in \
+  "$STAGING_ROOT"/yum-patticake-creative-launch-motion-20??-??-??(N/) \
+  "$STAGING_ROOT"/patticake-com-launch-rollout-20??-??-??(N/); do
+  if [[ "${prior_stage:t}" != "$PACK_NAME" && "${prior_stage:t}" != "$PATTICAKE_PACK_NAME" ]]; then
+    stage_target="$STAGING_ARCHIVE/${prior_stage:t}"
+    if [[ -e "$stage_target" ]]; then
+      stage_target="$STAGING_ARCHIVE/${prior_stage:t}-$(date +%Y%m%d%H%M%S)"
+    fi
+    mv "$prior_stage" "$stage_target"
+  fi
+done
+
 rm -f \
   "$OUT/yum-pick-your-kitchen-carousel.zip" \
   "$OUT/yum-feed-the-room-carousel.zip" \
   "$OUT/patticake-send-cake-carousel.zip" \
+  "$OUT/patticake-meet-patticake-carousel.zip" \
+  "$OUT/patticake-how-to-patticake-carousel.zip" \
+  "$OUT/patticake-occasions-carousel.zip" \
+  "$OUT/patticake-slice-logo-motion.zip" \
   "$OUT/yum-patticake-motion-10s.zip" \
   "$OUT/yum-patticake-motion-8s.zip" \
   "$OUT/yum-people-behind-the-plate-social.zip" \
@@ -29,6 +67,18 @@ zip -q -X "$OUT/yum-feed-the-room-carousel.zip" ./*.png
 
 cd "$ROOT/exports/carousel-4x5/send-cake"
 zip -q -X "$OUT/patticake-send-cake-carousel.zip" ./*.png
+
+cd "$ROOT/exports/carousel-4x5/meet-patticake"
+zip -q -X "$OUT/patticake-meet-patticake-carousel.zip" ./*.png
+
+cd "$ROOT/exports/carousel-4x5/how-to-patticake"
+zip -q -X "$OUT/patticake-how-to-patticake-carousel.zip" ./*.png
+
+cd "$ROOT/exports/carousel-4x5/patticake-occasions"
+zip -q -X "$OUT/patticake-occasions-carousel.zip" ./*.png
+
+cd "$ROOT/exports/brand-motion"
+zip -q -X "$OUT/patticake-slice-logo-motion.zip" ./*
 
 cd "$ROOT/exports/motion-9x16-10s"
 zip -q -X "$OUT/yum-patticake-motion-10s.zip" ./*.mp4
@@ -152,6 +202,14 @@ cp \
 cd "$STAGING_ROOT"
 zip -q -X -r "$OUT/$PATTICAKE_PACK_NAME.zip" "$PATTICAKE_PACK_NAME"
 
+(
+  cd "$OUT"
+  find . -maxdepth 1 -type f -name '*.zip' -print | LC_ALL=C sort | while IFS= read -r file; do
+    shasum -a 256 "$file"
+  done
+) > "$OUT/SHA256SUMS.txt"
+
 echo "Packaged delivery files in $OUT"
 echo "Canonical motion bundle: $OUT/$PACK_NAME.zip"
 echo "Patticake.com launch rollout: $OUT/$PATTICAKE_PACK_NAME.zip"
+echo "Bundle checksums: $OUT/SHA256SUMS.txt"

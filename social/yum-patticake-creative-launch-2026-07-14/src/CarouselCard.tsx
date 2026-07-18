@@ -73,22 +73,6 @@ export const CarouselCard = (props: CarouselCardSpec) => {
           }}
         />
         <div style={{position: "absolute", inset: 0, backgroundColor: "rgba(45,45,45,0.06)"}} />
-        <div
-          style={{
-            position: "absolute",
-            right: 64,
-            top: 58,
-            color: palette.redDeep,
-            backgroundColor: palette.blue,
-            fontFamily: sans,
-            fontSize: 30,
-            fontWeight: 700,
-            letterSpacing: 1.2,
-            padding: "9px 13px 10px",
-          }}
-        >
-          {String(props.card).padStart(2, "0")} - {String(props.total).padStart(2, "0")}
-        </div>
       </div>
 
       <div style={{position: "absolute", left: 0, right: 0, top: 832}}>
@@ -109,18 +93,32 @@ export const CarouselCard = (props: CarouselCardSpec) => {
           flexDirection: "column",
         }}
       >
-        <div
-          style={{
-            fontFamily: sans,
-            fontSize: 25,
-            lineHeight: 1,
-            fontWeight: 700,
-            textTransform: "uppercase",
-            letterSpacing: 1.9,
-            color: palette.redDeep,
-          }}
-        >
-          {props.lane}
+        <div style={{display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 24}}>
+          <div
+            style={{
+              fontFamily: sans,
+              fontSize: 25,
+              lineHeight: 1,
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: 1.9,
+              color: palette.redDeep,
+            }}
+          >
+            {props.lane}
+          </div>
+          <div
+            style={{
+              flexShrink: 0,
+              color: palette.redDeep,
+              fontFamily: sans,
+              fontSize: 27,
+              fontWeight: 700,
+              letterSpacing: 1.2,
+            }}
+          >
+            {String(props.card).padStart(2, "0")} / {String(props.total).padStart(2, "0")}
+          </div>
         </div>
 
         <div
@@ -175,24 +173,6 @@ export const CarouselCard = (props: CarouselCardSpec) => {
           ) : null}
         </div>
       </div>
-
-      {props.role === "cta" ? (
-        <div
-          style={{
-            position: "absolute",
-            right: 64,
-            top: 735,
-            width: 106,
-            height: 106,
-            borderRadius: "50%",
-            backgroundColor: palette.blue,
-            padding: 7,
-            boxSizing: "border-box",
-          }}
-        >
-          <Img src={staticFile("logo.png")} style={{width: "100%", height: "100%"}} />
-        </div>
-      ) : null}
     </AbsoluteFill>
   );
 };

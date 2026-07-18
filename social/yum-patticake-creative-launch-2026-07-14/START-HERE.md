@@ -14,9 +14,11 @@ Upload-ready ZIPs live in `delivery-zips/`. Captions and per-card alt text live 
 
 ## complete motion launch bundle
 
-Start with `delivery-zips/patticake-com-launch-rollout-2026-07-15.zip` for the complete Patticake.com launch system. Use `delivery-zips/yum-patticake-creative-launch-motion-2026-07-15.zip` for the combined Yum and Patticake motion library. The combined pack contains primary 10-second verticals, optional 8-second vertical cutdowns, native 4:5, 1:1, and 16:9 masters, 12 carousel-derived motion stories, the Patticake logo masters, posters, publishing documents, a QA report, and SHA-256 checksums.
+Start with `delivery-zips/patticake-com-launch-rollout-2026-07-17.zip` for the complete Patticake.com launch system. Use `delivery-zips/yum-patticake-creative-launch-motion-2026-07-17.zip` for the combined Yum and Patticake motion library. The combined pack contains primary 10-second verticals, optional 8-second vertical cutdowns, native 4:5, 1:1, and 16:9 masters, 12 carousel-derived motion stories, the Patticake logo masters, posters, publishing documents, a QA report, and SHA-256 checksums.
 
 Review every motion master in `motion-review/review-board.html`.
+
+The checked-in site `/asset-gallery` is the canonical full production board. Stale Creative Production session files are quarantined under `archive/creative-production-snapshots-2026-07-16/`; they are not active asset indexes. Use the current review manifests and `/asset-gallery` for counts.
 
 ## vertical motion
 
@@ -26,6 +28,8 @@ Review every motion master in `motion-review/review-board.html`.
 Both versions use the actual photography, bright baby-blue packaging field, red ribbon, and Yum logo player. Native motion crops also live in `exports/motion-4x5`, `motion-1x1`, and `motion-16x9`.
 
 The original swipe concepts are now true set-driven videos in `exports/carousel-motion-9x16` and `exports/carousel-motion-4x5`; they are not static cards wrapped in a video container.
+
+Carousel counters are plain type inside the baby-blue field. The static cards and motion logo rail do not place badges or logos over photography.
 
 `yum-people-behind-the-plate` is the human-first organic master. It opens on real restaurant and team photography, then closes with one compact baby-blue message field.
 

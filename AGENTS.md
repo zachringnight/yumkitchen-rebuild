@@ -16,11 +16,12 @@ This repo is self-contained and git-tracked (`github.com/zachringnight/yumkitche
 yumkitchen-rebuild/
 ├── AGENTS.md                  this file, the contract
 ├── README.md                  short human-facing orientation
-├── tasks.md                   PR-by-PR task list, read this for the active/next task
+├── tasks.md                   current round first, lower unchecked lists are historical only
 ├── setup.sh                   bootstraps a fresh environment
 ├── verify.sh                  full verification suite, must pass before every PR
 ├── docs/
 │   ├── DEPLOYMENT.md           env vars, analytics events, launch/rollback runbook
+│   ├── HANDOFF_CURRENT.md       stable current branch, review, package, and gate handoff
 │   ├── redirects.md            301/308 redirect + SEO-equity audit
 │   ├── design-qa.md            latest design QA record
 │   ├── archive/                 obsolete handoff docs, historical only, do not follow
@@ -50,6 +51,8 @@ If `globals.css` and this file ever disagree, `globals.css` wins. Update this fi
 
 For new visual or creative work, read `docs/DESIGN_TOOLKIT_AI_CODER.md` after this contract and before editing. It captures the current photo-led baby-blue and red direction. It does not override the hard rules, data contracts, or token source of truth above.
 
+For any social or creative asset work, read `social/START-HERE.md` before opening, rebuilding, or handing off a pack. It is the source-of-truth router for the active production pack, the current `/asset-gallery` review surface, and preserved historical folders that must not be rerendered or published.
+
 ## Hard rules (NEVER VIOLATE)
 
 1. Preserve all 4 Toast order URLs exactly. They live in `yumkitchen-web/lib/locations.ts`. Do not rewrite, redirect, or wrap them.
@@ -64,7 +67,7 @@ For new visual or creative work, read `docs/DESIGN_TOOLKIT_AI_CODER.md` after th
 ## Task workflow
 
 1. Run `bash scripts/check-repo-freshness.sh` before reading or editing anything. It fails on Zach's machine if the checkout is not `/Users/zsoskin/dev/yumkitchen-rebuild`, if the remote is wrong, or if the current branch is behind `origin/main`.
-2. Read `tasks.md`. Find the next unchecked task.
+2. Read the top current-round section in `tasks.md`. Do not take unchecked work from a section labeled historical.
 3. Create a branch named after the task (e.g. `T-03-location-card-component`, or a short descriptive name for ad hoc work).
 4. Implement inside `yumkitchen-web/` for app changes; docs changes go in `docs/`.
 5. Run `bash verify.sh` locally. All checks must pass.
@@ -88,7 +91,7 @@ Failure on any check blocks the PR.
 
 ## Known open items
 
-- See `tasks.md` for the current OPEN list (Zach-gated items like DNS cutover, live Resend key, GTM/GA4 confirmation) and Zach-data-gated items (dietary tags, location amenities, menu CMS, etc.).
+- See `docs/HANDOFF_CURRENT.md` and the top current-round section in `tasks.md` for open owner gates. Lower unchecked lists in `tasks.md` are historical only.
 
 ## Owner context
 
@@ -96,7 +99,7 @@ The owner is Zach Soskin. Voice preferences: short sentences, direct, no fluff, 
 
 ## When in doubt
 
-1. Read `docs/DEPLOYMENT.md` and `docs/redirects.md` for launch/ops context.
+1. Read `docs/HANDOFF_CURRENT.md`, `docs/DEPLOYMENT.md`, and `docs/redirects.md` for current launch and operations context.
 2. Read the most recent report under `docs/history/plans/` for what shipped last and why.
 3. Grep the live code (`yumkitchen-web/app`, `yumkitchen-web/components`, `yumkitchen-web/lib`). It is the source of truth, not any doc.
 4. If still stuck, comment on the PR with the question. Do not guess.

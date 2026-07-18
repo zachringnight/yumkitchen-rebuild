@@ -34,36 +34,6 @@ const heroFrames = [
   },
 ] as const;
 
-const moments = [
-  {
-    title: 'Ship a Cake',
-    copy: 'Send a Patticake for birthdays, thank-yous, office celebrations, and long-distance family tables.',
-    href: '/patticake#national-order',
-    action: 'Start a Shipping Note',
-    image: '/images/patticake/gift_box_vertical.jpg',
-    alt: 'yum! bakery gift box with red ribbon',
-    className: 'crop-patticake-gift-box',
-  },
-  {
-    title: 'Pick Up Locally',
-    copy: 'Pick up from yum! Kitchen and Bakery when the cake is staying in the Twin Cities.',
-    href: '/order-a-cake#cake-inquiry',
-    action: 'Start a Pickup Note',
-    image: '/images/patticake/layers_slice_vertical.jpg',
-    alt: 'yum! patticake chocolate cake layers close up',
-    className: 'crop-patticake-vertical-layer',
-  },
-  {
-    title: 'meet the restaurant',
-    copy: 'Patticake comes from the same scratch bakery team behind four yum! neighborhood restaurants.',
-    href: '/yum-kitchen',
-    action: 'Visit yum! Kitchen and Bakery',
-    image: '/images/patticake/01_cover.jpg',
-    alt: 'Patti and Kelli at yum! Kitchen and Bakery',
-    className: 'crop-patticake-cover',
-  },
-] as const;
-
 const proof = ['made from scratch since 2005', 'devil’s food chocolate cake', 'vanilla buttercream', 'made by yum! Kitchen and Bakery'] as const;
 
 const nationalOrderIsExternal = /^https?:\/\//.test(patticakeNationalOrderUrl);
@@ -106,11 +76,6 @@ export function PatticakeHome() {
                   Pick Up Locally
                 </Link>
               </PressButton>
-              <PressButton>
-                <Link href="/yum-kitchen" className="btn-secondary">
-                  yum! Kitchen and Bakery
-                </Link>
-              </PressButton>
             </Reveal>
             <Stagger className="mt-9 grid gap-3 sm:grid-cols-2" gap={0.06}>
               {proof.map((item) => (
@@ -145,42 +110,51 @@ export function PatticakeHome() {
       <PatticakeMessageRibbon tone="blue" />
 
       <Reveal as="section" className="bg-white px-6 py-12 lg:py-section">
-        <div className="mx-auto max-w-[1240px]">
-          <div className="grid items-end gap-7 lg:grid-cols-[0.68fr_1.32fr]">
-            <div>
-              <p className="section-label">pick your cake moment</p>
-              <h2 className="text-h2 lowercase">Ship a Cake, Pick Up Locally, or visit the restaurant</h2>
-            </div>
-            <p className="max-w-2xl text-xl leading-9 text-body">
-              Patticake leads the way. The yum! restaurants are right here for breakfast, lunch, dinner, catering, and local pickup.
-            </p>
+        <div className="mx-auto grid max-w-[1240px] overflow-hidden border-y border-brand-primary/25 lg:grid-cols-[1.08fr_0.92fr]">
+          <div className="relative min-h-[420px] bg-blue-soft lg:min-h-[620px]">
+            <Image
+              src="/images/patticake/gift_box_vertical.jpg"
+              alt="bright baby-blue yum! bakery gift box with red ribbon"
+              fill
+              sizes="(min-width: 1024px) 55vw, 100vw"
+              className="object-cover crop-patticake-gift-box"
+            />
           </div>
-
-          <Stagger className="mt-10 grid gap-5 md:grid-cols-3">
-            {moments.map((moment) => (
-              <StaggerItem as="article" key={moment.title} className="patticake-action-card group" hoverLift>
-                <div className="relative aspect-[4/5] overflow-hidden bg-blue-soft">
-                  <Image
-                    src={moment.image}
-                    alt={moment.alt}
-                    fill
-                    loading={moment.image === '/images/patticake/layers_slice_vertical.jpg' ? 'eager' : undefined}
-                    sizes="(min-width: 768px) 33vw, 100vw"
-                    className={`image-lift object-cover transition duration-500 ${moment.className}`}
-                  />
-                </div>
-                <div className="grid flex-1 p-6">
-                  <h3 className="font-serif text-3xl font-normal lowercase text-ink">{moment.title}</h3>
-                  <p className="mt-3 text-lg leading-8 text-body">{moment.copy}</p>
-                  <PressButton className="mt-6 self-end">
-                    <Link href={moment.href} className="btn-primary">
-                      {moment.action}
-                    </Link>
-                  </PressButton>
-                </div>
-              </StaggerItem>
-            ))}
-          </Stagger>
+          <div className="flex flex-col bg-blue-tint p-[clamp(2rem,5vw,4.75rem)]">
+            <div>
+              <p className="section-label text-ink">nationwide gifting</p>
+              <h2 className="mt-3 font-serif text-[clamp(3.25rem,6vw,5.75rem)] font-normal leading-[0.92] lowercase text-brand-primary">
+                send cake,
+                <br />
+                not a card.
+              </h2>
+              <p className="mt-6 max-w-xl text-xl leading-9 text-ink">
+                A fresh bakery cake, a personal note, and a bright baby-blue box, now available nationwide.
+              </p>
+              <PressButton className="mt-8">
+                <a
+                  href={patticakeNationalOrderUrl}
+                  target={nationalOrderIsExternal ? '_blank' : undefined}
+                  rel={nationalOrderIsExternal ? 'noopener noreferrer' : undefined}
+                  className="btn-primary"
+                  data-event="click_patticake_national_delivery_order"
+                  data-source="patticake_home_nationwide_feature"
+                >
+                  Ship a Patticake
+                </a>
+              </PressButton>
+            </div>
+            <div className="mt-10 grid border-t border-brand-primary/30 sm:mt-auto sm:grid-cols-2">
+              <Link href="/order-a-cake#cake-inquiry" className="group py-5 sm:pr-6">
+                <span className="block text-sm font-bold uppercase tracking-[0.14em] text-ink">staying nearby?</span>
+                <span className="mt-2 block font-serif text-2xl lowercase text-brand-primary group-hover:underline">pick up at yum!</span>
+              </Link>
+              <Link href="/yum-kitchen" className="group border-t border-brand-primary/30 py-5 sm:border-l sm:border-t-0 sm:pl-6">
+                <span className="block text-sm font-bold uppercase tracking-[0.14em] text-ink">meet the bakery</span>
+                <span className="mt-2 block font-serif text-2xl lowercase text-brand-primary group-hover:underline">visit yum! Kitchen</span>
+              </Link>
+            </div>
+          </div>
         </div>
       </Reveal>
 

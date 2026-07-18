@@ -67,7 +67,7 @@
 
 ## naming and approval
 
-Use `{brand}_{campaign}_{concept}_{location-or-audience}_{channel}_{ratio}_{date}_v##_{status}`. Non-designers may replace approved media and fields, but they may not unlock brand styles, safe zones, logo geometry, or text-card colors. An owner approves claims and brand. Operations approves timing, availability, fulfillment, and location details. Paid media approves rights, crop, CTA, and destination.
+Use `{brand}_{campaign}_{concept}_{location-or-audience}_{channel}_{ratio}_{date}_v##_{status}`. Non-designers may replace approved media and fields, but they may not unlock brand styles, safe zones, logo geometry, the dedicated baby-blue copy field, or logo-red type. An owner approves claims and brand. Operations approves timing, availability, fulfillment, and location details. Paid media approves rights, crop, CTA, and destination.
 
 ## notes for non-designers
 
@@ -83,5 +83,5 @@ Use `{brand}_{campaign}_{concept}_{location-or-audience}_{channel}_{ratio}_{date
 - Logo artwork, logo colors, or aspect ratio.
 - Headline family, lowercase rule, or body family without brand-owner approval.
 - Safe-zone guides or minimum text size.
-- The rule against black text panels and pink-tinted copy surfaces.
+- The rule against floating text cards, badges, glow, black or pink panels, and copy over photography.
 - An approved quote, review, menu fact, price, hour, deadline, or operational statement.

@@ -157,7 +157,7 @@ export const CarouselMotion = ({setId, format, cards}: CarouselMotionProps) => {
           height: panelHeight,
           backgroundColor: palette.blue,
           boxSizing: "border-box",
-          padding: isFeed ? "52px 66px 74px" : "62px 82px 128px",
+          padding: isFeed ? "52px 66px 112px" : "62px 82px 128px",
           display: "flex",
           flexDirection: "column",
         }}
@@ -250,7 +250,7 @@ export const CarouselMotion = ({setId, format, cards}: CarouselMotionProps) => {
           position: "absolute",
           left: safeX,
           right: safeX,
-          bottom: panelHeight - Math.round(badgeSize / 2),
+          bottom: isFeed ? 28 : 38,
           height: badgeSize,
         }}
       >

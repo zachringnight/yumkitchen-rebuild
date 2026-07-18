@@ -60,7 +60,7 @@ Operational placeholders in braces must be replaced and approved before publicat
 | CAP-032 | For the person who always says they do not need anything: they still need cake. | Send a Patticake | Instagram Feed | awareness | Gift box arriving at a front door or office. |
 | CAP-033 | Office birthday on the calendar? Add the cake before somebody volunteers grocery-store cupcakes in the group chat. | Plan an Office Cake | LinkedIn | conversion | Office table, candles, and Patticake slice. |
 | CAP-034 | The birthday message matters almost as much as the layers. Show us what should go on the cake request. | Start a Cake Request | Instagram Stories | engagement | Piping message close-up with question sticker. |
-| CAP-035 | A birthday in another state can still get a little yum! Check the current Patticake delivery options before you pick the date. | Check Delivery Options | Facebook | conversion | Packing, date selection, and first slice. |
+| CAP-035 | A birthday in another state can still get a little yum! Patticake is available nationwide; confirm the exact date at checkout. | Ship Nationwide | Facebook | conversion | Packing, date selection, and first slice. |
 
 ## F. Patticake thank-you and gifting
 
@@ -78,7 +78,7 @@ Operational placeholders in braces must be replaced and approved before publicat
 
 | ID | Caption | CTA | Best channel | Funnel | Suggested visual |
 | --- | --- | --- | --- | --- | --- |
-| CAP-043 | Pack a Patticake with us: cake secured, message checked, box finished, and the current delivery path confirmed at checkout. | Check Delivery Options | TikTok | consideration | Real packing sequence, no staged shipping label data. |
+| CAP-043 | Pack a Patticake with us: cake secured, message checked, box finished, and nationwide shipping confirmed at checkout. | Ship Nationwide | TikTok | consideration | Real packing sequence, no staged shipping label data. |
 | CAP-044 | A delivery date is part of the gift. Check the current calendar before you promise the cake at the party. | View the Delivery Calendar | Instagram Stories | conversion | Date picker, packed box, and reminder frame. |
 | CAP-045 | From yum! bakery layers to the first slice at their table. Here is the trip a Patticake is built to make. | Send a Patticake | YouTube Shorts | consideration | Bake, frost, pack, transit handoff, unbox. |
 | CAP-046 | Unbox first. Read the note second. Cut the cake immediately after. | Start an Order | Instagram Reel | awareness | Recipient unboxing with consent and clean label framing. |

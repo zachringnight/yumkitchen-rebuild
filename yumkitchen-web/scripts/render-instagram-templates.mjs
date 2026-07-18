@@ -3,6 +3,12 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import puppeteer from 'puppeteer';
 
+if (process.env.ALLOW_RETIRED_YUM_INSTAGRAM_REBUILD !== '1') {
+  throw new Error(
+    'Retired builder blocked. Use the current Remotion pack in social/yum-patticake-creative-launch-2026-07-14 or set ALLOW_RETIRED_YUM_INSTAGRAM_REBUILD=1 for an intentional provenance rebuild.',
+  );
+}
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..', '..');
 const templatePath = path.join(root, 'social', 'instagram', 'yum-instagram-templates.html');

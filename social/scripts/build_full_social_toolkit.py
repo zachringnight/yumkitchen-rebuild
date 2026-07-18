@@ -2,9 +2,12 @@
 from __future__ import annotations
 
 import csv
+import html
 import json
+import os
 import shutil
 import subprocess
+import tempfile
 from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -17,17 +20,35 @@ DATA = OUT / "data"
 REVIEW_ASSETS = OUT / "review-assets"
 POST_PACK = SOCIAL / "yum-patticake-social-motion-pack"
 MOTION_PACK = SOCIAL / "yum-social-motion-template-2026"
-REVIEW_RENDERER = (
-    Path.home()
-    / ".codex"
-    / "plugins"
-    / "cache"
-    / "openai-curated-remote"
-    / "creative-production"
-    / "0.1.24"
-    / "scripts"
-    / "review_renderer.py"
-)
+ACTIVE_PACK = SOCIAL / "yum-patticake-creative-launch-2026-07-14"
+REVIEW_RENDERER_ROOT = Path.home() / ".codex" / "plugins" / "cache" / "openai-curated-remote" / "creative-production"
+HISTORICAL_REVIEW_STATE = [
+    Path("review-assets"),
+    Path("contact-sheet.png"),
+    Path("review-board.html"),
+    Path("data/review-manifest.json"),
+    Path("data/review-options.json"),
+    Path("data/stream-static.json"),
+    Path("data/stream.json"),
+    Path("generated"),
+    Path("latest-action.json"),
+    Path("moodboard-widget-payload.json"),
+    Path("run-state.json"),
+]
+
+
+def resolve_review_renderer() -> Path | None:
+    configured = os.environ.get("CREATIVE_PRODUCTION_REVIEW_RENDERER")
+    if configured:
+        path = Path(configured).expanduser()
+        if path.is_file():
+            return path
+        raise FileNotFoundError(f"Configured Creative Production renderer not found: {path}")
+
+    candidates = sorted(REVIEW_RENDERER_ROOT.glob("*/scripts/review_renderer.py"), reverse=True)
+    if candidates:
+        return candidates[0]
+    return None
 
 TODAY = date(2026, 7, 9)
 
@@ -106,7 +127,7 @@ PILLARS = [
         "goal": "cake orders and gift reminders",
         "ideas": "pack a cake; add a note; delivery-date reminder; unboxing and first slice",
         "channels": "Reels, TikTok, Pinterest, Feed, paid",
-        "ctas": "Send a Patticake; Check delivery options; Start an order",
+        "ctas": "Send a Patticake; Ship nationwide; Start an order",
         "assets": "Reel, Pin, carousel, conversion ad",
     },
     {
@@ -183,7 +204,7 @@ PILLARS = [
 
 
 TEMPLATES = [
-    ("yum-local-order", "yum! local order post", "Move nearby guests into online ordering.", "1080x1350 and 1080x1920", "Full-bleed meal or pickup image; white headline card at upper left; red CTA bar low center.", "Real order handoff or plated menu image.", "lowercase Trocchi, 3-7 words", "One decision, one location cue, one action.", "Order Online", "meal, daypart, location", "Instagram, Facebook, GBP, paid", "order", "yum_local-order_{location}_{date}_v##"),
+    ("yum-local-order", "yum! local order post", "Move nearby guests into online ordering.", "1080x1350 and 1080x1920", "Unobstructed meal or pickup image beside a dedicated baby-blue field with logo-red headline and CTA.", "Real order handoff or plated menu image.", "lowercase Trocchi, 3-7 words", "One decision, one location cue, one action.", "Order Online", "meal, daypart, location", "Instagram, Facebook, GBP, paid", "order", "yum_local-order_{location}_{date}_v##"),
     ("yum-menu-feature", "yum! menu feature post", "Create menu discovery without unsupported availability claims.", "1080x1350 carousel or 1080x1920 Reel", "Macro food proof first; ingredient or preparation beats second; red CTA last.", "Current menu item or verified seasonal item.", "specific dish name in lowercase", "Describe what is visible and point to the current menu.", "See the Menu", "single item, pairing, preparation", "Instagram, TikTok, Shorts, paid", "menu", "yum_menu_{item}_{format}_{date}_v##"),
     ("yum-bakery-case", "yum! bakery case post", "Drive same-day visits and bakery add-ons.", "1080x1350 and 1080x1920", "Case scan or tray pull; blue caption tab; no inventory promise beyond the capture time.", "Fresh case footage from that location and day.", "what is in the case today", "Use 'today at capture time' language and invite an in-person check.", "Find a Location", "case scan, tray detail, staff pick", "Stories, Reels, GBP", "locations", "yum_bakery-case_{location}_{date}_v##"),
     ("yum-catering", "yum! catering post", "Generate qualified catering inquiries.", "1080x1350 carousel and 1080x1920 Reel", "Finished spread first; assembly proof; planner checklist; inquiry CTA.", "Real boxed lunches, trays, bakery add-ons, and room setup.", "feed the room", "Name the occasion and planning friction solved. Avoid unsupported capacity claims.", "Start a Catering Note", "office lunch, meeting, celebration", "Instagram, Facebook, LinkedIn, paid", "catering", "yum_catering_{occasion}_{format}_{date}_v##"),
@@ -191,18 +212,18 @@ TEMPLATES = [
     ("yum-gift-card", "yum! gift card post", "Drive gift card purchases.", "1080x1350 and 1080x1920", "Gift card or phone UI shown cleanly; red circle logo; white or blue copy surface.", "Verified gift card visual or real handoff.", "send lunch for later", "Connect the gift to a specific recipient and occasion.", "Buy a Gift Card", "teacher, host, employee, family", "Instagram, Facebook, Stories, email crossover", "gift-cards", "yum_gift-card_{occasion}_{date}_v##"),
     ("patticake-birthday", "Patticake birthday post", "Convert birthday intent into cake action.", "1080x1350 and 1080x1920", "Cake reveal; message detail; first slice; red CTA.", "Real Patticake, candle or message, and hands.", "a birthday cake that feels planned", "Name the recipient or moment, then route to pickup or shipping options.", "Plan the Cake", "pickup, shipped gift, office birthday", "Instagram, TikTok, Pinterest, paid", "cake_request", "patticake_birthday_{route}_{date}_v##"),
     ("patticake-thank-you", "Patticake thank-you gift post", "Create occasion demand beyond birthdays.", "1080x1350 and 1000x1500", "Gift box and note first; slice proof second; destination CTA third.", "Gift box, note card, hands, and cake slice.", "thank you, but make it cake", "Call out who deserves the thanks and keep fulfillment details current.", "Send a Patticake", "client, teacher, neighbor, host", "Instagram, Pinterest, Facebook, paid", "patticake", "patticake_thank-you_{recipient}_{date}_v##"),
-    ("patticake-shipped", "Patticake shipped cake post", "Drive delivery orders where currently available.", "1080x1920 Reel and 1000x1500 Pin", "Pack, seal, message, handoff, unbox. Put delivery options behind the site CTA.", "Real packing process and current packaging.", "pack a Patticake with us", "Describe the steps visible. Do not promise a date until checkout confirms it.", "Check Delivery Options", "packing, unboxing, first slice", "Reels, TikTok, Shorts, Pinterest, paid", "patticake", "patticake_shipping_{concept}_{date}_v##"),
+    ("patticake-shipped", "Patticake shipped cake post", "Drive nationwide cake shipping orders.", "1080x1920 Reel and 1000x1500 Pin", "Pack, seal, message, handoff, unbox. Lead with nationwide availability and leave exact dates to checkout.", "Real packing process and current packaging.", "pack a Patticake with us", "Describe the steps visible. Do not promise a date until checkout confirms it.", "Ship Nationwide", "packing, unboxing, first slice", "Reels, TikTok, Shorts, Pinterest, paid", "patticake", "patticake_shipping_{concept}_{date}_v##"),
     ("patticake-pickup", "Patticake local pickup post", "Convert local celebration demand.", "1080x1350 and 1080x1920", "Boxed cake at counter; location selection; pickup handoff.", "Real box, counter, and staff handoff.", "birthday pickup, handled", "Route to the request or order flow and avoid claiming availability.", "Pick Up Locally", "location, office, family", "Instagram, Facebook, Stories, local paid", "cake_request", "patticake_pickup_{location}_{date}_v##"),
     ("patticake-corporate", "Patticake corporate gifting post", "Generate bulk gifting leads.", "1080x1350 carousel and 1080x1920 Reel", "Recipient occasion; repeatable packing; message option; inquiry CTA.", "Multiple boxes, note workflow, and real gifting setup.", "client thank-yous people remember", "Speak to planners. Use inquiry language for quantity, timing, and addresses.", "Ask About Corporate Gifting", "clients, teams, partners", "LinkedIn, Instagram, Facebook, paid", "cake_request", "patticake_corporate-gifting_{audience}_{date}_v##"),
     ("patticake-wedding", "Patticake wedding and event post", "Generate qualified event inquiries.", "1000x1500 Pin, 1080x1350, 1080x1920", "Tiered cake proof; detail crop; event scene; inquiry CTA.", "Real event cake and venue details with permission.", "cake for the table you planned", "Invite date, guest context, and inspiration. Do not promise customization.", "Start an Event Inquiry", "wedding, shower, rehearsal, event", "Pinterest, Instagram, paid", "cake_request", "patticake_event_{occasion}_{date}_v##"),
     ("seasonal-campaign", "seasonal campaign post", "Create timely demand without stale claims.", "1080x1350, 1080x1920, 1200x628", "Current product hero; date or availability line; one CTA.", "Verified seasonal item or occasion footage.", "seasonal line tied to the actual item", "Include a publish-by date and owner confirmation field.", "See What Is Available", "food, bakery, gifting", "all social, GBP, email crossover, paid", "menu", "{brand}_seasonal_{campaign}_{date}_v##"),
-    ("testimonial", "customer quote or testimonial post", "Add proof without fake or unattributed reviews.", "1080x1350 carousel", "Quote card on white or blue; source and date; supporting real image.", "Approved review text with source record and usage approval.", "short attributed quote", "Keep the exact quote and route to the relevant action.", "See the Menu", "yum!, Patticake, catering", "Instagram, Facebook, paid retargeting", "menu", "{brand}_testimonial_{source}_{date}_v##"),
+    ("testimonial", "customer quote or testimonial post", "Add proof without fake or unattributed reviews.", "1080x1350 carousel", "Unobstructed real image beside a dedicated baby-blue quote field with logo-red type, source, and date.", "Approved review text with source record and usage approval.", "short attributed quote", "Keep the exact quote and route to the relevant action.", "See the Menu", "yum!, Patticake, catering", "Instagram, Facebook, paid retargeting", "menu", "{brand}_testimonial_{source}_{date}_v##"),
     ("review", "review post", "Turn verified review proof into a conversion assist.", "1080x1350", "Real review screenshot or exact transcription; photo proof; CTA.", "Verified live review with captured URL and date.", "what guests noticed", "Never rewrite a quote. Remove private information.", "Order Online", "location, catering, gifting", "Instagram, Facebook, Stories", "order", "{brand}_review_{source}_{date}_v##"),
     ("staff-favorite", "staff favorite post", "Humanize recommendations and drive menu exploration.", "1080x1920 Reel and 1080x1350", "Staff face or hands; order build; final plate; name and location.", "Consent-cleared staff footage and current menu item.", "{name}'s yum! order", "One reason they order it, one visible proof point, one CTA.", "Try the Order", "staff, baker, counter, kitchen", "Reels, TikTok, Stories", "menu", "yum_staff-pick_{location}_{name}_{date}_v##"),
     ("limited-drop", "limited-time drop post", "Create urgency around verified limited availability.", "1080x1920 and 1080x1350", "Product reveal; date range; location or channel; CTA.", "Same-day or campaign-approved product capture.", "here while it is here", "State only approved dates and locations. Add an internal expiry date.", "Check Availability", "bakery, seasonal menu, gifting", "Stories, Reels, GBP, paid", "menu", "{brand}_drop_{item}_{date}_v##"),
     ("story-order", "Order Now Story frame", "Move viewers directly to ordering.", "1080x1920", "Food photo; 3-5 word headline; red button zone above bottom UI.", "Current food or pickup image.", "lunch is handled", "One support line maximum.", "Order Now", "daypart, location, menu category", "Instagram Stories, Facebook Stories", "order", "yum_story_order_{concept}_{date}_v##"),
-    ("story-quote", "Get Quote Story frame", "Generate catering leads.", "1080x1920", "Spread photo; planner hook; three proof chips; link sticker cue.", "Real catering setup and optional planner hands.", "feed the room", "Mention pickup and route to the inquiry. Confirm notice language before posting.", "Get a Quote", "office, meeting, event", "Instagram Stories, Facebook Stories", "catering", "yum_story_catering-quote_{occasion}_{date}_v##"),
-    ("story-send-cake", "Send a Cake Story frame", "Convert Patticake gifting intent.", "1080x1920", "Gift box; message card; slice; link sticker cue.", "Real Patticake packing or gifting image.", "send cake, not a card", "Use current delivery or pickup language from the destination page.", "Send a Cake", "birthday, thank-you, client", "Instagram Stories, Facebook Stories", "patticake", "patticake_story_send-cake_{occasion}_{date}_v##"),
+    ("story-quote", "Get Quote Story frame", "Generate catering leads.", "1080x1920", "Unobstructed spread photo beside a baby-blue field for the planner hook, proof, and native link cue.", "Real catering setup and optional planner hands.", "feed the room", "Mention pickup and route to the inquiry. Confirm notice language before posting.", "Get a Quote", "office, meeting, event", "Instagram Stories, Facebook Stories", "catering", "yum_story_catering-quote_{occasion}_{date}_v##"),
+    ("story-send-cake", "Send a Cake Story frame", "Convert Patticake gifting intent.", "1080x1920", "Real gift box, note, and slice beside a baby-blue field with logo-red type and native link cue.", "Real Patticake packing or gifting image.", "send cake, not a card", "Lead with nationwide availability or the current local pickup path.", "Send a Cake", "birthday, thank-you, client", "Instagram Stories, Facebook Stories", "patticake", "patticake_story_send-cake_{occasion}_{date}_v##"),
 ]
 
 
@@ -222,7 +243,7 @@ CHANNELS = [
 
 CALENDAR = [
     (1, "yum!", "Instagram Reel + TikTok", "made-from-scratch food", "First-time yum! lunch guide", "15s vertical video", "what we would order on a first yum! lunch", "Show three verified menu paths and a final pickup handoff.", "See the Menu", "menu", "yes", "Paid-ready local order creative. Use current menu footage."),
-    (2, "Patticake", "Instagram Feed + Pinterest", "Patticake gifting", "Send cake, not a card", "4:5 static + 2:3 Pin", "send cake, not a card", "Gift box, personal note, and a real slice. Route to current delivery options.", "Send a Patticake", "patticake", "yes", "Paid-ready gifting. No delivery deadline claim."),
+    (2, "Patticake", "Instagram Feed + Pinterest", "Patticake gifting", "Send cake, not a card", "4:5 static + 2:3 Pin", "send cake, not a card", "Gift box, personal note, and a real slice. Patticake is available nationwide; leave exact dates to checkout.", "Send a Patticake", "patticake", "yes", "Paid-ready gifting. No delivery deadline claim."),
     (3, "yum!", "Stories + GBP", "bakery case and daily treats", "Morning bakery case restock", "3-frame Story + square photo", "first look at today's bakery case", "Film the real case at open and label the capture location.", "Find a Location", "locations", "no", "Bakery post 1. Do not imply all-day stock."),
     (4, "yum!", "Instagram Feed + GBP", "four neighborhoods", "St. Louis Park location spotlight", "4:5 photo", "the original yum! on Minnetonka Boulevard", "Storefront, counter, and an order pickup moment.", "Visit St. Louis Park", "slp", "no", "Location post 1."),
     (5, "yum!", "LinkedIn + Facebook + Instagram", "office catering", "Meeting lunch without the last-minute scramble", "carousel", "the office lunch upgrade nobody complains about", "Show boxed lunches, trays, and bakery add-ons. Keep quantities unclaimed.", "Start a Catering Note", "catering", "yes", "Catering post 1. Paid lead-gen ready."),
@@ -232,7 +253,7 @@ CALENDAR = [
     (9, "Patticake", "Stories + Facebook", "Patticake gifting", "Thank-you cake sequence", "3-frame Story", "thank you, but make it cake", "Who it is for, how the note works, and where to start.", "Send a Cake", "patticake", "no", "Gifting post 2."),
     (10, "yum!", "Instagram Feed + GBP", "four neighborhoods", "Shady Oak location spotlight", "4:5 photo", "your Minnetonka lunch stop", "Show exterior, easy arrival, and one current food detail.", "Visit Shady Oak", "shady_oak", "no", "Location post 2."),
     (11, "yum!", "Instagram Carousel + LinkedIn", "office catering", "Box lunch assembly", "carousel", "what goes into a room-ready lunch", "Assembly order, labels, finished boxes, pickup handoff.", "Plan Catering", "catering", "no", "Catering post 2."),
-    (12, "Patticake", "Instagram Reel + TikTok", "Patticake gifting", "Pack a Patticake with us", "15s vertical video", "pack a Patticake order with us", "Box, cake, message, ribbon, handoff. Show only current packaging.", "Check Delivery Options", "patticake", "yes", "Gifting post 3. Paid-ready process proof."),
+    (12, "Patticake", "Instagram Reel + TikTok", "Patticake gifting", "Pack a Patticake with us", "15s vertical video", "pack a Patticake order with us", "Box, cake, message, ribbon, handoff. Show only current packaging.", "Ship Nationwide", "patticake", "yes", "Gifting post 3. Paid-ready process proof."),
     (13, "yum!", "Facebook + Stories", "gift cards", "Teacher thank-you gift card", "4:5 static + Story", "lunch for the person who kept the year moving", "Show the verified gift card purchase flow or real gift handoff.", "Buy a Gift Card", "gift_cards", "no", "No discount or expiry claim."),
     (14, "yum!", "Instagram Reel + Shorts", "made-from-scratch food", "Rainy-day comfort food", "12s vertical video", "Minnesota weather has a lunch order", "Steam, spoon, sandwich cut, pickup bag.", "Order Online", "order", "no", "Use current item footage."),
     (15, "Patticake", "Pinterest + Instagram Feed", "weddings and events", "Wedding cake detail study", "2:3 Pin + 4:5 carousel", "cake for the table you planned", "Tier, piping, cut, and table context with permission.", "Start an Event Inquiry", "cake_request", "no", "No custom-design promise."),
@@ -298,7 +319,7 @@ CAPTION_GROUPS = {
         ("For the person who always says they do not need anything: they still need cake.", "Send a Patticake", "Instagram Feed", "awareness", "Gift box arriving at a front door or office."),
         ("Office birthday on the calendar? Add the cake before somebody volunteers grocery-store cupcakes in the group chat.", "Plan an Office Cake", "LinkedIn", "conversion", "Office table, candles, and Patticake slice."),
         ("The birthday message matters almost as much as the layers. Show us what should go on the cake request.", "Start a Cake Request", "Instagram Stories", "engagement", "Piping message close-up with question sticker."),
-        ("A birthday in another state can still get a little yum! Check the current Patticake delivery options before you pick the date.", "Check Delivery Options", "Facebook", "conversion", "Packing, date selection, and first slice."),
+        ("A birthday in another state can still get a little yum! Patticake is available nationwide; confirm the exact date at checkout.", "Ship Nationwide", "Facebook", "conversion", "Packing, date selection, and first slice."),
     ],
     "F. Patticake thank-you and gifting": [
         ("Thank you, but make it cake. Add the note, choose the current delivery or pickup path, and give them something meant to be shared.", "Send a Patticake", "Instagram Feed", "conversion", "Gift box, note, and cake slices."),
@@ -310,7 +331,7 @@ CAPTION_GROUPS = {
         ("When flowers feel expected, send the cake people will put in the middle of the table.", "Check Gift Options", "Pinterest", "consideration", "Patticake centered on a real table with hands."),
     ],
     "G. Patticake shipping": [
-        ("Pack a Patticake with us: cake secured, message checked, box finished, and the current delivery path confirmed at checkout.", "Check Delivery Options", "TikTok", "consideration", "Real packing sequence, no staged shipping label data."),
+        ("Pack a Patticake with us: cake secured, message checked, box finished, and nationwide shipping confirmed at checkout.", "Ship Nationwide", "TikTok", "consideration", "Real packing sequence, no staged shipping label data."),
         ("A delivery date is part of the gift. Check the current calendar before you promise the cake at the party.", "View the Delivery Calendar", "Instagram Stories", "conversion", "Date picker, packed box, and reminder frame."),
         ("From yum! bakery layers to the first slice at their table. Here is the trip a Patticake is built to make.", "Send a Patticake", "YouTube Shorts", "consideration", "Bake, frost, pack, transit handoff, unbox."),
         ("Unbox first. Read the note second. Cut the cake immediately after.", "Start an Order", "Instagram Reel", "awareness", "Recipient unboxing with consent and clean label framing."),
@@ -425,14 +446,14 @@ def video(
         "onscreen": onscreen,
         "voiceover": voiceover,
         "cta": cta,
-        "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, burned-in captions, Yum paper/red/blue text cards, and a two-second CTA hold. No black text panels or pink-tinted copy surfaces.",
+        "editing": "Open on motion in frame one. Use straight cuts, one clean push-in, and burned-in captions. Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a two-second CTA hold. No floating cards, stickers, glow, or text over the photo.",
         "channels": channels,
         "rating": rating,
     }
 
 
 VIDEO_SCRIPTS = [
-    video("Pack a Patticake with us", "Patticake", "delivery order consideration", "gift senders", "pack a Patticake order with us", ["Open box on clean packing table", "Lower real cake into insert", "Check gift note without showing private data", "Close box and tie current packaging", "Hand off for delivery"], ["cake checked", "message checked", "ready to send"], "A Patticake gift starts with the cake, the message, and one last check before the box closes.", "Check Delivery Options", "Reels, TikTok, Shorts, paid", "high"),
+    video("Pack a Patticake with us", "Patticake", "nationwide shipping consideration", "gift senders", "pack a Patticake order with us", ["Open box on clean packing table", "Lower real cake into insert", "Check gift note without showing private data", "Close box and tie current packaging", "Hand off for shipping"], ["cake checked", "message checked", "ready to send"], "A Patticake gift starts with the cake, the message, and one last check before the box closes.", "Ship Nationwide", "Reels, TikTok, Shorts, paid", "high"),
     video("Cut the first slice", "Patticake", "birthday and product proof", "birthday cake buyers", "the part of the birthday everyone waits for", ["Full cake on real table", "Knife breaks the buttercream", "Slice lifts from cake", "Layer macro", "Hands pass plates"], ["first cut", "real layers", "share the love"], "The candles are quick. The first slice is the moment.", "Plan the Cake", "Reels, TikTok, Shorts", "high", "12 seconds"),
     video("Birthday cake pickup", "Patticake", "local cake request", "Twin Cities birthday buyers", "birthday pickup, handled", ["Bakery box at counter", "Staff confirms name", "Hands receive box", "Careful placement in car", "Cake arrives on table"], ["choose the date", "choose the kitchen", "pick up locally"], "Share the date, location, and cake details, then let the bakery team confirm the next step.", "Pick Up Locally", "Reels, Stories, Meta paid", "high"),
     video("Send a thank-you cake", "Patticake", "occasion expansion", "friends, families, client gift buyers", "thank you, but make it cake", ["Write thank-you note", "Place card with gift box", "Reveal full cake", "Cut layered slice", "Recipient hands receive plate"], ["for showing up", "for helping out", "for sharing"], "A thank-you feels more personal when the note arrives with something meant for the middle of the table.", "Send a Patticake", "Reels, TikTok, Pinterest video, paid", "high"),
@@ -445,7 +466,7 @@ VIDEO_SCRIPTS = [
     video("Gift card holiday post", "yum!", "gift card sales", "last-minute and employer gift buyers", "send lunch for later", ["Gift card purchase screen", "Write recipient note", "Show real meal options", "Bakery case detail", "Gift-card CTA"], ["choose the amount", "add the note", "send yum!"], "A yum! gift card lets them choose breakfast, dinner, bakery, or the order they already love.", "Buy a Gift Card", "Reels, Stories, Facebook, paid", "high", "12 seconds"),
     video("Wedding cake alternative", "Patticake", "event inquiries", "couples and event planners", "cake for the table you planned", ["Tiered cake wide", "Piping detail", "Flowers or table detail", "Cake cut", "Inquiry screen"], ["share the date", "share the occasion", "start the inquiry"], "Start with the date and event details. The bakery team can follow up about what is possible.", "Start an Event Inquiry", "Reels, Pinterest video, paid", "high", "18 seconds"),
     video("Corporate gifting explainer", "Patticake", "corporate gifting leads", "office managers and client teams", "the client thank-you that gets opened first", ["Multiple boxes", "Message cards", "Recipient list blurred", "Pack and close", "Inquiry CTA"], ["who it is for", "how many", "when it matters"], "For multiple gifts, start with the recipient count, timing, address plan, and message needs.", "Ask About Corporate Gifting", "LinkedIn, Reels, Meta paid", "high", "20 seconds"),
-    video("Customer review visual", "both", "retargeting proof", "warm prospects", "what guests noticed", ["Verified review source", "Exact short quote on white card", "Supporting food or cake proof", "Source and date", "Relevant CTA"], ["exact quote only", "source: {SOURCE}", "captured: {DATE}"], "Use only a verified, attributed review with approval and a saved source link.", "See What They Ordered", "Reels, Stories, paid retargeting", "medium", "12 seconds"),
+    video("Customer review visual", "both", "retargeting proof", "warm prospects", "what guests noticed", ["Verified review source", "Exact short quote in the baby-blue copy field", "Supporting food or cake proof", "Source and date", "Relevant CTA"], ["exact quote only", "source: {SOURCE}", "captured: {DATE}"], "Use only a verified, attributed review with approval and a saved source link.", "See What They Ordered", "Reels, Stories, paid retargeting", "medium", "12 seconds"),
     video("What to order for lunch", "yum!", "local order conversion", "weekday lunch guests", "the lunch decision in three shots", ["Soup steam", "Sandwich cut", "Salad or entree close-up", "Pickup bag", "Order CTA"], ["warm", "handheld", "fresh"], "Pick the craving first. The current menu and your nearest kitchen handle the rest.", "Order Online", "Reels, TikTok, Shorts, paid", "high", "12 seconds"),
     video("Family dinner pickup", "yum!", "dinner orders", "families and parents", "the order for when nobody agrees on dinner", ["Parent checks menu", "Several current dishes packed", "Bag handoff", "Food placed on home table", "Family hands serve"], ["pick the kitchen", "place the order", "bring dinner home"], "Dinner does not need one unanimous craving. Start with the current menu and the nearest yum!.", "Order Online", "Reels, Facebook, Meta paid", "high", "18 seconds"),
     video("Cake message writing", "Patticake", "cake-request completion", "birthday and gift buyers", "the message goes on before the candles do", ["Blank cake surface", "Piping bag begins", "Message takes shape", "Full cake reveal", "Request CTA"], ["keep it short", "make it personal", "share the details"], "The message is part of the cake. Add exactly what the bakery team should know in the request.", "Start a Cake Request", "Reels, TikTok, Stories", "high", "12 seconds"),
@@ -453,7 +474,7 @@ VIDEO_SCRIPTS = [
     video("Catering add-ons", "yum!", "larger catering basket and qualified leads", "office planners", "do not forget the bakery tray", ["Main catering trays", "Side or salad", "Bakery tray", "Labels and utensils", "Finished room"], ["main", "sides", "bakery", "pickup plan"], "A finished catering plan includes the food, the room, the pickup, and the part people save for the end.", "Plan Catering", "Reels, LinkedIn, paid", "high", "16 seconds"),
     video("Behind the counter", "yum!", "human brand trust", "regulars and prospective staff", "the last ten seconds before your order is yours", ["Final order check", "Bag close", "Name called", "Guest handoff without identifiable face", "Staff wave"], ["checked", "called", "ready"], "The order leaves the kitchen after one more check and a real person at the counter.", "Order Online", "Reels, TikTok, Stories", "medium", "10 seconds"),
     video("Minnesota nostalgia gift", "Patticake", "long-distance gifting", "former Minnesotans and their families", "send a little Twin Cities home", ["Write hometown note", "Pack Patticake", "Box handoff", "Recipient opens", "Slice on plate"], ["from yum!", "with a note", "for their table"], "For the person who still calls the Twin Cities home, even from somewhere else.", "Send a Patticake", "Reels, Facebook, Pinterest video", "high", "18 seconds"),
-    video("Former local sends cake home", "Patticake", "gift reminder", "former locals", "send cake back home", ["Sender chooses occasion", "Message typed", "Cake packed", "Family receives box", "Shared first slice"], ["pick the reason", "add the note", "send it home"], "Distance changes the address, not the reason to show up for the table.", "Check Delivery Options", "Reels, TikTok, paid", "high", "18 seconds"),
+    video("Former local sends cake home", "Patticake", "gift reminder", "former locals", "send cake back home", ["Sender chooses occasion", "Message typed", "Cake packed", "Family receives box", "Shared first slice"], ["pick the reason", "add the note", "send it home"], "Distance changes the address, not the reason to show up for the table.", "Ship Nationwide", "Reels, TikTok, paid", "high", "18 seconds"),
     video("Graduation celebration", "Patticake", "seasonal cake demand", "families and graduates", "the graduate gets the first slice", ["Cap or approved graduation prop", "Cake message detail", "Candles or table", "First slice", "Cake-request CTA"], ["share the date", "add the message", "plan the cake"], "Put the date and cake details on the request before the celebration calendar fills up.", "Plan the Cake", "Reels, Stories, Pinterest", "high", "15 seconds"),
     video("Teacher thank-you", "Patticake", "thank-you gifting", "parents and school communities", "thank you in chocolate layers", ["Write teacher note", "Show gift box", "Pack cake", "Approved handoff", "Slice proof"], ["for the patience", "for the care", "for the whole year"], "Make the thank-you specific, then let the cake carry it to the table.", "Send a Thank-You Cake", "Reels, Facebook, Pinterest", "high", "15 seconds"),
     video("Office birthday", "Patticake", "office celebration lead", "office managers and executive assistants", "an office birthday that looks planned", ["Calendar reminder", "Box pickup or arrival", "Cake on conference table", "Candles", "First slice around the room"], ["date", "message", "cake", "handled"], "Add the cake before the birthday becomes a same-day group-chat problem.", "Plan an Office Cake", "LinkedIn, Reels, Meta paid", "high", "16 seconds"),
@@ -461,7 +482,7 @@ VIDEO_SCRIPTS = [
     video("Holiday gifting deadline", "Patticake", "deadline conversion", "holiday gift buyers", "check the deadline before you promise the cake", ["Approved deadline card", "Delivery calendar", "Packing process", "Gift note", "CTA hold"], ["order by {CONFIRMED_DEADLINE}", "dates subject to availability", "check current options"], "Use this script only after the bakery owner confirms the campaign deadline and available delivery path.", "Check Current Options", "Stories, Reels, paid", "high", "12 seconds"),
     video("Rainy day comfort food", "yum!", "same-day local orders", "nearby guests", "Minnesota weather has a lunch order", ["Rain on window", "Soup steam", "Sandwich cut", "Bag handoff", "Warm table shot"], ["warm", "ready", "nearby"], "When the weather changes the plan, let the current yum! menu make the next decision.", "Order Online", "Reels, TikTok, GBP", "medium", "12 seconds"),
     video("Bakery tray for meetings", "yum!", "catering add-on leads", "office planners", "the meeting starts better with a bakery tray", ["Empty table", "Tray arrives", "Lid lifts", "Coffee and plates", "Meeting begins"], ["add the bakery", "finish the table", "start a catering note"], "The bakery tray belongs in the plan before the first calendar invite goes out.", "Plan Catering", "LinkedIn, Reels, Meta paid", "high", "12 seconds"),
-    video("Why Patticake?", "Patticake", "brand and product understanding", "new cake and gift buyers", "why Patticake?", ["Full cake", "Chocolate layer macro", "Vanilla buttercream top", "Gift note and box", "Pickup and delivery path split"], ["real layers", "personal note", "pickup or current delivery options"], "Patticake is yum!'s celebration cake: real chocolate layers, vanilla buttercream, and a message made for the occasion.", "See Patticake", "Reels, TikTok, Shorts, paid", "high", "20 seconds"),
+    video("Why Patticake?", "Patticake", "brand and product understanding", "new cake and gift buyers", "why Patticake?", ["Full cake", "Chocolate layer macro", "Vanilla buttercream top", "Gift note and box", "Local pickup and nationwide shipping path split"], ["real layers", "personal note", "local pickup or nationwide shipping"], "Patticake is yum!'s celebration cake: real chocolate layers, vanilla buttercream, and a message made for the occasion.", "See Patticake", "Reels, TikTok, Shorts, paid", "high", "20 seconds"),
 ]
 
 
@@ -483,7 +504,7 @@ PAID_CAMPAIGNS = [
         ],
         "headlines": ["Order from your yum!", "Lunch is handled", "Pick your kitchen", "Bring yum! home", "See the current menu"],
         "cta": "ORDER_NOW",
-        "visual": "Real food macro, four-location cue, white/red/blue cards, pickup handoff.",
+        "visual": "Unobstructed real food macro, four-location cue, dedicated baby-blue field with logo-red type, and pickup handoff.",
         "video": "12-15 second craving montage ending on the location selector and Order Now.",
         "testing": "Test daypart, location, craving family, food-first vs handoff-first, and 4:5 vs 9:16. Exclude recent purchasers from prospecting where data allows.",
         "metric": "Cost per completed order session, purchase conversion rate, and location-level return on ad spend where purchase value is available.",
@@ -702,7 +723,7 @@ CREATOR_BRIEFS = [
 STORY_SEQUENCES = [
     ("Order lunch today", "The lunch decision starts here.", "Show two current food paths.", "Choose the yum! on your route.", "Order Online", "This-or-that poll on frame 2", "Weekday 10:30am-1pm local conversion"),
     ("Bakery case drop", "First look at today's case.", "Show the real tray and location.", "Photographed at {CAPTURE_TIME}.", "Find a Location", "Poll between two available items", "Same-day bakery traffic"),
-    ("Patticake birthday", "Birthday on the calendar?", "Choose pickup or check delivery options.", "Add the date and cake message.", "Plan the Cake", "Countdown sticker after deadline confirmation", "Birthday planning"),
+    ("Patticake birthday", "Birthday on the calendar?", "Choose local pickup or nationwide shipping.", "Add the date and cake message.", "Plan the Cake", "Countdown sticker after deadline confirmation", "Birthday planning"),
     ("Send a thank-you cake", "Who showed up for you?", "Write the note.", "Send something meant to be shared.", "Send a Patticake", "Question sticker: who deserves cake?", "Thank-you gifting"),
     ("Cake pickup reminder", "Cake pickup day.", "Confirm the location and approved time in your order details.", "Carry the box flat and head to the table.", "View Cake Details", "Reminder sticker", "Confirmed customer reminder only"),
     ("Office catering quote", "The meeting is booked. Is lunch?", "Send date, group size, and pickup kitchen.", "Add trays, boxes, and bakery questions.", "Get a Quote", "Question sticker: how many are you feeding?", "Catering lead generation"),
@@ -868,7 +889,7 @@ def write_csv(rel: str, headers: list[str], rows: list[list[Any] | tuple[Any, ..
     path = OUT / rel
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.writer(handle)
+        writer = csv.writer(handle, lineterminator="\n")
         writer.writerow(headers)
         writer.writerows(rows)
     return path
@@ -995,8 +1016,8 @@ def build_visual_identity() -> str:
 - **Display type:** Trocchi 400, lowercase, short, and warm. Never fake a bold Trocchi.
 - **Support type:** Archivo Narrow 400, 500, or 700 for body, captions, labels, CTA, and burned-in subtitles.
 - **Core colors:** brand primary red `#b4212b`, bright red `#e03a3e`, ink `#2d2d2d`, white, light blue `#cae4fd`, and soft blue `#aed2ef`.
-- **Text cards:** use white paper, light blue, soft blue, or red with appropriate contrast. Do not use black text panels. Do not use pink-tinted text backgrounds.
-- **Corners:** keep text panels and graphic surfaces sharp or lightly softened. Avoid pill-heavy styling and decorative gradients.
+- **Copy field:** reserve a dedicated baby-blue field beside or below unobstructed photography. Use logo-red type and action. Do not place a floating card, badge, glow, or text over the image.
+- **Edges:** keep the copy field sharp and structural. Avoid pill-heavy styling and decorative gradients.
 
 ## visual principles
 
@@ -1005,7 +1026,7 @@ def build_visual_identity() -> str:
 3. Let one product or action dominate each frame.
 4. Keep headlines to 3-8 words and one action per asset.
 5. Show the operational path when it reduces uncertainty: pick a kitchen, write the note, pack the cake, assemble the boxes, or start the inquiry.
-6. Build full-bleed photography first, then add brand copy surfaces in the safe zone.
+6. Reserve separate photo and copy regions from the first frame. Never place the copy field over the photograph.
 
 ## photography
 
@@ -1022,7 +1043,7 @@ def build_visual_identity() -> str:
 - Use 8-20 seconds for direct-response concepts and 20-40 seconds for guides or creator stories.
 - Use straight cuts, restrained push-ins, and explicit frame-based easing. Avoid template-heavy transitions.
 - Burn in the core hook and CTA. Captions must remain readable without sound.
-- Text card motion should feel like printed recipe cards or order tickets entering the frame, using white, blue, and red.
+- Keep photography unobstructed. Move copy through a dedicated baby-blue field with logo-red type and a restrained logo rail.
 - Keep the final CTA visible for at least two seconds above the platform UI.
 
 ## composition
@@ -1167,7 +1188,7 @@ def build_video_scripts() -> str:
     sections = [
         "# short-form video script pack",
         "",
-        "All scripts assume a 1080x1920 master, burned-in captions, Yum paper/red/blue text cards, and one verified destination. Braced operational fields require replacement before release.",
+        "All scripts assume a 1080x1920 master, burned-in captions, unobstructed photography, a dedicated baby-blue copy field with logo-red type, and one verified destination. Braced operational fields require replacement before release.",
         "",
     ]
     for index, script in enumerate(VIDEO_SCRIPTS, start=1):
@@ -1723,7 +1744,7 @@ def build_editable_template_brief() -> str:
 
 ## naming and approval
 
-Use `{{brand}}_{{campaign}}_{{concept}}_{{location-or-audience}}_{{channel}}_{{ratio}}_{{date}}_v##_{{status}}`. Non-designers may replace approved media and fields, but they may not unlock brand styles, safe zones, logo geometry, or text-card colors. An owner approves claims and brand. Operations approves timing, availability, fulfillment, and location details. Paid media approves rights, crop, CTA, and destination.
+Use `{{brand}}_{{campaign}}_{{concept}}_{{location-or-audience}}_{{channel}}_{{ratio}}_{{date}}_v##_{{status}}`. Non-designers may replace approved media and fields, but they may not unlock brand styles, safe zones, logo geometry, the dedicated baby-blue copy field, or logo-red type. An owner approves claims and brand. Operations approves timing, availability, fulfillment, and location details. Paid media approves rights, crop, CTA, and destination.
 
 ## notes for non-designers
 
@@ -1739,7 +1760,7 @@ Use `{{brand}}_{{campaign}}_{{concept}}_{{location-or-audience}}_{{channel}}_{{r
 - Logo artwork, logo colors, or aspect ratio.
 - Headline family, lowercase rule, or body family without brand-owner approval.
 - Safe-zone guides or minimum text size.
-- The rule against black text panels and pink-tinted copy surfaces.
+- The rule against floating text cards, badges, glow, black or pink panels, and copy over photography.
 - An approved quote, review, menu fact, price, hour, deadline, or operational statement.
 """
 
@@ -1749,7 +1770,7 @@ def build_qa_checklist() -> str:
         "Brand is correctly identified as yum!, Patticake, or an intentional split asset.",
         "Current logo and approved wordmark treatment are used without distortion or effects.",
         "Trocchi 400 is used for lowercase display copy and Archivo Narrow for support copy.",
-        "Text panels use Yum white, blue, or red treatments, not black or pink-tinted panels.",
+        "Baby-blue copy fields and logo-red type lead. White, cream, and ink support only. No text cards, stickers, glow, black panels, or copy over photography.",
         "Food, cake, location, staff, packaging, and event imagery is real and rights-cleared.",
         "CTA matches the business goal and destination.",
         "URL resolves on mobile and the correct UTM is present.",
@@ -1799,7 +1820,7 @@ def build_next_tasks() -> str:
 def build_confirmations() -> str:
     rows = [
         ("Patticake national order route", "The code defaults to `/patticake#national-order` unless `NEXT_PUBLIC_PATTICAKE_NATIONAL_ORDER_URL` is set.", "Web and bakery operations must confirm the production URL and live behavior.", "P0"),
-        ("Shipping coverage and dates", "Current site copy describes nationwide delivery, but availability is checkout-dependent.", "Confirm supported destinations, blackout dates, cutoff logic, and customer-service owner before campaigns.", "P0"),
+        ("Shipping coverage and dates", "Owner-approved launch truth is that Patticake is available nationwide; exact dates and address eligibility remain checkout-dependent.", "Confirm blackout dates, cutoff logic, and customer-service owner before campaigns.", "P0"),
         ("Local cake pickup", "The site routes pickup and cake questions through `/order-a-cake`.", "Confirm which locations, lead routing, response time, and whether every campaign should say request or order.", "P0"),
         ("Catering notice", "The current site says 24 hours for most pickup catering orders.", "Operations should confirm this for paid and evergreen social use and define exceptions.", "P0"),
         ("Corporate gifting", "The toolkit uses inquiry language only.", "Confirm minimums, address handling, delivery scope, timing, owner, and supported package before lead generation.", "P0"),
@@ -1883,30 +1904,47 @@ def build_asset_catalog() -> str:
     legacy_motion = sorted((POST_PACK / "motion").glob("*.mp4"))
     motion_masters = sorted((MOTION_PACK / "exports" / "video").glob("*.mp4"))
     motion_variants = sorted((MOTION_PACK / "exports").glob("*/*.png"))
+    active_static = [
+        path
+        for folder in ["story-9x16", "feed-4x5", "square-1x1", "wide-16x9", "link-1.91x1", "pin-2x3"]
+        for path in sorted((ACTIVE_PACK / "exports" / folder).glob("*.png"))
+    ]
+    active_motion = sorted((ACTIVE_PACK / "exports").glob("motion-*/*.mp4"))
+    active_carousel_motion = sorted((ACTIVE_PACK / "exports").glob("carousel-motion-*/*.mp4"))
+    active_brand_motion = sorted((ACTIVE_PACK / "exports" / "brand-motion").glob("*"))
+    active_carousels = sorted((ACTIVE_PACK / "exports" / "carousel-4x5").glob("*/*.png"))
     return f"""# asset catalog
 
 ## current reviewable assets
 
 | Family | Count | Source |
 | --- | ---: | --- |
-| Static social exports | {len(static_assets)} | `../yum-patticake-social-motion-pack/exports/` |
-| Post-worthy motion exports | {len(legacy_motion)} | `../yum-patticake-social-motion-pack/motion/` |
-| 2026 vertical motion masters | {len(motion_masters)} | `../yum-social-motion-template-2026/exports/video/` |
-| 2026 covers and crop variants | {len(motion_variants)} | `../yum-social-motion-template-2026/exports/` |
+| Active placement stills | {len(active_static)} | `../yum-patticake-creative-launch-2026-07-14/exports/{{story-9x16,feed-4x5,square-1x1,wide-16x9,link-1.91x1,pin-2x3}}/` |
+| Active motion masters | {len(active_motion)} | `../yum-patticake-creative-launch-2026-07-14/exports/motion-*/` |
+| Active carousel motion cuts | {len(active_carousel_motion)} | `../yum-patticake-creative-launch-2026-07-14/exports/carousel-motion-*/` |
+| Active brand motion deliverables | {len(active_brand_motion)} | `../yum-patticake-creative-launch-2026-07-14/exports/brand-motion/` |
+| Active carousel cards | {len(active_carousels)} | `../yum-patticake-creative-launch-2026-07-14/exports/carousel-4x5/` |
 
-The combined review surface in this toolkit shows static exports and poster frames. The original MP4s remain in the source packs to avoid duplicating large media inside the repo.
+Review current work on the site `/asset-gallery`. The local board in this July 9 toolkit is preserved as a historical visual reference only.
 
 ## editable sources
 
-- Post-worthy pack builder: `../scripts/build_social_motion_pack.py`
-- 2026 motion builder: `../scripts/build_2026_social_motion_template.py`
-- Post-worthy Remotion source: `../yum-patticake-social-motion-pack/remotion/`
-- 2026 Remotion source: `../yum-social-motion-template-2026/remotion/`
+- Current Remotion source: `../yum-patticake-creative-launch-2026-07-14/src/`
+- Current render pipeline: `../yum-patticake-creative-launch-2026-07-14/scripts/`
+
+## historical source inventory
+
+| Family | Count | Source |
+| --- | ---: | --- |
+| July 9 static exports | {len(static_assets)} | `../yum-patticake-social-motion-pack/exports/` |
+| July 9 motion exports | {len(legacy_motion)} | `../yum-patticake-social-motion-pack/motion/` |
+| Earlier vertical masters | {len(motion_masters)} | `../yum-social-motion-template-2026/exports/video/` |
+| Earlier crop variants | {len(motion_variants)} | `../yum-social-motion-template-2026/exports/` |
 
 ## visual constraints carried forward
 
 - Real yum! and Patticake photography only.
-- White, blue, and red text cards. No black text panels and no pink-tinted copy surfaces.
+- Baby blue and logo red lead every creative. White, cream, and ink are supporting colors only. No floating cards, black panels, glow, or pink-tinted copy surfaces.
 - Current yum! circle mark and lowercase Trocchi-style brand voice.
 - Captions and CTA kept inside vertical safe zones.
 - No prices, fake reviews, or unsupported operational claims.
@@ -1985,21 +2023,41 @@ def build_review_assets() -> Path:
             "contactSheetOutput": "contact-sheet.png",
         },
     )
-    subprocess.run(
-        [
-            "python3",
-            str(REVIEW_RENDERER),
-            "--out-dir",
-            str(OUT),
-            "--manifest",
-            str(review_path),
-            "--review-options",
-            str(DATA / "review-options.json"),
-            "--contact-sheet",
-            "--moodboard-widget-payload",
-        ],
-        check=True,
-    )
+    renderer = resolve_review_renderer()
+    if renderer:
+        subprocess.run(
+            [
+                "python3",
+                str(renderer),
+                "--out-dir",
+                str(OUT),
+                "--manifest",
+                str(review_path),
+                "--review-options",
+                str(DATA / "review-options.json"),
+                "--contact-sheet",
+            ],
+            check=True,
+        )
+    else:
+        cards = "".join(
+            f'<a class="card" href="{html.escape(item["href"])}"><img src="{html.escape(item["src"])}" alt="{html.escape(item["title"])}"><strong>{html.escape(item["title"])}</strong><span>{html.escape(item["family"])}</span></a>'
+            for item in review
+        )
+        (OUT / "review-board.html").write_text(
+            "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>yum! and Patticake toolkit review</title><style>body{margin:0;background:#cae4fd;color:#8f1c24;font-family:Arial,sans-serif}header{padding:32px 4vw;border-bottom:8px solid #dc3439}h1{font-family:Georgia,serif;font-weight:400}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;padding:24px 4vw}.card{display:grid;gap:8px;color:inherit;text-decoration:none}.card img{width:100%;aspect-ratio:4/5;object-fit:cover}.card strong{font-family:Georgia,serif;font-size:20px;font-weight:400}.card span{font-size:14px;font-weight:700;text-transform:uppercase}</style></head><body><header><h1>yum! and Patticake toolkit review</h1><p>Historical July 9 visual references. Review current work at /asset-gallery.</p></header><main class=\"grid\">" + cards + "</main></body></html>\n",
+            encoding="utf-8",
+        )
+        subprocess.run(
+            [
+                "ffmpeg", "-y", "-pattern_type", "glob", "-i", str(REVIEW_ASSETS / "*.png"),
+                "-vf", "scale=320:320:force_original_aspect_ratio=decrease,pad=320:320:(ow-iw)/2:(oh-ih)/2:color=cae4fd,tile=6x6",
+                "-frames:v", "1", str(OUT / "contact-sheet.png"),
+            ],
+            check=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
     return review_path
 
 
@@ -2067,14 +2125,16 @@ def build_readme() -> str:
     counts = required_counts()
     return f"""# yum! and Patticake complete social toolkit
 
+> Status: strategy and copy reference only. The July 9 visual examples and review board are superseded by `../yum-patticake-creative-launch-2026-07-14/` and the site `/asset-gallery`. Do not publish the older white-card assets or use them as current art direction.
+
 Built {TODAY.isoformat()} for practical organic, paid, creator, location, catering, gifting, and motion production.
 
 ## executive summary
 
 - yum! is the everyday Twin Cities food habit. Social should move people to a current menu, a nearby kitchen, pickup, catering, bakery, or gift cards.
-- Patticake is the occasion brand. Social should make birthdays, thank-yous, client gifts, local pickup, current delivery options, and events feel specific and actionable.
+- Patticake is the occasion brand. Social should make birthdays, thank-yous, client gifts, local pickup, nationwide shipping, and events feel specific and actionable.
 - The system uses real food, real cake, real hands, real staff, real locations, and real operational steps.
-- Motion and text cards use Yum white, blue, and red. Black text panels and pink-tinted copy backgrounds are excluded.
+- Baby blue and logo red lead motion and type. White, cream, and ink stay supporting. Floating cards, black panels, glow, and pink-tinted copy backgrounds are excluded.
 
 ## toolkit counts
 
@@ -2097,9 +2157,9 @@ Built {TODAY.isoformat()} for practical organic, paid, creator, location, cateri
 ## start here
 
 1. Read `SOCIAL_TOOLKIT_MASTER.md` for the complete system in one file.
-2. Open `review-board.html` or `contact-sheet.png` to review the current assets.
+2. Open the checked-in `/asset-gallery` route to review current assets.
 3. Use `calendar/30-day-content-calendar.csv`, `copy/caption-bank.csv`, and `copy/hook-bank.csv` for production planning.
-4. Use `motion/short-form-video-scripts.md` with the editable Remotion sources in the two sibling motion packs.
+4. Use `motion/short-form-video-scripts.md` with the editable Remotion source in `../yum-patticake-creative-launch-2026-07-14/`.
 5. Resolve every P0 item in `production/operational-confirmations.md` before paid launch.
 6. Run every asset through `production/qa-checklist.md` before moving it to approved.
 
@@ -2131,8 +2191,8 @@ Built {TODAY.isoformat()} for practical organic, paid, creator, location, cateri
 
 ## source asset packs
 
-- `../yum-patticake-social-motion-pack/`: 18 static exports and 7 motion assets.
-- `../yum-social-motion-template-2026/`: 6 vertical motion masters, covers, 4:5 posters, 3:4 crops, square crops, safe-zone guides, and editable Remotion source.
+- `../yum-patticake-creative-launch-2026-07-14/`: current production stills, carousels, motion masters, Patticake logo motion, and publishing guidance.
+- `../yum-patticake-social-motion-pack/` and `../yum-social-motion-template-2026/`: historical references only. Preserve for provenance, not publishing.
 """
 
 
@@ -2259,13 +2319,14 @@ def write_manifest() -> Path:
         "counts": required_counts(),
         "destinations": DESTINATIONS,
         "sourceAssetPacks": {
-            "postWorthy": "../yum-patticake-social-motion-pack",
-            "motion2026": "../yum-social-motion-template-2026",
+            "current": "../yum-patticake-creative-launch-2026-07-14",
+            "historical": ["../yum-patticake-social-motion-pack", "../yum-social-motion-template-2026"],
         },
         "primaryArtifacts": {
             "master": "SOCIAL_TOOLKIT_MASTER.md",
-            "review": "review-board.html",
-            "contactSheet": "contact-sheet.png",
+            "review": "/asset-gallery",
+            "historicalReview": "review-board.html",
+            "historicalContactSheet": "contact-sheet.png",
             "calendar": "calendar/30-day-content-calendar.csv",
             "captions": "copy/caption-bank.csv",
             "hooks": "copy/hook-bank.csv",
@@ -2274,7 +2335,7 @@ def write_manifest() -> Path:
         },
         "constraints": [
             "real food, cake, people, locations, and operational moments",
-            "yum white, blue, and red text surfaces",
+            "baby blue and logo red lead every creative; white, cream, and ink support only",
             "no black text panels",
             "no pink-tinted copy backgrounds",
             "no unsupported claims or fake reviews",
@@ -2287,15 +2348,41 @@ def write_manifest() -> Path:
 
 def main() -> None:
     validate_source_data()
-    if OUT.exists():
-        shutil.rmtree(OUT)
-    OUT.mkdir(parents=True, exist_ok=True)
-    DATA.mkdir(parents=True, exist_ok=True)
-    write_toolkit_files()
-    build_master()
-    build_review_assets()
-    validate_generated_files()
-    manifest = write_manifest()
+    with tempfile.TemporaryDirectory(prefix="yum-social-toolkit-") as temporary:
+        preserved_root = Path(temporary)
+        for relative_path in HISTORICAL_REVIEW_STATE:
+            source = OUT / relative_path
+            target = preserved_root / relative_path
+            if source.is_dir():
+                shutil.copytree(source, target)
+            elif source.is_file():
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(source, target)
+
+        preserved_review = (preserved_root / "review-board.html").is_file()
+
+        if OUT.exists():
+            shutil.rmtree(OUT)
+        OUT.mkdir(parents=True, exist_ok=True)
+        DATA.mkdir(parents=True, exist_ok=True)
+        write_toolkit_files()
+        build_master()
+        if not preserved_review:
+            build_review_assets()
+
+        for relative_path in HISTORICAL_REVIEW_STATE:
+            source = preserved_root / relative_path
+            target = OUT / relative_path
+            if source.is_dir():
+                if target.exists():
+                    shutil.rmtree(target)
+                shutil.copytree(source, target)
+            elif source.is_file():
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(source, target)
+
+        validate_generated_files()
+        manifest = write_manifest()
     print(json.dumps({"output": str(OUT), "manifest": str(manifest), "counts": required_counts()}, indent=2))
 
 

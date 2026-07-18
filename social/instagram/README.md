@@ -1,5 +1,7 @@
 # yum! Instagram Asset Kit
 
+> Historical and superseded. Preserve for provenance only. Do not rerender or publish this kit. It predates the current unobstructed-photo, baby-blue field, and logo-red type system. Use `../yum-patticake-creative-launch-2026-07-14/` and `/asset-gallery` for current work.
+
 Editable source:
 
 - `yum-instagram-templates.html`
@@ -22,9 +24,4 @@ The templates use the same core website system: Yum red `#dc3439`, bright red `#
 
 Story and Reel templates keep primary copy and CTA content above the lower Instagram UI-safe zone. Feed and carousel templates keep editable text as HTML, not flattened into source imagery.
 
-To re-export after copy or image edits:
-
-```bash
-cd /Users/zsoskin/dev/yumkitchen-rebuild/yumkitchen-web
-node scripts/render-instagram-templates.mjs
-```
+The old rerender path is intentionally retired so it cannot overwrite or reintroduce stale visual direction.

@@ -1,6 +1,14 @@
 # Rebuild Task List
 
-## Latest round: ParallaxImage hydration fix + repo handoff prep (2026-07-14)
+## Current round: creative regression guard and production handoff (2026-07-17)
+
+Implementation branch for this round: `codex/creative-regression-guard`, ready in [PR #22](https://github.com/zachringnight/yumkitchen-rebuild/pull/22). The stable release branch remains `main`. Current report: `docs/history/plans/2026-07-17-creative-regression-guard/run-report.md`. Stable handoff: `docs/HANDOFF_CURRENT.md`.
+
+This round makes the current photo-led baby-blue and red system reproducible across the site, launch creative, motion masters, carousels, production board, and delivery packages. It also retires executable stale visual builders, removes the rejected equal three-choice Patticake layout, refreshes the live Instagram benchmark, and routes both the retired folder path and active work to the canonical checkout.
+
+Do not pick an unchecked item from the historical sections below as an active task. The only standing open items are owner-gated production configuration or data listed in the current handoff and deployment runbook.
+
+## Prior round: ParallaxImage hydration fix + repo handoff prep (2026-07-14)
 
 Closed the one open item from the same-day browser QA audit: `components/motion/ParallaxImage.tsx` read `useReducedMotion()` directly, which resolves synchronously on the client's first render but not during SSR, so a reduced-motion visitor's first paint disagreed with the server-rendered HTML (a real hydration-mismatch console error on `/`, `/order-a-cake`, `/patticake`). Fixed with a `mounted` state that starts `false` on both server and client (so the first render always matches) and flips `true` in a pre-paint layout effect - reduced-motion users never see a flash of the parallax transform, and the console error is gone. Verified directly: zero console errors on all three affected pages in a fresh browser session, `npm run audit:visual-motion`'s reduced-motion routes still pass, full `bash verify.sh` piece-by-piece re-run clean (axe 0/0, LH 100/100/100/100). Independently code-reviewed the prior brand-warmth color-pass diff (27 files) with zero issues found.
 
@@ -21,7 +29,7 @@ Grounded in this session's direct side-by-side check of the live `yumkitchen.com
 
 **For design:** the live site's red "serving great food for now or for later" band closes with a decorative scalloped/wave divider (SVG) into the next section - a small, tasteful bakery-ticket-style flourish our equivalent `RedBand` doesn't have. Worth a look as a possible signature edge treatment, but it's a genuinely *new* visual element, not a token swap - `AGENTS.md` currently forbids decorative gradients and doesn't define a wave/scallop motif, so this needs explicit design sign-off before anyone builds it, not an engineering call.
 
-**For animation/motion:** the Patticake message-maker showpiece (word-pop-in as you type, a liftoff chip that carries the message to the form, an arrival pulse on the prefilled field - `components/PatticakeMessagePreview.tsx` et al., round 4) is the strongest, most distinctive interaction in the build. Worth a conversation about whether a lighter version of that same "personalize, then hand off" choreography belongs anywhere in the yum! restaurant ordering flow (building a catering order, picking a location) - reuse the existing `TapeTag`/`PressButton`/spring tokens rather than a new system. Separately, the fix in this round to `ParallaxImage`'s reduced-motion check (a `mounted` flag that starts `false` on both server and client, then flips in a pre-paint layout effect) is a clean, reusable pattern - apply it anywhere else `useReducedMotion()` gets called directly in future motion work, to avoid reintroducing the same hydration bug.
+**For animation/motion:** the Patticake message-maker handoff (word-pop-in as you type, message transfer to the form, and an arrival pulse on the prefilled field - `components/PatticakeMessagePreview.tsx` et al., round 4) is the strongest, most distinctive interaction in the build. Worth a conversation about whether a lighter version of that same "personalize, then hand off" choreography belongs anywhere in the yum! restaurant ordering flow (building a catering order, picking a location) - reuse `Reveal`, `Stagger`, `PressButton`, and the shared spring tokens. Do not reintroduce decorative sticker or tape-chip treatments. Separately, the fix in this round to `ParallaxImage`'s reduced-motion check (a `mounted` flag that starts `false` on both server and client, then flips in a pre-paint layout effect) is a clean, reusable pattern - apply it anywhere else `useReducedMotion()` gets called directly in future motion work, to avoid reintroducing the same hydration bug.
 
 **Already covered, no gap:** a menu/dish-photo carousel (`KineticMenuRail`, already links straight into ordering - more functional than the live site's plain non-interactive carousel), per-page OG/share images (`lib/site.ts` `pageMeta`, covers every page but the accessibility statement, which doesn't need one), and the online-ordering flow itself (the live site has no dedicated order page at all, only a modal that hands off to Toast; this build's `/order` has pickup selection, favorites browsing, and a cart).
 
@@ -89,9 +97,13 @@ Branch `ship-and-elevate-2026-06-30`. Tracks: ship-it-live + in-brand design pol
 
 ---
 
-Prior status: the rebuild is past the original scaffold-first task plan. The active branch is `checkpoint/patticake-design-2026-06-30`, with the Patticake design pass preserved at commit `153084a`.
+## Historical June 30 planning snapshot
 
-Current finishing checklist:
+The following branch note and checklist are preserved only as historical context. They are not the active branch or current execution plan. Do not resume `checkpoint/patticake-design-2026-06-30` from this section.
+
+Branch at the time: `checkpoint/patticake-design-2026-06-30`, with the Patticake design pass preserved at commit `153084a`.
+
+Checklist at the time:
 
 - [ ] Fix homepage Lighthouse performance. Last full run: Lighthouse Perf=85 A11y=100 BP=100 SEO=100.
 - [ ] Consolidate Patticake routing so `/patticake` is canonical and `/patticake-national-delivery` is legacy redirect only.

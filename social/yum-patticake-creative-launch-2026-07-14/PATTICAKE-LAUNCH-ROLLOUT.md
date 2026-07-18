@@ -1,6 +1,6 @@
 # Patticake.com launch rollout
 
-Prepared July 15, 2026 from current real Yum photography, the July 9 brand toolkit, the live Patticake site copy, and the baby-blue box and red logo system.
+Prepared July 15 and revised July 17, 2026 from current real Yum photography, the July 9 brand toolkit, the live Patticake site copy, and the baby-blue box and red logo system.
 
 ## creative rule
 
@@ -12,7 +12,9 @@ Every asset follows the same hierarchy:
 4. One action at the close.
 5. Baby blue and logo red as the dominant designed colors.
 
-There is no persistent top-left text lockup and no glow behind type. The yum! mark moves on the red packaging ribbon or lands on a clean end frame.
+There is no persistent top-left text lockup, translucent copy box, or glow behind type. Motion copy stays in a solid baby-blue field beside or below the unobstructed photography. The yum! mark moves on the red packaging ribbon or lands on a clean end frame.
+
+Carousel counters remain plain type in the baby-blue field. No number badge or logo sits over photography.
 
 ## rollout sequence
 
@@ -123,7 +125,7 @@ Made by the people behind yum! The signature chocolate cake our guests remember.
 
 Link: `https://patticake.com/patticake`
 
-Alt text: A decorated cake, a close chocolate layer view, and plated slices close on a baby-blue and red Yum story card.
+Alt text: A decorated cake, a close chocolate layer view, and plated slices close on a baby-blue field with red Yum story type.
 
 ### weddings and events
 

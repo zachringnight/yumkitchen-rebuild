@@ -4,24 +4,32 @@
 
 | Family | Count | Source |
 | --- | ---: | --- |
-| Static social exports | 18 | `../yum-patticake-social-motion-pack/exports/` |
-| Post-worthy motion exports | 7 | `../yum-patticake-social-motion-pack/motion/` |
-| 2026 vertical motion masters | 6 | `../yum-social-motion-template-2026/exports/video/` |
-| 2026 covers and crop variants | 24 | `../yum-social-motion-template-2026/exports/` |
+| Active placement stills | 84 | `../yum-patticake-creative-launch-2026-07-14/exports/{story-9x16,feed-4x5,square-1x1,wide-16x9,link-1.91x1,pin-2x3}/` |
+| Active motion masters | 70 | `../yum-patticake-creative-launch-2026-07-14/exports/motion-*/` |
+| Active carousel motion cuts | 12 | `../yum-patticake-creative-launch-2026-07-14/exports/carousel-motion-*/` |
+| Active brand motion deliverables | 6 | `../yum-patticake-creative-launch-2026-07-14/exports/brand-motion/` |
+| Active carousel cards | 30 | `../yum-patticake-creative-launch-2026-07-14/exports/carousel-4x5/` |
 
-The combined review surface in this toolkit shows static exports and poster frames. The original MP4s remain in the source packs to avoid duplicating large media inside the repo.
+Review current work on the site `/asset-gallery`. The local board in this July 9 toolkit is preserved as a historical visual reference only.
 
 ## editable sources
 
-- Post-worthy pack builder: `../scripts/build_social_motion_pack.py`
-- 2026 motion builder: `../scripts/build_2026_social_motion_template.py`
-- Post-worthy Remotion source: `../yum-patticake-social-motion-pack/remotion/`
-- 2026 Remotion source: `../yum-social-motion-template-2026/remotion/`
+- Current Remotion source: `../yum-patticake-creative-launch-2026-07-14/src/`
+- Current render pipeline: `../yum-patticake-creative-launch-2026-07-14/scripts/`
+
+## historical source inventory
+
+| Family | Count | Source |
+| --- | ---: | --- |
+| July 9 static exports | 18 | `../yum-patticake-social-motion-pack/exports/` |
+| July 9 motion exports | 7 | `../yum-patticake-social-motion-pack/motion/` |
+| Earlier vertical masters | 8 | `../yum-social-motion-template-2026/exports/video/` |
+| Earlier crop variants | 32 | `../yum-social-motion-template-2026/exports/` |
 
 ## visual constraints carried forward
 
 - Real yum! and Patticake photography only.
-- White, blue, and red text cards. No black text panels and no pink-tinted copy surfaces.
+- Baby blue and logo red lead every creative. White, cream, and ink are supporting colors only. No floating cards, black panels, glow, or pink-tinted copy surfaces.
 - Current yum! circle mark and lowercase Trocchi-style brand voice.
 - Captions and CTA kept inside vertical safe zones.
 - No prices, fake reviews, or unsupported operational claims.

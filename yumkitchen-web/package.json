@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/clear-dev-cache.mjs",
+    "clear:dev-cache": "node scripts/clear-dev-cache.mjs --force",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
