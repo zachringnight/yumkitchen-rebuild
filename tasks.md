@@ -2,7 +2,7 @@
 
 ## Current round: creative regression guard and production handoff (2026-07-17)
 
-Implementation branch for this round: `codex/creative-regression-guard`, ready in [PR #22](https://github.com/zachringnight/yumkitchen-rebuild/pull/22). The stable release branch remains `main`. Current report: `docs/history/plans/2026-07-17-creative-regression-guard/run-report.md`. Stable handoff: `docs/HANDOFF_CURRENT.md`.
+This round merged into `main` through [PR #22](https://github.com/zachringnight/yumkitchen-rebuild/pull/22) at commit `144a142`. Current report: `docs/history/plans/2026-07-17-creative-regression-guard/run-report.md`. Stable handoff: `docs/HANDOFF_CURRENT.md`.
 
 This round makes the current photo-led baby-blue and red system reproducible across the site, launch creative, motion masters, carousels, production board, and delivery packages. It also retires executable stale visual builders, removes the rejected equal three-choice Patticake layout, refreshes the live Instagram benchmark, and routes both the retired folder path and active work to the canonical checkout.
 

@@ -7,7 +7,7 @@ Updated July 17, 2026. This is the stable handoff entry point. Older dated hando
 - Canonical checkout: `/Users/zsoskin/dev/yumkitchen-rebuild`
 - Compatibility path: `/Users/zsoskin/YumKitchen_Rebuild` is a symlink to the canonical checkout
 - Release branch: `main`
-- Implementation branch for this round: `codex/creative-regression-guard`, ready in [PR #22](https://github.com/zachringnight/yumkitchen-rebuild/pull/22)
+- Release status: merged into `main` through [PR #22](https://github.com/zachringnight/yumkitchen-rebuild/pull/22) at commit `144a142`
 - Current run report: `docs/history/plans/2026-07-17-creative-regression-guard/run-report.md`
 - Current social entry point: `social/START-HERE.md`
 - Current creative source: `social/yum-patticake-creative-launch-2026-07-14/`
