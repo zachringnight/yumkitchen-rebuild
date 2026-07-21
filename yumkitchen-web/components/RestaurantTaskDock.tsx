@@ -67,7 +67,7 @@ export function RestaurantTaskDock() {
             <span className="min-w-0">
               <span className="block text-xs font-bold uppercase leading-none tracking-[0.12em] text-brand-primary">pickup restaurant</span>
               <span className="mt-1 block truncate font-serif text-2xl font-normal lowercase leading-none text-ink">{location.short_name}</span>
-              <OpenStatus compact className="mt-1 block truncate text-sm leading-tight text-body" />
+              <OpenStatus compact className="mt-1 block truncate text-sm leading-tight text-ink" />
             </span>
           </button>
           <Link href="/menu" prefetch={false} className="btn-secondary hidden px-5 py-4 text-base xl:inline-block">

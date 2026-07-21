@@ -33,7 +33,8 @@
   "publishing": {
     "platformGuide": "platform-publishing.md",
     "carouselOrder": "carousel-publishing.md",
-    "captionsAndAltText": "social-copy-and-alt-text.md"
+    "captionsAndAltText": "social-copy-and-alt-text.md",
+    "ugcRightsLedger": "../../yumkitchen-web/lib/ugc-rights-ledger.json"
   },
   "deliveryBundles": [
     "delivery-zips/yum-pick-your-kitchen-carousel.zip",

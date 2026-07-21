@@ -15,6 +15,18 @@ const requiredPublicFiles = [
 const forbiddenLocationNames = ['edina', 'maple grove', 'roseville'];
 const forbiddenScrapeFragments = ['Follow for more yum!', 'Quick Links'];
 const expectedMenuItemCount = 102;
+const allowedPermissionStatuses = ['pending', 'approved', 'declined', 'expired'];
+const requiredApprovedStoryFields = [
+  'id',
+  'platform',
+  'sourceUrl',
+  'creator',
+  'content',
+  'permissionStatus',
+  'permissionEvidence',
+  'permissionGrantedOn',
+  'usageScope',
+];
 
 let failures = 0;
 
@@ -62,6 +74,38 @@ if (items.length !== expectedMenuItemCount) {
   fail(`menu item count expected ${expectedMenuItemCount}, found ${items.length}`);
 } else {
   pass(`all ${expectedMenuItemCount} menu items preserved`);
+}
+
+const rightsLedger = readJson('lib/ugc-rights-ledger.json');
+if (!Array.isArray(rightsLedger.items)) {
+  fail('UGC rights ledger items must be an array');
+} else {
+  for (const item of rightsLedger.items) {
+    if (!allowedPermissionStatuses.includes(item.permissionStatus)) {
+      fail(`UGC rights ledger item ${item.id || '(missing id)'} has an invalid permission status`);
+      continue;
+    }
+    if (item.permissionStatus !== 'approved') continue;
+    for (const field of requiredApprovedStoryFields) {
+      if (typeof item[field] !== 'string' || item[field].trim().length === 0) {
+        fail(`approved UGC rights ledger item ${item.id || '(missing id)'} is missing ${field}`);
+      }
+    }
+    if (typeof item.sourceUrl === 'string' && !item.sourceUrl.startsWith('https://')) {
+      fail(`approved UGC rights ledger item ${item.id || '(missing id)'} must use an HTTPS source URL`);
+    }
+  }
+  if (failures === 0) pass(`UGC rights ledger is fail-closed with ${rightsLedger.items.length} recorded item(s)`);
+}
+
+const reviewSource = fs.readFileSync(path.join(appDir, 'lib/reviews.ts'), 'utf8');
+if (reviewSource.includes('sampleReviews')) {
+  fail('sampleReviews must not return to the public review data source');
+}
+if (!reviewSource.includes("item.permissionStatus === 'approved'")) {
+  fail('customer stories must remain filtered to approved rights records');
+} else if (!reviewSource.includes('sampleReviews')) {
+  pass('customer stories remain approval-gated and sample reviews are absent');
 }
 for (const item of items) {
   if (!item.name) fail(`menu item without name in ${item.section}`);

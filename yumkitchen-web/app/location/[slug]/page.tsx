@@ -7,6 +7,7 @@ import { LocationExperienceBand } from '@/components/LocationExperienceBand';
 import { LocationGrid } from '@/components/LocationGrid';
 import { LocationPreferenceSync } from '@/components/LocationPreferenceSync';
 import { OpenStatus } from '@/components/OpenStatus';
+import { ReviewsWall } from '@/components/ReviewsWall';
 import { entityJsonLd, getLocationBySlug, locations } from '@/lib/locations';
 import { yumCanonical, yumKitchenSiteName, yumOpenGraph, yumTitle } from '@/lib/site';
 
@@ -105,6 +106,7 @@ export default async function LocationPage({ params }: LocationRouteProps) {
           </div>
         </div>
       </section>
+      <ReviewsWall surface="yum" locationSlug={loc.slug} />
       <GiftCardBand source="location_page" />
       <LocationGrid />
     </main>
