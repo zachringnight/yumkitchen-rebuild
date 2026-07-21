@@ -1,7 +1,7 @@
 {
   "name": "yum! and Patticake creative launch pack",
-  "created": "2026-07-17T14:29:53.350Z",
-  "source": "current high-resolution Yum site and social photography plus the consolidated Patticake design system dated 2026-07-09",
+  "created": "2026-07-21T20:23:09.422Z",
+  "source": "current high-resolution Yum site and social photography plus the consolidated Patticake design system dated 2026-07-09, with three real Yum photographs finished through Adobe auto tone on 2026-07-21",
   "system": {
     "colors": {
       "babyBlue": "#cae4fd",
@@ -23,9 +23,12 @@
     "motion16x9": 14,
     "carouselMotion9x16": 6,
     "carouselMotion4x5": 6,
-    "canonicalMotionMasters": 73,
-    "optionalMotionCutdowns": 14,
-    "totalMotionFiles": 87,
+    "launchMomentFilms": 4,
+    "launchMomentMasters": 16,
+    "launchMomentCutdowns": 4,
+    "canonicalMotionMasters": 89,
+    "optionalMotionCutdowns": 18,
+    "totalMotionFiles": 107,
     "staticExports": 84,
     "carouselSets": 6,
     "carouselCards": 31
@@ -33,8 +36,7 @@
   "publishing": {
     "platformGuide": "platform-publishing.md",
     "carouselOrder": "carousel-publishing.md",
-    "captionsAndAltText": "social-copy-and-alt-text.md",
-    "ugcRightsLedger": "../../yumkitchen-web/lib/ugc-rights-ledger.json"
+    "captionsAndAltText": "social-copy-and-alt-text.md"
   },
   "deliveryBundles": [
     "delivery-zips/yum-pick-your-kitchen-carousel.zip",
@@ -47,8 +49,9 @@
     "delivery-zips/yum-patticake-motion-8s.zip",
     "delivery-zips/yum-patticake-motion-10s.zip",
     "delivery-zips/patticake-slice-logo-motion.zip",
-    "delivery-zips/yum-patticake-creative-launch-motion-2026-07-17.zip",
-    "delivery-zips/patticake-com-launch-rollout-2026-07-17.zip"
+    "delivery-zips/yum-patticake-launch-moments.zip",
+    "delivery-zips/yum-patticake-creative-launch-motion-2026-07-21.zip",
+    "delivery-zips/patticake-com-launch-rollout-2026-07-21.zip"
   ],
   "assets": [
     {
@@ -521,6 +524,156 @@
         "wide": "exports/wide-16x9/patticake-made-by-yum.png",
         "link": "exports/link-1.91x1/patticake-made-by-yum.png",
         "pin": "exports/pin-2x3/patticake-made-by-yum.png"
+      }
+    }
+  ],
+  "launchMoments": [
+    {
+      "id": "patticake-launch-day",
+      "brand": "patticake",
+      "lane": "nationwide launch",
+      "hook": "patticake is now available nationwide.",
+      "cta": "patticake.com",
+      "destination": "https://patticake.com",
+      "usage": "Launch-day hero for Reels, Stories, paid social, and the protected site preview.",
+      "messages": [
+        "made at yum!",
+        "now available nationwide."
+      ],
+      "photos": [
+        {
+          "image": "yum-bakery-gift-boxes-adobe.png",
+          "verticalPosition": "50% 58%",
+          "widePosition": "50% 62%"
+        },
+        {
+          "image": "gift_box_vertical.jpg",
+          "verticalPosition": "50% 50%",
+          "widePosition": "50% 56%"
+        },
+        {
+          "image": "layers_slice_vertical.jpg",
+          "verticalPosition": "50% 54%",
+          "widePosition": "50% 58%"
+        }
+      ],
+      "outputs": {
+        "motion10s": "exports/launch-motion-9x16-10s/patticake-launch-day.mp4",
+        "motion8s": "exports/launch-motion-9x16-8s/patticake-launch-day.mp4",
+        "motion4x5": "exports/launch-motion-4x5/patticake-launch-day.mp4",
+        "motion1x1": "exports/launch-motion-1x1/patticake-launch-day.mp4",
+        "motion16x9": "exports/launch-motion-16x9/patticake-launch-day.mp4"
+      }
+    },
+    {
+      "id": "patticake-blue-box-arrival",
+      "brand": "patticake",
+      "lane": "blue-box arrival",
+      "hook": "the blue box is here.",
+      "cta": "ship a Patticake",
+      "destination": "https://patticake.com",
+      "usage": "Unboxing and first-slice story for organic social, paid social, and launch reminders.",
+      "messages": [
+        "a little yum! is on the way.",
+        "open it. slice it. share it."
+      ],
+      "photos": [
+        {
+          "image": "gift_box_vertical.jpg",
+          "verticalPosition": "50% 50%",
+          "widePosition": "50% 56%"
+        },
+        {
+          "image": "03_top_view.jpg",
+          "verticalPosition": "50% 54%",
+          "widePosition": "50% 60%"
+        },
+        {
+          "image": "slices_plates_vertical.jpg",
+          "verticalPosition": "50% 52%",
+          "widePosition": "50% 52%"
+        }
+      ],
+      "outputs": {
+        "motion10s": "exports/launch-motion-9x16-10s/patticake-blue-box-arrival.mp4",
+        "motion8s": "exports/launch-motion-9x16-8s/patticake-blue-box-arrival.mp4",
+        "motion4x5": "exports/launch-motion-4x5/patticake-blue-box-arrival.mp4",
+        "motion1x1": "exports/launch-motion-1x1/patticake-blue-box-arrival.mp4",
+        "motion16x9": "exports/launch-motion-16x9/patticake-blue-box-arrival.mp4"
+      }
+    },
+    {
+      "id": "patticake-bakery-to-nationwide",
+      "brand": "patticake",
+      "lane": "the bakery story",
+      "hook": "from yum! to nationwide.",
+      "cta": "meet Patticake",
+      "destination": "https://patticake.com",
+      "usage": "Brand-origin film for launch week, founder storytelling, press, and partnership outreach.",
+      "messages": [
+        "it started in the yum! bakery.",
+        "now it can go nationwide."
+      ],
+      "photos": [
+        {
+          "image": "yum-chef-kitchen-adobe.png",
+          "verticalPosition": "72% 50%",
+          "widePosition": "65% 50%"
+        },
+        {
+          "image": "yum-packaging-counter-adobe.png",
+          "verticalPosition": "50% 50%",
+          "widePosition": "50% 54%"
+        },
+        {
+          "image": "layers_slice_vertical.jpg",
+          "verticalPosition": "50% 54%",
+          "widePosition": "50% 58%"
+        }
+      ],
+      "outputs": {
+        "motion10s": "exports/launch-motion-9x16-10s/patticake-bakery-to-nationwide.mp4",
+        "motion8s": "exports/launch-motion-9x16-8s/patticake-bakery-to-nationwide.mp4",
+        "motion4x5": "exports/launch-motion-4x5/patticake-bakery-to-nationwide.mp4",
+        "motion1x1": "exports/launch-motion-1x1/patticake-bakery-to-nationwide.mp4",
+        "motion16x9": "exports/launch-motion-16x9/patticake-bakery-to-nationwide.mp4"
+      }
+    },
+    {
+      "id": "yum-kitchen-to-handoff",
+      "brand": "yum",
+      "lane": "kitchen to handoff",
+      "hook": "made here. packed for you.",
+      "cta": "order from your yum!",
+      "destination": "https://yumkitchen.com/order",
+      "usage": "Evergreen Yum restaurant motion for order reminders, location social, and launch-week brand balance.",
+      "messages": [
+        "made from scratch.",
+        "packed in baby blue."
+      ],
+      "photos": [
+        {
+          "image": "yum-chef-kitchen-adobe.png",
+          "verticalPosition": "72% 50%",
+          "widePosition": "65% 50%"
+        },
+        {
+          "image": "yum-packaging-counter-adobe.png",
+          "verticalPosition": "50% 50%",
+          "widePosition": "50% 54%"
+        },
+        {
+          "image": "Yum_0131-3.jpg",
+          "verticalPosition": "50% 50%",
+          "widePosition": "50% 50%"
+        }
+      ],
+      "outputs": {
+        "motion10s": "exports/launch-motion-9x16-10s/yum-kitchen-to-handoff.mp4",
+        "motion8s": "exports/launch-motion-9x16-8s/yum-kitchen-to-handoff.mp4",
+        "motion4x5": "exports/launch-motion-4x5/yum-kitchen-to-handoff.mp4",
+        "motion1x1": "exports/launch-motion-1x1/yum-kitchen-to-handoff.mp4",
+        "motion16x9": "exports/launch-motion-16x9/yum-kitchen-to-handoff.mp4"
       }
     }
   ],

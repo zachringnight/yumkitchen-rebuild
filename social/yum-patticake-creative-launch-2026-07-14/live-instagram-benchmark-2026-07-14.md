@@ -1,8 +1,20 @@
 # live Instagram benchmark
 
-Refreshed July 17, 2026 against [@yumkitchen](https://www.instagram.com/yumkitchen/). This is a directional creative comparison, not a controlled performance study.
+Refreshed July 21, 2026 against the live yum! site, the protected Patticake preview, the current creative pack, and the official Crumbl, Goldbelly, and SusieCakes sites. The latest successful [@yumkitchen](https://www.instagram.com/yumkitchen/) feed capture remains July 17 because Instagram returned an unavailable page in both the browser and public web fetch on July 21. This is a directional creative comparison, not a controlled performance study.
 
-## July 17 live refresh
+## July 21 website and launch-pack comparison
+
+| Current reference | What it does best now | How this release responds | Honest remaining edge |
+| --- | --- | --- | --- |
+| Live yum! Kitchen site | Full-bleed seasonal photography, a short hospitality message, and immediate location ordering. | The rebuilt `/yum-kitchen` keeps the food scale and direct order path, then replaces the cream-and-black copy card over photography with a clearer baby-blue and red system. The new `made here. packed for you.` film adds real kitchen and packaging motion without covering the photographs. | The live site can rotate a seasonal hero faster because it is already tied to the current menu cycle. |
+| yum! Instagram, last successful July 17 capture | Unplanned human texture, children, guests, team members, neighborhood moments, and concise lowercase captions. | The four launch films add repeatable motion, packaging recognition, and conversion clarity while preserving real people and real yum! photography. Designed posts should remain punctuation inside the human feed, not replace it. | Organic social still wins on immediacy. Keep publishing current restaurant life between the campaign assets. |
+| Crumbl | One enormous product idea, one weekly hook, and one action. The July 19 to 25 site makes the limited-time cadence impossible to miss. | Every launch film carries one sentence at a time, one dominant product or packaging image, and one action. Yum! owns its real bakery origin and baby-blue box instead of borrowing Crumbl's black type or novelty voice. | Crumbl still has the stronger weekly drop machine. A separate fast-turn seasonal production task remains worthwhile after launch. |
+| Goldbelly | Nationwide utility, a wide occasion taxonomy, and aggressive offer clarity. | Existing Patticake birthday, thank-you, table, pickup, and gifting lanes cover the useful occasion territory. The launch films state nationwide availability immediately without a discount gate or marketplace clutter. | Goldbelly has broader assortment and merchandising depth. Patticake should stay focused on one hero cake rather than imitate it. |
+| SusieCakes | Clear nationwide, local delivery, and pickup paths, plus ingredients, founder story, reviews, and customer celebration imagery. | The rebuilt commerce module keeps Patticake as the single hero product, moves other yum! cakes to a secondary treatment, adds the real bakery-origin film, and uses rights-safe proof instead of unattributed sample reviews. | SusieCakes currently runs a strong time-bound shipped-cake offer. Patticake should add promotions only when the commercial terms are real and approved. |
+
+The result is stronger than the live yum! site and the three benchmarks on ownable baby-blue and red memory, calm conversion hierarchy, motion consistency, and keeping copy off photography. The live yum! feed remains the standard for human spontaneity. Crumbl remains the standard for fast weekly drops. Those are publishing and future-production inputs, not reasons to weaken this launch system.
+
+## Last successful Instagram refresh: July 17
 
 The public profile response showed 8,671 followers, 1,520 posts, and 12 recent posts from July 6 through July 17. That window contained 11 single-image feed posts, one community carousel, and no Reels. Counts and ranking can change after capture.
 
@@ -57,7 +69,8 @@ The June 30 competitive set included captured home-page references from Crumbl, 
 - Warm occasion: strong in birthday, event, gifting, and the new human-first lane.
 - Conversion clarity: stronger than the live organic feed, with one action per conversion asset.
 - Human and local proof: now present, but it should keep growing in future production.
-- Remaining gap: a fast-turn seasonal template that can pair one current photo with one timely hook without rebuilding the full campaign.
+- Launch-moment motion: strong across four films and five placements, with full-frame photography, dedicated message scenes, and a readable blue-and-red close.
+- Remaining gap: a fast-turn seasonal template that can pair one current photo with one timely hook without rebuilding the full campaign. Keep this as a separate production task so the nationwide launch pack stays durable.
 
 ## where this creative pack should be better
 

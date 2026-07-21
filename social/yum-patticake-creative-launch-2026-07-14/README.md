@@ -1,6 +1,6 @@
 # yum! and Patticake full social creative system
 
-Fourteen social-first campaign lanes, including a human-first Yum team story, a complete Patticake.com rollout, six swipe-native stories rebuilt as real motion, and a multi-format system built from current high-resolution Yum photography and the newest consolidated Patticake design system.
+Fourteen social-first campaign lanes, four real launch-moment films, a human-first Yum team story, a complete Patticake.com rollout, six swipe-native stories rebuilt as real motion, and a multi-format system built from current high-resolution Yum photography and the newest consolidated Patticake design system.
 
 ## creative direction
 
@@ -9,6 +9,8 @@ The system turns the website's strongest interaction idea into campaign language
 The color hierarchy follows the cake boxes and logo: bright Yum baby blue is the base material, logo red is the stamp, ribbon, headline, and action color, and the photography appears like a product window. Cream is not a core composition color.
 
 Every motion format reserves a solid baby-blue field beside or below the photography from the first frame. One red scene message lives in that field, then resolves into the final hook and action. The Yum logo travels along a red packaging-ribbon playback rail without recoloring or stretching. No copy box, persistent corner lockup, or type glow covers the image.
+
+The launch-moment films use a more cinematic system. Full-frame real photographs alternate with full-frame baby-blue message scenes. Copy never sits on a photograph. One red sentence appears at a time, then a single baby-blue and red end frame closes the story.
 
 Carousel counters are plain red type inside the baby-blue field. Static carousel marks and motion playback rails stay off the photography.
 
@@ -21,6 +23,7 @@ The pack does not introduce the unapproved scallop or wave motif from the July 1
 - 14 feed 1080x1350 MP4 masters at 30 fps and 8 seconds
 - 14 square 1080x1080 MP4 masters at 30 fps and 8 seconds
 - 14 true-HD wide 1280x720 MP4 masters at 30 fps and 8 seconds
+- 4 launch-moment films in 10-second 9:16 plus native 8-second 9:16, 4:5, 1:1, and 16:9 formats, 20 files total
 - 6 set-driven carousel stories in both 9:16 and 4:5 motion
 - 3 baby-blue Patticake slice-logo MP4s plus transparent WebM and ProRes 4444 masters
 - 14 Story stills at 1080x1920
@@ -40,12 +43,15 @@ The pack does not introduce the unapproved scallop or wave motif from the July 1
 - `exports/motion-9x16/` - 8-second Reels and TikTok masters
 - `exports/motion-9x16-10s/` - 10-second Shorts-ready masters
 - `exports/motion-4x5/`, `motion-1x1/`, and `motion-16x9/` - native feed, square, and wide motion
+- `exports/launch-motion-9x16-10s/` - four primary real launch-moment films
+- `exports/launch-motion-9x16-8s/`, `launch-motion-4x5/`, `launch-motion-1x1/`, and `launch-motion-16x9/` - launch-moment cutdowns and native platform recompositions
 - `exports/carousel-motion-9x16/` and `carousel-motion-4x5/` - motion translations of the six swipe stories
 - `motion-review/` - poster-led review board for every motion master
 - `exports/carousel-4x5/` - six ordered carousel sets
 - `carousel-review/` - shared Creative Production review surface for all 31 carousel cards
-- `delivery-zips/yum-patticake-creative-launch-motion-2026-07-17.zip` - canonical, checksummed motion launch bundle
-- `delivery-zips/patticake-com-launch-rollout-2026-07-17.zip` - complete Patticake.com motion, still, carousel, logo, and publishing bundle
+- `delivery-zips/yum-patticake-launch-moments.zip` - focused 20-file launch-moment delivery
+- `delivery-zips/yum-patticake-creative-launch-motion-2026-07-21.zip` - canonical, checksummed motion launch bundle
+- `delivery-zips/patticake-com-launch-rollout-2026-07-21.zip` - complete Patticake.com motion, still, carousel, logo, and publishing bundle
 - `delivery-zips/` - upload-ready bundles for each carousel and motion duration
 - `delivery-zips/yum-people-behind-the-plate-social.zip` - the human-first 8s, 10s, Story, feed, square, and wide masters
 - `../../yumkitchen-web/lib/ugc-rights-ledger.json` - the only customer review and creator-content permission source; unapproved items never render on the site
@@ -66,6 +72,8 @@ RENDER_CAROUSELS_ONLY=1 npm run render
 RENDER_SHORTS_ONLY=1 npm run render
 RENDER_FORMAT_MOTION_ONLY=1 npm run render
 RENDER_CAROUSEL_MOTION_ONLY=1 npm run render
+RENDER_LAUNCH_MOTION_ONLY=1 npm run render
+RENDER_LAUNCH_ONLY=patticake-launch-day RENDER_LAUNCH_MOTION_ONLY=1 npm run render
 RENDER_ALL_MOTION_ONLY=1 npm run render
 RENDER_METADATA_ONLY=1 npm run render
 npm run render:patticake-logo

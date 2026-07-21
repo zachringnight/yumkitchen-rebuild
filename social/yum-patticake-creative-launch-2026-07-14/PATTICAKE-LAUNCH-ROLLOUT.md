@@ -1,6 +1,6 @@
 # Patticake.com launch rollout
 
-Prepared July 15 and revised July 17, 2026 from current real Yum photography, the July 9 brand toolkit, the live Patticake site copy, and the baby-blue box and red logo system.
+Prepared July 15 and revised July 21, 2026 from current real Yum photography, the July 9 brand toolkit, the live Patticake site copy, and the baby-blue box and red logo system.
 
 ## creative rule
 
@@ -20,9 +20,12 @@ Carousel counters remain plain type in the baby-blue field. No number badge or l
 
 | Timing | Asset | Job | Primary channels | Destination |
 | --- | --- | --- | --- | --- |
+| Launch morning hero | `patticake-launch-day` | Lead with real Yum packaging, the blue box, the cake, and nationwide availability | Instagram Reel, TikTok, YouTube Short, Facebook, protected site preview | `https://patticake.com` |
+| Launch afternoon proof | `patticake-blue-box-arrival` | Turn the blue box, unboxing, and first slice into the launch ritual | Instagram Reel, Story, TikTok, Meta paid | `https://patticake.com` |
+| Launch week origin | `patticake-bakery-to-nationwide` | Connect the real Yum kitchen and packaging to the national rollout | Instagram, Facebook, LinkedIn, press and partner outreach | `https://patticake.com` |
 | D-7 | `patticake-site-teaser` | Create curiosity around nationwide delivery | Instagram Reel, Story, TikTok | `https://patticake.com/patticake` |
 | D-3 | `patticake-three-layers` | Show the actual product proof | Instagram feed, Reel, Pinterest | `https://patticake.com/patticake` |
-| Launch morning | `patticake-site-reveal` | Announce nationwide availability clearly | Reel, TikTok, YouTube Short, Facebook | `https://patticake.com/patticake` |
+| Launch morning support | `patticake-site-reveal` | Announce nationwide availability clearly in the established template system | Reel, TikTok, YouTube Short, Facebook | `https://patticake.com/patticake` |
 | Launch afternoon | `meet-patticake` carousel | Explain box, cake, message, and action | Instagram and Facebook carousel | `https://patticake.com` |
 | D+1 | `patticake-gift-drop` | Establish the core gifting idea | Reel, Story, Meta feed | `https://patticake.com/patticake` |
 | D+3 | `how-to-patticake` carousel | Reduce uncertainty around the first step | Instagram and Facebook carousel, Story motion | `https://patticake.com/patticake#delivery-support` |
@@ -53,6 +56,8 @@ Carousel counters remain plain type in the baby-blue field. No number badge or l
 
 All video files are silent masters. Add a current, rights-cleared track inside the publishing platform.
 
+The four launch-moment film families use the same dimensions as the motion rows above. Their folders begin with `exports/launch-motion-`. The 10-second 9:16 files are the primary launch versions. The 8-second 9:16, 4:5, 1:1, and 16:9 files are native recompositions, not mechanical crops.
+
 ## publishing copy
 
 ### teaser
@@ -70,6 +75,30 @@ Patticake is now available nationwide. Send cake, not a card, or plan local pick
 Link: `https://patticake.com/patticake`
 
 Alt text: A bright baby-blue Yum cake box, chocolate cake layers, and Patticake slices appear in sequence before a baby-blue end frame reads "patticake is now available nationwide" in red.
+
+### launch-day hero
+
+Patticake is now available nationwide. Made at yum!, boxed in baby blue, and ready to send.
+
+Link: `https://patticake.com`
+
+Alt text: Real bright baby-blue Yum bakery boxes, a ribboned blue cake box, and a three-layer chocolate cake slice appear full frame. Separate baby-blue frames read "made at yum!" and "now available nationwide" in red before a Patticake by yum! end frame.
+
+### blue-box arrival
+
+The blue box is here. Open it, slice it, and share it.
+
+Link: `https://patticake.com`
+
+Alt text: A ribboned baby-blue Yum box, a white frosted cake, and plated chocolate cake slices appear full frame between simple baby-blue message frames.
+
+### bakery to nationwide
+
+It started in the yum! bakery. Now Patticake can go nationwide.
+
+Link: `https://patticake.com`
+
+Alt text: A real Yum kitchen team member, real baby-blue Yum packaging inside the restaurant, and a three-layer chocolate cake slice appear full frame before a Patticake by yum! end frame.
 
 ### three layers
 

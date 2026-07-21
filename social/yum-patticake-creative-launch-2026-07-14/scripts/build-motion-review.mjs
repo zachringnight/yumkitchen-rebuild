@@ -11,6 +11,11 @@ mkdirSync(join(reviewRoot, "data"), {recursive: true});
 mkdirSync(posters, {recursive: true});
 
 const groups = [
+  {folder: "launch-motion-9x16-10s", label: "Launch moment hero · 9:16", posterAt: 0.42},
+  {folder: "launch-motion-9x16-8s", label: "Launch moment cutdown · 9:16", posterAt: 0.42},
+  {folder: "launch-motion-4x5", label: "Launch moment feed · 4:5", posterAt: 0.42},
+  {folder: "launch-motion-1x1", label: "Launch moment square · 1:1", posterAt: 0.42},
+  {folder: "launch-motion-16x9", label: "Launch moment wide · 16:9", posterAt: 0.42},
   {folder: "motion-9x16-10s", label: "Primary 10s · 9:16", posterAt: 0.88},
   {folder: "motion-9x16", label: "Cutdown 8s · 9:16", posterAt: 0.88},
   {folder: "motion-4x5", label: "Feed motion · 4:5", posterAt: 0.88},
@@ -42,7 +47,9 @@ for (const group of groups) {
       label: group.label,
       src: relative(reviewRoot, poster),
       href: relative(reviewRoot, video),
-      caption: "Real photography · baby blue + logo red · silent master",
+      caption: group.folder.startsWith("launch-motion")
+        ? "Real launch moment · full-frame photography · baby blue + logo red · silent master"
+        : "Real photography · baby blue + logo red · silent master",
       family: group.label,
       bestFor: group.label,
     });
@@ -52,7 +59,7 @@ for (const group of groups) {
 writeFileSync(join(reviewRoot, "data", "review-manifest.json"), `${JSON.stringify(review, null, 2)}\n`);
 writeFileSync(join(reviewRoot, "data", "review-options.json"), `${JSON.stringify({
   title: "yum! + Patticake motion launch pack",
-  summary: `${review.length} rendered MP4 masters across vertical, feed, square, wide, carousel-derived stories, and animated Patticake logo formats.`,
+  summary: `${review.length} rendered MP4 masters across launch-moment films, vertical, feed, square, wide, carousel-derived stories, and animated Patticake logo formats.`,
   preset: "image-wall",
   showCaptions: true,
   minTileWidth: 230,

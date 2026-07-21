@@ -2,6 +2,8 @@
 
 The system is ready in three publishing lanes.
 
+Start with `exports/launch-motion-9x16-10s/patticake-launch-day.mp4` for the premium nationwide launch hero. The full 20-file launch-moment set lives in the five `exports/launch-motion-*` folders and in `delivery-zips/yum-patticake-launch-moments.zip`.
+
 Start with `PATTICAKE-LAUNCH-ROLLOUT.md` for the complete Patticake.com launch sequence, channel matrix, publishing copy, alt text, and release gates.
 
 Start with `live-instagram-benchmark-2026-07-14.md` for the current organic-feed comparison, the Crumbl/Goldbelly/SusieCakes cross-check, recommended human/product/conversion mix, caption pattern, and rights gate.
@@ -14,7 +16,7 @@ Upload-ready ZIPs live in `delivery-zips/`. Captions and per-card alt text live 
 
 ## complete motion launch bundle
 
-Start with `delivery-zips/patticake-com-launch-rollout-2026-07-17.zip` for the complete Patticake.com launch system. Use `delivery-zips/yum-patticake-creative-launch-motion-2026-07-17.zip` for the combined Yum and Patticake motion library. The combined pack contains primary 10-second verticals, optional 8-second vertical cutdowns, native 4:5, 1:1, and 16:9 masters, 12 carousel-derived motion stories, the Patticake logo masters, posters, publishing documents, a QA report, and SHA-256 checksums.
+Start with `delivery-zips/patticake-com-launch-rollout-2026-07-21.zip` for the complete Patticake.com launch system. Use `delivery-zips/yum-patticake-creative-launch-motion-2026-07-21.zip` for the combined Yum and Patticake motion library. The combined pack contains four real launch-moment films in 20 platform files, primary 10-second verticals, optional 8-second vertical cutdowns, native 4:5, 1:1, and 16:9 masters, 12 carousel-derived motion stories, the Patticake logo masters, posters, publishing documents, a QA report, and SHA-256 checksums.
 
 Review every motion master in `motion-review/review-board.html`.
 
@@ -30,6 +32,8 @@ Both versions use the actual photography, bright baby-blue packaging field, red 
 The original swipe concepts are now true set-driven videos in `exports/carousel-motion-9x16` and `exports/carousel-motion-4x5`; they are not static cards wrapped in a video container.
 
 Carousel counters are plain type inside the baby-blue field. The static cards and motion logo rail do not place badges or logos over photography.
+
+The four launch-moment films are the premium first-review set. They alternate unobstructed full-frame real photography with separate baby-blue message frames. They do not reuse the split-panel system, so the new work reads as campaign film rather than another template variation.
 
 `yum-people-behind-the-plate` is the human-first organic master. It opens on real restaurant and team photography, then closes with one compact baby-blue message field.
 
