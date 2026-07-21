@@ -10,7 +10,7 @@ export type ReviewAsset = {
   filename: string;
   label: string;
   collection: string;
-  filter: 'vertical' | 'feed' | 'square' | 'wide' | 'stories' | 'brand' | 'carousel';
+  filter: 'launch' | 'vertical' | 'feed' | 'square' | 'wide' | 'stories' | 'brand' | 'carousel';
   format: string;
   brand: 'yum!' | 'Patticake';
   kind: 'motion' | 'static';
@@ -26,6 +26,7 @@ type StatusFilter = 'all' | 'keep' | 'revise' | 'unreviewed';
 
 const assetFilters = [
   {id: 'all', label: 'All formats'},
+  {id: 'launch', label: 'Launch moments'},
   {id: 'vertical', label: 'Vertical'},
   {id: 'feed', label: 'Feed'},
   {id: 'square', label: 'Square'},
@@ -127,7 +128,7 @@ export function AssetGalleryClient({assets}: {assets: ReviewAsset[]}) {
   const selectedIndex = selectedId ? assets.findIndex((asset) => asset.id === selectedId) : -1;
   const selectedAsset = selectedIndex >= 0 ? assets[selectedIndex] : null;
   const dialogOpen = selectedAsset !== null;
-  const featuredAsset = assets[0];
+  const featuredAsset = assets.find((asset) => asset.id === 'launch-motion-9x16-10s-patticake-launch-day') ?? assets[0];
   const keepCount = Object.values(statuses).filter((status) => status === 'keep').length;
   const reviseCount = Object.values(statuses).filter((status) => status === 'revise').length;
 
@@ -214,7 +215,7 @@ export function AssetGalleryClient({assets}: {assets: ReviewAsset[]}) {
           <h1 id="asset-gallery-title">launch assets, ready for review.</h1>
           <p className={styles.intro}>Play the work. Keep what lands. Flag what needs another pass.</p>
           <button type="button" className={styles.primaryAction} onClick={() => setSelectedId(featuredAsset.id)}>
-            Start with the first asset
+            Start with the launch hero
             <ArrowIcon direction="right" />
           </button>
           <div className={styles.heroStats} aria-label="Gallery summary">

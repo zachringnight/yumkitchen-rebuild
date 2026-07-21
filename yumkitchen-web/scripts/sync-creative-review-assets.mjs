@@ -35,6 +35,7 @@ const titleMap = {
 };
 
 for (const item of creativeManifest.assets) titleMap[item.id.replaceAll('-', ' ')] = item.hook;
+for (const item of creativeManifest.launchMoments ?? []) titleMap[item.id.replaceAll('-', ' ')] = item.hook;
 titleMap['meet patticake'] = 'patticake is now available nationwide.';
 titleMap['how to patticake'] = 'start with the note.';
 titleMap['patticake occasions'] = 'every good reason for cake.';
@@ -49,6 +50,13 @@ const staticFormats = {
 };
 
 function groupFor(label, id) {
+  if (label.startsWith('Launch moment')) {
+    return {
+      filter: 'launch',
+      collection: 'Launch moment',
+      format: label.includes('9:16') ? '9:16' : label.includes('4:5') ? '4:5' : label.includes('1:1') ? '1:1' : '16:9',
+    };
+  }
   if (label.startsWith('Primary')) return {filter: 'vertical', collection: 'Primary vertical', format: '9:16'};
   if (label.startsWith('Cutdown')) return {filter: 'vertical', collection: 'Vertical cutdown', format: '9:16'};
   if (label.startsWith('Feed motion')) return {filter: 'feed', collection: 'Feed motion', format: '4:5'};
@@ -99,6 +107,7 @@ const assets = sourceManifest.map((item) => {
   ], {encoding: 'utf8'}));
   const group = groupFor(item.label, item.id);
   const normalizedTitle = item.title.toLowerCase();
+  const launchMoment = (creativeManifest.launchMoments ?? []).find((entry) => entry.id.replaceAll('-', ' ') === normalizedTitle);
 
   return {
     id: item.id,
@@ -108,7 +117,7 @@ const assets = sourceManifest.map((item) => {
     collection: group.collection,
     filter: group.filter,
     format: group.format,
-    brand: normalizedTitle.includes('patticake') || normalizedTitle === 'send cake' ? 'Patticake' : 'yum!',
+    brand: launchMoment ? (launchMoment.brand === 'patticake' ? 'Patticake' : 'yum!') : normalizedTitle.includes('patticake') || normalizedTitle === 'send cake' ? 'Patticake' : 'yum!',
     kind: 'motion',
     duration: Number(Number(probe.format.duration).toFixed(1)),
     width: probe.streams[0].width,
