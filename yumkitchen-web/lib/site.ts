@@ -44,6 +44,7 @@ export function patticakeOpenGraph(image: string) {
 export const giftCardBuyUrl = 'https://www.toasttab.com/yumkitchenslp/giftcards';
 export const giftCardBalanceUrl = 'https://www.toasttab.com/yumkitchenslp/findcard';
 export const patticakeNationalOrderUrl = process.env.NEXT_PUBLIC_PATTICAKE_NATIONAL_ORDER_URL ?? '/patticake#national-order';
+export const patticakeNationalOrderIsExternal = /^https?:\/\//.test(patticakeNationalOrderUrl);
 
 export const navItems = [
   { href: '/menu', label: 'menu' },

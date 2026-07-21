@@ -15,7 +15,14 @@ import { PatticakeMessageRibbon } from '@/components/PatticakeMessageRibbon';
 import { PatticakeMessagePreview } from '@/components/PatticakeMessagePreview';
 import { PatticakeOriginBand } from '@/components/PatticakeOriginBand';
 import { PatticakePathGuide } from '@/components/PatticakePathGuide';
-import { pageMeta, patticakeCanonical, patticakeNationalOrderUrl, patticakeOpenGraph, patticakeTitle } from '@/lib/site';
+import {
+  pageMeta,
+  patticakeCanonical,
+  patticakeNationalOrderIsExternal as nationalOrderIsExternal,
+  patticakeNationalOrderUrl,
+  patticakeOpenGraph,
+  patticakeTitle,
+} from '@/lib/site';
 
 export const metadata: Metadata = {
   title: patticakeTitle(pageMeta.patticakeDelivery.title),
@@ -191,8 +198,6 @@ const productJsonLd = {
   },
 };
 
-const nationalOrderIsExternal = /^https?:\/\//.test(patticakeNationalOrderUrl);
-
 export default function PatticakeNationalDeliveryPage() {
   return (
     <main className="bg-cream">
@@ -289,7 +294,42 @@ export default function PatticakeNationalDeliveryPage() {
         </div>
       </section>
 
-      <CakeBuyModule />
+      {nationalOrderIsExternal ? (
+        <section id="national-order" className="scroll-mt-20 bg-blue-tint px-6 py-12 lg:py-section">
+          <div className="mx-auto grid max-w-[1240px] overflow-hidden border-y border-brand-primary/35 bg-white lg:grid-cols-[1.08fr_0.92fr]">
+            <div className="relative min-h-[420px] bg-blue-soft lg:min-h-[620px]">
+              <Image
+                src="/images/patticake/03_top_view.jpg"
+                alt="yum! Patticake chocolate cake with vanilla buttercream, top view"
+                fill
+                sizes="(min-width: 1024px) 54vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="flex flex-col justify-center bg-blue-tint p-[clamp(2rem,5vw,4.75rem)]">
+              <p className="section-label text-ink">nationwide delivery</p>
+              <h2 className="font-serif text-[clamp(3.25rem,6vw,5.75rem)] font-normal leading-[0.92] lowercase text-brand-primary">
+                send a patticake
+              </h2>
+              <p className="mt-6 max-w-xl text-xl leading-9 text-ink">
+                Choose your delivery date, address, and gift message in the nationwide checkout.
+              </p>
+              <a
+                href={patticakeNationalOrderUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary mt-8 self-start"
+                data-event="click_patticake_national_delivery_order"
+                data-source="national_order_module"
+              >
+                Ship a Cake
+              </a>
+            </div>
+          </div>
+        </section>
+      ) : (
+        <CakeBuyModule />
+      )}
 
       <PatticakeMessageRibbon tone="blue" />
       <PatticakePathGuide activePath="shipping" />

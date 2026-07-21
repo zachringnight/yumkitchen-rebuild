@@ -1,143 +1,140 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import { useCart } from '@/lib/cart/CartContext';
 import { cakes, findVariant, formatUsd, occasions, type CakeFormat } from '@/lib/patticake/catalog';
 
+const patticake = cakes.find((cake) => cake.signature) ?? cakes[0];
+const moreCakes = cakes.filter((cake) => cake.slug !== patticake.slug);
+
 export function CakeBuyModule() {
   const { addItem } = useCart();
-  const [activeSlug, setActiveSlug] = useState(cakes[0].slug);
   const [format, setFormat] = useState<CakeFormat>('whole');
   const [occasion, setOccasion] = useState<string>(occasions[0]);
   const [qty, setQty] = useState(1);
-
-  const cake = cakes.find((c) => c.slug === activeSlug) ?? cakes[0];
-  const variant = findVariant(cake, format) ?? cake.variants[0];
+  const variant = findVariant(patticake, format) ?? patticake.variants[0];
 
   return (
-    <section id="national-order" className="bg-cream px-6 py-12 lg:py-section">
+    <section id="national-order" className="scroll-mt-20 bg-blue-tint px-6 py-12 lg:py-section">
       <div className="mx-auto max-w-[1240px]">
-        <p className="section-label">order online</p>
-        <h2 className="text-h2 lowercase">send a cake in a few taps</h2>
-        <div className="mt-8 grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-          <div>
-            <div className="relative aspect-[4/3] overflow-hidden border border-ink/10 bg-blue-soft">
-              <Image
-                key={cake.image}
-                src={cake.image}
-                alt={cake.imageAlt}
-                fill
-                sizes="(min-width: 1024px) 46vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-            {cake.signature && (
-              <p className="mt-3 border-t border-brand-primary/30 pt-3 text-sm font-bold uppercase tracking-[0.12em] text-brand-primary">
-                the signature
-              </p>
-            )}
+        <p className="section-label text-ink">nationwide delivery</p>
+        <h2 className="text-h2 lowercase text-brand-primary">send a patticake</h2>
+
+        <div className="mt-8 grid overflow-hidden border-y border-brand-primary/35 bg-white lg:grid-cols-[1.08fr_0.92fr]">
+          <div className="relative min-h-[420px] bg-blue-soft lg:min-h-[680px]">
+            <Image
+              src={patticake.image}
+              alt={patticake.imageAlt}
+              fill
+              sizes="(min-width: 1024px) 54vw, 100vw"
+              className="object-cover"
+            />
           </div>
 
-          <div className="border border-ink/12 bg-white p-6 lg:p-8">
-            {/* Cake picker: toggle buttons, not tabs - no tabpanel or arrow-key
-                semantics here, so aria-pressed matches the size picker below */}
-            <div className="grid gap-2" role="group" aria-label="Choose a cake">
-              {cakes.map((c) => {
-                const active = c.slug === activeSlug;
-                return (
-                  <button
-                    key={c.slug}
-                    type="button"
-                    aria-pressed={active}
-                    onClick={() => setActiveSlug(c.slug)}
-                    className={`flex items-center justify-between border px-4 py-3 text-left transition focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-brand-red ${
-                      active ? 'border-brand-primary bg-cream' : 'border-ink/15 bg-page hover:border-brand-red'
-                    }`}
-                  >
-                    <span>
-                      <span className="font-serif text-2xl lowercase leading-none text-ink">{c.name}</span>
-                      <span className="mt-1 block text-sm leading-tight text-body">{c.tagline}</span>
-                    </span>
-                    {active && <span aria-hidden="true" className="text-brand-primary">●</span>}
-                  </button>
-                );
-              })}
+          <div className="flex flex-col bg-blue-tint p-6 sm:p-8 lg:p-10">
+            <div className="border-b border-brand-primary/45 pb-6">
+              <p className="text-sm font-bold uppercase tracking-[0.12em] text-brand-primary">the signature</p>
+              <h3 className="mt-2 font-serif text-[clamp(2.5rem,4vw,4rem)] font-normal lowercase leading-none text-ink">
+                patticake
+              </h3>
+              <p className="mt-4 max-w-xl text-lg leading-8 text-ink">{patticake.description}</p>
             </div>
 
-            <p className="mt-5 text-base leading-7 text-body">{cake.description}</p>
-
-            {/* Format */}
-            <fieldset className="mt-6">
-              <legend className="font-sans text-sm font-medium text-ink">Choose a size</legend>
-              <div className="mt-2 grid grid-cols-2 gap-2">
-                {cake.variants.map((v) => {
-                  const active = v.format === format;
+            <fieldset className="mt-7">
+              <legend className="font-sans text-sm font-bold uppercase tracking-[0.1em] text-ink">choose a size</legend>
+              <div className="mt-3 grid grid-cols-2 gap-2">
+                {patticake.variants.map((option) => {
+                  const active = option.format === format;
                   return (
                     <button
-                      key={v.format}
+                      key={option.format}
                       type="button"
                       aria-pressed={active}
-                      onClick={() => setFormat(v.format)}
-                      className={`border px-4 py-3 text-left transition focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-brand-red ${
-                        active ? 'border-brand-primary bg-cream' : 'border-ink/15 bg-page hover:border-brand-red'
+                      onClick={() => setFormat(option.format)}
+                      className={`min-h-32 border p-4 text-left transition focus:outline-solid focus:outline-2 focus:outline-offset-2 focus:outline-brand-red ${
+                        active
+                          ? 'border-brand-primary bg-white shadow-[inset_0_4px_0_var(--color-brand-red)]'
+                          : 'border-blue-soft bg-white/70 hover:border-brand-primary hover:bg-white'
                       }`}
                     >
-                      <span className="block font-sans text-base font-bold text-ink">{v.label}</span>
-                      <span className="mt-0.5 block text-sm leading-tight text-body">{v.serves}</span>
-                      <span className="mt-1 block font-serif text-xl text-ink">{formatUsd(v.price)}</span>
+                      <span className="block font-serif text-2xl lowercase leading-none text-ink">{option.label}</span>
+                      <span className="mt-2 block text-sm leading-5 text-body">{option.serves}</span>
+                      <span className="mt-2 block font-serif text-xl text-brand-primary">{formatUsd(option.price)}</span>
                     </button>
                   );
                 })}
               </div>
             </fieldset>
 
-            {/* Occasion */}
-            <label className="field mt-6 block">
-              <span>What&apos;s the occasion?</span>
-              <select value={occasion} onChange={(e) => setOccasion(e.target.value)}>
-                {occasions.map((o) => (
-                  <option key={o} value={o}>
-                    {o}
+            <label className="field mt-7 block">
+              <span>what&apos;s the occasion?</span>
+              <select className="!bg-white" value={occasion} onChange={(event) => setOccasion(event.target.value)}>
+                {occasions.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
                   </option>
                 ))}
               </select>
             </label>
 
-            {/* Qty + add */}
-            <div className="mt-6 flex flex-wrap items-center gap-4">
-              <div className="flex items-center border border-ink/20 bg-white">
+            <div className="mt-7 grid gap-3 sm:grid-cols-[auto_1fr]">
+              <div className="flex items-center border border-brand-primary/45 bg-white">
                 <button
                   type="button"
                   aria-label="Decrease quantity"
-                  onClick={() => setQty((q) => Math.max(1, q - 1))}
-                  className="h-12 w-12 text-2xl leading-none text-ink hover:bg-cream focus:outline-solid focus:outline-2 focus:outline-brand-primary"
+                  onClick={() => setQty((value) => Math.max(1, value - 1))}
+                  className="h-14 w-12 text-2xl leading-none text-ink hover:bg-blue-tint focus:outline-solid focus:outline-2 focus:outline-brand-primary"
                 >
                   −
                 </button>
-                <span className="w-10 text-center font-sans text-lg font-bold text-ink">{qty}</span>
+                <span className="w-10 text-center font-sans text-lg font-bold text-ink" aria-live="polite">{qty}</span>
                 <button
                   type="button"
                   aria-label="Increase quantity"
-                  onClick={() => setQty((q) => Math.min(24, q + 1))}
-                  className="h-12 w-12 text-2xl leading-none text-ink hover:bg-cream focus:outline-solid focus:outline-2 focus:outline-brand-primary"
+                  onClick={() => setQty((value) => Math.min(24, value + 1))}
+                  className="h-14 w-12 text-2xl leading-none text-ink hover:bg-blue-tint focus:outline-solid focus:outline-2 focus:outline-brand-primary"
                 >
                   +
                 </button>
               </div>
               <button
                 type="button"
-                onClick={() => addItem({ cakeSlug: cake.slug, format, occasion, qty })}
-                className="btn-primary grow px-6 py-4"
+                onClick={() => addItem({ cakeSlug: patticake.slug, format, occasion, qty })}
+                className="btn-primary min-h-14 w-full px-6 py-4"
                 data-event="click_patticake_add_to_cart"
                 data-source="cake_buy_module"
               >
                 Add to box · {formatUsd(variant.price * qty)}
               </button>
             </div>
-            <p className="mt-3 text-sm leading-6 text-body">
-              Shipped nationwide with a delivery date and gift message set at checkout.
-            </p>
+
+            <div className="mt-7 border-t border-brand-primary/45 pt-5">
+              <p className="font-sans text-base font-bold text-ink">nationwide delivery available</p>
+              <p className="mt-1 text-base leading-7 text-ink">Choose the delivery date, address, and gift message at checkout.</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-10 border-t border-brand-primary/40 pt-6">
+          <h3 className="font-serif text-[clamp(2rem,4vw,3.2rem)] font-normal lowercase leading-tight text-ink">more cakes from yum!</h3>
+          <div className="mt-5 grid gap-6 md:grid-cols-2">
+            {moreCakes.map((cake) => (
+              <article key={cake.slug} className="grid border-b border-brand-primary/35 pb-6 sm:grid-cols-[150px_1fr] sm:gap-6">
+                <div className="relative aspect-square overflow-hidden border border-brand-primary/25 bg-white">
+                  <Image src={cake.image} alt={cake.imageAlt} fill sizes="150px" className="object-cover" />
+                </div>
+                <div className="pt-4 sm:pt-1">
+                  <h4 className="font-serif text-3xl font-normal lowercase leading-none text-ink">{cake.name}</h4>
+                  <p className="mt-2 text-sm font-bold uppercase tracking-[0.1em] text-brand-primary">{cake.tagline}</p>
+                  <p className="mt-3 text-base leading-7 text-ink">{cake.description}</p>
+                  <Link href="/order-a-cake#cake-inquiry" className="btn-link mt-4 inline-block">
+                    plan local pickup
+                  </Link>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </div>

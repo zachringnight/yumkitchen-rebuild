@@ -11,7 +11,7 @@ export default function ConfirmationPage() {
 
   if (!lastOrder) {
     return (
-      <main className="bg-cream">
+      <main className="bg-blue-tint">
         <section className="container-content py-section text-center">
           <p className="section-label">order</p>
           <h1 className="text-h2 lowercase">no recent order</h1>
@@ -28,7 +28,7 @@ export default function ConfirmationPage() {
     : '';
 
   return (
-    <main className="bg-cream">
+    <main className="bg-blue-tint">
       <section className="bg-blue-tint px-6 py-section">
         <div className="mx-auto max-w-[760px] text-center">
           <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-brand-red text-white">
@@ -47,7 +47,7 @@ export default function ConfirmationPage() {
         </div>
       </section>
 
-      <section className="px-6 py-12 lg:py-section">
+      <section className="bg-blue-tint px-6 py-12 lg:py-section">
         <div className="mx-auto grid max-w-[900px] gap-8 lg:grid-cols-2">
           <div className="border border-ink/12 bg-white p-6">
             <h2 className="font-serif text-2xl lowercase text-ink">arriving {deliveryLabel}</h2>
@@ -62,7 +62,7 @@ export default function ConfirmationPage() {
               ))}
             </ul>
             {lastOrder.giftMessage && (
-              <div className="mt-5 border-l-4 border-brand-red bg-cream p-4">
+              <div className="mt-5 border-l-4 border-brand-red bg-blue-tint p-4">
                 <p className="text-sm font-bold uppercase tracking-[0.12em] text-brand-primary">gift note</p>
                 <p className="mt-1 font-serif text-lg italic leading-8 text-ink">&ldquo;{lastOrder.giftMessage}&rdquo;</p>
               </div>
