@@ -10,6 +10,8 @@ The next production sequence is defined in `docs/superpowers/plans/2026-07-21-be
 
 The release is intentionally ordered across [PR #26](https://github.com/zachringnight/yumkitchen-rebuild/pull/26), owned source photos, [PR #27](https://github.com/zachringnight/yumkitchen-rebuild/pull/27), motion production, and [PR #28](https://github.com/zachringnight/yumkitchen-rebuild/pull/28), review board plus stable handoff. This split avoids the combined media transport limit while preserving the complete verified release.
 
+The final crop pass reviewed all 20 launch outputs across their photo scenes, all 20 posters, the complete Yum hero rotation at desktop and mobile sizes, and the image-heavy site routes. It corrected the wide gift-box mark, stable poster timing, and gallery thumbnail aspect handling before merge.
+
 ## Prior round: rights-safe social proof (2026-07-21)
 
 This round replaces stale aggregate counts and unsupported sample-review language with dated, linked Google Maps, Yelp, and Restaurantji proof. `ReviewsWall` now serves `/patticake`, `/yum-kitchen`, and every location page. Instagram and TikTok point only to the owned profiles. Individual customer text, photos, and videos remain fail-closed through `yumkitchen-web/lib/ugc-rights-ledger.json`; nothing appears until written usage approval is recorded.

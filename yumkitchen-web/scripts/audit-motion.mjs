@@ -91,6 +91,10 @@ const positionedPatticakeImageParents = [
 ].every((selector) => getCssBlock(css, selector).includes('position: relative'));
 const activePatticakeCopy = [patticakeHomeSurface, patticakeDelivery, patticakePickup, reviewAssets].join('\n');
 const hasRetiredThreeWaysFraming = /one cake(?:\s*[,/]\s*|\s+)three(?:\s+happy)?\s+ways/i.test(activePatticakeCopy);
+const launchPosterFractions = Array.from(
+  motionReviewBuilder.matchAll(/folder: "launch-motion-[^"]+"[^}]+posterAt: ([0-9.]+)/g),
+  (match) => Number(match[1]),
+);
 
 const checks = [
   ['motion token slow', css.includes('--motion-duration-slow')],
@@ -139,6 +143,7 @@ const checks = [
   ['Remotion compact motion panels reserve footer room', creativeLaunchMotion.includes(': isSquare ? 540 : isFeed ? 610 : 700') && creativeLaunchMotion.includes('isSquare ? 82 : isFeed ? 88')],
   ['Remotion CTA holds fully for the final two seconds', creativeLaunchMotion.includes('const ctaStart = isShortsCut ? 7.45 : 5.45')],
   ['motion review posters sample fully resolved end frames', motionReviewBuilder.includes('posterAt: 0.88')],
+  ['launch motion review posters sample stable photo frames', launchPosterFractions.length === 5 && launchPosterFractions.every((fraction) => fraction >= 0.31 && fraction <= 0.36)],
   ['carousel card counters stay off photography', !carouselCardMotion.includes('top: 58') && !carouselCardMotion.includes('top: 735') && carouselCardMotion.includes('alignItems: "baseline"')],
   ['carousel logo player stays inside the blue panel', !carouselSequenceMotion.includes('bottom: panelHeight - Math.round(badgeSize / 2)') && carouselSequenceMotion.includes('bottom: isFeed ? 28 : 38')],
   ['active carousel uses nationwide framing, not new-home framing', !/new[ -]home/i.test(carouselSpecs) && carouselSpecs.includes('launch-01-nationwide')],

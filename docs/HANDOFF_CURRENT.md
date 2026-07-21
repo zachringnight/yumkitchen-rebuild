@@ -68,7 +68,7 @@ That folder also contains six individual carousel ZIPs, both 8-second and 10-sec
 
 ## Verification
 
-Motion delivery validation passed 107 of 107 files. Desktop and mobile `/asset-gallery` browser QA confirmed all 220 assets, the 20-item Launch moments filter, a working 10-second hero player, review controls, and zero console errors. Final `PORT=3217 bash verify.sh` passed: production build, 52 motion checks, 36 rendered route and viewport checks, 462 image instances, 56 links and anchors, zero serious or critical accessibility violations, and Lighthouse 100/100/100/100.
+Motion delivery validation passed 107 of 107 files. Final focal-point QA reviewed 60 representative photo frames across all 20 launch outputs, all 20 launch posters, every Yum hero slide at desktop and mobile sizes, and the image-heavy site routes. It corrected the 16:9 gift-box focal point, moved launch posters out of transition frames, and stopped `/asset-gallery` tiles from cropping native aspect ratios. Desktop and mobile gallery QA confirmed all 220 assets, the 20-item Launch moments filter, a working 10-second hero player, review controls, and zero console errors. Final `bash verify.sh` results are recorded in the current run report.
 
 ## Open production gates
 

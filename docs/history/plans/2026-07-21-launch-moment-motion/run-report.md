@@ -90,6 +90,20 @@ Local QA captures:
 
 They are stored under `/Users/zsoskin/.codex/visualizations/2026/07/14/019f6163-8584-7542-8b35-72eba5ca4a25/launch-motion-2026-07-21/`.
 
+## Final crop and focal-point QA
+
+The release received an additional manual crop pass before merge:
+
+- 60 representative photo frames covered all four films, all five placements, and all three photo scenes.
+- A 20-poster contact sheet confirmed that every launch poster now lands on a stable photo frame instead of a fade or red transition.
+- The 16:9 gift-box close-up was rerendered with the complete yum! circle visible through the full animated scene.
+- Gallery tiles now preserve each asset's native aspect ratio with `contain`; the review modal already used the same non-cropping behavior.
+- All six rotating yum! hero images were checked at desktop and mobile sizes.
+- Full-page desktop and mobile captures covered Patticake, nationwide delivery, local pickup, yum! Kitchen, menu, order, catering, about, and a location page.
+- The narrow frosting image beside the nationwide-delivery hero remains an intentional texture accent. The cake and packaging focal points remain in the dominant frame.
+
+Audit captures are stored under `/Users/zsoskin/.codex/visualizations/2026/07/14/019f6163-8584-7542-8b35-72eba5ca4a25/crop-audit-2026-07-21/`.
+
 ## Live-site, social, and competitor comparison
 
 The July 21 comparison used the live [yum! Kitchen site](https://yumkitchen.com/), the protected [Patticake preview](https://patticake.com/), and the official [Crumbl](https://crumblcookies.com/), [Goldbelly](https://www.goldbelly.com/), and [SusieCakes](https://susiecakes.com/) sites.
@@ -113,7 +127,7 @@ The actionable follow-up plan is `docs/superpowers/plans/2026-07-21-benchmark-be
 - Delivery ZIPs and the SHA-256 manifest rebuilt successfully.
 - Gallery sync completed with 220 current items.
 - `git diff --check` passed and no em dashes were found in the active change set.
-- Final `PORT=3217 bash verify.sh` passed: TypeScript, ESLint, 52 motion checks, content validation, production build, critical UI flows, 36 rendered route and viewport checks, 462 image instances, 56 links and anchors, zero serious or critical accessibility violations, and Lighthouse 100/100/100/100.
+- Final `PORT=3223 bash verify.sh` passed after the focal-point corrections: TypeScript, ESLint, 53 motion checks, content validation, production build, critical UI flows, 36 rendered route and viewport checks, 462 image instances, 56 links and anchors, zero serious or critical accessibility violations, and Lighthouse 100/100/100/100.
 
 ## External release gates unchanged
 

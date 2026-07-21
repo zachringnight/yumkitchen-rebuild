@@ -11,11 +11,11 @@ mkdirSync(join(reviewRoot, "data"), {recursive: true});
 mkdirSync(posters, {recursive: true});
 
 const groups = [
-  {folder: "launch-motion-9x16-10s", label: "Launch moment hero · 9:16", posterAt: 0.42},
-  {folder: "launch-motion-9x16-8s", label: "Launch moment cutdown · 9:16", posterAt: 0.42},
-  {folder: "launch-motion-4x5", label: "Launch moment feed · 4:5", posterAt: 0.42},
-  {folder: "launch-motion-1x1", label: "Launch moment square · 1:1", posterAt: 0.42},
-  {folder: "launch-motion-16x9", label: "Launch moment wide · 16:9", posterAt: 0.42},
+  {folder: "launch-motion-9x16-10s", label: "Launch moment hero · 9:16", posterAt: 0.34},
+  {folder: "launch-motion-9x16-8s", label: "Launch moment cutdown · 9:16", posterAt: 0.34},
+  {folder: "launch-motion-4x5", label: "Launch moment feed · 4:5", posterAt: 0.34},
+  {folder: "launch-motion-1x1", label: "Launch moment square · 1:1", posterAt: 0.34},
+  {folder: "launch-motion-16x9", label: "Launch moment wide · 16:9", posterAt: 0.34},
   {folder: "motion-9x16-10s", label: "Primary 10s · 9:16", posterAt: 0.88},
   {folder: "motion-9x16", label: "Cutdown 8s · 9:16", posterAt: 0.88},
   {folder: "motion-4x5", label: "Feed motion · 4:5", posterAt: 0.88},

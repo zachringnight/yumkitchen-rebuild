@@ -28,6 +28,8 @@ The current foundation is strong: Patticake is the single hero product, nationwi
 - Patticake is available nationwide. Do not call it a new home or frame it as local-only.
 - Patticake remains the single hero product. Other yum! cakes stay secondary.
 - Motion closes on a readable action for at least two seconds.
+- Every placement gets a reviewed focal crop. Faces, hero products, package marks, and required copy stay fully visible throughout motion.
+- Review posters must use a stable photo or end-card frame, never a fade, wipe, or partial transition.
 - Customer text, images, and video remain hidden until the rights ledger contains written approval.
 - No invented menu items, prices, dates, delivery promises, ingredients, reviews, or promotions.
 
@@ -155,7 +157,7 @@ Avoid producing motion only to fill a format. Every film needs a current event, 
 2. Select the strongest real source photograph or footage.
 3. Produce the durable master and platform crops.
 4. Review in `/asset-gallery` on desktop and mobile.
-5. Validate copy, source, rights, destination, expiration, contrast, safe area, and reduced motion.
+5. Validate copy, source, rights, destination, expiration, contrast, focal crop, poster frame, safe area, and reduced motion.
 6. Publish one controlled version before expanding the set.
 
 ### Weekly
@@ -180,6 +182,7 @@ Avoid producing motion only to fill a format. Every film needs a current event, 
 | Source | Owned or approved source recorded | 100 percent |
 | Rights | Written approval for customer or creator reuse | 100 percent |
 | Motion | Action readable for at least two seconds | 100 percent |
+| Crop | Reviewed focal point and stable poster across every required placement | 100 percent |
 | Social | Three-second hold, completion, saves, and shares per reach | 15 percent relative improvement over the last ten comparable posts |
 | Site | Patticake hero action and nationwide clickout | 10 to 15 percent relative improvement after baseline |
 | Production | Approved current-moment brief to reviewed exports | One business day |
@@ -200,3 +203,4 @@ If an input is missing, the asset stays in review. The production system must no
 1. Build the expiring fast-turn `Current moment` template and validation.
 2. Instrument the Patticake commerce actions and establish the 30-day baseline.
 3. Produce the next real moment from approved bakery, delivery, recipient, team, or seasonal footage and compare it against the four launch films.
+4. Add explicit story, feed, square, and wide focal metadata before the next photo set expands the motion system.

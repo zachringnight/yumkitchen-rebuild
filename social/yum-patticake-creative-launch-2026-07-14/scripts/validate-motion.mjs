@@ -36,6 +36,10 @@ const activeCreativeProductionStatePaths = [
   "carousel-review/moodboard-widget-payload.json",
   "carousel-review/data/stream.json",
 ];
+const launchPosterFractions = Array.from(
+  motionReviewSource.matchAll(/folder: "launch-motion-[^"]+"[^}]+posterAt: ([0-9.]+)/g),
+  (match) => Number(match[1]),
+);
 const creativeLayoutChecks = {
   photoAreaReserved: creativeLaunchSource.includes("const photoRight = isWide ? panelWidth : 0") && creativeLaunchSource.includes("const photoBottom = isWide ? 0 : panelHeight") && creativeLaunchSource.includes('width: "auto"') && creativeLaunchSource.includes('height: "auto"') && creativeLaunchSource.includes('overflow: "hidden"'),
   noLegacyPhotoCopyBox: !creativeLaunchSource.includes("bottom: isWide ? 54 : 216"),
@@ -50,6 +54,7 @@ const creativeLayoutChecks = {
   logoPlayerInsidePanel: creativeLaunchSource.includes("left: isWide ? width - panelWidth + safeX : safeX"),
   compactMotionPanelSafe: creativeLaunchSource.includes(": isSquare ? 540 : isFeed ? 610 : 700") && creativeLaunchSource.includes("isSquare ? 82 : isFeed ? 88"),
   stableReviewPosters: motionReviewSource.includes('posterAt: 0.88'),
+  stableLaunchReviewPosters: launchPosterFractions.length === 5 && launchPosterFractions.every((fraction) => fraction >= 0.31 && fraction <= 0.36),
   twoSecondCtaHold: creativeLaunchSource.includes('const ctaStart = isShortsCut ? 7.45 : 5.45'),
   staticReviewBoardsRefreshWithMetadata: renderAllSource.includes('render-static-reviews.mjs'),
   staleDeliveryBundlesAreQuarantined: packageSource.includes('archive/prior-dated-bundles') && packageSource.includes('archive/prior-dated-staging'),
