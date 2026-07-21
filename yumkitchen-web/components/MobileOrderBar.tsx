@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { patticakeNationalOrderUrl } from '@/lib/site';
+import { patticakeNationalOrderIsExternal, patticakeNationalOrderUrl } from '@/lib/site';
 import { useEffectiveLocation } from '@/lib/useEffectiveLocation';
 import { usePatticakeSurface } from '@/lib/usePatticakeSurface';
 import { OpenStatus } from './OpenStatus';
@@ -17,7 +17,7 @@ export function MobileOrderBar() {
   // The internal checkout shortcut only applies while the default in-page
   // order module is the configured national checkout; a configured external
   // NEXT_PUBLIC_PATTICAKE_NATIONAL_ORDER_URL must keep winning at launch.
-  const nationalOrderIsInternal = !/^https?:\/\//.test(patticakeNationalOrderUrl);
+  const nationalOrderIsInternal = !patticakeNationalOrderIsExternal;
   const inPatticakeOrderSection = pathname === '/patticake' && hash === '#national-order' && nationalOrderIsInternal;
   const inPatticakeShippingForm = pathname === '/patticake' && hash === '#delivery-support';
   const patticakePrimaryHref = pathname === '/order-a-cake' ? '#cake-inquiry' : inPatticakeOrderSection ? '/patticake/checkout' : inPatticakeShippingForm ? '#delivery-support' : patticakeNationalOrderUrl;

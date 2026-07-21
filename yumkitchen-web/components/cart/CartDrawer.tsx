@@ -53,24 +53,24 @@ export function CartDrawer() {
       role="dialog"
       aria-modal="true"
       aria-labelledby="cart-drawer-heading"
-      className="fixed inset-0 z-[60] flex justify-end bg-ink/45 backdrop-blur-[3px]"
+      className="fixed inset-0 z-[60] flex justify-end bg-ink/45"
       onClick={closeDrawer}
     >
       <div
         ref={panelRef}
         tabIndex={-1}
         onClick={(e) => e.stopPropagation()}
-        className="motion-role-modal flex h-full w-full max-w-[440px] flex-col border-l border-ink/10 bg-cream shadow-[0_0_5rem_rgb(45_45_45_/_0.3)] outline-hidden"
+        className="motion-role-modal flex h-full w-full max-w-[440px] flex-col border-l-4 border-brand-red bg-blue-tint outline-hidden"
       >
-        <div className="flex items-center justify-between border-b border-ink/15 px-6 py-5">
-          <h2 id="cart-drawer-heading" className="font-serif text-3xl font-normal lowercase leading-none text-ink">
+        <div className="flex items-center justify-between border-b border-brand-primary/35 px-6 py-5">
+          <h2 id="cart-drawer-heading" className="font-serif text-3xl font-normal lowercase leading-none text-brand-primary">
             your cake box
           </h2>
           <button
             type="button"
             onClick={closeDrawer}
             aria-label="Close cart"
-            className="flex h-11 w-11 items-center justify-center border border-ink/10 bg-white/75 text-body hover:text-ink focus:outline-solid focus:outline-2 focus:outline-brand-primary"
+            className="flex h-11 w-11 items-center justify-center border border-brand-primary/35 bg-white text-ink hover:bg-brand-red hover:text-white focus:outline-solid focus:outline-2 focus:outline-brand-primary"
           >
             <span aria-hidden="true" className="text-3xl leading-none">×</span>
           </button>
@@ -78,15 +78,15 @@ export function CartDrawer() {
 
         {items.length === 0 ? (
           <div className="flex flex-1 flex-col items-center justify-center gap-4 px-8 text-center">
-            <p className="font-serif text-2xl lowercase text-ink">your box is empty</p>
-            <p className="text-base leading-7 text-body">Add a Patticake and we&apos;ll help it travel ready to share.</p>
+            <p className="font-serif text-3xl lowercase text-brand-primary">your box is empty</p>
+            <p className="text-base leading-7 text-ink">Add a Patticake and we&apos;ll help it travel ready to share.</p>
             <button type="button" onClick={closeDrawer} className="btn-primary mt-2">
               Browse cakes
             </button>
           </div>
         ) : (
           <>
-            <ul className="flex-1 divide-y divide-ink/10 overflow-y-auto px-6">
+            <ul className="flex-1 divide-y divide-brand-primary/25 overflow-y-auto px-6">
               {items.map((item) => (
                 <li key={item.id} className="grid grid-cols-[76px_1fr] gap-4 py-5">
                   <div className="relative aspect-square overflow-hidden border border-ink/10 bg-blue-soft">
@@ -110,7 +110,7 @@ export function CartDrawer() {
                           type="button"
                           aria-label={`Decrease ${item.name}`}
                           onClick={() => updateQty(item.id, item.qty - 1)}
-                          className="h-9 w-9 text-xl leading-none text-ink hover:bg-cream focus:outline-solid focus:outline-2 focus:outline-brand-primary"
+                          className="h-9 w-9 text-xl leading-none text-ink hover:bg-blue-tint focus:outline-solid focus:outline-2 focus:outline-brand-primary"
                         >
                           −
                         </button>
@@ -119,7 +119,7 @@ export function CartDrawer() {
                           type="button"
                           aria-label={`Increase ${item.name}`}
                           onClick={() => updateQty(item.id, item.qty + 1)}
-                          className="h-9 w-9 text-xl leading-none text-ink hover:bg-cream focus:outline-solid focus:outline-2 focus:outline-brand-primary"
+                          className="h-9 w-9 text-xl leading-none text-ink hover:bg-blue-tint focus:outline-solid focus:outline-2 focus:outline-brand-primary"
                         >
                           +
                         </button>
@@ -137,7 +137,7 @@ export function CartDrawer() {
               ))}
             </ul>
 
-            <div className="border-t border-ink/15 bg-white px-6 py-5">
+            <div className="border-t-4 border-brand-red bg-white px-6 py-5">
               <div className="flex items-center justify-between">
                 <span className="font-sans text-sm font-bold uppercase tracking-[0.12em] text-brand-primary">
                   subtotal ({itemCount})

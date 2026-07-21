@@ -96,11 +96,11 @@ export default function CheckoutPage() {
 
   if (items.length === 0) {
     return (
-      <main className="bg-cream">
+      <main className="bg-blue-tint">
         <section className="container-content py-section text-center">
           <p className="section-label">checkout</p>
-          <h1 className="text-h2 lowercase">your box is empty</h1>
-          <p className="mx-auto mt-4 max-w-md text-lg leading-8 text-body">Add a Patticake and it will show up here, ready to send.</p>
+          <h1 className="text-h2 lowercase text-brand-primary">your box is empty</h1>
+          <p className="mx-auto mt-4 max-w-md text-lg leading-8 text-ink">Add a Patticake and it will show up here, ready to send.</p>
           <Link href="/patticake#national-order" className="btn-primary mt-6">
             Browse cakes
           </Link>
@@ -110,13 +110,13 @@ export default function CheckoutPage() {
   }
 
   return (
-    <main className="bg-cream">
-      <section className="border-b border-ink/10 bg-cream px-6 py-8">
+    <main className="bg-blue-tint">
+      <section className="border-b border-brand-primary/35 bg-blue-tint px-6 py-8">
         <Reveal className="mx-auto max-w-[1180px]" y={12}>
           <p className="section-label">checkout</p>
-          <h1 className="text-h2 lowercase">send your cake</h1>
-          <p className="mt-2 inline-block bg-blue-tint px-3 py-1 text-sm font-medium text-ink">
-            Demo checkout. No card is charged.
+          <h1 className="text-h2 lowercase text-brand-primary">send your cake</h1>
+          <p className="mt-5 max-w-2xl border-y border-brand-primary/40 bg-white px-4 py-3 text-base font-bold leading-7 text-ink">
+            <span className="text-brand-primary">Demo checkout.</span> No payment is processed and no card is charged.
           </p>
         </Reveal>
       </section>
@@ -147,7 +147,7 @@ export default function CheckoutPage() {
 
             <div className="mt-5 grid gap-5">
               {recipients.map((r, i) => (
-                <fieldset key={i} className="form-surface">
+                <fieldset key={i} className="form-surface border-l-4 !border-l-brand-red">
                   <div className="flex items-center justify-between">
                     <legend className="font-serif text-2xl lowercase text-ink">recipient {i + 1}</legend>
                     {recipients.length > 1 && (
@@ -233,7 +233,7 @@ export default function CheckoutPage() {
           {/* Payment (mock) */}
           <section aria-labelledby="pay-heading" className="grid gap-5">
             <h2 id="pay-heading" className="text-h3 lowercase">payment</h2>
-            <div className="form-surface">
+            <div className="form-surface border-l-4 !border-l-brand-red">
               <label className="field">
                 <span>Card number</span>
                 <input
@@ -277,8 +277,8 @@ export default function CheckoutPage() {
 
         {/* summary column */}
         <aside className="lg:sticky lg:top-[88px] lg:self-start">
-          <div className="border border-ink/12 bg-white p-6">
-            <h2 className="font-serif text-2xl lowercase text-ink">order summary</h2>
+          <div className="border border-brand-primary/35 bg-white p-6 shadow-[inset_0_5px_0_var(--color-blue-soft)]">
+            <h2 className="font-serif text-3xl lowercase text-brand-primary">order summary</h2>
             <Stagger as="ul" className="mt-4 divide-y divide-ink/10" gap={0.06}>
               {items.map((item) => (
                 <StaggerItem as="li" key={item.id} className="grid grid-cols-[56px_1fr_auto] items-center gap-3 py-3">
@@ -289,9 +289,9 @@ export default function CheckoutPage() {
                     <p className="font-serif text-lg lowercase leading-tight text-ink">{item.name}</p>
                     <p className="text-sm leading-tight text-body">{item.formatLabel}</p>
                     <div className="mt-1 flex items-center gap-2">
-                      <button type="button" aria-label="Decrease" onClick={() => updateQty(item.id, item.qty - 1)} className="h-6 w-6 border border-ink/20 text-ink hover:bg-cream">−</button>
+                      <button type="button" aria-label="Decrease" onClick={() => updateQty(item.id, item.qty - 1)} className="h-6 w-6 border border-ink/20 text-ink hover:bg-blue-tint">−</button>
                       <span className="text-sm font-bold text-ink">{item.qty}</span>
-                      <button type="button" aria-label="Increase" onClick={() => updateQty(item.id, item.qty + 1)} className="h-6 w-6 border border-ink/20 text-ink hover:bg-cream">+</button>
+                      <button type="button" aria-label="Increase" onClick={() => updateQty(item.id, item.qty + 1)} className="h-6 w-6 border border-ink/20 text-ink hover:bg-blue-tint">+</button>
                       <button type="button" onClick={() => removeItem(item.id)} className="ml-1 text-xs text-brand-primary hover:underline">remove</button>
                     </div>
                   </div>
@@ -308,7 +308,7 @@ export default function CheckoutPage() {
                 <dt className="text-body">Shipping ({recipients.length} {recipients.length === 1 ? 'address' : 'addresses'})</dt>
                 <dd>{formatUsd(shipping)}</dd>
               </div>
-              <div className="flex justify-between border-t border-ink/15 pt-2 font-serif text-2xl">
+              <div className="flex justify-between border-t-4 border-brand-red pt-3 font-serif text-2xl">
                 <dt>Total</dt>
                 <dd>{formatUsd(total)}</dd>
               </div>

@@ -4,7 +4,13 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import type { Location } from '@/lib/locations';
-import { giftCardBalanceUrl, giftCardBuyUrl, navItems, patticakeNationalOrderUrl } from '@/lib/site';
+import {
+  giftCardBalanceUrl,
+  giftCardBuyUrl,
+  navItems,
+  patticakeNationalOrderIsExternal,
+  patticakeNationalOrderUrl,
+} from '@/lib/site';
 import { useEffectiveLocation } from '@/lib/useEffectiveLocation';
 import { usePatticakeSurface } from '@/lib/usePatticakeSurface';
 import { BrandLogo } from './BrandLogo';
@@ -85,8 +91,8 @@ export function SiteHeader() {
                 <Link href="/" className="flex h-[72px] items-center whitespace-nowrap px-3 text-lg font-normal leading-tight text-brand-primary transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)]">
                   patticake
                 </Link>
-                <Link href="/patticake#national-order" className="flex h-[72px] items-center whitespace-nowrap px-3 text-lg font-normal leading-tight text-brand-primary transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)]">
-                  Ship a Cake
+                <Link href="/patticake" className="flex h-[72px] items-center whitespace-nowrap px-3 text-lg font-normal leading-tight text-brand-primary transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)]">
+                  nationwide delivery
                 </Link>
                 <Link href="/order-a-cake#cake-inquiry" className="flex h-[72px] items-center whitespace-nowrap px-3 text-lg font-normal leading-tight text-brand-primary transition hover:text-ink hover:shadow-[inset_0_-4px_0_var(--color-ink)]">
                   Pick Up Locally
@@ -106,7 +112,7 @@ export function SiteHeader() {
                 >
                   {patticakePrimaryLabel}
                 </a>
-                <CartButton />
+                {!patticakeNationalOrderIsExternal && <CartButton />}
               </div>
             </>
           ) : (
@@ -209,7 +215,7 @@ export function SiteHeader() {
                 Order Now
               </a>
             )}
-            {patticakeSurface && <CartButton />}
+            {patticakeSurface && !patticakeNationalOrderIsExternal && <CartButton />}
             <button
               type="button"
               aria-controls={mobileMenuId}
@@ -243,8 +249,8 @@ export function SiteHeader() {
                   <Link href="/" className="border-b border-blue-soft/60 py-3 text-lg font-normal text-brand-primary" onClick={() => setMenuOpen(false)}>
                     patticake
                   </Link>
-                  <Link href="/patticake#national-order" className="border-b border-blue-soft/60 py-3 text-lg font-normal text-brand-primary" onClick={() => setMenuOpen(false)}>
-                    Ship a Cake
+                  <Link href="/patticake" className="border-b border-blue-soft/60 py-3 text-lg font-normal text-brand-primary" onClick={() => setMenuOpen(false)}>
+                    nationwide delivery
                   </Link>
                   <Link href="/order-a-cake#cake-inquiry" className="border-b border-blue-soft/60 py-3 text-lg font-normal text-brand-primary" onClick={() => setMenuOpen(false)}>
                     Pick Up Locally

@@ -3,6 +3,7 @@
 import type { ReactNode } from 'react';
 import { usePathname } from 'next/navigation';
 import { CartProvider } from '@/lib/cart/CartContext';
+import { patticakeNationalOrderIsExternal } from '@/lib/site';
 import { CartDrawer } from './cart/CartDrawer';
 import { HashAnchorScroll } from './HashAnchorScroll';
 import { MotionEnhancer } from './MotionEnhancer';
@@ -34,7 +35,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
         <SiteFooter />
         <RestaurantTaskDock />
         <MobileOrderBar />
-        <CartDrawer />
+        {!patticakeNationalOrderIsExternal && <CartDrawer />}
       </MotionProvider>
     </CartProvider>
   );
