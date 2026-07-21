@@ -7,9 +7,9 @@ Updated July 21, 2026. This is the stable handoff entry point. Older dated hando
 - Canonical checkout: `/Users/zsoskin/dev/yumkitchen-rebuild`
 - Compatibility path: `/Users/zsoskin/YumKitchen_Rebuild` is a symlink to the canonical checkout
 - Release target: `main`
-- Final review branch: `codex/launch-gallery-handoff`
+- Final release review: [PR #28](https://github.com/zachringnight/yumkitchen-rebuild/pull/28) from `codex/launch-gallery-handoff`
 - Release base: `main` through [PR #27](https://github.com/zachringnight/yumkitchen-rebuild/pull/27) at commit `3bd886c`
-- Ordered release: [PR #26](https://github.com/zachringnight/yumkitchen-rebuild/pull/26) added the owned source photos, [PR #27](https://github.com/zachringnight/yumkitchen-rebuild/pull/27) added the motion production system, and the final review branch adds the gallery, benchmark plan, and stable handoff
+- Ordered release: [PR #26](https://github.com/zachringnight/yumkitchen-rebuild/pull/26) added the owned source photos, [PR #27](https://github.com/zachringnight/yumkitchen-rebuild/pull/27) added the motion production system, and [PR #28](https://github.com/zachringnight/yumkitchen-rebuild/pull/28) adds the gallery, benchmark plan, and stable handoff
 - Current run report: `docs/history/plans/2026-07-21-launch-moment-motion/run-report.md`
 - Benchmark-beating plan: `docs/superpowers/plans/2026-07-21-benchmark-beating-creative-plan.md`
 - Current social entry point: `social/START-HERE.md`

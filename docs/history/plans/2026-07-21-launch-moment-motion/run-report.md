@@ -4,7 +4,7 @@ Release sequence:
 
 - [PR #26](https://github.com/zachringnight/yumkitchen-rebuild/pull/26), owned source photos, merged at `c32b56a`.
 - [PR #27](https://github.com/zachringnight/yumkitchen-rebuild/pull/27), motion production system, merged at `3bd886c`.
-- `codex/launch-gallery-handoff`, asset gallery, benchmark plan, run report, and stable handoff.
+- [PR #28](https://github.com/zachringnight/yumkitchen-rebuild/pull/28), asset gallery, benchmark plan, run report, and stable handoff.
 
 The release was split into ordered PRs after the combined media push hit a Git transport limit. The verified creative and review inventory were not reduced or replaced.
 

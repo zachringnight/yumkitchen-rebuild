@@ -8,7 +8,7 @@ Three owned yum! photographs received non-generative tonal finishing through Ado
 
 The next production sequence is defined in `docs/superpowers/plans/2026-07-21-benchmark-beating-creative-plan.md`. It keeps the current regression guards in place while adding a one-business-day seasonal lane, commerce measurement, rights-safe human proof, and real-moment motion.
 
-The release is intentionally ordered across [PR #26](https://github.com/zachringnight/yumkitchen-rebuild/pull/26), owned source photos, [PR #27](https://github.com/zachringnight/yumkitchen-rebuild/pull/27), motion production, and `codex/launch-gallery-handoff`, review board plus stable handoff. This split avoids the combined media transport limit while preserving the complete verified release.
+The release is intentionally ordered across [PR #26](https://github.com/zachringnight/yumkitchen-rebuild/pull/26), owned source photos, [PR #27](https://github.com/zachringnight/yumkitchen-rebuild/pull/27), motion production, and [PR #28](https://github.com/zachringnight/yumkitchen-rebuild/pull/28), review board plus stable handoff. This split avoids the combined media transport limit while preserving the complete verified release.
 
 ## Prior round: rights-safe social proof (2026-07-21)
 
