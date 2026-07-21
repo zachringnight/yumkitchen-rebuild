@@ -1,8 +1,26 @@
 # Rebuild Task List
 
-## Current round: rights-safe social proof (2026-07-21)
+## Current round: launch-moment motion and review handoff (2026-07-21)
+
+This round turns the nationwide Patticake launch and the yum! bakery story into four premium films across five placements. The system uses full-frame real photography, separate baby-blue message scenes, one red sentence at a time, the real yum! logo as a motion player, and a readable action close. Copy never sits on photography. The 20 new exports bring the active pack to 107 motion files and `/asset-gallery` to 220 reviewable assets.
+
+Three owned yum! photographs received non-generative tonal finishing through Adobe and remain preserved beside the original sources. The active launch pack, delivery packages, AI-coder handoff, live-site comparison, Instagram benchmark, and Crumbl, Goldbelly, and SusieCakes cross-check now describe the same production direction. Current report: `docs/history/plans/2026-07-21-launch-moment-motion/run-report.md`.
+
+The next production sequence is defined in `docs/superpowers/plans/2026-07-21-benchmark-beating-creative-plan.md`. It keeps the current regression guards in place while adding a one-business-day seasonal lane, commerce measurement, rights-safe human proof, and real-moment motion.
+
+The release is intentionally ordered across [PR #26](https://github.com/zachringnight/yumkitchen-rebuild/pull/26), owned source photos, [PR #27](https://github.com/zachringnight/yumkitchen-rebuild/pull/27), motion production, and [PR #28](https://github.com/zachringnight/yumkitchen-rebuild/pull/28), review board plus stable handoff. This split avoids the combined media transport limit while preserving the complete verified release.
+
+The final crop pass reviewed all 20 launch outputs across their photo scenes, all 20 posters, the complete Yum hero rotation at desktop and mobile sizes, and the image-heavy site routes. It corrected the wide gift-box mark, stable poster timing, and gallery thumbnail aspect handling before merge.
+
+## Prior round: rights-safe social proof (2026-07-21)
 
 This round replaces stale aggregate counts and unsupported sample-review language with dated, linked Google Maps, Yelp, and Restaurantji proof. `ReviewsWall` now serves `/patticake`, `/yum-kitchen`, and every location page. Instagram and TikTok point only to the owned profiles. Individual customer text, photos, and videos remain fail-closed through `yumkitchen-web/lib/ugc-rights-ledger.json`; nothing appears until written usage approval is recorded.
+
+Merged into `main` through [PR #25](https://github.com/zachringnight/yumkitchen-rebuild/pull/25) at commit `8aa4a86`.
+
+## Prior round: Patticake-first commerce simplification (2026-07-21)
+
+Patticake is the single hero product. Other yum! cakes sit in a secondary treatment. Baby blue and red carry the product controls, cart, and checkout, and duplicate shipping navigation was removed. Merged into `main` through [PR #24](https://github.com/zachringnight/yumkitchen-rebuild/pull/24) at commit `86df1ae`.
 
 ## Prior round: creative regression guard and production handoff (2026-07-17)
 

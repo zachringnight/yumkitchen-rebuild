@@ -313,10 +313,9 @@
 .mediaButton img {
   display: block;
   width: 100%;
-  min-height: 180px;
-  max-height: 470px;
+  height: auto;
   background: var(--color-blue-soft);
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .playBadge {
