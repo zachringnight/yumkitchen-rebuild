@@ -1,12 +1,15 @@
 import {Composition, Folder, Still} from "remotion";
 import data from "./specs.json";
+import launchMomentData from "./launch-moment-specs.json";
 import carouselData from "./carousel-specs.json";
 import {CarouselCard, type CarouselCardSpec} from "./CarouselCard";
 import {CarouselMotion, type CarouselMotionProps} from "./CarouselMotion";
 import {CreativeLaunch, type CreativeLaunchProps, type CreativeSpec} from "./CreativeLaunch";
+import {LaunchMoment, type LaunchMomentProps, type LaunchMomentSpec} from "./LaunchMoment";
 import {PatticakeSliceLogo, type PatticakeSliceLogoProps} from "./PatticakeSliceLogo";
 
 const specs = data as CreativeSpec[];
+const launchMomentSpecs = launchMomentData as LaunchMomentSpec[];
 const carouselSpecs = carouselData as CarouselCardSpec[];
 const carouselMotionSets = [
   {setId: "pick-your-kitchen", reelFrames: 300, feedFrames: 240},
@@ -132,6 +135,68 @@ export const RemotionRoot = () => (
           width={1280}
           height={720}
           defaultProps={{...spec, mode: "motion", stillScene: 0} satisfies CreativeLaunchProps}
+        />
+      ))}
+    </Folder>
+    <Folder name="Launch-Moment-Motion">
+      {launchMomentSpecs.map((spec) => (
+        <Composition
+          key={`${spec.id}-launch-10s`}
+          id={`${spec.id}-launch-10s`}
+          component={LaunchMoment}
+          durationInFrames={300}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{...spec} satisfies LaunchMomentProps}
+        />
+      ))}
+      {launchMomentSpecs.map((spec) => (
+        <Composition
+          key={`${spec.id}-launch-8s`}
+          id={`${spec.id}-launch-8s`}
+          component={LaunchMoment}
+          durationInFrames={240}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{...spec} satisfies LaunchMomentProps}
+        />
+      ))}
+      {launchMomentSpecs.map((spec) => (
+        <Composition
+          key={`${spec.id}-launch-feed`}
+          id={`${spec.id}-launch-feed`}
+          component={LaunchMoment}
+          durationInFrames={240}
+          fps={30}
+          width={1080}
+          height={1350}
+          defaultProps={{...spec} satisfies LaunchMomentProps}
+        />
+      ))}
+      {launchMomentSpecs.map((spec) => (
+        <Composition
+          key={`${spec.id}-launch-square`}
+          id={`${spec.id}-launch-square`}
+          component={LaunchMoment}
+          durationInFrames={240}
+          fps={30}
+          width={1080}
+          height={1080}
+          defaultProps={{...spec} satisfies LaunchMomentProps}
+        />
+      ))}
+      {launchMomentSpecs.map((spec) => (
+        <Composition
+          key={`${spec.id}-launch-wide`}
+          id={`${spec.id}-launch-wide`}
+          component={LaunchMoment}
+          durationInFrames={240}
+          fps={30}
+          width={1280}
+          height={720}
+          defaultProps={{...spec} satisfies LaunchMomentProps}
         />
       ))}
     </Folder>

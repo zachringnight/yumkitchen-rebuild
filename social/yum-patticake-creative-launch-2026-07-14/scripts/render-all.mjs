@@ -8,6 +8,7 @@ const root = join(here, "..");
 const bin = join(root, "node_modules", ".bin", "remotion");
 const entry = join(root, "src", "index.tsx");
 const specs = JSON.parse(readFileSync(join(root, "src", "specs.json"), "utf8"));
+const launchMomentSpecs = JSON.parse(readFileSync(join(root, "src", "launch-moment-specs.json"), "utf8"));
 const carouselSpecs = JSON.parse(readFileSync(join(root, "src", "carousel-specs.json"), "utf8"));
 const renderOnlyIds = new Set(
   (process.env.RENDER_ONLY ?? "")
@@ -21,9 +22,18 @@ const renderOnlyCarouselSets = new Set(
     .map((value) => value.trim())
     .filter(Boolean),
 );
+const renderOnlyLaunchMomentIds = new Set(
+  (process.env.RENDER_LAUNCH_ONLY ?? "")
+    .split(",")
+    .map((value) => value.trim())
+    .filter(Boolean),
+);
 const renderSpecs = renderOnlyIds.size > 0
   ? specs.filter((spec) => renderOnlyIds.has(spec.id))
   : specs;
+const renderLaunchMomentSpecs = renderOnlyLaunchMomentIds.size > 0
+  ? launchMomentSpecs.filter((spec) => renderOnlyLaunchMomentIds.has(spec.id))
+  : launchMomentSpecs;
 const renderCarouselSpecs = renderOnlyCarouselSets.size > 0
   ? carouselSpecs.filter((card) => renderOnlyCarouselSets.has(card.setId))
   : carouselSpecs;
@@ -48,6 +58,8 @@ const renderCarouselMotionSets = renderOnlyCarouselSets.size > 0
   : carouselMotionSets;
 const renderMode = process.env.RENDER_METADATA_ONLY === "1"
   ? "metadata"
+  : process.env.RENDER_LAUNCH_MOTION_ONLY === "1"
+    ? "launch-moment"
   : process.env.RENDER_ALL_MOTION_ONLY === "1"
     ? "all-motion"
   : process.env.RENDER_FORMAT_MOTION_ONLY === "1"
@@ -69,6 +81,7 @@ const renderShorts = renderMode === "all" || renderMode === "shorts";
 const renderCarousels = renderMode === "all" || renderMode === "carousels";
 const renderFormatMotion = renderMode === "all" || renderMode === "all-motion" || renderMode === "format-motion";
 const renderCarouselMotion = renderMode === "all" || renderMode === "all-motion" || renderMode === "carousel-motion";
+const renderLaunchMoments = renderMode === "all" || renderMode === "all-motion" || renderMode === "launch-moment";
 const renderVerticalMotion = renderMotion || renderMode === "all-motion";
 const renderPrimaryMotion = renderShorts || renderMode === "all-motion";
 
@@ -80,6 +93,11 @@ for (const folder of [
   "motion-16x9",
   "carousel-motion-9x16",
   "carousel-motion-4x5",
+  "launch-motion-9x16-10s",
+  "launch-motion-9x16-8s",
+  "launch-motion-4x5",
+  "launch-motion-1x1",
+  "launch-motion-16x9",
   "carousel-4x5",
   ...formats.map((item) => item.folder),
 ]) {
@@ -150,6 +168,26 @@ for (const spec of renderSpecs) {
   }
 }
 
+if (renderLaunchMoments) {
+  for (const spec of renderLaunchMomentSpecs) {
+    for (const format of [
+      {composition: `${spec.id}-launch-10s`, folder: "launch-motion-9x16-10s"},
+      {composition: `${spec.id}-launch-8s`, folder: "launch-motion-9x16-8s"},
+      {composition: `${spec.id}-launch-feed`, folder: "launch-motion-4x5"},
+      {composition: `${spec.id}-launch-square`, folder: "launch-motion-1x1"},
+      {composition: `${spec.id}-launch-wide`, folder: "launch-motion-16x9"},
+    ]) {
+      run([
+        "render",
+        entry,
+        format.composition,
+        join(root, "exports", format.folder, `${spec.id}.mp4`),
+        ...socialVideoArgs,
+      ]);
+    }
+  }
+}
+
 if (renderCarouselMotion) {
   for (const set of renderCarouselMotionSets) {
     run([
@@ -186,7 +224,7 @@ if (renderCarousels) {
 const manifest = {
   name: "yum! and Patticake creative launch pack",
   created: new Date().toISOString(),
-  source: "current high-resolution Yum site and social photography plus the consolidated Patticake design system dated 2026-07-09",
+  source: "current high-resolution Yum site and social photography plus the consolidated Patticake design system dated 2026-07-09, with three real Yum photographs finished through Adobe auto tone on 2026-07-21",
   system: {
     colors: {
       babyBlue: "#cae4fd",
@@ -205,9 +243,12 @@ const manifest = {
     motion16x9: specs.length,
     carouselMotion9x16: carouselMotionSets.length,
     carouselMotion4x5: carouselMotionSets.length,
-    canonicalMotionMasters: specs.length * 4 + carouselMotionSets.length * 2 + 5,
-    optionalMotionCutdowns: specs.length,
-    totalMotionFiles: specs.length * 5 + carouselMotionSets.length * 2 + 5,
+    launchMomentFilms: launchMomentSpecs.length,
+    launchMomentMasters: launchMomentSpecs.length * 4,
+    launchMomentCutdowns: launchMomentSpecs.length,
+    canonicalMotionMasters: specs.length * 4 + launchMomentSpecs.length * 4 + carouselMotionSets.length * 2 + 5,
+    optionalMotionCutdowns: specs.length + launchMomentSpecs.length,
+    totalMotionFiles: specs.length * 5 + launchMomentSpecs.length * 5 + carouselMotionSets.length * 2 + 5,
     staticExports: specs.length * formats.length,
     carouselSets: new Set(carouselSpecs.map((card) => card.setId)).size,
     carouselCards: carouselSpecs.length
@@ -228,8 +269,9 @@ const manifest = {
     "delivery-zips/yum-patticake-motion-8s.zip",
     "delivery-zips/yum-patticake-motion-10s.zip",
     "delivery-zips/patticake-slice-logo-motion.zip",
-    "delivery-zips/yum-patticake-creative-launch-motion-2026-07-17.zip",
-    "delivery-zips/patticake-com-launch-rollout-2026-07-17.zip"
+    "delivery-zips/yum-patticake-launch-moments.zip",
+    "delivery-zips/yum-patticake-creative-launch-motion-2026-07-21.zip",
+    "delivery-zips/patticake-com-launch-rollout-2026-07-21.zip"
   ],
   assets: specs.map((spec) => ({
     ...spec,
@@ -246,6 +288,16 @@ const manifest = {
       link: `exports/link-1.91x1/${spec.id}.png`,
       pin: `exports/pin-2x3/${spec.id}.png`
     }
+  })),
+  launchMoments: launchMomentSpecs.map((spec) => ({
+    ...spec,
+    outputs: {
+      motion10s: `exports/launch-motion-9x16-10s/${spec.id}.mp4`,
+      motion8s: `exports/launch-motion-9x16-8s/${spec.id}.mp4`,
+      motion4x5: `exports/launch-motion-4x5/${spec.id}.mp4`,
+      motion1x1: `exports/launch-motion-1x1/${spec.id}.mp4`,
+      motion16x9: `exports/launch-motion-16x9/${spec.id}.mp4`,
+    },
   })),
   carousels: carouselSpecs.map((card) => ({
     ...card,
@@ -289,7 +341,7 @@ const review = specs.map((spec, index) => ({
 writeFileSync(join(root, "data", "review-manifest.json"), `${JSON.stringify(review, null, 2)}\n`);
 writeFileSync(join(root, "data", "review-options.json"), `${JSON.stringify({
   title: "yum! and Patticake creative launch pack",
-  summary: `${specs.length} photo-first social lanes with true motion masters in 9:16, 4:5, 1:1, and 16:9, plus ${carouselMotionSets.length * 2} set-driven carousel motion cuts and an active Patticake logo player.`,
+  summary: `${specs.length} photo-first social lanes plus ${launchMomentSpecs.length} real launch-moment films, with true motion masters in 9:16, 4:5, 1:1, and 16:9, ${carouselMotionSets.length * 2} set-driven carousel motion cuts, and an active Patticake logo player.`,
   preset: "image-wall",
   showCaptions: true,
   contactSheetOutput: "contact-sheet.png"
@@ -321,6 +373,10 @@ writeFileSync(join(carouselReviewRoot, "data", "review-options.json"), `${JSON.s
 const copy = ["# campaign copy", ""];
 for (const spec of specs) {
   copy.push(`## ${spec.hook}`, "", spec.support, "", `Proof: ${spec.proof}`, `CTA: ${spec.cta}`, `Destination: ${spec.destination}`, "");
+}
+copy.push("## launch-moment motion", "");
+for (const spec of launchMomentSpecs) {
+  copy.push(`### ${spec.hook}`, "", ...spec.messages, "", `CTA: ${spec.cta}`, `Destination: ${spec.destination}`, `Use: ${spec.usage}`, "");
 }
 writeFileSync(join(root, "campaign-copy.md"), `${copy.join("\n").trimEnd()}\n`);
 

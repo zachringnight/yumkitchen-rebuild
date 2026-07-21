@@ -111,3 +111,41 @@ the signature chocolate cake our guests remember.
 Proof: made from scratch with love
 CTA: Read the Story
 Destination: https://patticake.com/patticake
+
+## launch-moment motion
+
+### patticake is now available nationwide.
+
+made at yum!
+now available nationwide.
+
+CTA: patticake.com
+Destination: https://patticake.com
+Use: Launch-day hero for Reels, Stories, paid social, and the protected site preview.
+
+### the blue box is here.
+
+a little yum! is on the way.
+open it. slice it. share it.
+
+CTA: ship a Patticake
+Destination: https://patticake.com
+Use: Unboxing and first-slice story for organic social, paid social, and launch reminders.
+
+### from yum! to nationwide.
+
+it started in the yum! bakery.
+now it can go nationwide.
+
+CTA: meet Patticake
+Destination: https://patticake.com
+Use: Brand-origin film for launch week, founder storytelling, press, and partnership outreach.
+
+### made here. packed for you.
+
+made from scratch.
+packed in baby blue.
+
+CTA: order from your yum!
+Destination: https://yumkitchen.com/order
+Use: Evergreen Yum restaurant motion for order reminders, location social, and launch-week brand balance.

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "patticake-launch-day",
+    "brand": "patticake",
+    "lane": "nationwide launch",
+    "hook": "patticake is now available nationwide.",
+    "cta": "patticake.com",
+    "destination": "https://patticake.com",
+    "usage": "Launch-day hero for Reels, Stories, paid social, and the protected site preview.",
+    "messages": [
+      "made at yum!",
+      "now available nationwide."
+    ],
+    "photos": [
+      {
+        "image": "yum-bakery-gift-boxes-adobe.png",
+        "verticalPosition": "50% 58%",
+        "widePosition": "50% 62%"
+      },
+      {
+        "image": "gift_box_vertical.jpg",
+        "verticalPosition": "50% 50%",
+        "widePosition": "50% 56%"
+      },
+      {
+        "image": "layers_slice_vertical.jpg",
+        "verticalPosition": "50% 54%",
+        "widePosition": "50% 58%"
+      }
+    ]
+  },
+  {
+    "id": "patticake-blue-box-arrival",
+    "brand": "patticake",
+    "lane": "blue-box arrival",
+    "hook": "the blue box is here.",
+    "cta": "ship a Patticake",
+    "destination": "https://patticake.com",
+    "usage": "Unboxing and first-slice story for organic social, paid social, and launch reminders.",
+    "messages": [
+      "a little yum! is on the way.",
+      "open it. slice it. share it."
+    ],
+    "photos": [
+      {
+        "image": "gift_box_vertical.jpg",
+        "verticalPosition": "50% 50%",
+        "widePosition": "50% 56%"
+      },
+      {
+        "image": "03_top_view.jpg",
+        "verticalPosition": "50% 54%",
+        "widePosition": "50% 60%"
+      },
+      {
+        "image": "slices_plates_vertical.jpg",
+        "verticalPosition": "50% 52%",
+        "widePosition": "50% 52%"
+      }
+    ]
+  },
+  {
+    "id": "patticake-bakery-to-nationwide",
+    "brand": "patticake",
+    "lane": "the bakery story",
+    "hook": "from yum! to nationwide.",
+    "cta": "meet Patticake",
+    "destination": "https://patticake.com",
+    "usage": "Brand-origin film for launch week, founder storytelling, press, and partnership outreach.",
+    "messages": [
+      "it started in the yum! bakery.",
+      "now it can go nationwide."
+    ],
+    "photos": [
+      {
+        "image": "yum-chef-kitchen-adobe.png",
+        "verticalPosition": "72% 50%",
+        "widePosition": "65% 50%"
+      },
+      {
+        "image": "yum-packaging-counter-adobe.png",
+        "verticalPosition": "50% 50%",
+        "widePosition": "50% 54%"
+      },
+      {
+        "image": "layers_slice_vertical.jpg",
+        "verticalPosition": "50% 54%",
+        "widePosition": "50% 58%"
+      }
+    ]
+  },
+  {
+    "id": "yum-kitchen-to-handoff",
+    "brand": "yum",
+    "lane": "kitchen to handoff",
+    "hook": "made here. packed for you.",
+    "cta": "order from your yum!",
+    "destination": "https://yumkitchen.com/order",
+    "usage": "Evergreen Yum restaurant motion for order reminders, location social, and launch-week brand balance.",
+    "messages": [
+      "made from scratch.",
+      "packed in baby blue."
+    ],
+    "photos": [
+      {
+        "image": "yum-chef-kitchen-adobe.png",
+        "verticalPosition": "72% 50%",
+        "widePosition": "65% 50%"
+      },
+      {
+        "image": "yum-packaging-counter-adobe.png",
+        "verticalPosition": "50% 50%",
+        "widePosition": "50% 54%"
+      },
+      {
+        "image": "Yum_0131-3.jpg",
+        "verticalPosition": "50% 50%",
+        "widePosition": "50% 50%"
+      }
+    ]
+  }
+]

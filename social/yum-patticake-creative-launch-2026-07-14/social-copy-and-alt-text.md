@@ -51,6 +51,13 @@ Alt text by card:
 
 ## motion captions
 
+### launch-moment films
+
+- Nationwide launch: Patticake is now available nationwide. Made at yum!, boxed in baby blue, and ready to send.
+- Blue-box arrival: The blue box is here. Open it, slice it, and share it.
+- Bakery to nationwide: It started in the yum! bakery. Now Patticake can go nationwide.
+- Yum kitchen to handoff: Made from scratch. Packed in baby blue. Made here and packed for you.
+
 - People behind yum!: Meet the people behind yum! Real kitchens, a real team, and food made from scratch.
 - Local order: Breakfast, lunch, dinner, bakery. Start with the craving, then take yum! home.
 - Locations: St. Louis Park. Shady Oak. St. Paul. Woodbury. Pick your yum!

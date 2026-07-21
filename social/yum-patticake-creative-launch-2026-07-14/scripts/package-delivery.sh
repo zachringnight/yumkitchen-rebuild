@@ -7,9 +7,9 @@ OUT="$ROOT/delivery-zips"
 ARCHIVE="$OUT/archive/prior-dated-bundles"
 STAGING_ARCHIVE="$OUT/archive/prior-dated-staging"
 STAGING_ROOT="$ROOT/delivery-motion"
-PACK_NAME="yum-patticake-creative-launch-motion-2026-07-17"
+PACK_NAME="yum-patticake-creative-launch-motion-2026-07-21"
 STAGE="$STAGING_ROOT/$PACK_NAME"
-PATTICAKE_PACK_NAME="patticake-com-launch-rollout-2026-07-17"
+PATTICAKE_PACK_NAME="patticake-com-launch-rollout-2026-07-21"
 PATTICAKE_STAGE="$STAGING_ROOT/$PATTICAKE_PACK_NAME"
 
 cleanup_staging() {
@@ -53,6 +53,7 @@ rm -f \
   "$OUT/patticake-how-to-patticake-carousel.zip" \
   "$OUT/patticake-occasions-carousel.zip" \
   "$OUT/patticake-slice-logo-motion.zip" \
+  "$OUT/yum-patticake-launch-moments.zip" \
   "$OUT/yum-patticake-motion-10s.zip" \
   "$OUT/yum-patticake-motion-8s.zip" \
   "$OUT/yum-people-behind-the-plate-social.zip" \
@@ -87,6 +88,14 @@ cd "$ROOT/exports/motion-9x16"
 zip -q -X "$OUT/yum-patticake-motion-8s.zip" ./*.mp4
 
 cd "$ROOT"
+zip -q -X "$OUT/yum-patticake-launch-moments.zip" \
+  exports/launch-motion-9x16-10s/*.mp4 \
+  exports/launch-motion-9x16-8s/*.mp4 \
+  exports/launch-motion-4x5/*.mp4 \
+  exports/launch-motion-1x1/*.mp4 \
+  exports/launch-motion-16x9/*.mp4
+
+cd "$ROOT"
 zip -q -X "$OUT/yum-people-behind-the-plate-social.zip" \
   exports/motion-9x16/yum-people-behind-the-plate.mp4 \
   exports/motion-9x16-10s/yum-people-behind-the-plate.mp4 \
@@ -105,7 +114,12 @@ mkdir -p \
   "$STAGE/06-carousel-motion-9x16" \
   "$STAGE/07-carousel-motion-4x5" \
   "$STAGE/08-brand-motion" \
-  "$STAGE/09-posters" \
+  "$STAGE/09-launch-moments/01-primary-10s-9x16" \
+  "$STAGE/09-launch-moments/02-cutdowns-8s-9x16" \
+  "$STAGE/09-launch-moments/03-feed-motion-8s-4x5" \
+  "$STAGE/09-launch-moments/04-square-motion-8s-1x1" \
+  "$STAGE/09-launch-moments/05-wide-motion-8s-16x9" \
+  "$STAGE/10-posters" \
   "$STAGE/docs"
 
 cp "$ROOT"/exports/motion-9x16-10s/*.mp4 "$STAGE/01-primary-10s-9x16/"
@@ -116,7 +130,12 @@ cp "$ROOT"/exports/motion-16x9/*.mp4 "$STAGE/05-wide-motion-8s-16x9/"
 cp "$ROOT"/exports/carousel-motion-9x16/*.mp4 "$STAGE/06-carousel-motion-9x16/"
 cp "$ROOT"/exports/carousel-motion-4x5/*.mp4 "$STAGE/07-carousel-motion-4x5/"
 cp "$ROOT"/exports/brand-motion/* "$STAGE/08-brand-motion/"
-cp "$ROOT"/motion-review/posters/* "$STAGE/09-posters/"
+cp "$ROOT"/exports/launch-motion-9x16-10s/*.mp4 "$STAGE/09-launch-moments/01-primary-10s-9x16/"
+cp "$ROOT"/exports/launch-motion-9x16-8s/*.mp4 "$STAGE/09-launch-moments/02-cutdowns-8s-9x16/"
+cp "$ROOT"/exports/launch-motion-4x5/*.mp4 "$STAGE/09-launch-moments/03-feed-motion-8s-4x5/"
+cp "$ROOT"/exports/launch-motion-1x1/*.mp4 "$STAGE/09-launch-moments/04-square-motion-8s-1x1/"
+cp "$ROOT"/exports/launch-motion-16x9/*.mp4 "$STAGE/09-launch-moments/05-wide-motion-8s-16x9/"
+cp "$ROOT"/motion-review/posters/* "$STAGE/10-posters/"
 cp \
   "$ROOT/README.md" \
   "$ROOT/START-HERE.md" \
@@ -156,7 +175,12 @@ mkdir -p \
   "$PATTICAKE_STAGE/13-carousel-motion-9x16" \
   "$PATTICAKE_STAGE/14-carousel-motion-4x5" \
   "$PATTICAKE_STAGE/15-brand-motion" \
-  "$PATTICAKE_STAGE/16-posters" \
+  "$PATTICAKE_STAGE/16-launch-moments/01-primary-10s-9x16" \
+  "$PATTICAKE_STAGE/16-launch-moments/02-cutdowns-8s-9x16" \
+  "$PATTICAKE_STAGE/16-launch-moments/03-feed-motion-8s-4x5" \
+  "$PATTICAKE_STAGE/16-launch-moments/04-square-motion-8s-1x1" \
+  "$PATTICAKE_STAGE/16-launch-moments/05-wide-motion-8s-16x9" \
+  "$PATTICAKE_STAGE/17-posters" \
   "$PATTICAKE_STAGE/docs"
 
 cp "$ROOT"/exports/motion-9x16-10s/patticake-*.mp4 "$PATTICAKE_STAGE/01-primary-10s-9x16/"
@@ -178,7 +202,12 @@ for set_id in send-cake meet-patticake how-to-patticake patticake-occasions; do
 done
 
 cp "$ROOT"/exports/brand-motion/* "$PATTICAKE_STAGE/15-brand-motion/"
-find "$ROOT/motion-review/posters" -type f \( -name '*patticake*' -o -name '*send-cake*' \) -exec cp {} "$PATTICAKE_STAGE/16-posters/" \;
+cp "$ROOT"/exports/launch-motion-9x16-10s/patticake-*.mp4 "$PATTICAKE_STAGE/16-launch-moments/01-primary-10s-9x16/"
+cp "$ROOT"/exports/launch-motion-9x16-8s/patticake-*.mp4 "$PATTICAKE_STAGE/16-launch-moments/02-cutdowns-8s-9x16/"
+cp "$ROOT"/exports/launch-motion-4x5/patticake-*.mp4 "$PATTICAKE_STAGE/16-launch-moments/03-feed-motion-8s-4x5/"
+cp "$ROOT"/exports/launch-motion-1x1/patticake-*.mp4 "$PATTICAKE_STAGE/16-launch-moments/04-square-motion-8s-1x1/"
+cp "$ROOT"/exports/launch-motion-16x9/patticake-*.mp4 "$PATTICAKE_STAGE/16-launch-moments/05-wide-motion-8s-16x9/"
+find "$ROOT/motion-review/posters" -type f \( -name '*patticake*' -o -name '*send-cake*' \) -exec cp {} "$PATTICAKE_STAGE/17-posters/" \;
 cp \
   "$ROOT/README.md" \
   "$ROOT/START-HERE.md" \

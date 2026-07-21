@@ -2,6 +2,14 @@
 
 This pack is built to stay readable with sound off while leaving room for licensed, platform-native audio at publish time.
 
+## launch-moment priority
+
+- Lead launch morning with `exports/launch-motion-9x16-10s/patticake-launch-day.mp4`.
+- Use `patticake-blue-box-arrival` as the launch-afternoon unboxing and first-slice follow-up.
+- Use `patticake-bakery-to-nationwide` for the real Yum origin story, press, partners, and founder-led publishing.
+- Use `yum-kitchen-to-handoff` to keep the restaurant brand present during the Patticake rollout.
+- The full-frame photographs are intentionally text-free. Do not add platform stickers, captions, or logos over them. Put any necessary platform text on the existing baby-blue message scenes or in the post caption.
+
 ## organic Instagram mix
 
 - Use `yum-people-behind-the-plate` when the feed needs a branded human moment rather than another product-only or graphic post.

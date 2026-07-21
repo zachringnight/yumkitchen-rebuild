@@ -5,8 +5,10 @@ import {fileURLToPath} from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const specs = JSON.parse(readFileSync(join(root, "src", "specs.json"), "utf8"));
+const launchMomentSpecs = JSON.parse(readFileSync(join(root, "src", "launch-moment-specs.json"), "utf8"));
 const manifest = JSON.parse(readFileSync(join(root, "manifest.json"), "utf8"));
 const creativeLaunchSource = readFileSync(join(root, "src", "CreativeLaunch.tsx"), "utf8");
+const launchMomentSource = readFileSync(join(root, "src", "LaunchMoment.tsx"), "utf8");
 const motionReviewSource = readFileSync(join(root, "scripts", "build-motion-review.mjs"), "utf8");
 const renderAllSource = readFileSync(join(root, "scripts", "render-all.mjs"), "utf8");
 const packageSource = readFileSync(join(root, "scripts", "package-delivery.sh"), "utf8");
@@ -38,6 +40,13 @@ const creativeLayoutChecks = {
   photoAreaReserved: creativeLaunchSource.includes("const photoRight = isWide ? panelWidth : 0") && creativeLaunchSource.includes("const photoBottom = isWide ? 0 : panelHeight") && creativeLaunchSource.includes('width: "auto"') && creativeLaunchSource.includes('height: "auto"') && creativeLaunchSource.includes('overflow: "hidden"'),
   noLegacyPhotoCopyBox: !creativeLaunchSource.includes("bottom: isWide ? 54 : 216"),
   noTextGlow: !creativeLaunchSource.includes("textShadow") && !creativeLaunchSource.includes("drop-shadow"),
+  launchMomentsKeepCopyOffPhotography: launchMomentSource.includes("const PhotoScene") && launchMomentSource.includes("const MessageScene") && !/const PhotoScene[\s\S]*?message/.test(launchMomentSource.split("const MessageScene")[0]),
+  launchMomentsUseFullFramePhotos: launchMomentSource.includes('width: "100%"') && launchMomentSource.includes('height: "100%"') && launchMomentSource.includes('objectFit: "cover"'),
+  launchMomentsStayBlueAndRed: launchMomentSource.includes('blue: "#cae4fd"') && launchMomentSource.includes('red: "#dc3439"') && !launchMomentSource.includes("#fffdf7") && !launchMomentSource.includes("#2d2d2d"),
+  launchMomentsHaveNoGlowOrStickerLayer: !launchMomentSource.includes("textShadow") && !launchMomentSource.includes("drop-shadow") && !launchMomentSource.includes("boxShadow"),
+  launchMomentsUseExactNationwideCopy: launchMomentSpecs.some((spec) => spec.hook === "patticake is now available nationwide."),
+  launchMomentsHoldReadableAction: launchMomentSource.includes("const sceneWeights = [0.15, 0.125, 0.15, 0.125, 0.15, 0.3]") && launchMomentSource.includes("const actionIn = interpolate(frame, [4, 12]"),
+  adobeFinishedSourcesArePreserved: ["yum-packaging-counter-adobe.png", "yum-bakery-gift-boxes-adobe.png", "yum-chef-kitchen-adobe.png"].every((name) => existsSync(join(root, "public", "images", name))),
   logoPlayerInsidePanel: creativeLaunchSource.includes("left: isWide ? width - panelWidth + safeX : safeX"),
   compactMotionPanelSafe: creativeLaunchSource.includes(": isSquare ? 540 : isFeed ? 610 : 700") && creativeLaunchSource.includes("isSquare ? 82 : isFeed ? 88"),
   stableReviewPosters: motionReviewSource.includes('posterAt: 0.88'),
@@ -46,6 +55,7 @@ const creativeLayoutChecks = {
   staleDeliveryBundlesAreQuarantined: packageSource.includes('archive/prior-dated-bundles') && packageSource.includes('archive/prior-dated-staging'),
   deliveryZipChecksumsArePublished: packageSource.includes('> "$OUT/SHA256SUMS.txt"') && packageSource.includes('shasum -a 256 "$file"'),
   brandMotionBundleRefreshesFromCurrentExports: packageSource.includes('"$OUT/patticake-slice-logo-motion.zip"') && packageSource.includes('cd "$ROOT/exports/brand-motion"'),
+  launchMomentBundleRefreshesFromCurrentExports: packageSource.includes('"$OUT/yum-patticake-launch-moments.zip"') && packageSource.includes('cd "$ROOT"') && packageSource.includes("exports/launch-motion-9x16-10s"),
   allCarouselSetsHaveDeliveryBundles: [
     "yum-pick-your-kitchen-carousel.zip",
     "yum-feed-the-room-carousel.zip",
@@ -75,6 +85,7 @@ const creativeLayoutChecks = {
 const jobs = [];
 const assetSetChecks = [];
 const canonicalNames = specs.map((spec) => `${spec.id}.mp4`).sort();
+const launchMomentNames = launchMomentSpecs.map((spec) => `${spec.id}.mp4`).sort();
 const checkAssetSet = (folder, expectedNames, extension) => {
   const actualNames = readdirSync(join(root, "exports", folder)).filter((file) => !extension || file.endsWith(extension)).sort();
   const expectedNameSet = new Set(expectedNames);
@@ -98,6 +109,11 @@ addFolder("motion-9x16", {width: 1080, height: 1920, duration: 8, codec: "h264",
 addFolder("motion-4x5", {width: 1080, height: 1350, duration: 8, codec: "h264", pixFmt: "yuv420p", bt709: true});
 addFolder("motion-1x1", {width: 1080, height: 1080, duration: 8, codec: "h264", pixFmt: "yuv420p", bt709: true});
 addFolder("motion-16x9", {width: 1280, height: 720, duration: 8, codec: "h264", pixFmt: "yuv420p", bt709: true});
+addFolder("launch-motion-9x16-10s", {width: 1080, height: 1920, duration: 10, codec: "h264", pixFmt: "yuv420p", bt709: true}, launchMomentNames);
+addFolder("launch-motion-9x16-8s", {width: 1080, height: 1920, duration: 8, codec: "h264", pixFmt: "yuv420p", bt709: true}, launchMomentNames);
+addFolder("launch-motion-4x5", {width: 1080, height: 1350, duration: 8, codec: "h264", pixFmt: "yuv420p", bt709: true}, launchMomentNames);
+addFolder("launch-motion-1x1", {width: 1080, height: 1080, duration: 8, codec: "h264", pixFmt: "yuv420p", bt709: true}, launchMomentNames);
+addFolder("launch-motion-16x9", {width: 1280, height: 720, duration: 8, codec: "h264", pixFmt: "yuv420p", bt709: true}, launchMomentNames);
 
 const staticNames = specs.map((spec) => `${spec.id}.png`).sort();
 for (const folder of ["story-9x16", "feed-4x5", "square-1x1", "wide-16x9", "link-1.91x1", "pin-2x3"]) {
@@ -168,8 +184,8 @@ const results = jobs.map((job) => {
 
 const report = {
   generated: new Date().toISOString(),
-  scope: "All delivered Yum and Patticake motion masters",
-  expectedCounts: {socialLanes: specs.length, canonicalMotionMasters: manifest.counts.canonicalMotionMasters, optionalCutdowns: manifest.counts.optionalMotionCutdowns},
+  scope: "All delivered Yum and Patticake motion masters, including real launch-moment films",
+  expectedCounts: {socialLanes: specs.length, launchMomentFilms: launchMomentSpecs.length, canonicalMotionMasters: manifest.counts.canonicalMotionMasters, optionalCutdowns: manifest.counts.optionalMotionCutdowns},
   totals: {files: results.length, passed: results.filter((result) => result.pass).length, failed: results.filter((result) => !result.pass).length},
   assetSetChecks,
   creativeLayoutChecks,
