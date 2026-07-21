@@ -6,6 +6,7 @@ import { GiftCardBand } from '@/components/GiftCardBand';
 import { KineticMenuRail } from '@/components/KineticMenuRail';
 import { LocationGrid } from '@/components/LocationGrid';
 import { PhotoMotionStory } from '@/components/PhotoMotionStory';
+import { ReviewsWall } from '@/components/ReviewsWall';
 import { SeasonalShowcase } from '@/components/SeasonalShowcase';
 import { brandJsonLd, organizationJsonLd } from '@/lib/locations';
 import { yumHostRoutingEnabled } from '@/lib/hostRouting';
@@ -34,6 +35,7 @@ export default function YumKitchenHomePage() {
       <SeasonalShowcase />
       <PhotoMotionStory />
       <ExperienceStats />
+      <ReviewsWall surface="yum" />
       <CakeStudioBand />
       <CateringCallout />
       <GiftCardBand source="homepage" tone="white" />

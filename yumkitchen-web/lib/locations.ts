@@ -38,8 +38,16 @@ type LocationDetail = {
   roomNote: string;
   favorite: string;
   metaDescription: string;
-  // Public aggregate ratings (Google / Restaurantji, captured 2026-07). Verify before launch.
-  rating: { value: number; count: number };
+  // Public aggregate ratings captured from the linked source. Refresh the
+  // value, count, and verification date together so JSON-LD and page proof
+  // never drift apart.
+  rating: {
+    value: number;
+    count: number;
+    platform: 'Restaurantji';
+    sourceUrl: string;
+    verifiedOn: string;
+  };
 };
 
 const locationDetails: Record<LocationSlug, LocationDetail> = {
@@ -52,7 +60,13 @@ const locationDetails: Record<LocationSlug, LocationDetail> = {
     roomNote: 'A warm everyday room for breakfast, lunch, dinner, takeout, and bakery stops.',
     favorite: 'Try a bowl of bob’s tomato soup with a toasted sandwich.',
     metaDescription: 'Visit yum! st. louis park at 4000 Minnetonka Blvd for breakfast, lunch, dinner, bakery, takeout, and online ordering.',
-    rating: { value: 4.4, count: 403 },
+    rating: {
+      value: 4.4,
+      count: 413,
+      platform: 'Restaurantji',
+      sourceUrl: 'https://www.restaurantji.com/mn/minneapolis/yum-kitchen-and-bakery-/',
+      verifiedOn: '2026-07-21',
+    },
   },
   'shady-oak': {
     heroImage: '/images/yum-location-shady-oak.jpg',
@@ -63,7 +77,13 @@ const locationDetails: Record<LocationSlug, LocationDetail> = {
     roomNote: 'A friendly stop for weekday lunches, family dinners, and pickup on the way home.',
     favorite: 'Order a salad, mac and cheese, or a bakery treat for later.',
     metaDescription: 'Visit yum! shady oak at 6001 Shady Oak Rd in Minnetonka for made-from-scratch food, bakery, takeout, and online ordering.',
-    rating: { value: 4.5, count: 1527 },
+    rating: {
+      value: 4.6,
+      count: 286,
+      platform: 'Restaurantji',
+      sourceUrl: 'https://www.restaurantji.com/mn/minnetonka/yum-kitchen-and-bakery-minnetonka-/',
+      verifiedOn: '2026-07-21',
+    },
   },
   'saint-paul': {
     heroImage: '/images/yum-location-saint-paul.jpg',
@@ -74,7 +94,13 @@ const locationDetails: Record<LocationSlug, LocationDetail> = {
     roomNote: 'A comfortable stop for dine-in meals, coffee, dessert, and quick pickup.',
     favorite: 'Pair breakfast all day with something sweet from the bakery case.',
     metaDescription: 'Visit yum! st. paul at 164 Snelling Avenue N for breakfast, lunch, dinner, bakery, takeout, and online ordering.',
-    rating: { value: 4.2, count: 194 },
+    rating: {
+      value: 4.2,
+      count: 194,
+      platform: 'Restaurantji',
+      sourceUrl: 'https://www.restaurantji.com/mn/saint-paul/yum-kitchen-and-bakery-/',
+      verifiedOn: '2026-07-21',
+    },
   },
   woodbury: {
     heroImage: '/images/yum-location-woodbury.jpg',
@@ -85,7 +111,13 @@ const locationDetails: Record<LocationSlug, LocationDetail> = {
     roomNote: 'A bright neighborhood spot for dining in, carrying out, and picking up celebration desserts.',
     favorite: 'Bring home dinner, soup, and a pie for the table.',
     metaDescription: 'Visit yum! woodbury at 8340 City Centre Drive for made-from-scratch meals, bakery, takeout, and online ordering.',
-    rating: { value: 4.5, count: 174 },
+    rating: {
+      value: 4.5,
+      count: 174,
+      platform: 'Restaurantji',
+      sourceUrl: 'https://www.restaurantji.com/mn/woodbury/yum-kitchen-and-bakery-/',
+      verifiedOn: '2026-07-21',
+    },
   },
 };
 

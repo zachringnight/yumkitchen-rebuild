@@ -1,0 +1,16 @@
+{
+  "updatedOn": "2026-07-21",
+  "policy": "Customer review text, photos, and videos may appear in marketing only after written usage approval is recorded.",
+  "requiredFieldsForApproval": [
+    "id",
+    "platform",
+    "sourceUrl",
+    "creator",
+    "content",
+    "permissionStatus",
+    "permissionEvidence",
+    "permissionGrantedOn",
+    "usageScope"
+  ],
+  "items": []
+}

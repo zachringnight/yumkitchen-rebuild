@@ -32,6 +32,7 @@ The pack does not introduce the unapproved scallop or wave motif from the July 1
 - 6 native 1080x1350 carousel sequences, 31 cards total
 - editable Remotion source
 - exact campaign and carousel copy, manifest, provenance, and review surfaces
+- one fail-closed customer-story approval ledger at `../../yumkitchen-web/lib/ugc-rights-ledger.json`
 - current Reels, TikTok, and YouTube Shorts publishing guidance
 
 ## primary folders
@@ -47,6 +48,7 @@ The pack does not introduce the unapproved scallop or wave motif from the July 1
 - `delivery-zips/patticake-com-launch-rollout-2026-07-17.zip` - complete Patticake.com motion, still, carousel, logo, and publishing bundle
 - `delivery-zips/` - upload-ready bundles for each carousel and motion duration
 - `delivery-zips/yum-people-behind-the-plate-social.zip` - the human-first 8s, 10s, Story, feed, square, and wide masters
+- `../../yumkitchen-web/lib/ugc-rights-ledger.json` - the only customer review and creator-content permission source; unapproved items never render on the site
 
 ## build
 

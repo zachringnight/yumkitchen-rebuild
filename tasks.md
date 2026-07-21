@@ -1,6 +1,10 @@
 # Rebuild Task List
 
-## Current round: creative regression guard and production handoff (2026-07-17)
+## Current round: rights-safe social proof (2026-07-21)
+
+This round replaces stale aggregate counts and unsupported sample-review language with dated, linked Google Maps, Yelp, and Restaurantji proof. `ReviewsWall` now serves `/patticake`, `/yum-kitchen`, and every location page. Instagram and TikTok point only to the owned profiles. Individual customer text, photos, and videos remain fail-closed through `yumkitchen-web/lib/ugc-rights-ledger.json`; nothing appears until written usage approval is recorded.
+
+## Prior round: creative regression guard and production handoff (2026-07-17)
 
 This round merged into `main` through [PR #22](https://github.com/zachringnight/yumkitchen-rebuild/pull/22) at commit `144a142`. Current report: `docs/history/plans/2026-07-17-creative-regression-guard/run-report.md`. Stable handoff: `docs/HANDOFF_CURRENT.md`.
 
@@ -23,7 +27,7 @@ Also did a repo handoff pass: found and fixed real staleness beyond the app code
 
 Grounded in this session's direct side-by-side check of the live `yumkitchen.com` and a read of the existing motion system, brand doctrine, and reference handoff docs. None of this is started; each item names who it's for and what it needs to move.
 
-**Reviews / UGC wall - the single highest-leverage item, and it's already built.** `components/ReviewsWall.tsx` is live today on `/patticake` (not yet on the yum! restaurant pages), pulling real aggregate ratings and attributed press quotes plus four clearly-labeled *sample* customer reviews (`lib/reviews.ts`) - the code already calls this "Wave 2" and gates it on rights clearance (`reviewUsagePolicy` in `lib/brand.ts`). The live site itself has **zero** reviews, star ratings, or proof badges anywhere - real, rights-cleared Google/Yelp/Restaurantji review content would be a genuine differentiator, not just parity. For the creative/social team: this is exactly the UGC capture work already scoped in the handoff research (Instagram, Facebook, Google reviews, Yelp, TikTok - capture URL, date, platform, creator, sentiment, permission status per item). Once a handful are cleared, swap them into `sampleReviews` and extend `ReviewsWall` to `/yum-kitchen`, `/menu`, or the location pages.
+**Reviews / UGC wall - shipped in the 2026-07-21 round.** `components/ReviewsWall.tsx` uses linked, dated aggregate proof and attributed editorial coverage on `/patticake`, `/yum-kitchen`, and all four location pages. There are no sample customer reviews. Future Google, Yelp, Restaurantji, Instagram, or TikTok customer stories must enter `yumkitchen-web/lib/ugc-rights-ledger.json` with written usage evidence before the component can render them.
 
 **For photography:** once dietary tags (C1), location amenities + real dining-room photos (C2), and per-location SEO copy (A2) are available (already tracked below as Zach-data-gated), swap them in for any remaining generic/stock crops. The color-warmth pass just shipped fixes the palette; specific, real photography per location is the other lever for the "fresh, warm, loving" feel the brand is going for; the two compound.
 

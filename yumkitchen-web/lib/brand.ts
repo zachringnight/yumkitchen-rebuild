@@ -121,7 +121,7 @@ export const brandSources = {
 // UGC / reviews: summarize themes internally; do not publish customer quotes or
 // photos as marketing without secured rights. Gates the Wave 2 reviews/UGC wall.
 export const reviewUsagePolicy =
-  'Editorial press quotes may be used with attribution. Customer reviews/UGC require secured rights before public marketing use; until then, show only aggregate ratings and rights-cleared placeholders.';
+  'Editorial press facts may be used with attribution. Customer reviews/UGC require secured rights before public marketing use; until then, show only dated aggregate ratings, linked owned profiles, and attributed editorial coverage.';
 
 // Compact system-prompt block for any copy-generation / assistant feature.
 export const brandSystemPrompt = [
