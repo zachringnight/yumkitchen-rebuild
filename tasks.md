@@ -1,6 +1,18 @@
 # Rebuild Task List
 
-## Current round: launch-moment motion and review handoff (2026-07-21)
+## Current round: visual/creative audit fixes (2026-07-24)
+
+A read-only visual/creative/UX audit of both brand surfaces (yum! Kitchen and Patticake) found a short, concrete punch list. No code changed during the audit itself. Full report, per-page scores, and screenshots: `docs/history/qa/2026-07-24-visual-creative-audit/audit-report.md`. A scored visual summary with photo evidence for the two confirmed bugs is also published at https://claude.ai/code/artifact/cb55483f-3b1e-479b-a722-4007db39bf84 (Zach's own claude.ai account) - worth a look before starting, faster to skim than the full report. Two findings below were verified directly against the live rendered page, not just the screenshot. Per the one-PR-per-task rule, each item below is its own task/branch/PR, not a bundle.
+
+- [ ] **fix-careers-hero-watermark** - Recrop or paint out the "Fabricio" photo-credit watermark visible in the `/careers` hero, in light grey text next to the "come join us" headline. Verified directly at full resolution. Undercuts the site's otherwise-consistent "real people, not stock" photography. Lowest-effort, highest-visibility item in this round.
+- [ ] **fix-accessibility-statement-content** - Write an actual accessibility statement on `/accessibility-statement` (conformance standard, what's been done, how to report an issue, response time). The page currently has no statement content at all under that title, only a feedback form.
+- [ ] **fix-hero-object-position** - Add an `objectPosition` prop to `components/Hero.tsx` (default to today's `center` behavior, so no other page changes) and set it explicitly on the two confirmed bad crops: `/about` (`yum-dining-room.jpg`) and `/location/st-louis-park` (`yum-location-slp.jpg`). Both currently crop to a flat, uninteresting part of a good photo instead of the livelier moment lower in the frame. Confirmed via crop math against all 8 pages that use `<Hero>`, not just eyeballed - see the audit report's "Hero-crop sitewide cross-check" section.
+- [ ] **dedupe-patticake-repeated-blocks** - The "send cake, not a card" block and "the restaurant behind patticake" block each appear near-verbatim on `/`, `/patticake`, and `/order-a-cake`. Pick one canonical home for each (recommend: home page only) and either drop the repeat elsewhere or give it page-specific photo/copy so it doesn't read as copy-pasted.
+- [ ] **consolidate-patticake-process-explainers** - Home, `/patticake`, and `/order-a-cake` currently run four different, overlapping step-by-step "how it works" explainers for what's really one send-a-cake process (different step counts, different wording, same idea). Consolidate into one step framework reused consistently across all three.
+
+The audit report also lists P1/P2 items (visual rhythm, content pacing, secondary-page notes) not included in this round - pull from there if there's appetite for more before moving on.
+
+## Prior round: launch-moment motion and review handoff (2026-07-21)
 
 This round turns the nationwide Patticake launch and the yum! bakery story into four premium films across five placements. The system uses full-frame real photography, separate baby-blue message scenes, one red sentence at a time, the real yum! logo as a motion player, and a readable action close. Copy never sits on photography. The 20 new exports bring the active pack to 107 motion files and `/asset-gallery` to 220 reviewable assets.
 
