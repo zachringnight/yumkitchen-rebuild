@@ -71,21 +71,23 @@ export const locationRatingPlatforms = Object.fromEntries(
 ) as Record<LocationSlug, RatingProof>;
 
 // Editorial facts are paraphrased and linked to the original coverage.
+// These render on the restaurant reviews wall, so every item is about the
+// restaurant itself, not the Patticake gifting brand.
 export const pressHighlights = [
   {
-    statement: 'Patticake featured in a Twin Cities dessert guide.',
-    outlet: 'Eater Twin Cities',
-    sourceUrl: 'https://twincities.eater.com/maps/best-desserts-pastries-restaurants-minneapolis-st-paul',
-  },
-  {
-    statement: 'Patticake named in a best bakeries feature.',
+    statement: 'yum! honored in a Twin Cities best restaurants hall of fame.',
     outlet: 'Mpls.St.Paul Magazine',
-    sourceUrl: 'https://mspmag.com/eat-and-drink/mill-city-rising-best-bakeries-of-the-twin-cities/',
+    sourceUrl: 'https://mspmag.com/eat-and-drink/best-restaurants-hall-of-fame/',
   },
   {
     statement: 'yum! mini French silk pie selected for a best-pies roundup.',
     outlet: 'Minnesota Star Tribune',
     sourceUrl: 'https://www.startribune.com/the-10-best-pies-our-food-writers-ate-this-week/601587853',
+  },
+  {
+    statement: "yum!'s fourth restaurant, in Woodbury, covered in a local restaurant roundup.",
+    outlet: 'Axios Twin Cities',
+    sourceUrl: 'https://www.axios.com/local/twin-cities/2023/06/27/restaurant-roundup-yum-kitchen-expands-daves-hot-chicken-lowry-hill-meats',
   },
 ] as const;
 
