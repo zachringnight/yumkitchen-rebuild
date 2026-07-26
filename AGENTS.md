@@ -62,8 +62,10 @@ For any social or creative asset work, read `social/START-HERE.md` before openin
 4. No em dashes anywhere in code, comments, or copy. Use hyphens, commas, or sentence breaks.
 5. Headlines stay lowercase if the source uses lowercase ("made from scratch with love", "fresh and friendly food", etc.).
 6. Do not invent menu items, prices, hours, or addresses. Pull from `lib/locations.ts` and `lib/menu.ts` (seeded from the checked-in `lib/locations-seed.json` / `lib/menu-seed.json`).
-7. Every PR must pass `bash verify.sh` before requesting review.
-8. A PR may carry a whole round or a coherent group of tasks. Keep each task a separate commit so it stays individually reviewable and revertable. Do not mix unrelated rounds in one PR.
+7. Do not describe a dish in words yumkitchen.com does not use. Dish copy comes from the seed `description`, expanded only from its `w/` and `&` shorthand. A seed entry with no description gets no description on the site: ship the name and price alone rather than writing one.
+8. Food and cake photos carry no visible caption. Alt text describes the photo; nothing else names or characterizes what is in the frame. `npm run audit:motion` enforces this.
+9. Every PR must pass `bash verify.sh` before requesting review.
+10. A PR may carry a whole round or a coherent group of tasks. Keep each task a separate commit so it stays individually reviewable and revertable. Do not mix unrelated rounds in one PR.
 
 ## Task workflow
 

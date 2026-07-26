@@ -32,9 +32,12 @@ Specifically, do not reintroduce:
 Move meaningful information into one of these places instead:
 
 1. The adjacent section copy.
-2. A figcaption directly below the image.
-3. A normal card or fact row outside the photograph.
-4. A page heading or conversion module.
+2. A normal card or fact row outside the photograph.
+3. A page heading or conversion module.
+
+Do not add a figcaption either. Food and cake photos carry no visible caption
+anywhere on the site: not over the image, not under it. Alt text describes the
+photo, and nothing else claims what is in the frame.
 
 The only functional exception is a visitor's own message rendered on the cake in the Patticake message maker. That is the product interaction, not a decorative label. Keep it clean, centered, and readable.
 
@@ -63,7 +66,7 @@ Use Trocchi for headings and Archivo Narrow for body, navigation, labels, and bu
 
 ### Editorial image grids
 
-When a section needs more than one image, use a quiet grid with a small, even gap and square edges. The frame can be baby blue, cream, or white. Image captions sit below the photo, never on it.
+When a section needs more than one image, use a quiet grid with a small, even gap and square edges. The frame can be baby blue, cream, or white. The images run uncaptioned; let the section copy carry the meaning.
 
 - Let one photo lead through scale or grid span, not rotation or overlap.
 - Use thin ink borders only where they clarify an edge.
@@ -117,9 +120,9 @@ Treat the following as active visual cleanup targets. A coder should simplify th
 | Area | Files | Required outcome |
 | --- | --- | --- |
 | Patticake home hero | `components/PatticakeHome.tsx`, `app/globals.css` | Use a clean three-photo grid. Remove floating message tags, the centered title card, over-image captions, rotations, and fake collage treatment. |
-| Patticake delivery and pickup heroes | `app/patticake/page.tsx`, `app/order-a-cake/page.tsx`, `components/PatticakeHeroPeek.tsx` | Keep cake photography unobstructed. Put captions under mobile images. Remove hero image labels, occasion tags, and copy cards. |
+| Patticake delivery and pickup heroes | `app/patticake/page.tsx`, `app/order-a-cake/page.tsx`, `components/PatticakeHeroPeek.tsx` | Keep cake photography unobstructed and uncaptioned. Remove hero image labels, occasion tags, and copy cards. |
 | Patticake concierge and message maker | `components/PatticakeConciergeBand.tsx`, `components/PatticakeMessagePreview.tsx` | Present photos and process steps in separate grids. Remove decorative ticket and floating-card treatments. Keep the functional cake-message preview. |
-| Yum real-moment and bakery sections | `components/PhotoMotionStory.tsx`, `components/CakeStudioBand.tsx` | Use editorial image grids with captions below. Remove center notes, floating text, rotation, and overlap. |
+| Yum real-moment and bakery sections | `components/PhotoMotionStory.tsx`, `components/CakeStudioBand.tsx` | Use uncaptioned editorial image grids. Remove center notes, floating text, rotation, and overlap. |
 | Yum location photography | `components/LocationExperienceBand.tsx` | Use a clean three-photo grid. Do not overlap, float, rotate, or animate the supporting restaurant photos. |
 | Yum menu and order photography | `components/MenuMotionIntro.tsx`, `app/order/OrderClient.tsx` | Use simple photo grids. Remove center count cards, pickup tickets over food, rotated image chips, and label strips over images. |
 | Inquiry photography | `components/InquiryMomentumBand.tsx` | Keep the photo unobstructed. Remove branding badges over the image. |
@@ -157,7 +160,7 @@ Before opening a PR, verify each changed route at desktop and mobile sizes.
 
 1. The first visible photography is unobstructed by decorative text or cards.
 2. Baby blue and red lead the composition. Cream and ink support it.
-3. Captions appear outside the image and remain readable without glow or blur.
+3. No photo carries a visible caption, and no copy on the page describes a dish in words the menu does not use.
 4. No rotated, shadow-heavy, scrapbook, ticket, tape, sticker, or Polaroid treatment remains.
 5. Primary CTA, navigation, and form or order paths remain functional.
 6. The image crop preserves the cake, food, packaging, or person that gives the photo its point.

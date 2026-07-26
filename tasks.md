@@ -62,6 +62,51 @@ Five assets are misnamed and worth a follow-up task: `yum-patticake-slices.jpg` 
 
 Owner decisions for the whole round are collected in `docs/history/qa/2026-07-24-visual-creative-audit/OWNER-DECISIONS.md`.
 
+## Follow-on in the same round: no invented food claims (2026-07-26)
+
+Zach, looking at the live preview: remove the labels under the photos, "a lot
+of them are wrong anyways", and "we shouldn't use food descriptions that aren't
+on yumkitchen.com".
+
+**All 27 photo captions are gone.** The home collage and reels invented a moment
+per frame ("lake day" over a photo of egg salad, "picnic pickup", "family
+table"), the cake gallery pinned an occasion on each cake ("weddings", "office
+parties", "just because"), and the Patticake grid and mobile hero peek described
+the cake as devil's food. Alt text already describes every photo for anyone who
+cannot see it, so the captions carried claims and no accessibility value. The
+caption strip was the second grid row in each photo frame, so the dead CSS went
+with it and the image now fills the frame.
+
+**"Devil's food" was wrong in five more places** beyond the captions, in body
+copy on `/patticake` and `/order-a-cake`. `lib/patticake/catalog.ts` and the
+Product JSON-LD on that same page both say triple-layer chocolate cake, so the
+site was contradicting itself. The catalog wins.
+
+**The home featured-dish rail had a card for an item that does not exist**: a
+rhubarb upside down cupcake, absent from `menu-seed.json`, with invented copy.
+Replaced with the s'more brownie at its real price, photo opened and confirmed
+to show brownies with toasted marshmallow rather than trusted by filename. The
+rest of the rail is now seed wording, expanded only from `w/` and `&`. Two seed
+entries carry a price and no description, so `MenuFeatureItem.copy` is optional
+and those cards ship name and price alone rather than a written-in description.
+
+Guidance was updated so this does not regress. `DESIGN_TOOLKIT_AI_CODER.md` said
+in four places to put captions *below* photos, which would have told the next
+coder to undo this. `AGENTS.md` gains two rules: dish copy comes from the seed
+description, and food photos carry no visible caption. `audit-motion.mjs`
+asserted these captions existed; that guard is inverted and now fails if any
+caption returns, in markup or in CSS.
+
+**Open, needs Zach.** The home hero carousel labels ("scratch food", "dinner
+plates", "soup counter", "take-home boxes", "seasonal entrees", "bakery case")
+were left alone: they are the carousel's nav buttons and its screen-reader
+announcements, so deleting the text breaks the control, but "seasonal entrees"
+and "dinner plates" are still menu-ish framing the seed does not use. Second,
+`bob's tomato` now renders a bare `$6.95 / $7.95 / $15.95` with nothing naming
+the three sizes; cup/bowl/quart appears nowhere in the repo, so the real labels
+have to come from the live site. Third, `public/images/yum-bakery-rhubarb-cupcake.jpg`
+is now unreferenced and can be deleted if the item is truly off the menu.
+
 ## Prior round: launch-moment motion and review handoff (2026-07-21)
 
 This round turns the nationwide Patticake launch and the yum! bakery story into four premium films across five placements. The system uses full-frame real photography, separate baby-blue message scenes, one red sentence at a time, the real yum! logo as a motion player, and a readable action close. Copy never sits on photography. The 20 new exports bring the active pack to 107 motion files and `/asset-gallery` to 220 reviewable assets.
