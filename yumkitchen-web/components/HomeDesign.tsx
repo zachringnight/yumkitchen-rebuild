@@ -34,11 +34,17 @@ const rhythmItems = [
   { time: 'catering', title: 'party food made with care' },
 ] as const;
 
-// Featured dishes are chosen so their photos do not repeat the seasonal
-// favorites grid or the real-moments collage further down the page. Names,
-// prices, and copy come straight from lib/menu-seed.json, expanded only from
-// its `w/` and `&` shorthand. Items the menu describes with nothing but a price
-// carry no copy here rather than a description yumkitchen.com does not make.
+// Which six dishes appear here is a hand-picked editorial choice, made so their
+// photos do not repeat the seasonal favorites grid or the real-moments collage
+// further down the page. What each card *says*, however, is not authored: name,
+// price, and copy are transcribed from that item's entry in lib/menu-seed.json.
+// The only permitted edits are mechanical: `w/` and `&` expanded to words,
+// sentence capitalization and a closing period, prices rendered with `$` and
+// ` / ` between sizes, and a trailing add-on clause dropped (the seed's
+// "add salmon 6.00" and "add buffalo chicken [1] 4.95 or [2] 8.95" are upsells,
+// not descriptions of the dish). Never write a description the seed does not
+// have: entries carrying only a price ship with no copy at all, which is why
+// `copy` is optional.
 type MenuFeatureItem = {
   name: string;
   category: string;

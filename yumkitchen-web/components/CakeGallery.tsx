@@ -2,14 +2,14 @@ import Image from 'next/image';
 
 // Photos carry no visible caption. Alt text describes what is actually in the
 // frame; anything beyond that would be a food claim yumkitchen.com does not make.
-const galleryImages: { src: string; alt: string; span?: boolean }[] = [
-  { src: '/images/patticake/08_tier_wedding_d.jpg', alt: 'Tiered yum! wedding cake with pink roses', span: true },
+const galleryImages: { src: string; alt: string }[] = [
+  { src: '/images/patticake/08_tier_wedding_d.jpg', alt: 'Tiered yum! wedding cake with pink roses' },
   { src: '/images/yum-patticake-top.jpg', alt: 'yum! buttercream cake, top view' },
   { src: '/images/yum-patticake-layers.jpg', alt: 'yum! chocolate layer cake, cut open on a cake stand' },
   { src: '/images/patticake/04_tier_wedding_b.jpg', alt: 'yum! cake decorated with pressed flowers' },
   { src: '/images/patticake/gift_box_vertical.jpg', alt: 'yum! bakery gift box with red ribbon' },
   { src: '/images/yum-patticake-floral-tier.jpg', alt: 'Tiered yum! cake with bright fresh flowers' },
-  { src: '/images/patticake/10_layers_slice.jpg', alt: 'Patticake chocolate layers, close up', span: true },
+  { src: '/images/patticake/10_layers_slice.jpg', alt: 'Patticake chocolate layers, close up' },
   { src: '/images/patticake/09_slices.jpg', alt: 'yum! patticake slices on plates' },
 ];
 
