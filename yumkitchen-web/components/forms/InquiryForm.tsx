@@ -506,15 +506,6 @@ export function InquiryForm({
               inputProps={register('workAuthorized')}
               required
             />
-            <Field id={`${kind}-highest-degree`} label="Highest Degree Achieved?" error={errors.highestDegree?.message} required>
-              <select id={`${kind}-highest-degree`} required {...register('highestDegree')}>
-                <option value="">Select one</option>
-                <option value="high-school">High school</option>
-                <option value="some-college">Some college</option>
-                <option value="college-degree">College degree</option>
-                <option value="other">Other</option>
-              </select>
-            </Field>
             <Field id={`${kind}-resume`} label="Resume / CV" error={errors.resume?.message as string | undefined}>
               <input id={`${kind}-resume`} type="file" accept=".pdf,.doc,.docx,.rtf,.txt" {...register('resume')} />
             </Field>

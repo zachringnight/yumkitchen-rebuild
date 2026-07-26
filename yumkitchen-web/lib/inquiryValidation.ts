@@ -31,7 +31,6 @@ export const inquiryFieldsSchema = z.object({
   commitments: z.string().optional(),
   ageConfirm: z.boolean().optional(),
   workAuthorized: z.boolean().optional(),
-  highestDegree: z.string().optional(),
   restaurantExperience: z.string().optional(),
   restaurantRoles: z.string().optional(),
   specialSkills: z.string().optional(),
@@ -66,7 +65,6 @@ export const careersRequiredFields: readonly FieldRule[] = [
   ['location', 'Location is required.'],
   ['availability', 'Availability is required.'],
   ['applyingFor', 'Applying for is required.'],
-  ['highestDegree', 'Highest degree is required.'],
   ['heardAbout', 'Please tell us how you heard about this job.'],
 ];
 
