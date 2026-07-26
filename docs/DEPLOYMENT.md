@@ -107,3 +107,14 @@ Full redirect/SEO-equity audit: see `redirects.md`. All known old URLs are cover
    - `/location/woodbury`
    - `/patticake`
 6. Monitor Core Web Vitals, form submissions, order clicks, call clicks, Patticake order clicks, and Search Console coverage for the first week.
+
+## Build skipping (Ignored Build Step)
+
+Do not set an Ignored Build Step that shells out to `git`. It cannot work in this project: `.vercelignore` lists `.git/`, so Vercel deletes the git metadata before the ignore command runs, and `git diff` exits with "Not a git repository" plus a usage dump. Vercel treats that as a failed deployment, and it fails fast (12 to 14 seconds) before the build starts, which reads like a build break but is not one.
+
+This happened on 2026-07-26. The project setting was `if [ -d yumkitchen-web ]; then git diff HEAD^ HEAD --quiet -- yumkitchen-web; else git diff HEAD^ HEAD --quiet -- .; fi`, and every deployment errored while `verify` in CI stayed green. Two fixes were applied together:
+
+1. `yumkitchen-web/vercel.json` sets `"ignoreCommand": "exit 1"`, which means always build. It lives in the app directory because the project's Root Directory is `yumkitchen-web`, and it is in version control so it is reviewable and cannot drift silently.
+2. The dashboard setting was cleared to `null` so it cannot conflict with the file.
+
+If build skipping is ever worth re-adding, do not reach for `git`. Either drop `.git/` from `.vercelignore` first (which uploads the full history, so weigh the size), or use a check that does not need repository metadata. Note `.vercelignore` already excludes `docs/` and `social/` from the upload, so documentation-only commits produce nearly identical deployments anyway, which is most of what the skip was buying.
