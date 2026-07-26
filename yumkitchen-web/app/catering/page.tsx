@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import { CallPickerButton } from '@/components/CallPickerButton';
+import { CateringPlanBuilder } from '@/components/CateringPlanBuilder';
 import { CateringProof } from '@/components/CateringProof';
 import { Hero } from '@/components/Hero';
 import { InquiryMomentumBand } from '@/components/InquiryMomentumBand';
@@ -91,6 +92,7 @@ export default function CateringPage() {
           </div>
         </div>
       </section>
+      <CateringPlanBuilder />
       <section id="inquiry" className="bg-cream py-section">
         <div className="container-content grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>

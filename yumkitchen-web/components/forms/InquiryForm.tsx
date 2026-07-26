@@ -8,6 +8,7 @@ import { z } from 'zod';
 import { pushAnalyticsEvent } from '@/lib/analytics';
 import { attributionFieldNames, getAttributionContext } from '@/lib/attribution';
 import { CAKE_MESSAGE_EVENT, type CakeMessageDetail } from '@/lib/cakeMessage';
+import { CATERING_PLAN_EVENT, type CateringPlanDetail } from '@/lib/cateringPlan';
 import {
   addCareersIssues,
   addMissingStringIssues,
@@ -250,6 +251,32 @@ export function InquiryForm({
     window.addEventListener(CAKE_MESSAGE_EVENT, onCakeMessage);
     return () => window.removeEventListener(CAKE_MESSAGE_EVENT, onCakeMessage);
   }, [kind, isDeliveryCake, setValue, getValues]);
+
+  // Catering counterpart of the cake-message handoff: CateringPlanBuilder
+  // composes a plan, this fills the matching fields and pulses the message so
+  // the visitor sees where their words landed.
+  useEffect(() => {
+    if (kind !== 'catering') return;
+
+    function onCateringPlan(event: Event) {
+      const detail = (event as CustomEvent<CateringPlanDetail>).detail;
+      if (!detail?.summary) return;
+
+      const current = (getValues('message') ?? '').trim();
+      // Append and dedupe, so re-sending after changing a choice does not stack
+      // near-identical sentences on top of anything already typed.
+      if (!current.includes(detail.summary)) {
+        setValue('message', current ? `${current}\n${detail.summary}` : detail.summary, { shouldDirty: true });
+      }
+      if (detail.guests) setValue('guests', detail.guests, { shouldDirty: true });
+      if (detail.locationSlug) setValue('location', detail.locationSlug, { shouldDirty: true });
+
+      revealAndFocusField('catering-message');
+    }
+
+    window.addEventListener(CATERING_PLAN_EVENT, onCateringPlan);
+    return () => window.removeEventListener(CATERING_PLAN_EVENT, onCateringPlan);
+  }, [kind, setValue, getValues]);
 
   function getBody(values: InquiryFormValues) {
     const sourcePath = window.location.pathname;

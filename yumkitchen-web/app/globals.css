@@ -379,6 +379,34 @@ body[data-nav-open='true'] .mobile-order-bar {
   z-index: 1;
 }
 
+/* Bakery-ticket wave that closes the red band into the cream section below.
+   Approved as a brand motif on 2026-07-26; see the scallop/wave entry in
+   AGENTS.md. This is a shaped edge, not a decorative gradient.
+
+   The two fills are hardcoded because a data URI cannot read CSS custom
+   properties. They must track the tokens: the crest is --color-blue-soft
+   (#aed2ef) and the lower fill is --color-cream (#fffdf7), which is the
+   background of the section that follows. If either token changes, or the
+   band is ever placed above a non-cream section, update this URI to match or
+   the seam will show. */
+.red-band-curve {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  height: 2.25rem;
+  /* Both fills are drawn to y=44, past the 38-unit viewBox, so they clip flush
+     to the bottom edge. Ending them exactly at 38 left a sub-pixel row where
+     the red band behind bleeds through as a hairline once the SVG rasterizes
+     to the element's 36px height. */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 336 38' preserveAspectRatio='none'%3E%3Cpath fill='%23aed2ef' d='M0,14 C42,2 126,2 168,14 C210,26 294,26 336,14 L336,44 L0,44 Z'/%3E%3Cpath fill='%23fffdf7' d='M0,23 C42,11 126,11 168,23 C210,35 294,35 336,23 L336,44 L0,44 Z'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+  background-size: 336px 100%;
+  pointer-events: none;
+}
+
 .yum-rhythm-strip {
   position: relative;
   z-index: 1;
@@ -2082,8 +2110,10 @@ to {
   .yum-rhythm-item:nth-child(4) { animation-delay: 660ms; }
   .yum-rhythm-item:nth-child(5) { animation-delay: 880ms; }
 
+  /* Drift is governed by the ambient motion role rather than a hardcoded
+     duration, so it tracks --motion-duration-ambient with everything else. */
   .red-band-curve {
-    animation: red-curve-drift 4600ms ease-in-out infinite;
+    animation: red-curve-drift var(--motion-role-duration, 7600ms) var(--motion-role-ease, ease-in-out) infinite;
   }
 
   .menu-feature-photo {
@@ -2332,11 +2362,15 @@ to {
   .logo-animation-spark,
   .home-hero-indicator::after,
   .red-band-motion::before,
-  .red-band-curve,
   .patticake-home-hero::before {
     opacity: 0;
     transform: none;
   }
+
+  /* The wave is deliberately NOT in the opacity: 0 list above. It is a shaped
+     section edge, not an effect, so hiding it under reduced motion would leave
+     a hard red-to-cream seam. The motion-role-ambient rule already stops its
+     drift, which is all reduced motion should do here. */
 
   .home-hero-image {
     opacity: 0;
