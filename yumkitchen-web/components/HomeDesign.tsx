@@ -207,7 +207,7 @@ export function HomeHero() {
 
 export function RedBand() {
   return (
-    <section className="red-band-motion relative overflow-hidden bg-brand-red px-6 py-8 text-white md:py-10">
+    <section className="red-band-motion relative overflow-hidden bg-brand-red px-6 pb-16 pt-8 text-white md:pb-18 md:pt-10">
       <div className="mx-auto grid max-w-[1180px] items-center gap-6 md:grid-cols-[1.1fr_2fr_auto]">
         <h2 className="font-serif text-[1.95rem] font-normal leading-tight lowercase md:text-[2.45rem]">
           serving great food for now or for later
@@ -234,6 +234,9 @@ export function RedBand() {
           </div>
         ))}
       </div>
+      {/* Bakery-ticket wave closing the band into the cream section below.
+          Decorative only, so it is hidden from assistive tech. */}
+      <div className="red-band-curve motion-role-ambient" aria-hidden="true" />
     </section>
   );
 }

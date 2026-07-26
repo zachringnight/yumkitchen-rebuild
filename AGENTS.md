@@ -44,6 +44,7 @@ Source of truth: `yumkitchen-web/app/globals.css` `@theme` block. Current values
 - Headings: Trocchi 400 (serif). Body, nav, buttons: Archivo Narrow 400 (sans, 700 on filled buttons)
 - Lowercase headlines preserved exactly where the source uses lowercase
 - Two button styles: `.btn-primary` (filled red, white text, bold) and `.btn-secondary` (outline, dark text)
+- **Wave edge (approved motif, added 2026-07-26 with Zach's sign-off).** The red band closes into the section below with a two-tone rolling wave: a soft-blue crest over a fill matching the next section's background. It mirrors the flourish on the live `yumkitchen.com` and reads as a bakery-ticket edge. Implementation is `.red-band-curve` in `globals.css`, an inline data-URI SVG tiled with `repeat-x`. This is a **shaped section edge, not a decorative gradient**, and it is the only such motif defined; do not extend it into badges, stickers, tape, or ticket stubs, which the design toolkit still forbids. Two constraints: the SVG fills are hardcoded hex because a data URI cannot read CSS custom properties, so they must be updated by hand if `--color-blue-soft` or `--color-cream` change or if the band is ever placed above a non-cream section; and the fills are drawn past the viewBox bottom on purpose, because ending them flush leaves a sub-pixel hairline of the band bleeding through.
 
 If `globals.css` and this file ever disagree, `globals.css` wins. Update this file to match.
 
