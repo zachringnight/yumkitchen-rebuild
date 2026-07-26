@@ -189,7 +189,6 @@ export default function PatticakeNationalDeliveryPage() {
             <PatticakeHeroPeek
               src="/images/patticake/09_slices.jpg"
               alt="yum! patticake slices on plates"
-              label="ready to send"
               className="crop-patticake-slices"
             />
             <Reveal as="p" className="mt-7 max-w-xl text-xl leading-9 text-ink" delay={0.1} y={16}>

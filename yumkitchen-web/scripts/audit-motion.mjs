@@ -80,9 +80,11 @@ const hasReducedMotionRoleReset = hasRuleWithSelectorsAndDeclarations(
 );
 const hasBareReducedMotionLogoHide = /(^|,)\s*\.logo-animation-logo\s*(?:,|\{)/m.test(reducedMotionCss);
 const patticakeRibbonCss = getCssBlock(css, '.patticake-message-ribbon span');
-const patticakePeekCaptionCss = getCssBlock(css, '.patticake-hero-peek figcaption');
-const patticakeGridCaptionCss = getCssBlock(css, '.patticake-photo-grid-frame figcaption');
-const yumPhotoCaptionCss = getCssBlock(css, '.photo-motion-layer figcaption');
+// Photos run caption-free: nothing may claim what is in the frame beyond alt text.
+const captionFreePhotoSurfaces = [patticakeHeroPeek, patticakeHomeSurface, yumPhotoStory]
+  .every((source) => !source.includes('<figcaption') && !source.includes('photo-motion-caption'));
+const captionFreePhotoCss = ['.patticake-hero-peek figcaption', '.patticake-photo-grid-frame figcaption', '.photo-motion-layer figcaption', '.photo-motion-caption']
+  .every((selector) => !css.includes(selector));
 const positionedPatticakeImageParents = [
   '.patticake-hero-card',
   '.patticake-hero-peek-image',
@@ -132,9 +134,8 @@ const checks = [
   ['Patticake pickup page removes the equal three-card choice block', patticakePickup.includes('Ship Nationwide') && patticakePickup.includes('nationwide gifting') && !patticakePickup.includes('const cakePaths') && !patticakePickup.includes('where should the cake go?') && !patticakePickup.includes('md:grid-cols-3')],
   ['Patticake message ribbon is plain type', !patticakeRibbonCss.includes('background:') && !patticakeRibbonCss.includes('border:') && !patticakeRibbonCss.includes('box-shadow:')],
   ['Patticake fill image parents are positioned', positionedPatticakeImageParents],
-  ['Patticake mobile hero caption stays below the image', patticakeHeroPeek.includes('</div>\n      <figcaption>') && !patticakePeekCaptionCss.includes('position: absolute')],
-  ['Patticake photo grid captions stay below images', patticakeHomeSurface.includes('patticake-photo-grid-image') && !patticakeGridCaptionCss.includes('position: absolute')],
-  ['Yum photo grid captions stay below images', yumPhotoStory.includes('photo-motion-image') && !yumPhotoCaptionCss.includes('position: absolute')],
+  ['photo surfaces carry no visible captions', captionFreePhotoSurfaces && captionFreePhotoCss],
+  ['photo frames still wrap positioned images', patticakeHomeSurface.includes('patticake-photo-grid-image') && yumPhotoStory.includes('photo-motion-image')],
   ['active gallery sync uses the current creative launch pack', creativeReviewSync.includes("yum-patticake-creative-launch-2026-07-14") && !creativeReviewSync.includes("yum-patticake-social-motion-pack")],
   ['gallery sync archives stale review assets instead of deleting them', creativeReviewSync.includes("archive', 'retired-review-assets") && creativeReviewSync.includes('archiveUnexpected') && creativeReviewSync.includes('renameSync')],
   ['dev cache cleanup preserves an active server and clears stale locks', devCacheCleanup.includes("spawnSync('lsof'") && devCacheCleanup.includes('lockHasOwner') && devCacheCleanup.includes("process.argv.includes('--force')")],

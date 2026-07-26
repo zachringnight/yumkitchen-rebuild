@@ -10,25 +10,24 @@ import { PatticakeHeroPeek } from './PatticakeHeroPeek';
 import { PatticakeOriginBand } from './PatticakeOriginBand';
 import { PatticakeMessageRibbon } from './PatticakeMessageRibbon';
 
+// Photos run without visible captions. Alt text stays descriptive; any label
+// beyond that would be a food claim yumkitchen.com does not make.
 const heroFrames = [
   {
     src: '/images/patticake/layers_slice_vertical.jpg',
     alt: 'yum! patticake chocolate cake layers close up',
-    label: 'devil’s food layers',
     className: 'crop-patticake-vertical-layer',
     sizes: '(min-width: 1024px) 30vw, (min-width: 768px) 44vw, 46vw',
   },
   {
     src: '/images/patticake/03_top_view.jpg',
     alt: 'yum! patticake vanilla buttercream top view',
-    label: 'vanilla buttercream',
     className: 'crop-patticake-top',
     sizes: '(min-width: 1024px) 29vw, (min-width: 768px) 42vw, 38vw',
   },
   {
     src: '/images/patticake/09_slices.jpg',
     alt: 'yum! patticake slices on plates',
-    label: 'ready to share',
     className: 'crop-patticake-slices',
     sizes: '(min-width: 1024px) 38vw, (min-width: 768px) 54vw, 68vw',
   },
@@ -51,7 +50,6 @@ export function PatticakeHome() {
             <PatticakeHeroPeek
               src="/images/patticake/09_slices_mobile_lcp.webp"
               alt="yum! patticake slices on plates"
-              label="devil's food layers"
               className="crop-patticake-slices"
               unoptimized
             />
@@ -100,7 +98,6 @@ export function PatticakeHome() {
                     className={`object-cover ${frame.className}`}
                   />
                 </div>
-                <figcaption>{frame.label}</figcaption>
               </Reveal>
             ))}
           </div>

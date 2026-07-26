@@ -786,7 +786,7 @@ body[data-nav-open='true'] .mobile-order-bar {
 .photo-motion-layer {
   display: grid;
   min-height: 0;
-  grid-template-rows: minmax(0, 1fr) auto;
+  grid-template-rows: minmax(0, 1fr);
   overflow: hidden;
   background: white;
 }
@@ -795,18 +795,6 @@ body[data-nav-open='true'] .mobile-order-bar {
   position: relative;
   min-height: 0;
   overflow: hidden;
-}
-
-.photo-motion-layer figcaption {
-  border-top: 1px solid rgb(45 45 45 / 0.12);
-  background: white;
-  padding: 0.7rem 0.8rem;
-  color: var(--color-ink);
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  line-height: 1;
-  text-transform: uppercase;
 }
 
 .photo-motion-layer-1 {
@@ -857,22 +845,6 @@ body[data-nav-open='true'] .mobile-order-bar {
   border: 1px solid rgb(45 45 45 / 0.12);
   background: var(--color-cream);
   box-shadow: 0 0.75rem 1.8rem rgb(45 45 45 / 0.09);
-}
-
-.photo-motion-caption {
-  padding: 0.9rem;
-
-  & h3 {
-    font-size: 1.25rem;
-    line-height: 1.1;
-    text-transform: lowercase;
-  }
-
-  & p {
-    margin-top: 0.35rem;
-    font-size: 0.95rem;
-    line-height: 1.45;
-  }
 }
 
 .menu-motion-intro {
@@ -1047,18 +1019,6 @@ body[data-nav-open='true'] .mobile-order-bar {
   overflow: hidden;
 }
 
-.patticake-hero-peek figcaption {
-  border-top: 1px solid rgb(45 45 45 / 0.12);
-  background: white;
-  padding: 0.7rem 0.85rem;
-  color: var(--color-ink);
-  font-size: 0.76rem;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
 .patticake-home-hero {
   position: relative;
   isolation: isolate;
@@ -1202,7 +1162,7 @@ body[data-nav-open='true'] .mobile-order-bar {
 .patticake-photo-grid-frame {
   display: grid;
   min-height: 0;
-  grid-template-rows: minmax(0, 1fr) auto;
+  grid-template-rows: minmax(0, 1fr);
   overflow: hidden;
   background: white;
 }
@@ -1211,17 +1171,6 @@ body[data-nav-open='true'] .mobile-order-bar {
   position: relative;
   min-height: 0;
   overflow: hidden;
-}
-
-.patticake-photo-grid-frame figcaption {
-  border-top: 1px solid rgb(45 45 45 / 0.12);
-  padding: 0.7rem 0.8rem;
-  color: var(--color-ink);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  line-height: 1;
-  text-transform: uppercase;
 }
 
 .patticake-photo-grid-frame-1 {
@@ -2590,11 +2539,6 @@ to {
     min-height: 33rem;
   }
 
-  .patticake-photo-grid-frame figcaption {
-    padding: 0.55rem 0.6rem;
-    font-size: 0.66rem;
-  }
-
   .message-preview-stage {
     min-height: 27rem;
   }
@@ -2606,11 +2550,6 @@ to {
   .patticake-process-panel {
     grid-template-columns: 1fr;
     gap: 1.4rem;
-  }
-
-  .photo-motion-layer figcaption {
-    padding: 0.55rem 0.6rem;
-    font-size: 0.66rem;
   }
 
   .location-experience-board {

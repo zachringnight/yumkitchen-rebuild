@@ -73,7 +73,6 @@ export default function CakePage() {
             <PatticakeHeroPeek
               src="/images/patticake/layers_slice_vertical.jpg"
               alt="yum! patticake chocolate cake layers close up"
-              label="chocolate layers"
               className="crop-patticake-vertical-layer"
             />
             <Reveal as="p" className="mt-7 max-w-[500px] text-xl leading-8 text-ink" delay={0.1} y={16}>

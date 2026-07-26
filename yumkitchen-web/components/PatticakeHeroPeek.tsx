@@ -3,14 +3,13 @@ import Image from 'next/image';
 type PatticakeHeroPeekProps = {
   src: string;
   alt: string;
-  label: string;
   className?: string;
   unoptimized?: boolean;
 };
 
-export function PatticakeHeroPeek({ src, alt, label, className = '', unoptimized = false }: PatticakeHeroPeekProps) {
+export function PatticakeHeroPeek({ src, alt, className = '', unoptimized = false }: PatticakeHeroPeekProps) {
   return (
-    <figure className="patticake-hero-peek lg:hidden">
+    <div className="patticake-hero-peek lg:hidden">
       <div className="patticake-hero-peek-image">
         <Image
           src={src}
@@ -25,7 +24,6 @@ export function PatticakeHeroPeek({ src, alt, label, className = '', unoptimized
           className={`object-cover ${className}`}
         />
       </div>
-      <figcaption>{label}</figcaption>
-    </figure>
+    </div>
   );
 }
