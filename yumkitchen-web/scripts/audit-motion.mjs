@@ -96,9 +96,21 @@ const surfaceFiles = ['app', 'components'].flatMap((dir) =>
     .readdirSync(path.join(root, dir), { recursive: true })
     .map((entry) => `${dir}/${entry}`)
     .filter((file) => file.endsWith('.tsx')));
+// Catches <figcaption> and anything self-describing as a caption in a class
+// name, which is how the pattern actually comes back: someone rebuilds the
+// caption as a styled div. It does not catch a label written as a plain <p> or
+// <span> with an unrelated class name, and no source-level grep can. This is a
+// tripwire for regression and a signpost for the next coder, not a proof. The
+// review gate for a genuinely new photo label is a human reading the diff.
 const captionedSurfaces = surfaceFiles
   .filter((file) => !captionAllowlist.has(file))
-  .filter((file) => read(file).includes('<figcaption') || read(file).includes('photo-motion-caption'));
+  .filter((file) => {
+    const source = read(file);
+    return source.includes('<figcaption')
+      || source.includes('photo-motion-caption')
+      || /className="[^"]*caption/i.test(source)
+      || /className={`[^`]*caption/i.test(source);
+  });
 const captionFreePhotoSurfaces = captionedSurfaces.length === 0;
 // Caption styling must not outlive the markup, or a caption can come back fully
 // dressed. Scoped to the food and cake photo surfaces rather than the whole
