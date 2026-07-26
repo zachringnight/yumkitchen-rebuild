@@ -3,7 +3,6 @@ import { CateringCallout, HomeHero, MenuFeature, RedBand } from '@/components/Ho
 import { CakeStudioBand } from '@/components/CakeStudioBand';
 import { ExperienceStats } from '@/components/ExperienceStats';
 import { GiftCardBand } from '@/components/GiftCardBand';
-import { KineticMenuRail } from '@/components/KineticMenuRail';
 import { LocationGrid } from '@/components/LocationGrid';
 import { PhotoMotionStory } from '@/components/PhotoMotionStory';
 import { ReviewsWall } from '@/components/ReviewsWall';
@@ -30,7 +29,6 @@ export default function YumKitchenHomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(brandJsonLd()) }} />
       <HomeHero />
       <RedBand />
-      <KineticMenuRail />
       <MenuFeature />
       <SeasonalShowcase />
       <PhotoMotionStory />

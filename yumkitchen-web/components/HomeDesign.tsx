@@ -34,34 +34,54 @@ const rhythmItems = [
   { time: 'catering', title: 'party food made with care' },
 ] as const;
 
-const menuFeatureItems = [
+// Featured dishes are chosen so their photos do not repeat the seasonal
+// favorites grid or the real-moments collage further down the page. Names,
+// prices, and ingredients come from lib/menu-seed.json.
+type MenuFeatureItem = {
+  name: string;
+  category: string;
+  price: string;
+  copy: string;
+  image: string;
+  position?: string;
+};
+
+const menuFeatureItems: readonly MenuFeatureItem[] = [
   {
-    name: 'mixed berry salad',
-    category: 'salads',
-    price: '$15.95',
-    copy: 'Bright greens, berries, goat cheese, sweet and spicy pecans, and a maple vinaigrette finish.',
-    image: '/images/yum-mixed-berry-salad.png',
+    name: 'california scramble',
+    category: 'breakfast',
+    price: '$12.95',
+    copy: 'Scrambled eggs with tomato, avocado, fresh mozzarella, spinach, and daikon sprouts, served with greens and whole grain toast.',
+    image: '/images/yum-breakfast.jpg',
   },
   {
-    name: 'grainy mustard salmon',
-    category: 'dinner',
-    price: '$23.95',
-    copy: 'One of the great take-home dinners: seasonal vegetables, sauce, and a clean finish.',
-    image: '/images/yum-grainy-mustard-salmon.png',
-  },
-  {
-    name: 'ahi tuna sandwich',
+    name: 'yum! veggie',
     category: 'sandwiches',
-    price: '$18.95',
-    copy: 'Seared ahi, crisp slaw, and big flavor built for lunch at yum! or dinner at home.',
-    image: '/images/yum-ahi-tuna.png',
+    price: '$12.95',
+    copy: 'Avocado, cucumber, sprouts, tomato, spinach, cheddar, and muenster with honey mustard aioli on toasted whole grain.',
+    image: '/images/yum-catering-veggie-platters.jpg',
   },
   {
-    name: 'tortilla soup',
+    name: 'lemon chicken',
+    category: 'dinner',
+    price: '$16.95',
+    copy: 'Seared chicken breast with fresh lemon and Italian parsley, served with roasted potatoes and broccolini.',
+    image: '/images/yum-catering-lemon-chicken.jpg',
+    position: 'object-[50%_38%]',
+  },
+  {
+    name: "bob's tomato soup",
     category: 'soups',
     price: '$6.95 / $7.95 / $15.95',
-    copy: 'A counter favorite for quick lunches, family dinners, and easy weeknight backup.',
-    image: '/images/yum-soups-tortilla.jpg',
+    copy: 'A cozy everyday favorite, available by the cup, the bowl, or the take-home quart.',
+    image: '/images/yum-bobs-tomato-soup.jpg',
+  },
+  {
+    name: 'mac & cheese',
+    category: 'pasta',
+    price: '$7.95 / $10.95',
+    copy: 'Comfort pasta in small or large, with a family-style pan ready to go home.',
+    image: '/images/yum-catering-mac-cheese.jpg',
   },
   {
     name: 'rhubarb upside down cupcake',
@@ -69,13 +89,6 @@ const menuFeatureItems = [
     price: '$4.95',
     copy: 'Seasonal bakery case joy: bright, pretty, and ready for the ride home.',
     image: '/images/yum-bakery-rhubarb-cupcake.jpg',
-  },
-  {
-    name: 'mini key lime pie',
-    category: 'dessert',
-    price: '$7.95',
-    copy: 'Small enough for one, good enough to justify bringing extra.',
-    image: '/images/yum-bakery-key-lime-pie.jpg',
   },
 ] as const;
 
@@ -166,7 +179,10 @@ export function HomeHero() {
         </div>
       </div>
       <div className="home-hero-footer absolute bottom-4 left-6 right-6 z-10 flex flex-col gap-3 text-cream md:left-auto md:right-7 md:w-[23rem]">
-        <div className="text-xs font-medium uppercase tracking-[0.1em] text-cream/75 md:text-right" aria-label={`Now showing ${currentHeroLabel}`}>
+        <div
+          className="self-start bg-ink/75 px-2.5 py-1.5 text-xs font-medium uppercase tracking-[0.1em] text-cream md:self-end"
+          aria-label={`Now showing ${currentHeroLabel}`}
+        >
           made from scratch since 2005
         </div>
         <div className="home-hero-controls" aria-label="Featured yum! photography">
@@ -267,7 +283,7 @@ export function MenuFeature() {
               alt={item.name}
               fill
               sizes="(min-width: 1024px) 480px, 100vw"
-              className="menu-feature-photo object-cover"
+              className={item.position ? `menu-feature-photo object-cover ${item.position}` : 'menu-feature-photo object-cover'}
             />
           </div>
           <div className="menu-feature-active">

@@ -294,7 +294,10 @@ export function OrderClient({ initialCategory, initialQuery = '' }: Props) {
 
           <aside className="accent-card bg-white p-6 shadow-xl xl:sticky xl:top-28">
             <p className="section-label">your favorites</p>
-            <h2 className="text-h3 lowercase" aria-live="polite">{cartCount} favorite{cartCount === 1 ? '' : 's'} selected</h2>
+            {/* The count renders in the sans face: Trocchi's zero reads like a lowercase o. */}
+            <h2 className="text-h3 lowercase" aria-live="polite">
+              <span className="font-sans tabular-nums">{cartCount}</span> favorite{cartCount === 1 ? '' : 's'} selected
+            </h2>
             <div className="mt-2 border-t border-ink/10 pt-3 text-base leading-7">
               <p className="font-bold text-ink">Pickup at {selectedLocation.short_name}</p>
               <OpenStatus compact />
