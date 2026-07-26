@@ -89,14 +89,26 @@ When a section needs more than one image, use a quiet grid with a small, even ga
 
 ## Motion
 
-Motion should make the interface feel deliberate, not busy.
+Rewritten 2026-07-26 at Zach's direction. The previous version allowed only fades and short vertical reveals and banned anything that floated, rotated, or bobbed. That was too narrow: it ruled out the ambient and choreographed motion this brand wants, and it is why `motion-role-ambient` sat defined and unused in `globals.css` for weeks.
 
-- Keep `MotionProvider`, `Reveal`, `Stagger`, `PressButton`, and `ParallaxImage` only where they support a real interaction or a calm entrance.
-- Use fades, short vertical reveals, and restrained image movement. A static image is always acceptable.
-- Do not float, wobble, rotate, bounce, tape, or bob photo cards, captions, labels, or decorative elements.
-- Do not use a pause button unless an ongoing animation actually needs one.
-- Keep the site-header brand mark fully visible and settled. Restrict logo animation to the home hero or the dedicated `/logo-animation` experience.
-- Keep all reduced-motion and no-JavaScript behavior intact. Run `npm run audit:motion` and `npm run audit:visual-motion` after changes.
+Motion should feel alive and deliberate. Busy is still a failure, but so is inert.
+
+**The vocabulary is open.** Ambient drift, parallax layering, scale and rotation, path and marquee motion, staggered entrances, springy press feedback, and multi-step choreography are all permitted. Use the shared primitives (`MotionProvider`, `Reveal`, `Stagger`, `PressButton`, `ParallaxImage`) and the spring tokens so timing stays coherent, rather than hand-rolling durations per component.
+
+**Use the motion roles.** Every animation should carry a role class so its timing comes from one place: `motion-role-entrance` for arrivals, `motion-role-ambient` for continuous or looping motion, `motion-role-feedback` for direct response to input, `motion-role-modal` for overlays. A role also means reduced-motion behavior is handled for you.
+
+**What still applies:**
+
+- Motion serves the content. A photo that reads better still is still allowed to sit still.
+- Keep the site-header brand mark legible and settled. Full logo animation stays on the home hero and `/logo-animation`; smaller brand-mark motion elsewhere is fine if the mark stays readable.
+- Anything that loops indefinitely needs a way to stop it. `MotionPauseButton` exists for this and is a WCAG 2.2.2 requirement for content that moves for more than five seconds, not a stylistic choice.
+- Keep reduced-motion and no-JavaScript behavior working. See the note below; this is not a limit on how much motion you write.
+- Run `npm run audit:motion` and `npm run audit:visual-motion` after changes.
+
+**Reduced motion is not a restriction on your design.** `prefers-reduced-motion: reduce` only applies to visitors who have asked their operating system for less motion, often because motion makes them physically ill. It has no effect on anyone else, so honoring it costs the default experience nothing. Two rules make it painless:
+
+1. Reduced motion should **still** things, never **hide** them. Dropping an element to `opacity: 0` there is a bug: it was doing that to `.red-band-curve`, which would have left a hard seam where the wave should be. Set `animation: none` and let the element render.
+2. Test both states explicitly. Headless Chrome and some in-app browser panes report `reduce` by default, so an animation can look broken when it is fine. Emulate `no-preference` and `reduce` separately before concluding anything, and check the OS setting on the machine you are reviewing from (`defaults read com.apple.universalaccess reduceMotion` on macOS) before assuming the site is at fault.
 
 ## Implementation map
 
@@ -120,6 +132,8 @@ rg -n 'TapeTag|tape-tag|floating-messages|cake-message-tags|remotion-title|menu-
 ```
 
 Remove unused imports, classes, animation keyframes, and pause-state selectors as part of the same change. Do not leave dead CSS as a hidden route back to the old visual language.
+
+**Carve-out for motion primitives (added 2026-07-26).** Shared, governed pieces are not dead code just because nothing currently uses them: the motion role classes, the spring and duration tokens, and reusable edge or shape treatments. Applied strictly, the rule above would have deleted `.red-band-curve` and `motion-role-ambient`, which are exactly what made the red-band wave cheap to build and consistent with the rest of the system. Delete a one-off component style that lost its component; keep a primitive that any component could use.
 
 ## Asset rules
 
