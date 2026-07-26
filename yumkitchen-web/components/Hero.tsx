@@ -9,9 +9,14 @@ type Props = {
   children?: ReactNode;
   priority?: boolean;
   align?: 'left' | 'center';
+  /**
+   * CSS object-position for the hero photo. Omit for the default center crop.
+   * Use when a portrait source needs its subject pulled into the wide hero band.
+   */
+  objectPosition?: string;
 };
 
-export function Hero({ title, copy, image, imageAlt, children, priority = false, align = 'left' }: Props) {
+export function Hero({ title, copy, image, imageAlt, children, priority = false, align = 'left', objectPosition }: Props) {
   return (
     <section className="relative min-h-[620px] overflow-hidden bg-cream text-ink">
       <Image
@@ -23,6 +28,7 @@ export function Hero({ title, copy, image, imageAlt, children, priority = false,
         fetchPriority={priority ? 'high' : undefined}
         sizes="100vw"
         className="hero-motion-image motion-image object-cover"
+        style={objectPosition ? { objectPosition } : undefined}
       />
       <div className={`container-content relative z-10 flex min-h-[620px] items-center ${align === 'center' ? 'justify-center' : ''}`}>
         <div className={`hero-panel motion-role-entrance my-16 max-w-[560px] bg-cream/90 px-8 py-8 md:px-10 ${align === 'center' ? 'text-center' : ''}`}>

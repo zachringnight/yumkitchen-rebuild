@@ -989,20 +989,21 @@ body[data-nav-open='true'] .mobile-order-bar {
 .patticake-delivery-photo-pair {
   display: grid;
   min-height: clamp(28rem, 54vw, 44rem);
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.44fr);
-  gap: 0.75rem;
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .patticake-delivery-photo-pair .patticake-hero-card {
   min-height: 0;
 }
 
-.patticake-delivery-secondary-photo {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgb(45 45 45 / 0.12);
-  background: var(--color-blue-soft);
-  box-shadow: 0 1.25rem 3rem rgb(45 45 45 / 0.12);
+/* Below lg the captioned hero peek is the one hero photo on /patticake and
+   /order-a-cake. Hide the large uncaptioned desktop hero media so the same
+   shot never renders twice within the first screens on mobile. */
+@media (width < 64rem) {
+  .patticake-hero-card,
+  .patticake-delivery-photo-pair {
+    display: none;
+  }
 }
 
 .patticake-hero-peek {
@@ -1097,10 +1098,20 @@ body[data-nav-open='true'] .mobile-order-bar {
   background: var(--color-blue-tint);
 }
 
+.patticake-message-ribbon-viewport {
+  overflow: hidden;
+  /* Soft edge fade so partially visible words at either edge read as an
+     intentional marquee, whether scrolling or resting paused mid-loop. */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 2.5rem, #000 calc(100% - 2.5rem), transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 2.5rem, #000 calc(100% - 2.5rem), transparent);
+}
+
+/* The track holds two identical sets and no gap of its own; each set carries
+   0.375rem inline padding, so the between-set spacing matches the 0.75rem
+   in-set word gap and the -50% loop keyframe lands exactly on one set width. */
 .patticake-message-ribbon-track {
   display: flex;
   width: max-content;
-  gap: 0.75rem;
 }
 
 .patticake-message-ribbon-set {
@@ -1213,17 +1224,8 @@ body[data-nav-open='true'] .mobile-order-bar {
   object-position: 52% 48%;
 }
 
-.crop-patticake-message,
-.crop-patticake-cover {
-  object-position: 50% 40%;
-}
-
 .crop-patticake-wedding {
   object-position: 50% 38%;
-}
-
-.crop-patticake-togo {
-  object-position: 54% 50%;
 }
 
 .crop-patticake-product {
@@ -1487,12 +1489,6 @@ body[data-nav-open='true'] .mobile-order-bar {
 
 .concierge-photo-gift {
   aspect-ratio: 4 / 5;
-}
-
-.concierge-note-stack {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.75rem;
 }
 
 .concierge-note {
@@ -2300,6 +2296,11 @@ to {
     justify-content: center;
   }
 
+  .patticake-message-ribbon-viewport {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
   .patticake-message-ribbon-track {
     width: auto;
     flex-wrap: wrap;
@@ -2531,14 +2532,6 @@ to {
     min-height: 420px;
   }
 
-  .patticake-hero-card {
-    min-height: 27rem;
-  }
-
-  .patticake-delivery-photo-pair {
-    min-height: 27rem;
-  }
-
   .patticake-home-hero::before {
     inset: 0.75rem;
   }
@@ -2574,10 +2567,6 @@ to {
 
   .message-preview-cake {
     inset: 13% 8%;
-  }
-
-  .concierge-note-stack {
-    grid-template-columns: 1fr;
   }
 
   .patticake-process-panel {

@@ -42,7 +42,14 @@ export default async function LocationPage({ params }: LocationRouteProps) {
     <main>
       <JsonLd data={entityJsonLd(loc)} />
       <LocationPreferenceSync slug={loc.slug} />
-      <Hero title={loc.name} copy={loc.neighborhood} image={loc.heroImage} imageAlt={`${loc.short_name} yum! restaurant`} priority>
+      <Hero
+        title={loc.name}
+        copy={loc.neighborhood}
+        image={loc.heroImage}
+        imageAlt={`${loc.short_name} yum! restaurant`}
+        objectPosition={loc.heroObjectPosition}
+        priority
+      >
         <a href={loc.order_url} target="_blank" rel="noopener noreferrer" className="btn-primary" data-event="click_order_online" data-location={loc.slug} data-source="location_page_hero">
           Order Online
         </a>
@@ -69,7 +76,6 @@ export default async function LocationPage({ params }: LocationRouteProps) {
               </p>
               <p>Holiday hours may vary. Call the restaurant for same-day confirmation.</p>
               <p>{loc.parking}</p>
-              <p>{loc.roomNote}</p>
               <p>{loc.favorite}</p>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -108,7 +114,7 @@ export default async function LocationPage({ params }: LocationRouteProps) {
       </section>
       <ReviewsWall surface="yum" locationSlug={loc.slug} />
       <GiftCardBand source="location_page" />
-      <LocationGrid />
+      <LocationGrid excludeSlug={loc.slug} />
     </main>
   );
 }

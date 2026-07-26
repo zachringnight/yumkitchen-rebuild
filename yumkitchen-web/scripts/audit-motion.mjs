@@ -85,7 +85,6 @@ const patticakeGridCaptionCss = getCssBlock(css, '.patticake-photo-grid-frame fi
 const yumPhotoCaptionCss = getCssBlock(css, '.photo-motion-layer figcaption');
 const positionedPatticakeImageParents = [
   '.patticake-hero-card',
-  '.patticake-delivery-secondary-photo',
   '.patticake-hero-peek-image',
   '.patticake-photo-grid-image',
 ].every((selector) => getCssBlock(css, selector).includes('position: relative'));

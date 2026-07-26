@@ -80,7 +80,7 @@ export default function CateringPage() {
       <section className="bg-white py-section">
         <div className="container-content grid items-center gap-10 lg:grid-cols-2">
           <div className="relative aspect-4/3 overflow-hidden">
-            <Image src="/images/yum-catering-platter-steak.jpg" alt="yum! catering trays" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+            <Image src="/images/yum-catering-veggie-platter-live.jpg" alt="yum! pressed veggie sandwiches stacked on a serving plate" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
           </div>
           <div>
             <p className="section-label">for offices, families, and celebrations</p>
@@ -108,8 +108,8 @@ export default function CateringPage() {
         primaryLabel="Plan Catering"
         secondaryHref="/order"
         secondaryLabel="Order Pickup"
-        image="/images/yum-catering-boxed-lunch.jpg"
-        imageAlt="yum! boxed catering lunch"
+        image="/images/yum-catering-egg-salad.jpg"
+        imageAlt="yum! egg salad bowl packed for pickup with bread and utensils"
       />
       <section className="bg-white py-section">
         <div className="container-content grid gap-10 lg:grid-cols-[0.74fr_1.26fr]">

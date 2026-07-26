@@ -41,8 +41,8 @@ export const cakes: Cake[] = [
     name: "Baker's Man",
     tagline: 'bakery-forward',
     description: 'A generous, festive layer cake for guests who want something familiar and comforting.',
-    image: '/images/patticake/06_8inch_a.jpg',
-    imageAlt: "yum! Baker's Man celebration cake",
+    image: '/images/patticake/10_layers_slice.jpg',
+    imageAlt: 'yum! chocolate layer cake with vanilla buttercream, close up',
     variants: [
       { format: 'whole', label: 'Whole cake', price: 5995, serves: '8-inch round, serves 8 to 16' },
       { format: 'slice', label: 'By the slice', price: 750, serves: 'a single generous slice' },
@@ -53,8 +53,8 @@ export const cakes: Cake[] = [
     name: 'Coconut Cake',
     tagline: 'a little extra joy',
     description: 'A light, buttercream-finished coconut cake and a favorite for celebrations that need a lift.',
-    image: '/images/patticake/07_8inch_b.jpg',
-    imageAlt: 'yum! coconut celebration cake',
+    image: '/images/yum-patticake-top.jpg',
+    imageAlt: 'yum! white buttercream cake, top view',
     variants: [
       { format: 'whole', label: 'Whole cake', price: 5995, serves: '8-inch round, serves 8 to 16' },
       { format: 'slice', label: 'By the slice', price: 750, serves: 'a single generous slice' },

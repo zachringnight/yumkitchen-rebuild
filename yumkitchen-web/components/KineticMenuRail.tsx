@@ -1,16 +1,64 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { orderDemoItems } from '@/lib/site';
+
+// The rail carries its own dishes rather than reusing orderDemoItems. Sharing
+// that array meant five of six rail photos also rendered elsewhere on
+// /yum-kitchen. Names and prices come from lib/menu-seed.json; photos are the
+// brand's own Instagram posts (see public/images/INSTAGRAM-PROVENANCE.md).
+const railFavorites = [
+  {
+    name: 'california scramble',
+    category: 'breakfast',
+    price: 12.95,
+    image: '/images/yum-ig-california-scramble.jpg',
+    imageAlt: 'yum! california scramble with avocado, greens, and whole grain toast',
+  },
+  {
+    name: 'lemon chicken',
+    category: 'entree',
+    price: 16.95,
+    image: '/images/yum-ig-lemon-chicken-plate.jpg',
+    imageAlt: 'yum! lemon chicken with roasted potatoes and broccolini',
+  },
+  {
+    name: 'rachel / reuben',
+    category: 'sandwich',
+    price: 14.95,
+    image: '/images/yum-ig-rachel-sandwich.jpg',
+    imageAlt: 'yum! rachel sandwich on caraway rye with chips and a pickle',
+  },
+  {
+    name: 'wedge starter',
+    category: 'salad',
+    price: 6.95,
+    image: '/images/yum-ig-wedge-salad.jpg',
+    imageAlt: 'yum! wedge starter salad with tomatoes and bacon',
+  },
+  {
+    name: 'ice cold gazpacho',
+    category: 'soup',
+    price: 6.95,
+    image: '/images/yum-ig-gazpacho.jpg',
+    imageAlt: 'yum! chilled gazpacho served with bread',
+  },
+  {
+    name: 'hugo’s baja mahi tacos',
+    category: 'entree',
+    price: 16.95,
+    image: '/images/yum-ig-mahi-tacos.jpg',
+    imageAlt: 'yum! baja mahi taco with pico de gallo and cotija',
+  },
+] as const;
 
 function orderHref(category: string) {
   return `/order?category=${encodeURIComponent(category)}#favorites`;
 }
 
-function FavoriteCard({ item, duplicate = false }: { item: (typeof orderDemoItems)[number]; duplicate?: boolean }) {
+function FavoriteCard({ item, duplicate = false }: { item: (typeof railFavorites)[number]; duplicate?: boolean }) {
   const content = (
     <>
       <span className="relative block aspect-4/3 overflow-hidden bg-cream">
-        <Image src={item.image} alt={duplicate ? '' : item.name} fill sizes="280px" className="image-lift object-cover" />
+        <Image src={item.image} alt={duplicate ? '' : item.imageAlt} fill sizes="280px" className="image-lift object-cover" />
       </span>
       <span className="block p-4">
         <span className="block text-xs font-bold uppercase tracking-[0.16em] text-brand-primary-deep">{item.category}</span>
@@ -36,7 +84,7 @@ function FavoriteCard({ item, duplicate = false }: { item: (typeof orderDemoItem
 }
 
 export function KineticMenuRail() {
-  const favorites = orderDemoItems.slice(0, 6);
+  const favorites = railFavorites;
 
   return (
     <section className="overflow-hidden bg-white py-12" data-reveal>

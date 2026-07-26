@@ -62,17 +62,26 @@ For any social or creative asset work, read `social/START-HERE.md` before openin
 5. Headlines stay lowercase if the source uses lowercase ("made from scratch with love", "fresh and friendly food", etc.).
 6. Do not invent menu items, prices, hours, or addresses. Pull from `lib/locations.ts` and `lib/menu.ts` (seeded from the checked-in `lib/locations-seed.json` / `lib/menu-seed.json`).
 7. Every PR must pass `bash verify.sh` before requesting review.
-8. One PR per task in `tasks.md`. Do not bundle.
+8. A PR may carry a whole round or a coherent group of tasks. Keep each task a separate commit so it stays individually reviewable and revertable. Do not mix unrelated rounds in one PR.
 
 ## Task workflow
 
 1. Run `bash scripts/check-repo-freshness.sh` before reading or editing anything. It fails on Zach's machine if the checkout is not `/Users/zsoskin/dev/yumkitchen-rebuild`, if the remote is wrong, or if the current branch is behind `origin/main`.
 2. Read the top current-round section in `tasks.md`. Do not take unchecked work from a section labeled historical.
-3. Create a branch named after the task (e.g. `T-03-location-card-component`, or a short descriptive name for ad hoc work).
+3. Create a branch named after the round or the task group (e.g. `visual-creative-audit-fixes`, `T-03-location-card-component`).
 4. Implement inside `yumkitchen-web/` for app changes; docs changes go in `docs/`.
-5. Run `bash verify.sh` locally. All checks must pass.
-6. Commit. Push. Open a PR.
-7. In the PR description, note what changed and why.
+5. Commit per task, with the task id from `tasks.md` in the subject.
+6. Run `bash verify.sh` locally. All checks must pass.
+7. Push. Open a PR. In the description, note what changed and why, task by task.
+
+### Running a round with parallel agents
+
+A round can be split across several agents working the same branch at once. Rules that keep it safe:
+
+- Partition by file, not by priority. Two agents must never be able to edit the same file. Assign each agent an explicit file allowlist up front.
+- Do not use git worktrees for this repo. A worktree has no `node_modules`, and `scripts/check-repo-freshness.sh` hard-fails outside `/Users/zsoskin/dev/yumkitchen-rebuild`, so neither `verify.sh` nor a build will run there.
+- Agents edit and self-check only. The coordinator owns all git operations (branch, commit, push) and runs `verify.sh` once per wave, not once per agent. `verify.sh` builds and runs Lighthouse, so concurrent runs fight over the port and the build directory.
+- Shared files (`lib/site.ts`, `app/globals.css`, `tasks.md`, `AGENTS.md`) belong to the coordinator or to exactly one agent per wave.
 
 ## Verification
 

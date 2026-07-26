@@ -31,6 +31,12 @@ type BaseLocation = {
 
 type LocationDetail = {
   heroImage: string;
+  /**
+   * CSS object-position for the hero crop. Most location photos are portrait
+   * sources shown in a wide hero band; set this when the default center crop
+   * misses the subject (people, signage). Omit for center.
+   */
+  heroObjectPosition?: string;
   cardImage: string;
   cardImageAlt: string;
   neighborhood: string;
@@ -53,6 +59,10 @@ type LocationDetail = {
 const locationDetails: Record<LocationSlug, LocationDetail> = {
   'st-louis-park': {
     heroImage: '/images/yum-location-slp.jpg',
+    // Portrait source: the pair holding the cake sits at ~60-87% of frame
+    // height. Center crops onto dark storefront glass; 75% keeps the people,
+    // the cake, and the front-door moment in the band at every viewport.
+    heroObjectPosition: 'center 75%',
     cardImage: '/images/yum-location-slp.jpg',
     cardImageAlt: 'yum! Kitchen and Bakery storefront in St. Louis Park',
     neighborhood: 'Our original St. Louis Park restaurant sits on Minnetonka Boulevard, close to neighborhood errands, school pickups, and easy weeknight dinners.',
@@ -70,6 +80,9 @@ const locationDetails: Record<LocationSlug, LocationDetail> = {
   },
   'shady-oak': {
     heroImage: '/images/yum-location-shady-oak.jpg',
+    // Portrait-ish source: signage at ~50-55% and the red awning at ~57-65%.
+    // Center is acceptable; 55% keeps the awning from clipping on wide screens.
+    heroObjectPosition: 'center 55%',
     cardImage: '/images/yum-location-shady-oak.jpg',
     cardImageAlt: 'yum! Kitchen and Bakery storefront in Minnetonka on Shady Oak Road',
     neighborhood: 'Our Shady Oak location serves Minnetonka and Hopkins with fast parking, friendly counters, and a full yum! menu.',
@@ -104,6 +117,10 @@ const locationDetails: Record<LocationSlug, LocationDetail> = {
   },
   woodbury: {
     heroImage: '/images/yum-location-woodbury.jpg',
+    // Portrait source: sky fills the top third; sign, letters, and red awning
+    // sit at ~42-70%. Center is acceptable; 55% trims dead sky and keeps the
+    // awning and entrance in the band on wide screens.
+    heroObjectPosition: 'center 55%',
     cardImage: '/images/yum-location-woodbury.jpg',
     cardImageAlt: 'yum! Kitchen and Bakery storefront in Woodbury at City Centre',
     neighborhood: 'Our Woodbury location brings yum! to the east metro with plenty of room for families, coworkers, and casual gatherings.',

@@ -25,6 +25,7 @@ export default function AboutPage() {
         copy="Led by Patti and Robbie Soskin and a dedicated team, yum! is built around generous food, warm hospitality, and taking good care of people."
         image="/images/yum-dining-room.jpg"
         imageAlt="guests dining inside yum!"
+        objectPosition="center 60%"
         priority
       />
       <section className="bg-white py-section">
@@ -40,9 +41,12 @@ export default function AboutPage() {
               <p className="mt-5">That trust shows up in the food, the people, the locations, and the warmth behind the counter.</p>
             </div>
           </div>
-          <div className="relative aspect-4/3 overflow-hidden bg-cream">
-            <Image src="/images/yum-packaging-counter.jpg" alt="yum! takeout packaging at the counter" fill sizes="(min-width: 1024px) 42vw, 100vw" className="object-cover" />
-          </div>
+          <figure>
+            <div className="relative aspect-4/3 overflow-hidden bg-cream">
+              <Image src="/images/yum-patti-kelli.jpeg" alt="founder Patti Soskin with Kelli at a yum! table" fill sizes="(min-width: 1024px) 42vw, 100vw" className="object-cover" />
+            </div>
+            <figcaption className="mt-3 text-base leading-7 text-body">founder Patti Soskin, with Kelli, at yum!</figcaption>
+          </figure>
         </div>
       </section>
       <section className="bg-cream py-section">
@@ -52,9 +56,11 @@ export default function AboutPage() {
           <div className="stagger-reveal mt-8 grid gap-5 md:grid-cols-3" data-reveal>
             {leaderCards.map((leader) => (
               <Link key={leader.name} href={leader.href} className="accent-card group bg-white shadow-xs">
-                <div className="relative aspect-4/3 overflow-hidden bg-cream">
-                  <Image src={leader.image} alt={leader.name} fill sizes="(min-width: 768px) 33vw, 100vw" className="image-lift object-cover" />
-                </div>
+                {leader.image && (
+                  <div className="relative aspect-4/3 overflow-hidden bg-cream">
+                    <Image src={leader.image} alt={leader.name} fill sizes="(min-width: 768px) 33vw, 100vw" className="image-lift object-cover" />
+                  </div>
+                )}
                 <div className="p-7">
                   <h3 className="text-h3 lowercase">{leader.name}</h3>
                   <p className="mt-2 text-lg leading-8">{leader.role}</p>
@@ -72,8 +78,8 @@ export default function AboutPage() {
         primaryLabel="Read Stories"
         secondaryHref="/order"
         secondaryLabel="Order Now"
-        image="/images/yum-patti-kelli.jpeg"
-        imageAlt="Patti and Kelli at yum!"
+        image="/images/yum-packaging-counter.jpg"
+        imageAlt="yum! takeout packaging at the counter"
       />
     </main>
   );

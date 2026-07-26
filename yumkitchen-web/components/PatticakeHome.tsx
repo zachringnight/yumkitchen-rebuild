@@ -204,7 +204,7 @@ export function PatticakeHome() {
               <div className="bg-white p-6 shadow-lg">
                 <p className="font-serif text-4xl font-normal lowercase leading-none text-brand-primary">patticake</p>
                 <p className="mt-3 text-lg leading-8 text-body">made at yum!, shared as the cake people ask for by name.</p>
-                <Link href="/patticake#message-maker" className="btn-link mt-4 inline-block">
+                <Link href="/order-a-cake#message-maker" className="btn-link mt-4 inline-block">
                   try the message maker
                 </Link>
               </div>

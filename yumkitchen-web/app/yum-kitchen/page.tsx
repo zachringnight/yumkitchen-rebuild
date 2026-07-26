@@ -30,8 +30,8 @@ export default function YumKitchenHomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(brandJsonLd()) }} />
       <HomeHero />
       <RedBand />
-      <KineticMenuRail />
       <MenuFeature />
+      <KineticMenuRail />
       <SeasonalShowcase />
       <PhotoMotionStory />
       <ExperienceStats />

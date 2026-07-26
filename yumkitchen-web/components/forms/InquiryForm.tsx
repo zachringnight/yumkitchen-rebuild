@@ -1,6 +1,7 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useRouter } from 'next/navigation';
 import { cloneElement, useEffect, useMemo, useRef, useState, type ReactElement } from 'react';
 import { useForm, type UseFormRegisterReturn } from 'react-hook-form';
 import { z } from 'zod';
@@ -177,6 +178,7 @@ export function InquiryForm({
   hideSubject = false,
   successMessage,
 }: InquiryFormProps) {
+  const router = useRouter();
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [serverMessage, setServerMessage] = useState('');
   const [giftMessageLength, setGiftMessageLength] = useState(0);
@@ -311,6 +313,12 @@ export function InquiryForm({
       setServerMessage(successMessage ?? payload.message ?? 'Thanks. We received your note.');
       reset(defaults);
       setGiftMessageLength(0);
+      // Hand off to the confirmation page, which carries the reply expectation
+      // and a next step matching what was submitted. The inline success state is
+      // still set first, so the confirmation is never blank if navigation is
+      // slow. This is a soft client navigation, so the analytics event pushed
+      // above stays on the dataLayer.
+      router.push(`/thank-you?kind=${encodeURIComponent(kind)}`);
     } catch {
       setStatus('error');
       setServerMessage('The message could not be sent. Please call a yum! restaurant.');
@@ -506,15 +514,6 @@ export function InquiryForm({
               inputProps={register('workAuthorized')}
               required
             />
-            <Field id={`${kind}-highest-degree`} label="Highest Degree Achieved?" error={errors.highestDegree?.message} required>
-              <select id={`${kind}-highest-degree`} required {...register('highestDegree')}>
-                <option value="">Select one</option>
-                <option value="high-school">High school</option>
-                <option value="some-college">Some college</option>
-                <option value="college-degree">College degree</option>
-                <option value="other">Other</option>
-              </select>
-            </Field>
             <Field id={`${kind}-resume`} label="Resume / CV" error={errors.resume?.message as string | undefined}>
               <input id={`${kind}-resume`} type="file" accept=".pdf,.doc,.docx,.rtf,.txt" {...register('resume')} />
             </Field>

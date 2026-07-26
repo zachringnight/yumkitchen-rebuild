@@ -12,9 +12,7 @@ import { MediaProofBand } from '@/components/MediaProofBand';
 import { ReviewsWall } from '@/components/ReviewsWall';
 import { PatticakeHeroPeek } from '@/components/PatticakeHeroPeek';
 import { PatticakeMessageRibbon } from '@/components/PatticakeMessageRibbon';
-import { PatticakeMessagePreview } from '@/components/PatticakeMessagePreview';
-import { PatticakeOriginBand } from '@/components/PatticakeOriginBand';
-import { PatticakePathGuide } from '@/components/PatticakePathGuide';
+import { PatticakeProcessSteps } from '@/components/PatticakeProcessSteps';
 import {
   pageMeta,
   patticakeCanonical,
@@ -31,29 +29,6 @@ export const metadata: Metadata = {
   openGraph: patticakeOpenGraph(pageMeta.patticakeDelivery.image),
   twitter: { images: [pageMeta.patticakeDelivery.image] },
 };
-
-const steps = [
-  {
-    number: '1',
-    title: 'choose your cake',
-    copy: 'Pick a whole cake or slices, and tell us the occasion.',
-  },
-  {
-    number: '2',
-    title: 'set the delivery',
-    copy: 'Add the ship-to address and delivery date at checkout.',
-  },
-  {
-    number: '3',
-    title: 'add the words',
-    copy: 'Write the gift message that should travel with the cake.',
-  },
-  {
-    number: '4',
-    title: 'we bake and send',
-    copy: 'Patticake is baked fresh, packed with care, and sent ready to share.',
-  },
-] as const;
 
 const occasions = [
   {
@@ -80,9 +55,9 @@ const occasions = [
   {
     title: 'family moments',
     copy: 'For the table you cannot get to in person, but still want to show up for.',
-    image: '/images/yum-patticake-slice-togo.jpeg',
-    alt: 'yum! patticake slice in to-go packaging',
-    className: 'crop-patticake-togo',
+    image: '/images/yum-patticake-layers.jpg',
+    alt: 'yum! chocolate layer cake with vanilla buttercream, cut open on a cake stand',
+    className: 'crop-patticake-product',
   },
 ] as const;
 
@@ -247,13 +222,10 @@ export default function PatticakeNationalDeliveryPage() {
                 src="/images/patticake/09_slices.jpg"
                 alt="yum! patticake slices on plates"
                 fill
-                priority
+                loading="eager"
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover crop-patticake-slices"
               />
-            </div>
-            <div className="patticake-delivery-secondary-photo">
-              <Image src="/images/patticake/03_top_view.jpg" alt="yum! patticake vanilla buttercream top view" fill loading="eager" sizes="(min-width: 1024px) 22vw, 45vw" className="object-cover crop-patticake-top" />
             </div>
           </div>
         </div>
@@ -332,7 +304,6 @@ export default function PatticakeNationalDeliveryPage() {
       )}
 
       <PatticakeMessageRibbon tone="blue" />
-      <PatticakePathGuide activePath="shipping" />
 
       <section className="bg-white px-6 py-12 lg:py-section">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.68fr_1.32fr] lg:items-center">
@@ -370,30 +341,7 @@ export default function PatticakeNationalDeliveryPage() {
         </div>
       </section>
 
-      <section className="bg-cream px-6 py-8">
-        <div className="mx-auto max-w-[1240px]">
-          <Stagger className="patticake-process-panel" gap={0.12}>
-            <StaggerItem className="patticake-process-eyebrow">
-              <p>patticake delivery</p>
-            </StaggerItem>
-            <StaggerItem>
-              <h2 className="font-serif text-[2.7rem] font-normal leading-tight lowercase text-brand-primary">a clearer way to send it.</h2>
-              <p className="mt-4 max-w-[560px] text-lg leading-8 text-ink">
-                Pick the cake, set the date and message at checkout, and we&apos;ll help it travel with care.
-              </p>
-            </StaggerItem>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {steps.map((step) => (
-                <StaggerItem as="article" key={step.number} className="border-t border-ink/15 pt-4">
-                  <p className="font-serif text-3xl leading-none text-brand-primary">{step.number}</p>
-                  <h3 className="mt-3 font-serif text-2xl font-normal lowercase text-ink">{step.title}</h3>
-                  <p className="mt-2 text-base leading-7 text-body">{step.copy}</p>
-                </StaggerItem>
-              ))}
-            </div>
-          </Stagger>
-        </div>
-      </section>
+      <PatticakeProcessSteps />
 
       <section className="bg-white px-6 py-12 lg:py-section">
         <div className="mx-auto max-w-[1240px]">
@@ -422,8 +370,6 @@ export default function PatticakeNationalDeliveryPage() {
         </div>
       </section>
 
-      <PatticakeMessagePreview formHref="#delivery-support" />
-
       <section className="bg-cream px-6 py-12 lg:py-section">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
           <div>
@@ -433,25 +379,19 @@ export default function PatticakeNationalDeliveryPage() {
               A few notes help us take good care of the cake, whether you order now or ask us first.
             </p>
           </div>
-          <div className="grid gap-5 lg:grid-cols-[0.78fr_1fr]">
-            <div className="relative min-h-[330px] overflow-hidden border border-ink/10 bg-white">
-              <Image src="/images/yum-patticake-slice-togo.jpeg" alt="yum! patticake slice in to-go packaging" fill sizes="(min-width: 1024px) 32vw, 100vw" className="object-cover crop-patticake-togo" />
-            </div>
-            <div className="border border-brand-primary/20 bg-white p-6">
-              <Stagger as="ul" className="grid gap-4" gap={0.06}>
-                {confirmations.map((item, index) => (
-                  <StaggerItem as="li" key={item} className="grid grid-cols-[2rem_1fr] items-start gap-3 border-b border-blue-soft/70 pb-4 last:border-0 last:pb-0">
-                    <span className="mt-0.5 flex h-7 w-7 items-center justify-center rounded-full bg-brand-red font-serif text-base leading-none text-white">{index + 1}</span>
-                    <span className="text-lg leading-7 text-ink">{item}</span>
-                  </StaggerItem>
-                ))}
-              </Stagger>
-            </div>
+          <div className="border border-brand-primary/20 bg-white p-6">
+            <Stagger as="ul" className="grid gap-4" gap={0.06}>
+              {confirmations.map((item, index) => (
+                <StaggerItem as="li" key={item} className="grid grid-cols-[2rem_1fr] items-start gap-3 border-b border-blue-soft/70 pb-4 last:border-0 last:pb-0">
+                  <span className="mt-0.5 flex h-7 w-7 items-center justify-center rounded-full bg-brand-red font-serif text-base leading-none text-white">{index + 1}</span>
+                  <span className="text-lg leading-7 text-ink">{item}</span>
+                </StaggerItem>
+              ))}
+            </Stagger>
           </div>
         </div>
       </section>
 
-      <PatticakeOriginBand />
       <MediaProofBand />
       <ReviewsWall />
 

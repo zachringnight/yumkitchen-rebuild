@@ -1,9 +1,19 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { orderDemoItems } from '@/lib/site';
+
+// Current seasonal plates, deliberately not drawn from orderDemoItems and
+// deliberately not dishes that carry a photo in the menu list below, so /menu
+// never shows the same photo twice. Photos are the brand's own Instagram posts
+// (see public/images/INSTAGRAM-PROVENANCE.md).
+const seasonalPlates = [
+  { name: 'corn chowder', image: '/images/yum-ig-corn-chowder.jpg', alt: 'yum! corn chowder' },
+  { name: 'farm scramble', image: '/images/yum-ig-farm-scramble.jpg', alt: 'yum! farm scramble with roasted potatoes' },
+  { name: 'tomato cubed', image: '/images/yum-ig-tomato-trio.jpg', alt: 'yum! burrata with heirloom tomatoes and basil' },
+  { name: 'watermelon feta', image: '/images/yum-ig-watermelon-feta.jpg', alt: 'yum! watermelon feta salad with arugula' },
+] as const;
 
 export function MenuMotionIntro() {
-  const featured = orderDemoItems.slice(0, 4);
+  const featured = seasonalPlates;
   const fastPaths = [
     { href: '/menu#sandwiches', label: 'sandwiches' },
     { href: '/menu#salads', label: 'salads' },
@@ -40,7 +50,7 @@ export function MenuMotionIntro() {
           {featured.map((item, index) => (
             <article key={item.name} className={`menu-photo-grid-card menu-photo-grid-card-${index + 1}`}>
               <div className="relative aspect-4/3 overflow-hidden">
-                <Image src={item.image} alt={item.name} fill sizes="(min-width: 1024px) 220px, 50vw" className="object-cover" />
+                <Image src={item.image} alt={item.alt} fill sizes="(min-width: 1024px) 220px, 50vw" className="object-cover" />
               </div>
               <p>{item.name}</p>
             </article>

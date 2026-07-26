@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
 import { LocationPickerModal } from '@/components/LocationPickerModal';
@@ -203,12 +204,22 @@ export function MenuClient() {
                 <h2 className="text-h2 lowercase">{section.name}</h2>
                 <div className="mt-6 grid gap-4 md:grid-cols-2">
                   {section.items.map((item, index) => (
-                    <article key={`${section.meal}-${section.name}-${item.name}-${index}`} className="menu-item-card bg-white p-5 shadow-xs">
-                      <div className="flex items-start justify-between gap-4">
-                        <h3 className="menu-item-title text-2xl lowercase">{item.name}</h3>
-                        <p className="menu-item-price shrink-0 font-bold text-ink">{getPriceLabel(item.prices)}</p>
+                    <article key={`${section.meal}-${section.name}-${item.name}-${index}`} className="menu-item-card flex gap-4 bg-white p-5 shadow-xs">
+                      {item.image && (
+                        <div className="relative size-24 shrink-0 overflow-hidden bg-cream sm:size-28">
+                          <Image src={item.image} alt={item.imageAlt ?? item.name} fill sizes="112px" className="object-cover" />
+                        </div>
+                      )}
+                      <div className="min-w-0 flex-1">
+                        {/* Wraps rather than forcing one line: multi-price items such as
+                            "$7.95 / $8.95 / $16.95" cannot shrink, and alongside a
+                            thumbnail they pushed the mobile page into sideways scroll. */}
+                        <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-1">
+                          <h3 className="menu-item-title text-2xl lowercase">{item.name}</h3>
+                          <p className="menu-item-price font-bold text-ink">{getPriceLabel(item.prices)}</p>
+                        </div>
+                        {item.description && <p className="menu-item-description mt-2 text-base leading-7">{item.description}</p>}
                       </div>
-                      {item.description && <p className="menu-item-description mt-2 text-base leading-7">{item.description}</p>}
                     </article>
                   ))}
                 </div>

@@ -126,7 +126,7 @@ export const pageMeta = {
   about: {
     title: 'about us',
     description: 'Made from scratch since 2005. Meet the family and team behind yum! Kitchen and Bakery.',
-    image: '/images/yum-patti-kelli.jpeg',
+    image: '/images/yum-dining-room.jpg',
   },
   careers: {
     title: 'work @ yum!',
@@ -357,7 +357,16 @@ export const cakeOptions = [
   },
 ] as const;
 
-export const leaderCards = [
+export type LeaderCard = {
+  name: string;
+  role: string;
+  href: string;
+  // Optional on purpose: a card only carries a photo when we have a photo of
+  // that actual person. Never fill this with a photo of someone else.
+  image?: string;
+};
+
+export const leaderCards: readonly LeaderCard[] = [
   {
     name: 'Hugo',
     role: 'chef and hospitality team',
@@ -365,10 +374,11 @@ export const leaderCards = [
     image: '/images/yum-chef-kitchen.jpg',
   },
   {
+    // No photo of Margaret exists in the repo yet. The card runs text-only
+    // rather than borrowing another person's photo.
     name: 'Margaret',
     role: 'Woodbury hospitality lead',
     href: '/location/woodbury',
-    image: '/images/yum-patti-kelli.jpeg',
   },
   {
     name: 'Mike',
@@ -376,7 +386,7 @@ export const leaderCards = [
     href: '/location/saint-paul',
     image: '/images/yum-meet-mike.jpg',
   },
-] as const;
+];
 
 export const locationOrder: LocationSlug[] = ['st-louis-park', 'shady-oak', 'saint-paul', 'woodbury'];
 
@@ -468,25 +478,11 @@ export const pressEntries = [
     href: 'https://yumkitchen.com/top-bakeries-in-the-twin-cities/',
   },
   {
-    headline: 'top dessert in the twin cities',
-    outlet: 'Eater Twin Cities',
-    date: '2023',
-    category: 'bakery and desserts',
-    href: 'https://yumkitchen.com/top-dessert-in-the-twin-cities/',
-  },
-  {
     headline: 'coming to Woodbury',
     outlet: 'Pioneer Press',
     date: '2023',
     category: 'growth',
     href: 'https://yumkitchen.com/coming-to-woodbury/',
-  },
-  {
-    headline: 'yum! in Woodbury Magazine',
-    outlet: 'Woodbury Magazine',
-    date: '2023',
-    category: 'growth',
-    href: 'https://yumkitchen.com/woodbury-magazine-feature/',
   },
   {
     headline: 'pick up picnic eats',
@@ -522,13 +518,6 @@ export const pressEntries = [
     date: '2023',
     category: 'critic mentions',
     href: 'https://yumkitchen.com/5-best-things-the-startribune-food-critics-ate-this-week/',
-  },
-  {
-    headline: 'yum! on Good Company',
-    outlet: 'KSTP',
-    date: '2023',
-    category: 'tv and founder story',
-    href: 'https://yumkitchen.com/yum-on-good-company/',
   },
   {
     headline: 'top chocolate chip cookies in the Twin Cities',
