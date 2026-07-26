@@ -17,7 +17,6 @@ const springs = read('components/motion/springs.ts');
 const patticakeHomeSurface = read('components/PatticakeHome.tsx');
 const patticakeDelivery = read('app/patticake/page.tsx');
 const patticakePickup = read('app/order-a-cake/page.tsx');
-const patticakeHeroPeek = read('components/PatticakeHeroPeek.tsx');
 const yumPhotoStory = read('components/PhotoMotionStory.tsx');
 const reviewAssets = read('app/asset-gallery/assets.json');
 const creativeReviewSync = read('scripts/sync-creative-review-assets.mjs');
@@ -80,11 +79,35 @@ const hasReducedMotionRoleReset = hasRuleWithSelectorsAndDeclarations(
 );
 const hasBareReducedMotionLogoHide = /(^|,)\s*\.logo-animation-logo\s*(?:,|\{)/m.test(reducedMotionCss);
 const patticakeRibbonCss = getCssBlock(css, '.patticake-message-ribbon span');
-// Photos run caption-free: nothing may claim what is in the frame beyond alt text.
-const captionFreePhotoSurfaces = [patticakeHeroPeek, patticakeHomeSurface, yumPhotoStory]
-  .every((source) => !source.includes('<figcaption') && !source.includes('photo-motion-caption'));
-const captionFreePhotoCss = ['.patticake-hero-peek figcaption', '.patticake-photo-grid-frame figcaption', '.photo-motion-layer figcaption', '.photo-motion-caption']
-  .every((selector) => !css.includes(selector));
+// Photos run caption-free: nothing may claim what is in the frame beyond alt
+// text. Every surface that renders food or cake photography is listed, not just
+// the ones a given cleanup touched, so a caption cannot reappear on a surface
+// the guard forgot. Deliberately excluded: app/about/page.tsx captions a photo
+// of people, not food, and components/ReviewsWall.tsx uses figcaption for
+// review attribution, which is the element's actual purpose.
+const foodPhotoSurfaces = [
+  'components/CakeGallery.tsx',
+  'components/CakeStudioBand.tsx',
+  'components/HomeDesign.tsx',
+  'components/InquiryMomentumBand.tsx',
+  'components/KineticMenuRail.tsx',
+  'components/LocationExperienceBand.tsx',
+  'components/MediaProofBand.tsx',
+  'components/MenuMotionIntro.tsx',
+  'components/PatticakeConciergeBand.tsx',
+  'components/PatticakeHeroPeek.tsx',
+  'components/PatticakeHome.tsx',
+  'components/PatticakeMessagePreview.tsx',
+  'components/PhotoMotionStory.tsx',
+  'components/SeasonalShowcase.tsx',
+  'app/order/OrderClient.tsx',
+  'app/order-a-cake/page.tsx',
+  'app/patticake/page.tsx',
+];
+const captionFreePhotoSurfaces = foodPhotoSurfaces
+  .every((file) => !read(file).includes('<figcaption') && !read(file).includes('photo-motion-caption'));
+// No caption styling survives either, or the markup can come back fully dressed.
+const captionFreePhotoCss = !css.includes('figcaption') && !css.includes('photo-motion-caption');
 const positionedPatticakeImageParents = [
   '.patticake-hero-card',
   '.patticake-hero-peek-image',
