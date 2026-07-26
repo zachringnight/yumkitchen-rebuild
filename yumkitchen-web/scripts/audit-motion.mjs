@@ -85,11 +85,16 @@ const patticakeRibbonCss = getCssBlock(css, '.patticake-message-ribbon span');
 // the day someone remembers to update this file. A caption can only ship by
 // adding its path to the allowlist below, which is a deliberate act with a
 // reason attached rather than an oversight.
-const captionAllowlist = new Set([
+// The exemption is one caption per file, not the file. Each entry pins a marker
+// unique to the approved caption and the number of captions the file may carry,
+// so a second caption next to a different photo in the same file is still
+// caught. The marker is caption text rather than class names, so restyling stays
+// free and only a change in what the caption says trips it.
+const captionAllowlist = new Map([
   // Captions a photo of people, not food. It names who is in the frame.
-  'app/about/page.tsx',
-  // Uses figcaption for review attribution, which is what the element is for.
-  'components/ReviewsWall.tsx',
+  ['app/about/page.tsx', { marker: 'founder Patti Soskin, with Kelli, at yum!', allowed: 1 }],
+  // figcaption for review attribution, which is what the element is for.
+  ['components/ReviewsWall.tsx', { marker: '{story.creator}, {story.platform}', allowed: 1 }],
 ]);
 const surfaceFiles = ['app', 'components'].flatMap((dir) =>
   fs
@@ -102,15 +107,21 @@ const surfaceFiles = ['app', 'components'].flatMap((dir) =>
 // <span> with an unrelated class name, and no source-level grep can. This is a
 // tripwire for regression and a signpost for the next coder, not a proof. The
 // review gate for a genuinely new photo label is a human reading the diff.
-const captionedSurfaces = surfaceFiles
-  .filter((file) => !captionAllowlist.has(file))
-  .filter((file) => {
-    const source = read(file);
-    return source.includes('<figcaption')
-      || source.includes('photo-motion-caption')
-      || /className="[^"]*caption/i.test(source)
-      || /className={`[^`]*caption/i.test(source);
-  });
+const hasCaptionMarkup = (source) => source.includes('<figcaption')
+  || source.includes('photo-motion-caption')
+  || /className="[^"]*caption/i.test(source)
+  || /className={`[^`]*caption/i.test(source);
+
+const captionedSurfaces = surfaceFiles.filter((file) => {
+  const source = read(file);
+  const exemption = captionAllowlist.get(file);
+  if (!exemption) return hasCaptionMarkup(source);
+
+  // An exempt file has to still carry the caption it was exempted for, and no
+  // more captions than it was exempted for.
+  const captionCount = (source.match(/<figcaption/g) ?? []).length;
+  return !source.includes(exemption.marker) || captionCount !== exemption.allowed;
+});
 const captionFreePhotoSurfaces = captionedSurfaces.length === 0;
 // Caption styling must not outlive the markup, or a caption can come back fully
 // dressed. Scoped to the food and cake photo surfaces rather than the whole
