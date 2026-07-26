@@ -40,4 +40,14 @@ The site had a same-page photo repetition problem: several photos rendered two o
 | `yum-ig-wedge-salad.jpg` | DakdWfLAVv8 | wedge starter salad |
 | `yum-ig-yum-breakfast-plate.jpg` | DaFj00SjX21 | yum! breakfast with sausage, eggs, potatoes, toast |
 
+## Second pass, 16 more dishes
+
+A deeper pull (185 posts) added photos for dishes the first pass missed: buffalo chicken fingers, coconut curry, gumbo, lemon cream pasta, grilled chicken club, tuna melt, turkey focaccia, open-faced runny egg club, yum! veggie sandwich, amablu crusted filet, salmon hash, granola, cinnamon toast, s'more brownie, dirt cupcake in a jar, and yum! cupcakes. Each caption names the dish, and each image was opened and checked against the menu description before use.
+
+**Two were downloaded and then rejected**, and should not be re-imported without a decision from Zach: the "french fries" post (`DXOvc1dD_XT`) and the "fish & chips" post (`DU-p0xpj-yN`). Both show serving paper printed **"Village Post"**, which is not yum! branding, so neither plate can be confirmed as a yum! item no matter what the caption says. They may be reposted content. That is the standard for this whole set: the caption alone is not enough, the photo has to hold up.
+
+## From the live site (`yum-live-*.jpg`)
+
+Five dishes came from yum!'s own current site at yumkitchen.com, where the filenames name the dish: avocado toast, crunchy french toast, matzah ball soup, salad sampler, and szechuan salmon. These are 1200 to 2000px, better than the Instagram set, and were converted from PNG to JPEG. The avocado toast photo shows an egg, greens, and salmon, which the menu lists as its add-ons, so the alt text says so.
+
 Post URLs follow the pattern `https://www.instagram.com/p/<code>/`.

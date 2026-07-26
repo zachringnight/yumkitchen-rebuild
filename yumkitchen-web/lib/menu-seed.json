@@ -16,7 +16,9 @@
           "prices": [
             "9.95"
           ],
-          "description": ""
+          "description": "",
+          "image": "/images/yum-ig-buffalo-chicken-fingers.jpg",
+          "imageAlt": "yum! buffalo chicken fingers with ranch and celery"
         },
         {
           "name": "chicken fingers [2]",
@@ -58,7 +60,9 @@
             "7.95",
             "15.95"
           ],
-          "description": ""
+          "description": "",
+          "image": "/images/yum-ig-coconut-curry.jpg",
+          "imageAlt": "yum! coconut curry soup packed to go with focaccia"
         },
         {
           "name": "gumbo",
@@ -67,7 +71,9 @@
             "12.95",
             "21.95"
           ],
-          "description": "w/ shrimp, andouille sausage & chicken"
+          "description": "w/ shrimp, andouille sausage & chicken",
+          "image": "/images/yum-ig-gumbo.jpg",
+          "imageAlt": "yum! gumbo with rice and focaccia"
         },
         {
           "name": "chicken noodle",
@@ -172,7 +178,9 @@
           "prices": [
             "15.95"
           ],
-          "description": "spaghetti w/ lemon cream, crispy chicken, peas, mint, basil & topped w/ bread crumbs"
+          "description": "spaghetti w/ lemon cream, crispy chicken, peas, mint, basil & topped w/ bread crumbs",
+          "image": "/images/yum-ig-lemon-cream-pasta.jpg",
+          "imageAlt": "yum! lemon cream pasta with crispy chicken, peas, and basil"
         },
         {
           "name": "mac & cheese",
@@ -220,14 +228,18 @@
           "prices": [
             "14.95"
           ],
-          "description": "house made english muffin, fancy schmancy tuna salad, sliced tomato & muenster cheese"
+          "description": "house made english muffin, fancy schmancy tuna salad, sliced tomato & muenster cheese",
+          "image": "/images/yum-ig-tuna-melt.jpg",
+          "imageAlt": "yum! tuna melt with house made chips and a pickle"
         },
         {
           "name": "grilled chicken club",
           "prices": [
             "15.95"
           ],
-          "description": "grilled chicken breast, lettuce, tomato, avocado, Jones Dairy Farm bacon & honey mustard aioli on toasted whole grain"
+          "description": "grilled chicken breast, lettuce, tomato, avocado, Jones Dairy Farm bacon & honey mustard aioli on toasted whole grain",
+          "image": "/images/yum-ig-grilled-chicken-club.jpg",
+          "imageAlt": "yum! grilled chicken club on toasted whole grain, cut in half"
         },
         {
           "name": "rachel / reuben",
@@ -244,7 +256,9 @@
           "prices": [
             "12.95"
           ],
-          "description": "house roasted turkey breast w/ red pepper aioli, shredded lettuce, tomato & shaved red onions on grilled focaccia bun. add avocado 2.00"
+          "description": "house roasted turkey breast w/ red pepper aioli, shredded lettuce, tomato & shaved red onions on grilled focaccia bun. add avocado 2.00",
+          "image": "/images/yum-ig-turkey-focaccia.jpg",
+          "imageAlt": "yum! turkey focaccia sandwiches on a platter"
         },
         {
           "name": "lto burger",
@@ -272,7 +286,9 @@
           "prices": [
             "14.95"
           ],
-          "description": "two over easy eggs, bacon, avocado, arugula, tomato & red pepper aioli on toasted whole grain"
+          "description": "two over easy eggs, bacon, avocado, arugula, tomato & red pepper aioli on toasted whole grain",
+          "image": "/images/yum-ig-runny-egg-club.jpg",
+          "imageAlt": "yum! open-faced runny egg club with bacon, avocado, and arugula"
         },
         {
           "name": "breakfast sandwich",
@@ -287,8 +303,8 @@
             "12.95"
           ],
           "description": "avocado, cucumber, sprouts, tomato, spinach, cheddar & muenster w/ honey mustard aioli on toasted whole grain",
-          "image": "/images/yum-catering-veggie-platters.jpg",
-          "imageAlt": "yum! veggie sandwich with tomato, spinach, and cheddar"
+          "image": "/images/yum-ig-yum-veggie-sandwich.jpg",
+          "imageAlt": "yum! veggie sandwich with tomato, greens, and cheese"
         },
         {
           "name": "grilled cheese",
@@ -349,7 +365,9 @@
           "prices": [
             "22.95"
           ],
-          "description": "beef tenderloin w/ roasted potatoes & simple green beans"
+          "description": "beef tenderloin w/ roasted potatoes & simple green beans",
+          "image": "/images/yum-ig-amablu-filet.jpg",
+          "imageAlt": "yum! amablu crusted filet with mashed potatoes and green beans"
         },
         {
           "name": "cauliflower couscous vegan bowl",
@@ -538,7 +556,9 @@
           "prices": [
             "15.95"
           ],
-          "description": "red curry glazed flaked salmon w/ potatoes, arugula, red peppers & over easy eggs w/ fresh dill & rye toast"
+          "description": "red curry glazed flaked salmon w/ potatoes, arugula, red peppers & over easy eggs w/ fresh dill & rye toast",
+          "image": "/images/yum-ig-salmon-hash.jpg",
+          "imageAlt": "yum! salmon hash with potatoes, over easy eggs, and rye toast"
         },
         {
           "name": "open-faced runny egg club",
@@ -591,7 +611,9 @@
           "prices": [
             "9.95"
           ],
-          "description": "house made w/ yogurt, mixed berries & drizzle of honey"
+          "description": "house made w/ yogurt, mixed berries & drizzle of honey",
+          "image": "/images/yum-ig-granola.jpg",
+          "imageAlt": "yum! house made granola with yogurt and fresh fruit"
         },
         {
           "name": "avocado toast",
@@ -678,7 +700,9 @@
           "prices": [
             "4.95"
           ],
-          "description": "challah cinnamon toast w/ powdered sugar drizzle"
+          "description": "challah cinnamon toast w/ powdered sugar drizzle",
+          "image": "/images/yum-ig-cinnamon-toast.jpg",
+          "imageAlt": "yum! challah cinnamon toast with powdered sugar drizzle"
         }
       ]
     },
@@ -727,7 +751,9 @@
           "prices": [
             "4.95"
           ],
-          "description": ""
+          "description": "",
+          "image": "/images/yum-ig-dirt-cupcake.jpg",
+          "imageAlt": "yum! dirt cupcake layered in a jar"
         },
         {
           "name": "angel food",
@@ -743,7 +769,9 @@
           "prices": [
             "4.50"
           ],
-          "description": ""
+          "description": "",
+          "image": "/images/yum-ig-yum-cupcakes.jpg",
+          "imageAlt": "yum! decorated cupcakes"
         },
         {
           "name": "chocolate",
@@ -777,7 +805,9 @@
           "prices": [
             "4.95"
           ],
-          "description": ""
+          "description": "",
+          "image": "/images/yum-ig-smore-brownie.jpg",
+          "imageAlt": "yum! s'more brownies with toasted marshmallow and chocolate drizzle"
         },
         {
           "name": "nut goodley bar",
