@@ -468,25 +468,11 @@ export const pressEntries = [
     href: 'https://yumkitchen.com/top-bakeries-in-the-twin-cities/',
   },
   {
-    headline: 'top dessert in the twin cities',
-    outlet: 'Eater Twin Cities',
-    date: '2023',
-    category: 'bakery and desserts',
-    href: 'https://yumkitchen.com/top-dessert-in-the-twin-cities/',
-  },
-  {
     headline: 'coming to Woodbury',
     outlet: 'Pioneer Press',
     date: '2023',
     category: 'growth',
     href: 'https://yumkitchen.com/coming-to-woodbury/',
-  },
-  {
-    headline: 'yum! in Woodbury Magazine',
-    outlet: 'Woodbury Magazine',
-    date: '2023',
-    category: 'growth',
-    href: 'https://yumkitchen.com/woodbury-magazine-feature/',
   },
   {
     headline: 'pick up picnic eats',
@@ -522,13 +508,6 @@ export const pressEntries = [
     date: '2023',
     category: 'critic mentions',
     href: 'https://yumkitchen.com/5-best-things-the-startribune-food-critics-ate-this-week/',
-  },
-  {
-    headline: 'yum! on Good Company',
-    outlet: 'KSTP',
-    date: '2023',
-    category: 'tv and founder story',
-    href: 'https://yumkitchen.com/yum-on-good-company/',
   },
   {
     headline: 'top chocolate chip cookies in the Twin Cities',
