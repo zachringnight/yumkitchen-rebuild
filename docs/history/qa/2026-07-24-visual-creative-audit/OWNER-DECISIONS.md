@@ -2,32 +2,31 @@
 
 Everything from the 2026-07-24 audit round that cannot be closed by an engineer, in one place. Prepared 2026-07-26 on branch `visual-creative-audit-fixes`.
 
-Nothing here is a blocker on the branch as a whole. Items in section A block **deploying two specific pages**; everything else is a product or asset decision that can land later.
+**Nothing here blocks deploy any more.** As of 2026-07-26 every item is an improvement waiting on the owner, not a gate: sections A and B1 were resolved by making the commitments opt-in and wiring the confirmation page, and the rest are asset or product decisions that can land later.
 
-## A. Blocks deploy: unresolved placeholders
+## A. Optional commitments, no longer blocking
 
-These render as visible bracketed text on the live page, so they cannot ship silently, but they also cannot ship at all. Each is a factual and liability statement about the business, not copy, which is why no engineer picked a value.
+**Resolved 2026-07-26: these no longer block deploy.** They were bracketed placeholders that would have rendered as literal `[OWNER SIGN-OFF: ...]` text on live pages. Each is now an opt-in constant: left null the page states only what the repo can back up and makes no claim, and set to an approved value the page names it. Verified across 15 routes that no placeholder text renders anywhere.
 
-| # | Decision | Where | Current placeholder |
-|---|---|---|---|
-| A1 | WCAG conformance target, and whether the framing is "working to conform to" or "conforms to" | `yumkitchen-web/app/accessibility-statement/page.tsx:20`, rendered at line 48 | `[OWNER SIGN-OFF: WCAG conformance target, for example WCAG 2.1 Level AA]` |
-| A2 | Response time for an accessibility issue | `yumkitchen-web/app/accessibility-statement/page.tsx:21`, rendered at line 64 | `[OWNER SIGN-OFF: response-time commitment, for example within 2 business days]` |
-| A3 | General reply time for any form submission | `yumkitchen-web/app/thank-you/page.tsx:21`, rendered at line 61 | `[OWNER SIGN-OFF: response-time commitment, for example within 2 business days]` |
+| # | Decision | Where | Today | With a value |
+|---|---|---|---|---|
+| A1 | WCAG conformance target | `app/accessibility-statement/page.tsx` `CONFORMANCE_TARGET` | "We want every guest to be able to use this site, however they browse." No conformance claim. | "We are working to conform to WCAG 2.1 Level AA." |
+| A2 | Accessibility reply time | same file, `RESPONSE_TIME` | "We will get back to you." | "We will get back to you within 2 business days." |
+| A3 | General reply time | `app/thank-you/page.tsx` `RESPONSE_TIME` | "We reply to every message." | "We reply to every message, usually within 2 business days." |
 
-A2 and A3 can be the same value. If they are, they should be hoisted into a single constant in `lib/site.ts` rather than kept in two files.
+A2 and A3 can share a value; if they do, hoist them into one constant in `lib/site.ts`.
 
-**What the accessibility statement already claims, all verified against this repo, so these need no sign-off:** the axe-core gate over 15 routes that fails the PR on any serious or critical violation, the skip link in `SiteShell`, reduced-motion support via `MotionConfig reducedMotion="user"` plus the `noscript` fallback, and labelled form fields with announced errors. A Lighthouse score claim was deliberately left out, because `verify.sh` enforces its accessibility threshold on the homepage only, so "scores 100 everywhere" could not be supported.
+**What the accessibility statement already claims, all verified against this repo, so none of it needs sign-off:** the axe-core gate over 15 routes that fails the PR on any serious or critical violation, the skip link in `SiteShell`, reduced-motion support via `MotionConfig reducedMotion="user"` plus the `noscript` fallback, and labelled form fields with announced errors. A Lighthouse score claim was deliberately left out, because `verify.sh` enforces its accessibility threshold on the homepage only.
 
 ## B. Product decisions
 
-**B1. `/thank-you` is orphaned. Wire it up, or delete it?**
+**B1. RESOLVED 2026-07-26: `/thank-you` is wired up.**
 
-Not an audit finding, found during this round. Nothing in `app/`, `components/`, `lib/`, or `scripts/` links or redirects to `/thank-you`. `InquiryForm` shows an inline success message and resets, so no visitor has ever reached this page.
+`InquiryForm` now redirects to `/thank-you?kind={kind}` after a successful submit, so the per-kind branches are live. The inline success state is still set first, so the confirmation is never blank if navigation is slow, and it is a soft client navigation, so the analytics event stays on the dataLayer. Verified in a real browser: submitting `/contact` lands on `/thank-you?kind=contact`, and all five branches render correctly with the gift-card upsell suppressed only for `kind=accessibility`.
 
-The page now has a response-time line and per-kind next steps (catering, cake, careers, accessibility), branching on an optional `?kind=` param, with the gift-card upsell suppressed after an accessibility complaint. All of it is inert until something redirects there.
+Original finding, for the record: nothing in `app/`, `components/`, `lib/`, or `scripts/` linked or redirected to `/thank-you`, so no visitor had ever reached it.
 
-- To activate: `InquiryForm.onSubmit` redirects to `/thank-you?kind={kind}` on success instead of, or after, the inline message. One small change, but it alters the conversion flow on every form on the site, which is why it was not done unilaterally.
-- To drop: delete the page. The work is small and recoverable from git.
+The page carries an optional reply-time line and per-kind next steps (catering, cake, careers, accessibility), branching on the `?kind=` param, with the gift-card upsell suppressed after an accessibility complaint. The param stays optional, so a visitor landing here directly still gets a sensible neutral page.
 
 **B2. Press and media contact.** There is no press email or phone anywhere in the repo. The rebuilt `/contact` routes press and media inquiries to the general form with a "Press" subject. If a real press address exists, that card should point at it instead.
 

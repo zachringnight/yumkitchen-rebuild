@@ -12,13 +12,15 @@ export const metadata: Metadata = {
   twitter: { images: [pageMeta.accessibility.image] },
 };
 
-// OWNER SIGN-OFF REQUIRED (Zach): the two constants below are factual
-// commitments about the business, not copy. A conformance target and a
-// response-time promise are liability statements. Replace both bracketed
-// placeholders with approved values before this page ships. Do not publish
-// the bracketed text.
-const CONFORMANCE_TARGET = '[OWNER SIGN-OFF: WCAG conformance target, for example WCAG 2.1 Level AA]';
-const RESPONSE_TIME = '[OWNER SIGN-OFF: response-time commitment, for example within 2 business days]';
+// OWNER SIGN-OFF (Zach): both constants below are factual commitments about
+// the business, not copy. Naming a conformance standard and promising a
+// response time are liability statements, so both are opt-in rather than
+// placeholders. Left null, the page states only what this repo can actually
+// back up and makes no conformance claim. Set them to approved values and the
+// page names the standard and the reply time. Never put bracketed placeholder
+// text here; this page is publicly reachable.
+const CONFORMANCE_TARGET: string | null = null;
+const RESPONSE_TIME: string | null = null;
 
 const commitments = [
   'Automated accessibility checks (axe-core) run on every key page of this site before each release. A release is blocked if any serious or critical issue is found.',
@@ -45,7 +47,10 @@ export default function AccessibilityPage() {
             <p className="section-label">our commitment</p>
             <h2 className="text-h2 lowercase">what we aim for</h2>
             <p className="mt-5 text-xl leading-9">
-              We are working to conform to {CONFORMANCE_TARGET}. Accessibility is part of how we build and review this site, not an afterthought.
+              {CONFORMANCE_TARGET
+                ? `We are working to conform to ${CONFORMANCE_TARGET}. `
+                : 'We want every guest to be able to use this site, however they browse. '}
+              Accessibility is part of how we build and review this site, not an afterthought.
             </p>
           </div>
           <div className="mt-12 max-w-3xl">
@@ -61,7 +66,7 @@ export default function AccessibilityPage() {
           <div className="mt-12 max-w-3xl">
             <h2 className="text-h2 lowercase">how to report an issue</h2>
             <p className="mt-5 text-xl leading-9">
-              If any part of this site is hard to use, we want to know. Send a note with the feedback form below, and tell us the page and what got in your way. You can also call any yum! restaurant and a team member will pass your note along. We will get back to you {RESPONSE_TIME}.
+              If any part of this site is hard to use, we want to know. Send a note with the feedback form below, and tell us the page and what got in your way. You can also call any yum! restaurant and a team member will pass your note along.{RESPONSE_TIME ? ` We will get back to you ${RESPONSE_TIME}.` : ' We will get back to you.'}
             </p>
           </div>
         </div>
