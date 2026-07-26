@@ -48,5 +48,8 @@ docs/plans/2026-06-30-yum-ship-and-elevate/before/
 docs/plans/2026-06-30-yum-ship-and-elevate/during/
 docs/plans/2026-06-30-yum-ship-and-elevate/after/
 
+# 2026-07-24 visual/creative audit screenshots (kept local; report stays versioned)
+docs/history/qa/2026-07-24-visual-creative-audit/screenshots/
+
 # Vercel local link metadata
 .vercel/
