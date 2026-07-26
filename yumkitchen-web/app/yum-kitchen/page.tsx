@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { CateringCallout, HomeHero, MenuFeature, RedBand } from '@/components/HomeDesign';
+import { featuredDishes } from '@/lib/featuredDishes';
 import { CakeStudioBand } from '@/components/CakeStudioBand';
 import { ExperienceStats } from '@/components/ExperienceStats';
 import { GiftCardBand } from '@/components/GiftCardBand';
@@ -30,7 +31,7 @@ export default function YumKitchenHomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(brandJsonLd()) }} />
       <HomeHero />
       <RedBand />
-      <MenuFeature />
+      <MenuFeature items={featuredDishes} />
       <KineticMenuRail />
       <SeasonalShowcase />
       <PhotoMotionStory />
