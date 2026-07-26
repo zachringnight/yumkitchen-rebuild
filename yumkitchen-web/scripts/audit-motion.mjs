@@ -80,34 +80,35 @@ const hasReducedMotionRoleReset = hasRuleWithSelectorsAndDeclarations(
 const hasBareReducedMotionLogoHide = /(^|,)\s*\.logo-animation-logo\s*(?:,|\{)/m.test(reducedMotionCss);
 const patticakeRibbonCss = getCssBlock(css, '.patticake-message-ribbon span');
 // Photos run caption-free: nothing may claim what is in the frame beyond alt
-// text. Every surface that renders food or cake photography is listed, not just
-// the ones a given cleanup touched, so a caption cannot reappear on a surface
-// the guard forgot. Deliberately excluded: app/about/page.tsx captions a photo
-// of people, not food, and components/ReviewsWall.tsx uses figcaption for
-// review attribution, which is the element's actual purpose.
-const foodPhotoSurfaces = [
-  'components/CakeGallery.tsx',
-  'components/CakeStudioBand.tsx',
-  'components/HomeDesign.tsx',
-  'components/InquiryMomentumBand.tsx',
-  'components/KineticMenuRail.tsx',
-  'components/LocationExperienceBand.tsx',
-  'components/MediaProofBand.tsx',
-  'components/MenuMotionIntro.tsx',
-  'components/PatticakeConciergeBand.tsx',
-  'components/PatticakeHeroPeek.tsx',
-  'components/PatticakeHome.tsx',
-  'components/PatticakeMessagePreview.tsx',
-  'components/PhotoMotionStory.tsx',
-  'components/SeasonalShowcase.tsx',
-  'app/order/OrderClient.tsx',
-  'app/order-a-cake/page.tsx',
-  'app/patticake/page.tsx',
-];
-const captionFreePhotoSurfaces = foodPhotoSurfaces
-  .every((file) => !read(file).includes('<figcaption') && !read(file).includes('photo-motion-caption'));
-// No caption styling survives either, or the markup can come back fully dressed.
-const captionFreePhotoCss = !css.includes('figcaption') && !css.includes('photo-motion-caption');
+// text. Coverage is derived, not listed. Every .tsx under app/ and components/
+// is scanned, so a surface added later is guarded the day it lands rather than
+// the day someone remembers to update this file. A caption can only ship by
+// adding its path to the allowlist below, which is a deliberate act with a
+// reason attached rather than an oversight.
+const captionAllowlist = new Set([
+  // Captions a photo of people, not food. It names who is in the frame.
+  'app/about/page.tsx',
+  // Uses figcaption for review attribution, which is what the element is for.
+  'components/ReviewsWall.tsx',
+]);
+const surfaceFiles = ['app', 'components'].flatMap((dir) =>
+  fs
+    .readdirSync(path.join(root, dir), { recursive: true })
+    .map((entry) => `${dir}/${entry}`)
+    .filter((file) => file.endsWith('.tsx')));
+const captionedSurfaces = surfaceFiles
+  .filter((file) => !captionAllowlist.has(file))
+  .filter((file) => read(file).includes('<figcaption') || read(file).includes('photo-motion-caption'));
+const captionFreePhotoSurfaces = captionedSurfaces.length === 0;
+// Caption styling must not outlive the markup, or a caption can come back fully
+// dressed. Scoped to the food and cake photo surfaces rather than the whole
+// stylesheet, so shared styling for the allowlisted captions above stays legal.
+const foodPhotoSurfaceSelectors = ['.photo-motion', '.patticake-photo-grid', '.patticake-hero-peek', '.cake-gallery'];
+const captionFreePhotoCss = !css.includes('photo-motion-caption')
+  && !css
+    .split('\n')
+    .filter((line) => line.includes('figcaption'))
+    .some((line) => foodPhotoSurfaceSelectors.some((prefix) => line.includes(prefix)));
 const positionedPatticakeImageParents = [
   '.patticake-hero-card',
   '.patticake-hero-peek-image',
