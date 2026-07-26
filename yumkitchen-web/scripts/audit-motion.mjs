@@ -116,11 +116,15 @@ const captionFreePhotoSurfaces = captionedSurfaces.length === 0;
 // dressed. Scoped to the food and cake photo surfaces rather than the whole
 // stylesheet, so shared styling for the allowlisted captions above stays legal.
 const foodPhotoSurfaceSelectors = ['.photo-motion', '.patticake-photo-grid', '.patticake-hero-peek', '.cake-gallery'];
+// Whole selectors, not lines. A descendant selector may be wrapped across lines
+// (`.photo-motion-layer\nfigcaption`), and checking line by line would see a
+// bare `figcaption` with no surface prefix and wave it through. Everything
+// between the previous brace and the next `{` is the selector; collapsing its
+// whitespace makes formatting irrelevant to the result.
+const cssSelectors = Array.from(css.matchAll(/([^{}]+)\{/g), (match) => match[1].replace(/\s+/g, ' ').trim());
 const captionFreePhotoCss = !css.includes('photo-motion-caption')
-  && !css
-    .split('\n')
-    .filter((line) => line.includes('figcaption'))
-    .some((line) => foodPhotoSurfaceSelectors.some((prefix) => line.includes(prefix)));
+  && !cssSelectors.some((selector) =>
+    selector.includes('figcaption') && foodPhotoSurfaceSelectors.some((prefix) => selector.includes(prefix)));
 const positionedPatticakeImageParents = [
   '.patticake-hero-card',
   '.patticake-hero-peek-image',
