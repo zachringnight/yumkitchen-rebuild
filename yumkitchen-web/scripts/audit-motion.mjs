@@ -107,10 +107,12 @@ const surfaceFiles = ['app', 'components'].flatMap((dir) =>
 // <span> with an unrelated class name, and no source-level grep can. This is a
 // tripwire for regression and a signpost for the next coder, not a proof. The
 // review gate for a genuinely new photo label is a human reading the diff.
-const hasCaptionMarkup = (source) => source.includes('<figcaption')
-  || source.includes('photo-motion-caption')
+// Split, because an exempt file's exemption covers one <figcaption> and nothing
+// else: caption-shaped divs stay guarded there too.
+const hasCaptionClassMarkup = (source) => source.includes('photo-motion-caption')
   || /className="[^"]*caption/i.test(source)
   || /className={`[^`]*caption/i.test(source);
+const hasCaptionMarkup = (source) => source.includes('<figcaption') || hasCaptionClassMarkup(source);
 
 const captionedSurfaces = surfaceFiles.filter((file) => {
   const source = read(file);
@@ -120,7 +122,10 @@ const captionedSurfaces = surfaceFiles.filter((file) => {
   // An exempt file has to still carry the caption it was exempted for, and no
   // more captions than it was exempted for.
   const captionCount = (source.match(/<figcaption/g) ?? []).length;
-  return !source.includes(exemption.marker) || captionCount !== exemption.allowed;
+  if (!source.includes(exemption.marker) || captionCount !== exemption.allowed) return true;
+  // The exemption is for that one figcaption, not for anything caption-shaped
+  // the file might grow later.
+  return hasCaptionClassMarkup(source);
 });
 const captionFreePhotoSurfaces = captionedSurfaces.length === 0;
 // Caption styling must not outlive the markup, or a caption can come back fully
