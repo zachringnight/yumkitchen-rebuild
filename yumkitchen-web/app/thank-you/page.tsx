@@ -14,16 +14,18 @@ export const metadata: Metadata = {
   twitter: { images: ['/og/default.jpg'] },
 };
 
-// OWNER SIGN-OFF REQUIRED (Zach): the response-time line below is a factual
-// commitment about the business. Replace the bracketed placeholder with an
-// approved commitment (for example "within 2 business days") before this
-// page ships. Do not publish the bracketed text.
-const RESPONSE_TIME = '[OWNER SIGN-OFF: response-time commitment, for example within 2 business days]';
+// OWNER SIGN-OFF (Zach): a reply-time commitment is a factual statement about
+// the business, so it is opt-in rather than a placeholder. Leave this null and
+// the page simply omits the sentence; set it to an approved commitment (for
+// example 'within 2 business days') and the sentence appears. Never put
+// bracketed placeholder text here, this page is now reachable by real
+// visitors after every form submission.
+const RESPONSE_TIME: string | null = null;
 
-// Per-kind tailoring. The kind arrives as an optional `?kind=` query param.
-// Today no form redirects here with a kind, so the neutral default renders.
-// Once InquiryForm redirects to `/thank-you?kind={kind}` on success, these
-// branches take over with a next step that matches what was submitted.
+// Per-kind tailoring. InquiryForm redirects here on a successful submit as
+// `/thank-you?kind={kind}`, so these branches carry a next step matching what
+// was actually sent. The param stays optional: a visitor who lands here
+// directly gets the neutral default rather than a broken page.
 const kindContent: Record<string, { note: string; nextHref: string; nextLabel: string }> = {
   catering: {
     note: 'Your catering note is in. While you wait, the catering page has menus and pricing to browse.',
@@ -58,7 +60,7 @@ export default async function ThankYouPage({ searchParams }: { searchParams: Pro
           <p className="section-label">message received</p>
           <h1 className="font-serif text-[clamp(3.5rem,8vw,6rem)] font-normal leading-[0.95] lowercase text-ink">thank you!</h1>
           <p className="mx-auto mt-6 max-w-xl text-xl leading-9 text-body">
-            We got your note and it is on its way to the right person. We reply to every message, usually {RESPONSE_TIME}.
+            We got your note and it is on its way to the right person.{RESPONSE_TIME ? ` We reply to every message, usually ${RESPONSE_TIME}.` : ' We reply to every message.'}
           </p>
           {tailored && <p className="mx-auto mt-4 max-w-xl text-xl leading-9 text-body">{tailored.note}</p>}
           <p className="mx-auto mt-4 max-w-xl text-xl leading-9 text-body">Need an answer sooner? Calling your restaurant is the fastest way to reach us.</p>
