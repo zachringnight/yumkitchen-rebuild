@@ -97,7 +97,7 @@ const trustNotes = [
 const cakeDetails = [
   {
     title: 'made from scratch',
-    copy: 'Devil’s food chocolate cake and vanilla buttercream, baked by the yum! team.',
+    copy: 'Triple-layer chocolate cake and vanilla buttercream, baked by the yum! team.',
   },
   {
     title: 'made to share',
@@ -189,7 +189,6 @@ export default function PatticakeNationalDeliveryPage() {
             <PatticakeHeroPeek
               src="/images/patticake/09_slices.jpg"
               alt="yum! patticake slices on plates"
-              label="ready to send"
               className="crop-patticake-slices"
             />
             <Reveal as="p" className="mt-7 max-w-xl text-xl leading-9 text-ink" delay={0.1} y={16}>

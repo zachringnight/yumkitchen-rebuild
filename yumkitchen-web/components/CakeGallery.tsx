@@ -1,14 +1,16 @@
 import Image from 'next/image';
 
-const galleryImages: { src: string; alt: string; caption: string; span?: boolean }[] = [
-  { src: '/images/patticake/08_tier_wedding_d.jpg', alt: 'Tiered yum! wedding cake with pink roses', caption: 'weddings', span: true },
-  { src: '/images/yum-patticake-top.jpg', alt: 'yum! buttercream cake, top view', caption: 'birthdays' },
-  { src: '/images/yum-patticake-layers.jpg', alt: 'yum! chocolate layer cake, cut open on a cake stand', caption: 'celebrations' },
-  { src: '/images/patticake/04_tier_wedding_b.jpg', alt: 'yum! cake decorated with pressed flowers', caption: 'showers' },
-  { src: '/images/patticake/gift_box_vertical.jpg', alt: 'yum! bakery gift box with red ribbon', caption: 'gifting' },
-  { src: '/images/yum-patticake-floral-tier.jpg', alt: 'Tiered yum! cake with bright fresh flowers', caption: 'anniversaries' },
-  { src: '/images/patticake/10_layers_slice.jpg', alt: 'Patticake chocolate layers, close up', caption: 'office parties', span: true },
-  { src: '/images/patticake/09_slices.jpg', alt: 'yum! patticake slices on plates', caption: 'just because' },
+// Photos carry no visible caption. Alt text describes what is actually in the
+// frame; anything beyond that would be a food claim yumkitchen.com does not make.
+const galleryImages: { src: string; alt: string }[] = [
+  { src: '/images/patticake/08_tier_wedding_d.jpg', alt: 'Tiered yum! wedding cake with pink roses' },
+  { src: '/images/yum-patticake-top.jpg', alt: 'yum! buttercream cake, top view' },
+  { src: '/images/yum-patticake-layers.jpg', alt: 'yum! chocolate layer cake, cut open on a cake stand' },
+  { src: '/images/patticake/04_tier_wedding_b.jpg', alt: 'yum! cake decorated with pressed flowers' },
+  { src: '/images/patticake/gift_box_vertical.jpg', alt: 'yum! bakery gift box with red ribbon' },
+  { src: '/images/yum-patticake-floral-tier.jpg', alt: 'Tiered yum! cake with bright fresh flowers' },
+  { src: '/images/patticake/10_layers_slice.jpg', alt: 'Patticake chocolate layers, close up' },
+  { src: '/images/patticake/09_slices.jpg', alt: 'yum! patticake slices on plates' },
 ];
 
 export function CakeGallery() {
@@ -22,7 +24,7 @@ export function CakeGallery() {
         </p>
         <div className="stagger-reveal mt-8 grid grid-cols-2 gap-3 md:grid-cols-4">
           {galleryImages.map((img) => (
-            <figure
+            <div
               key={img.src}
               className="group overflow-hidden border border-ink/10 bg-white"
             >
@@ -35,10 +37,7 @@ export function CakeGallery() {
                   className="object-cover transition duration-500 group-hover:scale-[1.04]"
                 />
               </div>
-              <figcaption className="border-t border-ink/10 px-4 py-3 font-serif text-xl lowercase text-ink">
-                {img.caption}
-              </figcaption>
-            </figure>
+            </div>
           ))}
         </div>
       </div>

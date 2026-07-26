@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 const proofPoints = [
   {
     title: 'Patticake',
-    copy: 'devil\'s food cake, vanilla buttercream, baked by the yum! team',
+    copy: 'triple-layer chocolate cake, vanilla buttercream, baked by the yum! team',
   },
   {
     title: 'made fresh to order',
@@ -73,11 +73,10 @@ export default function CakePage() {
             <PatticakeHeroPeek
               src="/images/patticake/layers_slice_vertical.jpg"
               alt="yum! patticake chocolate cake layers close up"
-              label="chocolate layers"
               className="crop-patticake-vertical-layer"
             />
             <Reveal as="p" className="mt-7 max-w-[500px] text-xl leading-8 text-ink" delay={0.1} y={16}>
-              Patticake is devil&apos;s food chocolate cake layered with vanilla buttercream, baked fresh for birthdays, thank-yous, weddings, and every table worth celebrating.
+              Patticake is triple-layer chocolate cake with vanilla buttercream, baked fresh for birthdays, thank-yous, weddings, and every table worth celebrating.
             </Reveal>
             <Reveal className="mt-8 flex flex-wrap items-center gap-3" delay={0.16} y={14}>
               <PressButton>

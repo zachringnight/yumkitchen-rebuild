@@ -17,7 +17,6 @@ const springs = read('components/motion/springs.ts');
 const patticakeHomeSurface = read('components/PatticakeHome.tsx');
 const patticakeDelivery = read('app/patticake/page.tsx');
 const patticakePickup = read('app/order-a-cake/page.tsx');
-const patticakeHeroPeek = read('components/PatticakeHeroPeek.tsx');
 const yumPhotoStory = read('components/PhotoMotionStory.tsx');
 const reviewAssets = read('app/asset-gallery/assets.json');
 const creativeReviewSync = read('scripts/sync-creative-review-assets.mjs');
@@ -80,9 +79,68 @@ const hasReducedMotionRoleReset = hasRuleWithSelectorsAndDeclarations(
 );
 const hasBareReducedMotionLogoHide = /(^|,)\s*\.logo-animation-logo\s*(?:,|\{)/m.test(reducedMotionCss);
 const patticakeRibbonCss = getCssBlock(css, '.patticake-message-ribbon span');
-const patticakePeekCaptionCss = getCssBlock(css, '.patticake-hero-peek figcaption');
-const patticakeGridCaptionCss = getCssBlock(css, '.patticake-photo-grid-frame figcaption');
-const yumPhotoCaptionCss = getCssBlock(css, '.photo-motion-layer figcaption');
+// Photos run caption-free: nothing may claim what is in the frame beyond alt
+// text. Coverage is derived, not listed. Every .tsx under app/ and components/
+// is scanned, so a surface added later is guarded the day it lands rather than
+// the day someone remembers to update this file. A caption can only ship by
+// adding its path to the allowlist below, which is a deliberate act with a
+// reason attached rather than an oversight.
+// The exemption is one caption per file, not the file. Each entry pins a marker
+// unique to the approved caption and the number of captions the file may carry,
+// so a second caption next to a different photo in the same file is still
+// caught. The marker is caption text rather than class names, so restyling stays
+// free and only a change in what the caption says trips it.
+const captionAllowlist = new Map([
+  // Captions a photo of people, not food. It names who is in the frame.
+  ['app/about/page.tsx', { marker: 'founder Patti Soskin, with Kelli, at yum!', allowed: 1 }],
+  // figcaption for review attribution, which is what the element is for.
+  ['components/ReviewsWall.tsx', { marker: '{story.creator}, {story.platform}', allowed: 1 }],
+]);
+const surfaceFiles = ['app', 'components'].flatMap((dir) =>
+  fs
+    .readdirSync(path.join(root, dir), { recursive: true })
+    .map((entry) => `${dir}/${entry}`)
+    .filter((file) => file.endsWith('.tsx')));
+// Catches <figcaption> and anything self-describing as a caption in a class
+// name, which is how the pattern actually comes back: someone rebuilds the
+// caption as a styled div. It does not catch a label written as a plain <p> or
+// <span> with an unrelated class name, and no source-level grep can. This is a
+// tripwire for regression and a signpost for the next coder, not a proof. The
+// review gate for a genuinely new photo label is a human reading the diff.
+// Split, because an exempt file's exemption covers one <figcaption> and nothing
+// else: caption-shaped divs stay guarded there too.
+const hasCaptionClassMarkup = (source) => source.includes('photo-motion-caption')
+  || /className="[^"]*caption/i.test(source)
+  || /className={`[^`]*caption/i.test(source);
+const hasCaptionMarkup = (source) => source.includes('<figcaption') || hasCaptionClassMarkup(source);
+
+const captionedSurfaces = surfaceFiles.filter((file) => {
+  const source = read(file);
+  const exemption = captionAllowlist.get(file);
+  if (!exemption) return hasCaptionMarkup(source);
+
+  // An exempt file has to still carry the caption it was exempted for, and no
+  // more captions than it was exempted for.
+  const captionCount = (source.match(/<figcaption/g) ?? []).length;
+  if (!source.includes(exemption.marker) || captionCount !== exemption.allowed) return true;
+  // The exemption is for that one figcaption, not for anything caption-shaped
+  // the file might grow later.
+  return hasCaptionClassMarkup(source);
+});
+const captionFreePhotoSurfaces = captionedSurfaces.length === 0;
+// Caption styling must not outlive the markup, or a caption can come back fully
+// dressed. Scoped to the food and cake photo surfaces rather than the whole
+// stylesheet, so shared styling for the allowlisted captions above stays legal.
+const foodPhotoSurfaceSelectors = ['.photo-motion', '.patticake-photo-grid', '.patticake-hero-peek', '.cake-gallery'];
+// Whole selectors, not lines. A descendant selector may be wrapped across lines
+// (`.photo-motion-layer\nfigcaption`), and checking line by line would see a
+// bare `figcaption` with no surface prefix and wave it through. Everything
+// between the previous brace and the next `{` is the selector; collapsing its
+// whitespace makes formatting irrelevant to the result.
+const cssSelectors = Array.from(css.matchAll(/([^{}]+)\{/g), (match) => match[1].replace(/\s+/g, ' ').trim());
+const captionFreePhotoCss = !css.includes('photo-motion-caption')
+  && !cssSelectors.some((selector) =>
+    selector.includes('figcaption') && foodPhotoSurfaceSelectors.some((prefix) => selector.includes(prefix)));
 const positionedPatticakeImageParents = [
   '.patticake-hero-card',
   '.patticake-hero-peek-image',
@@ -132,9 +190,8 @@ const checks = [
   ['Patticake pickup page removes the equal three-card choice block', patticakePickup.includes('Ship Nationwide') && patticakePickup.includes('nationwide gifting') && !patticakePickup.includes('const cakePaths') && !patticakePickup.includes('where should the cake go?') && !patticakePickup.includes('md:grid-cols-3')],
   ['Patticake message ribbon is plain type', !patticakeRibbonCss.includes('background:') && !patticakeRibbonCss.includes('border:') && !patticakeRibbonCss.includes('box-shadow:')],
   ['Patticake fill image parents are positioned', positionedPatticakeImageParents],
-  ['Patticake mobile hero caption stays below the image', patticakeHeroPeek.includes('</div>\n      <figcaption>') && !patticakePeekCaptionCss.includes('position: absolute')],
-  ['Patticake photo grid captions stay below images', patticakeHomeSurface.includes('patticake-photo-grid-image') && !patticakeGridCaptionCss.includes('position: absolute')],
-  ['Yum photo grid captions stay below images', yumPhotoStory.includes('photo-motion-image') && !yumPhotoCaptionCss.includes('position: absolute')],
+  ['photo surfaces carry no visible captions', captionFreePhotoSurfaces && captionFreePhotoCss],
+  ['photo frames still wrap positioned images', patticakeHomeSurface.includes('patticake-photo-grid-image') && yumPhotoStory.includes('photo-motion-image')],
   ['active gallery sync uses the current creative launch pack', creativeReviewSync.includes("yum-patticake-creative-launch-2026-07-14") && !creativeReviewSync.includes("yum-patticake-social-motion-pack")],
   ['gallery sync archives stale review assets instead of deleting them', creativeReviewSync.includes("archive', 'retired-review-assets") && creativeReviewSync.includes('archiveUnexpected') && creativeReviewSync.includes('renameSync')],
   ['dev cache cleanup preserves an active server and clears stale locks', devCacheCleanup.includes("spawnSync('lsof'") && devCacheCleanup.includes('lockHasOwner') && devCacheCleanup.includes("process.argv.includes('--force')")],

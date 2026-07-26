@@ -6,6 +6,9 @@ import dynamic from 'next/dynamic';
 import { useCallback, useEffect, useState } from 'react';
 import { AnimatedYumLogo } from './AnimatedYumLogo';
 import { locations } from '@/lib/locations';
+// Type-only: erased at compile time, so lib/menu-seed.json stays out of this
+// client bundle. The resolved dishes arrive as a prop from the server page.
+import type { FeaturedDish } from '@/lib/featuredDishes';
 
 const LocationPickerModal = dynamic(() => import('./LocationPickerModal').then((mod) => mod.LocationPickerModal), {
   ssr: false,
@@ -32,64 +35,6 @@ const rhythmItems = [
   { time: 'dinner', title: 'dinner comes home easy' },
   { time: 'bakery', title: 'a sweet thing for later' },
   { time: 'catering', title: 'party food made with care' },
-] as const;
-
-// Featured dishes are chosen so their photos do not repeat the seasonal
-// favorites grid or the real-moments collage further down the page. Names,
-// prices, and ingredients come from lib/menu-seed.json.
-type MenuFeatureItem = {
-  name: string;
-  category: string;
-  price: string;
-  copy: string;
-  image: string;
-  position?: string;
-};
-
-const menuFeatureItems: readonly MenuFeatureItem[] = [
-  {
-    name: 'california scramble',
-    category: 'breakfast',
-    price: '$12.95',
-    copy: 'Scrambled eggs with tomato, avocado, fresh mozzarella, spinach, and daikon sprouts, served with greens and whole grain toast.',
-    image: '/images/yum-breakfast.jpg',
-  },
-  {
-    name: 'yum! veggie',
-    category: 'sandwiches',
-    price: '$12.95',
-    copy: 'Avocado, cucumber, sprouts, tomato, spinach, cheddar, and muenster with honey mustard aioli on toasted whole grain.',
-    image: '/images/yum-catering-veggie-platters.jpg',
-  },
-  {
-    name: 'lemon chicken',
-    category: 'dinner',
-    price: '$16.95',
-    copy: 'Seared chicken breast with fresh lemon and Italian parsley, served with roasted potatoes and broccolini.',
-    image: '/images/yum-catering-lemon-chicken.jpg',
-    position: 'object-[50%_38%]',
-  },
-  {
-    name: "bob's tomato soup",
-    category: 'soups',
-    price: '$6.95 / $7.95 / $15.95',
-    copy: 'A cozy everyday favorite, available by the cup, the bowl, or the take-home quart.',
-    image: '/images/yum-bobs-tomato-soup.jpg',
-  },
-  {
-    name: 'mac & cheese',
-    category: 'pasta',
-    price: '$7.95 / $10.95',
-    copy: 'Comfort pasta in small or large, with a family-style pan ready to go home.',
-    image: '/images/yum-catering-mac-cheese.jpg',
-  },
-  {
-    name: 'rhubarb upside down cupcake',
-    category: 'bakery',
-    price: '$4.95',
-    copy: 'Seasonal bakery case joy: bright, pretty, and ready for the ride home.',
-    image: '/images/yum-bakery-rhubarb-cupcake.jpg',
-  },
 ] as const;
 
 export function HomeHero() {
@@ -241,9 +186,9 @@ export function RedBand() {
   );
 }
 
-export function MenuFeature() {
+export function MenuFeature({ items }: { items: readonly FeaturedDish[] }) {
   const [active, setActive] = useState(0);
-  const item = menuFeatureItems[active];
+  const item = items[active];
 
   return (
     <section className="bg-cream px-6 py-10 md:py-18">
@@ -292,11 +237,11 @@ export function MenuFeature() {
           <div className="menu-feature-active">
             <span>{item.category}</span>
             <strong>{item.name}</strong>
-            <p>{item.copy}</p>
+            {item.copy ? <p>{item.copy}</p> : null}
             <em>{item.price}</em>
           </div>
           <div className="mt-4 grid grid-cols-2 gap-2 lg:grid-cols-3">
-            {menuFeatureItems.map((menuItem, index) => (
+            {items.map((menuItem, index) => (
               <button
                 key={menuItem.name}
                 type="button"

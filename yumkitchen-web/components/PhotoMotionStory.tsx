@@ -2,8 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 type PhotoMoment = {
-  title: string;
-  detail: string;
   image: string;
   alt: string;
   position?: string;
@@ -14,27 +12,19 @@ type PhotoMoment = {
 // callout, and so the reels below never repeat the collage above them.
 const collageMoments: readonly PhotoMoment[] = [
   {
-    title: 'morning regulars',
-    detail: 'breakfast, coffee, and counter energy',
     image: '/images/yum-cold-brew.jpg',
     alt: 'A steaming glass of coffee on a sunny yum! counter',
     position: 'object-[50%_72%]',
   },
   {
-    title: 'picnic pickup',
-    detail: 'boxed lunches ready for the day',
     image: '/images/yum-catering-boxed-lunch.jpg',
     alt: 'A yum! boxed lunch with a sandwich, chips, fruit, and a chocolate chip cookie',
   },
   {
-    title: 'pie for later',
-    detail: 'streusel-topped fruit pie by the slice',
     image: '/images/yum-bakery-pie.jpeg',
     alt: 'A slice of streusel-topped fruit pie on a plate',
   },
   {
-    title: 'lunch to go',
-    detail: 'pressed sandwiches, packed to travel',
     image: '/images/yum-catering-sandwiches-live.jpg',
     alt: 'A pressed veggie sandwich beside a light blue yum! take-home box',
     position: 'object-[50%_62%]',
@@ -43,26 +33,18 @@ const collageMoments: readonly PhotoMoment[] = [
 
 const reelTopMoments: readonly PhotoMoment[] = [
   {
-    title: 'team pride',
-    detail: 'the people behind the plate',
     image: '/images/yum-chef-kitchen.jpg',
     alt: 'A smiling yum! chef in the kitchen',
   },
   {
-    title: 'lunch rush',
-    detail: 'tables full of regulars',
     image: '/images/yum-dining-room.jpg',
     alt: 'Guests laughing at their tables in the yum! dining room',
   },
   {
-    title: 'cupcake break',
-    detail: 'a chocolate cupcake, properly enjoyed',
     image: '/images/yum-hero-0131.jpg',
     alt: 'A kid taking a big bite of a chocolate cupcake with white frosting',
   },
   {
-    title: 'packed with care',
-    detail: 'boxes and bags ready to head home',
     image: '/images/yum-packaging-counter.jpg',
     alt: 'Light blue yum! boxes and bags wrapped with ribbon on the counter',
   },
@@ -70,26 +52,18 @@ const reelTopMoments: readonly PhotoMoment[] = [
 
 const reelBottomMoments: readonly PhotoMoment[] = [
   {
-    title: 'platter day',
-    detail: 'steak sandwiches, platter-style',
     image: '/images/yum-catering-platter-steak.jpg',
     alt: 'Sliced steak sandwiches arranged on a catering platter',
   },
   {
-    title: 'family table',
-    detail: 'the littlest regulars',
     image: '/images/yum-hero-2375.jpg',
     alt: 'A woman snuggling a toddler at the table',
   },
   {
-    title: 'lake day',
-    detail: 'boxed lunches and takeout made by yum!',
     image: '/images/yum-catering-egg-salad.jpg',
     alt: 'Scoops of egg salad over greens with bread and a yum! takeout bag',
   },
   {
-    title: 'bakery bars',
-    detail: 'frosted bars from the scratch bakery',
     image: '/images/yum-bakery-bars.jpeg',
     alt: 'Frosted bakery bars in paper wrappers',
   },
@@ -112,10 +86,6 @@ function MotionPhotoCard({
           sizes="(min-width: 1024px) 220px, 46vw"
           className="object-cover"
         />
-      </div>
-      <div className="photo-motion-caption">
-        <h3>{moment.title}</h3>
-        <p>{moment.detail}</p>
       </div>
     </article>
   );
@@ -144,7 +114,7 @@ export function PhotoMotionStory() {
 
           <div className="photo-motion-collage" aria-label="Yum food and bakery photo montage">
             {collageMoments.map((moment, index) => (
-              <figure key={moment.title} className={`photo-motion-layer photo-motion-layer-${index + 1}`}>
+              <figure key={moment.image} className={`photo-motion-layer photo-motion-layer-${index + 1}`}>
                 <div className="photo-motion-image">
                   <Image
                     src={moment.image}
@@ -154,7 +124,6 @@ export function PhotoMotionStory() {
                     className={moment.position ? `object-cover ${moment.position}` : 'object-cover'}
                   />
                 </div>
-                <figcaption>{moment.title}</figcaption>
               </figure>
             ))}
           </div>
@@ -164,24 +133,24 @@ export function PhotoMotionStory() {
           <div className="photo-motion-track photo-motion-track-left">
             <div className="photo-motion-set">
               {reelTopMoments.map((moment) => (
-                <MotionPhotoCard key={moment.title} moment={moment} />
+                <MotionPhotoCard key={moment.image} moment={moment} />
               ))}
             </div>
             <div className="photo-motion-set" aria-hidden="true">
               {reelTopMoments.map((moment) => (
-                <MotionPhotoCard key={`top-${moment.title}`} moment={moment} duplicate />
+                <MotionPhotoCard key={`top-${moment.image}`} moment={moment} duplicate />
               ))}
             </div>
           </div>
           <div className="photo-motion-track photo-motion-track-right">
             <div className="photo-motion-set">
               {reelBottomMoments.map((moment) => (
-                <MotionPhotoCard key={moment.title} moment={moment} />
+                <MotionPhotoCard key={moment.image} moment={moment} />
               ))}
             </div>
             <div className="photo-motion-set" aria-hidden="true">
               {reelBottomMoments.map((moment) => (
-                <MotionPhotoCard key={`bottom-${moment.title}`} moment={moment} duplicate />
+                <MotionPhotoCard key={`bottom-${moment.image}`} moment={moment} duplicate />
               ))}
             </div>
           </div>
