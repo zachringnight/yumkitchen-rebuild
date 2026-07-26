@@ -114,7 +114,7 @@ export default async function LocationPage({ params }: LocationRouteProps) {
       </section>
       <ReviewsWall surface="yum" locationSlug={loc.slug} />
       <GiftCardBand source="location_page" />
-      <LocationGrid />
+      <LocationGrid excludeSlug={loc.slug} />
     </main>
   );
 }
