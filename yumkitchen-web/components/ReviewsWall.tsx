@@ -10,14 +10,26 @@ import {
 } from '@/lib/reviews';
 
 function Stars({ value, className = '' }: { value: number; className?: string }) {
-  const full = Math.round(value);
   return (
     <span role="img" aria-label={`${value} out of 5 stars`} className={`inline-flex gap-0.5 ${className}`}>
-      {Array.from({ length: 5 }).map((_, i) => (
-        <span key={i} aria-hidden="true" className={i < full ? 'opacity-100' : 'opacity-30'}>
-          ★
-        </span>
-      ))}
+      {Array.from({ length: 5 }).map((_, i) => {
+        // Fractional fill: each star shows exactly its share of the rating,
+        // so 4.5 renders as four full stars plus a half-filled fifth star.
+        const fillRatio = Math.max(0, Math.min(1, value - i));
+        return (
+          <span key={i} aria-hidden="true" className="relative inline-block">
+            <span className="opacity-30">★</span>
+            {fillRatio > 0 ? (
+              <span
+                className="absolute left-0 top-0 h-full overflow-hidden"
+                style={{ width: `${fillRatio * 100}%` }}
+              >
+                ★
+              </span>
+            ) : null}
+          </span>
+        );
+      })}
     </span>
   );
 }
@@ -74,7 +86,7 @@ export function ReviewsWall({ surface = 'patticake', locationSlug }: ReviewsWall
     ? `loved in ${locationProof.scope.toLowerCase()}`
     : surface === 'yum'
       ? 'real love for yum!'
-      : 'loved across the twin cities';
+      : 'loved in st. louis park';
   const intro = locationProof
     ? `A current public rating for our ${locationProof.scope} kitchen, linked right to the source.`
     : 'Current public ratings and independent food coverage, with every source one click away.';
@@ -151,7 +163,7 @@ export function ReviewsWall({ surface = 'patticake', locationSlug }: ReviewsWall
         ) : null}
 
         <div className="mt-12 flex flex-col gap-6 bg-brand-primary px-7 py-7 text-white sm:px-10 lg:flex-row lg:items-center lg:justify-between">
-          <p className="max-w-[680px] font-serif text-3xl leading-tight lowercase text-white">see what is coming out of the kitchen right now</p>
+          <p className="max-w-[680px] font-serif text-3xl leading-tight lowercase text-white">follow along with what is coming out of the kitchen</p>
           <div className="flex flex-wrap gap-x-6 gap-y-3">
             {ownedSocialProfiles.map((profile) => (
               <a
