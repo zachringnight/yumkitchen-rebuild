@@ -7,6 +7,7 @@ import { useCart } from '@/lib/cart/CartContext';
 import { cakes, findVariant, formatUsd, occasions, type CakeFormat } from '@/lib/patticake/catalog';
 
 const patticake = cakes.find((cake) => cake.signature) ?? cakes[0];
+
 const moreCakes = cakes.filter((cake) => cake.slug !== patticake.slug);
 
 export function CakeBuyModule() {

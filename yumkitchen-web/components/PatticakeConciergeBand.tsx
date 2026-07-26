@@ -44,11 +44,11 @@ export function PatticakeConciergeBand() {
             </div>
             <div className="concierge-photo concierge-photo-gift">
               <Image
-                src="/images/patticake/gift_box_vertical.jpg"
-                alt="yum! bakery gift box with red ribbon"
+                src="/images/patticake/slices_plates_vertical.jpg"
+                alt="yum! patticake slices on plates"
                 fill
                 sizes="(min-width: 1024px) 18vw, 42vw"
-                className="object-cover crop-patticake-gift-box"
+                className="object-cover crop-patticake-vertical-slices"
               />
             </div>
           </div>

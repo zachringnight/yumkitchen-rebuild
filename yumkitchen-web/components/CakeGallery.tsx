@@ -1,14 +1,14 @@
 import Image from 'next/image';
 
 const galleryImages: { src: string; alt: string; caption: string; span?: boolean }[] = [
-  { src: '/images/patticake/02_tier_wedding_a.jpg', alt: 'Tiered yum! wedding cake', caption: 'weddings', span: true },
-  { src: '/images/patticake/03_top_view.jpg', alt: 'Patticake with vanilla buttercream, top view', caption: 'birthdays' },
-  { src: '/images/patticake/06_8inch_a.jpg', alt: 'yum! 8-inch celebration cake', caption: 'celebrations' },
-  { src: '/images/patticake/04_tier_wedding_b.jpg', alt: 'Tiered celebration cake', caption: 'showers' },
+  { src: '/images/patticake/08_tier_wedding_d.jpg', alt: 'Tiered yum! wedding cake with pink roses', caption: 'weddings', span: true },
+  { src: '/images/yum-patticake-top.jpg', alt: 'yum! buttercream cake, top view', caption: 'birthdays' },
+  { src: '/images/yum-patticake-layers.jpg', alt: 'yum! chocolate layer cake, cut open on a cake stand', caption: 'celebrations' },
+  { src: '/images/patticake/04_tier_wedding_b.jpg', alt: 'yum! cake decorated with pressed flowers', caption: 'showers' },
   { src: '/images/patticake/gift_box_vertical.jpg', alt: 'yum! bakery gift box with red ribbon', caption: 'gifting' },
-  { src: '/images/patticake/05_tier_wedding_c.jpg', alt: 'White-frosted tiered cake', caption: 'anniversaries' },
+  { src: '/images/yum-patticake-floral-tier.jpg', alt: 'Tiered yum! cake with bright fresh flowers', caption: 'anniversaries' },
   { src: '/images/patticake/10_layers_slice.jpg', alt: 'Patticake chocolate layers, close up', caption: 'office parties', span: true },
-  { src: '/images/patticake/07_8inch_b.jpg', alt: 'yum! buttercream celebration cake', caption: 'just because' },
+  { src: '/images/patticake/09_slices.jpg', alt: 'yum! patticake slices on plates', caption: 'just because' },
 ];
 
 export function CakeGallery() {

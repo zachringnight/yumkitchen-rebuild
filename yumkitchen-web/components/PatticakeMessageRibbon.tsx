@@ -15,9 +15,11 @@ export function PatticakeMessageRibbon({ tone = 'cream' }: PatticakeMessageRibbo
 
   return (
     <section className={`patticake-message-ribbon patticake-message-ribbon-${tone}`} aria-label="Patticake message ideas">
-      <div className="patticake-message-ribbon-track">
-        {renderSet(false)}
-        {renderSet(true)}
+      <div className="patticake-message-ribbon-viewport">
+        <div className="patticake-message-ribbon-track">
+          {renderSet(false)}
+          {renderSet(true)}
+        </div>
       </div>
     </section>
   );

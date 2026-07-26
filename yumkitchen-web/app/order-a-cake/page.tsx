@@ -55,13 +55,6 @@ const celebrationPhotos = [
   },
 ] as const;
 
-const gallery = [
-  { src: '/images/patticake/layers_slice_vertical.jpg', alt: 'yum! patticake chocolate cake layers close up', className: 'crop-patticake-vertical-layer' },
-  { src: '/images/patticake/slices_plates_vertical.jpg', alt: 'yum! patticake slices on plates', className: 'crop-patticake-vertical-slices' },
-  { src: '/images/patticake/gift_box_vertical.jpg', alt: 'yum! bakery gift box with red ribbon', className: 'crop-patticake-gift-box' },
-  { src: '/images/patticake/06_8inch_a.jpg', alt: 'yum! patticake with Just Married message', className: 'crop-patticake-message' },
-] as const;
-
 const nationalOrderIsExternal = /^https?:\/\//.test(patticakeNationalOrderUrl);
 
 export default function CakePage() {
@@ -114,7 +107,7 @@ export default function CakePage() {
               src="/images/patticake/layers_slice_vertical.jpg"
               alt="yum! patticake chocolate cake layers close up"
               fill
-              priority
+              loading="eager"
               sizes="(min-width: 1024px) 58vw, 100vw"
               className="object-cover crop-patticake-vertical-layer"
             />
@@ -233,27 +226,6 @@ export default function CakePage() {
       </section>
 
       <CakeGallery />
-
-      <section className="bg-white px-6 py-section">
-        <div className="mx-auto max-w-[1240px]">
-          <div className="mb-9 flex flex-wrap items-end justify-between gap-5">
-            <div className="max-w-2xl">
-              <p className="section-label">patticake gallery</p>
-              <h2 className="text-h2 lowercase">made for every celebration</h2>
-            </div>
-            <a href="#cake-inquiry" className="btn-link">
-              Plan a cake
-            </a>
-          </div>
-          <Stagger className="grid gap-4 md:grid-cols-4" gap={0.06}>
-            {gallery.map((image, index) => (
-              <StaggerItem key={`${image.alt}-${index}`} className={`relative overflow-hidden bg-cream ${index === 1 ? 'aspect-[4/5]' : 'aspect-square'}`}>
-                <Image src={image.src} alt={image.alt} fill loading={image.src === '/images/patticake/layers_slice_vertical.jpg' ? 'eager' : undefined} sizes="(min-width: 768px) 25vw, 100vw" className={`object-cover ${image.className}`} />
-              </StaggerItem>
-            ))}
-          </Stagger>
-        </div>
-      </section>
 
       <section id="cake-inquiry" className="scroll-mt-24 bg-blue-tint px-6 py-section md:scroll-mt-28">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
