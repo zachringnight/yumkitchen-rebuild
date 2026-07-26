@@ -36,12 +36,14 @@ const rhythmItems = [
 
 // Featured dishes are chosen so their photos do not repeat the seasonal
 // favorites grid or the real-moments collage further down the page. Names,
-// prices, and ingredients come from lib/menu-seed.json.
+// prices, and copy come straight from lib/menu-seed.json, expanded only from
+// its `w/` and `&` shorthand. Items the menu describes with nothing but a price
+// carry no copy here rather than a description yumkitchen.com does not make.
 type MenuFeatureItem = {
   name: string;
   category: string;
   price: string;
-  copy: string;
+  copy?: string;
   image: string;
   position?: string;
 };
@@ -70,25 +72,23 @@ const menuFeatureItems: readonly MenuFeatureItem[] = [
     position: 'object-[50%_38%]',
   },
   {
-    name: "bob's tomato soup",
+    name: 'bob’s tomato',
     category: 'soups',
     price: '$6.95 / $7.95 / $15.95',
-    copy: 'A cozy everyday favorite, available by the cup, the bowl, or the take-home quart.',
     image: '/images/yum-bobs-tomato-soup.jpg',
   },
   {
     name: 'mac & cheese',
     category: 'pasta',
     price: '$7.95 / $10.95',
-    copy: 'Comfort pasta in small or large, with a family-style pan ready to go home.',
+    copy: 'Small or large.',
     image: '/images/yum-catering-mac-cheese.jpg',
   },
   {
-    name: 'rhubarb upside down cupcake',
+    name: 's’more brownie',
     category: 'bakery',
     price: '$4.95',
-    copy: 'Seasonal bakery case joy: bright, pretty, and ready for the ride home.',
-    image: '/images/yum-bakery-rhubarb-cupcake.jpg',
+    image: '/images/yum-ig-smore-brownie.jpg',
   },
 ] as const;
 
@@ -292,7 +292,7 @@ export function MenuFeature() {
           <div className="menu-feature-active">
             <span>{item.category}</span>
             <strong>{item.name}</strong>
-            <p>{item.copy}</p>
+            {item.copy ? <p>{item.copy}</p> : null}
             <em>{item.price}</em>
           </div>
           <div className="mt-4 grid grid-cols-2 gap-2 lg:grid-cols-3">

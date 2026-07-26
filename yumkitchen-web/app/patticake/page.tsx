@@ -97,7 +97,7 @@ const trustNotes = [
 const cakeDetails = [
   {
     title: 'made from scratch',
-    copy: 'Devil’s food chocolate cake and vanilla buttercream, baked by the yum! team.',
+    copy: 'Triple-layer chocolate cake and vanilla buttercream, baked by the yum! team.',
   },
   {
     title: 'made to share',
