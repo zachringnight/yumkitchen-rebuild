@@ -48,5 +48,5 @@ Listed only so this file is a complete picture of what needs the owner. See `tas
 
 - `RESEND_API_KEY` plus a live form test
 - GTM/GA4 DebugView confirmation
-- DNS cutover go, and setting `NEXT_PUBLIC_YUM_HOST_ROUTING=1` in Vercel at cutover time
+- (DNS cutover was previously listed here. Removed 2026-07-26: no cutover is planned or scheduled, so `NEXT_PUBLIC_YUM_HOST_ROUTING` is not pending work.)
 - Zach-supplied data: dietary tags, location amenities, per-location SEO copy, menu CMS

@@ -85,7 +85,11 @@ If `patticake.com` is served by the same Vercel project:
 4. Set `NEXT_PUBLIC_PATTICAKE_NATIONAL_ORDER_URL` when a real national delivery checkout URL exists.
 5. If the checkout URL is unset, confirm the primary Patticake CTA routes to the order-details form on the page.
 
-## Cutover
+## Cutover (NOT PLANNED, reference only)
+
+**There is no DNS cutover planned or scheduled.** As of 2026-07-26 the live `yumkitchen.com` stays on its current WordPress host, this build stays on its Vercel URL, and nothing below is queued work. Do not treat any of it as an open task, a launch gate, or something being worked toward, and do not put it on a roadmap or status update as upcoming.
+
+The steps are kept because they were researched and verified and would be expensive to reconstruct. Read them as a reference for how a cutover *would* work if Zach ever decides to do one, not as a plan. `NEXT_PUBLIC_YUM_HOST_ROUTING` stays unset, so the host-routing code is inert.
 
 Full redirect/SEO-equity audit: see `redirects.md`. All known old URLs are covered by `trailingSlash: false` plus the explicit 301s in `next.config.js`.
 

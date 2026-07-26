@@ -151,7 +151,7 @@ Branch `chore/hardening-round`, merged via PR #17. Closed backlog items from the
 Branch `feat/host-brand-routing`, merged via PR #16. Built the env-flagged (`NEXT_PUBLIC_YUM_HOST_ROUTING=1`, off by default) routing that will let `yumkitchen.com` serve the restaurant home at `/` after DNS cutover while `patticake.com` keeps the Patticake home - a middleware rewrite (not redirect, to preserve SEO equity per `docs/redirects.md`), host-aware client shell, and flag-aware canonical/sitemap. Verified byte-identical to today's behavior with the flag off. Full report: `docs/history/plans/2026-07-12-host-brand-routing/run-report.md`.
 
 - [x] `bash verify.sh` VERIFY PASSED (flag off, default build); merged via PR #16.
-- [ ] OPEN (Zach gate): set `NEXT_PUBLIC_YUM_HOST_ROUTING=1` in Vercel and redeploy at actual DNS cutover time - see `docs/DEPLOYMENT.md` runbook.
+- NOT PLANNED: the `NEXT_PUBLIC_YUM_HOST_ROUTING=1` flip only matters at a DNS cutover, and no cutover is planned or scheduled (confirmed 2026-07-26). This is not an open gate. The flag stays unset and the routing code stays inert.
 
 ## Prior round: repo reorg + full QA visual review (2026-07-09)
 
@@ -165,7 +165,7 @@ Branch `chore/repo-reorg-2026-07-09`. Two tracks: (1) reorganized the whole repo
 Branch `yum-upgrade-round2-2026-07-01`. Closed the safely-shippable improvements from the v1 list: gift card band (B3), catering FAQ + JSON-LD (H4), per-location cake/catering email routing (G4), per-page OG images (A5), nofollow on external press links (A6). Repo hygiene: shipped branches deleted, .bak/.DS_Store cleared. Full report: `docs/history/plans/2026-07-01-yum-upgrade-round2/run-report.md`.
 
 - [x] verify.sh VERIFY PASSED (axe 0/0 on 15 routes, LH 100/100/100/100) after two caught-and-fixed QA findings.
-- [ ] OPEN (Zach gates, unchanged): RESEND_API_KEY + live form test; GTM/GA4 DebugView confirm; DNS cutover go. (`brand-blue-pass` PR #2 was closed unmerged and its branch deleted 2026-07-12 - resolved, no longer open.)
+- [ ] OPEN (Zach gates): RESEND_API_KEY + live form test; GTM/GA4 DebugView confirm. DNS cutover was removed from this list on 2026-07-26: it is not planned or scheduled. (`brand-blue-pass` PR #2 was closed unmerged and its branch deleted 2026-07-12 - resolved, no longer open.)
 - [ ] OPEN (Zach data): dietary tags (C1), amenities (C2), location SEO copy (A2), menu CMS (G1), holiday/loyalty/press-kit surfaces (H).
 
 ## Prior round: ship-and-elevate (2026-06-30)
@@ -176,7 +176,7 @@ Branch `ship-and-elevate-2026-06-30`. Tracks: ship-it-live + in-brand design pol
 - [x] Confirmed live on Vercel preview; no custom domain attached (DNS gate intact).
 - [x] In-brand mobile-rhythm polish on home, menu, Patticake (no color/content/CTA change). Re-verified: axe 0, LH 93/100/100/100.
 - [x] Cutover runbook: `docs/redirects.md` 301 audit + rollback path in `docs/DEPLOYMENT.md`.
-- [ ] OPEN (Zach gates): set Resend secret + live form test; confirm GTM/GA4 in a preview; DNS cutover go.
+- [ ] OPEN (Zach gates): set Resend secret + live form test; confirm GTM/GA4 in a preview. DNS cutover was removed from this list on 2026-07-26: it is not planned or scheduled.
 - [ ] OPEN (mechanical): redeploy polished build to a fresh preview (environment upload fault blocked it this run).
 
 ---
@@ -359,7 +359,7 @@ Files to create: see scaffold under `yumkitchen-web/`. Most are stubbed already 
 **Acceptance criteria:**
 - [ ] All 4 Toast URLs tested live (no 404s)
 - [ ] All forms send to `info@yumkitchen.com` via Resend (test from 3 different IPs)
-- [ ] DNS cutover runbook in `docs/DEPLOYMENT.md`
+- [x] DNS cutover runbook written in `docs/DEPLOYMENT.md`, and marked reference-only on 2026-07-26. No cutover is planned.
 - [ ] 301 redirect map generated (if any URLs changed)
 - [ ] GSC sitemap submission instructions
 - [ ] First-week monitoring checklist (Core Web Vitals, GA4 conversions)

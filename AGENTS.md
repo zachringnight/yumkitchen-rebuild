@@ -6,7 +6,7 @@ Read this entire file before doing anything. This is the current, single contrac
 
 A rebuild of https://yumkitchen.com, a 4-location restaurant chain in the Twin Cities (St. Louis Park, Shady Oak/Minnetonka, St. Paul, Woodbury), plus its sister brand https://patticake.com (national cake delivery + local pickup). Stack: Next.js 16.2 (App Router), React 19, TypeScript, Tailwind CSS v4.
 
-Both brand surfaces are served from this single codebase, distinguished by pathname (see `yumkitchen-web/lib/usePatticakeSurface.ts`), not by hostname. `proxy.ts` holds the host-based routing (`lib/hostRouting.ts`) that will let `yumkitchen.com` serve the restaurant home at `/` after DNS cutover; it is gated behind `NEXT_PUBLIC_YUM_HOST_ROUTING` (unset/off today, so current behavior is unchanged) - see `docs/history/plans/2026-07-12-host-brand-routing/run-report.md` and the cutover step in `docs/DEPLOYMENT.md`.
+Both brand surfaces are served from this single codebase, distinguished by pathname (see `yumkitchen-web/lib/usePatticakeSurface.ts`), not by hostname. `proxy.ts` holds host-based routing (`lib/hostRouting.ts`) gated behind `NEXT_PUBLIC_YUM_HOST_ROUTING`. The flag is unset and stays unset, so this code is inert and current behavior is unchanged. **No DNS cutover is planned or scheduled**, so do not treat the flag as pending work or a launch gate; see `docs/history/plans/2026-07-12-host-brand-routing/run-report.md` for what it does and the reference-only cutover section in `docs/DEPLOYMENT.md`.
 
 This repo is self-contained and git-tracked (`github.com/zachringnight/yumkitchen-rebuild`). There are no external sibling reference folders to read; everything you need is inside this checkout.
 
