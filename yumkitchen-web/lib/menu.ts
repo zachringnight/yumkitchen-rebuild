@@ -5,6 +5,11 @@ export type MenuItem = {
   prices: string[];
   description: string;
   tags?: string[];
+  // Optional, and deliberately sparse. A dish gets a photo only when a real
+  // photo of that dish exists; most items are still text-only. Never fill this
+  // with a photo of a different dish to make the grid look even.
+  image?: string;
+  imageAlt?: string;
 };
 
 export type MenuSection = {
