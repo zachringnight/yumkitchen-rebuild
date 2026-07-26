@@ -1,30 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { patticakeNationalOrderUrl } from '@/lib/site';
+import { patticakeProcessSteps } from './PatticakeProcessSteps';
 
 const nationalOrderIsExternal = /^https?:\/\//.test(patticakeNationalOrderUrl);
-
-const conciergeNotes = [
-  {
-    title: 'find the sweetest route',
-    copy: 'Pickup nearby or shipping farther away, yum! helps the cake travel well.',
-  },
-  {
-    title: 'shape the message',
-    copy: 'A birthday, thank-you, wedding, or just-because note can all feel personal on top.',
-  },
-  {
-    title: 'add the love note',
-    copy: 'Timing, weather, gift notes, and serving plans get a little human care.',
-  },
-] as const;
 
 export function PatticakeConciergeBand() {
   return (
     <section className="patticake-concierge bg-blue-tint px-6 py-12 lg:py-section" data-reveal>
       <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.76fr_1.24fr] lg:items-center">
         <div>
-          <p className="section-label text-ink">bakery care</p>
+          <p className="section-label text-ink">how it works</p>
           <h2 className="text-h2 lowercase">a cake that gets a real person behind it</h2>
           <p className="mt-5 max-w-xl text-xl leading-9 text-ink">
             Patticake should feel loved from the first note to the first slice. Tell us where it is headed, then we help make the next step easy.
@@ -66,13 +52,13 @@ export function PatticakeConciergeBand() {
               />
             </div>
           </div>
-          <div className="concierge-note-stack">
-            {conciergeNotes.map((note, index) => (
-              <article key={note.title} className={`concierge-note concierge-note-${index + 1}`}>
-                <span>{index + 1}</span>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {patticakeProcessSteps.map((step) => (
+              <article key={step.number} className="concierge-note">
+                <span>{step.number}</span>
                 <div>
-                  <h3>{note.title}</h3>
-                  <p>{note.copy}</p>
+                  <h3>{step.title}</h3>
+                  <p>{step.copy}</p>
                 </div>
               </article>
             ))}

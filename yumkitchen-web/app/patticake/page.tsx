@@ -12,9 +12,7 @@ import { MediaProofBand } from '@/components/MediaProofBand';
 import { ReviewsWall } from '@/components/ReviewsWall';
 import { PatticakeHeroPeek } from '@/components/PatticakeHeroPeek';
 import { PatticakeMessageRibbon } from '@/components/PatticakeMessageRibbon';
-import { PatticakeMessagePreview } from '@/components/PatticakeMessagePreview';
-import { PatticakeOriginBand } from '@/components/PatticakeOriginBand';
-import { PatticakePathGuide } from '@/components/PatticakePathGuide';
+import { PatticakeProcessSteps } from '@/components/PatticakeProcessSteps';
 import {
   pageMeta,
   patticakeCanonical,
@@ -31,29 +29,6 @@ export const metadata: Metadata = {
   openGraph: patticakeOpenGraph(pageMeta.patticakeDelivery.image),
   twitter: { images: [pageMeta.patticakeDelivery.image] },
 };
-
-const steps = [
-  {
-    number: '1',
-    title: 'choose your cake',
-    copy: 'Pick a whole cake or slices, and tell us the occasion.',
-  },
-  {
-    number: '2',
-    title: 'set the delivery',
-    copy: 'Add the ship-to address and delivery date at checkout.',
-  },
-  {
-    number: '3',
-    title: 'add the words',
-    copy: 'Write the gift message that should travel with the cake.',
-  },
-  {
-    number: '4',
-    title: 'we bake and send',
-    copy: 'Patticake is baked fresh, packed with care, and sent ready to share.',
-  },
-] as const;
 
 const occasions = [
   {
@@ -332,7 +307,6 @@ export default function PatticakeNationalDeliveryPage() {
       )}
 
       <PatticakeMessageRibbon tone="blue" />
-      <PatticakePathGuide activePath="shipping" />
 
       <section className="bg-white px-6 py-12 lg:py-section">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.68fr_1.32fr] lg:items-center">
@@ -370,30 +344,7 @@ export default function PatticakeNationalDeliveryPage() {
         </div>
       </section>
 
-      <section className="bg-cream px-6 py-8">
-        <div className="mx-auto max-w-[1240px]">
-          <Stagger className="patticake-process-panel" gap={0.12}>
-            <StaggerItem className="patticake-process-eyebrow">
-              <p>patticake delivery</p>
-            </StaggerItem>
-            <StaggerItem>
-              <h2 className="font-serif text-[2.7rem] font-normal leading-tight lowercase text-brand-primary">a clearer way to send it.</h2>
-              <p className="mt-4 max-w-[560px] text-lg leading-8 text-ink">
-                Pick the cake, set the date and message at checkout, and we&apos;ll help it travel with care.
-              </p>
-            </StaggerItem>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {steps.map((step) => (
-                <StaggerItem as="article" key={step.number} className="border-t border-ink/15 pt-4">
-                  <p className="font-serif text-3xl leading-none text-brand-primary">{step.number}</p>
-                  <h3 className="mt-3 font-serif text-2xl font-normal lowercase text-ink">{step.title}</h3>
-                  <p className="mt-2 text-base leading-7 text-body">{step.copy}</p>
-                </StaggerItem>
-              ))}
-            </div>
-          </Stagger>
-        </div>
-      </section>
+      <PatticakeProcessSteps />
 
       <section className="bg-white px-6 py-12 lg:py-section">
         <div className="mx-auto max-w-[1240px]">
@@ -422,8 +373,6 @@ export default function PatticakeNationalDeliveryPage() {
         </div>
       </section>
 
-      <PatticakeMessagePreview formHref="#delivery-support" />
-
       <section className="bg-cream px-6 py-12 lg:py-section">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
           <div>
@@ -451,7 +400,6 @@ export default function PatticakeNationalDeliveryPage() {
         </div>
       </section>
 
-      <PatticakeOriginBand />
       <MediaProofBand />
       <ReviewsWall />
 

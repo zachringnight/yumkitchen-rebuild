@@ -1489,12 +1489,6 @@ body[data-nav-open='true'] .mobile-order-bar {
   aspect-ratio: 4 / 5;
 }
 
-.concierge-note-stack {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.75rem;
-}
-
 .concierge-note {
   display: grid;
   grid-template-columns: 2.2rem 1fr;
@@ -2574,10 +2568,6 @@ to {
 
   .message-preview-cake {
     inset: 13% 8%;
-  }
-
-  .concierge-note-stack {
-    grid-template-columns: 1fr;
   }
 
   .patticake-process-panel {
