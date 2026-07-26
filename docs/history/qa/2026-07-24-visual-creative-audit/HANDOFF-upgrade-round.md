@@ -17,7 +17,7 @@ Execute the finalized visual/creative punch list in `tasks.md` under "Current ro
 
 ## Working agreement
 
-- **One task = one branch = one PR.** Do not bundle. This is a standing repo rule, not a preference for this round.
+- **One commit per task, one branch for the round.** Superseded 2026-07-26 at Zach's direction: the old one-task-one-PR rule would have produced 21 PRs for this round. `AGENTS.md` hard rule 8 now allows a coherent group in one PR as long as each task stays its own commit. See "Running a round with parallel agents" in `AGENTS.md` for the file-partitioning rules that make concurrent work on one branch safe.
 - `bash verify.sh` must return `VERIFY PASSED` before any PR. It runs typecheck, lint, build, axe a11y, Lighthouse on key pages, and an em-dash check.
 - Current baseline to preserve: axe 0/0, Lighthouse 100/100/100/100. Do not regress these.
 - Screenshots and QA evidence stay local (already gitignored); reports stay versioned.
