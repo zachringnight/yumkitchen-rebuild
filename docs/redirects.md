@@ -1,4 +1,7 @@
-# Redirect + SEO-equity map (cutover audit)
+# Redirect + SEO-equity map (reference, no cutover planned)
+
+**No DNS cutover is planned or scheduled** (confirmed 2026-07-26). Nothing in this file is queued work. It stays because the redirects it documents are already implemented and guard against real 404s, and because the audit would be costly to redo if a cutover is ever chosen. Do not read it as a launch plan.
+
 
 Generated 2026-06-30 for the ship-and-elevate launch. Confirms every old WordPress/Yoast URL resolves on the new site so search equity transfers. Source of truth for old URLs: `04_data/page-sitemap.xml`.
 
