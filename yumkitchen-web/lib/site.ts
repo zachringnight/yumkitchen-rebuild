@@ -126,7 +126,7 @@ export const pageMeta = {
   about: {
     title: 'about us',
     description: 'Made from scratch since 2005. Meet the family and team behind yum! Kitchen and Bakery.',
-    image: '/images/yum-patti-kelli.jpeg',
+    image: '/images/yum-dining-room.jpg',
   },
   careers: {
     title: 'work @ yum!',
@@ -357,7 +357,16 @@ export const cakeOptions = [
   },
 ] as const;
 
-export const leaderCards = [
+export type LeaderCard = {
+  name: string;
+  role: string;
+  href: string;
+  // Optional on purpose: a card only carries a photo when we have a photo of
+  // that actual person. Never fill this with a photo of someone else.
+  image?: string;
+};
+
+export const leaderCards: readonly LeaderCard[] = [
   {
     name: 'Hugo',
     role: 'chef and hospitality team',
@@ -365,10 +374,11 @@ export const leaderCards = [
     image: '/images/yum-chef-kitchen.jpg',
   },
   {
+    // No photo of Margaret exists in the repo yet. The card runs text-only
+    // rather than borrowing another person's photo.
     name: 'Margaret',
     role: 'Woodbury hospitality lead',
     href: '/location/woodbury',
-    image: '/images/yum-patti-kelli.jpeg',
   },
   {
     name: 'Mike',
@@ -376,7 +386,7 @@ export const leaderCards = [
     href: '/location/saint-paul',
     image: '/images/yum-meet-mike.jpg',
   },
-] as const;
+];
 
 export const locationOrder: LocationSlug[] = ['st-louis-park', 'shady-oak', 'saint-paul', 'woodbury'];
 
