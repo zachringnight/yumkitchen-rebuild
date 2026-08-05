@@ -41,8 +41,12 @@ export const cakes: Cake[] = [
     name: "Baker's Man",
     tagline: 'bakery-forward',
     description: 'A generous, festive layer cake for guests who want something familiar and comforting.',
-    image: '/images/patticake/10_layers_slice.jpg',
-    imageAlt: 'yum! chocolate layer cake with vanilla buttercream, close up',
+    // The actual Baker's Man (chocolate swiss buttercream), pulled 2026-08-05
+    // from the owned @yumkitchen Instagram (post Da-NWFlCDf3, whose caption
+    // names the cake). It previously wore a Patticake photo, on the very page
+    // that compares the two cakes.
+    image: '/images/patticake/bakers_man_stand.jpg',
+    imageAlt: "Baker's Man chocolate layer cake with chocolate swiss buttercream on a cake stand, with a slice plated",
     variants: [
       { format: 'whole', label: 'Whole cake', price: 5995, serves: '8-inch round, serves 8 to 16' },
       { format: 'slice', label: 'By the slice', price: 750, serves: 'a single generous slice' },

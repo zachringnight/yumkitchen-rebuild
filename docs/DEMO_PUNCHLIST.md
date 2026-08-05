@@ -77,6 +77,29 @@ numbers: homepage CTA clusters four to two, homepage steps tease titles-only,
 /patticake 12.2 to 9.4 screens with proof compressed from 2,281px to 702px
 and the buy module now the largest section on the page.
 
+## Photo sourcing round, 2026-08-05 (Apify pull of @yumkitchen)
+
+Pulled 71 posts (May 22 to Aug 5) from the owned @yumkitchen Instagram via
+Apify. Used:
+
+- **Baker's Man card fixed.** `/patticake`'s "more cakes" card wore a
+  Patticake photo; post `Da-NWFlCDf3` (caption names the cake: "three-layer
+  chocolate cake w/ swiss buttercream") is now
+  `/images/patticake/bakers_man_stand.jpg` in `lib/patticake/catalog.ts`.
+
+Found but not used, saved in the session scratchpad only:
+
+- **Coconut Cake card still wears a Patticake top view.** The only recent
+  coconut post (`DZXNka1ht5a`, June 9) is a video; no usable still exists in
+  the archive either. Needs one photo of the actual coconut cake.
+- Team photo (`DZ91cU7DDZL`, three bakers in yum! whites, "all smiles behind
+  the counter") and a night-event Patticake spread (`Da5Dt8nGz0Y`). Both
+  owned and usable if a slot opens; nothing on the site needs them today.
+
+Rights note: Google/press/WeddingWire images were deliberately NOT pulled;
+only Zach's own @yumkitchen account and the owned live-site archive qualify
+under the photo-rights rule.
+
 ## yum! Kitchen: done
 
 - Form failures no longer print `Email delivery is disabled until
