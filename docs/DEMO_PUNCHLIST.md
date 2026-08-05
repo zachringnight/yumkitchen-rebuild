@@ -96,9 +96,11 @@ Found but not used, saved in the session scratchpad only:
   the counter") and a night-event Patticake spread (`Da5Dt8nGz0Y`). Both
   owned and usable if a slot opens; nothing on the site needs them today.
 
-Rights note: Google/press/WeddingWire images were deliberately NOT pulled;
-only Zach's own @yumkitchen account and the owned live-site archive qualify
-under the photo-rights rule.
+Update 2026-08-05: Zach removed the photo-rights gating for this project.
+Any source may be used; the only remaining photo rule is accuracy (the photo
+must actually show the yum! item it claims to show). This unblocks the
+WeddingWire gallery in the site archive and outside sources for the Coconut
+Cake photo and an unmasked Margaret.
 
 ## yum! Kitchen: done
 
