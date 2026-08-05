@@ -178,7 +178,7 @@ export default function CheckoutPage() {
                     </label>
                     <label className="field">
                       <span>State</span>
-                      <select value={r.state} onChange={(e) => setRecipient(i, { state: e.target.value })}>
+                      <select value={r.state} onChange={(e) => setRecipient(i, { state: e.target.value })} autoComplete="address-level1">
                         {US_STATES.map((s) => (
                           <option key={s} value={s}>{s}</option>
                         ))}

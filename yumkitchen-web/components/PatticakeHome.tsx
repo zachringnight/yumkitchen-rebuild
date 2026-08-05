@@ -12,38 +12,57 @@ import { PatticakeMessageRibbon } from './PatticakeMessageRibbon';
 
 // Photos run without visible captions. Alt text stays descriptive; any label
 // beyond that would be a food claim yumkitchen.com does not make.
+//
+// The three frames tell the gift in order: how it arrives (the box), what is
+// inside (the cut cake), and how it is shared (slices on plates). No two
+// frames repeat a subject, and every source is sharp at hero size.
+//
+// The `sizes` values run larger than the frames' visual width on purpose.
+// These frames are taller than the source aspect ratios, so `object-cover`
+// scales to satisfy *height*; a width-accurate `sizes` makes the browser pick
+// a variant that is too short and upscales. Verified empirically:
+// naturalHeight >= rect.height * devicePixelRatio must hold for every frame.
 const heroFrames = [
   {
-    src: '/images/patticake/layers_slice_vertical.jpg',
-    alt: 'yum! patticake chocolate cake layers close up',
-    className: 'crop-patticake-vertical-layer',
-    sizes: '(min-width: 1024px) 30vw, (min-width: 768px) 44vw, 46vw',
+    src: '/images/patticake/gift_box_vertical.jpg',
+    alt: 'Patticake gift box in bright baby blue, tied with red yum! ribbon',
+    className: 'crop-patticake-gift-box',
+    sizes: '(min-width: 1024px) 35vw, 85vw',
   },
   {
-    src: '/images/patticake/03_top_view.jpg',
-    alt: 'yum! patticake vanilla buttercream top view',
-    className: 'crop-patticake-top',
-    sizes: '(min-width: 1024px) 29vw, (min-width: 768px) 42vw, 38vw',
+    src: '/images/patticake/10_layers_slice.jpg',
+    alt: 'triple-layer chocolate Patticake cut open to show the layers',
+    className: 'crop-patticake-layer',
+    sizes: '(min-width: 1024px) 40vw, 85vw',
   },
   {
     src: '/images/patticake/09_slices.jpg',
     alt: 'yum! patticake slices on plates',
     className: 'crop-patticake-slices',
-    sizes: '(min-width: 1024px) 38vw, (min-width: 768px) 54vw, 68vw',
+    sizes: '(min-width: 1024px) 40vw, 85vw',
   },
 ] as const;
 
 // Wording tracks lib/patticake/catalog.ts, which is the confirmed product copy.
-const proof = ['made from scratch since 2005', 'triple-layer chocolate cake', 'vanilla buttercream', 'made by yum! Kitchen and Bakery'] as const;
+// Only the two facts the subhead does not already state: "triple-layer
+// chocolate cake" and "vanilla buttercream" were dropped because they repeat
+// the sentence directly above this row word for word.
+const proof = ['made from scratch since 2005', 'made by yum! Kitchen and Bakery'] as const;
 
 const nationalOrderIsExternal = /^https?:\/\//.test(patticakeNationalOrderUrl);
 
 export function PatticakeHome() {
   return (
     <main className="bg-blue-tint">
-      <section className="patticake-home-hero overflow-hidden bg-blue-tint px-6 py-[clamp(3.25rem,7vw,7rem)]">
-        <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
-          <div className="max-w-[570px]">
+      {/* Top padding runs lighter than bottom so the headline block sits in
+          the optical upper third instead of stranding empty blue above it. */}
+      <section className="patticake-home-hero overflow-hidden bg-blue-tint px-6 pt-[clamp(2.5rem,4.5vw,4rem)] pb-[clamp(3rem,6vw,6rem)]">
+        {/* items-start, not items-center: the text column is ~270px shorter
+            than the photo grid, and centering it stranded a third of the
+            viewport as empty blue above the headline. A small top offset
+            keeps the eyebrow optically aligned with the grid's first frame. */}
+        <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+          <div className="max-w-[570px] lg:pt-[clamp(1rem,3.5vw,3rem)]">
             <Reveal as="p" className="section-label" y={10}>now available nationwide · made by yum!</Reveal>
             <Reveal as="h1" className="font-serif text-[clamp(4rem,8vw,7.4rem)] font-normal leading-[0.9] lowercase text-brand-primary" fade={false} y={14} delay={0.05}>
               patticake
@@ -93,8 +112,13 @@ export function PatticakeHome() {
                     src={frame.src}
                     alt={frame.alt}
                     fill
-                    quality={60}
+                    // Flagship food photography sells the product; 60 was the
+                    // lowest quality setting in the codebase, on the images
+                    // that can least afford it.
+                    quality={85}
                     sizes={frame.sizes}
+                    // The tall first frame is the measured LCP element.
+                    priority={index === 0}
                     loading="eager"
                     className={`object-cover ${frame.className}`}
                   />
@@ -110,12 +134,15 @@ export function PatticakeHome() {
       <Reveal as="section" className="bg-white px-6 py-12 lg:py-section">
         <div className="mx-auto grid max-w-[1240px] overflow-hidden border-y border-brand-primary/25 lg:grid-cols-[1.08fr_0.92fr]">
           <div className="relative min-h-[420px] bg-blue-soft lg:min-h-[620px]">
+            {/* The hero above establishes the whole box; this near-square slot
+                crops the same photograph to the sticker-and-bow detail so the
+                repeat reads as a detail shot, not a duplicate. */}
             <Image
               src="/images/patticake/gift_box_vertical.jpg"
               alt="bright baby-blue yum! bakery gift box with red ribbon"
               fill
               sizes="(min-width: 1024px) 55vw, 100vw"
-              className="object-cover crop-patticake-gift-box"
+              className="object-cover crop-patticake-gift-box-detail"
             />
           </div>
           <div className="flex flex-col bg-blue-tint p-[clamp(2rem,5vw,4.75rem)]">
@@ -129,18 +156,20 @@ export function PatticakeHome() {
               <p className="mt-6 max-w-xl text-xl leading-9 text-ink">
                 A fresh bakery cake, a personal note, and a bright baby-blue box, now available nationwide.
               </p>
-              <PressButton className="mt-8">
-                <a
-                  href={patticakeNationalOrderUrl}
-                  target={nationalOrderIsExternal ? '_blank' : undefined}
-                  rel={nationalOrderIsExternal ? 'noopener noreferrer' : undefined}
-                  className="btn-primary"
-                  data-event="click_patticake_national_delivery_order"
-                  data-source="patticake_home_nationwide_feature"
-                >
-                  Ship a Patticake
-                </a>
-              </PressButton>
+              {/* Text link, not a button: the hero's "Ship a Cake" is one
+                  scroll above and the closing section repeats the pair. Four
+                  full-strength CTA clusters asking the same question was the
+                  audit's core structural finding on this page. */}
+              <a
+                href={patticakeNationalOrderUrl}
+                target={nationalOrderIsExternal ? '_blank' : undefined}
+                rel={nationalOrderIsExternal ? 'noopener noreferrer' : undefined}
+                className="btn-link mt-8 inline-block"
+                data-event="click_patticake_national_delivery_order"
+                data-source="patticake_home_nationwide_feature"
+              >
+                Ship a Patticake
+              </a>
             </div>
             <div className="mt-10 grid border-t border-brand-primary/30 sm:mt-auto sm:grid-cols-2">
               <Link href="/order-a-cake#cake-inquiry" className="group py-5 sm:pr-6">

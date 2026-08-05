@@ -1052,20 +1052,11 @@ body[data-nav-open='true'] .mobile-order-bar {
   pointer-events: none;
 }
 
-.patticake-home-hero::before {
-  content: '';
-  position: absolute;
-  inset: 1.5rem;
-  z-index: 0;
-  opacity: 0.64;
-  background:
-    radial-gradient(circle at 12% 18%, rgb(220 52 57 / 0.2) 0 0.35rem, transparent 0.38rem),
-    radial-gradient(circle at 86% 22%, rgb(174 210 239 / 0.72) 0 0.45rem, transparent 0.48rem),
-    radial-gradient(circle at 20% 78%, rgb(220 52 57 / 0.14) 0 0.42rem, transparent 0.45rem),
-    radial-gradient(circle at 74% 84%, rgb(180 33 43 / 0.15) 0 0.3rem, transparent 0.34rem),
-    linear-gradient(115deg, transparent 0 20%, rgb(255 255 255 / 0.6) 20% 21.5%, transparent 21.5% 100%);
-  pointer-events: none;
-}
+/* The hero deliberately carries no ::before decoration layer. A previous
+   version floated four low-opacity radial specks and a diagonal streak here;
+   at their size they read as dust on the screen, and glow effects are banned
+   by the current creative direction (docs/HANDOFF_CURRENT.md). The gradient
+   and pinstripe texture on the section itself are the whole background. */
 
 .patticake-home-hero > div {
   position: relative;
@@ -1123,7 +1114,10 @@ body[data-nav-open='true'] .mobile-order-bar {
 
 .patticake-photo-grid {
   display: grid;
-  min-height: clamp(31rem, 58vw, 48rem);
+  /* Sized so the grid's bottom frame resolves above the fold at common
+     desktop viewports (900px tall and up) instead of being cut mid-photo.
+     The grid drives the hero's height; the text column centers against it. */
+  min-height: clamp(30rem, 50vw, 44rem);
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-rows: repeat(2, minmax(0, 1fr));
   gap: 0.75rem;
@@ -1177,8 +1171,11 @@ body[data-nav-open='true'] .mobile-order-bar {
   grid-row: span 2;
 }
 
+/* 10_layers_slice.jpg in the hero: the cake face sits in the upper band of
+   the photo; favoring it keeps the frame full of layers instead of the empty
+   cake board below the cut. */
 .crop-patticake-layer {
-  object-position: 48% 44%;
+  object-position: 46% 18%;
 }
 
 .crop-patticake-vertical-layer {
@@ -1199,6 +1196,13 @@ body[data-nav-open='true'] .mobile-order-bar {
 
 .crop-patticake-gift-box {
   object-position: 52% 48%;
+}
+
+/* Detail crop of the same gift-box photograph: favors the yum! sticker and
+   ribbon bow so a second appearance on one page reads as a close-up, not a
+   repeat of the hero's establishing shot. */
+.crop-patticake-gift-box-detail {
+  object-position: 52% 30%;
 }
 
 .crop-patticake-wedding {
@@ -1990,16 +1994,6 @@ to {
   }
 }
 
-@keyframes patticake-frosting-drift {
-  0%,
-  100% {
-    transform: translate3d(-0.45rem, 0, 0);
-  }
-  50% {
-    transform: translate3d(0.45rem, -0.35rem, 0);
-  }
-}
-
 @keyframes message-field-pulse {
   0% {
     box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-brand-primary) 55%, transparent);
@@ -2101,10 +2095,6 @@ to {
 
   .kinetic-rail:hover .kinetic-track {
     animation-play-state: paused;
-  }
-
-  .patticake-home-hero::before {
-    animation: patticake-frosting-drift 12s ease-in-out infinite;
   }
 
   .patticake-message-ribbon-track {
@@ -2220,7 +2210,6 @@ to {
   [data-reveal].is-visible .stagger-reveal > *:nth-child(6) { animation-delay: 300ms; }
   [data-reveal].is-visible .stagger-reveal > *:nth-child(n+7) { animation-delay: 360ms; }
 
-  [data-motion-paused='true'] .patticake-home-hero::before,
   [data-motion-paused='true'] .patticake-message-ribbon-track,
   [data-motion-paused='true'] .message-preview-cake,
   [data-motion-paused='true'] .photo-motion-track {
@@ -2310,8 +2299,7 @@ to {
   .logo-animation-shine::before,
   .logo-animation-spark,
   .home-hero-indicator::after,
-  .red-band-motion::before,
-  .patticake-home-hero::before {
+  .red-band-motion::before {
     opacity: 0;
     transform: none;
   }
@@ -2513,10 +2501,6 @@ to {
   .location-experience-board,
   .order-momentum-board {
     min-height: 420px;
-  }
-
-  .patticake-home-hero::before {
-    inset: 0.75rem;
   }
 
   .patticake-message-ribbon {

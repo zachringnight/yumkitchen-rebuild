@@ -360,7 +360,10 @@ export const cakeOptions = [
 export type LeaderCard = {
   name: string;
   role: string;
-  href: string;
+  // Optional on purpose: only set this when the person actually leads a
+  // location page. A card with no href renders without the "Visit Location"
+  // call to action instead of linking somewhere that says nothing new.
+  href?: string;
   // Optional on purpose: a card only carries a photo when we have a photo of
   // that actual person. Never fill this with a photo of someone else.
   image?: string;
@@ -370,7 +373,8 @@ export const leaderCards: readonly LeaderCard[] = [
   {
     name: 'Hugo',
     role: 'chef and hospitality team',
-    href: '/about',
+    // Hugo is not tied to a single location page, so this card carries no
+    // link. It previously pointed back at /about, which was a dead click.
     image: '/images/yum-chef-kitchen.jpg',
   },
   {

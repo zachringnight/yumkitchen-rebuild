@@ -9,7 +9,6 @@ import { PressButton } from '@/components/motion/PressButton';
 import { Reveal } from '@/components/motion/Reveal';
 import { Stagger, StaggerItem } from '@/components/motion/Stagger';
 import { MediaProofBand } from '@/components/MediaProofBand';
-import { ReviewsWall } from '@/components/ReviewsWall';
 import { PatticakeHeroPeek } from '@/components/PatticakeHeroPeek';
 import { PatticakeMessageRibbon } from '@/components/PatticakeMessageRibbon';
 import { PatticakeProcessSteps } from '@/components/PatticakeProcessSteps';
@@ -391,8 +390,12 @@ export default function PatticakeNationalDeliveryPage() {
         </div>
       </section>
 
+      {/* One proof band, not two. ReviewsWall (1,366px of ratings sources,
+          social links, and coverage lists) still runs on the yum! surfaces;
+          here it pushed total proof to 2.5 screens against a 1.5-screen buy
+          module. MediaProofBand now carries the rating and the two citations
+          that describe the cake. */}
       <MediaProofBand />
-      <ReviewsWall />
 
       <section className="bg-blue-tint/70 px-6 py-12 lg:py-section">
         <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.74fr_1.26fr]">
@@ -416,27 +419,41 @@ export default function PatticakeNationalDeliveryPage() {
         </div>
       </section>
 
-      <section id="delivery-support" className="scroll-mt-24 bg-white px-6 py-12 md:scroll-mt-28 lg:py-section">
-        <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.82fr_1.18fr]">
+      {/* Deliberately demoted: the checkout above is the way to buy, and this
+          is the help path. It used to render all fifteen fields inline, at
+          nearly the same size as the buy module, so the page asked visitors
+          to choose between a real checkout and a "not a confirmed order"
+          form. Collapsed, it stays one click away (and #delivery-support
+          still lands here for the header and mobile-bar shortcuts). */}
+      <section className="bg-white px-6 py-12 lg:py-16">
+        <div className="mx-auto max-w-[860px]">
           <Reveal>
             <p className="section-label">shipping help</p>
-            <h2 className="text-h2 lowercase">start your shipping note</h2>
-            <p className="mt-5 text-xl leading-9 text-body">
-              Share where the cake is going, when it should arrive, and what you want written with it. This starts a bakery note, not a confirmed order.
+            <h2 className="text-h2 lowercase">rather talk it through first?</h2>
+            <p className="mt-4 max-w-2xl text-xl leading-9 text-body">
+              Ordering happens right on this page. If you have a question about timing, allergies, or the note on top, start a shipping note instead and a real yum! baker will reply. It is a note, not a confirmed order.
             </p>
           </Reveal>
-          <InquiryForm
-            kind="cake"
-            cakeMode="delivery"
-            defaultSubject="Patticake shipping note"
-            eventDateLabel="Requested delivery date"
-            guestsLabel="Quantity or servings"
-            showLocation={false}
-            hideSubject
-            messageLabel="Delivery timing, allergy notes, or anything we should know"
-            submitLabel="Send Shipping Note"
-            successMessage="We got it. Someone from yum! will reply with the next sweet step."
-          />
+          <details id="delivery-support" className="group mt-6 scroll-mt-24 border border-ink/15 bg-white md:scroll-mt-28">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-serif text-2xl lowercase text-brand-primary">
+              start your shipping note
+              <span className="font-sans text-3xl leading-none text-brand-primary transition group-open:rotate-45">+</span>
+            </summary>
+            <div className="border-t border-ink/15 p-5 sm:p-7">
+              <InquiryForm
+                kind="cake"
+                cakeMode="delivery"
+                defaultSubject="Patticake shipping note"
+                eventDateLabel="Requested delivery date"
+                guestsLabel="Quantity or servings"
+                showLocation={false}
+                hideSubject
+                messageLabel="Delivery timing, allergy notes, or anything we should know"
+                submitLabel="Send Shipping Note"
+                successMessage="We got it. Someone from yum! will reply with the next sweet step."
+              />
+            </div>
+          </details>
         </div>
       </section>
 

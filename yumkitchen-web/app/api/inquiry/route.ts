@@ -264,10 +264,13 @@ export async function POST(request: Request) {
     data.message,
   ].join('\n');
 
+  // No mail credential configured yet (preview and demo builds). Say so in
+  // plain language: this string is rendered verbatim to the guest, so it must
+  // never name an environment variable or read like a stack trace.
   if (!process.env.RESEND_API_KEY) {
     return NextResponse.json(
       {
-        message: 'Email delivery is disabled until RESEND_API_KEY is configured. Please call a yum! restaurant.',
+        message: 'This form is not taking messages yet. Please call your nearest yum! and we will take care of you.',
       },
       { status: 503 },
     );

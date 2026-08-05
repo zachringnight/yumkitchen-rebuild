@@ -54,20 +54,35 @@ export default function AboutPage() {
           <p className="section-label">behind the counter</p>
           <h2 className="text-h2 lowercase">people who make the room feel like yum!</h2>
           <div className="stagger-reveal mt-8 grid gap-5 md:grid-cols-3" data-reveal>
-            {leaderCards.map((leader) => (
-              <Link key={leader.name} href={leader.href} className="accent-card group bg-white shadow-xs">
-                {leader.image && (
-                  <div className="relative aspect-4/3 overflow-hidden bg-cream">
-                    <Image src={leader.image} alt={leader.name} fill sizes="(min-width: 768px) 33vw, 100vw" className="image-lift object-cover" />
+            {leaderCards.map((leader) => {
+              const body = (
+                <>
+                  {leader.image && (
+                    <div className="relative aspect-4/3 overflow-hidden bg-cream">
+                      <Image src={leader.image} alt={leader.name} fill sizes="(min-width: 768px) 33vw, 100vw" className="image-lift object-cover" />
+                    </div>
+                  )}
+                  <div className="p-7">
+                    <h3 className="text-h3 lowercase">{leader.name}</h3>
+                    <p className="mt-2 text-lg leading-8">{leader.role}</p>
+                    {leader.href && <span className="btn-link mt-4 inline-block">Visit Location</span>}
                   </div>
-                )}
-                <div className="p-7">
-                  <h3 className="text-h3 lowercase">{leader.name}</h3>
-                  <p className="mt-2 text-lg leading-8">{leader.role}</p>
-                  <span className="btn-link mt-4 inline-block">Visit Location</span>
+                </>
+              );
+
+              // A card only becomes a link when it points at a real location
+              // page. Without that, "Visit Location" is a dead click, which
+              // reads worse than a plain card.
+              return leader.href ? (
+                <Link key={leader.name} href={leader.href} className="accent-card group bg-white shadow-xs">
+                  {body}
+                </Link>
+              ) : (
+                <div key={leader.name} className="accent-card bg-white shadow-xs">
+                  {body}
                 </div>
-              </Link>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

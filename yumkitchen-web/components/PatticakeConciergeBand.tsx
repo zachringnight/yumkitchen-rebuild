@@ -1,9 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { patticakeNationalOrderUrl } from '@/lib/site';
 import { patticakeProcessSteps } from './PatticakeProcessSteps';
-
-const nationalOrderIsExternal = /^https?:\/\//.test(patticakeNationalOrderUrl);
 
 export function PatticakeConciergeBand() {
   return (
@@ -15,31 +12,26 @@ export function PatticakeConciergeBand() {
           <p className="mt-5 max-w-xl text-xl leading-9 text-ink">
             Patticake should feel loved from the first note to the first slice. Tell us where it is headed, then we help make the next step easy.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            {nationalOrderIsExternal ? (
-              <a href={patticakeNationalOrderUrl} target="_blank" rel="noopener noreferrer" className="btn-primary">
-                Ship a Cake
-              </a>
-            ) : (
-              <Link href={patticakeNationalOrderUrl} className="btn-primary">
-                Ship a Cake
-              </Link>
-            )}
-            <Link href="/order-a-cake#cake-inquiry" className="btn-secondary">
-              Pick Up Locally
-            </Link>
-          </div>
+          {/* No CTA pair here: the hero above and the closing section below
+              both carry Ship a Cake / Pick Up Locally. This band explains;
+              the link hands off to the full process on /patticake. */}
+          <Link href="/patticake" className="btn-link mt-8 inline-block">
+            see the full process
+          </Link>
         </div>
 
         <div className="concierge-editorial">
           <div className="concierge-photo-grid">
+            {/* A hand-piped message cake under "a real person behind it".
+                09_slices was here before, but it already leads the hero grid
+                on this same page; the repeat added nothing. */}
             <div className="concierge-photo concierge-photo-main">
               <Image
-                src="/images/patticake/09_slices.jpg"
-                alt="Patticake slices on plates"
+                src="/images/patticake/06_8inch_a.jpg"
+                alt="white 8-inch Patticake with Just Married piped in red icing"
                 fill
                 sizes="(min-width: 1024px) 34vw, 78vw"
-                className="object-cover crop-patticake-slices"
+                className="object-cover crop-patticake-product"
               />
             </div>
             <div className="concierge-photo concierge-photo-gift">
@@ -52,13 +44,17 @@ export function PatticakeConciergeBand() {
               />
             </div>
           </div>
+          {/* Titles only, from the same canonical patticakeProcessSteps: the
+              homepage teases the process; /patticake carries the full block
+              with per-step copy. Rendering both in full meant the demo click
+              path (home, then Ship a Cake) hit the identical four steps twice
+              within seconds. Do not fork the wording here. */}
           <div className="grid gap-3 sm:grid-cols-2">
             {patticakeProcessSteps.map((step) => (
               <article key={step.number} className="concierge-note">
                 <span>{step.number}</span>
                 <div>
                   <h3>{step.title}</h3>
-                  <p>{step.copy}</p>
                 </div>
               </article>
             ))}

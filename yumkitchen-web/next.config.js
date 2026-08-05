@@ -37,7 +37,9 @@ const nextConfig = {
   },
   images: {
     formats: ['image/avif', 'image/webp'],
-    qualities: [60, 70, 75],
+    // 85 exists for flagship product photography (the Patticake hero); the
+    // optimizer clamps any unlisted quality down to the nearest entry.
+    qualities: [60, 70, 75, 85],
     remotePatterns: [{ protocol: 'https', hostname: 'yumkitchen.com' }],
   },
   async redirects() {

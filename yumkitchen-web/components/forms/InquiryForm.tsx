@@ -398,7 +398,11 @@ export function InquiryForm({
                   {loc.name}
                 </option>
               ))}
-              <option value="na">N/A</option>
+              {/* "N/A" only belongs on an optional location field. On the cake
+                  pickup and catering forms the location is required and the
+                  label names a restaurant, so N/A both reads as leftover test
+                  data and slips past the required check as a real value. */}
+              {!(requiresCakeLocation || isCatering) && <option value="na">N/A</option>}
             </select>
           </Field>
         )}
