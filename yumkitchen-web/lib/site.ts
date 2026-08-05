@@ -378,11 +378,14 @@ export const leaderCards: readonly LeaderCard[] = [
     image: '/images/yum-chef-kitchen.jpg',
   },
   {
-    // No photo of Margaret exists in the repo yet. The card runs text-only
-    // rather than borrowing another person's photo.
+    // Provenance: the original yumkitchen.com about page ran this exact
+    // photo (Yum_0726.jpg) as Margaret's location-leader card, verified
+    // 2026-08-05 against the site archive's about.html. It is a 2020-era
+    // curbside shot, so she is masked; swap it if a newer portrait arrives.
     name: 'Margaret',
     role: 'Woodbury hospitality lead',
     href: '/location/woodbury',
+    image: '/images/yum-margaret-curbside.jpg',
   },
   {
     name: 'Mike',

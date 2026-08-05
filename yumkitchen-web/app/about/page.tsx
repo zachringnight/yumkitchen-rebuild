@@ -41,11 +41,16 @@ export default function AboutPage() {
               <p className="mt-5">That trust shows up in the food, the people, the locations, and the warmth behind the counter.</p>
             </div>
           </div>
+          {/* Provenance: the original yumkitchen.com about page ran this exact
+              portrait (Yum_0467.jpg) beside "Led by Patti and Robbie Soskin",
+              verified 2026-08-05 against the site archive's about.html. Patti's
+              identity is cross-confirmed against the labeled photo that
+              previously sat here (now only in PatticakeOriginBand). */}
           <figure>
-            <div className="relative aspect-4/3 overflow-hidden bg-cream">
-              <Image src="/images/yum-patti-kelli.jpeg" alt="founder Patti Soskin with Kelli at a yum! table" fill sizes="(min-width: 1024px) 42vw, 100vw" className="object-cover" />
+            <div className="relative aspect-[4/5] overflow-hidden bg-cream">
+              <Image src="/images/yum-founders-patti-robbie.jpg" alt="founders Patti and Robbie Soskin, arm in arm" fill sizes="(min-width: 1024px) 42vw, 100vw" className="object-cover" />
             </div>
-            <figcaption className="mt-3 text-base leading-7 text-body">founder Patti Soskin, with Kelli, at yum!</figcaption>
+            <figcaption className="mt-3 text-base leading-7 text-body">founders Patti and Robbie Soskin</figcaption>
           </figure>
         </div>
       </section>

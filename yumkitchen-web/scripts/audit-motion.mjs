@@ -92,7 +92,9 @@ const patticakeRibbonCss = getCssBlock(css, '.patticake-message-ribbon span');
 // free and only a change in what the caption says trips it.
 const captionAllowlist = new Map([
   // Captions a photo of people, not food. It names who is in the frame.
-  ['app/about/page.tsx', { marker: 'founder Patti Soskin, with Kelli, at yum!', allowed: 1 }],
+  // 2026-08-05: the about figure is now the founders portrait (Yum_0467 from
+  // the original-site archive), so the pinned caption text moved with it.
+  ['app/about/page.tsx', { marker: 'founders Patti and Robbie Soskin', allowed: 1 }],
   // figcaption for review attribution, which is what the element is for.
   ['components/ReviewsWall.tsx', { marker: '{story.creator}, {story.platform}', allowed: 1 }],
 ]);
