@@ -2,6 +2,32 @@
 
 Prepared July 15 and revised July 21, 2026 from current real Yum photography, the July 9 brand toolkit, the live Patticake site copy, and the baby-blue box and red logo system.
 
+## site alignment check, August 5, 2026: read before executing
+
+The site changed after this plan was frozen. Three deltas to reconcile before
+any spend:
+
+1. **`/patticake#delivery-support` now lands on a collapsed disclosure.** The
+   shipping-note form was deliberately demoted so the on-page checkout is the
+   unambiguous buy path. The anchor still works, but arrivals see a closed
+   "start your shipping note" panel, one click from the form. The note-first
+   assets (`how-to-patticake` carousel, `patticake-start-the-note`) keep this
+   destination because their creative is note-first; just know what it lands
+   on, and prefer `#national-order` (the real checkout) for any asset whose
+   copy talks about ordering rather than the note.
+2. **The `how-to-patticake` carousel's five steps are the old note-first
+   process.** The site's canonical four steps now end in "we bake it fresh"
+   with online checkout as the first action. Before the D+3 slot runs paid,
+   consider a re-render aligned to `components/PatticakeProcessSteps.tsx`
+   wording, which is the single source of process copy.
+3. **Stronger photography exists than this pack carries.** Added to the site
+   on August 5: `gift_boxes_stack.jpg` (stacked baby-blue boxes, the best
+   packaging shot in the archive), `slices_rows.jpg` (1800x1200 pro frame of
+   the slices scene), `bakers_man_stand.jpg` (the actual Baker's Man), and
+   the founders portrait `yum-founders-patti-robbie.jpg` (natural fit for the
+   D+12 `patticake-made-by-yum` slot). A v8 refresh round that pulls these in
+   would strengthen the launch-morning hero and the origin story assets.
+
 ## creative rule
 
 Every asset follows the same hierarchy:

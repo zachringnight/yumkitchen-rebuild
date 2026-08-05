@@ -106,6 +106,31 @@ must actually show the yum! item it claims to show). This unblocks the
 WeddingWire gallery in the site archive and outside sources for the Coconut
 Cake photo and an unmasked Margaret.
 
+## Marketing asset review, 2026-08-05
+
+The active social pack (`social/yum-patticake-creative-launch-2026-07-14`) is
+launch-ready: all 13 delivery ZIPs pass SHA256 verification, exports and
+`/asset-gallery` counts reconcile with `docs/HANDOFF_CURRENT.md`, and the
+retired packs are properly quarantined. A dated "site alignment check" was
+added to the top of `PATTICAKE-LAUNCH-ROLLOUT.md` covering the three deltas a
+rollout operator needs: the collapsed `#delivery-support` anchor, the
+note-first `how-to-patticake` carousel now contradicting the site's canonical
+checkout-first process, and the August 5 photography the pack predates.
+
+**Found in `~/dev/yumkitchen-reference/media-for-review/`:**
+
+- **`parade-video/Yum! Parade v1.mov`, 88 seconds, professionally shot.** A
+  community parade with a "thank you for a decade of yum!" banner, staff in
+  red caps, a drone shot, and a fire truck with balloons. The strongest
+  unused emotional brand asset on the machine. Candidates: a 10-15s cut for
+  the D+12 `patticake-made-by-yum` slot, an /about community moment, or the
+  demo walkthrough itself. Needs a transcode (47MB .mov) and a creative
+  decision; parked rather than wedged in.
+- `brand-reference-boards/`: two reference PNGs (menu PDF, packaging board),
+  reference-only.
+- `instagram-reference/`: duplicate of the May @yumkitchen pull already in
+  the site archive; nothing new.
+
 ## yum! Kitchen: done
 
 - Form failures no longer print `Email delivery is disabled until
