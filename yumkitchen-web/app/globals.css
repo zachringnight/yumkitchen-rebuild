@@ -1198,11 +1198,10 @@ body[data-nav-open='true'] .mobile-order-bar {
   object-position: 52% 48%;
 }
 
-/* Detail crop of the same gift-box photograph: favors the yum! sticker and
-   ribbon bow so a second appearance on one page reads as a close-up, not a
-   repeat of the hero's establishing shot. */
-.crop-patticake-gift-box-detail {
-  object-position: 52% 30%;
+/* gift_boxes_stack.jpg: the box stack sits in the right two-thirds of the
+   frame, so the near-square "send cake" slot favors that side. */
+.crop-patticake-gift-stack {
+  object-position: 72% 45%;
 }
 
 .crop-patticake-wedding {

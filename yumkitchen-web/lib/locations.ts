@@ -100,8 +100,11 @@ const locationDetails: Record<LocationSlug, LocationDetail> = {
   },
   'saint-paul': {
     heroImage: '/images/yum-location-saint-paul.jpg',
-    cardImage: '/images/yum-location-saint-paul.jpg',
-    cardImageAlt: 'yum! Kitchen and Bakery storefront in St. Paul on Snelling Avenue',
+    // Distinct from the hero on purpose: the page used to show the same
+    // storefront photo twice. Yum_2547 from the original-site archive is
+    // verified as St. Paul (the original location-saint-paul page ran it).
+    cardImage: '/images/yum-saint-paul-street.jpg',
+    cardImageAlt: 'guests walking into yum! St. Paul under the red awnings on Snelling Avenue',
     neighborhood: 'Our St. Paul restaurant is right on Snelling Avenue, ready for neighborhood breakfasts, lunch meetings, and dinner to go.',
     parking: 'Street and nearby neighborhood parking available.',
     roomNote: 'A comfortable stop for dine-in meals, coffee, dessert, and quick pickup.',
@@ -121,8 +124,10 @@ const locationDetails: Record<LocationSlug, LocationDetail> = {
     // sit at ~42-70%. Center is acceptable; 55% trims dead sky and keeps the
     // awning and entrance in the band on wide screens.
     heroObjectPosition: 'center 55%',
-    cardImage: '/images/yum-location-woodbury.jpg',
-    cardImageAlt: 'yum! Kitchen and Bakery storefront in Woodbury at City Centre',
+    // Distinct from the hero on purpose (same-page repeat fix). The original
+    // site's location-woodbury page ran this exact cover photo.
+    cardImage: '/images/yum-woodbury-storefront.png',
+    cardImageAlt: 'yum! Kitchen and Bakery gabled brick storefront in Woodbury with fall pumpkins at the door',
     neighborhood: 'Our Woodbury location brings yum! to the east metro with plenty of room for families, coworkers, and casual gatherings.',
     parking: 'Easy parking around City Centre Drive.',
     roomNote: 'A bright neighborhood spot for dining in, carrying out, and picking up celebration desserts.',

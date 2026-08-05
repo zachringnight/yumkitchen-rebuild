@@ -36,7 +36,9 @@ const heroFrames = [
     sizes: '(min-width: 1024px) 40vw, 85vw',
   },
   {
-    src: '/images/patticake/09_slices.jpg',
+    // slices_rows.jpg is the 1800x1200 pro-shoot frame of the same scene
+    // 09_slices.jpg (1280x853) shows; the extra resolution matters at retina.
+    src: '/images/patticake/slices_rows.jpg',
     alt: 'yum! patticake slices on plates',
     className: 'crop-patticake-slices',
     sizes: '(min-width: 1024px) 40vw, 85vw',
@@ -134,15 +136,15 @@ export function PatticakeHome() {
       <Reveal as="section" className="bg-white px-6 py-12 lg:py-section">
         <div className="mx-auto grid max-w-[1240px] overflow-hidden border-y border-brand-primary/25 lg:grid-cols-[1.08fr_0.92fr]">
           <div className="relative min-h-[420px] bg-blue-soft lg:min-h-[620px]">
-            {/* The hero above establishes the whole box; this near-square slot
-                crops the same photograph to the sticker-and-bow detail so the
-                repeat reads as a detail shot, not a duplicate. */}
+            {/* A different photograph from the hero's box on purpose: the
+                stacked boxes read as "send several," and using a second frame
+                ends the same-page repeat of gift_box_vertical entirely. */}
             <Image
-              src="/images/patticake/gift_box_vertical.jpg"
-              alt="bright baby-blue yum! bakery gift box with red ribbon"
+              src="/images/patticake/gift_boxes_stack.jpg"
+              alt="a stack of bright baby-blue yum! gift boxes, the top one tied with red ribbon"
               fill
               sizes="(min-width: 1024px) 55vw, 100vw"
-              className="object-cover crop-patticake-gift-box-detail"
+              className="object-cover crop-patticake-gift-stack"
             />
           </div>
           <div className="flex flex-col bg-blue-tint p-[clamp(2rem,5vw,4.75rem)]">
