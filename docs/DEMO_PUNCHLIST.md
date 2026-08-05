@@ -89,9 +89,13 @@ Apify. Used:
 
 Found but not used, saved in the session scratchpad only:
 
-- **Coconut Cake card still wears a Patticake top view.** The only recent
-  coconut post (`DZXNka1ht5a`, June 9) is a video; no usable still exists in
-  the archive either. Needs one photo of the actual coconut cake.
+- **Coconut Cake card still wears a Patticake top view.** Every lead was
+  chased on 2026-08-05: the June 9 IG video is 604px assembly footage that
+  never shows the finished cake (frames extracted and checked), the Toast
+  online-ordering item carries only a logo placeholder, and Yelp's photo
+  gallery 403s automated browsing. Yelp reviews confirm the cake
+  photographs well ("coconut cream, 7 minute frosting and coconut flakes").
+  Fastest close: Zach opens the Yelp gallery or shoots one photo in-store.
 - Team photo (`DZ91cU7DDZL`, three bakers in yum! whites, "all smiles behind
   the counter") and a night-event Patticake spread (`Da5Dt8nGz0Y`). Both
   owned and usable if a slot opens; nothing on the site needs them today.
