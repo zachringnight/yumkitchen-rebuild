@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Hero } from '@/components/Hero';
 import { InquiryMomentumBand } from '@/components/InquiryMomentumBand';
@@ -49,6 +50,15 @@ export default function CareersPage() {
               <p className="mt-4 text-lg leading-8">
                 Openings change through the year. Send an application below and tell us where you fit.
               </p>
+              <div className="relative mt-8 aspect-4/3 overflow-hidden bg-cream">
+                <Image
+                  src="/images/yum-kitchen-stockpot.jpg"
+                  alt="a yum! cook working the range, stockpot steaming, the line busy behind"
+                  fill
+                  sizes="(min-width: 1024px) 46vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
             </div>
             <div>
               <h3 className="text-h3 lowercase">we hire at all four restaurants</h3>
@@ -86,14 +96,14 @@ export default function CareersPage() {
         </div>
       </section>
       <InquiryMomentumBand
-        title="come see the room you could join"
-        copy="Real food, kind people, and a warm invitation to apply."
+        title="come meet the people you would work with"
+        copy="Real food, kind people, and a team that will teach you the rest."
         primaryHref="/careers#apply"
         primaryLabel="Apply Now"
         secondaryHref="/about"
         secondaryLabel="Meet Yum"
-        image="/images/yum-dining-room.jpg"
-        imageAlt="yum! dining room"
+        image="/images/yum-team-jacob-doug.jpg"
+        imageAlt="two yum! chefs in whites and red caps, arm over shoulder, outside the restaurant on a snowy morning"
       />
     </main>
   );

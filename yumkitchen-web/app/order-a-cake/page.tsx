@@ -46,8 +46,8 @@ const celebrationPhotos = [
     alt: 'yum! floral wedding patticake detail',
   },
   {
-    src: '/images/patticake/03_top_view.jpg',
-    alt: 'yum! patticake vanilla buttercream top view',
+    src: '/images/patticake/09_slices.jpg',
+    alt: 'yum! patticake slices plated for a celebration',
   },
   {
     src: '/images/patticake/05_tier_wedding_c.jpg',

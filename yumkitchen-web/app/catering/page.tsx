@@ -69,7 +69,7 @@ export default function CateringPage() {
         title="yum! catering"
         copy="Sandwich platters, box lunches, salads, baked goods, and more available for pick up with 24 hour notice. Call with questions."
         image="/images/yum-catering-sandwiches-live.jpg"
-        imageAlt="yum! catering sandwich platter"
+        imageAlt="a yum! catering sandwich packed beside a baby-blue box"
         priority
       >
         <CallPickerButton />
@@ -81,7 +81,7 @@ export default function CateringPage() {
       <section className="bg-white py-section">
         <div className="container-content grid items-center gap-10 lg:grid-cols-2">
           <div className="relative aspect-4/3 overflow-hidden">
-            <Image src="/images/yum-catering-veggie-platter-live.jpg" alt="yum! pressed veggie sandwiches stacked on a serving plate" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+            <Image src="/images/yum-packaging-suite.jpg" alt="the yum! catering packaging lineup: baby-blue boxes, a ribboned cake box, and red-logo bags on the counter" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
           </div>
           <div>
             <p className="section-label">for offices, families, and celebrations</p>
@@ -98,14 +98,14 @@ export default function CateringPage() {
           <div>
             <p className="section-label">start a catering order</p>
             <h2 className="text-h2 lowercase">tell us what you are planning</h2>
-            <p className="mt-5 text-xl leading-9">For best availability, please give the team 24 hours of notice for pickup catering.</p>
+            <p className="mt-5 text-xl leading-9">Share the date, the headcount, and anything the room needs. The team replies with menus and a plan.</p>
           </div>
           <InquiryForm kind="catering" />
         </div>
       </section>
       <InquiryMomentumBand
         title="catering that feels easy to plan"
-        copy="Pickup restaurant, food photos, timing, and a simple next step help the planner feel ready."
+        copy="Tell us the date, the headcount, and which restaurant. A real yum! team member follows up with the rest."
         primaryHref="/catering#inquiry"
         primaryLabel="Plan Catering"
         secondaryHref="/order"

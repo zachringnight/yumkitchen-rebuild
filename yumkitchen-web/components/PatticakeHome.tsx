@@ -223,11 +223,11 @@ export function PatticakeHome() {
             <div className="grid gap-4">
               <div className="relative min-h-[240px] overflow-hidden bg-cream shadow-lg">
                 <Image
-                  src="/images/patticake/03_top_view.jpg"
-                  alt="yum! patticake vanilla buttercream top view"
+                  src="/images/patticake/07_8inch_b.jpg"
+                  alt="a yum! celebration cake being cut, with photos propped on top"
                   fill
                   sizes="(min-width: 1024px) 25vw, 100vw"
-                  className="object-cover crop-patticake-top"
+                  className="object-cover crop-patticake-product"
                 />
               </div>
               <div className="bg-white p-6 shadow-lg">

@@ -186,9 +186,9 @@ export default function PatticakeNationalDeliveryPage() {
               ship a patticake nationwide
             </Reveal>
             <PatticakeHeroPeek
-              src="/images/patticake/09_slices.jpg"
-              alt="yum! patticake slices on plates"
-              className="crop-patticake-slices"
+              src="/images/patticake/10_layers_slice.jpg"
+              alt="triple-layer chocolate Patticake cut open to show the layers"
+              className="crop-patticake-layer"
             />
             <Reveal as="p" className="mt-7 max-w-xl text-xl leading-9 text-ink" delay={0.1} y={16}>
               Patticake now ships nationwide. Tell us where it is headed, when it should arrive, and the words that should travel with it.
@@ -320,11 +320,11 @@ export default function PatticakeNationalDeliveryPage() {
           <div className="grid gap-5 lg:grid-cols-[0.82fr_1.18fr]">
             <ParallaxImage className="relative min-h-[360px] border border-ink/10 bg-blue-soft">
               <Image
-                src="/images/patticake/gift_box_vertical.jpg"
-                alt="yum! bakery gift box with red ribbon"
+                src="/images/yum-packaging-suite.jpg"
+                alt="the yum! packaging lineup: baby-blue boxes, a ribboned cake box, and red-logo bags"
                 fill
                 sizes="(min-width: 1024px) 28vw, 100vw"
-                className="object-cover crop-patticake-gift-box"
+                className="object-cover"
               />
             </ParallaxImage>
             <Stagger className="delivery-logistics-grid">

@@ -324,7 +324,9 @@ export const cateringPackages = [
   {
     title: 'platters and sweets',
     description: 'Sandwich platters, salads, cookies, bars, cupcakes, and bakery case favorites.',
-    image: '/images/yum-catering-platter-steak.jpg',
+    // The card promises sweets, so it shows sweets. It previously ran a
+    // steak-sandwich macro with no platter and nothing sweet in frame.
+    image: '/images/yum-bakery-cupcakes.jpg',
   },
 ] as const;
 
