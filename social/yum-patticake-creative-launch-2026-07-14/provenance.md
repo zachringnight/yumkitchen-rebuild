@@ -29,6 +29,9 @@ wedding tier, `made-by-yum` runs the verified founders portrait,
 leads with Patti's verified photo. New sources added to `public/images/`:
 `gift_boxes_stack.jpg` (Yum_0015), `slices_rows.jpg` (Yum_0197),
 `yum-founders-patti-robbie.jpg` (Yum_0467), `yum-patti-shady-oak.jpg`
-(original-site Patti leader card). **Motion masters and delivery ZIPs remain
-v7**: re-render motion before shipping any ZIP, since specs now describe v8
-image sequences. SHA256SUMS still matches the v7 ZIPs on disk.
+(original-site Patti leader card). Motion completed the same evening: all 105 MP4 masters re-rendered from the
+v8 specs, motion review rebuilt, `validate:motion` passed 107 of 107 files
+with every asset-set and creative-layout check green, `/asset-gallery`
+re-synced (220 assets), and all 13 delivery ZIPs repackaged and re-verified
+against a fresh SHA256SUMS. The pack is fully v8: stills, motion, review
+boards, gallery, and bundles all draw from the repaired photo pool.
