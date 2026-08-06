@@ -91,6 +91,43 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      {/* The parade film: cut 2026-08-05 from the owned "Yum! Parade v1.mov"
+          (media-for-review archive), a professionally shot community parade
+          with a "thank you for a decade of yum!" banner. Copy sits in its own
+          column per the motion rules; the video runs unobstructed. Reduced
+          motion hides the video and leaves the poster (globals.css). */}
+      <section className="bg-white py-section" data-reveal>
+        <div className="container-content grid gap-10 lg:grid-cols-[0.62fr_1.38fr] lg:items-center">
+          <div>
+            <p className="section-label">from the neighborhood</p>
+            <h2 className="text-h2 lowercase">ten years in, the neighborhood threw a parade</h2>
+            <p className="mt-5 text-xl leading-9">
+              A banner that read &ldquo;thank you for a decade of yum!&rdquo;, balloons, a fire truck, and the team marching down the street. This is the part of the story no menu can tell.
+            </p>
+          </div>
+          <div className="relative aspect-video overflow-hidden bg-cream shadow-xl">
+            <Image
+              src="/images/yum-parade-poster.jpg"
+              alt="the yum! anniversary parade: a thank-you banner carried down the street"
+              fill
+              sizes="(min-width: 1024px) 62vw, 100vw"
+              className="object-cover"
+            />
+            <video
+              className="parade-film-video absolute inset-0 h-full w-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster="/images/yum-parade-poster.jpg"
+            >
+              <source src="/videos/yum-parade-decade.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </section>
+
       <InquiryMomentumBand
         title="family-owned hospitality, made visible"
         copy="People, food, local stories, and four neighborhood restaurants all point to the same promise: made from scratch with love."

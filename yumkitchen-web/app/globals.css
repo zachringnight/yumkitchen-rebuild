@@ -2218,7 +2218,8 @@ to {
 
 @media (prefers-reduced-motion: reduce) {
   .preview-splash-video,
-  .preview-splash-logo-video {
+  .preview-splash-logo-video,
+  .parade-film-video {
     display: none;
   }
 
