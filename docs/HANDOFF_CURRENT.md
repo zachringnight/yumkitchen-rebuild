@@ -1,5 +1,11 @@
 # Current yum! Kitchen and Patticake handoff
 
+> **For Patticake or social-pack work, start at
+> [`HANDOFF_PATTICAKE_2026-08-06.md`](HANDOFF_PATTICAKE_2026-08-06.md) instead.**
+> It covers the August 5 to 6 demo rounds (hero rebuild, photo repair, the four
+> new pack guards) and the traps that cost time. This file remains correct on
+> repo layout, release history, and the retired-pack rules.
+
 Updated July 21, 2026. This is the stable handoff entry point. Older dated handoffs are historical only.
 
 ## Source of truth
