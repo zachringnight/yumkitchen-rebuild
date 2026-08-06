@@ -20,37 +20,24 @@ any spend:
    with online checkout as the first action. Before the D+3 slot runs paid,
    consider a re-render aligned to `components/PatticakeProcessSteps.tsx`
    wording, which is the single source of process copy.
-3. **Stronger photography exists than this pack carries, and five lanes wear
-   photos the site has since evicted or upgraded.** The pack was built from
-   the same limited photo pool the site audit later flagged; the August 5
-   sourcing round fixed the pool. Lane-by-lane, for a v8 refresh:
+3. **The photo pool was repaired on August 5 and 6; the pack is current.**
+   All 14 numbered lanes, the four launch films, and all 31 carousel cards
+   now draw from the repaired pool. The blurry `layers_slice_vertical` and
+   the unreadable `03_top_view` appear in no lane, film, or card. The
+   `made-by-yum` lane runs the verified founders portrait, and the
+   `nationwide` lane shows the shippable product rather than a wedding tier.
+   Do not re-audit these; they are done.
 
-   | Lane | Problem | Replacement now in the repo |
-   | --- | --- | --- |
-   | 08 `something sweet is on its way` | Runs `layers_slice_vertical`, the majority-out-of-focus photo evicted from the site hero | `gift_boxes_stack.jpg` or `slices_rows.jpg` |
-   | 09 `patticake is now available nationwide` | Shows a floral wedding tier, not the 8-inch product that actually ships | `10_layers_slice.jpg` cut cake, or `bakers_man_stand.jpg`-style product shot of Patticake |
-   | 12 `thank you, with cake` and 13 `staying local` | Both wear the same `03_top_view` white top-down, the least readable food shot in the pool | distinct photos each; `slices_rows.jpg` frees one slot |
-   | 06 `birthday cake, handled` | Same slice photo as lanes 10 and 14; nothing birthday-coded in frame | any occasion-distinct frame; the slice stays on 10 `three layers` where it belongs |
-   | 14 `made by the people behind yum!` | A cake slice illustrating a people story | founders portrait `yum-founders-patti-robbie.jpg` |
+   Worth knowing: the August 5 pass only covered `src/specs.json`, so the
+   launch films and carousels kept the evicted photos for a day. If you
+   change the photo pool again, all three spec files need it:
+   `src/specs.json`, `src/launch-moment-specs.json`, and
+   `src/carousel-specs.json`.
 
    Also new since the pack froze: the 12-second decade-parade cut at
    `yumkitchen-web/public/videos/yum-parade-decade.mp4` (full 88s master in
-   `~/dev/yumkitchen-reference/media-for-review/parade-video/`), the natural
-   heart of the D+12 made-by-yum slot.
-
-## creative rule
-
-Every asset follows the same hierarchy:
-
-1. Real cake, packaging, people, or place.
-2. One short lowercase headline.
-3. One useful proof line.
-4. One action at the close.
-5. Baby blue and logo red as the dominant designed colors.
-
-There is no persistent top-left text lockup, translucent copy box, or glow behind type. Motion copy stays in a solid baby-blue field beside or below the unobstructed photography. The yum! mark moves on the red packaging ribbon or lands on a clean end frame.
-
-Carousel counters remain plain type in the baby-blue field. No number badge or logo sits over photography.
+   `~/dev/yumkitchen-reference/media-for-review/parade-video/`), a natural
+   fit for the D+12 made-by-yum slot.
 
 ## rollout sequence
 
@@ -62,7 +49,7 @@ Carousel counters remain plain type in the baby-blue field. No number badge or l
 | D-7 | `patticake-site-teaser` | Create curiosity around nationwide delivery | Instagram Reel, Story, TikTok | `https://patticake.com/patticake` |
 | D-3 | `patticake-three-layers` | Show the actual product proof | Instagram feed, Reel, Pinterest | `https://patticake.com/patticake` |
 | Launch morning support | `patticake-site-reveal` | Announce nationwide availability clearly in the established template system | Reel, TikTok, YouTube Short, Facebook | `https://patticake.com/patticake` |
-| Launch afternoon | `meet-patticake` carousel | Explain box, cake, message, and action | Instagram and Facebook carousel | `https://patticake.com` |
+| Launch afternoon | `meet-patticake` carousel | Explain box, cake, message, and action | Instagram and Facebook carousel | `https://patticake.com/patticake` |
 | D+1 | `patticake-gift-drop` | Establish the core gifting idea | Reel, Story, Meta feed | `https://patticake.com/patticake` |
 | D+3 | `how-to-patticake` carousel | Reduce uncertainty around the first step | Instagram and Facebook carousel, Story motion | `https://patticake.com/patticake#delivery-support` |
 | D+5 | `patticake-birthday` | Own a familiar occasion | Reel, TikTok, Meta feed | `https://patticake.com/order-a-cake` |
@@ -118,7 +105,7 @@ Patticake is now available nationwide. Made at yum!, boxed in baby blue, and rea
 
 Link: `https://patticake.com`
 
-Alt text: Real bright baby-blue Yum bakery boxes, a ribboned blue cake box, and a three-layer chocolate cake slice appear full frame. Separate baby-blue frames read "made at yum!" and "now available nationwide" in red before a Patticake by yum! end frame.
+Alt text: Real bright baby-blue Yum bakery boxes, a ribboned blue cake box, and a three-layer chocolate cake cut open appear full frame. Separate baby-blue frames read "made at yum!" and "now available nationwide" in red before a Patticake by yum! end frame.
 
 ### blue-box arrival
 
@@ -126,7 +113,7 @@ The blue box is here. Open it, slice it, and share it.
 
 Link: `https://patticake.com`
 
-Alt text: A ribboned baby-blue Yum box, a white frosted cake, and plated chocolate cake slices appear full frame between simple baby-blue message frames.
+Alt text: A ribboned baby-blue Yum box, rows of triple-layer Patticake slices, and a tall plated slice appear full frame between simple baby-blue message frames.
 
 ### bakery to nationwide
 
@@ -150,7 +137,7 @@ Send cake, not a card. Add the message. Pick the moment. Share the first slice.
 
 Link: `https://patticake.com/patticake`
 
-Alt text: A bright baby-blue Yum gift box tied with red ribbon, a white frosted cake, and plated chocolate cake slices.
+Alt text: A stack of baby-blue yum! gift boxes, a single ribboned box, and a three-layer chocolate cake cut open.
 
 ### start the note
 
@@ -174,7 +161,7 @@ Thank you, with cake. For hosts, helpers, and the people who showed up.
 
 Link: `https://patticake.com/patticake`
 
-Alt text: A baby-blue Yum gift box, white frosted Patticake, and chocolate cake slices framed by red packaging ribbon.
+Alt text: A baby-blue yum! gift box, rows of triple-layer Patticake slices on white plates, and a tall plated slice, framed by red packaging ribbon.
 
 ### local pickup
 
@@ -186,11 +173,11 @@ Alt text: White frosted cakes and plated chocolate slices beside a baby-blue pan
 
 ### made by yum!
 
-Made by the people behind yum! The signature chocolate cake our guests remember.
+Made by the people behind yum! The cake people ask for by name.
 
-Link: `https://patticake.com/patticake`
+Link: `https://patticake.com`
 
-Alt text: A decorated cake, a close chocolate layer view, and plated slices close on a baby-blue field with red Yum story type.
+Alt text: A three-layer chocolate cake cut open, yum! founders Patti and Robbie Soskin side by side, and plated Patticake slices, closing on a baby-blue field with red Yum story type.
 
 ### weddings and events
 

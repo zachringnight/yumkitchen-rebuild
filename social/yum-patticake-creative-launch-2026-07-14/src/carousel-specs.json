@@ -79,7 +79,7 @@
     "role": "cta",
     "lane": "location discovery",
     "headline": "four kitchens. one yum!",
-    "support": "St. Louis Park · Shady Oak · St. Paul · Woodbury",
+    "support": "St. Louis Park \u00b7 Shady Oak \u00b7 St. Paul \u00b7 Woodbury",
     "cta": "find your kitchen",
     "destination": "https://yumkitchen.com/yum-kitchen#locations",
     "image": "Yum_0197.jpg",
@@ -196,7 +196,7 @@
     "lane": "make it personal",
     "headline": "add the message.",
     "support": "make the cake feel like it came from you.",
-    "image": "03_top_view.jpg",
+    "image": "slices_counter_team.jpg",
     "objectPosition": "50% 51%"
   },
   {
@@ -210,7 +210,7 @@
     "lane": "the payoff",
     "headline": "share the first slice.",
     "support": "real bakery layers, ready for the moment.",
-    "image": "layers_slice_vertical.jpg",
+    "image": "10_layers_slice.jpg",
     "objectPosition": "50% 52%"
   },
   {
@@ -240,7 +240,7 @@
     "lane": "nationwide delivery",
     "headline": "patticake is now available nationwide.",
     "support": "meet the cake made by yum!",
-    "image": "gift_box_vertical.jpg",
+    "image": "gift_boxes_stack.jpg",
     "objectPosition": "50% 50%"
   },
   {
@@ -268,7 +268,7 @@
     "lane": "inside the cake",
     "headline": "three layers inside.",
     "support": "chocolate cake with vanilla buttercream.",
-    "image": "layers_slice_vertical.jpg",
+    "image": "10_layers_slice.jpg",
     "objectPosition": "50% 51%"
   },
   {
@@ -282,7 +282,7 @@
     "lane": "make it personal",
     "headline": "start with the message.",
     "support": "the note is part of the gift.",
-    "image": "03_top_view.jpg",
+    "image": "slices_rows.jpg",
     "objectPosition": "50% 50%"
   },
   {
@@ -312,7 +312,7 @@
     "lane": "how it works",
     "headline": "start with the note.",
     "support": "tell us who the cake is for.",
-    "image": "03_top_view.jpg",
+    "image": "gift_boxes_stack.jpg",
     "objectPosition": "50% 50%"
   },
   {
@@ -354,7 +354,7 @@
     "lane": "step three",
     "headline": "add the words.",
     "support": "make the cake feel like it came from you.",
-    "image": "03_top_view.jpg",
+    "image": "slices_rows.jpg",
     "objectPosition": "50% 50%"
   },
   {
@@ -370,7 +370,7 @@
     "support": "start the note and our team will reply.",
     "cta": "start the note",
     "destination": "https://patticake.com/patticake#delivery-support",
-    "image": "layers_slice_vertical.jpg",
+    "image": "10_layers_slice.jpg",
     "objectPosition": "50% 51%"
   },
   {

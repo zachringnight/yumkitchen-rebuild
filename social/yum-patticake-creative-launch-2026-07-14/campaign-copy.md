@@ -106,11 +106,11 @@ Destination: https://patticake.com/order-a-cake
 
 ## made by the people behind yum!
 
-the signature chocolate cake our guests remember.
+the cake people ask for by name.
 
 Proof: made from scratch with love
 CTA: Read the Story
-Destination: https://patticake.com/patticake
+Destination: https://patticake.com
 
 ## launch-moment motion
 

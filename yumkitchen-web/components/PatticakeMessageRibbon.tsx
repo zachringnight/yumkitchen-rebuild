@@ -1,3 +1,5 @@
+import { MotionPauseButton } from './MotionPauseButton';
+
 const messages = ['happy birthday', 'thank you', 'just married', 'love you', 'go team', 'miss you', 'just because'] as const;
 
 type PatticakeMessageRibbonProps = {
@@ -21,6 +23,11 @@ export function PatticakeMessageRibbon({ tone = 'cream' }: PatticakeMessageRibbo
           {renderSet(true)}
         </div>
       </div>
+      {/* The ribbon scrolls for 28s on a loop and auto-starts. CSS gives it a
+          hover pause, which does nothing for a keyboard or touch visitor, so
+          this is the reachable control (WCAG 2.2.2). It writes the same
+          document-level flag every other motion surface already honors. */}
+      <MotionPauseButton className="patticake-ribbon-pause" />
     </section>
   );
 }

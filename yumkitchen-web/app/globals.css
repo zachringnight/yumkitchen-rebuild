@@ -1064,9 +1064,37 @@ body[data-nav-open='true'] .mobile-order-bar {
 }
 
 .patticake-message-ribbon {
+  position: relative;
   overflow: hidden;
   border-block: 1px solid rgb(45 45 45 / 0.12);
   padding-block: 0.85rem;
+}
+
+/* Reachable pause for the auto-scrolling ribbon. Deliberately quiet: it sits
+   in the trailing edge fade, reads as plain type rather than a control, and
+   only gains a border on hover or keyboard focus. It must stay visible (not
+   focus-only) so a touch visitor can find it too. */
+.patticake-ribbon-pause {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  border: 1px solid transparent;
+  background: rgb(255 255 255 / 0.82);
+  color: var(--color-ink);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  padding: 0.4rem 0.5rem;
+  text-transform: uppercase;
+}
+
+.patticake-ribbon-pause:hover,
+.patticake-ribbon-pause:focus-visible {
+  border-color: var(--color-brand-primary);
+  color: var(--color-brand-primary);
 }
 
 .patticake-message-ribbon-cream {

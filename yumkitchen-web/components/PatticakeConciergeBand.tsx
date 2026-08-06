@@ -27,8 +27,8 @@ export function PatticakeConciergeBand() {
                 on this same page; the repeat added nothing. */}
             <div className="concierge-photo concierge-photo-main">
               <Image
-                src="/images/patticake/06_8inch_a.jpg"
-                alt="white 8-inch Patticake with Just Married piped in red icing"
+                src="/images/patticake/slices_counter_team.jpg"
+                alt="Patticake slices on the yum! counter with bakers in red caps working behind"
                 fill
                 sizes="(min-width: 1024px) 34vw, 78vw"
                 className="object-cover crop-patticake-product"

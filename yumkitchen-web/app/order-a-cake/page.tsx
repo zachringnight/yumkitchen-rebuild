@@ -46,8 +46,8 @@ const celebrationPhotos = [
     alt: 'yum! floral wedding patticake detail',
   },
   {
-    src: '/images/patticake/09_slices.jpg',
-    alt: 'yum! patticake slices plated for a celebration',
+    src: '/images/patticake/slices_counter_team.jpg',
+    alt: 'Patticake slices lined up on the yum! counter',
   },
   {
     src: '/images/patticake/05_tier_wedding_c.jpg',
@@ -103,8 +103,8 @@ export default function CakePage() {
 
           <div className="patticake-hero-card motion-role-entrance">
             <Image
-              src="/images/patticake/06_8inch_a.jpg"
-              alt="white 8-inch yum! patticake with a message piped in red icing"
+              src="/images/patticake/slices_rows.jpg"
+              alt="rows of triple-layer yum! patticake slices plated for a celebration"
               fill
               loading="eager"
               sizes="(min-width: 1024px) 58vw, 100vw"

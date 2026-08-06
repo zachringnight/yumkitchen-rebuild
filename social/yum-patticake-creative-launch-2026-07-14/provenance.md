@@ -30,8 +30,22 @@ leads with Patti's verified photo. New sources added to `public/images/`:
 `gift_boxes_stack.jpg` (Yum_0015), `slices_rows.jpg` (Yum_0197),
 `yum-founders-patti-robbie.jpg` (Yum_0467), `yum-patti-shady-oak.jpg`
 (original-site Patti leader card). Motion completed the same evening: all 105 MP4 masters re-rendered from the
-v8 specs, motion review rebuilt, `validate:motion` passed 107 of 107 files
-with every asset-set and creative-layout check green, `/asset-gallery`
-re-synced (220 assets), and all 13 delivery ZIPs repackaged and re-verified
-against a fresh SHA256SUMS. The pack is fully v8: stills, motion, review
-boards, gallery, and bundles all draw from the repaired photo pool.
+v8 specs, motion review rebuilt, `validate:motion` passed 107 of 107 files,
+`/asset-gallery` re-synced (220 assets), and all 13 delivery ZIPs repackaged
+against a fresh SHA256SUMS.
+
+**Correction, 2026-08-06.** The August 5 note claimed the evicted photos were
+"out of every lane" and the pack was "fully v8". That was wrong: only
+`src/specs.json` was edited, so the four launch films and all 31 carousel
+cards kept `layers_slice_vertical` and `03_top_view` for a day. Both spec
+files were repaired on August 6 and the affected families re-rendered. Any
+future photo-pool change must touch all three spec files: `src/specs.json`,
+`src/launch-moment-specs.json`, and `src/carousel-specs.json`.
+
+Also corrected on August 6: `06_8inch_a.jpg` and `07_8inch_b.jpg` are named
+like the 8-inch product but are **"Just Married" wedding cakes**, and
+`07_8inch_b` shows identifiable faces on Polaroid toppers (a customer's
+wedding, so consent is required before any paid use). They had been promoted
+into generic Patticake lanes on the strength of the filename. They are now
+off every generic yum!/Patticake site surface; treat them as wedding-only
+assets and do not trust the SKU-shaped names.
