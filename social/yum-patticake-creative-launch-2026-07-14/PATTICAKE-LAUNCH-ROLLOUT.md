@@ -20,13 +20,23 @@ any spend:
    with online checkout as the first action. Before the D+3 slot runs paid,
    consider a re-render aligned to `components/PatticakeProcessSteps.tsx`
    wording, which is the single source of process copy.
-3. **Stronger photography exists than this pack carries.** Added to the site
-   on August 5: `gift_boxes_stack.jpg` (stacked baby-blue boxes, the best
-   packaging shot in the archive), `slices_rows.jpg` (1800x1200 pro frame of
-   the slices scene), `bakers_man_stand.jpg` (the actual Baker's Man), and
-   the founders portrait `yum-founders-patti-robbie.jpg` (natural fit for the
-   D+12 `patticake-made-by-yum` slot). A v8 refresh round that pulls these in
-   would strengthen the launch-morning hero and the origin story assets.
+3. **Stronger photography exists than this pack carries, and five lanes wear
+   photos the site has since evicted or upgraded.** The pack was built from
+   the same limited photo pool the site audit later flagged; the August 5
+   sourcing round fixed the pool. Lane-by-lane, for a v8 refresh:
+
+   | Lane | Problem | Replacement now in the repo |
+   | --- | --- | --- |
+   | 08 `something sweet is on its way` | Runs `layers_slice_vertical`, the majority-out-of-focus photo evicted from the site hero | `gift_boxes_stack.jpg` or `slices_rows.jpg` |
+   | 09 `patticake is now available nationwide` | Shows a floral wedding tier, not the 8-inch product that actually ships | `10_layers_slice.jpg` cut cake, or `bakers_man_stand.jpg`-style product shot of Patticake |
+   | 12 `thank you, with cake` and 13 `staying local` | Both wear the same `03_top_view` white top-down, the least readable food shot in the pool | distinct photos each; `slices_rows.jpg` frees one slot |
+   | 06 `birthday cake, handled` | Same slice photo as lanes 10 and 14; nothing birthday-coded in frame | any occasion-distinct frame; the slice stays on 10 `three layers` where it belongs |
+   | 14 `made by the people behind yum!` | A cake slice illustrating a people story | founders portrait `yum-founders-patti-robbie.jpg` |
+
+   Also new since the pack froze: the 12-second decade-parade cut at
+   `yumkitchen-web/public/videos/yum-parade-decade.mp4` (full 88s master in
+   `~/dev/yumkitchen-reference/media-for-review/parade-video/`), the natural
+   heart of the D+12 made-by-yum slot.
 
 ## creative rule
 
