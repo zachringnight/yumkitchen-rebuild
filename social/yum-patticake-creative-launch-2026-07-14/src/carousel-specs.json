@@ -10,8 +10,8 @@
     "lane": "four kitchens",
     "headline": "pick your yum!",
     "support": "start with the kitchen closest to you.",
-    "image": "yum-location-slp.jpg",
-    "objectPosition": "50% 55%"
+    "image": "yum-chef-team.jpg",
+    "objectPosition": "50% 38%"
   },
   {
     "id": "kitchens-02-st-louis-park",
@@ -79,7 +79,7 @@
     "role": "cta",
     "lane": "location discovery",
     "headline": "four kitchens. one yum!",
-    "support": "St. Louis Park \u00b7 Shady Oak \u00b7 St. Paul \u00b7 Woodbury",
+    "support": "St. Louis Park · Shady Oak · St. Paul · Woodbury",
     "cta": "find your kitchen",
     "destination": "https://yumkitchen.com/yum-kitchen#locations",
     "image": "Yum_0197.jpg",
@@ -96,8 +96,8 @@
     "lane": "catering",
     "headline": "feed the room.",
     "support": "start with the group. build the spread.",
-    "image": "yum-catering-boxed-lunch.jpg",
-    "objectPosition": "50% 56%"
+    "image": "Yum_2175-1.jpg",
+    "objectPosition": "50% 52%"
   },
   {
     "id": "catering-02-boxed-lunches",
@@ -154,8 +154,8 @@
     "support": "tell us what the room needs.",
     "cta": "plan catering",
     "destination": "https://yumkitchen.com/catering#inquiry",
-    "image": "yum-catering-sandwiches-live.jpg",
-    "objectPosition": "48% 54%"
+    "image": "Yum_0508-1.jpg",
+    "objectPosition": "50% 50%"
   },
   {
     "id": "gifting-01-send-cake",
@@ -196,8 +196,8 @@
     "lane": "make it personal",
     "headline": "add the message.",
     "support": "make the cake feel like it came from you.",
-    "image": "slices_counter_team.jpg",
-    "objectPosition": "50% 51%"
+    "image": "07_8inch_b.jpg",
+    "objectPosition": "46% 58%"
   },
   {
     "id": "gifting-04-share-the-slice",
@@ -226,8 +226,8 @@
     "support": "start with the message and occasion.",
     "cta": "start a patticake",
     "destination": "https://patticake.com/patticake",
-    "image": "yum-bakery-gift-boxes.jpg",
-    "objectPosition": "58% 52%"
+    "image": "slices_plates_vertical.jpg",
+    "objectPosition": "52% 56%"
   },
   {
     "id": "launch-01-nationwide",
@@ -282,8 +282,8 @@
     "lane": "make it personal",
     "headline": "start with the message.",
     "support": "the note is part of the gift.",
-    "image": "slices_rows.jpg",
-    "objectPosition": "50% 50%"
+    "image": "07_8inch_b.jpg",
+    "objectPosition": "46% 58%"
   },
   {
     "id": "launch-05-visit",
@@ -340,8 +340,8 @@
     "lane": "step two",
     "headline": "share the date.",
     "support": "give us the timing for the moment.",
-    "image": "06_8inch_a.jpg",
-    "objectPosition": "50% 50%"
+    "image": "03_top_view.jpg",
+    "objectPosition": "50% 46%"
   },
   {
     "id": "how-04-words",
@@ -354,8 +354,8 @@
     "lane": "step three",
     "headline": "add the words.",
     "support": "make the cake feel like it came from you.",
-    "image": "slices_rows.jpg",
-    "objectPosition": "50% 50%"
+    "image": "06_8inch_a.jpg",
+    "objectPosition": "50% 48%"
   },
   {
     "id": "how-05-next-step",
@@ -384,8 +384,8 @@
     "lane": "patticake occasions",
     "headline": "every good reason for cake.",
     "support": "start with the person and the moment.",
-    "image": "slices_plates_vertical.jpg",
-    "objectPosition": "50% 51%"
+    "image": "gift_boxes_stack.jpg",
+    "objectPosition": "66% 46%"
   },
   {
     "id": "occasions-02-birthday",

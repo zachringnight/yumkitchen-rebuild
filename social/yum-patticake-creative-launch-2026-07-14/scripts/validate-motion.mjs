@@ -1,4 +1,5 @@
 import {execFileSync} from "node:child_process";
+import {createHash} from "node:crypto";
 import {existsSync, readFileSync, readdirSync, writeFileSync} from "node:fs";
 import {dirname, join, relative} from "node:path";
 import {fileURLToPath} from "node:url";
@@ -25,6 +26,30 @@ const agentContract = readFileSync(join(root, "..", "..", "AGENTS.md"), "utf8");
 const carouselCardSource = readFileSync(join(root, "src", "CarouselCard.tsx"), "utf8");
 const carouselMotionSource = readFileSync(join(root, "src", "CarouselMotion.tsx"), "utf8");
 const carouselSpecsSource = readFileSync(join(root, "src", "carousel-specs.json"), "utf8");
+const carouselSpecs = JSON.parse(carouselSpecsSource);
+// Approval is spread across three boards: stills here, carousels and motion in
+// their own folders. Coverage is judged against all three together.
+const reviewBoardSource = [
+  join(root, "review-board.html"),
+  join(root, "carousel-review", "review-board.html"),
+  join(root, "motion-review", "review-board.html"),
+].filter(existsSync).map((file) => readFileSync(file, "utf8")).join("\n");
+
+// Identify photographs by content so renamed copies of the same shot cannot
+// pass a filename comparison.
+const photoFingerprintCache = new Map();
+const photoFingerprint = (file) => {
+  if (!photoFingerprintCache.has(file)) {
+    photoFingerprintCache.set(file, createHash("md5").update(readFileSync(join(root, "public", "images", file))).digest("hex"));
+  }
+  return photoFingerprintCache.get(file);
+};
+
+// The two frames in the pack that show writing piped onto a cake.
+const MESSAGE_CAKE_PRINTS = new Set(["06_8inch_a.jpg", "07_8inch_b.jpg"].map(photoFingerprint));
+
+// Every still crop the pack delivers. Each one needs to appear on the board.
+const STILL_CROP_FOLDERS = ["feed-4x5", "square-1x1", "story-9x16", "wide-16x9", "pin-2x3", "link-1.91x1", "carousel-4x5"];
 const activeCreativeProductionStatePaths = [
   "run-state.json",
   "moodboard-widget-payload.json",
@@ -85,6 +110,41 @@ const creativeLayoutChecks = {
   noRetiredNewHomeFraming: !/new[ -]home/i.test(carouselSpecsSource) && carouselSpecsSource.includes("launch-01-nationwide"),
   retiredThreeWaysFramingCannotRebuild: !retiredMotionPackBuilder.includes("one cake, three ways to share it") && retiredMotionPackBuilder.includes("cake, delivered with love"),
   thankYouUsesNeutralCakeProof: !specs.find((spec) => spec.id === "patticake-thank-you")?.images.includes("06_8inch_a.jpg"),
+
+  // A carousel that shows the same photograph twice reads as a broken upload
+  // mid-swipe. Compare by file CONTENT, not filename: the pack ships
+  // byte-identical duplicates under different names (yum-patticake-just-
+  // married.jpeg is 06_8inch_a.jpg; Yum_1239-1.jpg is yum-catering-tray.jpg),
+  // so a name-only check passes sets that visibly repeat.
+  carouselSetsNeverRepeatAPhoto: (() => {
+    const bySet = new Map();
+    for (const card of carouselSpecs) {
+      if (!bySet.has(card.setId)) bySet.set(card.setId, []);
+      bySet.get(card.setId).push(photoFingerprint(card.image));
+    }
+    return [...bySet.values()].every((prints) => new Set(prints).size === prints.length);
+  })(),
+
+  // Every written beat must still be on screen when its scene plays. The cue
+  // text fades out over the half second before panelStart, so the scenes have
+  // to divide the pre-panel window. Dividing the full clip (the old 8s
+  // behaviour) started the last beat of every lane after the cue had already
+  // reached zero opacity.
+  everyBeatRendersBeforeThePanel:
+    /const sceneFrames = Math\.floor\(\(panelStart \* fps\) \/ sceneCount\);/.test(creativeLaunchSource)
+    && !/Math\.floor\(durationInFrames \/ sceneCount\)/.test(creativeLaunchSource),
+
+  // Cards that tell the reader to write a message must show a cake with a
+  // message piped on it. Showing a blank cake next to "add the words" is the
+  // one place in the pack where the picture contradicts the copy.
+  messageCardsShowACakeCarryingAMessage: carouselSpecs
+    .filter((card) => /message|the words/i.test(card.headline))
+    .every((card) => MESSAGE_CAKE_PRINTS.has(photoFingerprint(card.image))),
+
+  // The review board is what a founder actually approves. If a crop is not on
+  // it, that crop ships unreviewed.
+  reviewBoardCoversEveryStillCrop: STILL_CROP_FOLDERS
+    .every((folder) => reviewBoardSource.includes(`exports/${folder}`)),
 };
 
 const jobs = [];

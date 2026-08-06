@@ -130,9 +130,13 @@ export const CreativeLaunch = (props: CreativeLaunchProps) => {
   const panelStart = isShortsCut ? 7.15 : 4.85;
   const detailStart = isShortsCut ? 7.35 : 5.15;
   const ctaStart = isShortsCut ? 7.45 : 5.45;
-  const sceneFrames = isShortsCut
-    ? Math.floor((panelStart * fps) / sceneCount)
-    : Math.floor(durationInFrames / sceneCount);
+  // Both cuts divide the pre-panel window, not the whole clip. Dividing the
+  // full duration (the old 8s behaviour) pushed the last scene past the point
+  // where cueOut has already faded the beat text to zero, so every lane's
+  // final written beat rendered invisible: a 3-beat lane started beat 3 at
+  // frame 160 with the cue gone at frame 146. The last photo still holds under
+  // the panel afterwards, because sceneIndex clamps to sceneCount - 1.
+  const sceneFrames = Math.floor((panelStart * fps) / sceneCount);
   const sceneIndex = isStill ? Math.min(props.stillScene, sceneCount - 1) : Math.min(sceneCount - 1, Math.floor(frame / sceneFrames));
   const progress = isStill ? 0.82 : frame / Math.max(1, durationInFrames - 1);
   const panelIn = isStill ? 1 : interpolate(frame, [panelStart * fps, (panelStart + 0.65) * fps], [0, 1], {
