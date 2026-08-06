@@ -27,13 +27,13 @@ const heroFrames = [
     src: '/images/patticake/gift_box_vertical.jpg',
     alt: 'Patticake gift box in bright baby blue, tied with red yum! ribbon',
     className: 'crop-patticake-gift-box',
-    sizes: '(min-width: 1024px) 35vw, 85vw',
+    sizes: '(min-width: 1024px) 63vw, 92vw',
   },
   {
     src: '/images/patticake/10_layers_slice.jpg',
     alt: 'triple-layer chocolate Patticake cut open to show the layers',
     className: 'crop-patticake-layer',
-    sizes: '(min-width: 1024px) 40vw, 85vw',
+    sizes: '(min-width: 1024px) 43vw, 92vw',
   },
   {
     // slices_rows.jpg is the 1800x1200 pro-shoot frame of the same scene
@@ -41,7 +41,7 @@ const heroFrames = [
     src: '/images/patticake/slices_rows.jpg',
     alt: 'yum! patticake slices on plates',
     className: 'crop-patticake-slices',
-    sizes: '(min-width: 1024px) 40vw, 85vw',
+    sizes: '(min-width: 1024px) 96vw, 92vw',
   },
 ] as const;
 
@@ -59,12 +59,14 @@ export function PatticakeHome() {
       {/* Top padding runs lighter than bottom so the headline block sits in
           the optical upper third instead of stranding empty blue above it. */}
       <section className="patticake-home-hero overflow-hidden bg-blue-tint px-6 pt-[clamp(2.5rem,4.5vw,4rem)] pb-[clamp(3rem,6vw,6rem)]">
-        {/* items-start, not items-center: the text column is ~270px shorter
-            than the photo grid, and centering it stranded a third of the
-            viewport as empty blue above the headline. A small top offset
-            keeps the eyebrow optically aligned with the grid's first frame. */}
-        <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
-          <div className="max-w-[570px] lg:pt-[clamp(1rem,3.5vw,3rem)]">
+        {/* items-stretch, not items-center or items-start. Centering stranded
+            a third of the viewport as empty blue above the headline; starting
+            left the same hole below it, because the text column runs ~270px
+            shorter than the photo grid. Stretching lets the column span the
+            grid and seat its proof row on the grid's bottom edge (mt-auto
+            below), so both columns resolve on the same line. */}
+        <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-stretch">
+          <div className="flex max-w-[570px] flex-col lg:pt-[clamp(1rem,3.5vw,3rem)]">
             <Reveal as="p" className="section-label" y={10}>now available nationwide · made by yum!</Reveal>
             <Reveal as="h1" className="font-serif text-[clamp(4rem,8vw,7.4rem)] font-normal leading-[0.9] lowercase text-brand-primary" fade={false} y={14} delay={0.05}>
               patticake
@@ -97,7 +99,7 @@ export function PatticakeHome() {
                 </Link>
               </PressButton>
             </Reveal>
-            <Stagger className="mt-9 grid gap-3 sm:grid-cols-2" gap={0.06}>
+            <Stagger className="mt-9 grid gap-3 sm:grid-cols-2 lg:mt-auto lg:pt-9" gap={0.06}>
               {proof.map((item) => (
                 <StaggerItem key={item} className="border-t border-brand-red/30 pt-3">
                   <p className="text-base font-bold leading-6 text-ink">{item}</p>

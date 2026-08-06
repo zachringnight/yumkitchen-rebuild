@@ -36,8 +36,11 @@ function eventForHref(href: string) {
 }
 
 export function SiteFooter() {
+  // pb-24 clears the fixed MobileOrderBar, which is md:hidden. Above md there
+  // is no bar to clear, so the padding goes away instead of leaving a ~128px
+  // empty band under the last footer row.
   return (
-    <footer className="border-t border-[#d8cfd1] bg-cream pb-24 md:pb-32">
+    <footer className="border-t border-[#d8cfd1] bg-cream pb-24 md:pb-0">
       <EmailCapture />
       <div className="bg-blue-soft px-6 py-5">
         <div className="mx-auto flex max-w-[1240px] flex-wrap items-center gap-4">
@@ -57,11 +60,16 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="mx-auto grid max-w-[1240px] gap-8 px-6 py-10 md:grid-cols-2 lg:grid-cols-[1.1fr_repeat(4,1fr)]">
+      {/* The quick-links column carries 13 items against four short location
+          columns. At 1.1fr it ran roughly twice their height and left an
+          L-shaped void across the rest of the footer. Widening it to 1.7fr and
+          flowing the links in two sub-columns (below) brings the two sides to
+          about the same height. */}
+      <div className="mx-auto grid max-w-[1240px] gap-8 px-6 py-10 md:grid-cols-2 lg:grid-cols-[1.7fr_repeat(4,1fr)]">
         <div>
           <Image src="/logo.png" alt="yum!" width={56} height={56} className="mb-4 h-14 w-14" />
           <h2 className="mb-3 font-sans text-sm font-medium uppercase tracking-[0.08em] text-body">Quick Links</h2>
-          <div className="grid gap-1.5">
+          <div className="grid gap-1.5 sm:grid-cols-2 sm:gap-x-6">
             {quickLinks.map((link) => {
               const external = 'external' in link && link.external;
               return (

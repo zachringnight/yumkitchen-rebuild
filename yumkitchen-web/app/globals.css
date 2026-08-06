@@ -1147,7 +1147,12 @@ body[data-nav-open='true'] .mobile-order-bar {
      The grid drives the hero's height; the text column centers against it. */
   min-height: clamp(30rem, 50vw, 44rem);
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(2, minmax(0, 1fr));
+  /* Uneven rows on purpose. 10_layers_slice.jpg is a landscape macro (1138x758)
+     and the old square-ish slot cropped it to unreadable crumb. A short, wide
+     top slot lets object-cover scale to width instead of height, so nearly the
+     whole photograph shows; the reclaimed height goes to the slices frame,
+     which is the more appetizing of the two. */
+  grid-template-rows: minmax(0, 0.62fr) minmax(0, 1.38fr);
   gap: 0.75rem;
   border: 1px solid rgb(45 45 45 / 0.12);
   background: var(--color-blue-tint);
@@ -1199,11 +1204,11 @@ body[data-nav-open='true'] .mobile-order-bar {
   grid-row: span 2;
 }
 
-/* 10_layers_slice.jpg in the hero: the cake face sits in the upper band of
-   the photo; favoring it keeps the frame full of layers instead of the empty
-   cake board below the cut. */
+/* 10_layers_slice.jpg in the hero's short, wide top slot. Now that the frame
+   is landscape, cover scales to width and the whole cake face fits; center is
+   correct and the old 18% pull would crop the layers off the top. */
 .crop-patticake-layer {
-  object-position: 46% 18%;
+  object-position: 50% 42%;
 }
 
 .crop-patticake-vertical-layer {
