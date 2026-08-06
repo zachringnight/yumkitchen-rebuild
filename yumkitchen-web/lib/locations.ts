@@ -63,8 +63,11 @@ const locationDetails: Record<LocationSlug, LocationDetail> = {
     // height. Center crops onto dark storefront glass; 75% keeps the people,
     // the cake, and the front-door moment in the band at every viewport.
     heroObjectPosition: 'center 75%',
-    cardImage: '/images/yum-location-slp.jpg',
-    cardImageAlt: 'yum! Kitchen and Bakery storefront in St. Louis Park',
+    // Distinct from the hero on purpose (same-page repeat fix). Location is
+    // verified by the photo itself: the address numerals "4000" (Minnetonka
+    // Blvd) are visible beside the door.
+    cardImage: '/images/yum-slp-front-4000.jpg',
+    cardImageAlt: 'the yum! St. Louis Park entrance at 4000 Minnetonka Boulevard, framed by planters in full bloom',
     neighborhood: 'Our original St. Louis Park restaurant sits on Minnetonka Boulevard, close to neighborhood errands, school pickups, and easy weeknight dinners.',
     parking: 'Easy lot parking near the front door.',
     roomNote: 'A warm everyday room for breakfast, lunch, dinner, takeout, and bakery stops.',

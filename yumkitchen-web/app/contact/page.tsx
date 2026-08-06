@@ -44,8 +44,12 @@ export default function ContactPage() {
       <Hero
         title="we'd love to hear from you"
         copy="Calling your restaurant is the fastest way to reach us. For everything else, pick a path below and we will get your note to the right person."
-        image="/images/yum-mixed-berry-salad.png"
-        imageAlt="yum! mixed berry salad"
+        // The original site's contact page ran this photo (site archive,
+        // contact.html); a wayfinding image fits "reach us" better than the
+        // salad that sat here.
+        image="/images/yum-sign-brick.jpg"
+        imageAlt="the round red yum! sign mounted on a brick storefront"
+        objectPosition="center 40%"
         priority
       >
         <CallPickerButton />
