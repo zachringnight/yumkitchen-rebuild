@@ -7,7 +7,7 @@ const galleryImages: { src: string; alt: string }[] = [
   { src: '/images/yum-patticake-top.jpg', alt: 'yum! buttercream cake, top view' },
   { src: '/images/yum-patticake-layers.jpg', alt: 'yum! chocolate layer cake, cut open on a cake stand' },
   { src: '/images/patticake/04_tier_wedding_b.jpg', alt: 'yum! cake decorated with pressed flowers' },
-  { src: '/images/patticake/gift_box_vertical.jpg', alt: 'yum! bakery gift box with red ribbon' },
+  { src: '/images/patticake/gift_boxes_stack.jpg', alt: 'a stack of baby-blue yum! gift boxes with red ribbon' },
   { src: '/images/yum-patticake-floral-tier.jpg', alt: 'Tiered yum! cake with bright fresh flowers' },
   { src: '/images/patticake/10_layers_slice.jpg', alt: 'Patticake chocolate layers, close up' },
   { src: '/images/patticake/09_slices.jpg', alt: 'yum! patticake slices on plates' },

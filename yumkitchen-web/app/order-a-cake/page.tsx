@@ -71,9 +71,9 @@ export default function CakePage() {
               </h1>
             </Reveal>
             <PatticakeHeroPeek
-              src="/images/patticake/layers_slice_vertical.jpg"
-              alt="yum! patticake chocolate cake layers close up"
-              className="crop-patticake-vertical-layer"
+              src="/images/patticake/slices_plates_vertical.jpg"
+              alt="a tall triple-layer yum! patticake slice on a white plate"
+              className="crop-patticake-vertical-slices"
             />
             <Reveal as="p" className="mt-7 max-w-[500px] text-xl leading-8 text-ink" delay={0.1} y={16}>
               Patticake is triple-layer chocolate cake with vanilla buttercream, baked fresh for birthdays, thank-yous, weddings, and every table worth celebrating.
@@ -103,12 +103,12 @@ export default function CakePage() {
 
           <div className="patticake-hero-card motion-role-entrance">
             <Image
-              src="/images/patticake/layers_slice_vertical.jpg"
-              alt="yum! patticake chocolate cake layers close up"
+              src="/images/patticake/06_8inch_a.jpg"
+              alt="white 8-inch yum! patticake with a message piped in red icing"
               fill
               loading="eager"
               sizes="(min-width: 1024px) 58vw, 100vw"
-              className="object-cover crop-patticake-vertical-layer"
+              className="object-cover crop-patticake-product"
             />
           </div>
         </div>

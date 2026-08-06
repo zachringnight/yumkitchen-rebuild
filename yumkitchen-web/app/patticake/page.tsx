@@ -33,9 +33,9 @@ const occasions = [
   {
     title: 'birthdays',
     copy: 'A chocolate cake with a message that feels made for the person opening it.',
-    image: '/images/patticake/03_top_view.jpg',
-    alt: 'yum! patticake vanilla buttercream top view',
-    className: 'crop-patticake-top',
+    image: '/images/patticake/09_slices.jpg',
+    alt: 'yum! patticake slices on party plates',
+    className: 'crop-patticake-slices',
   },
   {
     title: 'thank you gifts',
@@ -54,9 +54,9 @@ const occasions = [
   {
     title: 'family moments',
     copy: 'For the table you cannot get to in person, but still want to show up for.',
-    image: '/images/yum-patticake-layers.jpg',
-    alt: 'yum! chocolate layer cake with vanilla buttercream, cut open on a cake stand',
-    className: 'crop-patticake-product',
+    image: '/images/patticake/gift_boxes_stack.jpg',
+    alt: 'a stack of baby-blue yum! gift boxes ready to send',
+    className: 'crop-patticake-gift-stack',
   },
 ] as const;
 
@@ -152,8 +152,8 @@ const productJsonLd = {
   description:
     'yum! Kitchen and Bakery’s signature Patticake: a towering triple-layer chocolate cake with vanilla buttercream, baked from scratch and available nationwide as an 8-inch round that serves 8 to 16, or by the slice.',
   image: [
-    patticakeCanonical('/images/patticake/03_top_view.jpg'),
-    patticakeCanonical('/images/patticake/09_slices.jpg'),
+    patticakeCanonical('/images/patticake/10_layers_slice.jpg'),
+    patticakeCanonical('/images/patticake/slices_rows.jpg'),
   ],
   brand: {
     '@type': 'Brand',
@@ -217,12 +217,12 @@ export default function PatticakeNationalDeliveryPage() {
           <div className="patticake-delivery-photo-pair">
             <div className="patticake-hero-card min-h-[520px]">
               <Image
-                src="/images/patticake/09_slices.jpg"
-                alt="yum! patticake slices on plates"
+                src="/images/patticake/gift_box_tissue.jpg"
+                alt="a baby-blue yum! gift box tied with red ribbon on red polka-dot tissue"
                 fill
                 loading="eager"
                 sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover crop-patticake-slices"
+                className="object-cover crop-patticake-gift-box"
               />
             </div>
           </div>
@@ -233,11 +233,11 @@ export default function PatticakeNationalDeliveryPage() {
         <div className="mx-auto grid max-w-[1240px] overflow-hidden border-y border-brand-primary/25 lg:grid-cols-[0.92fr_1.08fr]">
           <div className="relative min-h-[420px] bg-blue-soft lg:min-h-[620px]">
             <Image
-              src="/images/patticake/layers_slice_vertical.jpg"
-              alt="yum! patticake chocolate cake layers close up"
+              src="/images/patticake/slices_rows.jpg"
+              alt="rows of triple-layer yum! patticake slices on white plates"
               fill
               sizes="(min-width: 1024px) 46vw, 100vw"
-              className="object-cover crop-patticake-vertical-layer"
+              className="object-cover crop-patticake-slices"
             />
           </div>
           <div className="flex flex-col bg-blue-tint p-[clamp(2rem,5vw,4.75rem)]">
@@ -269,11 +269,11 @@ export default function PatticakeNationalDeliveryPage() {
           <div className="mx-auto grid max-w-[1240px] overflow-hidden border-y border-brand-primary/35 bg-white lg:grid-cols-[1.08fr_0.92fr]">
             <div className="relative min-h-[420px] bg-blue-soft lg:min-h-[620px]">
               <Image
-                src="/images/patticake/03_top_view.jpg"
-                alt="yum! Patticake chocolate cake with vanilla buttercream, top view"
+                src="/images/patticake/gift_boxes_stack.jpg"
+                alt="a stack of baby-blue yum! gift boxes with red ribbon"
                 fill
                 sizes="(min-width: 1024px) 54vw, 100vw"
-                className="object-cover"
+                className="object-cover crop-patticake-gift-stack"
               />
             </div>
             <div className="flex flex-col justify-center bg-blue-tint p-[clamp(2rem,5vw,4.75rem)]">
