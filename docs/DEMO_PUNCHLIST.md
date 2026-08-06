@@ -130,6 +130,46 @@ checkout-first process, and the August 5 photography the pack predates.
 - `instagram-reference/`: duplicate of the May @yumkitchen pull already in
   the site archive; nothing new.
 
+
+## Round of 2026-08-06: the nine review items
+
+**Site (all three fixed and verified at 1440x900 DPR2):**
+- Hero middle frame was a landscape macro in a near-square slot, so cover
+  discarded most of the photograph. Grid rows are now uneven (0.62fr/1.38fr):
+  the short wide top slot shows nearly the whole cake face, and the reclaimed
+  height went to the slices frame. `sizes` recomputed for the new geometry.
+- Left column ended 272px above the grid. It now stretches and seats its proof
+  row on the grid's bottom edge. **Measured gap: 0px.**
+- Footer reserved `md:pb-32` for the MobileOrderBar, which is `md:hidden`. Also
+  the 13-item quick-links column ran ~2x the location columns and left an
+  L-shaped void; it now flows in two sub-columns. All five columns: 294px.
+
+**Pack (fixed):**
+- Four carousel sets repeated a photo mid-swipe. Fixed by CONTENT hash, not
+  filename: the pack ships byte-identical duplicates under different names
+  (`Yum_1239-1.jpg` = `yum-catering-tray.jpg`, `yum-patticake-just-married.jpeg`
+  = `06_8inch_a.jpg`). A filename check passes sets that visibly repeat.
+- Message cards showed cakes with no writing while the piped-message cake sat
+  on "share the date." Swapped.
+- **Beat timing was worse than reported:** every lane lost its LAST beat in the
+  8s cuts, not just 4-beat lanes. `sceneFrames` divided the whole clip while the
+  cue fades to zero at 4.85s. 14 lanes x 4 formats. Both cuts now divide the
+  pre-panel window.
+- Review board showed only the 4:5 feed still; five crops shipped unapproved.
+  Manifest expanded 14 -> 84 cards, board rebuilt with the real renderer.
+- Four guards added to `validate-motion`, all failing closed.
+
+**NOT reproduced:** the logo sting does not open on an unmasked crop. The slice
+`clipPath` applies from frame 0; the opening frames show the masked silhouette
+filled with the photo, which then morphs to vector. Verified by extracting
+frames from the rendered 1x1 master. The milder true observation is that the
+circle behind it uses the same blue as the canvas, so the wedge has no ground.
+
+**Measurement trap worth remembering:** reading `naturalWidth` off an in-page
+element in headless Chrome under-reports badly (567x850 for an image the
+optimizer serves at 1200x1800, proven by reloading the same URL). Judge hero
+sharpness from a device-scale screenshot, never that number.
+
 ## yum! Kitchen: done
 
 - Form failures no longer print `Email delivery is disabled until
