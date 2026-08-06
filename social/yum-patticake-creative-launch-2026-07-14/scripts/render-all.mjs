@@ -327,17 +327,28 @@ const manifest = {
 };
 writeFileSync(join(root, "manifest.json"), `${JSON.stringify(manifest, null, 2)}\n`);
 
-const review = specs.map((spec, index) => ({
+// One card per lane PER CROP. Showing only the 4:5 feed still meant a founder
+// approved one image while the other five crops shipped unreviewed, and each
+// crop frames the photograph differently, so 4:5 approval says nothing about
+// what the 9:16 or 1.91:1 cut actually looks like.
+const reviewCropLabels = {
+  "feed-4x5": "feed 4:5",
+  "square-1x1": "square 1:1",
+  "story-9x16": "story 9:16",
+  "wide-16x9": "wide 16:9",
+  "pin-2x3": "pin 2:3",
+  "link-1.91x1": "link 1.91:1",
+};
+const review = specs.flatMap((spec) => formats.map(({folder}) => ({
   id: spec.id,
-  index: index + 1,
   title: spec.hook,
-  label: spec.lane,
-  src: `exports/feed-4x5/${spec.id}.png`,
+  label: `${spec.lane} · ${reviewCropLabels[folder] ?? folder}`,
+  src: `exports/${folder}/${spec.id}.png`,
   href: `exports/motion-9x16-10s/${spec.id}.mp4`,
-  caption: `${spec.brand} / ${spec.cta}`,
+  caption: `${spec.brand} / ${spec.cta} · ${reviewCropLabels[folder] ?? folder}`,
   family: spec.lane,
   bestFor: "Reels, Stories, feed, square, paid social, and wide social placements"
-}));
+}))).map((card, index) => ({...card, index: index + 1}));
 writeFileSync(join(root, "data", "review-manifest.json"), `${JSON.stringify(review, null, 2)}\n`);
 writeFileSync(join(root, "data", "review-options.json"), `${JSON.stringify({
   title: "yum! and Patticake creative launch pack",
