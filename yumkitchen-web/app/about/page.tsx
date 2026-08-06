@@ -58,7 +58,8 @@ export default function AboutPage() {
         <div className="container-content">
           <p className="section-label">behind the counter</p>
           <h2 className="text-h2 lowercase">people who make the room feel like yum!</h2>
-          <div className="stagger-reveal mt-8 grid gap-5 md:grid-cols-3" data-reveal>
+          {/* Four cards since Patti joined the grid: 2x2 at md, one row at lg. */}
+          <div className="stagger-reveal mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4" data-reveal>
             {leaderCards.map((leader) => {
               const body = (
                 <>

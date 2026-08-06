@@ -18,3 +18,17 @@
 - `yum-chef-kitchen-adobe.png` comes from `yumkitchen-web/public/images/yum-chef-kitchen.jpg`, Adobe asset `urn:aaid:sc:US:26b267bc-bd59-4e8b-b099-7a29a90ee7d6`.
 - The animated Patticake slice logo starts from the owned `layers_slice_vertical.jpg` photograph, then resolves into a stylized three-layer mark. The illustration is a brand device, not replacement product photography, and uses the real yum! badge in the final lockup. Social masters use the packaging baby blue; transparent WebM and ProRes 4444 files are provided for compositing.
 - All durable video masters are silent by design and encoded for sound-off comprehension. Add only rights-cleared, platform-native audio during publishing.
+
+## v8 still refresh, August 5, 2026
+
+Stills and review boards re-rendered from updated `src/specs.json`: the
+blurry `layers_slice_vertical` and overexposed `03_top_view` are out of
+every lane, the nationwide lane now shows the shippable product instead of a
+wedding tier, `made-by-yum` runs the verified founders portrait,
+`start-the-note` runs the piped-message cake, and `people-behind-the-plate`
+leads with Patti's verified photo. New sources added to `public/images/`:
+`gift_boxes_stack.jpg` (Yum_0015), `slices_rows.jpg` (Yum_0197),
+`yum-founders-patti-robbie.jpg` (Yum_0467), `yum-patti-shady-oak.jpg`
+(original-site Patti leader card). **Motion masters and delivery ZIPs remain
+v7**: re-render motion before shipping any ZIP, since specs now describe v8
+image sequences. SHA256SUMS still matches the v7 ZIPs on disk.

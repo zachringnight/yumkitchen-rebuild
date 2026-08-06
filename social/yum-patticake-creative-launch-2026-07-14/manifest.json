@@ -1,6 +1,6 @@
 {
   "name": "yum! and Patticake creative launch pack",
-  "created": "2026-07-21T20:23:09.422Z",
+  "created": "2026-08-06T00:43:03.383Z",
   "source": "current high-resolution Yum site and social photography plus the consolidated Patticake design system dated 2026-07-09, with three real Yum photographs finished through Adobe auto tone on 2026-07-21",
   "system": {
     "colors": {
@@ -70,13 +70,13 @@
         "say hi to mike"
       ],
       "images": [
-        "yum-patti-kelli.jpeg",
         "yum-chef-kitchen.jpg",
+        "yum-patti-shady-oak.jpg",
         "yum-meet-mike.jpg"
       ],
       "imagePositions": [
-        "50% 30%",
         "70% 50%",
+        "50% 30%",
         "50% 35%"
       ],
       "outputs": {
@@ -209,9 +209,14 @@
         "share the first slice"
       ],
       "images": [
+        "gift_boxes_stack.jpg",
         "gift_box_vertical.jpg",
-        "03_top_view.jpg",
-        "layers_slice_vertical.jpg"
+        "10_layers_slice.jpg"
+      ],
+      "imagePositions": [
+        "70% 45%",
+        "52% 48%",
+        "46% 25%"
       ],
       "outputs": {
         "motion8s": "exports/motion-9x16/patticake-gift-drop.mp4",
@@ -242,9 +247,14 @@
         "cut the first slice"
       ],
       "images": [
+        "10_layers_slice.jpg",
         "09_slices.jpg",
-        "layers_slice_vertical.jpg",
-        "03_top_view.jpg"
+        "gift_boxes_stack.jpg"
+      ],
+      "imagePositions": [
+        "46% 25%",
+        "50% 48%",
+        "70% 45%"
       ],
       "outputs": {
         "motion8s": "exports/motion-9x16/patticake-birthday.mp4",
@@ -308,9 +318,14 @@
         "send it nationwide"
       ],
       "images": [
+        "gift_boxes_stack.jpg",
         "gift_box_vertical.jpg",
-        "10_layers_slice.jpg",
         "slices_plates_vertical.jpg"
+      ],
+      "imagePositions": [
+        "70% 45%",
+        "52% 48%",
+        "52% 56%"
       ],
       "outputs": {
         "motion8s": "exports/motion-9x16/patticake-site-teaser.mp4",
@@ -343,9 +358,15 @@
       ],
       "images": [
         "gift_box_vertical.jpg",
-        "01_cover.jpg",
-        "layers_slice_vertical.jpg",
-        "gift_box_vertical.jpg"
+        "10_layers_slice.jpg",
+        "slices_rows.jpg",
+        "gift_boxes_stack.jpg"
+      ],
+      "imagePositions": [
+        "52% 48%",
+        "46% 25%",
+        "50% 48%",
+        "70% 45%"
       ],
       "outputs": {
         "motion8s": "exports/motion-9x16/patticake-site-reveal.mp4",
@@ -377,8 +398,13 @@
       ],
       "images": [
         "10_layers_slice.jpg",
-        "layers_slice_vertical.jpg",
-        "slices_plates_vertical.jpg"
+        "slices_plates_vertical.jpg",
+        "slices_rows.jpg"
+      ],
+      "imagePositions": [
+        "46% 25%",
+        "52% 56%",
+        "50% 48%"
       ],
       "outputs": {
         "motion8s": "exports/motion-9x16/patticake-three-layers.mp4",
@@ -409,9 +435,14 @@
         "when is the moment?"
       ],
       "images": [
-        "03_top_view.jpg",
         "gift_box_vertical.jpg",
+        "06_8inch_a.jpg",
         "09_slices.jpg"
+      ],
+      "imagePositions": [
+        "52% 48%",
+        "50% 50%",
+        "50% 48%"
       ],
       "outputs": {
         "motion8s": "exports/motion-9x16/patticake-start-the-note.mp4",
@@ -443,8 +474,13 @@
       ],
       "images": [
         "gift_box_vertical.jpg",
-        "03_top_view.jpg",
+        "slices_rows.jpg",
         "slices_plates_vertical.jpg"
+      ],
+      "imagePositions": [
+        "52% 48%",
+        "50% 48%",
+        "52% 56%"
       ],
       "outputs": {
         "motion8s": "exports/motion-9x16/patticake-thank-you.mp4",
@@ -475,9 +511,14 @@
         "pick up the cake"
       ],
       "images": [
+        "09_slices.jpg",
         "07_8inch_b.jpg",
-        "03_top_view.jpg",
-        "09_slices.jpg"
+        "gift_box_vertical.jpg"
+      ],
+      "imagePositions": [
+        "50% 48%",
+        "50% 45%",
+        "52% 48%"
       ],
       "outputs": {
         "motion8s": "exports/motion-9x16/patticake-local-pickup.mp4",
@@ -508,9 +549,14 @@
         "remembered after the last slice"
       ],
       "images": [
-        "01_cover.jpg",
-        "layers_slice_vertical.jpg",
+        "10_layers_slice.jpg",
+        "yum-founders-patti-robbie.jpg",
         "slices_plates_vertical.jpg"
+      ],
+      "imagePositions": [
+        "46% 25%",
+        "50% 28%",
+        "52% 56%"
       ],
       "outputs": {
         "motion8s": "exports/motion-9x16/patticake-made-by-yum.mp4",
@@ -549,7 +595,7 @@
         {
           "image": "gift_box_vertical.jpg",
           "verticalPosition": "50% 50%",
-          "widePosition": "50% 56%"
+          "widePosition": "50% 26%"
         },
         {
           "image": "layers_slice_vertical.jpg",
@@ -581,7 +627,7 @@
         {
           "image": "gift_box_vertical.jpg",
           "verticalPosition": "50% 50%",
-          "widePosition": "50% 56%"
+          "widePosition": "50% 26%"
         },
         {
           "image": "03_top_view.jpg",

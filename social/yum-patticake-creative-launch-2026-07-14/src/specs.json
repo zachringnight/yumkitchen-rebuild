@@ -9,9 +9,21 @@
     "proof": "fresh and friendly food",
     "cta": "Meet the Team",
     "destination": "https://yumkitchen.com/about",
-    "beats": ["meet the team", "step into the kitchen", "say hi to mike"],
-    "images": ["yum-patti-kelli.jpeg", "yum-chef-kitchen.jpg", "yum-meet-mike.jpg"],
-    "imagePositions": ["50% 30%", "70% 50%", "50% 35%"]
+    "beats": [
+      "meet the team",
+      "step into the kitchen",
+      "say hi to mike"
+    ],
+    "images": [
+      "yum-chef-kitchen.jpg",
+      "yum-patti-shady-oak.jpg",
+      "yum-meet-mike.jpg"
+    ],
+    "imagePositions": [
+      "70% 50%",
+      "50% 30%",
+      "50% 35%"
+    ]
   },
   {
     "id": "yum-lunch-decision",
@@ -22,8 +34,16 @@
     "proof": "four Twin Cities kitchens",
     "cta": "Order Online",
     "destination": "https://yumkitchen.com/order",
-    "beats": ["start with cravings", "pick your kitchen", "take yum! home"],
-    "images": ["Yum_0131-3.jpg", "Yum_1239-1.jpg", "Yum_1698-2.jpg"]
+    "beats": [
+      "start with cravings",
+      "pick your kitchen",
+      "take yum! home"
+    ],
+    "images": [
+      "Yum_0131-3.jpg",
+      "Yum_1239-1.jpg",
+      "Yum_1698-2.jpg"
+    ]
   },
   {
     "id": "yum-four-kitchens",
@@ -34,8 +54,18 @@
     "proof": "made from scratch with love",
     "cta": "Find Your yum!",
     "destination": "https://yumkitchen.com/yum-kitchen#locations",
-    "beats": ["st. louis park", "shady oak", "st. paul", "woodbury"],
-    "images": ["yum-location-slp.jpg", "yum-location-shady-oak.jpg", "yum-location-saint-paul.jpg", "yum-location-woodbury.jpg"]
+    "beats": [
+      "st. louis park",
+      "shady oak",
+      "st. paul",
+      "woodbury"
+    ],
+    "images": [
+      "yum-location-slp.jpg",
+      "yum-location-shady-oak.jpg",
+      "yum-location-saint-paul.jpg",
+      "yum-location-woodbury.jpg"
+    ]
   },
   {
     "id": "yum-catering-room",
@@ -46,8 +76,16 @@
     "proof": "fresh and friendly food",
     "cta": "Plan Catering",
     "destination": "https://yumkitchen.com/catering#inquiry",
-    "beats": ["set the date", "feed the group", "bring dessert"],
-    "images": ["yum-catering-boxed-lunch.jpg", "yum-catering-sandwiches-live.jpg", "yum-catering-tray.jpg"]
+    "beats": [
+      "set the date",
+      "feed the group",
+      "bring dessert"
+    ],
+    "images": [
+      "yum-catering-boxed-lunch.jpg",
+      "yum-catering-sandwiches-live.jpg",
+      "yum-catering-tray.jpg"
+    ]
   },
   {
     "id": "patticake-gift-drop",
@@ -58,8 +96,21 @@
     "proof": "from the yum! bakery team",
     "cta": "Start a Patticake",
     "destination": "https://patticake.com/patticake",
-    "beats": ["pick the message", "choose the moment", "share the first slice"],
-    "images": ["gift_box_vertical.jpg", "03_top_view.jpg", "layers_slice_vertical.jpg"]
+    "beats": [
+      "pick the message",
+      "choose the moment",
+      "share the first slice"
+    ],
+    "images": [
+      "gift_boxes_stack.jpg",
+      "gift_box_vertical.jpg",
+      "10_layers_slice.jpg"
+    ],
+    "imagePositions": [
+      "70% 45%",
+      "52% 48%",
+      "46% 25%"
+    ]
   },
   {
     "id": "patticake-birthday",
@@ -70,8 +121,21 @@
     "proof": "real bakery layers",
     "cta": "Plan the Cake",
     "destination": "https://patticake.com/order-a-cake",
-    "beats": ["save the date", "add the message", "cut the first slice"],
-    "images": ["09_slices.jpg", "layers_slice_vertical.jpg", "03_top_view.jpg"]
+    "beats": [
+      "save the date",
+      "add the message",
+      "cut the first slice"
+    ],
+    "images": [
+      "10_layers_slice.jpg",
+      "09_slices.jpg",
+      "gift_boxes_stack.jpg"
+    ],
+    "imagePositions": [
+      "46% 25%",
+      "50% 48%",
+      "70% 45%"
+    ]
   },
   {
     "id": "patticake-event",
@@ -82,8 +146,16 @@
     "proof": "start with the date and details",
     "cta": "Start an Inquiry",
     "destination": "https://patticake.com/order-a-cake",
-    "beats": ["set the scene", "share the date", "make it personal"],
-    "images": ["02_tier_wedding_a.jpg", "05_tier_wedding_c.jpg", "08_tier_wedding_d.jpg"]
+    "beats": [
+      "set the scene",
+      "share the date",
+      "make it personal"
+    ],
+    "images": [
+      "02_tier_wedding_a.jpg",
+      "05_tier_wedding_c.jpg",
+      "08_tier_wedding_d.jpg"
+    ]
   },
   {
     "id": "patticake-site-teaser",
@@ -94,8 +166,21 @@
     "proof": "Patticake by yum!",
     "cta": "Ship a Cake",
     "destination": "https://patticake.com/patticake",
-    "beats": ["recognize the box", "peek at the layers", "send it nationwide"],
-    "images": ["gift_box_vertical.jpg", "10_layers_slice.jpg", "slices_plates_vertical.jpg"]
+    "beats": [
+      "recognize the box",
+      "peek at the layers",
+      "send it nationwide"
+    ],
+    "images": [
+      "gift_boxes_stack.jpg",
+      "gift_box_vertical.jpg",
+      "slices_plates_vertical.jpg"
+    ],
+    "imagePositions": [
+      "70% 45%",
+      "52% 48%",
+      "52% 56%"
+    ]
   },
   {
     "id": "patticake-site-reveal",
@@ -106,8 +191,24 @@
     "proof": "nationwide delivery and local pickup",
     "cta": "Ship a Cake",
     "destination": "https://patticake.com/patticake",
-    "beats": ["open the blue box", "meet the layers", "choose the moment", "send it nationwide"],
-    "images": ["gift_box_vertical.jpg", "01_cover.jpg", "layers_slice_vertical.jpg", "gift_box_vertical.jpg"]
+    "beats": [
+      "open the blue box",
+      "meet the layers",
+      "choose the moment",
+      "send it nationwide"
+    ],
+    "images": [
+      "gift_box_vertical.jpg",
+      "10_layers_slice.jpg",
+      "slices_rows.jpg",
+      "gift_boxes_stack.jpg"
+    ],
+    "imagePositions": [
+      "52% 48%",
+      "46% 25%",
+      "50% 48%",
+      "70% 45%"
+    ]
   },
   {
     "id": "patticake-three-layers",
@@ -118,8 +219,21 @@
     "proof": "yum!'s signature chocolate cake",
     "cta": "Meet Patticake",
     "destination": "https://patticake.com/patticake",
-    "beats": ["chocolate cake", "vanilla buttercream", "the first slice"],
-    "images": ["10_layers_slice.jpg", "layers_slice_vertical.jpg", "slices_plates_vertical.jpg"]
+    "beats": [
+      "chocolate cake",
+      "vanilla buttercream",
+      "the first slice"
+    ],
+    "images": [
+      "10_layers_slice.jpg",
+      "slices_plates_vertical.jpg",
+      "slices_rows.jpg"
+    ],
+    "imagePositions": [
+      "46% 25%",
+      "52% 56%",
+      "50% 48%"
+    ]
   },
   {
     "id": "patticake-start-the-note",
@@ -130,8 +244,21 @@
     "proof": "real help from the yum! team",
     "cta": "Start the Note",
     "destination": "https://patticake.com/patticake#delivery-support",
-    "beats": ["who is it for?", "what should it say?", "when is the moment?"],
-    "images": ["03_top_view.jpg", "gift_box_vertical.jpg", "09_slices.jpg"]
+    "beats": [
+      "who is it for?",
+      "what should it say?",
+      "when is the moment?"
+    ],
+    "images": [
+      "gift_box_vertical.jpg",
+      "06_8inch_a.jpg",
+      "09_slices.jpg"
+    ],
+    "imagePositions": [
+      "52% 48%",
+      "50% 50%",
+      "50% 48%"
+    ]
   },
   {
     "id": "patticake-thank-you",
@@ -142,8 +269,21 @@
     "proof": "a gift made to share",
     "cta": "Send a Patticake",
     "destination": "https://patticake.com/patticake",
-    "beats": ["skip the card", "add the message", "send the cake"],
-    "images": ["gift_box_vertical.jpg", "03_top_view.jpg", "slices_plates_vertical.jpg"]
+    "beats": [
+      "skip the card",
+      "add the message",
+      "send the cake"
+    ],
+    "images": [
+      "gift_box_vertical.jpg",
+      "slices_rows.jpg",
+      "slices_plates_vertical.jpg"
+    ],
+    "imagePositions": [
+      "52% 48%",
+      "50% 48%",
+      "52% 56%"
+    ]
   },
   {
     "id": "patticake-local-pickup",
@@ -154,8 +294,21 @@
     "proof": "made by the yum! bakery team",
     "cta": "Plan Local Pickup",
     "destination": "https://patticake.com/order-a-cake",
-    "beats": ["share the date", "choose the restaurant", "pick up the cake"],
-    "images": ["07_8inch_b.jpg", "03_top_view.jpg", "09_slices.jpg"]
+    "beats": [
+      "share the date",
+      "choose the restaurant",
+      "pick up the cake"
+    ],
+    "images": [
+      "09_slices.jpg",
+      "07_8inch_b.jpg",
+      "gift_box_vertical.jpg"
+    ],
+    "imagePositions": [
+      "50% 48%",
+      "50% 45%",
+      "52% 48%"
+    ]
   },
   {
     "id": "patticake-made-by-yum",
@@ -166,7 +319,20 @@
     "proof": "made from scratch with love",
     "cta": "Read the Story",
     "destination": "https://patticake.com/patticake",
-    "beats": ["made by yum!", "built for sharing", "remembered after the last slice"],
-    "images": ["01_cover.jpg", "layers_slice_vertical.jpg", "slices_plates_vertical.jpg"]
+    "beats": [
+      "made by yum!",
+      "built for sharing",
+      "remembered after the last slice"
+    ],
+    "images": [
+      "10_layers_slice.jpg",
+      "yum-founders-patti-robbie.jpg",
+      "slices_plates_vertical.jpg"
+    ],
+    "imagePositions": [
+      "46% 25%",
+      "50% 28%",
+      "52% 56%"
+    ]
   }
 ]

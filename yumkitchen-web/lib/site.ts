@@ -371,6 +371,15 @@ export type LeaderCard = {
 
 export const leaderCards: readonly LeaderCard[] = [
   {
+    // Provenance: the original yumkitchen.com about page ran this photo as
+    // Patti's own location-leader card ("Patti / More on yum! shady oak"),
+    // verified 2026-08-05 against the site archive's about.html.
+    name: 'Patti',
+    role: 'founder, at Shady Oak',
+    href: '/location/shady-oak',
+    image: '/images/yum-patti-shady-oak.jpg',
+  },
+  {
     name: 'Hugo',
     role: 'chef and hospitality team',
     // Hugo is not tied to a single location page, so this card carries no
