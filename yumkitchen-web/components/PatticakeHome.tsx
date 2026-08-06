@@ -59,13 +59,14 @@ export function PatticakeHome() {
       {/* Top padding runs lighter than bottom so the headline block sits in
           the optical upper third instead of stranding empty blue above it. */}
       <section className="patticake-home-hero overflow-hidden bg-blue-tint px-6 pt-[clamp(2.5rem,4.5vw,4rem)] pb-[clamp(3rem,6vw,6rem)]">
-        {/* items-stretch, not items-center or items-start. Centering stranded
-            a third of the viewport as empty blue above the headline; starting
-            left the same hole below it, because the text column runs ~270px
-            shorter than the photo grid. Stretching lets the column span the
-            grid and seat its proof row on the grid's bottom edge (mt-auto
-            below), so both columns resolve on the same line. */}
-        <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-stretch">
+        {/* The earlier fix here chased a "0px bottom gap" metric by stretching
+            this column and pinning the proof row with mt-auto. That hit the
+            number and made the page worse: it opened a 308px void between the
+            CTAs and the proof row. Centering a naturally-sized column instead
+            splits the leftover into two even ~136px margins, which reads as
+            breathing room. Measured after: 36px between CTAs and proof, which
+            is just the mt-9. Do not re-pin the proof row. */}
+        <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
           <div className="flex max-w-[570px] flex-col lg:pt-[clamp(1rem,3.5vw,3rem)]">
             <Reveal as="p" className="section-label" y={10}>now available nationwide · made by yum!</Reveal>
             <Reveal as="h1" className="font-serif text-[clamp(4rem,8vw,7.4rem)] font-normal leading-[0.9] lowercase text-brand-primary" fade={false} y={14} delay={0.05}>
@@ -99,7 +100,7 @@ export function PatticakeHome() {
                 </Link>
               </PressButton>
             </Reveal>
-            <Stagger className="mt-9 grid gap-3 sm:grid-cols-2 lg:mt-auto lg:pt-9" gap={0.06}>
+            <Stagger className="mt-9 grid gap-3 sm:grid-cols-2" gap={0.06}>
               {proof.map((item) => (
                 <StaggerItem key={item} className="border-t border-brand-red/30 pt-3">
                   <p className="text-base font-bold leading-6 text-ink">{item}</p>
