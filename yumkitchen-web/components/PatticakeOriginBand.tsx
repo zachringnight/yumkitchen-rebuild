@@ -22,8 +22,8 @@ export function PatticakeOriginBand() {
         <div className="grid gap-4 sm:grid-cols-[1.1fr_0.9fr]">
           <div className="relative aspect-[4/3] overflow-hidden bg-blue-soft">
             <Image
-              src="/images/yum-patti-kelli.jpeg"
-              alt="Patti and Kelli at yum! Kitchen and Bakery"
+              src="/images/yum-founders-patti-robbie.jpg"
+              alt="yum! founders Patti and Robbie Soskin"
               fill
               sizes="(min-width: 1024px) 36vw, 100vw"
               className="object-cover crop-people-upper"

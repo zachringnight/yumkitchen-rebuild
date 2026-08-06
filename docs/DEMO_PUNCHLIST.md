@@ -32,16 +32,15 @@ curbside handoff shot and she is masked.** It is genuinely her and
 unmistakably yum! (red bag, red cap), but if a newer portrait exists, swap
 it. Zach can veto back to text-only.
 
-### 3. The bare link opens Patticake, not yum!
+### 3. Landing on Patticake is INTENTIONAL, decided 2026-08-06
 
-`NEXT_PUBLIC_YUM_HOST_ROUTING` is unset, so `lib/hostRouting.ts` leaves host
-routing off and `/` serves the Patticake home on every host except
-`yumkitchen.com`. On any preview URL, the first two screens Patti and Robbie see
-are the Patticake password gate and the Patticake home.
+Zach confirmed the demo is going to **patticake.com** and that Patticake
+leads, not yum!. So `NEXT_PUBLIC_YUM_HOST_ROUTING` stays unset, `/` correctly
+serves the Patticake home, and the Patticake-branded password gate is the
+right first screen. This is no longer an open question; do not "fix" it.
 
-Options: send them straight to `/yum-kitchen`, or set
-`NEXT_PUBLIC_YUM_HOST_ROUTING=1` on the preview deploy so it behaves like the
-real domain. Owner's call; not yet made.
+Priority follows: Patticake surfaces (`/`, `/patticake`, `/order-a-cake`,
+checkout) outrank the yum! pages for any remaining work.
 
 ## Patticake: verified working, do not touch
 

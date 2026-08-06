@@ -57,8 +57,8 @@ export const cakes: Cake[] = [
     name: 'Coconut Cake',
     tagline: 'a little extra joy',
     description: 'A light, buttercream-finished coconut cake and a favorite for celebrations that need a lift.',
-    image: '/images/yum-patticake-top.jpg',
-    imageAlt: 'yum! white buttercream cake, top view',
+    image: '/images/patticake/coconut_cake_boxed.jpg',
+    imageAlt: 'yum! coconut cake coated in coconut flakes, boxed in the bakery',
     variants: [
       { format: 'whole', label: 'Whole cake', price: 5995, serves: '8-inch round, serves 8 to 16' },
       { format: 'slice', label: 'By the slice', price: 750, serves: 'a single generous slice' },
