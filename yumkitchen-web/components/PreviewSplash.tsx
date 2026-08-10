@@ -74,10 +74,10 @@ export function PreviewSplash({ nextPath }: { nextPath: string }) {
 
           <div className="my-8 max-w-[38rem] lg:my-10">
             <h1 className="font-serif text-[clamp(3.25rem,5.8vw,6.35rem)] font-normal lowercase leading-[0.88] text-brand-primary">
-              patticake is now available nationwide.
+              something sweet is taking shape.
             </h1>
             <p className="mt-7 max-w-[31rem] text-xl leading-8 text-ink sm:text-2xl sm:leading-9">
-              A private first look at nationwide delivery, local pickup, and the story behind the cake.
+              This private first look is for invited guests. Enter the preview password to continue.
             </p>
           </div>
 
