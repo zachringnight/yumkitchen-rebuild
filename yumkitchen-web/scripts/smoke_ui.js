@@ -20,6 +20,13 @@ async function main() {
 
   try {
     await page.setViewport({ width: 1366, height: 900 });
+
+    await page.goto(`${baseUrl}/preview`, { waitUntil: 'networkidle0' });
+    if (!(await textIncludes(page, 'something sweet is taking shape'))) throw new Error('private preview teaser missing');
+    const previewText = await page.evaluate(() => document.body.textContent ?? '');
+    if (/nation[\s-]*wide/i.test(previewText)) throw new Error('private preview exposes the nationwide launch detail');
+    if (!(await page.$('#preview-password'))) throw new Error('private preview password field missing');
+
     await page.goto(baseUrl, { waitUntil: 'networkidle0' });
 
     const title = await page.title();
@@ -119,7 +126,7 @@ async function main() {
     const noResults = await textIncludes(page, 'no menu items found');
     if (noResults) throw new Error('menu search unexpectedly returned no results');
 
-    console.log('UI smoke passed: home, reduced motion, location handoff, menu restaurant switching, order filters, cart quantity, checkout links, and menu search work.');
+    console.log('UI smoke passed: private preview, home, reduced motion, location handoff, menu restaurant switching, order filters, cart quantity, checkout links, and menu search work.');
   } finally {
     await browser.close();
   }

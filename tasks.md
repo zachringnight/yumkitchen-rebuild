@@ -1,6 +1,10 @@
 # Rebuild Task List
 
-## Current round: visual/creative audit fixes (2026-07-24)
+## Current round: protected preview copy (2026-08-10)
+
+- [x] **protect-preview-launch-detail** - DONE 2026-08-10. Kept the public password gate Patticake-branded while replacing the nationwide launch announcement with invitation-only teaser copy. Added a browser smoke guard that fails if the public gate exposes the word "nationwide." Verified the redirect, invalid-password state, successful unlock, desktop and mobile layouts, and the full PR gate.
+
+## Historical round: visual/creative audit fixes (2026-07-24)
 
 This finalized list supersedes the original 5-item punch list from the visual/creative audit. An independent adversarial second-opinion pass re-examined that audit against the actual screenshot pixels and source code: it confirmed the two headline bugs, corrected two factually wrong claims (Patticake home's "five blue sections in a row" and the catering hero's "layered red badge"), widened the scope of two existing tasks, and surfaced new findings the original missed, including two possible rendering bugs on the Patticake commerce pages. Both source documents remain unchanged as evidence records; where they disagree, the list below follows the second opinion. Original audit (per-page scores, screenshots, methodology): `docs/history/qa/2026-07-24-visual-creative-audit/audit-report.md`. Second opinion (corrections, new findings, revised scores): `docs/history/qa/2026-07-24-visual-creative-audit/fable-second-opinion.md`. The scored visual artifact linked in the audit report predates the second opinion, so read it with that in mind. Per the one-PR-per-task rule, each item below is its own task/branch/PR, not a bundle.
 
