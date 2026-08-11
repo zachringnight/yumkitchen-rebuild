@@ -1,5 +1,15 @@
 # Rebuild Task List
 
+## Current round: Patticake design and UX upgrades (2026-08-10)
+
+This closes every non-security design, creative, UI, and UX finding from the full Patticake build review. Dependency and preview-access hardening were intentionally left out at Zach's direction.
+
+- [x] **patticake-checkout-recovery** - DONE 2026-08-10. Invalid mobile submissions now focus a visible linked error summary, every invalid field exposes `aria-invalid` and an error description, the state starts blank, the minimum date uses local time, and the action plus confirmation stay explicit about the demo.
+- [x] **patticake-pickup-path** - DONE 2026-08-10. Local pickup is the filled hero action on its own route, shipping is secondary, the missing article is restored, and the shipping-note link lands on `#delivery-support`.
+- [x] **patticake-commerce-photo** - DONE 2026-08-10. The buy module, cart, and checkout now use the clear portrait slice photo. The team-counter photo moved to the office-celebration card, preserving both owned images without a same-page repeat.
+- [x] **preview-motion-control** - DONE 2026-08-10. One visible control pauses and resumes both native preview videos and remembers the visitor's choice in session storage.
+- [x] **patticake-ux-regression-gates** - DONE 2026-08-10. Added static and production-browser coverage for the repaired paths, expanded axe to `/preview` and `/patticake/checkout`, and passed `bash verify.sh` with 0 serious or critical accessibility findings and Lighthouse 100/100/100/100.
+
 ## Current round: protected preview copy (2026-08-10)
 
 - [x] **protect-preview-launch-detail** - DONE 2026-08-10. Kept the public password gate Patticake-branded while replacing the nationwide launch announcement with invitation-only teaser copy. Added a browser smoke guard that fails if the public gate exposes the word "nationwide." Verified the redirect, invalid-password state, successful unlock, desktop and mobile layouts, and the full PR gate.

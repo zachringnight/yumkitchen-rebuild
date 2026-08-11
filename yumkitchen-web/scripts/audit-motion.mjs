@@ -17,6 +17,10 @@ const springs = read('components/motion/springs.ts');
 const patticakeHomeSurface = read('components/PatticakeHome.tsx');
 const patticakeDelivery = read('app/patticake/page.tsx');
 const patticakePickup = read('app/order-a-cake/page.tsx');
+const patticakeCheckout = read('app/patticake/checkout/page.tsx');
+const patticakeConfirmation = read('app/patticake/checkout/confirmation/page.tsx');
+const patticakeCatalog = read('lib/patticake/catalog.ts');
+const previewSplash = read('components/PreviewSplash.tsx');
 const yumPhotoStory = read('components/PhotoMotionStory.tsx');
 const reviewAssets = read('app/asset-gallery/assets.json');
 const creativeReviewSync = read('scripts/sync-creative-review-assets.mjs');
@@ -154,6 +158,8 @@ const launchPosterFractions = Array.from(
   motionReviewBuilder.matchAll(/folder: "launch-motion-[^"]+"[^}]+posterAt: ([0-9.]+)/g),
   (match) => Number(match[1]),
 );
+const pickupPrimaryIndex = patticakePickup.indexOf('href="#cake-inquiry" className="btn-primary"');
+const pickupShippingSecondaryIndex = patticakePickup.indexOf('className="btn-secondary"', pickupPrimaryIndex);
 
 const checks = [
   ['motion token slow', css.includes('--motion-duration-slow')],
@@ -190,6 +196,11 @@ const checks = [
   ['Patticake home leads with one nationwide feature', patticakeHomeSurface.includes('patticake_home_nationwide_feature') && patticakeHomeSurface.includes('send cake,') && !patticakeHomeSurface.includes('const moments') && !patticakeHomeSurface.includes('pick your cake moment') && !patticakeHomeSurface.includes('md:grid-cols-3')],
   ['Patticake delivery page uses one editorial cake fact band', patticakeDelivery.includes('three layers.') && patticakeDelivery.includes('one real bakery cake.') && patticakeDelivery.includes('divide-y divide-brand-primary/30') && !patticakeDelivery.includes('const cakeFacts') && !patticakeDelivery.includes('md:grid-cols-3')],
   ['Patticake pickup page removes the equal three-card choice block', patticakePickup.includes('Ship Nationwide') && patticakePickup.includes('nationwide gifting') && !patticakePickup.includes('const cakePaths') && !patticakePickup.includes('where should the cake go?') && !patticakePickup.includes('md:grid-cols-3')],
+  ['Patticake pickup page leads with its local action', pickupPrimaryIndex >= 0 && pickupShippingSecondaryIndex > pickupPrimaryIndex && patticakePickup.includes('href="/patticake#delivery-support"')],
+  ['Patticake commerce leads with a clear signature cake photo', patticakeCatalog.includes("image: '/images/patticake/slices_plates_vertical.jpg'") && patticakeDelivery.includes("image: '/images/patticake/slices_counter_team.jpg'")],
+  ['Patticake demo checkout has an accessible recovery summary', patticakeCheckout.includes('checkout-errors-heading') && patticakeCheckout.includes('errorSummaryRef') && patticakeCheckout.includes("'aria-invalid'") && patticakeCheckout.includes('Place demo order')],
+  ['Patticake demo confirmation stays truthful', patticakeConfirmation.includes('demo complete') && patticakeConfirmation.includes('would be sent to') && !patticakeConfirmation.includes('the cake is on its way')],
+  ['private preview controls both native videos', previewSplash.includes('<MotionPauseButton') && previewSplash.includes('logoVideoRef') && previewSplash.includes('previewVideoRef') && previewSplash.includes('syncVideoPlayback') && previewSplash.includes('persistKey="patticake-preview-motion-paused"')],
   ['Patticake message ribbon is plain type', !patticakeRibbonCss.includes('background:') && !patticakeRibbonCss.includes('border:') && !patticakeRibbonCss.includes('box-shadow:')],
   ['Patticake fill image parents are positioned', positionedPatticakeImageParents],
   ['photo surfaces carry no visible captions', captionFreePhotoSurfaces && captionFreePhotoCss],
