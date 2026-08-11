@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { m } from 'motion/react';
 import { useCart, type Recipient } from '@/lib/cart/CartContext';
 import { formatUsd } from '@/lib/patticake/catalog';
@@ -13,21 +13,36 @@ import { snap } from '@/components/motion/springs';
 
 type DraftRecipient = Omit<Recipient, 'id'>;
 
-// All 50 states + DC; the module ships nationwide. MN stays the default.
+// All 50 states + DC. Keep the list predictable while asking for an explicit choice.
 const US_STATES = [
-  'MN', 'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN',
-  'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV',
-  'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY',
+  'AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA', 'ID', 'IL', 'IN',
+  'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM',
+  'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV', 'WY',
 ];
 
 function blankRecipient(): DraftRecipient {
-  return { name: '', address1: '', address2: '', city: '', state: 'MN', zip: '' };
+  return { name: '', address1: '', address2: '', city: '', state: '', zip: '' };
+}
+
+function dateInputValue(date: Date): string {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
 }
 
 function minDeliveryDate(): string {
   const d = new Date();
   d.setDate(d.getDate() + 3);
-  return d.toISOString().slice(0, 10);
+  return dateInputValue(d);
+}
+
+function invalidFieldProps(error: string | undefined, errorId: string) {
+  return {
+    'data-invalid': Boolean(error),
+    'aria-invalid': error ? ('true' as const) : undefined,
+    'aria-describedby': error ? errorId : undefined,
+  };
 }
 
 export default function CheckoutPage() {
@@ -41,14 +56,33 @@ export default function CheckoutPage() {
   const [senderEmail, setSenderEmail] = useState('');
   const [card, setCard] = useState({ number: '', exp: '', cvc: '', name: '' });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [validationAttempt, setValidationAttempt] = useState(0);
   const [submitting, setSubmitting] = useState(false);
+  const errorSummaryRef = useRef<HTMLDivElement>(null);
 
   const minDate = useMemo(() => minDeliveryDate(), []);
   const shipping = shippingFor(recipients.length);
   const total = itemsSubtotal + shipping;
+  const errorEntries = Object.entries(errors);
 
-  function setRecipient(index: number, patch: Partial<DraftRecipient>) {
+  useEffect(() => {
+    if (validationAttempt === 0) return;
+    errorSummaryRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    errorSummaryRef.current?.focus();
+  }, [validationAttempt]);
+
+  function clearError(key: string) {
+    setErrors((current) => {
+      if (!current[key]) return current;
+      const next = { ...current };
+      delete next[key];
+      return next;
+    });
+  }
+
+  function setRecipient(index: number, patch: Partial<DraftRecipient>, errorKey?: string) {
     setRecipients((prev) => prev.map((r, i) => (i === index ? { ...r, ...patch } : r)));
+    if (errorKey) clearError(errorKey);
   }
 
   function usableSaved(): Recipient[] {
@@ -61,9 +95,11 @@ export default function CheckoutPage() {
       if (!r.name.trim()) next[`r${i}-name`] = 'Add a recipient name';
       if (!r.address1.trim()) next[`r${i}-address1`] = 'Add a street address';
       if (!r.city.trim()) next[`r${i}-city`] = 'Add a city';
+      if (!r.state) next[`r${i}-state`] = 'Choose a state';
       if (!/^\d{5}$/.test(r.zip.trim())) next[`r${i}-zip`] = 'Enter a 5-digit ZIP';
     });
     if (!deliveryDate) next.deliveryDate = 'Choose a delivery date';
+    else if (deliveryDate < minDate) next.deliveryDate = 'Choose a date at least three days out';
     if (!senderName.trim()) next.senderName = 'Add your name';
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(senderEmail.trim())) next.senderEmail = 'Enter a valid email';
     if (card.number.replace(/\s/g, '').length < 15) next.cardNumber = 'Enter a card number';
@@ -72,16 +108,14 @@ export default function CheckoutPage() {
     if (!card.name.trim()) next.cardName = 'Name on card';
     setErrors(next);
     if (Object.keys(next).length) {
-      const first = document.querySelector<HTMLElement>('[data-invalid="true"]');
-      first?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      first?.focus();
+      setValidationAttempt((attempt) => attempt + 1);
       return false;
     }
     return true;
   }
 
   async function placeOrder() {
-    if (!validate()) return;
+    if (submitting || !validate()) return;
     setSubmitting(true);
     const savedIds = recipients.map((r) => saveRecipient(r));
     await submitOrder({
@@ -121,9 +155,40 @@ export default function CheckoutPage() {
         </Reveal>
       </section>
 
-      <div className="mx-auto grid max-w-[1180px] gap-10 px-6 py-10 lg:grid-cols-[1.4fr_0.85fr] lg:py-section">
+      <form
+        className="mx-auto grid max-w-[1180px] gap-10 px-6 py-10 lg:grid-cols-[1.4fr_0.85fr] lg:py-section"
+        onSubmit={(event) => {
+          event.preventDefault();
+          void placeOrder();
+        }}
+        noValidate
+      >
         {/* form column */}
         <div className="grid gap-10">
+          {errorEntries.length > 0 && (
+            <div
+              ref={errorSummaryRef}
+              role="alert"
+              tabIndex={-1}
+              aria-labelledby="checkout-errors-heading"
+              className="border border-brand-primary/40 border-l-4 border-l-brand-red bg-white p-5 outline-none focus:ring-4 focus:ring-brand-red/20"
+            >
+              <h2 id="checkout-errors-heading" className="font-serif text-2xl lowercase text-brand-primary">check these details</h2>
+              <p className="mt-2 text-base leading-7 text-ink">
+                We found {errorEntries.length} {errorEntries.length === 1 ? 'detail' : 'details'} to fix before the demo order is ready.
+              </p>
+              <ul className="mt-3 grid gap-1 text-base font-bold text-brand-primary-darker">
+                {errorEntries.map(([key, message]) => (
+                  <li key={key}>
+                    <a href={`#${key}`} className="underline decoration-brand-primary/50 underline-offset-2 hover:decoration-brand-primary">
+                      {message}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           {/* Recipients */}
           <section aria-labelledby="ship-heading">
             <h2 id="ship-heading" className="text-h3 lowercase">who is it going to?</h2>
@@ -136,7 +201,10 @@ export default function CheckoutPage() {
                   <button
                     key={s.id}
                     type="button"
-                    onClick={() => setRecipients((prev) => [...prev.filter((r) => r.name || r.address1), { name: s.name, address1: s.address1, address2: s.address2, city: s.city, state: s.state, zip: s.zip }])}
+                    onClick={() => {
+                      setRecipients((prev) => [...prev.filter((r) => r.name || r.address1), { name: s.name, address1: s.address1, address2: s.address2, city: s.city, state: s.state, zip: s.zip }]);
+                      setErrors({});
+                    }}
                     className="border border-ink/20 bg-white px-3 py-1.5 text-sm text-ink hover:border-brand-red"
                   >
                     + {s.name}
@@ -148,52 +216,106 @@ export default function CheckoutPage() {
             <div className="mt-5 grid gap-5">
               {recipients.map((r, i) => (
                 <fieldset key={i} className="form-surface border-l-4 !border-l-brand-red">
+                  <legend className="sr-only">recipient {i + 1}</legend>
                   <div className="flex items-center justify-between">
-                    <legend className="font-serif text-2xl lowercase text-ink">recipient {i + 1}</legend>
+                    <p className="font-serif text-2xl lowercase text-ink" aria-hidden="true">recipient {i + 1}</p>
                     {recipients.length > 1 && (
-                      <button type="button" onClick={() => setRecipients((prev) => prev.filter((_, idx) => idx !== i))} className="text-sm font-medium text-brand-primary hover:underline">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setRecipients((prev) => prev.filter((_, idx) => idx !== i));
+                          setErrors({});
+                        }}
+                        className="text-sm font-medium text-brand-primary hover:underline"
+                      >
                         remove
                       </button>
                     )}
                   </div>
                   <label className="field">
                     <span>Recipient name</span>
-                    <input value={r.name} onChange={(e) => setRecipient(i, { name: e.target.value })} data-invalid={Boolean(errors[`r${i}-name`])} autoComplete="name" />
-                    {errors[`r${i}-name`] && <span className="field-error">{errors[`r${i}-name`]}</span>}
+                    <input
+                      id={`r${i}-name`}
+                      name={`recipient-${i}-name`}
+                      value={r.name}
+                      onChange={(e) => setRecipient(i, { name: e.target.value }, `r${i}-name`)}
+                      autoComplete="name"
+                      {...invalidFieldProps(errors[`r${i}-name`], `r${i}-name-error`)}
+                    />
+                    {errors[`r${i}-name`] && <span id={`r${i}-name-error`} className="field-error">{errors[`r${i}-name`]}</span>}
                   </label>
                   <label className="field">
                     <span>Street address</span>
-                    <input value={r.address1} onChange={(e) => setRecipient(i, { address1: e.target.value })} data-invalid={Boolean(errors[`r${i}-address1`])} autoComplete="address-line1" />
-                    {errors[`r${i}-address1`] && <span className="field-error">{errors[`r${i}-address1`]}</span>}
+                    <input
+                      id={`r${i}-address1`}
+                      name={`recipient-${i}-address1`}
+                      value={r.address1}
+                      onChange={(e) => setRecipient(i, { address1: e.target.value }, `r${i}-address1`)}
+                      autoComplete="address-line1"
+                      {...invalidFieldProps(errors[`r${i}-address1`], `r${i}-address1-error`)}
+                    />
+                    {errors[`r${i}-address1`] && <span id={`r${i}-address1-error`} className="field-error">{errors[`r${i}-address1`]}</span>}
                   </label>
                   <label className="field">
                     <span>Apt, suite (optional)</span>
-                    <input value={r.address2} onChange={(e) => setRecipient(i, { address2: e.target.value })} autoComplete="address-line2" />
+                    <input name={`recipient-${i}-address2`} value={r.address2} onChange={(e) => setRecipient(i, { address2: e.target.value })} autoComplete="address-line2" />
                   </label>
                   <div className="grid gap-5 sm:grid-cols-[1.4fr_0.7fr_0.9fr]">
                     <label className="field">
                       <span>City</span>
-                      <input value={r.city} onChange={(e) => setRecipient(i, { city: e.target.value })} data-invalid={Boolean(errors[`r${i}-city`])} autoComplete="address-level2" />
-                      {errors[`r${i}-city`] && <span className="field-error">{errors[`r${i}-city`]}</span>}
+                      <input
+                        id={`r${i}-city`}
+                        name={`recipient-${i}-city`}
+                        value={r.city}
+                        onChange={(e) => setRecipient(i, { city: e.target.value }, `r${i}-city`)}
+                        autoComplete="address-level2"
+                        {...invalidFieldProps(errors[`r${i}-city`], `r${i}-city-error`)}
+                      />
+                      {errors[`r${i}-city`] && <span id={`r${i}-city-error`} className="field-error">{errors[`r${i}-city`]}</span>}
                     </label>
                     <label className="field">
                       <span>State</span>
-                      <select value={r.state} onChange={(e) => setRecipient(i, { state: e.target.value })} autoComplete="address-level1">
+                      <select
+                        id={`r${i}-state`}
+                        name={`recipient-${i}-state`}
+                        value={r.state}
+                        onChange={(e) => setRecipient(i, { state: e.target.value }, `r${i}-state`)}
+                        autoComplete="address-level1"
+                        {...invalidFieldProps(errors[`r${i}-state`], `r${i}-state-error`)}
+                      >
+                        <option value="">Select</option>
                         {US_STATES.map((s) => (
                           <option key={s} value={s}>{s}</option>
                         ))}
                       </select>
+                      {errors[`r${i}-state`] && <span id={`r${i}-state-error`} className="field-error">{errors[`r${i}-state`]}</span>}
                     </label>
                     <label className="field">
                       <span>ZIP</span>
-                      <input value={r.zip} inputMode="numeric" maxLength={5} onChange={(e) => setRecipient(i, { zip: e.target.value.replace(/\D/g, '') })} data-invalid={Boolean(errors[`r${i}-zip`])} autoComplete="postal-code" />
-                      {errors[`r${i}-zip`] && <span className="field-error">{errors[`r${i}-zip`]}</span>}
+                      <input
+                        id={`r${i}-zip`}
+                        name={`recipient-${i}-zip`}
+                        value={r.zip}
+                        inputMode="numeric"
+                        maxLength={5}
+                        onChange={(e) => setRecipient(i, { zip: e.target.value.replace(/\D/g, '') }, `r${i}-zip`)}
+                        autoComplete="postal-code"
+                        {...invalidFieldProps(errors[`r${i}-zip`], `r${i}-zip-error`)}
+                      />
+                      {errors[`r${i}-zip`] && <span id={`r${i}-zip-error`} className="field-error">{errors[`r${i}-zip`]}</span>}
                     </label>
                   </div>
                 </fieldset>
               ))}
             </div>
-            <button type="button" onClick={() => setRecipients((prev) => [...prev, blankRecipient()])} className="btn-secondary mt-4">
+            <button
+              type="button"
+              onClick={() => {
+                setRecipients((prev) => [...prev, blankRecipient()]);
+                setErrors({});
+              }}
+              className="btn-secondary mt-4"
+            >
               + Send to another address
             </button>
           </section>
@@ -203,8 +325,19 @@ export default function CheckoutPage() {
             <h2 id="gift-heading" className="text-h3 lowercase">delivery and gift note</h2>
             <label className="field max-w-xs">
               <span>Delivery date</span>
-              <input type="date" min={minDate} value={deliveryDate} onChange={(e) => setDeliveryDate(e.target.value)} data-invalid={Boolean(errors.deliveryDate)} />
-              {errors.deliveryDate && <span className="field-error">{errors.deliveryDate}</span>}
+              <input
+                id="deliveryDate"
+                name="delivery-date"
+                type="date"
+                min={minDate}
+                value={deliveryDate}
+                onChange={(e) => {
+                  setDeliveryDate(e.target.value);
+                  clearError('deliveryDate');
+                }}
+                {...invalidFieldProps(errors.deliveryDate, 'deliveryDate-error')}
+              />
+              {errors.deliveryDate && <span id="deliveryDate-error" className="field-error">{errors.deliveryDate}</span>}
             </label>
             <label className="field">
               <span>Gift message (optional)</span>
@@ -219,13 +352,34 @@ export default function CheckoutPage() {
             <div className="grid gap-5 sm:grid-cols-2">
               <label className="field">
                 <span>Your name</span>
-                <input value={senderName} onChange={(e) => setSenderName(e.target.value)} data-invalid={Boolean(errors.senderName)} autoComplete="name" />
-                {errors.senderName && <span className="field-error">{errors.senderName}</span>}
+                <input
+                  id="senderName"
+                  name="sender-name"
+                  value={senderName}
+                  onChange={(e) => {
+                    setSenderName(e.target.value);
+                    clearError('senderName');
+                  }}
+                  autoComplete="name"
+                  {...invalidFieldProps(errors.senderName, 'senderName-error')}
+                />
+                {errors.senderName && <span id="senderName-error" className="field-error">{errors.senderName}</span>}
               </label>
               <label className="field">
                 <span>Email for updates</span>
-                <input type="email" value={senderEmail} onChange={(e) => setSenderEmail(e.target.value)} data-invalid={Boolean(errors.senderEmail)} autoComplete="email" />
-                {errors.senderEmail && <span className="field-error">{errors.senderEmail}</span>}
+                <input
+                  id="senderEmail"
+                  name="sender-email"
+                  type="email"
+                  value={senderEmail}
+                  onChange={(e) => {
+                    setSenderEmail(e.target.value);
+                    clearError('senderEmail');
+                  }}
+                  autoComplete="email"
+                  {...invalidFieldProps(errors.senderEmail, 'senderEmail-error')}
+                />
+                {errors.senderEmail && <span id="senderEmail-error" className="field-error">{errors.senderEmail}</span>}
               </label>
             </div>
           </section>
@@ -237,37 +391,69 @@ export default function CheckoutPage() {
               <label className="field">
                 <span>Card number</span>
                 <input
+                  id="cardNumber"
+                  name="card-number"
                   value={card.number}
                   inputMode="numeric"
                   placeholder="4242 4242 4242 4242"
-                  onChange={(e) => setCard((c) => ({ ...c, number: e.target.value.replace(/\D/g, '').slice(0, 16).replace(/(.{4})/g, '$1 ').trim() }))}
-                  data-invalid={Boolean(errors.cardNumber)}
+                  onChange={(e) => {
+                    setCard((c) => ({ ...c, number: e.target.value.replace(/\D/g, '').slice(0, 16).replace(/(.{4})/g, '$1 ').trim() }));
+                    clearError('cardNumber');
+                  }}
+                  autoComplete="cc-number"
+                  {...invalidFieldProps(errors.cardNumber, 'cardNumber-error')}
                 />
-                {errors.cardNumber && <span className="field-error">{errors.cardNumber}</span>}
+                {errors.cardNumber && <span id="cardNumber-error" className="field-error">{errors.cardNumber}</span>}
               </label>
               <div className="grid gap-5 sm:grid-cols-[0.6fr_0.5fr_1fr]">
                 <label className="field">
                   <span>Expiry</span>
                   <input
+                    id="cardExp"
+                    name="card-expiry"
                     value={card.exp}
                     placeholder="MM/YY"
                     onChange={(e) => {
                       const digits = e.target.value.replace(/\D/g, '').slice(0, 4);
                       setCard((c) => ({ ...c, exp: digits.length > 2 ? `${digits.slice(0, 2)}/${digits.slice(2)}` : digits }));
+                      clearError('cardExp');
                     }}
-                    data-invalid={Boolean(errors.cardExp)}
+                    autoComplete="cc-exp"
+                    {...invalidFieldProps(errors.cardExp, 'cardExp-error')}
                   />
-                  {errors.cardExp && <span className="field-error">{errors.cardExp}</span>}
+                  {errors.cardExp && <span id="cardExp-error" className="field-error">{errors.cardExp}</span>}
                 </label>
                 <label className="field">
                   <span>CVC</span>
-                  <input value={card.cvc} inputMode="numeric" maxLength={4} onChange={(e) => setCard((c) => ({ ...c, cvc: e.target.value.replace(/\D/g, '') }))} data-invalid={Boolean(errors.cardCvc)} />
-                  {errors.cardCvc && <span className="field-error">{errors.cardCvc}</span>}
+                  <input
+                    id="cardCvc"
+                    name="card-cvc"
+                    value={card.cvc}
+                    inputMode="numeric"
+                    maxLength={4}
+                    onChange={(e) => {
+                      setCard((c) => ({ ...c, cvc: e.target.value.replace(/\D/g, '') }));
+                      clearError('cardCvc');
+                    }}
+                    autoComplete="cc-csc"
+                    {...invalidFieldProps(errors.cardCvc, 'cardCvc-error')}
+                  />
+                  {errors.cardCvc && <span id="cardCvc-error" className="field-error">{errors.cardCvc}</span>}
                 </label>
                 <label className="field">
                   <span>Name on card</span>
-                  <input value={card.name} onChange={(e) => setCard((c) => ({ ...c, name: e.target.value }))} data-invalid={Boolean(errors.cardName)} />
-                  {errors.cardName && <span className="field-error">{errors.cardName}</span>}
+                  <input
+                    id="cardName"
+                    name="card-name"
+                    value={card.name}
+                    onChange={(e) => {
+                      setCard((c) => ({ ...c, name: e.target.value }));
+                      clearError('cardName');
+                    }}
+                    autoComplete="cc-name"
+                    {...invalidFieldProps(errors.cardName, 'cardName-error')}
+                  />
+                  {errors.cardName && <span id="cardName-error" className="field-error">{errors.cardName}</span>}
                 </label>
               </div>
               <p className="text-sm leading-6 text-body">Demo only. Use any numbers, like 4242 4242 4242 4242.</p>
@@ -313,15 +499,15 @@ export default function CheckoutPage() {
                 <dd>{formatUsd(total)}</dd>
               </div>
             </dl>
-            <m.button type="button" onClick={placeOrder} disabled={submitting} className="btn-primary mt-5 w-full" whileTap={{ scale: 0.98 }} transition={snap}>
-              {submitting ? 'Placing order…' : `Place order · ${formatUsd(total)}`}
+            <m.button type="submit" disabled={submitting} className="btn-primary mt-5 w-full" whileTap={{ scale: 0.98 }} transition={snap}>
+              {submitting ? 'Placing demo order…' : `Place demo order · ${formatUsd(total)}`}
             </m.button>
             <Link href="/patticake#national-order" className="btn-link mt-3 block text-center">
               keep shopping
             </Link>
           </div>
         </aside>
-      </div>
+      </form>
     </main>
   );
 }
