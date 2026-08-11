@@ -28,8 +28,8 @@ export const cakes: Cake[] = [
     name: 'Patticake',
     tagline: 'the signature',
     description: 'A towering triple-layer chocolate cake with vanilla buttercream, baked from scratch. Named for founder Patti Soskin.',
-    image: '/images/patticake/slices_counter_team.jpg',
-    imageAlt: 'a row of triple-layer chocolate Patticake slices on the yum! counter, bakers in red caps behind',
+    image: '/images/patticake/slices_plates_vertical.jpg',
+    imageAlt: 'a tall triple-layer chocolate Patticake slice on a white plate, with more slices behind',
     signature: true,
     variants: [
       { format: 'whole', label: 'Whole cake', price: 5995, serves: '8-inch round, serves 8 to 16' },

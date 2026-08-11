@@ -47,9 +47,9 @@ const occasions = [
   {
     title: 'office celebrations',
     copy: 'A shareable dessert for clients, teams, milestones, and meeting tables.',
-    image: '/images/patticake/slices_plates_vertical.jpg',
-    alt: 'yum! patticake slices on plates',
-    className: 'crop-patticake-vertical-slices',
+    image: '/images/patticake/slices_counter_team.jpg',
+    alt: 'a row of triple-layer chocolate Patticake slices on the yum! counter, bakers in red caps behind',
+    className: 'crop-patticake-product',
   },
   {
     title: 'family moments',

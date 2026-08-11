@@ -2,13 +2,27 @@
 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
+import { MotionPauseButton } from './MotionPauseButton';
 
 export function PreviewSplash({ nextPath }: { nextPath: string }) {
   const router = useRouter();
   const [password, setPassword] = useState('');
   const [status, setStatus] = useState<'idle' | 'sending' | 'error'>('idle');
   const [message, setMessage] = useState('');
+  const logoVideoRef = useRef<HTMLVideoElement>(null);
+  const previewVideoRef = useRef<HTMLVideoElement>(null);
+
+  const syncVideoPlayback = useCallback((paused: boolean) => {
+    [logoVideoRef.current, previewVideoRef.current].forEach((video) => {
+      if (!video) return;
+      if (paused) {
+        video.pause();
+        return;
+      }
+      void video.play().catch(() => undefined);
+    });
+  }, []);
 
   async function unlockPreview(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -58,6 +72,7 @@ export function PreviewSplash({ nextPath }: { nextPath: string }) {
                 className="preview-splash-logo-poster object-cover"
               />
               <video
+                ref={logoVideoRef}
                 className="preview-splash-logo-video absolute inset-0 h-full w-full object-cover"
                 autoPlay
                 muted
@@ -81,36 +96,43 @@ export function PreviewSplash({ nextPath }: { nextPath: string }) {
             </p>
           </div>
 
-          <form onSubmit={unlockPreview} className="preview-access-form max-w-[34rem] border-t-2 border-brand-red pt-5" noValidate>
-            <label htmlFor="preview-password" className="block text-sm font-bold uppercase tracking-[0.12em] text-brand-primary">
-              Preview password
-            </label>
-            <div className="mt-3 grid gap-3 sm:grid-cols-[1fr_auto]">
-              <input
-                id="preview-password"
-                name="password"
-                type="password"
-                value={password}
-                onChange={(event) => {
-                  setPassword(event.target.value);
-                  if (status === 'error') {
-                    setStatus('idle');
-                    setMessage('');
-                  }
-                }}
-                autoComplete="current-password"
-                aria-invalid={status === 'error'}
-                aria-describedby={message ? 'preview-password-message' : undefined}
-                className="min-h-14 w-full border-2 border-brand-red bg-white px-4 py-3 text-xl text-ink outline-hidden transition focus:ring-4 focus:ring-brand-red/20"
-              />
-              <button type="submit" className="btn-primary min-h-14 whitespace-nowrap px-7" disabled={status === 'sending'}>
-                {status === 'sending' ? 'Opening...' : 'Enter preview'}
-              </button>
-            </div>
-            <p id="preview-password-message" className={`mt-3 min-h-6 text-base font-bold ${status === 'error' ? 'text-brand-primary-darker' : 'text-ink'}`} role="status">
-              {message}
-            </p>
-          </form>
+          <div className="max-w-[34rem]">
+            <form onSubmit={unlockPreview} className="preview-access-form border-t-2 border-brand-red pt-5" noValidate>
+              <label htmlFor="preview-password" className="block text-sm font-bold uppercase tracking-[0.12em] text-brand-primary">
+                Preview password
+              </label>
+              <div className="mt-3 grid gap-3 sm:grid-cols-[1fr_auto]">
+                <input
+                  id="preview-password"
+                  name="password"
+                  type="password"
+                  value={password}
+                  onChange={(event) => {
+                    setPassword(event.target.value);
+                    if (status === 'error') {
+                      setStatus('idle');
+                      setMessage('');
+                    }
+                  }}
+                  autoComplete="current-password"
+                  aria-invalid={status === 'error'}
+                  aria-describedby={message ? 'preview-password-message' : undefined}
+                  className="min-h-14 w-full border-2 border-brand-red bg-white px-4 py-3 text-xl text-ink outline-hidden transition focus:ring-4 focus:ring-brand-red/20"
+                />
+                <button type="submit" className="btn-primary min-h-14 whitespace-nowrap px-7" disabled={status === 'sending'}>
+                  {status === 'sending' ? 'Opening...' : 'Enter preview'}
+                </button>
+              </div>
+              <p id="preview-password-message" className={`mt-3 min-h-6 text-base font-bold ${status === 'error' ? 'text-brand-primary-darker' : 'text-ink'}`} role="status">
+                {message}
+              </p>
+            </form>
+            <MotionPauseButton
+              className="mt-2 min-h-11 border border-ink/30 bg-white px-4 py-2 text-sm font-bold uppercase tracking-[0.1em] text-ink transition hover:border-brand-primary hover:text-brand-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
+              onPausedChange={syncVideoPlayback}
+              persistKey="patticake-preview-motion-paused"
+            />
+          </div>
         </section>
 
         <section className="preview-splash-media relative min-h-[48vh] overflow-hidden border-brand-red bg-blue-tint lg:min-h-svh lg:border-l-2" aria-label="Patticake motion preview">
@@ -123,6 +145,7 @@ export function PreviewSplash({ nextPath }: { nextPath: string }) {
             className="preview-splash-poster object-contain"
           />
           <video
+            ref={previewVideoRef}
             className="preview-splash-video absolute inset-0 h-full w-full object-contain"
             autoPlay
             muted

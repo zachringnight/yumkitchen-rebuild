@@ -26,6 +26,31 @@ async function main() {
     const previewText = await page.evaluate(() => document.body.textContent ?? '');
     if (/nation[\s-]*wide/i.test(previewText)) throw new Error('private preview exposes the nationwide launch detail');
     if (!(await page.$('#preview-password'))) throw new Error('private preview password field missing');
+    const hasPreviewPause = await page.evaluate(() =>
+      [...document.querySelectorAll('button')].some((button) => button.textContent?.trim() === 'Pause Animation'));
+    if (!hasPreviewPause) throw new Error('private preview motion pause control missing');
+    await page.evaluate(() => {
+      const pauseButton = [...document.querySelectorAll('button')].find((button) => button.textContent?.trim() === 'Pause Animation');
+      pauseButton?.click();
+    });
+    await page.waitForFunction(() => {
+      const pauseButton = [...document.querySelectorAll('button')].find((button) => button.textContent?.trim() === 'Play Animation');
+      const videos = [...document.querySelectorAll('video')];
+      return pauseButton?.getAttribute('aria-pressed') === 'true' && videos.length === 2 && videos.every((video) => video.paused);
+    });
+    await page.reload({ waitUntil: 'networkidle0' });
+    await page.waitForFunction(() => {
+      const playButton = [...document.querySelectorAll('button')].find((button) => button.textContent?.trim() === 'Play Animation');
+      const videos = [...document.querySelectorAll('video')];
+      return playButton?.getAttribute('aria-pressed') === 'true' && videos.length === 2 && videos.every((video) => video.paused);
+    });
+    await page.evaluate(() => {
+      const playButton = [...document.querySelectorAll('button')].find((button) => button.textContent?.trim() === 'Play Animation');
+      playButton?.click();
+    });
+    await page.waitForFunction(() =>
+      [...document.querySelectorAll('button')].some((button) =>
+        button.textContent?.trim() === 'Pause Animation' && button.getAttribute('aria-pressed') === 'false'));
 
     await page.goto(baseUrl, { waitUntil: 'networkidle0' });
 
@@ -39,6 +64,45 @@ async function main() {
     await page.reload({ waitUntil: 'networkidle0' });
     if (!(await textIncludes(page, 'Ship a Cake'))) throw new Error('Patticake home CTA missing under reduced motion');
     await page.emulateMediaFeatures([]);
+
+    await page.setViewport({ width: 390, height: 844 });
+    await page.goto(`${baseUrl}/patticake#national-order`, { waitUntil: 'networkidle0' });
+    await page.evaluate(() => localStorage.removeItem('patticake-cart-v1'));
+    await page.reload({ waitUntil: 'networkidle0' });
+    const signaturePhoto = await page.$('img[alt^="a tall triple-layer chocolate Patticake slice"]');
+    if (!signaturePhoto) throw new Error('Patticake buy module does not lead with the clear signature cake photo');
+    const addCakeButton = await page.$('button[data-event="click_patticake_add_to_cart"]');
+    if (!addCakeButton) throw new Error('Patticake add-to-box button missing');
+    await addCakeButton.click();
+    await page.waitForSelector('[role="dialog"]');
+    const checkoutLink = await page.$('[role="dialog"] a[href="/patticake/checkout"]');
+    if (!checkoutLink) throw new Error('Patticake checkout link missing from cake box');
+    await checkoutLink.click();
+    await page.waitForFunction(() => window.location.pathname === '/patticake/checkout');
+    await page.waitForFunction(() => document.body.textContent?.includes('Place demo order'));
+    const blankState = await page.$eval('#r0-state', (select) => select.value);
+    if (blankState !== '') throw new Error('checkout state selector did not start with an explicit blank choice');
+    await page.evaluate(() => {
+      const submitButton = [...document.querySelectorAll('button')].find((button) => button.textContent?.includes('Place demo order'));
+      submitButton?.click();
+    });
+    await page.waitForSelector('[aria-labelledby="checkout-errors-heading"]');
+    await page.waitForFunction(() => document.activeElement?.getAttribute('aria-labelledby') === 'checkout-errors-heading');
+    const checkoutRecovery = await page.evaluate(() => {
+      const summary = document.querySelector('[aria-labelledby="checkout-errors-heading"]');
+      const rect = summary?.getBoundingClientRect();
+      return {
+        summaryVisible: Boolean(rect && rect.top >= 0 && rect.top < window.innerHeight),
+        recipientInvalid: document.querySelector('#r0-name')?.getAttribute('aria-invalid'),
+        stateInvalid: document.querySelector('#r0-state')?.getAttribute('aria-invalid'),
+      };
+    });
+    if (!checkoutRecovery.summaryVisible) throw new Error('checkout error summary did not return to the mobile viewport');
+    if (checkoutRecovery.recipientInvalid !== 'true' || checkoutRecovery.stateInvalid !== 'true') {
+      throw new Error('checkout errors are not connected to the invalid fields');
+    }
+
+    await page.setViewport({ width: 1366, height: 900 });
 
     await page.goto(`${baseUrl}/yum-kitchen`, { waitUntil: 'networkidle0' });
     if (!(await textIncludes(page, 'neighborhood restaurants'))) throw new Error('restaurant home proof points missing');
@@ -126,7 +190,7 @@ async function main() {
     const noResults = await textIncludes(page, 'no menu items found');
     if (noResults) throw new Error('menu search unexpectedly returned no results');
 
-    console.log('UI smoke passed: private preview, home, reduced motion, location handoff, menu restaurant switching, order filters, cart quantity, checkout links, and menu search work.');
+    console.log('UI smoke passed: private preview, persisted motion pause, Patticake checkout recovery, home, reduced motion, location handoff, menu restaurant switching, order filters, cart quantity, checkout links, and menu search work.');
   } finally {
     await browser.close();
   }

@@ -36,10 +36,10 @@ export default function ConfirmationPage() {
               <path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
-          <p className="section-label mt-5 text-ink">order placed</p>
-          <h1 className="text-h2 lowercase">the cake is on its way</h1>
+          <p className="section-label mt-5 text-ink">demo complete</p>
+          <h1 className="text-h2 lowercase">your demo order is ready</h1>
           <p className="mt-4 text-xl leading-9 text-ink">
-            Order <span className="font-bold">{lastOrder.orderNumber}</span>. A confirmation is headed to {lastOrder.senderEmail}.
+            Order <span className="font-bold">{lastOrder.orderNumber}</span>. This is the confirmation that would be sent to {lastOrder.senderEmail}.
           </p>
           <p className="mt-2 inline-block bg-white/70 px-3 py-1 text-sm font-medium text-ink">
             Demo order. No card was charged.

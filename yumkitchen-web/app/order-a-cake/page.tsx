@@ -76,22 +76,22 @@ export default function CakePage() {
               className="crop-patticake-vertical-slices"
             />
             <Reveal as="p" className="mt-7 max-w-[500px] text-xl leading-8 text-ink" delay={0.1} y={16}>
-              Patticake is triple-layer chocolate cake with vanilla buttercream, baked fresh for birthdays, thank-yous, weddings, and every table worth celebrating.
+              Patticake is a triple-layer chocolate cake with vanilla buttercream, baked fresh for birthdays, thank-yous, weddings, and every table worth celebrating.
             </Reveal>
             <Reveal className="mt-8 flex flex-wrap items-center gap-3" delay={0.16} y={14}>
+              <PressButton>
+                <a href="#cake-inquiry" className="btn-primary">
+                  Pick Up Locally
+                </a>
+              </PressButton>
               <PressButton>
                 <a
                   href={patticakeNationalOrderUrl}
                   target={nationalOrderIsExternal ? '_blank' : undefined}
                   rel={nationalOrderIsExternal ? 'noopener noreferrer' : undefined}
-                  className="btn-primary"
+                  className="btn-secondary"
                 >
                   Ship Nationwide
-                </a>
-              </PressButton>
-              <PressButton>
-                <a href="#cake-inquiry" className="btn-secondary">
-                  Pick Up Locally
                 </a>
               </PressButton>
             </Reveal>
@@ -236,7 +236,7 @@ export default function CakePage() {
             </p>
             <div className="mt-7 border border-brand-primary/30 bg-cream p-5">
               <p className="font-serif text-2xl font-normal lowercase text-ink">sending Patticake outside the Twin Cities?</p>
-              <Link href="/patticake" className="btn-link mt-3 inline-block">
+              <Link href="/patticake#delivery-support" className="btn-link mt-3 inline-block">
                 Start a Shipping Note
               </Link>
             </div>
