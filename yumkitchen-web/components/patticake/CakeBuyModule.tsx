@@ -124,7 +124,15 @@ export function CakeBuyModule() {
             {moreCakes.map((cake) => (
               <article key={cake.slug} className="grid border-b border-brand-primary/35 pb-6 sm:grid-cols-[150px_1fr] sm:gap-6">
                 <div className="relative aspect-square overflow-hidden border border-brand-primary/25 bg-white">
-                  <Image src={cake.image} alt={cake.imageAlt} fill sizes="150px" className="object-cover" />
+                  <Image
+                    src={cake.image}
+                    alt={cake.imageAlt}
+                    fill
+                    sizes="150px"
+                    className={`object-cover ${
+                      cake.slug === 'coconut' ? 'scale-[1.32] object-[50%_46%]' : ''
+                    }`}
+                  />
                 </div>
                 <div className="pt-4 sm:pt-1">
                   <h4 className="font-serif text-3xl font-normal lowercase leading-none text-ink">{cake.name}</h4>
