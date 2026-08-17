@@ -120,7 +120,7 @@ export const pageMeta = {
   },
   patticakeDelivery: {
     title: 'Patticake Nationwide Delivery',
-    description: 'Patticake is now available nationwide. Start a shipping note, add the sweet details, and hear back from yum! before baking.',
+    description: 'Patticake is now available nationwide. Choose your cake, add a delivery date and gift message, and check out on this page.',
     image: '/og/patticake-ship.jpg',
   },
   about: {
