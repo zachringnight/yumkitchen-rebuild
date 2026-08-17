@@ -63,9 +63,8 @@ const occasions = [
 const confirmations = [
   'recipient name and full ship-to address',
   'delivery date, three or more days out',
-  'servings, occasion, and gift message',
-  'weather, timing, or packing notes',
-  'local pickup if the cake is staying in the Twin Cities',
+  'whole cake or by the slice',
+  'occasion and a gift note',
 ] as const;
 
 const deliveryFacts = [
@@ -83,7 +82,7 @@ const deliveryFacts = [
   },
   {
     title: 'how it arrives',
-    copy: 'Patticake is packed with care, with the message close by and the cake ready to share.',
+    copy: 'Patticake is packed with care, with a gift note tucked in and the cake ready to share.',
   },
 ] as const;
 
@@ -108,11 +107,11 @@ const faqs = [
   {
     question: 'Can I pay online right now?',
     answer:
-      'This preview walks the full order: cake, delivery date, gift message, and checkout. No card is charged. When nationwide shipping is live, the same path will take a real payment.',
+      'This preview walks the full order: cake, delivery date, gift note, and checkout. No card is charged. When nationwide shipping is live, the same path will take a real payment.',
   },
   {
     question: 'Can I include a gift message?',
-    answer: 'Yes. Add the cake message and a gift note. If it needs a little help, we will work with you.',
+    answer: 'Yes. Add a gift note at checkout. Words on the cake can go in a Pick Up Locally note.',
   },
   {
     question: 'Where can Patticake ship?',
@@ -186,12 +185,12 @@ export default function PatticakeNationalDeliveryPage() {
               ship a patticake nationwide
             </Reveal>
             <PatticakeHeroPeek
-              src="/images/patticake/10_layers_slice.jpg"
-              alt="triple-layer chocolate Patticake cut open to show the layers"
-              className="crop-patticake-layer"
+              src="/images/patticake/gift_box_tissue.jpg"
+              alt="a baby-blue yum! gift box tied with red ribbon on red polka-dot tissue"
+              className="crop-patticake-gift-box"
             />
             <Reveal as="p" className="mt-7 max-w-xl text-xl leading-9 text-ink" delay={0.1} y={16}>
-              Patticake now ships nationwide. Tell us where it is headed, when it should arrive, and the words that should travel with it.
+              Patticake now ships nationwide. Tell us where it is headed, when it should arrive, and the gift note that travels with it.
             </Reveal>
             <Reveal className="mt-8 flex flex-wrap gap-3" delay={0.16} y={14}>
               <PressButton>
@@ -209,8 +208,8 @@ export default function PatticakeNationalDeliveryPage() {
               Order online in a few taps, or start a note and we&apos;ll help you plan it.
             </p>
             <Stagger className="mt-9 hidden gap-3 sm:grid sm:grid-cols-2" gap={0.08}>
-              <StaggerItem><HeroNote title="built for gifting" copy="address, date, occasion, and message" /></StaggerItem>
-              <StaggerItem><HeroNote title="bakery checked" copy="timing, weather, and the best way to send it" /></StaggerItem>
+              <StaggerItem><HeroNote title="built for gifting" copy="address, date, occasion, and gift note" /></StaggerItem>
+              <StaggerItem><HeroNote title="baked to the date" copy="delivery starts three days out" /></StaggerItem>
             </Stagger>
           </div>
 
@@ -282,7 +281,7 @@ export default function PatticakeNationalDeliveryPage() {
                 send a patticake
               </h2>
               <p className="mt-6 max-w-xl text-xl leading-9 text-ink">
-                Choose your delivery date, address, and gift message in the nationwide checkout.
+                Choose your delivery date, address, and gift note in the nationwide checkout.
               </p>
               <a
                 href={patticakeNationalOrderUrl}
@@ -374,7 +373,7 @@ export default function PatticakeNationalDeliveryPage() {
             <p className="section-label">before you order</p>
             <h2 className="text-h2 lowercase">what to have ready</h2>
             <p className="mt-5 text-xl leading-9 text-body">
-              A few notes help us take good care of the cake, whether you order now or ask us first.
+              Have these ready at checkout. That is enough to send the cake.
             </p>
           </div>
           <div className="border border-brand-primary/20 bg-white p-6">
@@ -431,7 +430,7 @@ export default function PatticakeNationalDeliveryPage() {
             <p className="section-label">shipping help</p>
             <h2 className="text-h2 lowercase">rather talk it through first?</h2>
             <p className="mt-4 max-w-2xl text-xl leading-9 text-body">
-              Ordering happens right on this page. If you have a question about timing, allergies, or the note on top, start a shipping note instead and a real yum! baker will reply. It is a note, not a confirmed order.
+              Ordering happens right on this page. If you have a question about timing, allergies, or the gift note, start a shipping note instead and a real yum! baker will reply. It is a note, not a confirmed order.
             </p>
           </Reveal>
           <details id="delivery-support" className="group mt-6 scroll-mt-24 border border-ink/15 bg-white md:scroll-mt-28">

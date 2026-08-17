@@ -34,6 +34,7 @@ export function SiteHeader() {
   const patticakeSurface = usePatticakeSurface();
   const mobileMenuId = 'site-mobile-navigation';
   const inPatticakeShippingStep = pathname === '/patticake' && hash === '#delivery-support';
+  const inPatticakeCheckout = pathname.startsWith('/patticake/checkout');
   const patticakePrimaryHref = pathname === '/order-a-cake' ? '#cake-inquiry' : inPatticakeShippingStep ? '#delivery-support' : patticakeNationalOrderUrl;
   const patticakeOrderIsExternal = /^https?:\/\//.test(patticakePrimaryHref);
   const patticakePrimaryLabel = pathname === '/order-a-cake' ? 'Pick Up Locally' : inPatticakeShippingStep ? 'Start Note' : 'Ship a Cake';
@@ -102,16 +103,18 @@ export function SiteHeader() {
                 </Link>
               </nav>
               <div className="hidden items-center gap-3 lg:flex">
-                <a
-                  href={patticakePrimaryHref}
-                  target={patticakeOrderIsExternal ? '_blank' : undefined}
-                  rel={patticakeOrderIsExternal ? 'noopener noreferrer' : undefined}
-                  className="btn-primary px-5 py-3"
-                  data-event="click_patticake_national_delivery_order"
-                  data-source="site_header"
-                >
-                  {patticakePrimaryLabel}
-                </a>
+                {!inPatticakeCheckout && (
+                  <a
+                    href={patticakePrimaryHref}
+                    target={patticakeOrderIsExternal ? '_blank' : undefined}
+                    rel={patticakeOrderIsExternal ? 'noopener noreferrer' : undefined}
+                    className="btn-primary px-5 py-3"
+                    data-event="click_patticake_national_delivery_order"
+                    data-source="site_header"
+                  >
+                    {patticakePrimaryLabel}
+                  </a>
+                )}
                 {!patticakeNationalOrderIsExternal && <CartButton />}
               </div>
             </>
@@ -192,16 +195,18 @@ export function SiteHeader() {
           )}
           <div className="flex items-center gap-2 lg:hidden">
             {patticakeSurface ? (
-              <a
-                href={patticakePrimaryHref}
-                target={patticakeOrderIsExternal ? '_blank' : undefined}
-                rel={patticakeOrderIsExternal ? 'noopener noreferrer' : undefined}
-                className="btn-primary px-4 py-3 text-base"
-                data-event="click_patticake_national_delivery_order"
-                data-source="site_header_mobile"
-              >
-                {patticakePrimaryLabel}
-              </a>
+              !inPatticakeCheckout && (
+                <a
+                  href={patticakePrimaryHref}
+                  target={patticakeOrderIsExternal ? '_blank' : undefined}
+                  rel={patticakeOrderIsExternal ? 'noopener noreferrer' : undefined}
+                  className="btn-primary px-4 py-3 text-base"
+                  data-event="click_patticake_national_delivery_order"
+                  data-source="site_header_mobile"
+                >
+                  {patticakePrimaryLabel}
+                </a>
+              )
             ) : (
               <a
                 href={location.order_url}
@@ -323,15 +328,17 @@ export function SiteHeader() {
                 })
               )}
               {patticakeSurface ? (
-                <a
-                  href={patticakePrimaryHref}
-                  target={patticakeOrderIsExternal ? '_blank' : undefined}
-                  rel={patticakeOrderIsExternal ? 'noopener noreferrer' : undefined}
-                  className="btn-secondary mt-3 text-center"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {patticakePrimaryLabel}
-                </a>
+                !inPatticakeCheckout && (
+                  <a
+                    href={patticakePrimaryHref}
+                    target={patticakeOrderIsExternal ? '_blank' : undefined}
+                    rel={patticakeOrderIsExternal ? 'noopener noreferrer' : undefined}
+                    className="btn-secondary mt-3 text-center"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {patticakePrimaryLabel}
+                  </a>
+                )
               ) : (
                 <Link href="/yum-kitchen#locations" prefetch={false} className="btn-secondary mt-3 text-center" onClick={() => setMenuOpen(false)}>
                   Find Us

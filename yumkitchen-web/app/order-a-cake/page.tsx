@@ -162,7 +162,7 @@ export default function CakePage() {
                 farther.
               </h2>
               <p className="mt-6 max-w-xl text-xl leading-9 text-ink">
-                When the celebration is outside the Twin Cities, the same Patticake ships nationwide. Order online with a delivery date and gift message, and we pack it to travel.
+                When the celebration is outside the Twin Cities, the same Patticake ships nationwide. Order online with a delivery date and gift note, and we pack it to travel.
               </p>
               <PressButton className="mt-8">
                 <a

@@ -10,7 +10,7 @@ export function PatticakeConciergeBand() {
           <p className="section-label text-ink">how it works</p>
           <h2 className="text-h2 lowercase">a cake that gets a real person behind it</h2>
           <p className="mt-5 max-w-xl text-xl leading-9 text-ink">
-            Patticake should feel loved from the first note to the first slice. Tell us where it is headed, then we help make the next step easy.
+            Patticake should feel loved from the first order to the first slice. Choose the cake, tell us where it is headed, and yum! bakes it to the date.
           </p>
           {/* No CTA pair here: the hero above and the closing section below
               both carry Ship a Cake / Pick Up Locally. This band explains;
@@ -36,11 +36,11 @@ export function PatticakeConciergeBand() {
             </div>
             <div className="concierge-photo concierge-photo-gift">
               <Image
-                src="/images/patticake/slices_plates_vertical.jpg"
-                alt="yum! patticake slices on plates"
+                src="/images/patticake/gift_box_tissue.jpg"
+                alt="a baby-blue yum! gift box tied with red ribbon on red polka-dot tissue"
                 fill
                 sizes="(min-width: 1024px) 18vw, 42vw"
-                className="object-cover crop-patticake-vertical-slices"
+                className="object-cover crop-patticake-gift-box"
               />
             </div>
           </div>

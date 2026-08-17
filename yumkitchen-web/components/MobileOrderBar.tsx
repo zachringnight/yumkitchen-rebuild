@@ -49,7 +49,7 @@ export function MobileOrderBar() {
     };
   }, [pathname]);
 
-  if (pathname === '/order' || pathname === '/asset-gallery') return null;
+  if (pathname === '/order' || pathname === '/asset-gallery' || pathname.startsWith('/patticake/checkout')) return null;
 
   return (
     <div

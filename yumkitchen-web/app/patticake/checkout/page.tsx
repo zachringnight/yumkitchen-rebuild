@@ -340,7 +340,7 @@ export default function CheckoutPage() {
               {errors.deliveryDate && <span id="deliveryDate-error" className="field-error">{errors.deliveryDate}</span>}
             </label>
             <label className="field">
-              <span>Gift message (optional)</span>
+              <span>Gift note (optional)</span>
               <textarea rows={3} maxLength={240} value={giftMessage} onChange={(e) => setGiftMessage(e.target.value)} placeholder="Happy birthday! Wish we could share a slice with you." />
               <span className="text-sm text-body">{giftMessage.length}/240</span>
             </label>
