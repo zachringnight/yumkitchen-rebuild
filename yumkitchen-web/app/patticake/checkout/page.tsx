@@ -456,7 +456,7 @@ export default function CheckoutPage() {
                   {errors.cardName && <span id="cardName-error" className="field-error">{errors.cardName}</span>}
                 </label>
               </div>
-              <p className="text-sm leading-6 text-body">Demo only. Use any numbers, like 4242 4242 4242 4242.</p>
+              <p className="text-sm leading-6 text-body">Any numbers work here. No card is charged.</p>
             </div>
           </section>
         </div>
