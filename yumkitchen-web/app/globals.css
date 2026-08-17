@@ -996,12 +996,13 @@ body[data-nav-open='true'] .mobile-order-bar {
   min-height: 0;
 }
 
-/* Below lg the captioned hero peek is the one hero photo on /patticake and
-   /order-a-cake. Hide the large uncaptioned desktop hero media so the same
-   shot never renders twice within the first screens on mobile. */
+/* Below lg the captioned hero peek is the one hero photo on home, /patticake,
+   and /order-a-cake. Hide the large desktop hero media so the same shot never
+   renders twice within the first screens on mobile. */
 @media (width < 64rem) {
   .patticake-hero-card,
-  .patticake-delivery-photo-pair {
+  .patticake-delivery-photo-pair,
+  .patticake-photo-grid {
     display: none;
   }
 }

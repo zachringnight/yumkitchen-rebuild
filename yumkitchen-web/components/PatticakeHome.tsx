@@ -73,10 +73,9 @@ export function PatticakeHome() {
               patticake
             </Reveal>
             <PatticakeHeroPeek
-              src="/images/patticake/09_slices_mobile_lcp.webp"
-              alt="yum! patticake slices on plates"
-              className="crop-patticake-slices"
-              unoptimized
+              src="/images/patticake/gift_box_vertical.jpg"
+              alt="Patticake gift box in bright baby blue, tied with red yum! ribbon"
+              className="crop-patticake-gift-box"
             />
             <Reveal as="p" className="mt-7 max-w-[520px] text-xl leading-9 text-ink" delay={0.12} y={16}>
               Ship yum!&apos;s triple-layer chocolate cake, vanilla buttercream, and a message made for the table anywhere nationwide.
