@@ -71,7 +71,7 @@ const confirmations = [
 const deliveryFacts = [
   {
     title: 'price',
-    copy: 'Whole cakes and slices are priced right on this page. Shipping is added at checkout, before you pay.',
+    copy: 'Whole cakes and slices are priced right on this page. Shipping is added at checkout, before you place the demo order.',
   },
   {
     title: 'timing',
@@ -108,7 +108,7 @@ const faqs = [
   {
     question: 'Can I pay online right now?',
     answer:
-      'Yes. Choose your cake, add a delivery date and gift message, and check out securely. We bake fresh and ship it ready to share.',
+      'This preview walks the full order: cake, delivery date, gift message, and checkout. No card is charged. When nationwide shipping is live, the same path will take a real payment.',
   },
   {
     question: 'Can I include a gift message?',
