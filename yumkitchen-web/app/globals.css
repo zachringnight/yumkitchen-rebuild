@@ -1142,7 +1142,9 @@ body[data-nav-open='true'] .mobile-order-bar {
 }
 
 .patticake-photo-grid {
-  display: grid;
+  /* display:grid is applied at lg and up. The earlier width < 64rem rule
+     hides this grid so the mobile peek is the only hero photo. Do not put
+     display:grid on this block: it would override that hide. */
   /* Sized so the grid's bottom frame resolves above the fold at common
      desktop viewports (900px tall and up) instead of being cut mid-photo.
      The grid drives the hero's height; the text column centers against it.
@@ -1161,6 +1163,12 @@ body[data-nav-open='true'] .mobile-order-bar {
   background: var(--color-blue-tint);
   padding: 0.75rem;
   box-shadow: 0 1.7rem 4rem rgb(45 45 45 / 0.16);
+}
+
+@media (width >= 64rem) {
+  .patticake-photo-grid {
+    display: grid;
+  }
 }
 
 .motion-pause-button {
