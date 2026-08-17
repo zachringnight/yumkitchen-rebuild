@@ -33,7 +33,7 @@ const kindContent: Record<string, { note: string; nextHref: string; nextLabel: s
     nextLabel: 'Back to Catering',
   },
   cake: {
-    note: 'Your cake note is in. The cake pages have flavors, sizes, and delivery details to browse.',
+    note: 'Your cake note is in. The Patticake pages have pickup and nationwide send paths to browse.',
     nextHref: '/order-a-cake',
     nextLabel: 'Back to Cakes',
   },

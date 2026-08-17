@@ -80,9 +80,9 @@ export function CartDrawer() {
           <div className="flex flex-1 flex-col items-center justify-center gap-4 px-8 text-center">
             <p className="font-serif text-3xl lowercase text-brand-primary">your box is empty</p>
             <p className="text-base leading-7 text-ink">Add a Patticake and we&apos;ll help it travel ready to share.</p>
-            <button type="button" onClick={closeDrawer} className="btn-primary mt-2">
+            <Link href="/patticake#national-order" onClick={closeDrawer} className="btn-primary mt-2">
               Browse cakes
-            </button>
+            </Link>
           </div>
         ) : (
           <>

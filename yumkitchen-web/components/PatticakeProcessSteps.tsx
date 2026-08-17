@@ -17,7 +17,7 @@ export const patticakeProcessSteps = [
   {
     number: '3',
     title: 'add the words',
-    copy: 'Add a gift note at checkout. Words on the cake go in a pickup note.',
+    copy: 'Add the words on the cake and a gift note at checkout.',
   },
   {
     number: '4',

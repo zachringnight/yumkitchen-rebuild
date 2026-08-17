@@ -64,7 +64,7 @@ const confirmations = [
   'recipient name and full ship-to address',
   'delivery date, three or more days out',
   'whole cake or by the slice',
-  'occasion and a gift note',
+  'occasion, gift note, and words on the cake',
 ] as const;
 
 const deliveryFacts = [
@@ -111,7 +111,7 @@ const faqs = [
   },
   {
     question: 'Can I include a gift message?',
-    answer: 'Yes. Add a gift note at checkout. Words on the cake can go in a Pick Up Locally note.',
+    answer: 'Yes. Add a gift note at checkout, and the words you want on the cake. Local pickup can also take cake words in a pickup note.',
   },
   {
     question: 'Where can Patticake ship?',
@@ -208,7 +208,7 @@ export default function PatticakeNationalDeliveryPage() {
               Order online in a few taps, or start a note and we&apos;ll help you plan it.
             </p>
             <Stagger className="mt-9 hidden gap-3 sm:grid sm:grid-cols-2" gap={0.08}>
-              <StaggerItem><HeroNote title="built for gifting" copy="address, date, occasion, and gift note" /></StaggerItem>
+              <StaggerItem><HeroNote title="built for gifting" copy="address, date, cake words, and gift note" /></StaggerItem>
               <StaggerItem><HeroNote title="baked to the date" copy="delivery starts three days out" /></StaggerItem>
             </Stagger>
           </div>

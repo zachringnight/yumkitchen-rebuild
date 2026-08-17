@@ -7,6 +7,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { m } from 'motion/react';
 import { useCart, type Recipient } from '@/lib/cart/CartContext';
 import { formatUsd } from '@/lib/patticake/catalog';
+import { localIsoDate } from '@/lib/localDate';
 import { Reveal } from '@/components/motion/Reveal';
 import { Stagger, StaggerItem } from '@/components/motion/Stagger';
 import { snap } from '@/components/motion/springs';
@@ -24,19 +25,6 @@ function blankRecipient(): DraftRecipient {
   return { name: '', address1: '', address2: '', city: '', state: '', zip: '' };
 }
 
-function dateInputValue(date: Date): string {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
-  return `${year}-${month}-${day}`;
-}
-
-function minDeliveryDate(): string {
-  const d = new Date();
-  d.setDate(d.getDate() + 3);
-  return dateInputValue(d);
-}
-
 function invalidFieldProps(error: string | undefined, errorId: string) {
   return {
     'data-invalid': Boolean(error),
@@ -47,10 +35,11 @@ function invalidFieldProps(error: string | undefined, errorId: string) {
 
 export default function CheckoutPage() {
   const router = useRouter();
-  const { items, itemsSubtotal, updateQty, removeItem, recipients: savedRecipients, saveRecipient, shippingFor, submitOrder } = useCart();
+  const { items, itemsSubtotal, updateQty, removeItem, recipients: savedRecipients, saveRecipient, quoteFor, submitOrder } = useCart();
 
   const [recipients, setRecipients] = useState<DraftRecipient[]>([blankRecipient()]);
   const [deliveryDate, setDeliveryDate] = useState('');
+  const [cakeMessage, setCakeMessage] = useState('');
   const [giftMessage, setGiftMessage] = useState('');
   const [senderName, setSenderName] = useState('');
   const [senderEmail, setSenderEmail] = useState('');
@@ -60,9 +49,9 @@ export default function CheckoutPage() {
   const [submitting, setSubmitting] = useState(false);
   const errorSummaryRef = useRef<HTMLDivElement>(null);
 
-  const minDate = useMemo(() => minDeliveryDate(), []);
-  const shipping = shippingFor(recipients.length);
-  const total = itemsSubtotal + shipping;
+  const minDate = useMemo(() => localIsoDate(3), []);
+  const quote = quoteFor(itemsSubtotal, recipients.length);
+  const total = quote.total;
   const errorEntries = Object.entries(errors);
 
   useEffect(() => {
@@ -121,6 +110,7 @@ export default function CheckoutPage() {
     await submitOrder({
       recipients: savedIds,
       deliveryDate,
+      cakeMessage: cakeMessage.trim(),
       giftMessage,
       senderName,
       senderEmail,
@@ -322,7 +312,7 @@ export default function CheckoutPage() {
 
           {/* Delivery + gift */}
           <section aria-labelledby="gift-heading" className="grid gap-5">
-            <h2 id="gift-heading" className="text-h3 lowercase">delivery and gift note</h2>
+            <h2 id="gift-heading" className="text-h3 lowercase">delivery and cake words</h2>
             <label className="field max-w-xs">
               <span>Delivery date</span>
               <input
@@ -339,10 +329,20 @@ export default function CheckoutPage() {
               />
               {errors.deliveryDate && <span id="deliveryDate-error" className="field-error">{errors.deliveryDate}</span>}
             </label>
+            <label className="field max-w-md">
+              <span>Words on the cake (optional)</span>
+              <input
+                value={cakeMessage}
+                maxLength={28}
+                onChange={(e) => setCakeMessage(e.target.value)}
+                placeholder="love you"
+              />
+              <span className="text-sm text-body">{cakeMessage.length}/28. Goes on top of the cake.</span>
+            </label>
             <label className="field">
               <span>Gift note (optional)</span>
               <textarea rows={3} maxLength={240} value={giftMessage} onChange={(e) => setGiftMessage(e.target.value)} placeholder="Happy birthday! Wish we could share a slice with you." />
-              <span className="text-sm text-body">{giftMessage.length}/240</span>
+              <span className="text-sm text-body">{giftMessage.length}/240. Travels with the box.</span>
             </label>
           </section>
 
@@ -392,15 +392,14 @@ export default function CheckoutPage() {
                 <span>Card number</span>
                 <input
                   id="cardNumber"
-                  name="card-number"
+                  name="demo-card-number"
                   value={card.number}
                   inputMode="numeric"
-                  placeholder="4242 4242 4242 4242"
+                  autoComplete="off"
                   onChange={(e) => {
                     setCard((c) => ({ ...c, number: e.target.value.replace(/\D/g, '').slice(0, 16).replace(/(.{4})/g, '$1 ').trim() }));
                     clearError('cardNumber');
                   }}
-                  autoComplete="cc-number"
                   {...invalidFieldProps(errors.cardNumber, 'cardNumber-error')}
                 />
                 {errors.cardNumber && <span id="cardNumber-error" className="field-error">{errors.cardNumber}</span>}
@@ -410,7 +409,7 @@ export default function CheckoutPage() {
                   <span>Expiry</span>
                   <input
                     id="cardExp"
-                    name="card-expiry"
+                    name="demo-card-expiry"
                     value={card.exp}
                     placeholder="MM/YY"
                     onChange={(e) => {
@@ -418,7 +417,7 @@ export default function CheckoutPage() {
                       setCard((c) => ({ ...c, exp: digits.length > 2 ? `${digits.slice(0, 2)}/${digits.slice(2)}` : digits }));
                       clearError('cardExp');
                     }}
-                    autoComplete="cc-exp"
+                    autoComplete="off"
                     {...invalidFieldProps(errors.cardExp, 'cardExp-error')}
                   />
                   {errors.cardExp && <span id="cardExp-error" className="field-error">{errors.cardExp}</span>}
@@ -427,7 +426,7 @@ export default function CheckoutPage() {
                   <span>CVC</span>
                   <input
                     id="cardCvc"
-                    name="card-cvc"
+                    name="demo-card-cvc"
                     value={card.cvc}
                     inputMode="numeric"
                     maxLength={4}
@@ -435,7 +434,7 @@ export default function CheckoutPage() {
                       setCard((c) => ({ ...c, cvc: e.target.value.replace(/\D/g, '') }));
                       clearError('cardCvc');
                     }}
-                    autoComplete="cc-csc"
+                    autoComplete="off"
                     {...invalidFieldProps(errors.cardCvc, 'cardCvc-error')}
                   />
                   {errors.cardCvc && <span id="cardCvc-error" className="field-error">{errors.cardCvc}</span>}
@@ -444,13 +443,13 @@ export default function CheckoutPage() {
                   <span>Name on card</span>
                   <input
                     id="cardName"
-                    name="card-name"
+                    name="demo-card-name"
                     value={card.name}
                     onChange={(e) => {
                       setCard((c) => ({ ...c, name: e.target.value }));
                       clearError('cardName');
                     }}
-                    autoComplete="cc-name"
+                    autoComplete="off"
                     {...invalidFieldProps(errors.cardName, 'cardName-error')}
                   />
                   {errors.cardName && <span id="cardName-error" className="field-error">{errors.cardName}</span>}
@@ -473,7 +472,7 @@ export default function CheckoutPage() {
                   </div>
                   <div className="min-w-0">
                     <p className="font-serif text-lg lowercase leading-tight text-ink">{item.name}</p>
-                    <p className="text-sm leading-tight text-body">{item.formatLabel}</p>
+                    <p className="text-sm leading-tight text-body">{item.formatLabel} · {item.occasion}</p>
                     <div className="mt-1 flex items-center gap-2">
                       <button type="button" aria-label="Decrease" onClick={() => updateQty(item.id, item.qty - 1)} className="h-6 w-6 border border-ink/20 text-ink hover:bg-blue-tint">−</button>
                       <span className="text-sm font-bold text-ink">{item.qty}</span>
@@ -487,12 +486,21 @@ export default function CheckoutPage() {
             </Stagger>
             <dl className="mt-4 grid gap-2 border-t border-ink/15 pt-4 text-base text-ink">
               <div className="flex justify-between">
-                <dt className="text-body">Subtotal</dt>
-                <dd>{formatUsd(itemsSubtotal)}</dd>
+                <dt className="text-body">Box subtotal</dt>
+                <dd>{formatUsd(quote.boxSubtotal)}</dd>
               </div>
+              {quote.addressCount > 1 && (
+                <div className="flex justify-between">
+                  <dt className="text-body">1 box per address ({quote.addressCount})</dt>
+                  <dd>{formatUsd(quote.itemsSubtotal)}</dd>
+                </div>
+              )}
               <div className="flex justify-between">
-                <dt className="text-body">Shipping ({recipients.length} {recipients.length === 1 ? 'address' : 'addresses'})</dt>
-                <dd>{formatUsd(shipping)}</dd>
+                <dt className="text-body">
+                  Shipping (demo rate
+                  {quote.addressCount > 1 ? `, ${quote.addressCount} addresses` : ''})
+                </dt>
+                <dd>{formatUsd(quote.shipping)}</dd>
               </div>
               <div className="flex justify-between border-t-4 border-brand-red pt-3 font-serif text-2xl">
                 <dt>Total</dt>

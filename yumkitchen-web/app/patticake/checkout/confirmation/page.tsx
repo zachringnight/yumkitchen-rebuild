@@ -15,6 +15,9 @@ export default function ConfirmationPage() {
         <section className="container-content py-section text-center">
           <p className="section-label">order</p>
           <h1 className="text-h2 lowercase">no recent order</h1>
+          <p className="mx-auto mt-4 max-w-md text-lg leading-8 text-ink">
+            This demo order stays in this browser. A new device or a cleared cache will not show it.
+          </p>
           <Link href="/patticake#national-order" className="btn-primary mt-6">
             Send a cake
           </Link>
@@ -61,6 +64,12 @@ export default function ConfirmationPage() {
                 </li>
               ))}
             </ul>
+            {lastOrder.cakeMessage && (
+              <div className="mt-5 border-l-4 border-brand-red bg-blue-tint p-4">
+                <p className="text-sm font-bold uppercase tracking-[0.12em] text-brand-primary">on the cake</p>
+                <p className="mt-1 font-serif text-lg italic leading-8 text-ink">&ldquo;{lastOrder.cakeMessage}&rdquo;</p>
+              </div>
+            )}
             {lastOrder.giftMessage && (
               <div className="mt-5 border-l-4 border-brand-red bg-blue-tint p-4">
                 <p className="text-sm font-bold uppercase tracking-[0.12em] text-brand-primary">gift note</p>
@@ -75,15 +84,15 @@ export default function ConfirmationPage() {
               {lastOrder.items.map((item) => (
                 <li key={item.id} className="flex items-center justify-between gap-3 py-3">
                   <span className="text-base text-ink">
-                    <span className="font-serif text-lg lowercase">{item.name}</span> · {item.formatLabel} × {item.qty}
+                    <span className="font-serif text-lg lowercase">{item.name}</span> · {item.formatLabel} · {item.occasion} × {item.qty}
                   </span>
                   <span className="font-sans text-base font-bold text-ink">{formatUsd(item.unitPrice * item.qty)}</span>
                 </li>
               ))}
             </ul>
             <dl className="mt-4 grid gap-2 border-t border-ink/15 pt-4 text-base text-ink">
-              <div className="flex justify-between"><dt className="text-body">Subtotal</dt><dd>{formatUsd(lastOrder.itemsSubtotal)}</dd></div>
-              <div className="flex justify-between"><dt className="text-body">Shipping</dt><dd>{formatUsd(lastOrder.shipping)}</dd></div>
+              <div className="flex justify-between"><dt className="text-body">Subtotal{lastOrder.recipients.length > 1 ? ` · 1 box per address` : ''}</dt><dd>{formatUsd(lastOrder.itemsSubtotal)}</dd></div>
+              <div className="flex justify-between"><dt className="text-body">Shipping (demo rate)</dt><dd>{formatUsd(lastOrder.shipping)}</dd></div>
               <div className="flex justify-between border-t border-ink/15 pt-2 font-serif text-2xl"><dt>Total</dt><dd>{formatUsd(lastOrder.total)}</dd></div>
             </dl>
             <button

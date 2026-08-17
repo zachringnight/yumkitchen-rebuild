@@ -113,7 +113,7 @@ export function CakeBuyModule() {
 
             <div className="mt-7 border-t border-brand-primary/45 pt-5">
               <p className="font-sans text-base font-bold text-ink">nationwide delivery available</p>
-              <p className="mt-1 text-base leading-7 text-ink">Choose the delivery date, address, and gift note at checkout.</p>
+              <p className="mt-1 text-base leading-7 text-ink">Choose the delivery date, address, cake words, and gift note at checkout.</p>
             </div>
           </div>
         </div>
