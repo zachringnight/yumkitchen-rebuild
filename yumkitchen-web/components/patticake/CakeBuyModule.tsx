@@ -138,7 +138,8 @@ export function CakeBuyModule() {
                   <h4 className="font-serif text-3xl font-normal lowercase leading-none text-ink">{cake.name}</h4>
                   <p className="mt-2 text-sm font-bold uppercase tracking-[0.1em] text-brand-primary">{cake.tagline}</p>
                   <p className="mt-3 text-base leading-7 text-ink">{cake.description}</p>
-                  <Link href="/order-a-cake#cake-inquiry" className="btn-link mt-4 inline-block">
+                  <p className="mt-3 text-sm font-bold leading-6 text-ink">Pickup at yum! only. This cake does not ship nationwide.</p>
+                  <Link href="/order-a-cake#cake-inquiry" className="btn-link mt-3 inline-block">
                     plan local pickup
                   </Link>
                 </div>
