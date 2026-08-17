@@ -5,7 +5,6 @@ import Image from 'next/image';
 const galleryImages: { src: string; alt: string }[] = [
   { src: '/images/patticake/08_tier_wedding_d.jpg', alt: 'Tiered yum! wedding cake with pink roses' },
   { src: '/images/yum-patticake-top.jpg', alt: 'yum! buttercream cake, top view' },
-  { src: '/images/yum-patticake-layers.jpg', alt: 'yum! chocolate layer cake, cut open on a cake stand' },
   { src: '/images/patticake/04_tier_wedding_b.jpg', alt: 'yum! cake decorated with pressed flowers' },
   { src: '/images/patticake/gift_boxes_stack.jpg', alt: 'a stack of baby-blue yum! gift boxes with red ribbon' },
   { src: '/images/yum-patticake-floral-tier.jpg', alt: 'Tiered yum! cake with bright fresh flowers' },
