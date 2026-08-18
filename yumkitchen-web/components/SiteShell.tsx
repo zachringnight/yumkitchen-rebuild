@@ -3,6 +3,7 @@
 import type { ReactNode } from 'react';
 import { usePathname } from 'next/navigation';
 import { CartProvider } from '@/lib/cart/CartContext';
+import { MOBILE_ORDER_BAR_CLEARANCE, hidesMobileOrderBar } from '@/lib/mobileOrderBar';
 import { patticakeNationalOrderIsExternal } from '@/lib/site';
 import { CartDrawer } from './cart/CartDrawer';
 import { HashAnchorScroll } from './HashAnchorScroll';
@@ -32,15 +33,10 @@ export function SiteShell({ children }: { children: ReactNode }) {
         <PageScrollProgress />
         <SiteHeader />
         <div id="main-content">{children}</div>
-        <div
-          className={
-            pathname === '/order' || pathname === '/asset-gallery' || pathname.startsWith('/patticake/checkout')
-              ? undefined
-              : 'pb-24 md:pb-0'
-          }
-        >
-          {/* pb-24 clears the fixed MobileOrderBar on small screens. Skip it
-              where that bar is hidden so checkout does not end on empty cream. */}
+        {/* The only bottom clearance for the fixed MobileOrderBar. Skipped on
+            the routes that hide the bar, so checkout does not end on a band of
+            empty cream. globals.css deliberately puts no padding on body. */}
+        <div className={hidesMobileOrderBar(pathname) ? undefined : MOBILE_ORDER_BAR_CLEARANCE}>
           <SiteFooter />
         </div>
         <RestaurantTaskDock />

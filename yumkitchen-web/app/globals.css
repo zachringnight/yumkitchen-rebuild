@@ -2368,9 +2368,11 @@ to {
 }
 
 @media (max-width: 767px) {
-  body {
-    padding-bottom: 4.75rem;
-  }
+  /* No body padding-bottom here. Clearance for the fixed MobileOrderBar is
+     owned by the footer wrapper in SiteShell, which knows which routes render
+     the bar. A blanket rule on body reserved the space on /patticake/checkout,
+     /order, and /asset-gallery too, where the bar is hidden, and stacked on
+     top of the wrapper's padding everywhere else. */
 
   .home-hero.home-hero {
     min-height: auto;
