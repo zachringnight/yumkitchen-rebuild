@@ -73,7 +73,7 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 border-b border-blue-soft/70 bg-blue-tint backdrop-blur-[4px]">
+      <header className="site-header sticky top-0 z-40 border-b border-blue-soft/70 bg-blue-tint backdrop-blur-[4px]">
         <div className="mx-auto flex h-[72px] w-full max-w-[1240px] items-center justify-between gap-4 px-5 lg:px-7">
           <div className="flex items-center gap-3">
             <BrandLogo
@@ -243,7 +243,7 @@ export function SiteHeader() {
             aria-hidden="true"
             tabIndex={-1}
             onClick={() => setMenuOpen(false)}
-            className="fixed inset-0 top-[72px] z-30 bg-ink/30 lg:hidden"
+            className="fixed inset-0 top-[calc(72px+env(safe-area-inset-top,0px))] z-30 bg-ink/30 lg:hidden"
           />
         )}
         {menuOpen && (

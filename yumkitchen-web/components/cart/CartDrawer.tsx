@@ -60,7 +60,7 @@ export function CartDrawer() {
         ref={panelRef}
         tabIndex={-1}
         onClick={(e) => e.stopPropagation()}
-        className="motion-role-modal flex h-full w-full max-w-[440px] flex-col border-l-4 border-brand-red bg-blue-tint outline-hidden"
+        className="motion-role-modal flex h-full w-full max-w-[440px] flex-col border-l-4 border-brand-red bg-blue-tint outline-hidden pt-[env(safe-area-inset-top,0px)] pr-[env(safe-area-inset-right,0px)]"
       >
         <div className="flex items-center justify-between border-b border-brand-primary/35 px-6 py-5">
           <h2 id="cart-drawer-heading" className="font-serif text-3xl font-normal lowercase leading-none text-brand-primary">
