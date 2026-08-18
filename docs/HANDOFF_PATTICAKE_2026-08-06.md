@@ -20,6 +20,28 @@ the yum! pages for any remaining work.
 
 Preview password: `Patticake4000`.
 
+## Send-ready 17 Aug 2026
+
+Send [PR #36](https://github.com/zachringnight/yumkitchen-rebuild/pull/36) as the
+preview, not `main`. Preview URL:
+`https://yumkitchen-web-git-pattic-05fb39-zach-soskins-projects-95c2533d.vercel.app`.
+
+Walk: `/preview`, then home, Ship a Cake, add the signature cake, place the demo
+order, then pickup. Skip submitting a pickup note. `RESEND_API_KEY` is not set
+on Vercel, so that submit is not live.
+
+No 1400px+ landscape whole-cake-with-slice-out arrived before send. Do not swap
+in `yum-patticake-layers.jpg` (420px) or `layers_slice_vertical.jpg` (blur).
+The box and slices carry the gift. The cutaway is next.
+
+Last visual walk on 17 Aug 2026 used a production server at 1440x900 and
+390x844. Both viewports were non-zero. Confirmation orders `PC-Y0SEFL` and
+`PC-Y0SGLE`, $59.95 + $14.95 demo shipping = $74.90, cake words echoed.
+
+Do not mix the after-demo list into this send PR: live nationwide order URL,
+Resend key, GTM DebugView, newsletter webhook, an unmasked Margaret still, or
+a parade cut. `NEXT_PUBLIC_YUM_HOST_ROUTING` stays unset.
+
 ## Do not break this
 
 The commerce path is the centerpiece of the demo and it works. Re-verified
@@ -109,13 +131,13 @@ instead.
 
 Ranked by what a viewer would notice.
 
-1. **The hero's middle frame is still the weakest.** `10_layers_slice.jpg` is a
-   landscape macro (1138x758) in a short wide slot. The uneven grid rows
-   (0.62fr/1.38fr) were introduced specifically so `object-cover` scales it to
-   width and shows most of the photograph, which helped. It is still the least
-   appetizing of the three. A cleaner whole-cake-with-a-slice-out photograph at
-   1400px+ would be a straight upgrade. `yum-patticake-layers.jpg` is exactly
-   the right shot and is only 420x360, too small to use.
+1. **The hero's middle frame is still the weakest, and send proceeds without
+   it.** `10_layers_slice.jpg` is a landscape macro (1138x758) in a short wide
+   slot. A cleaner whole-cake-with-a-slice-out photograph at 1400px+ would be a
+   straight upgrade. `yum-patticake-layers.jpg` is exactly the right shot and
+   is only 420x360, too small to use. Searched the repo and Downloads on 17 Aug
+   2026: no `patticake_cutaway.jpg` and no other owned landscape that meets the
+   spec. Do not generate one.
 2. **Four Patticake photos on disk are unreferenced:** `01_cover.jpg`,
    `06_8inch_a.jpg`, `07_8inch_b.jpg`, `layers_slice_vertical.jpg`. The last is
    the old blurred hero lead, deliberately retired. The 8-inch pair are wedding
@@ -179,11 +201,32 @@ silently misses repeats.
 
 ---
 
+## After they sit down (do not mix into the send PR)
+
+Confirmed 17 Aug 2026 from Vercel env names only. No secret values printed.
+
+1. **Live nationwide checkout.** `NEXT_PUBLIC_PATTICAKE_NATIONAL_ORDER_URL` is
+   unset. Zach confirms the real URL. Agent wires it. Keep demo labels until a
+   real charge exists.
+2. **Resend for cake notes.** `RESEND_FROM` and `YUM_FORMS_TO` are set.
+   `RESEND_API_KEY` is not. Pickup-note submit stays skipped until the key
+   exists, then a live test.
+3. **GTM / GA4.** `NEXT_PUBLIC_GTM_ID` is already `GTM-P9584HPC` on Vercel.
+   Agent does not guess destinations. Confirm in GTM Preview and GA4 DebugView.
+4. **Newsletter footer.** `NEXT_PUBLIC_NEWSLETTER_SIGNUP_ENABLED` and the
+   webhook are unset. Hidden on purpose.
+5. **yum! parked after Patticake.** Margaret still uses
+   `yum-margaret-curbside.jpg` (masked 2020 curbside). Parade film is on disk
+   at `~/dev/yumkitchen-reference/media-for-review/parade-video/Yum! Parade v1.mov`
+   (45MB, 88s). Zach picks an unmasked still and/or a 10-15s cut. Agent places
+   it. Do not generate a founder photo.
+6. **Host routing.** `NEXT_PUBLIC_YUM_HOST_ROUTING` stays unset. No DNS cutover.
+
 ## Open on the yum! side, lower priority
 
 - **Margaret's leader card** carries a 2020-era curbside photo in which she is
   masked. Genuinely her, unmistakably yum!, but a newer portrait would be
-  better. Zach can veto back to text-only.
+  better. Zach can veto back to text-only. Still blocked on a photo from Zach.
 
 ## Working agreements from this effort
 
