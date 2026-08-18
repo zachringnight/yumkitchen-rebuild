@@ -3,11 +3,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { m } from 'motion/react';
 import { useCart, type Recipient } from '@/lib/cart/CartContext';
 import { formatUsd } from '@/lib/patticake/catalog';
-import { localIsoDate } from '@/lib/localDate';
+import { useLiveIsoDate } from '@/lib/useLiveIsoDate';
 import { Reveal } from '@/components/motion/Reveal';
 import { Stagger, StaggerItem } from '@/components/motion/Stagger';
 import { snap } from '@/components/motion/springs';
@@ -24,6 +24,11 @@ const US_STATES = [
 function blankRecipient(): DraftRecipient {
   return { name: '', address1: '', address2: '', city: '', state: '', zip: '' };
 }
+
+// Demo ceiling on addresses. Every path that grows the recipient list has to
+// respect it: the add button, and the saved-recipient chips. The cap copy near
+// the add button spells this number out, so change both together.
+const MAX_RECIPIENTS = 6;
 
 function invalidFieldProps(error: string | undefined, errorId: string) {
   return {
@@ -49,11 +54,23 @@ export default function CheckoutPage() {
   const [submitting, setSubmitting] = useState(false);
   const errorSummaryRef = useRef<HTMLDivElement>(null);
 
-  const minDate = useMemo(() => localIsoDate(3), []);
+  // Live, not build-time: this route is statically prerendered, so a date
+  // computed during render would freeze at deploy time.
+  const minDate = useLiveIsoDate(3);
   const quote = quoteFor(itemsSubtotal, recipients.length);
   const total = quote.total;
   const errorEntries = Object.entries(errors);
-  const chosenDate = deliveryDate || minDate;
+  const atRecipientCap = recipients.length >= MAX_RECIPIENTS;
+
+  // Prefill the earliest allowed date once, so the walkthrough does not stall
+  // on a date picker. Once only: after that the field is the guest's, and
+  // clearing it has to stick so validation can ask for a date.
+  const datePrefilled = useRef(false);
+  useEffect(() => {
+    if (datePrefilled.current || !minDate) return;
+    datePrefilled.current = true;
+    setDeliveryDate(minDate);
+  }, [minDate]);
 
   useEffect(() => {
     if (validationAttempt === 0) return;
@@ -88,8 +105,8 @@ export default function CheckoutPage() {
       if (!r.state) next[`r${i}-state`] = 'Choose a state';
       if (!/^\d{5}$/.test(r.zip.trim())) next[`r${i}-zip`] = 'Enter a 5-digit ZIP';
     });
-    if (!chosenDate) next.deliveryDate = 'Choose a delivery date';
-    else if (chosenDate < minDate) next.deliveryDate = 'Choose a date at least three days out';
+    if (!deliveryDate) next.deliveryDate = 'Choose a delivery date';
+    else if (minDate && deliveryDate < minDate) next.deliveryDate = 'Choose a date at least three days out';
     if (!senderName.trim()) next.senderName = 'Add your name';
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(senderEmail.trim())) next.senderEmail = 'Enter a valid email';
     if (card.number.replace(/\s/g, '').length < 15) next.cardNumber = 'Enter a card number';
@@ -110,7 +127,7 @@ export default function CheckoutPage() {
     const savedIds = recipients.map((r) => saveRecipient(r));
     await submitOrder({
       recipients: savedIds,
-      deliveryDate: chosenDate,
+      deliveryDate,
       cakeMessage: cakeMessage.trim(),
       giftMessage,
       senderName,
@@ -194,11 +211,18 @@ export default function CheckoutPage() {
                   <button
                     key={s.id}
                     type="button"
+                    disabled={atRecipientCap}
                     onClick={() => {
-                      setRecipients((prev) => [...prev.filter((r) => r.name || r.address1), { name: s.name, address1: s.address1, address2: s.address2, city: s.city, state: s.state, zip: s.zip }]);
+                      setRecipients((prev) => {
+                        // Blank rows are dropped first, so a chip can still land
+                        // on an untouched form that is nominally at the cap.
+                        const kept = prev.filter((r) => r.name || r.address1);
+                        if (kept.length >= MAX_RECIPIENTS) return prev;
+                        return [...kept, { name: s.name, address1: s.address1, address2: s.address2, city: s.city, state: s.state, zip: s.zip }];
+                      });
                       setErrors({});
                     }}
-                    className="border border-ink/20 bg-white px-3 py-1.5 text-sm text-ink hover:border-brand-red"
+                    className="border border-ink/20 bg-white px-3 py-1.5 text-sm text-ink hover:border-brand-red disabled:cursor-not-allowed disabled:opacity-45 disabled:hover:border-ink/20"
                   >
                     + {s.name}
                   </button>
@@ -304,17 +328,16 @@ export default function CheckoutPage() {
             <button
               type="button"
               onClick={() => {
-                if (recipients.length >= 6) return;
-                setRecipients((prev) => [...prev, blankRecipient()]);
+                setRecipients((prev) => (prev.length >= MAX_RECIPIENTS ? prev : [...prev, blankRecipient()]));
                 setErrors({});
               }}
               className="btn-secondary mt-4"
-              disabled={recipients.length >= 6}
+              disabled={atRecipientCap}
             >
               + Send to another address
             </button>
-            <p className="mt-2 text-sm leading-6 text-body">
-              {recipients.length >= 6
+            <p className="mt-2 text-sm leading-6 text-body" aria-live="polite">
+              {atRecipientCap
                 ? 'Six addresses is the demo maximum.'
                 : 'Each extra address adds another cake and the demo shipping rate.'}
             </p>
@@ -329,8 +352,8 @@ export default function CheckoutPage() {
                 id="deliveryDate"
                 name="delivery-date"
                 type="date"
-                min={minDate}
-                value={chosenDate}
+                min={minDate || undefined}
+                value={deliveryDate}
                 onChange={(e) => {
                   setDeliveryDate(e.target.value);
                   clearError('deliveryDate');
