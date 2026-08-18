@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { z } from 'zod';
 import {
+  addCakeDateFloorIssues,
   addCareersIssues,
   addMissingStringIssues,
   cakeDeliveryRequiredFields,
@@ -53,6 +54,9 @@ const inquirySchema = inquiryFieldsSchema
       if (hasShippingSignal) {
         addMissingStringIssues(data, ctx, cakeDeliveryRequiredFields);
       }
+      // Same floors the form enforces, as a server-side backstop: the client
+      // schema is skippable by anyone posting to this route directly.
+      addCakeDateFloorIssues(data, ctx, hasShippingSignal ? 'delivery' : 'pickup');
     }
 
     if (data.kind !== 'careers') return;
