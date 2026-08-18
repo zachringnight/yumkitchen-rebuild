@@ -192,6 +192,7 @@ export function InquiryForm({
   const [serverMessage, setServerMessage] = useState('');
   const [giftMessageLength, setGiftMessageLength] = useState(0);
   const messageRef = useRef<HTMLParagraphElement>(null);
+  const sendingRef = useRef(false);
   const copy = {
     ...labels[kind],
     ...(messageLabel ? { message: messageLabel } : {}),
@@ -325,6 +326,11 @@ export function InquiryForm({
   }
 
   async function onSubmit(values: InquiryFormValues) {
+    // The submit button disables on status === 'sending', but that state
+    // lands after a re-render: a double-click fires handleSubmit twice in
+    // the same tick and files the lead twice. The ref closes that window.
+    if (sendingRef.current) return;
+    sendingRef.current = true;
     setStatus('sending');
     setServerMessage('');
     try {
@@ -365,6 +371,8 @@ export function InquiryForm({
     } catch {
       setStatus('error');
       setServerMessage('The message could not be sent. Please call a yum! restaurant.');
+    } finally {
+      sendingRef.current = false;
     }
   }
 
@@ -375,6 +383,9 @@ export function InquiryForm({
   }, [status, serverMessage]);
 
   return (
+    // onSubmit reads sendingRef, but handleSubmit only invokes it on submit
+    // events, never during render — the rule cannot see through the wrapper.
+    // eslint-disable-next-line react-hooks/refs
     <form className="form-surface" method="post" encType={isCareers ? 'multipart/form-data' : undefined} onSubmit={handleSubmit(onSubmit)} noValidate>
       <div className="hidden">
         <label htmlFor={`${kind}-company`}>Company</label>
