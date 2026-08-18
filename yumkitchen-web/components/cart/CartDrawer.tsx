@@ -144,7 +144,7 @@ export function CartDrawer() {
                 </span>
                 <span className="font-serif text-2xl text-ink">{formatUsd(itemsSubtotal)}</span>
               </div>
-              <p className="mt-1 text-sm leading-6 text-body">Shipping and delivery date are set at checkout.</p>
+              <p className="mt-1 text-sm leading-6 text-body">Shipping, date, cake words, and gift note are set at checkout.</p>
               <Link href="/patticake/checkout" onClick={closeDrawer} className="btn-primary mt-4 w-full">
                 Checkout
               </Link>

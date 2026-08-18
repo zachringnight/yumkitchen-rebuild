@@ -36,11 +36,8 @@ function eventForHref(href: string) {
 }
 
 export function SiteFooter() {
-  // pb-24 clears the fixed MobileOrderBar, which is md:hidden. Above md there
-  // is no bar to clear, so the padding goes away instead of leaving a ~128px
-  // empty band under the last footer row.
   return (
-    <footer className="border-t border-[#d8cfd1] bg-cream pb-24 md:pb-0">
+    <footer className="border-t border-[#d8cfd1] bg-cream">
       <EmailCapture />
       <div className="bg-blue-soft px-6 py-5">
         <div className="mx-auto flex max-w-[1240px] flex-wrap items-center gap-4">

@@ -32,7 +32,17 @@ export function SiteShell({ children }: { children: ReactNode }) {
         <PageScrollProgress />
         <SiteHeader />
         <div id="main-content">{children}</div>
-        <SiteFooter />
+        <div
+          className={
+            pathname === '/order' || pathname === '/asset-gallery' || pathname.startsWith('/patticake/checkout')
+              ? undefined
+              : 'pb-24 md:pb-0'
+          }
+        >
+          {/* pb-24 clears the fixed MobileOrderBar on small screens. Skip it
+              where that bar is hidden so checkout does not end on empty cream. */}
+          <SiteFooter />
+        </div>
         <RestaurantTaskDock />
         <MobileOrderBar />
         {!patticakeNationalOrderIsExternal && <CartDrawer />}

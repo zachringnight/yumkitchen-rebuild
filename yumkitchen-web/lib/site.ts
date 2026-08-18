@@ -95,7 +95,7 @@ export const pageMeta = {
   },
   patticakeHome: {
     title: 'Patticake',
-    description: 'Ship a Cake, Pick Up Locally, and visit the yum! Kitchen and Bakery restaurant pages.',
+    description: "Patticake is yum!'s triple-layer chocolate cake, now available nationwide. Ship a Cake or Pick Up Locally.",
     image: '/og/patticake-home.jpg',
   },
   menu: {
@@ -120,7 +120,7 @@ export const pageMeta = {
   },
   patticakeDelivery: {
     title: 'Patticake Nationwide Delivery',
-    description: 'Patticake is now available nationwide. Choose your cake, add a delivery date and gift note, and check out on this page.',
+    description: 'Patticake is now available nationwide. Choose your cake, add a delivery date, cake words, and a gift note, and check out on this page.',
     image: '/og/patticake-ship.jpg',
   },
   about: {

@@ -129,9 +129,7 @@ export function CakeBuyModule() {
                     alt={cake.imageAlt}
                     fill
                     sizes="150px"
-                    className={`object-cover ${
-                      cake.slug === 'coconut' ? 'scale-[1.32] object-[50%_46%]' : ''
-                    }`}
+                    className="object-cover"
                   />
                 </div>
                 <div className="pt-4 sm:pt-1">

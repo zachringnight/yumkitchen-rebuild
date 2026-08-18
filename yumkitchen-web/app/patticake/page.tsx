@@ -82,7 +82,7 @@ const deliveryFacts = [
   },
   {
     title: 'how it arrives',
-    copy: 'Patticake is packed with care, with a gift note tucked in and the cake ready to share.',
+    copy: 'Patticake is packed with care, with cake words on top, a gift note tucked in, and the cake ready to share.',
   },
 ] as const;
 

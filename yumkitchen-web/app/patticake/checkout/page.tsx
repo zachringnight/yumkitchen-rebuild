@@ -53,6 +53,7 @@ export default function CheckoutPage() {
   const quote = quoteFor(itemsSubtotal, recipients.length);
   const total = quote.total;
   const errorEntries = Object.entries(errors);
+  const chosenDate = deliveryDate || minDate;
 
   useEffect(() => {
     if (validationAttempt === 0) return;
@@ -87,8 +88,8 @@ export default function CheckoutPage() {
       if (!r.state) next[`r${i}-state`] = 'Choose a state';
       if (!/^\d{5}$/.test(r.zip.trim())) next[`r${i}-zip`] = 'Enter a 5-digit ZIP';
     });
-    if (!deliveryDate) next.deliveryDate = 'Choose a delivery date';
-    else if (deliveryDate < minDate) next.deliveryDate = 'Choose a date at least three days out';
+    if (!chosenDate) next.deliveryDate = 'Choose a delivery date';
+    else if (chosenDate < minDate) next.deliveryDate = 'Choose a date at least three days out';
     if (!senderName.trim()) next.senderName = 'Add your name';
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(senderEmail.trim())) next.senderEmail = 'Enter a valid email';
     if (card.number.replace(/\s/g, '').length < 15) next.cardNumber = 'Enter a card number';
@@ -109,7 +110,7 @@ export default function CheckoutPage() {
     const savedIds = recipients.map((r) => saveRecipient(r));
     await submitOrder({
       recipients: savedIds,
-      deliveryDate,
+      deliveryDate: chosenDate,
       cakeMessage: cakeMessage.trim(),
       giftMessage,
       senderName,
@@ -182,7 +183,9 @@ export default function CheckoutPage() {
           {/* Recipients */}
           <section aria-labelledby="ship-heading">
             <h2 id="ship-heading" className="text-h3 lowercase">who is it going to?</h2>
-            <p className="mt-1 text-base leading-7 text-body">Send one cake, or the same cake to several people at once.</p>
+            <p className="mt-1 text-base leading-7 text-body">
+              One box goes to one address. Add another address and that person gets their own cake, plus demo shipping.
+            </p>
 
             {usableSaved().length > 0 && (
               <div className="mt-4 flex flex-wrap gap-2">
@@ -301,13 +304,20 @@ export default function CheckoutPage() {
             <button
               type="button"
               onClick={() => {
+                if (recipients.length >= 6) return;
                 setRecipients((prev) => [...prev, blankRecipient()]);
                 setErrors({});
               }}
               className="btn-secondary mt-4"
+              disabled={recipients.length >= 6}
             >
               + Send to another address
             </button>
+            <p className="mt-2 text-sm leading-6 text-body">
+              {recipients.length >= 6
+                ? 'Six addresses is the demo maximum.'
+                : 'Each extra address adds another cake and the demo shipping rate.'}
+            </p>
           </section>
 
           {/* Delivery + gift */}
@@ -320,7 +330,7 @@ export default function CheckoutPage() {
                 name="delivery-date"
                 type="date"
                 min={minDate}
-                value={deliveryDate}
+                value={chosenDate}
                 onChange={(e) => {
                   setDeliveryDate(e.target.value);
                   clearError('deliveryDate');
@@ -337,12 +347,12 @@ export default function CheckoutPage() {
                 onChange={(e) => setCakeMessage(e.target.value)}
                 placeholder="love you"
               />
-              <span className="text-sm text-body">{cakeMessage.length}/28. Goes on top of the cake.</span>
+              <span className="text-sm text-body">{cakeMessage.length}/28. Goes on top of the cake. Same words for every address.</span>
             </label>
             <label className="field">
               <span>Gift note (optional)</span>
               <textarea rows={3} maxLength={240} value={giftMessage} onChange={(e) => setGiftMessage(e.target.value)} placeholder="Happy birthday! Wish we could share a slice with you." />
-              <span className="text-sm text-body">{giftMessage.length}/240. Travels with the box.</span>
+              <span className="text-sm text-body">{giftMessage.length}/240. Travels with the box. Same words for every address.</span>
             </label>
           </section>
 

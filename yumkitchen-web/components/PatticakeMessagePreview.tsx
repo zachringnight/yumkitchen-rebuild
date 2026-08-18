@@ -50,7 +50,7 @@ export function PatticakeMessagePreview({ formHref = '#cake-inquiry' }: Patticak
           <p className="section-label">message maker</p>
           <h2 className="text-h2 lowercase">make it sound like them</h2>
           <p className="mt-5 max-w-xl text-xl leading-9 text-body">
-            Patticake gets more personal with a few words on top. Pick a quick note or type your own, then drop it into your pickup note.
+            Patticake gets more personal with a few words on top. Pick a quick note or type your own, then drop it into your pickup note. Shipping nationwide? Add the words at checkout instead.
           </p>
           <div className="message-chip-grid" role="group" aria-label="Message ideas">
             {quickMessages.map((item) => (
