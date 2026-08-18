@@ -20,6 +20,7 @@ import {
 } from '@/lib/inquiryValidation';
 import { locations } from '@/lib/locations';
 import { localIsoDate } from '@/lib/localDate';
+import { useLiveIsoDate } from '@/lib/useLiveIsoDate';
 
 export type { InquiryKind };
 
@@ -203,6 +204,14 @@ export function InquiryForm({
   const isDeliveryCake = kind === 'cake' && cakeMode === 'delivery';
   const requiresCakeLocation = isPickupCake;
   const requiresCakeDate = isPickupCake || isDeliveryCake;
+  // Live, not build-time. /order-a-cake and /patticake are statically
+  // prerendered, so a floor computed during render is frozen at deploy and
+  // drifts further from today with every day the build stays up. The zod
+  // checks below already read the clock at submit; these keep the native
+  // picker telling the guest the same thing.
+  const pickupDateFloor = useLiveIsoDate(0);
+  const deliveryDateFloor = useLiveIsoDate(3);
+  const eventDateFloor = (isPickupCake ? pickupDateFloor : isDeliveryCake ? deliveryDateFloor : '') || undefined;
   const validationSchema = useMemo(() => formSchemaFor(kind, cakeMode), [kind, cakeMode]);
   const defaults = useMemo<Partial<InquiryFormValues>>(
     () => ({
@@ -424,7 +433,7 @@ export function InquiryForm({
               <input
                 id={`${kind}-event-date`}
                 type="date"
-                min={isPickupCake ? localIsoDate() : isDeliveryCake ? localIsoDate(3) : undefined}
+                min={eventDateFloor}
                 required={requiresCakeDate || isCatering}
                 {...register('eventDate')}
               />
