@@ -203,8 +203,14 @@ export function submitOrder(details: OrderDetails): Promise<PlacedOrder> {
       const stamp = Date.now();
       const orderNumber = `PC-${stamp.toString(36).toUpperCase().slice(-6)}`;
       const placedAtLabel = new Date(stamp).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+      // saveRecipient dedupes the address book, so sending two boxes to the
+      // same address hands us the same Recipient object twice. Each order
+      // line needs its own identity: the confirmation keys its list by
+      // recipient id, and duplicate keys make React drop rows.
+      const lineRecipients = details.recipients.map((r, i) => ({ ...r, id: `${r.id}:line-${i + 1}` }));
       const order: PlacedOrder = {
         ...details,
+        recipients: lineRecipients,
         orderNumber,
         items: state.items.map((i) => ({ ...i })),
         itemsSubtotal: quote.itemsSubtotal,
