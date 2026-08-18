@@ -30,6 +30,12 @@ export default function ConfirmationPage() {
     ? new Date(`${lastOrder.deliveryDate}T00:00:00`).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })
     : '';
 
+  // Derived from the stored items rather than by dividing itemsSubtotal, so
+  // the receipt stays honest for orders placed before the per-address pricing
+  // landed and for any future mix of line items.
+  const addressCount = Math.max(1, lastOrder.recipients.length);
+  const boxSubtotal = lastOrder.items.reduce((sum, i) => sum + i.unitPrice * i.qty, 0);
+
   return (
     <main className="bg-blue-tint">
       <section className="bg-blue-tint px-6 py-section">
@@ -84,15 +90,25 @@ export default function ConfirmationPage() {
               {lastOrder.items.map((item) => (
                 <li key={item.id} className="flex items-center justify-between gap-3 py-3">
                   <span className="text-base text-ink">
-                    <span className="font-serif text-lg lowercase">{item.name}</span> · {item.formatLabel} · {item.occasion} × {item.qty}
+                    <span className="font-serif text-lg lowercase">{item.name}</span> · {item.formatLabel}{item.occasion ? ` · ${item.occasion}` : ''} × {item.qty}
                   </span>
                   <span className="font-sans text-base font-bold text-ink">{formatUsd(item.unitPrice * item.qty)}</span>
                 </li>
               ))}
             </ul>
+            {/* Same ladder as checkout: box price, then the per-address
+                multiplier, so the line items above always add up to the row
+                under them. Without the middle row a two-address order shows
+                one $37.45 line and a $74.90 subtotal with nothing joining them. */}
             <dl className="mt-4 grid gap-2 border-t border-ink/15 pt-4 text-base text-ink">
-              <div className="flex justify-between"><dt className="text-body">Subtotal{lastOrder.recipients.length > 1 ? ` · 1 box per address` : ''}</dt><dd>{formatUsd(lastOrder.itemsSubtotal)}</dd></div>
-              <div className="flex justify-between"><dt className="text-body">Shipping (demo rate)</dt><dd>{formatUsd(lastOrder.shipping)}</dd></div>
+              <div className="flex justify-between"><dt className="text-body">Box subtotal</dt><dd>{formatUsd(boxSubtotal)}</dd></div>
+              {addressCount > 1 && (
+                <div className="flex justify-between"><dt className="text-body">1 box per address ({addressCount})</dt><dd>{formatUsd(lastOrder.itemsSubtotal)}</dd></div>
+              )}
+              <div className="flex justify-between">
+                <dt className="text-body">Shipping (demo rate{addressCount > 1 ? `, ${addressCount} addresses` : ''})</dt>
+                <dd>{formatUsd(lastOrder.shipping)}</dd>
+              </div>
               <div className="flex justify-between border-t border-ink/15 pt-2 font-serif text-2xl"><dt>Total</dt><dd>{formatUsd(lastOrder.total)}</dd></div>
             </dl>
             <button
