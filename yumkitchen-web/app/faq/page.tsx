@@ -18,7 +18,7 @@ const faqSections = [
     items: [
       { q: 'Can I order a Patticake online?', a: 'Yes. Choose your cake, add a delivery date and gift note, and check out. Send it nationwide, or pick up locally at any of our four Twin Cities restaurants.' },
       { q: 'How does cake shipping work?', a: 'Pick a delivery date at checkout and we bake fresh and ship it ready to share. Add a gift note and we tuck it right in.' },
-      { q: 'Can I send cakes to more than one person?', a: 'Yes. At checkout you can send the same box to several addresses. Each address is its own cake and demo shipping charge.' },
+      { q: 'Can I send cakes to more than one person?', a: 'Yes. At checkout you can send the same box to several addresses. Each address is its own cake, with its own shipping.' },
       { q: 'What cakes can I choose from?', a: 'Patticake, our signature triple-layer chocolate cake with vanilla buttercream, plus Baker’s Man and Coconut Cake. For custom and wedding cakes, start a cake inquiry and our team will follow up.' },
     ],
   },
