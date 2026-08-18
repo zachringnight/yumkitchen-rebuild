@@ -60,7 +60,12 @@ export default function CheckoutPage() {
   const quote = quoteFor(itemsSubtotal, recipients.length);
   const total = quote.total;
   const errorEntries = Object.entries(errors);
+  // Two caps on purpose. The add button counts every row: it appends a blank
+  // one, so six rows is full whether or not they are typed into yet. The
+  // chips count only filled rows: their click handler drops blank rows first,
+  // so a chip still fits while blanks would otherwise hold the count at six.
   const atRecipientCap = recipients.length >= MAX_RECIPIENTS;
+  const atFilledRecipientCap = recipients.filter((r) => r.name || r.address1).length >= MAX_RECIPIENTS;
 
   // Prefill the earliest allowed date once, so the walkthrough does not stall
   // on a date picker. Once only: after that the field is the guest's, and
@@ -211,7 +216,7 @@ export default function CheckoutPage() {
                   <button
                     key={s.id}
                     type="button"
-                    disabled={atRecipientCap}
+                    disabled={atFilledRecipientCap}
                     onClick={() => {
                       setRecipients((prev) => {
                         // Blank rows are dropped first, so a chip can still land

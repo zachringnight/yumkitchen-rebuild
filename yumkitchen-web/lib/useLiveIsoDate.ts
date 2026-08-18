@@ -27,9 +27,24 @@ export function useLiveIsoDate(offsetDays = 0): string {
     };
     document.addEventListener('visibilitychange', onVisibility);
     window.addEventListener('focus', sync);
+    // Focus and visibility never fire in a tab that just stays open, so a
+    // session running across midnight would keep yesterday's floor. Fire at
+    // the next local midnight too, then re-arm for the following one. The
+    // extra minute absorbs timers coasting in while the machine sleeps.
+    let midnightTimer: number;
+    const armMidnight = () => {
+      const now = new Date();
+      const nextMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+      midnightTimer = window.setTimeout(() => {
+        sync();
+        armMidnight();
+      }, nextMidnight.getTime() - now.getTime() + 60_000);
+    };
+    armMidnight();
     return () => {
       document.removeEventListener('visibilitychange', onVisibility);
       window.removeEventListener('focus', sync);
+      window.clearTimeout(midnightTimer);
     };
   }, [offsetDays]);
 

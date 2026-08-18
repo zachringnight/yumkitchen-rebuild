@@ -384,7 +384,7 @@ export function InquiryForm({
 
   return (
     // onSubmit reads sendingRef, but handleSubmit only invokes it on submit
-    // events, never during render — the rule cannot see through the wrapper.
+    // events, never during render; the rule cannot see through the wrapper.
     // eslint-disable-next-line react-hooks/refs
     <form className="form-surface" method="post" encType={isCareers ? 'multipart/form-data' : undefined} onSubmit={handleSubmit(onSubmit)} noValidate>
       <div className="hidden">
