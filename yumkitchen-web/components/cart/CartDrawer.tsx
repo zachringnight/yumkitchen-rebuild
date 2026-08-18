@@ -137,7 +137,10 @@ export function CartDrawer() {
               ))}
             </ul>
 
-            <div className="border-t-4 border-brand-red bg-white px-6 py-5">
+            {/* pb grows by the safe area: with viewport-fit=cover this footer
+                sits against the physical screen bottom, and "keep shopping"
+                lands in the home-indicator zone without it. */}
+            <div className="border-t-4 border-brand-red bg-white px-6 pt-5 pb-[calc(1.25rem+env(safe-area-inset-bottom,0px))]">
               <div className="flex items-center justify-between">
                 <span className="font-sans text-sm font-bold uppercase tracking-[0.12em] text-brand-primary">
                   subtotal ({itemCount})

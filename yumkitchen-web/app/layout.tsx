@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Archivo_Narrow, Trocchi } from 'next/font/google';
 import { AnalyticsEvents } from '@/components/AnalyticsEvents';
 import { DeferredGoogleTagManager } from '@/components/DeferredGoogleTagManager';
@@ -21,6 +21,13 @@ const serif = Trocchi({
 });
 
 const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+
+// viewport-fit=cover lets the fixed bottom bars extend behind the iPhone home
+// indicator; their safe-area padding (globals.css) keeps the tappable content
+// above it. Without cover, env(safe-area-inset-*) is always 0.
+export const viewport: Viewport = {
+  viewportFit: 'cover',
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

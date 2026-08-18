@@ -37,13 +37,18 @@ export function hidesRestaurantTaskDock(pathname: string, patticakeSurface: bool
  * - below md, the MobileOrderBar measures 55px; 4.75rem matches the historic
  *   body padding it replaced;
  * - md and up, the RestaurantTaskDock measures 99px, so 6.25rem.
+ * Both grow by env(safe-area-inset-bottom): with viewport-fit=cover the bars
+ * themselves grow by the same inset (globals.css), so the clearance has to
+ * track them. env() is 0px off-device, where these match the plain values.
  * Tailwind needs every used combination spelled out as a static string.
  */
 export function footerClearanceClass(pathname: string, patticakeSurface: boolean): string | undefined {
   const forBar = !hidesMobileOrderBar(pathname);
   const forDock = !hidesRestaurantTaskDock(pathname, patticakeSurface);
-  if (forBar && forDock) return 'pb-[4.75rem] md:pb-[6.25rem]';
-  if (forBar) return 'pb-[4.75rem] md:pb-0';
-  if (forDock) return 'md:pb-[6.25rem]';
+  if (forBar && forDock) {
+    return 'pb-[calc(4.75rem+env(safe-area-inset-bottom,0px))] md:pb-[calc(6.25rem+env(safe-area-inset-bottom,0px))]';
+  }
+  if (forBar) return 'pb-[calc(4.75rem+env(safe-area-inset-bottom,0px))] md:pb-0';
+  if (forDock) return 'md:pb-[calc(6.25rem+env(safe-area-inset-bottom,0px))]';
   return undefined;
 }

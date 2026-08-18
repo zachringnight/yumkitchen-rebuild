@@ -85,6 +85,19 @@ body[data-nav-open='true'] .mobile-order-bar {
   pointer-events: none;
 }
 
+/* With viewport-fit=cover (app/layout.tsx) the fixed bottom bars extend
+   behind the iPhone home indicator. Grow their bottom padding by the safe
+   area so the buttons stay tappable above it; on hardware without an inset
+   env() resolves to 0px and these match the Tailwind py-2 / py-3 they extend.
+   The footer clearance in lib/mobileOrderBar.ts adds the same inset. */
+.mobile-order-bar {
+  padding-bottom: calc(0.5rem + env(safe-area-inset-bottom, 0px));
+}
+
+.restaurant-task-dock {
+  padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+}
+
 .skip-link {
   position: fixed;
   left: 1rem;
