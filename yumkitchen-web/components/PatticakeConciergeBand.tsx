@@ -35,12 +35,18 @@ export function PatticakeConciergeBand() {
               />
             </div>
             <div className="concierge-photo concierge-photo-gift">
+              {/* A hand-piped message cake, not another gift box:
+                  gift_box_tissue here was a near-identical frame of the
+                  gift_box_vertical scene already leading this page's hero,
+                  and the piped script is the "add the words" step this band
+                  sits above. Default centered crop keeps the script in the
+                  4/5 slot. */}
               <Image
-                src="/images/patticake/gift_box_tissue.jpg"
-                alt="a baby-blue yum! gift box tied with red ribbon on red polka-dot tissue"
+                src="/images/patticake/06_8inch_a.jpg"
+                alt="an 8-inch yum! cake with Just Married piped in red buttercream"
                 fill
                 sizes="(min-width: 1024px) 18vw, 42vw"
-                className="object-cover crop-patticake-gift-box"
+                className="object-cover"
               />
             </div>
           </div>
