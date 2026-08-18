@@ -16,8 +16,10 @@ export const patticakeProcessSteps = [
   },
   {
     number: '3',
+    // This block renders on /patticake (checkout) and /order-a-cake (pickup
+    // note), so the copy has to name both routes: pickup has no checkout.
     title: 'add the words',
-    copy: 'Write the gift message that should travel with the cake.',
+    copy: 'Add the words on the cake and a gift note, at checkout or in your pickup note.',
   },
   {
     number: '4',

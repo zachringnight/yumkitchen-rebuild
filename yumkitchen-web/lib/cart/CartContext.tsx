@@ -22,6 +22,7 @@ type CartContextValue = {
   lastOrder: PlacedOrder | null;
   reorder: (order: PlacedOrder) => void;
   shippingFor: (recipientCount: number) => number;
+  quoteFor: (boxSubtotal: number, recipientCount: number) => ReturnType<typeof store.quoteFor>;
   submitOrder: (details: OrderDetails) => Promise<PlacedOrder>;
 };
 
@@ -49,6 +50,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       saveRecipient: store.saveRecipient,
       reorder: store.reorder,
       shippingFor: store.shippingFor,
+      quoteFor: store.quoteFor,
       submitOrder: store.submitOrder,
     };
   }, [snap]);

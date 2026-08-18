@@ -3,7 +3,9 @@
 import type { ReactNode } from 'react';
 import { usePathname } from 'next/navigation';
 import { CartProvider } from '@/lib/cart/CartContext';
+import { footerClearanceClass } from '@/lib/mobileOrderBar';
 import { patticakeNationalOrderIsExternal } from '@/lib/site';
+import { usePatticakeSurface } from '@/lib/usePatticakeSurface';
 import { CartDrawer } from './cart/CartDrawer';
 import { HashAnchorScroll } from './HashAnchorScroll';
 import { MotionEnhancer } from './MotionEnhancer';
@@ -16,6 +18,7 @@ import { SiteHeader } from './SiteHeader';
 
 export function SiteShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
+  const patticakeSurface = usePatticakeSurface();
 
   if (pathname === '/preview') {
     return children;
@@ -32,7 +35,13 @@ export function SiteShell({ children }: { children: ReactNode }) {
         <PageScrollProgress />
         <SiteHeader />
         <div id="main-content">{children}</div>
-        <SiteFooter />
+        {/* The only bottom clearance for the fixed bars (MobileOrderBar below
+            md, RestaurantTaskDock at md+). Sized per route so no page ends on
+            dead space and no bar covers the footer's last row. globals.css
+            deliberately puts no padding on body. */}
+        <div className={footerClearanceClass(pathname, patticakeSurface)}>
+          <SiteFooter />
+        </div>
         <RestaurantTaskDock />
         <MobileOrderBar />
         {!patticakeNationalOrderIsExternal && <CartDrawer />}

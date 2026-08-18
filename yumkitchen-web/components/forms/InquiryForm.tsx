@@ -19,6 +19,8 @@ import {
   type InquiryKind,
 } from '@/lib/inquiryValidation';
 import { locations } from '@/lib/locations';
+import { localIsoDate } from '@/lib/localDate';
+import { useLiveIsoDate } from '@/lib/useLiveIsoDate';
 
 export type { InquiryKind };
 
@@ -58,10 +60,16 @@ function formSchemaFor(kind: InquiryKind, cakeMode: CakeMode) {
 
     if (kind === 'cake' && cakeMode === 'pickup') {
       addMissingStringIssues(values, ctx, cakePickupRequiredFields);
+      if (values.eventDate && values.eventDate < localIsoDate()) {
+        ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['eventDate'], message: 'Choose today or a later pickup date.' });
+      }
     }
 
     if (kind === 'cake' && cakeMode === 'delivery') {
       addMissingStringIssues(values, ctx, cakeDeliveryRequiredFields);
+      if (values.eventDate && values.eventDate < localIsoDate(3)) {
+        ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['eventDate'], message: 'Choose a date at least three days out.' });
+      }
     }
 
     if (kind !== 'careers') return;
@@ -184,6 +192,7 @@ export function InquiryForm({
   const [serverMessage, setServerMessage] = useState('');
   const [giftMessageLength, setGiftMessageLength] = useState(0);
   const messageRef = useRef<HTMLParagraphElement>(null);
+  const sendingRef = useRef(false);
   const copy = {
     ...labels[kind],
     ...(messageLabel ? { message: messageLabel } : {}),
@@ -196,6 +205,14 @@ export function InquiryForm({
   const isDeliveryCake = kind === 'cake' && cakeMode === 'delivery';
   const requiresCakeLocation = isPickupCake;
   const requiresCakeDate = isPickupCake || isDeliveryCake;
+  // Live, not build-time. /order-a-cake and /patticake are statically
+  // prerendered, so a floor computed during render is frozen at deploy and
+  // drifts further from today with every day the build stays up. The zod
+  // checks below already read the clock at submit; these keep the native
+  // picker telling the guest the same thing.
+  const pickupDateFloor = useLiveIsoDate(0);
+  const deliveryDateFloor = useLiveIsoDate(3);
+  const eventDateFloor = (isPickupCake ? pickupDateFloor : isDeliveryCake ? deliveryDateFloor : '') || undefined;
   const validationSchema = useMemo(() => formSchemaFor(kind, cakeMode), [kind, cakeMode]);
   const defaults = useMemo<Partial<InquiryFormValues>>(
     () => ({
@@ -309,6 +326,11 @@ export function InquiryForm({
   }
 
   async function onSubmit(values: InquiryFormValues) {
+    // The submit button disables on status === 'sending', but that state
+    // lands after a re-render: a double-click fires handleSubmit twice in
+    // the same tick and files the lead twice. The ref closes that window.
+    if (sendingRef.current) return;
+    sendingRef.current = true;
     setStatus('sending');
     setServerMessage('');
     try {
@@ -340,15 +362,17 @@ export function InquiryForm({
       setServerMessage(successMessage ?? payload.message ?? 'Thanks. We received your note.');
       reset(defaults);
       setGiftMessageLength(0);
-      // Hand off to the confirmation page, which carries the reply expectation
-      // and a next step matching what was submitted. The inline success state is
-      // still set first, so the confirmation is never blank if navigation is
-      // slow. This is a soft client navigation, so the analytics event pushed
-      // above stays on the dataLayer.
-      router.push(`/thank-you?kind=${encodeURIComponent(kind)}`);
+      // Cake pickup and shipping notes live on the Patticake surface. Sending
+      // them to /thank-you flips the shell to restaurant nav, Toast, and
+      // Back to yum!. Catering, careers, and accessibility keep the yum! page.
+      if (kind !== 'cake') {
+        router.push(`/thank-you?kind=${encodeURIComponent(kind)}`);
+      }
     } catch {
       setStatus('error');
       setServerMessage('The message could not be sent. Please call a yum! restaurant.');
+    } finally {
+      sendingRef.current = false;
     }
   }
 
@@ -359,6 +383,9 @@ export function InquiryForm({
   }, [status, serverMessage]);
 
   return (
+    // onSubmit reads sendingRef, but handleSubmit only invokes it on submit
+    // events, never during render; the rule cannot see through the wrapper.
+    // eslint-disable-next-line react-hooks/refs
     <form className="form-surface" method="post" encType={isCareers ? 'multipart/form-data' : undefined} onSubmit={handleSubmit(onSubmit)} noValidate>
       <div className="hidden">
         <label htmlFor={`${kind}-company`}>Company</label>
@@ -414,7 +441,13 @@ export function InquiryForm({
         {requiresEventDetails && (
           <>
             <Field id={`${kind}-event-date`} label={eventDateLabel ?? (kind === 'cake' ? 'Date of Event' : 'Event Date')} error={errors.eventDate?.message} required={requiresCakeDate || isCatering}>
-              <input id={`${kind}-event-date`} type="date" required={requiresCakeDate || isCatering} {...register('eventDate')} />
+              <input
+                id={`${kind}-event-date`}
+                type="date"
+                min={eventDateFloor}
+                required={requiresCakeDate || isCatering}
+                {...register('eventDate')}
+              />
             </Field>
             {isCatering && (
               <Field id={`${kind}-event-time`} label="Event time" error={errors.eventTime?.message} required>

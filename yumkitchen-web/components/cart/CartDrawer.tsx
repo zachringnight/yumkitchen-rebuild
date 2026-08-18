@@ -60,7 +60,7 @@ export function CartDrawer() {
         ref={panelRef}
         tabIndex={-1}
         onClick={(e) => e.stopPropagation()}
-        className="motion-role-modal flex h-full w-full max-w-[440px] flex-col border-l-4 border-brand-red bg-blue-tint outline-hidden"
+        className="motion-role-modal flex h-full w-full max-w-[440px] flex-col border-l-4 border-brand-red bg-blue-tint outline-hidden pt-[env(safe-area-inset-top,0px)] pr-[env(safe-area-inset-right,0px)]"
       >
         <div className="flex items-center justify-between border-b border-brand-primary/35 px-6 py-5">
           <h2 id="cart-drawer-heading" className="font-serif text-3xl font-normal lowercase leading-none text-brand-primary">
@@ -80,9 +80,9 @@ export function CartDrawer() {
           <div className="flex flex-1 flex-col items-center justify-center gap-4 px-8 text-center">
             <p className="font-serif text-3xl lowercase text-brand-primary">your box is empty</p>
             <p className="text-base leading-7 text-ink">Add a Patticake and we&apos;ll help it travel ready to share.</p>
-            <button type="button" onClick={closeDrawer} className="btn-primary mt-2">
+            <Link href="/patticake#national-order" onClick={closeDrawer} className="btn-primary mt-2">
               Browse cakes
-            </button>
+            </Link>
           </div>
         ) : (
           <>
@@ -137,14 +137,17 @@ export function CartDrawer() {
               ))}
             </ul>
 
-            <div className="border-t-4 border-brand-red bg-white px-6 py-5">
+            {/* pb grows by the safe area: with viewport-fit=cover this footer
+                sits against the physical screen bottom, and "keep shopping"
+                lands in the home-indicator zone without it. */}
+            <div className="border-t-4 border-brand-red bg-white px-6 pt-5 pb-[calc(1.25rem+env(safe-area-inset-bottom,0px))]">
               <div className="flex items-center justify-between">
                 <span className="font-sans text-sm font-bold uppercase tracking-[0.12em] text-brand-primary">
                   subtotal ({itemCount})
                 </span>
                 <span className="font-serif text-2xl text-ink">{formatUsd(itemsSubtotal)}</span>
               </div>
-              <p className="mt-1 text-sm leading-6 text-body">Shipping and delivery date are set at checkout.</p>
+              <p className="mt-1 text-sm leading-6 text-body">Shipping, date, cake words, and gift note are set at checkout.</p>
               <Link href="/patticake/checkout" onClick={closeDrawer} className="btn-primary mt-4 w-full">
                 Checkout
               </Link>

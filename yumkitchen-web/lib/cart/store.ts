@@ -36,6 +36,7 @@ export type Recipient = {
 export type OrderDetails = {
   recipients: Recipient[];
   deliveryDate: string;
+  cakeMessage: string;
   giftMessage: string;
   senderName: string;
   senderEmail: string;
@@ -179,30 +180,42 @@ export function saveRecipient(r: Omit<Recipient, 'id'>): Recipient {
 export function reorder(order: PlacedOrder) {
   const items = order.items.map((i) => ({ ...i }));
   writeJson(CART_KEY, items);
-  setState({ items, drawerOpen: true });
+  setState({ items, drawerOpen: false });
 }
 
 export function shippingFor(recipientCount: number): number {
   return demoShippingFlat * Math.max(1, recipientCount);
 }
 
+export function quoteFor(boxSubtotal: number, recipientCount: number) {
+  const addressCount = Math.max(1, recipientCount);
+  const itemsSubtotal = boxSubtotal * addressCount;
+  const shipping = demoShippingFlat * addressCount;
+  return { addressCount, boxSubtotal, itemsSubtotal, shipping, total: itemsSubtotal + shipping };
+}
+
 export function submitOrder(details: OrderDetails): Promise<PlacedOrder> {
   return new Promise<PlacedOrder>((resolve) => {
     // Simulated backend latency. Real commerce call goes here at go-live.
     setTimeout(() => {
-      const recipientCount = Math.max(1, details.recipients.length);
-      const shipping = demoShippingFlat * recipientCount;
-      const subtotal = state.items.reduce((sum, i) => sum + i.unitPrice * i.qty, 0);
+      const boxSubtotal = state.items.reduce((sum, i) => sum + i.unitPrice * i.qty, 0);
+      const quote = quoteFor(boxSubtotal, details.recipients.length);
       const stamp = Date.now();
       const orderNumber = `PC-${stamp.toString(36).toUpperCase().slice(-6)}`;
       const placedAtLabel = new Date(stamp).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+      // saveRecipient dedupes the address book, so sending two boxes to the
+      // same address hands us the same Recipient object twice. Each order
+      // line needs its own identity: the confirmation keys its list by
+      // recipient id, and duplicate keys make React drop rows.
+      const lineRecipients = details.recipients.map((r, i) => ({ ...r, id: `${r.id}:line-${i + 1}` }));
       const order: PlacedOrder = {
         ...details,
+        recipients: lineRecipients,
         orderNumber,
         items: state.items.map((i) => ({ ...i })),
-        itemsSubtotal: subtotal,
-        shipping,
-        total: subtotal + shipping,
+        itemsSubtotal: quote.itemsSubtotal,
+        shipping: quote.shipping,
+        total: quote.total,
         placedAtLabel,
       };
       writeJson(LAST_ORDER_KEY, order);

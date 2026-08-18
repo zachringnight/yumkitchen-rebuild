@@ -85,10 +85,36 @@ body[data-nav-open='true'] .mobile-order-bar {
   pointer-events: none;
 }
 
+/* With viewport-fit=cover (app/layout.tsx) the page extends behind every
+   unsafe edge, so each shell surface that touches a screen edge grows its
+   padding by the matching env() inset. Off notched hardware env() is 0px and
+   every value below matches the Tailwind utility it extends.
+   - Bottom bars: home indicator (portrait) and side notch (landscape).
+   - Sticky header: status bar when Safari lays content under it.
+   - Skip link: pinned inside the safe region on focus.
+   The footer clearance in lib/mobileOrderBar.ts tracks the bars' growth. */
+.mobile-order-bar {
+  padding-bottom: calc(0.5rem + env(safe-area-inset-bottom, 0px));
+  padding-left: calc(0.75rem + env(safe-area-inset-left, 0px));
+  padding-right: calc(0.75rem + env(safe-area-inset-right, 0px));
+}
+
+.restaurant-task-dock {
+  padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+  padding-left: calc(1.5rem + env(safe-area-inset-left, 0px));
+  padding-right: calc(1.5rem + env(safe-area-inset-right, 0px));
+}
+
+.site-header {
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
 .skip-link {
   position: fixed;
-  left: 1rem;
-  top: 1rem;
+  left: calc(1rem + env(safe-area-inset-left, 0px));
+  top: calc(1rem + env(safe-area-inset-top, 0px));
   z-index: 100;
   transform: translateY(-6rem);
   background: var(--color-brand-primary);
@@ -996,12 +1022,13 @@ body[data-nav-open='true'] .mobile-order-bar {
   min-height: 0;
 }
 
-/* Below lg the captioned hero peek is the one hero photo on /patticake and
-   /order-a-cake. Hide the large uncaptioned desktop hero media so the same
-   shot never renders twice within the first screens on mobile. */
+/* Below lg the captioned hero peek is the one hero photo on home, /patticake,
+   and /order-a-cake. Hide the large desktop hero media so the same shot never
+   renders twice within the first screens on mobile. */
 @media (width < 64rem) {
   .patticake-hero-card,
-  .patticake-delivery-photo-pair {
+  .patticake-delivery-photo-pair,
+  .patticake-photo-grid {
     display: none;
   }
 }
@@ -1141,7 +1168,9 @@ body[data-nav-open='true'] .mobile-order-bar {
 }
 
 .patticake-photo-grid {
-  display: grid;
+  /* display:grid is applied at lg and up. The earlier width < 64rem rule
+     hides this grid so the mobile peek is the only hero photo. Do not put
+     display:grid on this block: it would override that hide. */
   /* Sized so the grid's bottom frame resolves above the fold at common
      desktop viewports (900px tall and up) instead of being cut mid-photo.
      The grid drives the hero's height; the text column centers against it.
@@ -1160,6 +1189,12 @@ body[data-nav-open='true'] .mobile-order-bar {
   background: var(--color-blue-tint);
   padding: 0.75rem;
   box-shadow: 0 1.7rem 4rem rgb(45 45 45 / 0.16);
+}
+
+@media (width >= 64rem) {
+  .patticake-photo-grid {
+    display: grid;
+  }
 }
 
 .motion-pause-button {
@@ -2359,9 +2394,11 @@ to {
 }
 
 @media (max-width: 767px) {
-  body {
-    padding-bottom: 4.75rem;
-  }
+  /* No body padding-bottom here. Clearance for the fixed MobileOrderBar is
+     owned by the footer wrapper in SiteShell, which knows which routes render
+     the bar. A blanket rule on body reserved the space on /patticake/checkout,
+     /order, and /asset-gallery too, where the bar is hidden, and stacked on
+     top of the wrapper's padding everywhere else. */
 
   .home-hero.home-hero {
     min-height: auto;

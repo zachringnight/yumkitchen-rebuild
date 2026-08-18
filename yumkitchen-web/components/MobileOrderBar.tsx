@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { hidesMobileOrderBar } from '@/lib/mobileOrderBar';
 import { patticakeNationalOrderIsExternal, patticakeNationalOrderUrl } from '@/lib/site';
 import { useEffectiveLocation } from '@/lib/useEffectiveLocation';
 import { usePatticakeSurface } from '@/lib/usePatticakeSurface';
@@ -49,7 +50,7 @@ export function MobileOrderBar() {
     };
   }, [pathname]);
 
-  if (pathname === '/order' || pathname === '/asset-gallery') return null;
+  if (hidesMobileOrderBar(pathname)) return null;
 
   return (
     <div

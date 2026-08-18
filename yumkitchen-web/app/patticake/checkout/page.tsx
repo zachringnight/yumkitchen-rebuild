@@ -3,10 +3,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { m } from 'motion/react';
 import { useCart, type Recipient } from '@/lib/cart/CartContext';
 import { formatUsd } from '@/lib/patticake/catalog';
+import { useLiveIsoDate } from '@/lib/useLiveIsoDate';
 import { Reveal } from '@/components/motion/Reveal';
 import { Stagger, StaggerItem } from '@/components/motion/Stagger';
 import { snap } from '@/components/motion/springs';
@@ -24,18 +25,10 @@ function blankRecipient(): DraftRecipient {
   return { name: '', address1: '', address2: '', city: '', state: '', zip: '' };
 }
 
-function dateInputValue(date: Date): string {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
-  return `${year}-${month}-${day}`;
-}
-
-function minDeliveryDate(): string {
-  const d = new Date();
-  d.setDate(d.getDate() + 3);
-  return dateInputValue(d);
-}
+// Demo ceiling on addresses. Every path that grows the recipient list has to
+// respect it: the add button, and the saved-recipient chips. The cap copy near
+// the add button spells this number out, so change both together.
+const MAX_RECIPIENTS = 6;
 
 function invalidFieldProps(error: string | undefined, errorId: string) {
   return {
@@ -47,10 +40,11 @@ function invalidFieldProps(error: string | undefined, errorId: string) {
 
 export default function CheckoutPage() {
   const router = useRouter();
-  const { items, itemsSubtotal, updateQty, removeItem, recipients: savedRecipients, saveRecipient, shippingFor, submitOrder } = useCart();
+  const { items, itemsSubtotal, updateQty, removeItem, recipients: savedRecipients, saveRecipient, quoteFor, submitOrder } = useCart();
 
   const [recipients, setRecipients] = useState<DraftRecipient[]>([blankRecipient()]);
   const [deliveryDate, setDeliveryDate] = useState('');
+  const [cakeMessage, setCakeMessage] = useState('');
   const [giftMessage, setGiftMessage] = useState('');
   const [senderName, setSenderName] = useState('');
   const [senderEmail, setSenderEmail] = useState('');
@@ -60,10 +54,28 @@ export default function CheckoutPage() {
   const [submitting, setSubmitting] = useState(false);
   const errorSummaryRef = useRef<HTMLDivElement>(null);
 
-  const minDate = useMemo(() => minDeliveryDate(), []);
-  const shipping = shippingFor(recipients.length);
-  const total = itemsSubtotal + shipping;
+  // Live, not build-time: this route is statically prerendered, so a date
+  // computed during render would freeze at deploy time.
+  const minDate = useLiveIsoDate(3);
+  const quote = quoteFor(itemsSubtotal, recipients.length);
+  const total = quote.total;
   const errorEntries = Object.entries(errors);
+  // Two caps on purpose. The add button counts every row: it appends a blank
+  // one, so six rows is full whether or not they are typed into yet. The
+  // chips count only filled rows: their click handler drops blank rows first,
+  // so a chip still fits while blanks would otherwise hold the count at six.
+  const atRecipientCap = recipients.length >= MAX_RECIPIENTS;
+  const atFilledRecipientCap = recipients.filter((r) => r.name || r.address1).length >= MAX_RECIPIENTS;
+
+  // Prefill the earliest allowed date once, so the walkthrough does not stall
+  // on a date picker. Once only: after that the field is the guest's, and
+  // clearing it has to stick so validation can ask for a date.
+  const datePrefilled = useRef(false);
+  useEffect(() => {
+    if (datePrefilled.current || !minDate) return;
+    datePrefilled.current = true;
+    setDeliveryDate(minDate);
+  }, [minDate]);
 
   useEffect(() => {
     if (validationAttempt === 0) return;
@@ -99,7 +111,7 @@ export default function CheckoutPage() {
       if (!/^\d{5}$/.test(r.zip.trim())) next[`r${i}-zip`] = 'Enter a 5-digit ZIP';
     });
     if (!deliveryDate) next.deliveryDate = 'Choose a delivery date';
-    else if (deliveryDate < minDate) next.deliveryDate = 'Choose a date at least three days out';
+    else if (minDate && deliveryDate < minDate) next.deliveryDate = 'Choose a date at least three days out';
     if (!senderName.trim()) next.senderName = 'Add your name';
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(senderEmail.trim())) next.senderEmail = 'Enter a valid email';
     if (card.number.replace(/\s/g, '').length < 15) next.cardNumber = 'Enter a card number';
@@ -121,6 +133,7 @@ export default function CheckoutPage() {
     await submitOrder({
       recipients: savedIds,
       deliveryDate,
+      cakeMessage: cakeMessage.trim(),
       giftMessage,
       senderName,
       senderEmail,
@@ -192,7 +205,9 @@ export default function CheckoutPage() {
           {/* Recipients */}
           <section aria-labelledby="ship-heading">
             <h2 id="ship-heading" className="text-h3 lowercase">who is it going to?</h2>
-            <p className="mt-1 text-base leading-7 text-body">Send one cake, or the same cake to several people at once.</p>
+            <p className="mt-1 text-base leading-7 text-body">
+              One box goes to one address. Add another address and that person gets their own cake, plus demo shipping.
+            </p>
 
             {usableSaved().length > 0 && (
               <div className="mt-4 flex flex-wrap gap-2">
@@ -201,11 +216,18 @@ export default function CheckoutPage() {
                   <button
                     key={s.id}
                     type="button"
+                    disabled={atFilledRecipientCap}
                     onClick={() => {
-                      setRecipients((prev) => [...prev.filter((r) => r.name || r.address1), { name: s.name, address1: s.address1, address2: s.address2, city: s.city, state: s.state, zip: s.zip }]);
+                      setRecipients((prev) => {
+                        // Blank rows are dropped first, so a chip can still land
+                        // on an untouched form that is nominally at the cap.
+                        const kept = prev.filter((r) => r.name || r.address1);
+                        if (kept.length >= MAX_RECIPIENTS) return prev;
+                        return [...kept, { name: s.name, address1: s.address1, address2: s.address2, city: s.city, state: s.state, zip: s.zip }];
+                      });
                       setErrors({});
                     }}
-                    className="border border-ink/20 bg-white px-3 py-1.5 text-sm text-ink hover:border-brand-red"
+                    className="border border-ink/20 bg-white px-3 py-1.5 text-sm text-ink hover:border-brand-red disabled:cursor-not-allowed disabled:opacity-45 disabled:hover:border-ink/20"
                   >
                     + {s.name}
                   </button>
@@ -311,25 +333,31 @@ export default function CheckoutPage() {
             <button
               type="button"
               onClick={() => {
-                setRecipients((prev) => [...prev, blankRecipient()]);
+                setRecipients((prev) => (prev.length >= MAX_RECIPIENTS ? prev : [...prev, blankRecipient()]));
                 setErrors({});
               }}
               className="btn-secondary mt-4"
+              disabled={atRecipientCap}
             >
               + Send to another address
             </button>
+            <p className="mt-2 text-sm leading-6 text-body" aria-live="polite">
+              {atRecipientCap
+                ? 'Six addresses is the demo maximum.'
+                : 'Each extra address adds another cake and the demo shipping rate.'}
+            </p>
           </section>
 
           {/* Delivery + gift */}
           <section aria-labelledby="gift-heading" className="grid gap-5">
-            <h2 id="gift-heading" className="text-h3 lowercase">delivery and gift note</h2>
+            <h2 id="gift-heading" className="text-h3 lowercase">delivery and cake words</h2>
             <label className="field max-w-xs">
               <span>Delivery date</span>
               <input
                 id="deliveryDate"
                 name="delivery-date"
                 type="date"
-                min={minDate}
+                min={minDate || undefined}
                 value={deliveryDate}
                 onChange={(e) => {
                   setDeliveryDate(e.target.value);
@@ -339,10 +367,20 @@ export default function CheckoutPage() {
               />
               {errors.deliveryDate && <span id="deliveryDate-error" className="field-error">{errors.deliveryDate}</span>}
             </label>
+            <label className="field max-w-md">
+              <span>Words on the cake (optional)</span>
+              <input
+                value={cakeMessage}
+                maxLength={28}
+                onChange={(e) => setCakeMessage(e.target.value)}
+                placeholder="love you"
+              />
+              <span className="text-sm text-body">{cakeMessage.length}/28. Goes on top of the cake. Same words for every address.</span>
+            </label>
             <label className="field">
-              <span>Gift message (optional)</span>
+              <span>Gift note (optional)</span>
               <textarea rows={3} maxLength={240} value={giftMessage} onChange={(e) => setGiftMessage(e.target.value)} placeholder="Happy birthday! Wish we could share a slice with you." />
-              <span className="text-sm text-body">{giftMessage.length}/240</span>
+              <span className="text-sm text-body">{giftMessage.length}/240. Travels with the box. Same words for every address.</span>
             </label>
           </section>
 
@@ -392,15 +430,14 @@ export default function CheckoutPage() {
                 <span>Card number</span>
                 <input
                   id="cardNumber"
-                  name="card-number"
+                  name="demo-card-number"
                   value={card.number}
                   inputMode="numeric"
-                  placeholder="4242 4242 4242 4242"
+                  autoComplete="off"
                   onChange={(e) => {
                     setCard((c) => ({ ...c, number: e.target.value.replace(/\D/g, '').slice(0, 16).replace(/(.{4})/g, '$1 ').trim() }));
                     clearError('cardNumber');
                   }}
-                  autoComplete="cc-number"
                   {...invalidFieldProps(errors.cardNumber, 'cardNumber-error')}
                 />
                 {errors.cardNumber && <span id="cardNumber-error" className="field-error">{errors.cardNumber}</span>}
@@ -410,7 +447,7 @@ export default function CheckoutPage() {
                   <span>Expiry</span>
                   <input
                     id="cardExp"
-                    name="card-expiry"
+                    name="demo-card-expiry"
                     value={card.exp}
                     placeholder="MM/YY"
                     onChange={(e) => {
@@ -418,7 +455,7 @@ export default function CheckoutPage() {
                       setCard((c) => ({ ...c, exp: digits.length > 2 ? `${digits.slice(0, 2)}/${digits.slice(2)}` : digits }));
                       clearError('cardExp');
                     }}
-                    autoComplete="cc-exp"
+                    autoComplete="off"
                     {...invalidFieldProps(errors.cardExp, 'cardExp-error')}
                   />
                   {errors.cardExp && <span id="cardExp-error" className="field-error">{errors.cardExp}</span>}
@@ -427,7 +464,7 @@ export default function CheckoutPage() {
                   <span>CVC</span>
                   <input
                     id="cardCvc"
-                    name="card-cvc"
+                    name="demo-card-cvc"
                     value={card.cvc}
                     inputMode="numeric"
                     maxLength={4}
@@ -435,7 +472,7 @@ export default function CheckoutPage() {
                       setCard((c) => ({ ...c, cvc: e.target.value.replace(/\D/g, '') }));
                       clearError('cardCvc');
                     }}
-                    autoComplete="cc-csc"
+                    autoComplete="off"
                     {...invalidFieldProps(errors.cardCvc, 'cardCvc-error')}
                   />
                   {errors.cardCvc && <span id="cardCvc-error" className="field-error">{errors.cardCvc}</span>}
@@ -444,19 +481,19 @@ export default function CheckoutPage() {
                   <span>Name on card</span>
                   <input
                     id="cardName"
-                    name="card-name"
+                    name="demo-card-name"
                     value={card.name}
                     onChange={(e) => {
                       setCard((c) => ({ ...c, name: e.target.value }));
                       clearError('cardName');
                     }}
-                    autoComplete="cc-name"
+                    autoComplete="off"
                     {...invalidFieldProps(errors.cardName, 'cardName-error')}
                   />
                   {errors.cardName && <span id="cardName-error" className="field-error">{errors.cardName}</span>}
                 </label>
               </div>
-              <p className="text-sm leading-6 text-body">Demo only. Use any numbers, like 4242 4242 4242 4242.</p>
+              <p className="text-sm leading-6 text-body">Any numbers work here. No card is charged.</p>
             </div>
           </section>
         </div>
@@ -473,7 +510,7 @@ export default function CheckoutPage() {
                   </div>
                   <div className="min-w-0">
                     <p className="font-serif text-lg lowercase leading-tight text-ink">{item.name}</p>
-                    <p className="text-sm leading-tight text-body">{item.formatLabel}</p>
+                    <p className="text-sm leading-tight text-body">{item.formatLabel} · {item.occasion}</p>
                     <div className="mt-1 flex items-center gap-2">
                       <button type="button" aria-label="Decrease" onClick={() => updateQty(item.id, item.qty - 1)} className="h-6 w-6 border border-ink/20 text-ink hover:bg-blue-tint">−</button>
                       <span className="text-sm font-bold text-ink">{item.qty}</span>
@@ -487,12 +524,21 @@ export default function CheckoutPage() {
             </Stagger>
             <dl className="mt-4 grid gap-2 border-t border-ink/15 pt-4 text-base text-ink">
               <div className="flex justify-between">
-                <dt className="text-body">Subtotal</dt>
-                <dd>{formatUsd(itemsSubtotal)}</dd>
+                <dt className="text-body">Box subtotal</dt>
+                <dd>{formatUsd(quote.boxSubtotal)}</dd>
               </div>
+              {quote.addressCount > 1 && (
+                <div className="flex justify-between">
+                  <dt className="text-body">1 box per address ({quote.addressCount})</dt>
+                  <dd>{formatUsd(quote.itemsSubtotal)}</dd>
+                </div>
+              )}
               <div className="flex justify-between">
-                <dt className="text-body">Shipping ({recipients.length} {recipients.length === 1 ? 'address' : 'addresses'})</dt>
-                <dd>{formatUsd(shipping)}</dd>
+                <dt className="text-body">
+                  Shipping (demo rate
+                  {quote.addressCount > 1 ? `, ${quote.addressCount} addresses` : ''})
+                </dt>
+                <dd>{formatUsd(quote.shipping)}</dd>
               </div>
               <div className="flex justify-between border-t-4 border-brand-red pt-3 font-serif text-2xl">
                 <dt>Total</dt>

@@ -113,7 +113,7 @@ export function CakeBuyModule() {
 
             <div className="mt-7 border-t border-brand-primary/45 pt-5">
               <p className="font-sans text-base font-bold text-ink">nationwide delivery available</p>
-              <p className="mt-1 text-base leading-7 text-ink">Choose the delivery date, address, and gift message at checkout.</p>
+              <p className="mt-1 text-base leading-7 text-ink">Choose the delivery date, address, cake words, and gift note at checkout.</p>
             </div>
           </div>
         </div>
@@ -124,13 +124,20 @@ export function CakeBuyModule() {
             {moreCakes.map((cake) => (
               <article key={cake.slug} className="grid border-b border-brand-primary/35 pb-6 sm:grid-cols-[150px_1fr] sm:gap-6">
                 <div className="relative aspect-square overflow-hidden border border-brand-primary/25 bg-white">
-                  <Image src={cake.image} alt={cake.imageAlt} fill sizes="150px" className="object-cover" />
+                  <Image
+                    src={cake.image}
+                    alt={cake.imageAlt}
+                    fill
+                    sizes="150px"
+                    className="object-cover"
+                  />
                 </div>
                 <div className="pt-4 sm:pt-1">
                   <h4 className="font-serif text-3xl font-normal lowercase leading-none text-ink">{cake.name}</h4>
                   <p className="mt-2 text-sm font-bold uppercase tracking-[0.1em] text-brand-primary">{cake.tagline}</p>
                   <p className="mt-3 text-base leading-7 text-ink">{cake.description}</p>
-                  <Link href="/order-a-cake#cake-inquiry" className="btn-link mt-4 inline-block">
+                  <p className="mt-3 text-sm font-bold leading-6 text-ink">Pickup at yum! only. This cake does not ship nationwide.</p>
+                  <Link href="/order-a-cake#cake-inquiry" className="btn-link mt-3 inline-block">
                     plan local pickup
                   </Link>
                 </div>

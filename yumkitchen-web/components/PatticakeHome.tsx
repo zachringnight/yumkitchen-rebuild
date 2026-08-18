@@ -73,10 +73,9 @@ export function PatticakeHome() {
               patticake
             </Reveal>
             <PatticakeHeroPeek
-              src="/images/patticake/09_slices_mobile_lcp.webp"
-              alt="yum! patticake slices on plates"
-              className="crop-patticake-slices"
-              unoptimized
+              src="/images/patticake/gift_box_vertical.jpg"
+              alt="Patticake gift box in bright baby blue, tied with red yum! ribbon"
+              className="crop-patticake-gift-box"
             />
             <Reveal as="p" className="mt-7 max-w-[520px] text-xl leading-9 text-ink" delay={0.12} y={16}>
               Ship yum!&apos;s triple-layer chocolate cake, vanilla buttercream, and a message made for the table anywhere nationwide.
@@ -203,7 +202,7 @@ export function PatticakeHome() {
             <div className="mt-8 flex flex-wrap gap-3">
               <PressButton>
                 <Link href="/patticake" className="btn-primary">
-                  Shipping Details
+                  Ship a Cake
                 </Link>
               </PressButton>
               <PressButton>
@@ -216,21 +215,21 @@ export function PatticakeHome() {
           <div className="grid gap-4 md:grid-cols-[1.08fr_0.92fr]">
             <ParallaxImage className="relative aspect-[4/5] bg-cream shadow-xl">
               <Image
-                src="/images/patticake/02_tier_wedding_a.jpg"
-                alt="yum! floral wedding patticake detail"
+                src="/images/patticake/slices_plates_vertical.jpg"
+                alt="a tall triple-layer chocolate Patticake slice on a white plate, with more slices behind"
                 fill
                 sizes="(min-width: 1024px) 34vw, 100vw"
-                className="object-cover crop-patticake-wedding"
+                className="object-cover crop-patticake-vertical-slices"
               />
             </ParallaxImage>
             <div className="grid gap-4">
               <div className="relative min-h-[240px] overflow-hidden bg-cream shadow-lg">
                 <Image
-                  src="/images/patticake/09_slices.jpg"
-                  alt="yum! patticake slices plated and ready to share"
+                  src="/images/patticake/03_top_view.jpg"
+                  alt="whole Patticake from above, vanilla buttercream swirled on top"
                   fill
                   sizes="(min-width: 1024px) 25vw, 100vw"
-                  className="object-cover crop-patticake-slices"
+                  className="object-cover crop-patticake-top"
                 />
               </div>
               <div className="bg-white p-6 shadow-lg">

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { hidesRestaurantTaskDock } from '@/lib/mobileOrderBar';
 import { useEffectiveLocation } from '@/lib/useEffectiveLocation';
 import { usePatticakeSurface } from '@/lib/usePatticakeSurface';
 import { LocationPickerModal } from './LocationPickerModal';
@@ -45,7 +46,7 @@ export function RestaurantTaskDock() {
     };
   }, [pathname]);
 
-  if (patticakeSurface || pathname === '/order' || pathname === '/logo-animation' || pathname === '/asset-gallery') return null;
+  if (hidesRestaurantTaskDock(pathname, patticakeSurface)) return null;
 
   return (
     <>

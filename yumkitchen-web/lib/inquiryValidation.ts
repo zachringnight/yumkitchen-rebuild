@@ -74,6 +74,31 @@ export const careersRequiredChecks: readonly FieldRule[] = [
   ['promiseTrue', 'Please confirm the application is accurate.'],
 ];
 
+// ---------------------------------------------------------------------------
+// Cake date floors.
+// The client form enforces exact floors in the visitor's local calendar
+// (pickup: today or later; delivery: three or more days out). The API applies
+// the same rules as a backstop against hand-crafted requests, anchored to the
+// bakery's calendar (America/Chicago) and loosened by one day so no honest
+// visitor timezone straddling midnight is rejected. The backstop's job is to
+// stop clearly-past junk dates, not to re-litigate the exact boundary.
+// ---------------------------------------------------------------------------
+
+export function bakeryIsoDate(offsetDays = 0): string {
+  // en-CA formats as YYYY-MM-DD, comparable to the date inputs' values.
+  return new Date(Date.now() + offsetDays * 86_400_000).toLocaleDateString('en-CA', { timeZone: 'America/Chicago' });
+}
+
+export function addCakeDateFloorIssues(data: Partial<InquiryFields>, ctx: z.RefinementCtx, mode: 'pickup' | 'delivery') {
+  if (!data.eventDate) return;
+  if (mode === 'pickup' && data.eventDate < bakeryIsoDate(-1)) {
+    ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['eventDate'], message: 'Choose today or a later pickup date.' });
+  }
+  if (mode === 'delivery' && data.eventDate < bakeryIsoDate(2)) {
+    ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['eventDate'], message: 'Choose a date at least three days out.' });
+  }
+}
+
 export function addMissingStringIssues(data: Partial<InquiryFields>, ctx: z.RefinementCtx, rules: readonly FieldRule[]) {
   for (const [field, message] of rules) {
     const value = data[field];
