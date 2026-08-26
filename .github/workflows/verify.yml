@@ -3,9 +3,29 @@ name: Verify yumkitchen rebuild
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - "docs/**"
+      - "social/**"
+      - "AGENTS.md"
+      - "CLAUDE.md"
+      - "README.md"
+      - "tasks.md"
+      - ".github/pull_request_template.md"
   pull_request:
     branches: [main]
+    paths-ignore:
+      - "docs/**"
+      - "social/**"
+      - "AGENTS.md"
+      - "CLAUDE.md"
+      - "README.md"
+      - "tasks.md"
+      - ".github/pull_request_template.md"
   workflow_dispatch:
+
+concurrency:
+  group: yum-verify-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   verify:
@@ -33,10 +53,5 @@ jobs:
         run: npx puppeteer browsers install chrome
         working-directory: yumkitchen-web
 
-      - name: Run verification gate
-        # SKIP_LH=1: Lighthouse Performance is hardware-sensitive and craters on
-        # GitHub's shared runners (historically Perf=48 vs 100 locally), which made
-        # this gate flaky-red. CI enforces the deterministic checks (typecheck, lint,
-        # build, content, axe a11y, links, motion audit, em-dash); Lighthouse stays
-        # enforced locally where the numbers are real. See B6 in tasks.md.
+      - name: Run deterministic release gate
         run: SKIP_LH=1 bash verify.sh
