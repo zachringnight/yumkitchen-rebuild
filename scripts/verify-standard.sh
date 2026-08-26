@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$ROOT_DIR/yumkitchen-web"
+
+npm run typecheck
+npm run lint
+npm run audit:motion
+npm run validate:content
+npm run build
